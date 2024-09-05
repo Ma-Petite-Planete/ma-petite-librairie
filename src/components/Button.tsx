@@ -6,8 +6,7 @@ interface ButtonProps {
     label: string;
     onClick: () => void;
 }
-
-const Button: React.FC<ButtonProps> = ({ label, onClick }) => {
+export const Button: React.FC<ButtonProps> = ({ label, onClick }) => {
     return (
         <button
             onClick={onClick}
@@ -24,5 +23,3 @@ const Button: React.FC<ButtonProps> = ({ label, onClick }) => {
         </button>
     );
 };
-
-export default Button;
