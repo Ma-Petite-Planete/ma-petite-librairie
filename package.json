@@ -1,7 +1,7 @@
 {
   "name": "ma_petite_librairie",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -39,5 +39,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "design system",
+  "main": "src/index.tsx",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Ma-Petite-Planete/ma-petite-librairie.git"
+  },
+  "author": "jnt_dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ma-Petite-Planete/ma-petite-librairie/issues"
+  },
+  "homepage": "https://github.com/Ma-Petite-Planete/ma-petite-librairie#readme"
 }
