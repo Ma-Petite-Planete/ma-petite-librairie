@@ -5,7 +5,7 @@ import { ButtonType } from './ButtonType';
 interface MppButtonProps {
   title: string;
   buttonType: ButtonType;
-  onPress: (() => void) | null;  // onPress est maintenant obligatoire mais peut être null
+  onPress: (() => void) | null; 
   style?: React.CSSProperties;
   hoverStyle?: React.CSSProperties;
   activeStyle?: React.CSSProperties;
@@ -22,10 +22,8 @@ const MppButton: React.FC<MppButtonProps> = ({
   const [hover, setHover] = React.useState(false);
   const [active, setActive] = React.useState(false);
 
-  // Détermine si le bouton doit être désactivé
   const isDisabled = onPress === null;
 
-  // Combine les styles
   const combinedStyle: React.CSSProperties = {
     ...style,
     ...(hover && !isDisabled ? hoverStyle : {}),
