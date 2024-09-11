@@ -1,0 +1,43 @@
+.mpp_button {
+    background-color: var(--dark_blue);
+    color: var(--white);
+    border: none;
+    border-radius: var(--standard_border_radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .mpp_button:hover {
+    background-color:  var(--dark_blue_light);
+  }
+
+  .secondary_type:hover{
+    background-color:  var(--dark_blue_very_light);
+  }
+  
+  .mpp_button:disabled {
+    background-color: var(--disable_dark_blue);
+    cursor: not-allowed;
+  }
+
+  .button_large{
+    padding: 12px 40px;
+  }
+
+  .button_medium{
+    padding: 8px 32px;
+  }
+
+  .secondary_type{
+    background-color: var(--white);
+    color: var(--dark_blue);
+    border: 2px solid var(--dark_blue);
+  }
+
+  .secondary_type:disabled{
+    color: var(--disable_dark_blue);
+    background-color: var(--white);
+    border: 2px solid var(--disable_dark_blue)
+  }
+
+  
