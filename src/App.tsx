@@ -3,9 +3,10 @@ import { MppButton, ButtonType } from "./components/MppButton";
 import MppTextStyle from "./section/MppTextStyleSection/MppTextStyleSection";
 import InputDemo from "./section/InputSection";
 import React from "react";
-import yellowLogo from './ressources/logo/yellow_logo_blue_text.svg';
-import whiteLogo from './ressources/logo/white_logo_white_text.svg';
-import logoOnly from './ressources/logo/logo_only.svg';
+import yellowLogo from './ressources/logo/scolaire/yellow_logo_blue_text.svg';
+import whiteLogo from './ressources/logo/scolaire/white_logo_white_text.svg';
+import logoOnly from './ressources/logo/scolaire/logo_only.svg';
+import MppToaster from "./components/MppToaster/MppToaster";
 
 function App() {
 
@@ -68,6 +69,9 @@ function App() {
       </div>
       <h1>Input</h1>
       <InputDemo />
+      <h1>Toaster</h1>
+
+      <MppToaster/>
     </div>
 
   )

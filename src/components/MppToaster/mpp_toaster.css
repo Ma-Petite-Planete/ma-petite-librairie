@@ -1,0 +1,11 @@
+.mpp_toaster_container {
+  padding: .75em 1.75em;
+  background-color: var(--dark_blue);
+  color: var(--white);
+  display: inline-flex;
+  border-radius: 20px;
+}
+
+.mpp_toaster_container__text{
+  margin-left: .75em;
+}
