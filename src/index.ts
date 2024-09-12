@@ -1,3 +1,3 @@
 // src/index.ts
 
-export { Button } from './components/Button';
+export { MppButton } from './components/MppButton' ;

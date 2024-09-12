@@ -11,6 +11,27 @@ interface MppButtonProps {
   activeStyle?: React.CSSProperties;
 }
 
+/** 
+ * @interface MppButtonProps
+ * @property {string} title - Titre du bouton.
+ * @property {ButtonType} buttonType - enum pour le style
+ * @property {void || null} onPress - fonction du bouton
+ * @property {React.CSSProperties} style - style pour écraser les standards.
+ * @property {React.CSSProperties} hoverStyle - style pour écraser les standards.
+ * @property {React.CSSProperties} activeStyle - style pour écraser les standards.
+ * 
+ * @example
+ * 
+ * <MppButton
+title="Bouton d'action"
+onPress={() => {
+  console.log('Bouton cliqué!');
+}}
+buttonType={ButtonType.primaryLarge}
+/>
+*/
+
+
 const MppButton: React.FC<MppButtonProps> = ({
   title,
   onPress,
