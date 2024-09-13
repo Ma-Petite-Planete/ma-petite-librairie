@@ -12,10 +12,10 @@ function App() {
   return (
     <div className="main_background">
       <h1>Logo</h1>
-      <div style={{display : 'flex', flexDirection : 'column'}}>
-      <img src={yellowLogo} alt="" style={{width : '460px'}}/>
-      <img src={whiteLogo} alt="" style={{width : '460px'}}/>
-      <img src={logoOnly} alt="" style={{width : '150px'}}/>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <img src={yellowLogo} alt="" style={{ width: '460px' }} />
+        <img src={whiteLogo} alt="" style={{ width: '460px' }} />
+        <img src={logoOnly} alt="" style={{ width: '150px' }} />
       </div>
       <h1>Type de Texte</h1>
       <MppTextStyle />
@@ -67,7 +67,7 @@ function App() {
         />
       </div>
       <h1>Input</h1>
-      <InputDemo/>
+      <InputDemo />
     </div>
 
   )
