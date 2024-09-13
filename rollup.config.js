@@ -18,7 +18,6 @@ export default {
         commonjs(),
         typescript(),
         postcss(),
-        svgr({icon : true}),
         url({
             include: ['**/*.svg'],
             limit: 0,
