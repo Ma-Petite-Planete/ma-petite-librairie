@@ -70,7 +70,6 @@ function App() {
       <h1>Input</h1>
       <InputDemo />
       <h1>Toaster</h1>
-
       <MppToaster/>
     </div>
 
