@@ -1,5 +1,6 @@
 .mpp_button {
-  background-color: var(--dark_blue);
+  background-color: teal;
+  /* background-color: var(--dark_blue); */
   color: var(--white);
   border: none;
   border-radius: var(--standard_border_radius);
@@ -8,8 +9,7 @@
 }
 
 .mpp_button:hover {
-  background-color: teal;
-  /* background-color:  var(--dark_blue_light); */
+  background-color: var(--dark_blue_light);
 }
 
 .secondary_type:hover {
