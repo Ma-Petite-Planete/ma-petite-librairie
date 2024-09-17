@@ -14,13 +14,14 @@ interface MppRankingCardProps {
 /** 
  * @example
  * 
- *   <MppRankingCard 
-        title={"Les poulet"} 
-        subtitle={"Collège Jean Rostand"} 
-        ranking={4} 
-        points={"26.2pts"} 
-        subPointsText={"par élève"} 
-        pointsColor="var(--yellow_1)" />
+ *  <MppRankingCard 
+      title={"Les poulet"}
+      subtitle={"Collège Jean Rostand"}
+      ranking={4}
+      points={"26.2pts"}
+      subPointsText={"par élève"}
+      pointsColor="var(--yellow_1)"
+      rankingColorBackground="var(--yellow_1)" />
 */
 
 const MppRankingCard: React.FC<MppRankingCardProps> = ({
