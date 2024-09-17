@@ -1,43 +1,42 @@
 .mpp_button {
-    background-color: var(--dark_blue);
-    color: var(--white);
-    border: none;
-    border-radius: var(--standard_border_radius);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .mpp_button:hover {
-    background-color:  var(--dark_blue_light);
-  }
+  background-color: var(--dark_blue);
+  color: var(--white);
+  border: none;
+  border-radius: var(--standard_border_radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-  .secondary_type:hover{
-    background-color:  var(--dark_blue_very_light);
-  }
-  
-  .mpp_button:disabled {
-    background-color: var(--disable_dark_blue);
-    cursor: not-allowed;
-  }
+.mpp_button:hover {
+  background-color: teal;
+  /* background-color:  var(--dark_blue_light); */
+}
 
-  .button_large{
-    padding: 12px 40px;
-  }
+.secondary_type:hover {
+  background-color: var(--dark_blue_very_light);
+}
 
-  .button_medium{
-    padding: 8px 32px;
-  }
+.mpp_button:disabled {
+  background-color: var(--disable_dark_blue);
+  cursor: not-allowed;
+}
 
-  .secondary_type{
-    background-color: var(--white);
-    color: var(--dark_blue);
-    border: 2px solid var(--dark_blue);
-  }
+.button_large {
+  padding: 12px 40px;
+}
 
-  .secondary_type:disabled{
-    color: var(--disable_dark_blue);
-    background-color: var(--white);
-    border: 2px solid var(--disable_dark_blue)
-  }
+.button_medium {
+  padding: 8px 32px;
+}
 
-  
+.secondary_type {
+  background-color: var(--white);
+  color: var(--dark_blue);
+  border: 2px solid var(--dark_blue);
+}
+
+.secondary_type:disabled {
+  color: var(--disable_dark_blue);
+  background-color: var(--white);
+  border: 2px solid var(--disable_dark_blue)
+}
