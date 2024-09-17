@@ -71,7 +71,7 @@ function App() {
       <InputDemo />
 
       <h3>Trophés</h3>
-      <MppPodiumStep title={"4ème D"} pointsNumber={0} typeOfPlayer={"player ou élève"} podiumStepNumber={1} subtitle={"nom établissement"} subtitleBold={"ville"}  color={"var(--yellow_2)"}/>
+      <MppPodiumStep title={"4ème D"} pointsNumber={0} typeOfPlayer={"élève"} ranking={1} subtitle={"nom établissement"} subtitleBold={"ville"}  color={"var(--yellow_2)"}/>
     </div>
 
   )

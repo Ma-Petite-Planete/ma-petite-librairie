@@ -3,7 +3,7 @@ import silverTrophee from "../../ressources/icon/coupe_argent.svg";
 import bronzeTrophee from "../../ressources/icon/coupe_bronze.svg";
 import "./MppPodiumStep.css";
 import "../../";
-import React from "react";
+import React, { useState, useEffect } from 'react';
 
 interface MppPodiumStepProps {
   title: String;
@@ -11,8 +11,8 @@ interface MppPodiumStepProps {
   subtitleBold?: String;
   pointsNumber: number;
   typeOfPlayer: String;
-  podiumStepNumber: number;
   color: String;
+  ranking: number;
 }
 
 const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
@@ -21,16 +21,29 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
   subtitleBold,
   pointsNumber,
   typeOfPlayer,
-  podiumStepNumber,
-  color
+  color,
+  ranking
 }) => {
+
+  const [tropheeDislayed, setTrophee] = useState(goldTrophee);
+
+  useEffect(() => {
+
+  }, []);
+
+  // const chooseTropheeDisplayed = (ranking) => {
+
+  // };
+
   return (
     <div className="podium_step__container">
+
       <img
-        src={goldTrophee}
+        src={ ranking == 1 ? goldTrophee : ranking == 2 ? silverTrophee : bronzeTrophee}
         alt="icone de coupe"
         className="podium_step__img"
       />
+
       <ul className="podium_step__list">
         <li className="podium_step__list--title title_h3">{title}</li>
 
@@ -44,15 +57,17 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
           </li>
         ) : null}
 
-        <li className="podium_step__list--typeOfPlayer text_small_b">
-          {pointsNumber} par {typeOfPlayer}
+        <li className="podium_step__list--type text_small_b">
+          {pointsNumber} pts /{typeOfPlayer}
         </li>
       </ul>
-      <div className="podium_step_number__container">
+
+      <div className="podium_step_number__container" style={{ height: `${ranking == 1 ? "4.6em" : ranking == 2 ? "3.4em" : "2.1em"}`}}>
         <span className="podium_step_number__number text_body_sb" style={{  backgroundColor: `${color}`}}>
-          {podiumStepNumber}
+          {ranking}
         </span>
       </div>
+
     </div>
   );
 };
