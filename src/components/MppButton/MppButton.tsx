@@ -5,7 +5,7 @@ import { ButtonType } from './ButtonType';
 interface MppButtonProps {
   title: string;
   buttonType: ButtonType;
-  onPress: (() => void) | null; 
+  onPress: (() => void) | null;
   style?: React.CSSProperties;
   hoverStyle?: React.CSSProperties;
   activeStyle?: React.CSSProperties;
@@ -30,7 +30,6 @@ onPress={() => {
 buttonType={ButtonType.primaryLarge}
 />
 */
-
 
 const MppButton: React.FC<MppButtonProps> = ({
   title,
@@ -57,10 +56,10 @@ const MppButton: React.FC<MppButtonProps> = ({
         buttonType === ButtonType.primaryLarge
           ? 'button_large text_body_sb'
           : buttonType === ButtonType.primaryMedium
-          ? 'button_medium text_body'
-          : buttonType === ButtonType.secondaryLarge
-          ? 'secondary_type button_large text_body_sb'
-          : 'secondary_type button_medium text_body'
+            ? 'button_medium text_body'
+            : buttonType === ButtonType.secondaryLarge
+              ? 'secondary_type button_large text_body_sb'
+              : 'secondary_type button_medium text_body'
       }`}
       style={combinedStyle}
       onClick={!isDisabled ? onPress : undefined}

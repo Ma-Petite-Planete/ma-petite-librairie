@@ -32,30 +32,30 @@ interface MppInputTextProps {
 
 /**
  * Composant de champ de saisie avec validation, icône cliquable et compteur de caractères.
- * 
+ *
  * @example
  * ```jsx
  * import React, { useState } from 'react';
  * import MppInputText from './component/MppInputText/MppInputText';
  * import pen from './pen.svg';
- * 
+ *
  * const InputDemo: React.FC = () => {
  *   const [inputDemoIcon, setInputDemoIcon] = useState('');
- * 
+ *
  *   const handleChangeDemoIcon = (value: string) => {
  *     setInputDemoIcon(value);
  *   };
- * 
+ *
  *   const handleIconClick = () => {
- *     setInputDemoIcon(''); 
+ *     setInputDemoIcon('');
  *   };
- * 
+ *
  *   const [inputDemoCounter, setInputDemoCounter] = useState('');
- * 
+ *
  *   const handleChangeDemoCounter = (value: string) => {
  *     setInputDemoCounter(value);
  *   };
- * 
+ *
  *   const [inputDemoCondition, setInputDemoCondition] = useState('');
  *   const handleChangeDemoCondition = (value: string, hasError: boolean) => {
  *     if (hasError) {
@@ -64,7 +64,7 @@ interface MppInputTextProps {
  *       setInputDemoCondition(value);
  *     }
  *   };
- * 
+ *
  *   return (
  *     <div style={{ width: '300px' }}>
  *       <MppInputText
@@ -76,14 +76,14 @@ interface MppInputTextProps {
  *           { condition: (value) => /^[a-zA-Z]+$/.test(value), message: 'Le texte doit uniquement contenir des lettres.' },
  *         ]}
  *       />
- *       <MppInputText 
+ *       <MppInputText
  *         value={inputDemoIcon}
  *         placeholder="Exemple d'icône"
  *         onChange={handleChangeDemoIcon}
  *         iconUrl={pen}
  *         onClickIcon={handleIconClick}
  *       />
- *       <MppInputText 
+ *       <MppInputText
  *         value={inputDemoCounter}
  *         placeholder="Exemple de compteur"
  *         onChange={handleChangeDemoCounter}
@@ -93,7 +93,7 @@ interface MppInputTextProps {
  *     </div>
  *   );
  * };
- * 
+ *
  * export default InputDemo;
  * ```
  */
@@ -106,7 +106,7 @@ const MppInputText: React.FC<MppInputTextProps> = ({
   maxCharacteres,
   validationConditions = [],
   onChange,
-  onClickIcon
+  onClickIcon,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isFirstEntry, setIsFirstEntry] = useState(true);
@@ -134,7 +134,9 @@ const MppInputText: React.FC<MppInputTextProps> = ({
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
-    const newValueVerify = maxCharacteres ? newValue.slice(0, maxCharacteres) : newValue;
+    const newValueVerify = maxCharacteres
+      ? newValue.slice(0, maxCharacteres)
+      : newValue;
     setInputValue(newValueVerify);
     const hasError = validateInput(newValueVerify);
     onChange(newValueVerify, hasError);
@@ -148,7 +150,9 @@ const MppInputText: React.FC<MppInputTextProps> = ({
 
   return (
     <>
-      <div className={`mpp_input_container ${isFocused ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}`}>
+      <div
+        className={`mpp_input_container ${isFocused ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}`}
+      >
         <input
           type="text"
           placeholder={placeholder}
@@ -161,12 +165,14 @@ const MppInputText: React.FC<MppInputTextProps> = ({
         {(isFocused || inputValue) && iconUrl ? (
           <img
             src={iconUrl}
-            className={onClickIcon ? "input_icon_pointer" :  ""}
+            className={onClickIcon ? 'input_icon_pointer' : ''}
             alt="iconInput"
             onClick={handleIconClick}
           />
         ) : needCounter ? (
-          <span className={`input_counter ${inputValue.length === maxCharacteres ? 'max_characteres' : ''}`}>{`${inputValue.length}/${maxCharacteres}`}</span>
+          <span
+            className={`input_counter ${inputValue.length === maxCharacteres ? 'max_characteres' : ''}`}
+          >{`${inputValue.length}/${maxCharacteres}`}</span>
         ) : null}
       </div>
       {errorMessages.length > 0 && inputValue && !isFirstEntry && (

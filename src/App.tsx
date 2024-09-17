@@ -1,14 +1,13 @@
-import "./app.css"
-import { MppButton, ButtonType } from "./components/MppButton";
-import MppTextStyle from "./section/MppTextStyleSection/MppTextStyleSection";
-import InputDemo from "./section/InputSection";
-import React from "react";
+import './app.css';
+import { MppButton, ButtonType } from './components/MppButton';
+import MppTextStyle from './section/MppTextStyleSection/MppTextStyleSection';
+import InputDemo from './section/InputSection';
+import React from 'react';
 import yellowLogo from './ressources/logo/scolaire/yellow_logo_blue_text.svg';
 import whiteLogo from './ressources/logo/scolaire/white_logo_white_text.svg';
 import logoOnly from './ressources/logo/scolaire/logo_only_yellow.svg';
 
 function App() {
-
   return (
     <div className="main_background">
       <h1>Logo</h1>
@@ -69,8 +68,7 @@ function App() {
       <h1>Input</h1>
       <InputDemo />
     </div>
-
-  )
+  );
 }
 
-export default App
+export default App;
