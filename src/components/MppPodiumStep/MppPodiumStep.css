@@ -1,0 +1,44 @@
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.podium_step__container {
+  display: inline-block;
+  text-align: center;
+}
+
+.podium_step__img {
+  width: 3.75em;
+  margin-bottom: 1em;
+}
+
+ul.podium_step__list>li:nth-child(1),
+ul.podium_step__list>li:nth-child(3) {
+  margin-bottom: .30em;
+}
+
+.podium_step_number__container{
+  padding-top: .4em;
+}
+
+.podium_step_number__number {
+  padding: .1em .5em;
+  border-radius: var(--standard_border_radius);
+
+}
+
+
+@media (min-width: 896px) {
+  /* Ajustements pour le desktop */
+  body{
+    color: red;
+  }
+}
