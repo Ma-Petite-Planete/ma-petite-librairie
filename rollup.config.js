@@ -20,8 +20,8 @@ export default {
         url({
             include: ['**/*.svg'],
             limit: 0,
-            fileName: 'assets/[name][extname]',
-          }),
+            fileName: 'ressources/[name][extname]',
+        }),
     ],
     external: ['react', 'react-dom']
 };
