@@ -1,0 +1,28 @@
+.podium__container {
+  padding: 1.625em .3em 1.5em .3em;
+  display: flex;
+  align-items: flex-end;
+  max-width: 40.75em;
+  min-width: 22.5em;
+  background-color: var(--dark_blue_light);
+  border-radius: var(--big_border_radius);
+}
+
+.podium_step__container:nth-child(2) {
+  order: 1;
+}
+
+.podium_step__container:nth-child(1) {
+  margin: 0 .3em;
+  order: 2;
+}
+
+.podium_step__container:nth-child(3) {
+  order: 3;
+}
+
+@media (min-width: 896px) {
+  .podium__container {
+    padding: 4.5em 6em 2.5em 6em;
+  }
+}
