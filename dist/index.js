@@ -33,10 +33,10 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$2 = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap'); /* Regular (400), Medium (500), Semi-Bold (600), Bold (700) */\n\n:root {\n  font-family: 'Poppins', sans-serif; \n  font-size: 16px;\n  font-weight: 400; \n  line-height: auto;\n  color : var(--dark_blue);\n\n  /* graphique chart mpp scolaire */\n  --error : red;\n  --white :  #ffffff;\n  --yellow_1 : #F9CF2F;\n  --yellow_2 : #F9DC6C;\n  --yellow_3 : #FAF1C8;\n  --blue_1 : #5FD3AC;\n  --blue_2 : #CFEEF4;\n  --dark_blue: #2c2c69;\n  --dark_blue_light: rgb(44, 44, 105, 0.8);\n  --dark_blue_very_light: rgb(44, 44, 105, 0.2);\n  --disable_dark_blue : #9595b4;\n  --tonic_violet : #B42FF5;\n  --pink : #F9C7E9;\n  --pastel_blue : #D0EFF5;\n  --pastel_green : #C4E39A;\n  --pastel_violet : #DBD6FF;\n  --pastel_light_pink : #F9C7E9;\n  --pastel_dark_pink : #FAB1BD;\n  --pastel_orange : #FFAE92;\n  --pastel_dark_violet : #B1C5FF;\n  --pastel_turquoise : #7FD4B3;\n  --anthracite : #333333;\n  --dark_grey : #999999;\n  --medium_grey : #DADADA;\n  --light_grey : #F4F4F4;\n  --yellow_dark : #E3BA1A;\n  --green_pts : #21BE8B;\n  --green_background : #EEFAF7;\n  --gradient_peps : linear-gradient(to right, #B42FF5, #CFEEF4);\n  --gradient_peps_reverse : linear-gradient(to left, #B42FF5, #CFEEF4);\n  --standard_border_radius : 8px;\n}\n\np, span {\n  margin: 0;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  background-color: var(--light_grey);\n}\n\n/* handle texte style */\n\n.title_h1{\n  font-weight: 600;\n  font-size: 24px;\n}\n\n.title_h2{\n  font-weight: 500;\n  font-size: 20px;\n}\n\n.title_h3{\n  font-weight: 700;\n  font-size: 18px;\n}\n\n.subtitle{\n  font-weight: 500;\n}\n\n.text_body{\n  font-weight: 400;\n  font-size: 14px;\n}\n\n.text_body_sb{\n  font-weight: 600;\n  font-size: 14px;\n}\n\n.text_small_b{\n  font-weight: 700;\n  font-size: 12px;\n}\n\n.text_small{\n  font-size: 12px;\n}\n";
+var css_248z$2 = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap'); /* Regular (400), Medium (500), Semi-Bold (600), Bold (700) */\n\n:root {\n  font-family: 'Poppins', sans-serif;\n  font-size: 16px;\n  font-weight: 400;\n  line-height: auto;\n  color: var(--dark_blue);\n\n  /* graphique chart mpp scolaire */\n  --error: red;\n  --white: #ffffff;\n  --main_yellow: #f9cf2f;\n  --light_yellow: #f9dc6c;\n  --very_light_yellow: #faf1c8;\n  --main_blue: #5fd3ac;\n  --light_blue: #cfeef4;\n  --dark_blue: #2c2c69;\n  --dark_blue_light: rgb(44, 44, 105, 0.8);\n  --dark_blue_very_light: rgb(44, 44, 105, 0.2);\n  --disable_dark_blue: #9595b4;\n  --tonic_violet: #b42ff5;\n  --pink: #f9c7e9;\n  --pastel_blue: #d0eff5;\n  --pastel_green: #c4e39a;\n  --pastel_violet: #dbd6ff;\n  --pastel_light_pink: #f9c7e9;\n  --pastel_dark_pink: #fab1bd;\n  --pastel_orange: #ffae92;\n  --pastel_dark_violet: #b1c5ff;\n  --pastel_turquoise: #7fd4b3;\n  --anthracite: #333333;\n  --dark_grey: #999999;\n  --medium_grey: #dadada;\n  --light_grey: #f4f4f4;\n  --utility_yellow: #e3ba1a;\n  --utility_green: #21be8b;\n  --green_background: #eefaf7;\n  --gradient_peps: linear-gradient(to right, #b42ff5, #cfeef4);\n  --gradient_peps_reverse: linear-gradient(to left, #b42ff5, #cfeef4);\n  --standard_border_radius: 8px;\n}\n\np,\nspan {\n  margin: 0;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  background-color: var(--light_grey);\n}\n\n/* handle texte style */\n\n.title_h1 {\n  font-weight: 600;\n  font-size: 24px;\n}\n\n.title_h2 {\n  font-weight: 500;\n  font-size: 20px;\n}\n\n.title_h3 {\n  font-weight: 700;\n  font-size: 18px;\n}\n\n.subtitle {\n  font-weight: 500;\n}\n\n.text_body {\n  font-weight: 400;\n  font-size: 14px;\n}\n\n.text_body_sb {\n  font-weight: 600;\n  font-size: 14px;\n}\n\n.text_small_b {\n  font-weight: 700;\n  font-size: 12px;\n}\n\n.text_small {\n  font-size: 12px;\n}\n";
 styleInject(css_248z$2);
 
-var css_248z$1 = ".mpp_button {\n    background-color: var(--dark_blue);\n    color: var(--white);\n    border: none;\n    border-radius: var(--standard_border_radius);\n    cursor: pointer;\n    transition: background-color 0.3s ease;\n  }\n  \n  .mpp_button:hover {\n    background-color:  var(--dark_blue_light);\n  }\n\n  .secondary_type:hover{\n    background-color:  var(--dark_blue_very_light);\n  }\n  \n  .mpp_button:disabled {\n    background-color: var(--disable_dark_blue);\n    cursor: not-allowed;\n  }\n\n  .button_large{\n    padding: 12px 40px;\n  }\n\n  .button_medium{\n    padding: 8px 32px;\n  }\n\n  .secondary_type{\n    background-color: var(--white);\n    color: var(--dark_blue);\n    border: 2px solid var(--dark_blue);\n  }\n\n  .secondary_type:disabled{\n    color: var(--disable_dark_blue);\n    background-color: var(--white);\n    border: 2px solid var(--disable_dark_blue)\n  }\n\n  ";
+var css_248z$1 = ".mpp_button {\n  background-color: var(--dark_blue);\n  color: var(--white);\n  border: none;\n  border-radius: var(--standard_border_radius);\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n\n.mpp_button:hover {\n  background-color: var(--dark_blue_light);\n}\n\n.secondary_type:hover {\n  background-color: var(--dark_blue_very_light);\n}\n\n.mpp_button:disabled {\n  background-color: var(--disable_dark_blue);\n  cursor: not-allowed;\n}\n\n.button_large {\n  padding: 12px 40px;\n}\n\n.button_medium {\n  padding: 8px 32px;\n}\n\n.secondary_type {\n  background-color: var(--white);\n  color: var(--dark_blue);\n  border: 2px solid var(--dark_blue);\n}\n\n.secondary_type:disabled {\n  color: var(--disable_dark_blue);\n  background-color: var(--white);\n  border: 2px solid var(--disable_dark_blue);\n}\n";
 styleInject(css_248z$1);
 
 var ButtonType;
@@ -80,7 +80,7 @@ const MppButton = ({ title, onPress, buttonType, style = {}, hoverStyle = {}, ac
                     : 'secondary_type button_medium text_body'}`, style: combinedStyle, onClick: !isDisabled ? onPress : undefined, onMouseEnter: () => !isDisabled && setHover(true), onMouseLeave: () => !isDisabled && setHover(false), onMouseDown: () => !isDisabled && setActive(true), onMouseUp: () => !isDisabled && setActive(false), disabled: isDisabled }, title));
 };
 
-var css_248z = ".mpp_input_container {\n    display: flex;\n    margin: 10px 0;\n    gap: 17px;\n    padding: 16px;\n    border: 2px solid var(--medium_grey);\n    border-radius: var(--standard_border_radius);\n  }\n  \n  .mpp_input {\n    border: none;\n    width: 100%;\n    font-size: 16px;\n    outline: none;\n    transition: border-color 0.3s ease;\n    background-color: transparent;\n  }\n  \n .focused {\n    border-color: var(--dark_blue);\n  }\n\n  .max_characteres{\n    color: var(--dark_blue) !important;\n  }\n  \n  .error {\n    border-color: var(--error);\n  }\n  \n  .input_error {\n    color: var(--error);\n    font-size: 12px;\n    margin-top: 5px;\n  }\n\n  .input_counter{\n    color: var(--medium_grey);\n  }\n\n.input_icon_pointer{\n  cursor: pointer;\n}\n  \n  ";
+var css_248z = ".mpp_input_container {\n  display: flex;\n  margin: 10px 0;\n  gap: 17px;\n  padding: 16px;\n  border: 2px solid var(--medium_grey);\n  border-radius: var(--standard_border_radius);\n}\n\n.mpp_input {\n  border: none;\n  width: 100%;\n  font-size: 16px;\n  outline: none;\n  transition: border-color 0.3s ease;\n  background-color: transparent;\n}\n\n.focused {\n  border-color: var(--dark_blue);\n}\n\n.max_characteres {\n  color: var(--dark_blue) !important;\n}\n\n.error {\n  border-color: var(--error);\n}\n\n.input_error {\n  color: var(--error);\n  font-size: 12px;\n  margin-top: 5px;\n}\n\n.input_counter {\n  color: var(--medium_grey);\n}\n\n.input_icon_pointer {\n  cursor: pointer;\n}\n";
 styleInject(css_248z);
 
 /**
@@ -162,7 +162,7 @@ styleInject(css_248z);
  * export default InputDemo;
  * ```
  */
-const MppInputText = ({ placeholder, value = '', iconUrl = '', needCounter = false, maxCharacteres, validationConditions = [], onChange, onClickIcon }) => {
+const MppInputText = ({ placeholder, value = '', iconUrl = '', needCounter = false, maxCharacteres, validationConditions = [], onChange, onClickIcon, }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFirstEntry, setIsFirstEntry] = useState(true);
     const [inputValue, setInputValue] = useState(value);
@@ -185,7 +185,9 @@ const MppInputText = ({ placeholder, value = '', iconUrl = '', needCounter = fal
     };
     const handleChange = (e) => {
         const newValue = e.target.value;
-        const newValueVerify = maxCharacteres ? newValue.slice(0, maxCharacteres) : newValue;
+        const newValueVerify = maxCharacteres
+            ? newValue.slice(0, maxCharacteres)
+            : newValue;
         setInputValue(newValueVerify);
         const hasError = validateInput(newValueVerify);
         onChange(newValueVerify, hasError);
@@ -198,8 +200,41 @@ const MppInputText = ({ placeholder, value = '', iconUrl = '', needCounter = fal
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: `mpp_input_container ${isFocused ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}` },
             React.createElement("input", { type: "text", placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: "mpp_input" }),
-            (isFocused || inputValue) && iconUrl ? (React.createElement("img", { src: iconUrl, className: onClickIcon ? "input_icon_pointer" : "", alt: "iconInput", onClick: handleIconClick })) : needCounter ? (React.createElement("span", { className: `input_counter ${inputValue.length === maxCharacteres ? 'max_characteres' : ''}` }, `${inputValue.length}/${maxCharacteres}`)) : null),
+            (isFocused || inputValue) && iconUrl ? (React.createElement("img", { src: iconUrl, className: onClickIcon ? 'input_icon_pointer' : '', alt: "iconInput", onClick: handleIconClick })) : needCounter ? (React.createElement("span", { className: `input_counter ${inputValue.length === maxCharacteres ? 'max_characteres' : ''}` }, `${inputValue.length}/${maxCharacteres}`)) : null),
         errorMessages.length > 0 && inputValue && !isFirstEntry && (React.createElement("div", { className: "input_errors" }, errorMessages.map((error, index) => (React.createElement("p", { key: index, className: "input_error" }, error)))))));
 };
 
-export { ButtonType, MppButton, MppInputText, logo_only_yellow as scoLogoOnly, white_logo_white_text as scoWhiteLogo, yellow_logo_blue_text as scoYellowLogo };
+const ScoColors = {
+    error: 'var(--error)',
+    white: 'var(--white)',
+    mainYellow: 'var(--main_yellow)',
+    lightYellow: 'var(--light_yellow)',
+    veryLightYellow: 'var(--very_light_yellow)',
+    mainBlue: 'var(--main_blue)',
+    lightBlue: 'var(--light_blue)',
+    darkBlue: 'var(--dark_blue)',
+    darkBlueLight: 'var(--dark_blue_light)',
+    darkBlueVeryLight: 'var(--dark_blue_very_light)',
+    disableDarkBlue: 'var(--disable_dark_blue)',
+    tonicViolet: 'var(--tonic_violet)',
+    pink: 'var(--pink)',
+    pastelBlue: 'var(--pastel_blue)',
+    pastelGreen: 'var(--pastel_green)',
+    pastelViolet: 'var(--pastel_violet)',
+    pastelLightPink: 'var(--pastel_light_pink)',
+    pastelDarkPink: 'var(--pastel_dark_pink)',
+    pastelOrange: 'var(--pastel_orange)',
+    pastelDarkViolet: 'var(--pastel_dark_violet)',
+    pastelTurquoise: 'var(--pastel_turquoise)',
+    anthracite: 'var(--anthracite)',
+    darkGrey: 'var(--dark_grey)',
+    mediumGrey: 'var(--medium_grey)',
+    lightGrey: 'var(--light_grey)',
+    utilityYellow: 'var(--utility_yellow)',
+    utilityGreen: 'var(--utility_green)',
+    greenBackground: 'var(--green_background)',
+    gradientPeps: 'var(--gradient_peps)',
+    gradientPepsReverse: 'var(--gradient_peps_reverse)',
+};
+
+export { ButtonType, MppButton, MppInputText, ScoColors, logo_only_yellow as scoLogoOnly, white_logo_white_text as scoWhiteLogo, yellow_logo_blue_text as scoYellowLogo };

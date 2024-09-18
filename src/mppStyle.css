@@ -9,11 +9,11 @@
   /* graphique chart mpp scolaire */
   --error: red;
   --white: #ffffff;
-  --yellow_1: #f9cf2f;
-  --yellow_2: #f9dc6c;
-  --yellow_3: #faf1c8;
-  --blue_1: #5fd3ac;
-  --blue_2: #cfeef4;
+  --main_yellow: #f9cf2f;
+  --light_yellow: #f9dc6c;
+  --very_light_yellow: #faf1c8;
+  --main_blue: #5fd3ac;
+  --light_blue: #cfeef4;
   --dark_blue: #2c2c69;
   --dark_blue_light: rgb(44, 44, 105, 0.8);
   --dark_blue_very_light: rgb(44, 44, 105, 0.2);
@@ -32,8 +32,8 @@
   --dark_grey: #999999;
   --medium_grey: #dadada;
   --light_grey: #f4f4f4;
-  --yellow_dark: #e3ba1a;
-  --green_pts: #21be8b;
+  --utility_yellow: #e3ba1a;
+  --utility_green: #21be8b;
   --green_background: #eefaf7;
   --shadow_color: #0303841a;
   --gradient_peps: linear-gradient(to right, #b42ff5, #cfeef4);
