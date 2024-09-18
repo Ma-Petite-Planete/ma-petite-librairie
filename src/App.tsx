@@ -1,13 +1,12 @@
 import "./app.css";
+import React from "react";
 import { MppButton, ButtonType } from "./components/MppButton";
 import MppTextStyle from "./section/MppTextStyleSection/MppTextStyleSection";
+import MppPodium from "./components/MppPodium/MppPodium";
 import InputDemo from "./section/InputSection";
-import React from "react";
 import yellowLogo from "./ressources/logo/yellow_logo_blue_text.svg";
 import whiteLogo from "./ressources/logo/white_logo_white_text.svg";
 import logoOnly from "./ressources/logo/logo_only_yellow.svg";
-import MppPodiumStep from "./components/MppPodiumStep/MppPodiumStep";
-import MppPodium from "./components/MppPodium/MppPodium";
 
 function App() {
   return (
@@ -69,7 +68,6 @@ function App() {
       </div>
       <h1>Input</h1>
       <InputDemo />
-
       <h3>Trophés</h3>
       <MppPodium
         isMppScolaire={true}
