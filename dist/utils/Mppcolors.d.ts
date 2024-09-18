@@ -29,5 +29,4 @@ export declare const ScoColors: {
     readonly greenBackground: "var(--green_background)";
     readonly gradientPeps: "var(--gradient_peps)";
     readonly gradientPepsReverse: "var(--gradient_peps_reverse)";
-    readonly test: "test";
 };

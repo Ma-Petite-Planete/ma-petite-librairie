@@ -29,5 +29,4 @@ export const ScoColors = {
   greenBackground: 'var(--green_background)',
   gradientPeps: 'var(--gradient_peps)',
   gradientPepsReverse: 'var(--gradient_peps_reverse)',
-  test: 'test',
 } as const;
