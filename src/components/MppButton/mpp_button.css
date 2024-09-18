@@ -37,5 +37,10 @@
 .secondary_type:disabled {
   color: var(--disable_dark_blue);
   background-color: var(--white);
+<<<<<<< HEAD
   border: 2px solid var(--disable_dark_blue);
 }
+=======
+  border: 2px solid var(--disable_dark_blue)
+}
+>>>>>>> 10a4add5e33a53fe2f3e5efa315cbd0b2360b15e
