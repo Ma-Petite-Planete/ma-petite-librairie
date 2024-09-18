@@ -11,8 +11,7 @@
     "dev": "vite",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
-    "format": "prettier --write \"**/*.{ts,tsx,js,json,css,md}\"",
-    "deploy": "./deploy.sh"
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,css,md}\""
   },
   "peerDependencies": {
     "react": "^18.0.0",
