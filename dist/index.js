@@ -235,6 +235,7 @@ const ScoColors = {
     greenBackground: 'var(--green_background)',
     gradientPeps: 'var(--gradient_peps)',
     gradientPepsReverse: 'var(--gradient_peps_reverse)',
+    test: 'test',
 };
 
 var css_248z = ".ranking_card_background {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 11px 20px;\n  background-color: var(--white);\n  border-radius: 20px;\n  box-shadow: 0px 4px 20px var(--shadow_color);\n  margin-bottom: 10px;\n}\n\n.ranking_background {\n  border-radius: var(--standard_border_radius);\n  padding: 8px;\n  line-height: 1;\n}\n\n.flex_row {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n\n.content_background {\n  margin-left: 10px;\n}\n\n.sub_point_text {\n  color: var(--dark_grey);\n}\n";
