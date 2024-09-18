@@ -3,7 +3,7 @@ import MppPodiumStep from "../MppPodiumStep/MppPodiumStep";
 import "./MppPodium.css";
 
 interface PodiumStep {
-  name: String;
+  name: string;
   points: number;
   ranking: number;
 }
@@ -20,13 +20,14 @@ const MppPodium: React.FC<MppPodiumProps> = ({
 }) => {
   return (
     <div className="podium__container">
-      {rankedElements.map((element) => (
+      {rankedElements.map(({ name, points, ranking }) => (
         <MppPodiumStep
-          title={element.name}
-          pointsNumber={element.points}
+          key={ranking}
+          title={name}
+          pointsNumber={points}
           typeOfPlayer={typeOfPlayers}
           color={color}
-          ranking={element.ranking}
+          ranking={ranking}
         />
       ))}
     </div>

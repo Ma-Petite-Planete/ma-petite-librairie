@@ -40,6 +40,7 @@
   --gradient_peps: linear-gradient(to right, #b42ff5, #cfeef4);
   --gradient_peps_reverse: linear-gradient(to left, #b42ff5, #cfeef4);
   --standard_border_radius: 8px;
+  --big_border_radius: 20px;
 }
 
 p,

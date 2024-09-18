@@ -5,12 +5,12 @@ import "./MppPodiumStep.css";
 import React, { useState, useEffect } from "react";
 
 interface MppPodiumStepProps {
-  title: String;
-  subtitle?: String;
-  subtitleBold?: String;
+  title: string;
+  subtitle?: string;
+  subtitleBold?: string;
   pointsNumber: number;
-  typeOfPlayer: String;
-  color: String;
+  typeOfPlayer: string;
+  color: string;
   ranking: number;
 }
 
