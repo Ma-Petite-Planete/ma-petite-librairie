@@ -7,6 +7,7 @@ import yellowLogo from './ressources/logo/yellow_logo_blue_text.svg';
 import whiteLogo from './ressources/logo/white_logo_white_text.svg';
 import logoOnly from './ressources/logo/logo_only_yellow.svg';
 import MppRankingCard from './components/MppRankingCard/MppRankingCard';
+import { ScoColors } from './utils/Mppcolors';
 
 function App() {
   return (
@@ -76,8 +77,8 @@ function App() {
           ranking={4}
           points={'26.2pts'}
           subPointsText={'par élève'}
-          pointsColor="var(--yellow_1)"
-          rankingColorBackground="var(--yellow_1)"
+          pointsColor={ScoColors.mainYellow}
+          rankingColorBackground={ScoColors.mainYellow}
         />
         <MppRankingCard
           title={'Les poulet'}
@@ -85,8 +86,8 @@ function App() {
           ranking={4}
           points={'26.2pts'}
           subPointsText={'par élève'}
-          pointsColor="var(--yellow_1)"
-          rankingColorBackground="var(--yellow_1)"
+          pointsColor={ScoColors.mainYellow}
+          rankingColorBackground={ScoColors.mainYellow}
         />
       </div>
     </div>
