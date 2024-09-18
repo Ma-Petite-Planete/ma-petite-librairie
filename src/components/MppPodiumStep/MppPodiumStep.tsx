@@ -2,7 +2,6 @@ import goldTrophee from "../../ressources/icon/coupe_or.svg";
 import silverTrophee from "../../ressources/icon/coupe_argent.svg";
 import bronzeTrophee from "../../ressources/icon/coupe_bronze.svg";
 import "./MppPodiumStep.css";
-import "../../";
 import React, { useState, useEffect } from "react";
 
 interface MppPodiumStepProps {
@@ -57,8 +56,8 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
             style={{ color: `${color}` }}
             className="podium_step__list--type text_small_b"
           >
-            {pointsNumber} pts /
-            <span className="text_small">{typeOfPlayer}</span>
+            {pointsNumber} pts
+            <span className="text_small">/ {typeOfPlayer}</span>
           </li>
         </ul>
       </div>

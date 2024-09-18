@@ -1,27 +1,31 @@
 import React from "react";
 import MppPodiumStep from "../MppPodiumStep/MppPodiumStep";
 import "./MppPodium.css";
-interface MppPodiumProps {
-  rankedElements: League[] | Class[];
-  isMppScolaire: boolean;
-}
 
-interface League {} // a importer d'un seul autre fichier
-interface Class {} // a importer d'un seul autre fichier
+interface PodiumStep {
+  name: String;
+  points: number;
+  ranking: number;
+}
+interface MppPodiumProps {
+  rankedElements: Array<PodiumStep>;
+  color: string;
+  typeOfPlayers: string;
+}
 
 const MppPodium: React.FC<MppPodiumProps> = ({
   rankedElements,
-  isMppScolaire,
+  typeOfPlayers,
+  color,
 }) => {
   return (
     <div className="podium__container">
       {rankedElements.map((element) => (
         <MppPodiumStep
-          key={element.id}
           title={element.name}
           pointsNumber={element.points}
-          typeOfPlayer={isMppScolaire ? "élève" : "player"}
-          color={isMppScolaire ? "var(--yellow_2)" : "var(--yellow_2)"}
+          typeOfPlayer={typeOfPlayers}
+          color={color}
           ranking={element.ranking}
         />
       ))}

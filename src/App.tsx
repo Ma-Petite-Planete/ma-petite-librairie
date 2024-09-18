@@ -7,6 +7,7 @@ import InputDemo from "./section/InputSection";
 import yellowLogo from "./ressources/logo/yellow_logo_blue_text.svg";
 import whiteLogo from "./ressources/logo/white_logo_white_text.svg";
 import logoOnly from "./ressources/logo/logo_only_yellow.svg";
+import { ScoColors } from "./utils/Mppcolors";
 
 function App() {
   return (
@@ -70,7 +71,8 @@ function App() {
       <InputDemo />
       <h3>Trophés</h3>
       <MppPodium
-        isMppScolaire={true}
+        color={ScoColors.lightYellow}
+        typeOfPlayers="élève"
         rankedElements={[
           {
             name: "4èmeD",
