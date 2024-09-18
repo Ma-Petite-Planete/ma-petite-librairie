@@ -1,7 +1,6 @@
 export enum ButtonType {
-    primaryLarge,
-    primaryMedium,
-    secondaryLarge,
-    secondaryMedium,
-  }
-  
+  primaryLarge,
+  primaryMedium,
+  secondaryLarge,
+  secondaryMedium,
+}

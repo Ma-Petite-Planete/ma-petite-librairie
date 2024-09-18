@@ -1,5 +1,5 @@
-import React from "react";
-import "./mpp_ranking_card.css";
+import React from 'react';
+import './mpp_ranking_card.css';
 
 interface MppRankingCardProps {
   title: string;

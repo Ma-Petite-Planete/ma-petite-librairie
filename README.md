@@ -44,3 +44,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## config prettier & linter
+
+1. install vs code extenstion Prettier - Code formatter & ESLint
+2. npm i
+3. "ctrl + ," on search bar > format > choose prettier as default formater and check format on save
+4. go on a tsx file, click right, choose format document with... and set prettier as default
+5. close and reopen vs code
