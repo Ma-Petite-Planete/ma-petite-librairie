@@ -10,7 +10,7 @@ interface MppInputTextProps {
     iconUrl?: string;
     needCounter?: boolean;
     maxCharacteres?: number;
-    validationConditions?: ValidationCondition[];
+    validationConditions?: Array<ValidationCondition>;
     onChange: (value: string, hasError: boolean) => void;
     onClickIcon?: (value: string) => void;
 }
