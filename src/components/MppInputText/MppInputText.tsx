@@ -12,7 +12,7 @@ interface MppInputTextProps {
   iconUrl?: string;
   needCounter?: boolean;
   maxCharacteres?: number;
-  validationConditions?: ValidationCondition[];
+  validationConditions?: Array<ValidationCondition>;
   onChange: (value: string, hasError: boolean) => void;
   onClickIcon?: (value: string) => void;
 }
@@ -111,7 +111,7 @@ const MppInputText: React.FC<MppInputTextProps> = ({
   const [isFocused, setIsFocused] = useState(false);
   const [isFirstEntry, setIsFirstEntry] = useState(true);
   const [inputValue, setInputValue] = useState(value);
-  const [errorMessages, setErrorMessages] = useState<string[]>([]);
+  const [errorMessages, setErrorMessages] = useState<Array<string>>([]);
 
   useEffect(() => {
     setInputValue(value);
