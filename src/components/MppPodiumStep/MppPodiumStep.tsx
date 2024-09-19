@@ -57,7 +57,7 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
             className="podium_step__list--type text_small_b"
           >
             {pointsNumber} pts
-            <span className="text_small">/ {typeOfPlayer}</span>
+            <span className="text_small">/{typeOfPlayer}</span>
           </li>
         </ul>
       </div>
