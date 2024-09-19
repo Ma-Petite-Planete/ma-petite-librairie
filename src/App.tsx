@@ -78,6 +78,8 @@ function App() {
             name: "4èmeD",
             points: 3,
             ranking: 1,
+            school: "2cole des intellos",
+            city: "Lyon",
           },
           {
             name: "4èmeB",
