@@ -1,10 +1,10 @@
-/// <reference types="react" />
+import React from 'react';
 export declare const MppIcon: {
-    readonly pen: import("react").FunctionComponent<import("react").SVGProps<SVGSVGElement>>;
-    readonly logo: import("react").FunctionComponent<import("react").SVGProps<SVGSVGElement>>;
-    readonly graph: import("react").FunctionComponent<import("react").SVGProps<SVGSVGElement>>;
-    readonly help: import("react").FunctionComponent<import("react").SVGProps<SVGSVGElement>>;
-    readonly map: import("react").FunctionComponent<import("react").SVGProps<SVGSVGElement>>;
-    readonly ressources: import("react").FunctionComponent<import("react").SVGProps<SVGSVGElement>>;
-    readonly trophee: import("react").FunctionComponent<import("react").SVGProps<SVGSVGElement>>;
+    readonly pen: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+    readonly logo: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+    readonly graph: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+    readonly help: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+    readonly map: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+    readonly ressources: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+    readonly trophee: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 };
