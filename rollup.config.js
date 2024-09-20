@@ -9,6 +9,7 @@ export default {
   output: {
     file: 'dist/index.js',
     format: 'esm',
+    exports: 'named',
   },
   plugins: [
     svgr({ exportType: 'named', jsxRuntime: 'automatic' }),
