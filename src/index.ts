@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react';
 import { ReactComponent as ScoYellowLogo } from './ressources/logo/sco_yellow_logo_blue_text.svg';
 import { ReactComponent as ScoWhiteLogo } from './ressources/logo/sco_white_logo_white_text.svg';
 import { ReactComponent as ScoLogoOnly } from './ressources/logo/sco_logo_only_yellow.svg';
