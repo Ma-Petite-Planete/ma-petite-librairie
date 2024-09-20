@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import pen from '../ressources/icon/pen.svg';
+// import pen from '../ressources/icon/pen.svg';
 import MppInputText from '../components/MppInputText/MppInputText';
 import React from 'react';
 
 const InputDemo: React.FC = () => {
-  const [inputDemoIcon, setInputDemoIcon] = useState('');
+  // const [inputDemoIcon, setInputDemoIcon] = useState('');
 
-  const handleChangeDemoIcon = (value: string) => {
-    setInputDemoIcon(value);
-  };
+  // const handleChangeDemoIcon = (value: string) => {
+  //   setInputDemoIcon(value);
+  // };
 
-  const handleIconClick = () => {
-    setInputDemoIcon('');
-  };
+  // const handleIconClick = () => {
+  //   setInputDemoIcon('');
+  // };
 
   const [inputDemoCounter, setInputDemoCounter] = useState('');
 
@@ -45,14 +45,14 @@ const InputDemo: React.FC = () => {
           },
         ]}
       />
-
+      {/* 
       <MppInputText
         value={inputDemoIcon}
         placeholder={'exemple icon'}
         onChange={handleChangeDemoIcon}
         iconUrl={pen}
         onClickIcon={handleIconClick}
-      />
+      /> */}
 
       <MppInputText
         value={inputDemoCounter}

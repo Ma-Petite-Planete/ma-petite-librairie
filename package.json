@@ -22,6 +22,7 @@
     "@rollup/plugin-node-resolve": "^13.1.3",
     "@rollup/plugin-typescript": "^9.0.2",
     "@rollup/plugin-url": "^8.0.2",
+    "@svgr/rollup": "^8.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -41,7 +42,8 @@
     "rollup": "^2.79.1",
     "rollup-plugin-postcss": "^4.0.2",
     "typescript": "^4.9.5",
-    "vite": "^5.4.4"
+    "vite": "^5.4.4",
+    "vite-plugin-svgr": "^4.2.0"
   },
   "repository": {
     "type": "git",

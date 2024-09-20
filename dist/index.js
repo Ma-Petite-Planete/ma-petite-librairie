@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-var yellow_logo_blue_text = "ressources/logo/yellow_logo_blue_text.svg";
-
-var white_logo_white_text = "ressources/logo/white_logo_white_text.svg";
-
-var logo_only_yellow = "ressources/logo/logo_only_yellow.svg";
-
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
   var insertAt = ref.insertAt;
@@ -264,4 +258,4 @@ const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, point
             React.createElement("p", { className: "sub_point_text text_small" }, subPointsText))));
 };
 
-export { ButtonType, MppButton, MppInputText, MppRankingCard, ScoColors, logo_only_yellow as scoLogoOnly, white_logo_white_text as scoWhiteLogo, yellow_logo_blue_text as scoYellowLogo };
+export { ButtonType, MppButton, MppInputText, MppRankingCard, ScoColors };
