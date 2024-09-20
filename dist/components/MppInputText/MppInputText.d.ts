@@ -7,7 +7,7 @@ interface ValidationCondition {
 interface MppInputTextProps {
     placeholder: string;
     value: string;
-    iconUrl?: string;
+    icon?: React.FC<React.SVGProps<SVGSVGElement>>;
     needCounter?: boolean;
     maxCharacteres?: number;
     validationConditions?: Array<ValidationCondition>;
