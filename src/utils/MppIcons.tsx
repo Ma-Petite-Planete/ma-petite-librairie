@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react';
 import { ReactComponent as pen } from '../ressources/icon/pen.svg';
 import { ReactComponent as logo } from '../ressources/icon/logo_blue.svg';
 import { ReactComponent as graph } from '../ressources/icon/graph.svg';
