@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-var yellow_logo_blue_text = "ressources/logo/yellow_logo_blue_text.svg";
+var yellow_logo_blue_text = "ressources/logo//yellow_logo_blue_text.svg";
 
-var white_logo_white_text = "ressources/logo/white_logo_white_text.svg";
+var white_logo_white_text = "ressources/logo//white_logo_white_text.svg";
 
-var logo_only_yellow = "ressources/logo/logo_only_yellow.svg";
+var logo_only_yellow = "ressources/logo//logo_only_yellow.svg";
 
-var goldTrophee = "ressources/logo/coupe_or.svg";
+var goldTrophee = "ressources/icons//coupe_or.svg";
 
-var silverTrophee = "ressources/logo/coupe_argent.svg";
+var silverTrophee = "ressources/icons//coupe_argent.svg";
 
-var bronzeTrophee = "ressources/logo/coupe_bronze.svg";
+var bronzeTrophee = "ressources/icons//coupe_bronze.svg";
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
