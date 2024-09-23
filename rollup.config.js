@@ -3,7 +3,6 @@ import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
-import replace from '@rollup/plugin-replace';
 import { babel } from '@rollup/plugin-babel';
 
 export default {
@@ -16,10 +15,11 @@ export default {
   plugins: [
     typescript(),
     commonjs(),
-    svgr({ exportType: 'named', jsxRuntime: 'automatic' }),
-    replace({
-      'process.env.NODE_ENV': JSON.stringify('production'),
-      preventAssignment: true,
+    svgr({
+      exportType: 'named', // Exporte les composants SVG avec un nom
+      svgProps: {
+        // Ici tu peux définir des propriétés par défaut pour les SVG
+      },
     }),
     resolve(),
     postcss(),
