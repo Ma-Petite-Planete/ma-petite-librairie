@@ -2,9 +2,9 @@ import * as React from 'react';
 import React__default, { useState, useEffect } from 'react';
 
 var _circle;
-function _extends$1() { return _extends$1 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$1.apply(null, arguments); }
+function _extends$8() { return _extends$8 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$8.apply(null, arguments); }
 var SvgRing = function SvgRing(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$1({
+  return /*#__PURE__*/React.createElement("svg", _extends$8({
     xmlns: "http://www.w3.org/2000/svg",
     width: 18,
     height: 18,
@@ -17,15 +17,15 @@ var SvgRing = function SvgRing(props) {
   })));
 };
 
-var _g, _defs;
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+var _g$1, _defs$1;
+function _extends$7() { return _extends$7 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$7.apply(null, arguments); }
 var SvgScoYellowLogoBlueText = function SvgScoYellowLogoBlueText(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends({
+  return /*#__PURE__*/React.createElement("svg", _extends$7({
     xmlns: "http://www.w3.org/2000/svg",
     width: 460,
     height: 189,
     fill: "none"
-  }, props), _g || (_g = /*#__PURE__*/React.createElement("g", {
+  }, props), _g$1 || (_g$1 = /*#__PURE__*/React.createElement("g", {
     clipPath: "url(#sco_yellow_logo_blue_text_svg__a)"
   }, /*#__PURE__*/React.createElement("path", {
     fill: "url(#sco_yellow_logo_blue_text_svg__b)",
@@ -42,7 +42,7 @@ var SvgScoYellowLogoBlueText = function SvgScoYellowLogoBlueText(props) {
   }), /*#__PURE__*/React.createElement("path", {
     fill: "#2B2F68",
     d: "M193.924 144.481q-3.719-1.52-5.942-4.51-2.225-2.985-2.345-7.19h11.09q.243 2.376 1.645 3.625 1.4 1.25 3.655 1.248c1.504 0 2.762-.355 3.655-1.066q1.34-1.066 1.342-2.955 0-1.582-1.066-2.621-1.065-1.034-2.621-1.707c-1.034-.444-2.51-.955-4.417-1.524q-4.143-1.28-6.765-2.558-2.623-1.277-4.511-3.78-1.89-2.497-1.89-6.521c0-3.979 1.442-7.1 4.328-9.351q4.326-3.383 11.273-3.383c4.631 0 8.51 1.127 11.393 3.383q4.326 3.383 4.631 9.413h-11.273c-.082-1.379-.589-2.469-1.524-3.258q-1.4-1.19-3.596-1.19-1.889 0-3.049 1.007-1.158 1.005-1.158 2.893-.002 2.074 1.951 3.231 1.951 1.16 6.094 2.5 4.143 1.402 6.734 2.683c1.728.852 3.218 2.093 4.48 3.717q1.888 2.438 1.889 6.276c0 2.559-.62 4.652-1.858 6.642q-1.859 2.986-5.393 4.752-3.534 1.767-8.349 1.765c-3.21 0-5.931-.507-8.41-1.524zM224.424 119.316q2.162-3.963 6.031-6.094 3.87-2.13 8.866-2.131 6.399 0 10.693 3.352c2.866 2.235 4.742 5.383 5.638 9.445h-11.09q-1.4-3.9-5.424-3.9-2.866 0-4.569 2.224-1.707 2.225-1.707 6.369t1.707 6.369q1.706 2.224 4.569 2.224 4.024 0 5.424-3.9h11.09q-1.34 5.975-5.666 9.383-4.327 3.414-10.662 3.414-4.996.001-8.865-2.134-3.87-2.131-6.032-6.094-2.162-3.96-2.162-9.262 0-5.3 2.162-9.262zM267.687 143.933q-3.991-2.132-6.276-6.093-2.286-3.961-2.286-9.262c0-3.535.772-6.569 2.317-9.231 1.545-2.659 3.655-4.7 6.338-6.125 2.683-1.42 5.686-2.131 9.017-2.131q4.997 0 9.018 2.131t6.338 6.125q2.314 3.992 2.313 9.231 0 5.241-2.344 9.231-2.348 3.993-6.397 6.124c-2.704 1.421-5.717 2.135-9.049 2.135q-4.997 0-8.986-2.135zm14.076-9.079q2.101-2.194 2.103-6.276.001-4.082-2.041-6.276-2.043-2.193-5.028-2.193c-1.989 0-3.717.72-5.059 2.162q-2.01 2.163-2.01 6.307c0 2.762.659 4.814 1.979 6.276q1.981 2.193 4.966 2.193t5.09-2.193M310.432 100.484v45.094h-10.421v-45.094zM317.898 119.316q1.98-3.963 5.393-6.094 3.413-2.13 7.617-2.131 3.594 0 6.307 1.462 2.712 1.465 4.173 3.838v-4.813h10.421v34h-10.421v-4.814c-1.017 1.583-2.428 2.866-4.235 3.838q-2.711 1.463-6.307 1.462c-2.762 0-5.283-.72-7.555-2.162q-3.413-2.162-5.393-6.155-1.98-3.99-1.98-9.231 0-5.239 1.98-9.2m21.328 3.107q-2.163-2.256-5.273-2.256t-5.272 2.224q-2.163 2.225-2.162 6.125t2.162 6.186q2.163 2.286 5.272 2.286c2.073 0 3.828-.751 5.273-2.255q2.162-2.255 2.162-6.155t-2.162-6.155M360.122 106.426q-1.737-1.615-1.737-3.99c0-1.583.579-2.976 1.737-4.052q1.738-1.614 4.48-1.614c1.827 0 3.259.538 4.417 1.614q1.738 1.615 1.738 4.052c0 1.624-.579 2.914-1.738 3.99q-1.737 1.614-4.417 1.614c-1.786 0-3.321-.538-4.48-1.614m9.659 5.148v34.001H359.36v-34.001zM392.33 112.826q2.742-1.614 6.093-1.614v11.028h-2.865q-3.902 0-5.849 1.676-1.949 1.675-1.948 5.879v15.783H377.34v-34h10.421v5.665q1.826-2.803 4.569-4.417M435.286 131.074h-23.583q.242 3.17 2.041 4.845c1.197 1.118 2.673 1.676 4.417 1.676q3.899 0 5.425-3.29h11.089a15.2 15.2 0 0 1-3.076 6.032q-2.224 2.683-5.575 4.203-3.353 1.525-7.497 1.524-4.997.001-8.897-2.134-3.9-2.132-6.093-6.093-2.193-3.962-2.193-9.263 0-5.3 2.162-9.262t6.062-6.093 8.959-2.131c3.372 0 6.214.69 8.776 2.072q3.838 2.073 6.003 5.911 2.163 3.837 2.163 8.959-.002 1.461-.183 3.048zm-10.48-5.789q0-2.679-1.827-4.266-1.828-1.583-4.569-1.583c-1.828 0-3.221.507-4.418 1.524q-1.8 1.526-2.224 4.328h13.042zM225.731 42.704v37.542H218.2V55.828l-10.059 24.418h-5.7L192.33 55.828v24.418h-7.531V42.704h8.552l11.942 27.914 11.938-27.914h8.5M259.1 59.97q-1.425 2.636-4.465 4.248c-2.028 1.076-4.58 1.614-7.666 1.614h-6.293v14.414h-7.531V42.704h13.821c2.903 0 5.379.504 7.42 1.507q3.066 1.507 4.597 4.142 1.533 2.637 1.535 5.968 0 3.01-1.425 5.649zm-7.824-1.642q1.507-1.424 1.507-4.007-.001-5.486-6.131-5.486h-5.969v10.918h5.969q3.119 0 4.624-1.425M291.801 59.97q-1.426 2.636-4.466 4.248c-2.027 1.076-4.579 1.614-7.665 1.614h-6.293v14.414h-7.532V42.704h13.821q4.358.001 7.421 1.507 3.066 1.507 4.6 4.142 1.533 2.637 1.535 5.968-.001 3.01-1.424 5.649zm-7.824-1.642q1.506-1.424 1.507-4.007-.001-5.486-6.131-5.486h-5.97v10.918h5.97q3.118 0 4.624-1.425"
-  }))), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
+  }))), _defs$1 || (_defs$1 = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
     id: "sco_yellow_logo_blue_text_svg__b",
     x1: 34.332,
     x2: 135.614,
@@ -402,6 +402,131 @@ const ScoColors = {
     gradientPepsReverse: 'var(--gradient_peps_reverse)',
 };
 
+var _path$5;
+function _extends$6() { return _extends$6 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$6.apply(null, arguments); }
+var SvgPen = function SvgPen(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends$6({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 18,
+    height: 18,
+    fill: "none"
+  }, props), _path$5 || (_path$5 = /*#__PURE__*/React.createElement("path", {
+    fill: "#2C2C69",
+    d: "M-.003 14.251v3.75h3.75l11.06-11.06-3.75-3.75zm17.71-10.21a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83 3.75 3.75z"
+  })));
+};
+
+var _path$4, _path2$1;
+function _extends$5() { return _extends$5 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$5.apply(null, arguments); }
+var SvgLogoBlue = function SvgLogoBlue(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends$5({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 30,
+    height: 30,
+    fill: "none"
+  }, props), _path$4 || (_path$4 = /*#__PURE__*/React.createElement("path", {
+    fill: "currentColor",
+    d: "M15 3a12 12 0 1 0 0 24 12 12 0 0 0 0-24m0 21.884A9.883 9.883 0 1 1 24.884 15 9.894 9.894 0 0 1 15 24.884"
+  })), _path2$1 || (_path2$1 = /*#__PURE__*/React.createElement("path", {
+    fill: "currentColor",
+    d: "M19.929 10.315a2.678 2.678 0 1 0 0 5.356 2.678 2.678 0 0 0 0-5.356m.721 2.623a1.011 1.011 0 1 1 0-2.023 1.011 1.011 0 0 1 0 2.023M9.382 12.997a2.679 2.679 0 1 0 0 5.358 2.679 2.679 0 0 0 0-5.358m.721 2.623a1.01 1.01 0 1 1 0-2.022 1.01 1.01 0 0 1 0 2.022"
+  })));
+};
+
+var _path$3;
+function _extends$4() { return _extends$4 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$4.apply(null, arguments); }
+var SvgGraph = function SvgGraph(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends$4({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 20,
+    height: 21,
+    fill: "none"
+  }, props), _path$3 || (_path$3 = /*#__PURE__*/React.createElement("path", {
+    fill: "#2C2C69",
+    d: "M2.292 18.273a.607.607 0 0 1-.625-.625v-8.75a.607.607 0 0 1 .625-.625h2.916a.607.607 0 0 1 .625.625v8.75a.607.607 0 0 1-.625.625zm6.25 0a.607.607 0 0 1-.625-.625V3.898a.607.607 0 0 1 .625-.625h2.916a.607.607 0 0 1 .625.625v13.75a.607.607 0 0 1-.625.625zm6.25 0a.607.607 0 0 1-.625-.625v-7.083a.607.607 0 0 1 .625-.625h2.916a.607.607 0 0 1 .625.625v7.083a.607.607 0 0 1-.625.625z"
+  })));
+};
+
+var _path$2;
+function _extends$3() { return _extends$3 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$3.apply(null, arguments); }
+var SvgHelp = function SvgHelp(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends$3({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 20,
+    height: 21,
+    fill: "current"
+  }, props), _path$2 || (_path$2 = /*#__PURE__*/React.createElement("path", {
+    d: "M10.083 15.628q.334 0 .563-.23a.76.76 0 0 0 .23-.562.77.77 0 0 0-.23-.562.77.77 0 0 0-.563-.23.77.77 0 0 0-.562.23.77.77 0 0 0-.23.562q0 .333.23.563.23.228.562.229m-.02-8.604q.708 0 1.145.385t.438.99q0 .416-.25.823t-.813.885q-.54.48-.864 1.01-.323.532-.323.97 0 .228.177.364a.65.65 0 0 0 .406.135.56.56 0 0 0 .417-.167.75.75 0 0 0 .208-.416q.063-.417.282-.74t.677-.698q.624-.52.906-1.041.28-.521.281-1.167 0-1.104-.719-1.77-.718-.668-1.906-.668-.792 0-1.458.313a2.8 2.8 0 0 0-1.104.917.64.64 0 0 0-.136.468q.031.24.198.365a.57.57 0 0 0 .49.104.73.73 0 0 0 .427-.292q.271-.375.656-.572.385-.198.865-.198M10 19.107a8.4 8.4 0 0 1-3.27-.635 8.1 8.1 0 0 1-2.647-1.76 8.3 8.3 0 0 1-1.77-2.647q-.646-1.52-.646-3.291a8.3 8.3 0 0 1 .646-3.271 8.3 8.3 0 0 1 1.77-2.646 8.3 8.3 0 0 1 2.646-1.77A8.3 8.3 0 0 1 10 2.44q1.73 0 3.25.646a8.3 8.3 0 0 1 2.646 1.771 8.4 8.4 0 0 1 1.781 2.646 8.2 8.2 0 0 1 .656 3.27q0 1.771-.656 3.292a8.4 8.4 0 0 1-1.781 2.646 8.1 8.1 0 0 1-2.646 1.76 8.35 8.35 0 0 1-3.25.636"
+  })));
+};
+
+var _path$1;
+function _extends$2() { return _extends$2 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$2.apply(null, arguments); }
+var SvgMap = function SvgMap(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends$2({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 18,
+    height: 19,
+    fill: "#00008b"
+  }, props), _path$1 || (_path$1 = /*#__PURE__*/React.createElement("path", {
+    d: "m17.5.773-.16.03L12 2.873l-6-2.1-5.64 1.9c-.21.07-.36.25-.36.48v15.12c0 .28.22.5.5.5l.16-.03L6 16.673l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V1.273c0-.28-.22-.5-.5-.5M7 3.243l4 1.4v11.66l-4-1.4zm-5 .99 3-1.01v11.7l-3 1.16zm14 11.08-3 1.01V4.633l3-1.16z"
+  })));
+};
+
+var _g, _defs;
+function _extends$1() { return _extends$1 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$1.apply(null, arguments); }
+var SvgRessources = function SvgRessources(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends$1({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 20,
+    height: 21,
+    fill: "none"
+  }, props), _g || (_g = /*#__PURE__*/React.createElement("g", {
+    clipPath: "url(#ressources_svg__a)"
+  }, /*#__PURE__*/React.createElement("path", {
+    fill: "#999",
+    d: "M15.833 16.607H4.167V4.94H10V3.273H4.167c-.925 0-1.667.75-1.667 1.667v11.667c0 .916.742 1.666 1.667 1.666h11.666c.917 0 1.667-.75 1.667-1.666v-5.834h-1.667zM11.667 3.273V4.94h2.991l-8.191 8.192 1.175 1.175 8.191-8.192v2.992H17.5V3.273z"
+  }))), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
+    id: "ressources_svg__a"
+  }, /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M0 .773h20v20H0z"
+  })))));
+};
+
+var _path, _path2;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+var SvgTrophee = function SvgTrophee(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 20,
+    height: 21,
+    fill: "none"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    stroke: "#999",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: 2,
+    d: "M5.333 4.107v4.591c0 3.308 2.058 6.05 4.632 6.075a3.8 3.8 0 0 0 1.796-.443 4.8 4.8 0 0 0 1.526-1.298 6.3 6.3 0 0 0 1.021-1.952 7.5 7.5 0 0 0 .359-2.307V4.107a.77.77 0 0 0-.152-.472.47.47 0 0 0-.367-.195H5.852c-.138 0-.27.07-.367.195a.77.77 0 0 0-.152.472M7.708 18.273h4.584M10 15.148v3.125M14.667 10.107h.624c.542 0 1.061-.241 1.444-.67.383-.428.598-1.01.598-1.616V6.678a.6.6 0 0 0-.15-.404.49.49 0 0 0-.36-.167H14.78"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    stroke: "#999",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: 2,
+    d: "M5.333 10.107h-.639c-.538 0-1.053-.241-1.434-.67a2.44 2.44 0 0 1-.593-1.616V6.678a.6.6 0 0 1 .148-.404.48.48 0 0 1 .359-.167H5.2"
+  })));
+};
+
+const MppIcon = {
+    pen: SvgPen,
+    logo: SvgLogoBlue,
+    graph: SvgGraph,
+    help: SvgHelp,
+    map: SvgMap,
+    ressources: SvgRessources,
+    trophee: SvgTrophee,
+};
+
 var css_248z = ".ranking_card_background {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 11px 20px;\n  background-color: var(--white);\n  border-radius: 20px;\n  box-shadow: 0px 4px 20px var(--shadow_color);\n  margin-bottom: 10px;\n}\n\n.ranking_background {\n  border-radius: var(--standard_border_radius);\n  padding: 8px;\n  line-height: 1;\n}\n\n.flex_row {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n\n.content_background {\n  margin-left: 10px;\n}\n\n.sub_point_text {\n  color: var(--dark_grey);\n}\n";
 styleInject(css_248z);
 
@@ -429,4 +554,4 @@ const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, point
             React__default.createElement("p", { className: "sub_point_text text_small" }, subPointsText))));
 };
 
-export { ButtonType, MppButton, MppInputText, MppRankingCard, SvgRing as MppRound, ScoColors, SvgScoYellowLogoBlueText as ScoYellowLogo };
+export { ButtonType, MppButton, MppIcon, MppInputText, MppRankingCard, SvgRing as MppRound, ScoColors, SvgScoYellowLogoBlueText as ScoYellowLogo };
