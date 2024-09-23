@@ -5,7 +5,7 @@ interface PodiumStep {
     points: number;
     ranking: number;
     city?: string;
-    school?: string;
+    structure?: string;
 }
 interface MppPodiumProps {
     rankedElements: Array<PodiumStep>;
