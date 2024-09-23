@@ -45,7 +45,7 @@ const MppMenu: React.FC<MppMenuProps> = ({
         </div>
       </div>
       <div>
-        <MppIcons.map fill={ScoColors.error} />
+        <MppIcons.pen fill={ScoColors.error} />
         {menuType === MenuType.gpMenu ? 'ici selecteur de langue' : null}
         <p className="text_body text_color_grey">A propos de Mpp</p>
         <LinkComponent href={'./Logout'}>

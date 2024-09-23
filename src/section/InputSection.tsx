@@ -50,7 +50,7 @@ const InputDemo: React.FC = () => {
         value={inputDemoIcon}
         placeholder={'exemple icon'}
         onChange={handleChangeDemoIcon}
-        icon={MppIcons.ressources}
+        icon={MppIcons.pen}
         onClickIcon={handleIconClick}
       />
 
