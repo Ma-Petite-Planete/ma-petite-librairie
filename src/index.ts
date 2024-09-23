@@ -6,8 +6,6 @@ import { ReactComponent as ScoLogoOnly } from './ressources/logo/sco_logo_only_y
 import { ReactComponent as GpBlueLogo } from './ressources/logo/gp_blue_logo_blue_text.svg';
 import './mppStyle.css';
 
-export { React };
-
 export { MppButton, ButtonType } from './components/MppButton';
 export { default as MppInputText } from './components/MppInputText/MppInputText';
 export { ScoColors } from './utils/Mppcolors';
