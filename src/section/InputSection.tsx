@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import pen from '../ressources/icon/pen.svg';
+import pen from '../ressources/icons/pen.svg';
 import MppInputText from '../components/MppInputText/MppInputText';
 import React from 'react';
 

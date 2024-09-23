@@ -1,8 +1,8 @@
-import goldTrophee from '../../../ressources/icons/coupe_or.svg';
-import silverTrophee from '../../../ressources/icons/coupe_argent.svg';
-import bronzeTrophee from '../../../ressources/icons/coupe_bronze.svg';
+import goldTrophee from '../../ressources/icons/coupe_or.svg';
+import silverTrophee from '../../ressources/icons/coupe_argent.svg';
+import bronzeTrophee from '../../ressources/icons/coupe_bronze.svg';
 import './MppPodiumStep.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface MppPodiumStepProps {
   title: string;

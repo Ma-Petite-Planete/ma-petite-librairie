@@ -6,6 +6,12 @@ var white_logo_white_text = "ressources/logo/white_logo_white_text.svg";
 
 var logo_only_yellow = "ressources/logo/logo_only_yellow.svg";
 
+var goldTrophee = "ressources/logo/coupe_or.svg";
+
+var silverTrophee = "ressources/logo/coupe_argent.svg";
+
+var bronzeTrophee = "ressources/logo/coupe_bronze.svg";
+
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
   var insertAt = ref.insertAt;
@@ -264,12 +270,6 @@ const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, point
             React.createElement("p", { className: "sub_point_text text_small" }, subPointsText))));
 };
 
-var goldTrophee = "ressources/logo/coupe_or.svg";
-
-var silverTrophee = "ressources/logo/coupe_argent.svg";
-
-var bronzeTrophee = "ressources/logo/coupe_bronze.svg";
-
 var css_248z$1 = ".podium_step__container {\n  display: inline-block;\n  text-align: center;\n  width: 100%;\n}\n\n.podium_step__img {\n  width: 3.75rem;\n  margin-bottom: 1rem;\n}\n\n.podium_step__list {\n  color: var(--white);\n  margin-bottom: 0.3rem;\n}\n\n.podium_step__list--subtitle {\n  margin-bottom: 0.2rem;\n}\n\nul.podium_step__list > li:nth-child(1),\nul.podium_step__list > li:nth-child(3) {\n  margin-bottom: 0.3rem;\n}\n\n.podium_step_number__container {\n  border-top-left-radius: var(--standard_border_radius);\n  border-top-right-radius: var(--standard_border_radius);\n  padding-top: 0.4rem;\n  width: auto;\n  background-color: var(--white);\n}\n\n.podium_step_number__number {\n  padding: 0.1rem 0.5rem;\n  border-radius: var(--standard_border_radius);\n}\n";
 styleInject(css_248z$1);
 
@@ -304,4 +304,4 @@ const MppPodium = ({ rankedElements, typeOfPlayers, color, }) => {
     return (React.createElement("div", { className: "podium__container" }, rankedElements.map(({ name, points, ranking, city, structure }) => (React.createElement(MppPodiumStep, { subtitle: structure, subtitleBold: city, key: ranking, title: name, pointsNumber: points, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking })))));
 };
 
-export { ButtonType, MppButton, MppInputText, MppPodium, MppRankingCard, ScoColors, logo_only_yellow as scoLogoOnly, white_logo_white_text as scoWhiteLogo, yellow_logo_blue_text as scoYellowLogo };
+export { ButtonType, MppButton, MppInputText, MppPodium, MppRankingCard, ScoColors, bronzeTrophee as scoBronzeTrophee, goldTrophee as scoGoldTrophee, logo_only_yellow as scoLogoOnly, silverTrophee as scoSilverTrophee, white_logo_white_text as scoWhiteLogo, yellow_logo_blue_text as scoYellowLogo };
