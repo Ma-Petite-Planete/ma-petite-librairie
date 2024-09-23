@@ -3,7 +3,7 @@
 import React from 'react';
 import './mpp_menu.css';
 import { MenuType } from './MenuType';
-import { MppIcon } from '../../utils/MppIcons';
+import { MppIcons } from '../../utils/MppIcons';
 import { ScoColors } from '../../utils/Mppcolors';
 // import { gpBlueLogo, scoYellowLogo } from '../..';
 
@@ -45,7 +45,7 @@ const MppMenu: React.FC<MppMenuProps> = ({
         </div>
       </div>
       <div>
-        <MppIcon.map fill={ScoColors.error} />
+        <MppIcons.map fill={ScoColors.error} />
         {menuType === MenuType.gpMenu ? 'ici selecteur de langue' : null}
         <p className="text_body text_color_grey">A propos de Mpp</p>
         <LinkComponent href={'./Logout'}>

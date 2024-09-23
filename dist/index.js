@@ -581,7 +581,7 @@ var SvgTrophee = function SvgTrophee(props) {
   })));
 };
 
-const MppIcon = {
+const MppIcons = {
     pen: SvgPen,
     logo: SvgLogoBlue,
     graph: SvgGraph,
@@ -591,4 +591,4 @@ const MppIcon = {
     trophee: SvgTrophee,
 };
 
-export { ButtonType, SvgGpBlueLogoBlueText as GpBlueLogo, MppButton, MppIcon, MppInputText, MppRankingCard, ScoColors, SvgScoLogoOnlyYellow as ScoLogoOnly, SvgScoWhiteLogoWhiteText as ScoWhiteLogo, SvgScoYellowLogoBlueText as ScoYellowLogo };
+export { ButtonType, SvgGpBlueLogoBlueText as GpBlueLogo, MppButton, MppIcons, MppInputText, MppRankingCard, ScoColors, SvgScoLogoOnlyYellow as ScoLogoOnly, SvgScoWhiteLogoWhiteText as ScoWhiteLogo, SvgScoYellowLogoBlueText as ScoYellowLogo };

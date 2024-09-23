@@ -6,7 +6,7 @@ import { ReactComponent as map } from '../ressources/icon/map.svg';
 import { ReactComponent as ressources } from '../ressources/icon/ressources.svg';
 import { ReactComponent as trophee } from '../ressources/icon/trophee.svg';
 
-export const MppIcon = {
+export const MppIcons = {
   pen: pen,
   logo: logo,
   graph: graph,

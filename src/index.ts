@@ -9,4 +9,4 @@ export { default as MppInputText } from './components/MppInputText/MppInputText'
 export { ScoColors } from './utils/Mppcolors';
 export { ScoYellowLogo, ScoWhiteLogo, ScoLogoOnly, GpBlueLogo };
 export { default as MppRankingCard } from './components/MppRankingCard/MppRankingCard';
-export { MppIcon } from './utils/MppIcons';
+export { MppIcons } from './utils/MppIcons';

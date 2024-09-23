@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MppIcon } from '../utils/MppIcons';
+import { MppIcons } from '../utils/MppIcons';
 import MppInputText from '../components/MppInputText/MppInputText';
 import React from 'react';
 
@@ -50,7 +50,7 @@ const InputDemo: React.FC = () => {
         value={inputDemoIcon}
         placeholder={'exemple icon'}
         onChange={handleChangeDemoIcon}
-        icon={MppIcon.ressources}
+        icon={MppIcons.ressources}
         onClickIcon={handleIconClick}
       />
 

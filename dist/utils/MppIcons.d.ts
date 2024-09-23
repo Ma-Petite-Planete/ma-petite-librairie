@@ -1,5 +1,5 @@
 /// <reference types="react" />
-export declare const MppIcon: {
+export declare const MppIcons: {
     readonly pen: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly logo: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly graph: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
