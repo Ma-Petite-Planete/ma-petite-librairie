@@ -273,4 +273,4 @@ const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, point
             React__default.createElement("p", { className: "sub_point_text text_small" }, subPointsText))));
 };
 
-export { ButtonType, MppButton, MppInputText, MppRankingCard, SvgRing as Round, ScoColors };
+export { ButtonType, MppButton, MppInputText, MppRankingCard, SvgRing as MppRound, ScoColors };
