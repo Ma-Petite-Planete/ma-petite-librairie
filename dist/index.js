@@ -1,4 +1,5 @@
 import React$1, { useState, useEffect } from 'react';
+export { default as React } from 'react';
 
 var _g$2, _defs$4;
 function _extends$a() { return _extends$a = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$a.apply(null, arguments); }
