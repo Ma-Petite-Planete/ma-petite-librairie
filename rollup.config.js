@@ -15,13 +15,11 @@ export default {
   plugins: [
     typescript(),
     commonjs(),
-    svgr({
-      exportType: 'named', // Exporte les composants SVG avec un nom
-      svgProps: {
-        // Ici tu peux définir des propriétés par défaut pour les SVG
-      },
-    }),
     resolve(),
+    svgr({
+      exportType: 'named',
+      svgProps: {},
+    }),
     postcss(),
     babel({
       babelHelpers: 'bundled',
