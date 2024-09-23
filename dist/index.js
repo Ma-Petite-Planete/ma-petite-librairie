@@ -1,4 +1,4 @@
-import React$1, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 var _g$2, _defs$4;
 function _extends$a() { return _extends$a = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$a.apply(null, arguments); }
@@ -270,11 +270,11 @@ buttonType={ButtonType.primaryLarge}
 />
 */
 const MppButton = ({ title, onPress, buttonType, style = {}, hoverStyle = {}, activeStyle = {}, }) => {
-    const [hover, setHover] = React$1.useState(false);
-    const [active, setActive] = React$1.useState(false);
+    const [hover, setHover] = React.useState(false);
+    const [active, setActive] = React.useState(false);
     const isDisabled = onPress === null;
     const combinedStyle = Object.assign(Object.assign(Object.assign({}, style), (hover && !isDisabled ? hoverStyle : {})), (active && !isDisabled ? activeStyle : {}));
-    return (React$1.createElement("button", { className: `mpp_button  ${buttonType === ButtonType.primaryLarge
+    return (React.createElement("button", { className: `mpp_button  ${buttonType === ButtonType.primaryLarge
             ? 'button_large text_body_sb'
             : buttonType === ButtonType.primaryMedium
                 ? 'button_medium text_body'
@@ -400,11 +400,11 @@ const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false
             onClickIcon(inputValue);
         }
     };
-    return (React$1.createElement(React$1.Fragment, null,
-        React$1.createElement("div", { className: `mpp_input_container ${isFocused ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}` },
-            React$1.createElement("input", { type: "text", placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: "mpp_input" }),
-            (isFocused || inputValue) && Icon ? (React$1.createElement(Icon, { className: onClickIcon ? 'input_icon_pointer' : '', onClick: handleIconClick })) : needCounter ? (React$1.createElement("span", { className: `input_counter ${inputValue.length === maxCharacteres ? 'max_characteres' : ''}` }, `${inputValue.length}/${maxCharacteres}`)) : null),
-        errorMessages.length > 0 && inputValue && !isFirstEntry && (React$1.createElement("div", { className: "input_errors" }, errorMessages.map((error, index) => (React$1.createElement("p", { key: index, className: "input_error" }, error)))))));
+    return (React.createElement(React.Fragment, null,
+        React.createElement("div", { className: `mpp_input_container ${isFocused ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}` },
+            React.createElement("input", { type: "text", placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: "mpp_input" }),
+            (isFocused || inputValue) && Icon ? (React.createElement(Icon, { className: onClickIcon ? 'input_icon_pointer' : '', onClick: handleIconClick })) : needCounter ? (React.createElement("span", { className: `input_counter ${inputValue.length === maxCharacteres ? 'max_characteres' : ''}` }, `${inputValue.length}/${maxCharacteres}`)) : null),
+        errorMessages.length > 0 && inputValue && !isFirstEntry && (React.createElement("div", { className: "input_errors" }, errorMessages.map((error, index) => (React.createElement("p", { key: index, className: "input_error" }, error)))))));
 };
 
 const ScoColors = {
@@ -456,15 +456,15 @@ styleInject(css_248z);
       />
 */
 const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, pointsColor, rankingColorBackground, }) => {
-    return (React$1.createElement("div", { className: "ranking_card_background " },
-        React$1.createElement("div", { className: "flex_row" },
-            React$1.createElement("p", { className: "text_body_sb ranking_background", style: { backgroundColor: `${rankingColorBackground}` } }, ranking),
-            React$1.createElement("div", { className: "content_background" },
-                React$1.createElement("p", { className: "text_body_sb" }, title),
-                React$1.createElement("p", { className: "text_small" }, subtitle))),
-        React$1.createElement("div", { className: "points_background" },
-            React$1.createElement("p", { className: "text_body_sb", style: { color: `${pointsColor}` } }, points),
-            React$1.createElement("p", { className: "sub_point_text text_small" }, subPointsText))));
+    return (React.createElement("div", { className: "ranking_card_background " },
+        React.createElement("div", { className: "flex_row" },
+            React.createElement("p", { className: "text_body_sb ranking_background", style: { backgroundColor: `${rankingColorBackground}` } }, ranking),
+            React.createElement("div", { className: "content_background" },
+                React.createElement("p", { className: "text_body_sb" }, title),
+                React.createElement("p", { className: "text_small" }, subtitle))),
+        React.createElement("div", { className: "points_background" },
+            React.createElement("p", { className: "text_body_sb", style: { color: `${pointsColor}` } }, points),
+            React.createElement("p", { className: "sub_point_text text_small" }, subPointsText))));
 };
 
 var _path$5;
