@@ -8,7 +8,13 @@ import './mppStyle.css';
 export { MppButton, ButtonType } from './components/MppButton';
 export { default as MppInputText } from './components/MppInputText/MppInputText';
 export { ScoColors } from './utils/Mppcolors';
-export { scoYellowLogo, scoWhiteLogo, scoLogoOnly, scoGoldTrophee, scoSilverTrophee, scoBronzeTrophee };
+export {
+  scoYellowLogo,
+  scoWhiteLogo,
+  scoLogoOnly,
+  scoGoldTrophee,
+  scoSilverTrophee,
+  scoBronzeTrophee,
+};
 export { default as MppRankingCard } from './components/MppRankingCard/MppRankingCard';
 export { default as MppPodium } from './components/MppPodium/MppPodium';
-
