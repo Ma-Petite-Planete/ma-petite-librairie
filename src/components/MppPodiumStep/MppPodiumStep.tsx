@@ -1,8 +1,8 @@
-import goldTrophee from "../../ressources/icon/coupe_or.svg";
-import silverTrophee from "../../ressources/icon/coupe_argent.svg";
-import bronzeTrophee from "../../ressources/icon/coupe_bronze.svg";
-import "./MppPodiumStep.css";
-import React, { useState, useEffect } from "react";
+import goldTrophee from '../../ressources/icon/coupe_or.svg';
+import silverTrophee from '../../ressources/icon/coupe_argent.svg';
+import bronzeTrophee from '../../ressources/icon/coupe_bronze.svg';
+import './MppPodiumStep.css';
+import React, { useState, useEffect } from 'react';
 
 interface MppPodiumStepProps {
   title: string;
@@ -65,7 +65,7 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
       <div
         className="podium_step_number__container"
         style={{
-          height: `${ranking == 1 ? "4.6em" : ranking == 2 ? "3.4em" : "2.1em"}`,
+          height: `${ranking == 1 ? '4.6em' : ranking == 2 ? '3.4em' : '2.1em'}`,
         }}
       >
         <span

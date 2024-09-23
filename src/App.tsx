@@ -26,7 +26,7 @@ function App() {
         <MppButton
           title="Bouton d'action"
           onPress={() => {
-            console.log("Bouton cliqué!");
+            console.log('Bouton cliqué!');
           }}
           buttonType={ButtonType.primaryLarge}
         />
@@ -34,7 +34,7 @@ function App() {
           <MppButton
             title="Bouton d'action"
             onPress={() => {
-              console.log("Bouton cliqué!");
+              console.log('Bouton cliqué!');
             }}
             buttonType={ButtonType.primaryMedium}
           />
@@ -49,7 +49,7 @@ function App() {
         <MppButton
           title="Bouton d'action"
           onPress={() => {
-            console.log("Bouton cliqué!");
+            console.log('Bouton cliqué!');
           }}
           buttonType={ButtonType.secondaryLarge}
         />
@@ -57,7 +57,7 @@ function App() {
           <MppButton
             title="Bouton d'action"
             onPress={() => {
-              console.log("Bouton cliqué!");
+              console.log('Bouton cliqué!');
             }}
             buttonType={ButtonType.secondaryMedium}
           />
@@ -76,19 +76,19 @@ function App() {
         typeOfPlayers="élève"
         rankedElements={[
           {
-            name: "4èmeD",
+            name: '4èmeD',
             points: 3,
             ranking: 1,
-            school: "2cole des intellos",
-            city: "Lyon",
+            school: '2cole des intellos',
+            city: 'Lyon',
           },
           {
-            name: "4èmeB",
+            name: '4èmeB',
             points: 3,
             ranking: 2,
           },
           {
-            name: "4èmeA",
+            name: '4èmeA',
             points: 3,
             ranking: 3,
           },

@@ -1,6 +1,6 @@
-import React from "react";
-import MppPodiumStep from "../MppPodiumStep/MppPodiumStep";
-import "./MppPodium.css";
+import React from 'react';
+import MppPodiumStep from '../MppPodiumStep/MppPodiumStep';
+import './MppPodium.css';
 
 interface PodiumStep {
   name: string;
