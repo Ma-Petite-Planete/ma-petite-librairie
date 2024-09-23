@@ -95,3 +95,16 @@ body {
   font-weight: 400;
   font-size: 12px;
 }
+
+
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}

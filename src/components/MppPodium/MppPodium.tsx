@@ -7,7 +7,7 @@ interface PodiumStep {
   points: number;
   ranking: number;
   city?: string;
-  school?: string;
+  structure?: string;
 }
 interface MppPodiumProps {
   rankedElements: Array<PodiumStep>;
@@ -22,9 +22,9 @@ const MppPodium: React.FC<MppPodiumProps> = ({
 }) => {
   return (
     <div className="podium__container">
-      {rankedElements.map(({ name, points, ranking, city, school }) => (
+      {rankedElements.map(({ name, points, ranking, city, structure }) => (
         <MppPodiumStep
-          subtitle={school}
+          subtitle={structure}
           subtitleBold={city}
           key={ranking}
           title={name}
