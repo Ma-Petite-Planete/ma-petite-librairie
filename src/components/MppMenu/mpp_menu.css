@@ -1,0 +1,29 @@
+.menu_background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--white);
+  height: 100%;
+  width: 251px;
+  padding-top: 34px;
+  border-radius: var(--standard_border_radius);
+}
+
+.logo {
+  width: 80%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.text_color_grey {
+  color: var(--dark_grey);
+}
+
+.icon_color {
+  color: red;
+  fill: red;
+}

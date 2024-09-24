@@ -10,6 +10,7 @@ import MppRankingCard from './components/MppRankingCard/MppRankingCard';
 import { ScoColors } from './utils/Mppcolors';
 import MppPodium from './components/MppPodium/MppPodium';
 import { MppIcons } from './utils/MppIcons';
+import { MenuType, MppMenu } from './components/MppMenu';
 
 function App() {
   return (
@@ -124,6 +125,14 @@ function App() {
           subPointsText={'par élève'}
           pointsColor={ScoColors.mainYellow}
           rankingColorBackground={ScoColors.mainYellow}
+        />
+      </div>
+      <div style={{ height: '50vh' }}>
+        <MppMenu
+          logo={''}
+          navigationLinks={[]}
+          LinkComponent={'symbol'}
+          menuType={MenuType.scoMenu}
         />
       </div>
     </div>
