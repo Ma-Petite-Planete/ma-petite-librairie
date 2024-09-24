@@ -23,3 +23,4 @@ export {
 };
 export { default as MppRankingCard } from './components/MppRankingCard/MppRankingCard';
 export { default as MppPodium } from './components/MppPodium/MppPodium';
+export { default as MppEditionCard } from './components/MppCardEdition/MppCardEdition';
