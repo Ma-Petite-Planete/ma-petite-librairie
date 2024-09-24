@@ -10,6 +10,7 @@ import MppRankingCard from './components/MppRankingCard/MppRankingCard';
 import { ScoColors } from './utils/Mppcolors';
 import MppPodium from './components/MppPodium/MppPodium';
 import { MppIcons } from './utils/MppIcons';
+import MppCardEdition from './components/MppCardEdition/MppCardEdition';
 
 function App() {
   return (
@@ -107,7 +108,7 @@ function App() {
       />
       <h2>Ranking Card</h2>
       <div style={{ width: '651px' }}>
-        {/* <MppRankingCard
+        <MppRankingCard
           title={'Les pouleteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'}
           subtitle={'Collège Jean Rostand'}
           ranking={4}
@@ -124,10 +125,17 @@ function App() {
           subPointsText={'par élève'}
           pointsColor={ScoColors.mainYellow}
           rankingColorBackground={ScoColors.mainYellow}
-        /> */}
+        />
       </div>
       <h2>Carte edition</h2>
-      <MppCardEdition />
+      <MppCardEdition
+        displayDaysLeft={true}
+        backgroundColor={ScoColors.veryLightYellow}
+        textColor={ScoColors.darkBlue}
+        editionName={'Edition Automne 2024'}
+        startDate={'2024-02-13 08:57:38+00'}
+        endDate={'2024-02-27 08:57:49+00'}
+      />
     </div>
   );
 }

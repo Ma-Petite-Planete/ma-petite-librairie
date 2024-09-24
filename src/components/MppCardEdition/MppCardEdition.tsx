@@ -1,78 +1,97 @@
 import React from 'react';
 import './mpp_card_edition.css';
-import iconHistoryPink from '../../ressources/icons/history_pink.svg';
+import { MppIcons } from '../../utils/MppIcons';
+import { ScoColors } from '../../utils/Mppcolors';
 interface MppCardEditionProps {
-  backgroundColor: string;
-  textColor: string;
+  backgroundColor?: string;
+  textColor?: string;
   editionName: string;
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
+  displayDaysLeft: boolean;
 }
 
-const MppCardEdition: React.FC<MppCardEditionProps> = ({backgroundColor, textColor, editionName, startDate, endDate}) => {
-  function formaterDate(dateStr: string): string {
-    const options: Intl.DateTimeFormatOptions = {
+const MppCardEdition: React.FC<MppCardEditionProps> = ({
+  backgroundColor,
+  textColor,
+  editionName,
+  startDate,
+  endDate,
+  displayDaysLeft,
+}) => {
+  const formaterDate = (dateStr: string): string =>
+    new Date(dateStr).toLocaleDateString('fr-FR', {
       weekday: 'long',
       day: 'numeric',
       month: 'long',
       hour: 'numeric',
-    };
-    const date = new Date(dateStr);
-    return date.toLocaleDateString('fr-FR', options);
-  }
+    });
 
-  function getEditionMessage(startDate: Date, endDate: Date): string {
+  const getEditionMessage = (
+    startDateStr: string,
+    endDateStr: string
+  ): string => {
     const now = new Date();
+    const startDate = new Date(startDateStr);
+    const endDate = new Date(endDateStr);
+
     const oneMonthBeforeStart = new Date(startDate);
     oneMonthBeforeStart.setMonth(oneMonthBeforeStart.getMonth() - 1);
 
     const oneWeekBeforeEnd = new Date(endDate);
     oneWeekBeforeEnd.setDate(oneWeekBeforeEnd.getDate() - 7);
 
-    // Si la date actuelle est avant un mois avant le début de l'édition
     if (now < oneMonthBeforeStart) {
-      return ""; // Pas de message
+      return '';
     }
 
-    // Si la date actuelle est entre un mois avant et le début de l'édition
     if (now >= oneMonthBeforeStart && now < startDate) {
-      return "Le départ de l’édition approche !";
+      return 'Le départ de l’édition approche !';
     }
 
-    // Si l'édition est en cours mais pas dans la dernière semaine
     if (now >= startDate && now < oneWeekBeforeEnd) {
-      return "Edition en cours";
+      return 'Edition en cours';
     }
 
-    // Si l'édition est en cours pendant la dernière semaine
     if (now >= oneWeekBeforeEnd && now < endDate) {
-      const remainingDays = Math.ceil((endDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+      const remainingDays = Math.ceil(
+        (endDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)
+      );
       return `Il reste ${remainingDays} jours !`;
     }
 
-    // Si l'édition est terminée
     if (now >= endDate) {
-      return "L’édition est terminée";
+      return 'L’édition est terminée';
     }
 
-    return "";
-  }
+    return '';
+  };
 
   return (
-    <div className='card_edition__container'>
-      <div className='card_edition__infos'>
-
-          <p className='edition_infos__date text_body'>
-            <span className='edition_infos__name text_body_sb'>{editionName} - </span>
-            Du lundi 18 novembre 9h au lundi 9 décembre 20h</p>
-      </div>
-
-      <div className='card_edition__days'>
-      <img className='edition_days__icon' src={iconHistoryPink} alt='' />
-        <p className='card_edition__text'>
-          <p className='edition_days__details text_body_sb'>Il reste 7 jours !</p>
+    <div
+      style={{ backgroundColor: `${backgroundColor}` }}
+      className='card_edition__container'
+    >
+      <div style={{ color: `${textColor}` }} className='card_edition__infos'>
+        <p className='edition_infos__date text_body'>
+          <span className='edition_infos__name text_body_sb'>
+            {editionName} -{' '}
+          </span>
+          Du {formaterDate(startDate)} au {formaterDate(endDate)}
         </p>
       </div>
+
+      {displayDaysLeft ? (
+        <div className='card_edition__days'>
+          <MppIcons.history
+            fill={ScoColors.tonicViolet}
+            className='card_edition__icon'
+          />
+          <p className='edition_days__details text_body_sb'>
+            {getEditionMessage(startDate, endDate)}
+          </p>
+        </div>
+      ) : null}
     </div>
   );
 };

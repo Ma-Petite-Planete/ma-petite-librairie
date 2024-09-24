@@ -1,7 +1,7 @@
 .card_edition__container {
   display: flex;
   justify-content: space-between;
-  padding: .9rem 1.9rem;
+  padding: 0.8rem 1.25rem;
   align-items: center;
   background-color: var(--very_light_yellow);
   border-top-left-radius: var(--big_border_radius);
@@ -19,13 +19,16 @@
   color: var(--tonic_violet);
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
-  max-width: 5rem;
+  justify-content: flex-end;
 }
 
+.edition_days__details {
+  width: 60%;
+}
 
-.edition_days__icon {
-  fill: var(--tonic_violet);
+.card_edition__icon {
+  height: 24px;
+  width: 24px;
 }
 
 @media (min-width: 896px) {
@@ -36,5 +39,9 @@
 
   .card_edition__infos {
     width: auto;
+  }
+
+  .edition_days__details {
+    width: 100%;
   }
 }
