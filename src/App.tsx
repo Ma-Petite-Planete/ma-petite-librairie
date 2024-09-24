@@ -3,25 +3,35 @@ import { MppButton, ButtonType } from './components/MppButton';
 import MppTextStyle from './section/MppTextStyleSection/MppTextStyleSection';
 import InputDemo from './section/InputSection';
 import React from 'react';
-import yellowLogo from './ressources/logo/yellow_logo_blue_text.svg';
-import whiteLogo from './ressources/logo/white_logo_white_text.svg';
-import logoOnly from './ressources/logo/logo_only_yellow.svg';
+import { ReactComponent as YellowLogo } from './ressources/logo/sco_yellow_logo_blue_text.svg';
+import { ReactComponent as WhiteLogo } from './ressources/logo/sco_white_logo_white_text.svg';
+import { ReactComponent as LogoOnly } from './ressources/logo/sco_logo_only_yellow.svg';
 import MppRankingCard from './components/MppRankingCard/MppRankingCard';
 import { ScoColors } from './utils/Mppcolors';
 import MppPodium from './components/MppPodium/MppPodium';
-import MppCardEdition from './components/MppCardEdition/MppCardEdition';
+import { MppIcons } from './utils/MppIcons';
 
 function App() {
   return (
     <div className="main_background">
       <h2>Logo</h2>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <img src={yellowLogo} alt="" style={{ width: '460px' }} />
-        <img src={whiteLogo} alt="" style={{ width: '460px' }} />
-        <img src={logoOnly} alt="" style={{ width: '150px' }} />
+        <YellowLogo width={'460px'} />
+        <WhiteLogo width={'460px'} />
+        <LogoOnly width={'460px'} />
       </div>
       <h2>Type de Texte</h2>
       <MppTextStyle />
+      <h2>Icons</h2>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {Object.entries(MppIcons).map(([iconName, IconComponent]) => (
+          <div key={iconName} style={{ margin: '10px', textAlign: 'center' }}>
+            <IconComponent style={{ width: '50px', height: '50px' }} />
+            <p>{iconName}</p>
+          </div>
+        ))}
+      </div>
+
       <h2>Type de Bouton</h2>
       <div className="button_background">
         <MppButton

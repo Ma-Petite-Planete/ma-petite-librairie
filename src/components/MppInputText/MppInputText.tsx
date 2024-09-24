@@ -9,14 +9,13 @@ interface ValidationCondition {
 interface MppInputTextProps {
   placeholder: string;
   value: string;
-  iconUrl?: string;
+  icon?: React.FC<React.SVGProps<SVGSVGElement>>;
   needCounter?: boolean;
   maxCharacteres?: number;
   validationConditions?: Array<ValidationCondition>;
   onChange: (value: string, hasError: boolean) => void;
   onClickIcon?: (value: string) => void;
 }
-
 /**
  * Props pour le composant MppInputText.
  * @interface MppInputTextProps
@@ -80,7 +79,7 @@ interface MppInputTextProps {
  *         value={inputDemoIcon}
  *         placeholder="Exemple d'icône"
  *         onChange={handleChangeDemoIcon}
- *         iconUrl={pen}
+ *         iconUrl={MppIcons.pen}
  *         onClickIcon={handleIconClick}
  *       />
  *       <MppInputText
@@ -101,7 +100,7 @@ interface MppInputTextProps {
 const MppInputText: React.FC<MppInputTextProps> = ({
   placeholder,
   value = '',
-  iconUrl = '',
+  icon: Icon,
   needCounter = false,
   maxCharacteres,
   validationConditions = [],
@@ -162,11 +161,9 @@ const MppInputText: React.FC<MppInputTextProps> = ({
           onChange={handleChange}
           className="mpp_input"
         />
-        {(isFocused || inputValue) && iconUrl ? (
-          <img
-            src={iconUrl}
+        {(isFocused || inputValue) && Icon ? (
+          <Icon
             className={onClickIcon ? 'input_icon_pointer' : ''}
-            alt="iconInput"
             onClick={handleIconClick}
           />
         ) : needCounter ? (
