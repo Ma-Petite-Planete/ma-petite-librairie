@@ -127,12 +127,39 @@ function App() {
           rankingColorBackground={ScoColors.mainYellow}
         />
       </div>
-      <div style={{ height: '50vh' }}>
+      <div style={{ height: '90vh' }}>
         <MppMenu
           logo={''}
-          navigationLinks={[]}
+          navigationLinks={[
+            {
+              name: 'Tableau de bord',
+              icon: MppIcons.graph,
+              navigation: '/home',
+            },
+            {
+              name: 'Aide',
+              icon: MppIcons.help,
+              navigation: '/home',
+            },
+            {
+              name: 'Défis Territoire',
+              icon: MppIcons.map,
+              navigation: '/home',
+            },
+            {
+              name: 'Ressources',
+              icon: MppIcons.ressources,
+              navigation: '/home',
+            },
+            {
+              name: 'Classements',
+              icon: MppIcons.trophee,
+              navigation: '/home',
+            },
+          ]}
           LinkComponent={'symbol'}
           menuType={MenuType.scoMenu}
+          onLogout={() => console.log('suppr les comptes anonymes')}
         />
       </div>
     </div>
