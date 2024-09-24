@@ -133,8 +133,8 @@ function App() {
         backgroundColor={ScoColors.veryLightYellow}
         textColor={ScoColors.darkBlue}
         editionName={'Edition Automne 2024'}
-        startDate={'2024-02-13 08:57:38+00'}
-        endDate={'2024-02-27 08:57:49+00'}
+        startDate={'2024-02-12 08:57:38+00'}
+        endDate={'2024-03-03 08:57:49+00'}
       />
     </div>
   );

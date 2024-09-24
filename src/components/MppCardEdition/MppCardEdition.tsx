@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './mpp_card_edition.css';
 import { MppIcons } from '../../utils/MppIcons';
 import { ScoColors } from '../../utils/Mppcolors';
+
 interface MppCardEditionProps {
   backgroundColor?: string;
   textColor?: string;
@@ -11,6 +12,30 @@ interface MppCardEditionProps {
   displayDaysLeft: boolean;
 }
 
+/**
+ * @interface MppCardEditionProps
+ * @property {string} backgroundColor - Couleur de fond.
+ * @property {string} textColor - Couleur des textes.
+ * @property {string} editionName - Nom de l'édition.
+ * @property {string} startDate - Date de début de l'édition.
+ * @property {string} endDate - Date de fin de l'édition.
+ * @property {boolean} displayDaysLeft - Booléen pour afficher ou pas le message.
+ *
+ * Composant d'affichage des dates de début et de fin d'édition et, côté scolaire, affichage d'un message en fonction de la date du jour
+ *
+ * @example
+ * ````
+ * <MppCardEdition
+        displayDaysLeft={true}
+        backgroundColor={ScoColors.veryLightYellow}
+        textColor={ScoColors.darkBlue}
+        editionName={'Edition Automne 2024'}
+        startDate={'2024-02-12 08:57:38+00'}
+        endDate={'2024-03-03 08:57:49+00'}
+      />
+ * ````
+ */
+
 const MppCardEdition: React.FC<MppCardEditionProps> = ({
   backgroundColor,
   textColor,
@@ -19,6 +44,7 @@ const MppCardEdition: React.FC<MppCardEditionProps> = ({
   endDate,
   displayDaysLeft,
 }) => {
+
   const formaterDate = (dateStr: string): string =>
     new Date(dateStr).toLocaleDateString('fr-FR', {
       weekday: 'long',
@@ -67,6 +93,16 @@ const MppCardEdition: React.FC<MppCardEditionProps> = ({
     return '';
   };
 
+  const [editionStartdate, setEditionStartdate] = React.useState(formaterDate(startDate));
+  const [editionEnddate, setEditionEnddate] = React.useState(formaterDate(endDate));
+  const [editionMessage, setEditionMessage] = React.useState(getEditionMessage(startDate, endDate));
+
+  useEffect(() => {
+    setEditionStartdate(formaterDate(startDate));
+    setEditionEnddate(formaterDate(endDate));
+    setEditionMessage(getEditionMessage(startDate, endDate));
+  }, [startDate, endDate]);
+
   return (
     <div
       style={{ backgroundColor: `${backgroundColor}` }}
@@ -77,18 +113,18 @@ const MppCardEdition: React.FC<MppCardEditionProps> = ({
           <span className='edition_infos__name text_body_sb'>
             {editionName} -{' '}
           </span>
-          Du {formaterDate(startDate)} au {formaterDate(endDate)}
+          Du {editionStartdate} au {editionEnddate}
         </p>
       </div>
 
-      {displayDaysLeft ? (
+      {displayDaysLeft && editionMessage ? (
         <div className='card_edition__days'>
           <MppIcons.history
             fill={ScoColors.tonicViolet}
             className='card_edition__icon'
           />
           <p className='edition_days__details text_body_sb'>
-            {getEditionMessage(startDate, endDate)}
+            {editionMessage}
           </p>
         </div>
       ) : null}
@@ -96,4 +132,8 @@ const MppCardEdition: React.FC<MppCardEditionProps> = ({
   );
 };
 
+
+
 export default MppCardEdition;
+
+
