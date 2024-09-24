@@ -8,7 +8,6 @@ import { ReactComponent as WhiteLogo } from './ressources/logo/sco_white_logo_wh
 import { ReactComponent as LogoOnly } from './ressources/logo/sco_logo_only_yellow.svg';
 import MppRankingCard from './components/MppRankingCard/MppRankingCard';
 import { ScoColors } from './utils/Mppcolors';
-import { MenuType, MppMenu } from './components/MppMenu';
 import MppPodium from './components/MppPodium/MppPodium';
 import { MppIcons } from './utils/MppIcons';
 
@@ -125,15 +124,6 @@ function App() {
           subPointsText={'par élève'}
           pointsColor={ScoColors.mainYellow}
           rankingColorBackground={ScoColors.mainYellow}
-        />
-      </div>
-      <h2>Menu</h2>
-      <div style={{ width: '100vw', height: '100vh' }}>
-        <MppMenu
-          logo={''}
-          navigationLinks={[]}
-          LinkComponent={'symbol'}
-          menuType={MenuType.scoMenu}
         />
       </div>
     </div>

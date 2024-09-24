@@ -76,7 +76,7 @@ interface MppInputTextProps {
  *         value={inputDemoIcon}
  *         placeholder="Exemple d'icône"
  *         onChange={handleChangeDemoIcon}
- *         iconUrl={pen}
+ *         iconUrl={MppIcons.pen}
  *         onClickIcon={handleIconClick}
  *       />
  *       <MppInputText
