@@ -17,7 +17,7 @@ export const MppIcons = {
   map: map,
   ressources: ressources,
   trophee: trophee,
-  goldTrophee: goldTrophee,
-  silverTrophee: silverTrophee,
-  bronzeTrophee: bronzeTrophee,
+  goldTrophee :goldTrophee,
+  silverTrophee :silverTrophee,
+  bronzeTrophee :bronzeTrophee
 } as const;

@@ -10,6 +10,7 @@ import MppRankingCard from './components/MppRankingCard/MppRankingCard';
 import { ScoColors } from './utils/Mppcolors';
 import { MenuType, MppMenu } from './components/MppMenu';
 import MppPodium from './components/MppPodium/MppPodium';
+import { MppIcons } from './utils/MppIcons';
 
 function App() {
   return (
@@ -22,6 +23,16 @@ function App() {
       </div>
       <h2>Type de Texte</h2>
       <MppTextStyle />
+      <h2>Icons</h2>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {Object.entries(MppIcons).map(([iconName, IconComponent]) => (
+          <div key={iconName} style={{ margin: '10px', textAlign: 'center' }}>
+            <IconComponent style={{ width: '50px', height: '50px' }} />
+            <p>{iconName}</p>
+          </div>
+        ))}
+      </div>
+
       <h2>Type de Bouton</h2>
       <div className="button_background">
         <MppButton
