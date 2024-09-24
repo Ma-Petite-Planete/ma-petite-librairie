@@ -9,7 +9,7 @@ interface ValidationCondition {
 interface MppInputTextProps {
   placeholder: string;
   value: string;
-  icon?: React.FC<React.SVGProps<SVGSVGElement>>; // Change ici
+  icon?: React.FC<React.SVGProps<SVGSVGElement>>;
   needCounter?: boolean;
   maxCharacteres?: number;
   validationConditions?: Array<ValidationCondition>;
@@ -79,7 +79,7 @@ interface MppInputTextProps {
  *         value={inputDemoIcon}
  *         placeholder="Exemple d'icône"
  *         onChange={handleChangeDemoIcon}
- *         iconUrl={pen}
+ *         iconUrl={MppIcons.pen}
  *         onClickIcon={handleIconClick}
  *       />
  *       <MppInputText
