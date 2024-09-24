@@ -419,11 +419,11 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$5 = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');\n/* Regular (400), Medium (500), Semi-Bold (600), Bold (700) */\n\n:root {\n  font-family: 'Poppins', sans-serif;\n  font-size: 16px;\n  font-weight: 400;\n  line-height: auto;\n  color: var(--dark_blue);\n\n  /* graphique chart mpp scolaire */\n  --error: red;\n  --white: #ffffff;\n  --main_yellow: #f9cf2f;\n  --light_yellow: #f9dc6c;\n  --very_light_yellow: #faf1c8;\n  --main_blue: #5fd3ac;\n  --light_blue: #cfeef4;\n  --dark_blue: #2c2c69;\n  --dark_blue_light: rgb(44, 44, 105, 0.8);\n  --dark_blue_very_light: rgb(44, 44, 105, 0.2);\n  --disable_dark_blue: #9595b4;\n  --tonic_violet: #b42ff5;\n  --pink: #f9c7e9;\n  --pastel_blue: #d0eff5;\n  --pastel_green: #c4e39a;\n  --pastel_violet: #dbd6ff;\n  --pastel_light_pink: #f9c7e9;\n  --pastel_dark_pink: #fab1bd;\n  --pastel_orange: #ffae92;\n  --pastel_dark_violet: #b1c5ff;\n  --pastel_turquoise: #7fd4b3;\n  --anthracite: #333333;\n  --dark_grey: #999999;\n  --medium_grey: #dadada;\n  --light_grey: #f4f4f4;\n  --utility_yellow: #e3ba1a;\n  --utility_green: #21be8b;\n  --green_background: #eefaf7;\n  --shadow_color: #0303841a;\n  --gradient_peps: linear-gradient(to right, #b42ff5, #cfeef4);\n  --gradient_peps_reverse: linear-gradient(to left, #b42ff5, #cfeef4);\n  --standard_border_radius: 8px;\n  --big_border_radius: 20px;\n}\n\np,\nspan {\n  margin: 0;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  background-color: var(--light_grey);\n}\n\n/* handle texte style */\n\n.title_h1 {\n  font-weight: 600;\n  font-size: 24px;\n}\n\n.title_h2 {\n  font-weight: 500;\n  font-size: 20px;\n}\n\n.title_h3 {\n  font-weight: 700;\n  font-size: 18px;\n}\n\n.subtitle {\n  font-weight: 500;\n}\n\n.text_body {\n  font-weight: 400;\n  font-size: 14px;\n}\n\n.text_body_sb {\n  font-weight: 600;\n  font-size: 14px;\n}\n\n.text_small_b {\n  font-weight: 700;\n  font-size: 12px;\n}\n\n.text_small {\n  font-weight: 400;\n  font-size: 12px;\n}\n\nli {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  line-height: 1;\n}\n\nul {\n  margin: 0;\n  padding: 0;\n}\n";
-styleInject(css_248z$5);
+var css_248z$6 = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');\n/* Regular (400), Medium (500), Semi-Bold (600), Bold (700) */\n\n:root {\n  font-family: 'Poppins', sans-serif;\n  font-size: 16px;\n  font-weight: 400;\n  line-height: auto;\n  color: var(--dark_blue);\n\n  /* graphique chart mpp scolaire */\n  --error: red;\n  --white: #ffffff;\n  --main_yellow: #f9cf2f;\n  --light_yellow: #f9dc6c;\n  --very_light_yellow: #faf1c8;\n  --main_blue: #5fd3ac;\n  --light_blue: #cfeef4;\n  --dark_blue: #2c2c69;\n  --dark_blue_light: rgb(44, 44, 105, 0.8);\n  --dark_blue_very_light: rgb(44, 44, 105, 0.2);\n  --disable_dark_blue: #9595b4;\n  --tonic_violet: #b42ff5;\n  --pink: #f9c7e9;\n  --pastel_blue: #d0eff5;\n  --pastel_green: #c4e39a;\n  --pastel_violet: #dbd6ff;\n  --pastel_light_pink: #f9c7e9;\n  --pastel_dark_pink: #fab1bd;\n  --pastel_orange: #ffae92;\n  --pastel_dark_violet: #b1c5ff;\n  --pastel_turquoise: #7fd4b3;\n  --anthracite: #333333;\n  --dark_grey: #999999;\n  --medium_grey: #dadada;\n  --light_grey: #f4f4f4;\n  --utility_yellow: #e3ba1a;\n  --utility_green: #21be8b;\n  --green_background: #eefaf7;\n  --shadow_color: #0303841a;\n  --gradient_peps: linear-gradient(to right, #b42ff5, #cfeef4);\n  --gradient_peps_reverse: linear-gradient(to left, #b42ff5, #cfeef4);\n  --standard_border_radius: 8px;\n  --big_border_radius: 20px;\n}\n\np,\nspan {\n  margin: 0;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  background-color: var(--light_grey);\n}\n\n/* handle texte style */\n\n.title_h1 {\n  font-weight: 600;\n  font-size: 24px;\n}\n\n.title_h2 {\n  font-weight: 500;\n  font-size: 20px;\n}\n\n.title_h3 {\n  font-weight: 700;\n  font-size: 18px;\n}\n\n.subtitle {\n  font-weight: 500;\n}\n\n.text_body {\n  font-weight: 400;\n  font-size: 14px;\n}\n\n.text_body_sb {\n  font-weight: 600;\n  font-size: 14px;\n}\n\n.text_small_b {\n  font-weight: 700;\n  font-size: 12px;\n}\n\n.text_small {\n  font-weight: 400;\n  font-size: 12px;\n}\n\nli {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  line-height: 1;\n}\n\nul {\n  margin: 0;\n  padding: 0;\n}\n";
+styleInject(css_248z$6);
 
-var css_248z$4 = ".mpp_button {\n  background-color: var(--dark_blue);\n  color: var(--white);\n  border: none;\n  border-radius: var(--standard_border_radius);\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n\n.mpp_button:hover {\n  background-color: var(--dark_blue_light);\n}\n\n.secondary_type:hover {\n  background-color: var(--dark_blue_very_light);\n}\n\n.mpp_button:disabled {\n  background-color: var(--disable_dark_blue);\n  cursor: not-allowed;\n}\n\n.button_large {\n  padding: 12px 40px;\n}\n\n.button_medium {\n  padding: 8px 32px;\n}\n\n.secondary_type {\n  background-color: var(--white);\n  color: var(--dark_blue);\n  border: 2px solid var(--dark_blue);\n}\n\n.secondary_type:disabled {\n  color: var(--disable_dark_blue);\n  background-color: var(--white);\n  border: 2px solid var(--disable_dark_blue);\n}\n";
-styleInject(css_248z$4);
+var css_248z$5 = ".mpp_button {\n  background-color: var(--dark_blue);\n  color: var(--white);\n  border: none;\n  border-radius: var(--standard_border_radius);\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n\n.mpp_button:hover {\n  background-color: var(--dark_blue_light);\n}\n\n.secondary_type:hover {\n  background-color: var(--dark_blue_very_light);\n}\n\n.mpp_button:disabled {\n  background-color: var(--disable_dark_blue);\n  cursor: not-allowed;\n}\n\n.button_large {\n  padding: 12px 40px;\n}\n\n.button_medium {\n  padding: 8px 32px;\n}\n\n.secondary_type {\n  background-color: var(--white);\n  color: var(--dark_blue);\n  border: 2px solid var(--dark_blue);\n}\n\n.secondary_type:disabled {\n  color: var(--disable_dark_blue);\n  background-color: var(--white);\n  border: 2px solid var(--disable_dark_blue);\n}\n";
+styleInject(css_248z$5);
 
 var ButtonType;
 (function (ButtonType) {
@@ -466,8 +466,8 @@ const MppButton = ({ title, onPress, buttonType, style = {}, hoverStyle = {}, ac
                     : 'secondary_type button_medium text_body'}`, style: combinedStyle, onClick: !isDisabled ? onPress : undefined, onMouseEnter: () => !isDisabled && setHover(true), onMouseLeave: () => !isDisabled && setHover(false), onMouseDown: () => !isDisabled && setActive(true), onMouseUp: () => !isDisabled && setActive(false), disabled: isDisabled }, title));
 };
 
-var css_248z$3 = ".mpp_input_container {\n  display: flex;\n  margin: 10px 0;\n  gap: 17px;\n  padding: 16px;\n  border: 2px solid var(--medium_grey);\n  border-radius: var(--standard_border_radius);\n}\n\n.mpp_input {\n  border: none;\n  width: 100%;\n  font-size: 16px;\n  outline: none;\n  transition: border-color 0.3s ease;\n  background-color: transparent;\n}\n\n.focused {\n  border-color: var(--dark_blue);\n}\n\n.max_characteres {\n  color: var(--dark_blue) !important;\n}\n\n.error {\n  border-color: var(--error);\n}\n\n.input_error {\n  color: var(--error);\n  font-size: 12px;\n  margin-top: 5px;\n}\n\n.input_counter {\n  color: var(--medium_grey);\n}\n\n.input_icon_pointer {\n  cursor: pointer;\n}\n";
-styleInject(css_248z$3);
+var css_248z$4 = ".mpp_input_container {\n  display: flex;\n  margin: 10px 0;\n  gap: 17px;\n  padding: 16px;\n  border: 2px solid var(--medium_grey);\n  border-radius: var(--standard_border_radius);\n}\n\n.mpp_input {\n  border: none;\n  width: 100%;\n  font-size: 16px;\n  outline: none;\n  transition: border-color 0.3s ease;\n  background-color: transparent;\n}\n\n.focused {\n  border-color: var(--dark_blue);\n}\n\n.max_characteres {\n  color: var(--dark_blue) !important;\n}\n\n.error {\n  border-color: var(--error);\n}\n\n.input_error {\n  color: var(--error);\n  font-size: 12px;\n  margin-top: 5px;\n}\n\n.input_counter {\n  color: var(--medium_grey);\n}\n\n.input_icon_pointer {\n  cursor: pointer;\n}\n";
+styleInject(css_248z$4);
 
 /**
  * Props pour le composant MppInputText.
@@ -780,8 +780,8 @@ const MppIcons = {
     history: SvgHistoryPink,
 };
 
-var css_248z$2 = ".ranking_card_background {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 11px 20px;\n  background-color: var(--white);\n  border-radius: 20px;\n  box-shadow: 0px 4px 20px var(--shadow_color);\n  margin-bottom: 10px;\n}\n\n.ranking_background {\n  border-radius: var(--standard_border_radius);\n  padding: 8px;\n  line-height: 1;\n}\n\n.flex_row {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n\n.content_background {\n  margin-left: 10px;\n}\n\n.sub_point_text {\n  color: var(--dark_grey);\n}\n";
-styleInject(css_248z$2);
+var css_248z$3 = ".ranking_card_background {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 11px 20px;\n  background-color: var(--white);\n  border-radius: 20px;\n  box-shadow: 0px 4px 20px var(--shadow_color);\n  margin-bottom: 10px;\n}\n\n.ranking_background {\n  border-radius: var(--standard_border_radius);\n  padding: 8px;\n  line-height: 1;\n}\n\n.flex_row {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n\n.content_background {\n  margin-left: 10px;\n}\n\n.sub_point_text {\n  color: var(--dark_grey);\n}\n";
+styleInject(css_248z$3);
 
 /**
 * @example
@@ -807,8 +807,8 @@ const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, point
             React__default.createElement("p", { className: "sub_point_text text_small" }, subPointsText))));
 };
 
-var css_248z$1 = ".podium_step__container {\n  display: inline-block;\n  text-align: center;\n  width: 100%;\n}\n\n.podium_step__content {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.podium_step__img {\n  width: 3.75rem;\n  margin-bottom: 1rem;\n}\n\n.podium_step__list {\n  color: var(--white);\n  margin-bottom: 0.3rem;\n}\n\n.podium_step__list--subtitle {\n  margin-bottom: 0.2rem;\n}\n\nul.podium_step__list > li:nth-child(1),\nul.podium_step__list > li:nth-child(3) {\n  margin-bottom: 0.3rem;\n}\n\n.podium_step_number__container {\n  border-top-left-radius: var(--standard_border_radius);\n  border-top-right-radius: var(--standard_border_radius);\n  padding-top: 0.4rem;\n  width: auto;\n  background-color: var(--white);\n}\n\n.podium_step_number__number {\n  padding: 0.1rem 0.5rem;\n  border-radius: var(--standard_border_radius);\n}\n";
-styleInject(css_248z$1);
+var css_248z$2 = ".podium_step__container {\n  display: inline-block;\n  text-align: center;\n  width: 100%;\n}\n\n.podium_step__content {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.podium_step__img {\n  width: 3.75rem;\n  margin-bottom: 1rem;\n}\n\n.podium_step__list {\n  color: var(--white);\n  margin-bottom: 0.3rem;\n}\n\n.podium_step__list--subtitle {\n  margin-bottom: 0.2rem;\n}\n\nul.podium_step__list > li:nth-child(1),\nul.podium_step__list > li:nth-child(3) {\n  margin-bottom: 0.3rem;\n}\n\n.podium_step_number__container {\n  border-top-left-radius: var(--standard_border_radius);\n  border-top-right-radius: var(--standard_border_radius);\n  padding-top: 0.4rem;\n  width: auto;\n  background-color: var(--white);\n}\n\n.podium_step_number__number {\n  padding: 0.1rem 0.5rem;\n  border-radius: var(--standard_border_radius);\n}\n";
+styleInject(css_248z$2);
 
 const MppPodiumStep = ({ title, subtitle, subtitleBold, pointsNumber, typeOfPlayer, color, ranking, }) => {
     return (React__default.createElement("div", { className: "podium_step__container" },
@@ -830,11 +830,94 @@ const MppPodiumStep = ({ title, subtitle, subtitleBold, pointsNumber, typeOfPlay
             React__default.createElement("span", { className: "podium_step_number__number text_body_sb", style: { backgroundColor: `${color}` } }, ranking))));
 };
 
-var css_248z = ".podium__container {\n  padding: 1.625rem 0.3rem 1.5rem 0.3rem;\n  display: flex;\n  align-items: flex-end;\n  max-width: 625px;\n  min-width: 361px;\n  background-color: var(--dark_blue_light);\n  border-radius: var(--big_border_radius);\n}\n\n.podium_step__container:nth-child(2) {\n  order: 1;\n}\n\n.podium_step__container:nth-child(1) {\n  margin: 0 0.3rem;\n  order: 2;\n}\n\n.podium_step__container:nth-child(3) {\n  order: 3;\n}\n\n@media (min-width: 896px) {\n  .podium__container {\n    padding: 4.5rem 6rem 2.5rem 6rem;\n  }\n}\n";
-styleInject(css_248z);
+var css_248z$1 = ".podium__container {\n  padding: 1.625rem 0.3rem 1.5rem 0.3rem;\n  display: flex;\n  align-items: flex-end;\n  max-width: 625px;\n  min-width: 361px;\n  background-color: var(--dark_blue_light);\n  border-radius: var(--big_border_radius);\n}\n\n.podium_step__container:nth-child(2) {\n  order: 1;\n}\n\n.podium_step__container:nth-child(1) {\n  margin: 0 0.3rem;\n  order: 2;\n}\n\n.podium_step__container:nth-child(3) {\n  order: 3;\n}\n\n@media (min-width: 896px) {\n  .podium__container {\n    padding: 4.5rem 6rem 2.5rem 6rem;\n  }\n}\n";
+styleInject(css_248z$1);
 
 const MppPodium = ({ rankedElements, typeOfPlayers, color, }) => {
     return (React__default.createElement("div", { className: "podium__container" }, rankedElements.map(({ name, points, ranking, city, structure }) => (React__default.createElement(MppPodiumStep, { subtitle: structure, subtitleBold: city, key: ranking, title: name, pointsNumber: points, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking })))));
 };
 
-export { ButtonType, SvgGpBlueLogoBlueText as GpBlueLogo, MppButton, MppIcons, MppInputText, MppPodium, MppRankingCard, ScoColors, SvgScoLogoOnlyYellow as ScoLogoOnly, SvgScoWhiteLogoWhiteText as ScoWhiteLogo, SvgScoYellowLogoBlueText as ScoYellowLogo, SvgCoupeBronze as scoBronzeTrophee, SvgCoupeOr as scoGoldTrophee, SvgCoupeArgent as scoSilverTrophee };
+var css_248z = ".card_edition__container {\n  display: flex;\n  justify-content: space-between;\n  padding: 0.8rem 1.25rem;\n  align-items: center;\n  background-color: var(--very_light_yellow);\n  border-top-left-radius: var(--big_border_radius);\n  border-bottom-left-radius: var(--big_border_radius);\n}\n\n.card_edition__infos {\n  margin-right: 16px;\n  display: flex;\n  width: 30%;\n  min-width: 11rem;\n}\n\n.card_edition__days {\n  color: var(--tonic_violet);\n  display: flex;\n  align-items: flex-start;\n  justify-content: flex-end;\n}\n\n.edition_days__details {\n  width: 60%;\n}\n\n.card_edition__icon {\n  height: 24px;\n  width: 24px;\n}\n\n@media (min-width: 896px) {\n  .card_edition__days {\n    align-items: center;\n    max-width: 100%;\n  }\n\n  .card_edition__infos {\n    width: auto;\n  }\n\n  .edition_days__details {\n    width: 100%;\n  }\n}\n";
+styleInject(css_248z);
+
+/**
+ * @interface MppCardEditionProps
+ * @property {string} backgroundColor - Couleur de fond.
+ * @property {string} textColor - Couleur des textes.
+ * @property {string} editionName - Nom de l'édition.
+ * @property {string} startDate - Date de début de l'édition.
+ * @property {string} endDate - Date de fin de l'édition.
+ * @property {boolean} displayDaysLeft - Booléen pour afficher ou pas le message.
+ *
+ * Composant d'affichage des dates de début et de fin d'édition et, côté scolaire, affichage d'un message en fonction de la date du jour
+ *
+ * @example
+ * ````
+ * <MppCardEdition
+        displayDaysLeft={true}
+        backgroundColor={ScoColors.veryLightYellow}
+        textColor={ScoColors.darkBlue}
+        editionName={'Edition Automne 2024'}
+        startDate={'2024-02-12 08:57:38+00'}
+        endDate={'2024-03-03 08:57:49+00'}
+      />
+ * ````
+ */
+const MppCardEdition = ({ backgroundColor, textColor, editionName, startDate, endDate, displayDaysLeft, }) => {
+    const formaterDate = (dateStr) => new Date(dateStr).toLocaleDateString('fr-FR', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        hour: 'numeric',
+    });
+    const getEditionMessage = (startDateStr, endDateStr) => {
+        const now = new Date();
+        const startDate = new Date(startDateStr);
+        const endDate = new Date(endDateStr);
+        const oneMonthBeforeStart = new Date(startDate);
+        oneMonthBeforeStart.setMonth(oneMonthBeforeStart.getMonth() - 1);
+        const oneWeekBeforeEnd = new Date(endDate);
+        oneWeekBeforeEnd.setDate(oneWeekBeforeEnd.getDate() - 7);
+        if (now < oneMonthBeforeStart) {
+            return '';
+        }
+        if (now >= oneMonthBeforeStart && now < startDate) {
+            return 'Le départ de l’édition approche !';
+        }
+        if (now >= startDate && now < oneWeekBeforeEnd) {
+            return 'Edition en cours';
+        }
+        if (now >= oneWeekBeforeEnd && now < endDate) {
+            const remainingDays = Math.ceil((endDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+            return `Il reste ${remainingDays} jours !`;
+        }
+        if (now >= endDate) {
+            return 'L’édition est terminée';
+        }
+        return '';
+    };
+    const [editionStartdate, setEditionStartdate] = React__default.useState(formaterDate(startDate));
+    const [editionEnddate, setEditionEnddate] = React__default.useState(formaterDate(endDate));
+    const [editionMessage, setEditionMessage] = React__default.useState(getEditionMessage(startDate, endDate));
+    useEffect(() => {
+        setEditionStartdate(formaterDate(startDate));
+        setEditionEnddate(formaterDate(endDate));
+        setEditionMessage(getEditionMessage(startDate, endDate));
+    }, [startDate, endDate]);
+    return (React__default.createElement("div", { style: { backgroundColor: `${backgroundColor}` }, className: 'card_edition__container' },
+        React__default.createElement("div", { style: { color: `${textColor}` }, className: 'card_edition__infos' },
+            React__default.createElement("p", { className: 'edition_infos__date text_body' },
+                React__default.createElement("span", { className: 'edition_infos__name text_body_sb' },
+                    editionName,
+                    " -",
+                    ' '),
+                "Du ",
+                editionStartdate,
+                " au ",
+                editionEnddate)),
+        displayDaysLeft && editionMessage ? (React__default.createElement("div", { className: 'card_edition__days' },
+            React__default.createElement(MppIcons.history, { fill: ScoColors.tonicViolet, className: 'card_edition__icon' }),
+            React__default.createElement("p", { className: 'edition_days__details text_body_sb' }, editionMessage))) : null));
+};
+
+export { ButtonType, SvgGpBlueLogoBlueText as GpBlueLogo, MppButton, MppCardEdition as MppEditionCard, MppIcons, MppInputText, MppPodium, MppRankingCard, ScoColors, SvgScoLogoOnlyYellow as ScoLogoOnly, SvgScoWhiteLogoWhiteText as ScoWhiteLogo, SvgScoYellowLogoBlueText as ScoYellowLogo, SvgCoupeBronze as scoBronzeTrophee, SvgCoupeOr as scoGoldTrophee, SvgCoupeArgent as scoSilverTrophee };
