@@ -29,6 +29,7 @@
 .card_edition__icon {
   height: 24px;
   width: 24px;
+  margin-right: .3rem;
 }
 
 @media (min-width: 896px) {
