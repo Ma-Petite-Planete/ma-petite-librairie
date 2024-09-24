@@ -7,4 +7,7 @@ export declare const MppIcons: {
     readonly map: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly ressources: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly trophee: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly goldTrophee: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly silverTrophee: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly bronzeTrophee: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
 };

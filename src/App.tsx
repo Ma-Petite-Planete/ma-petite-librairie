@@ -9,6 +9,7 @@ import { ReactComponent as LogoOnly } from './ressources/logo/sco_logo_only_yell
 import MppRankingCard from './components/MppRankingCard/MppRankingCard';
 import { ScoColors } from './utils/Mppcolors';
 import { MenuType, MppMenu } from './components/MppMenu';
+import MppPodium from './components/MppPodium/MppPodium';
 
 function App() {
   return (
@@ -70,6 +71,30 @@ function App() {
       </div>
       <h2>Input</h2>
       <InputDemo />
+      <h2>Trophés</h2>
+      <MppPodium
+        color={ScoColors.lightYellow}
+        typeOfPlayers="élève"
+        rankedElements={[
+          {
+            name: '4èmeD',
+            points: 3,
+            ranking: 1,
+            structure: '2cole des intellos',
+            city: 'Lyon',
+          },
+          {
+            name: '4èmeB',
+            points: 3,
+            ranking: 2,
+          },
+          {
+            name: '4èmeA',
+            points: 3,
+            ranking: 3,
+          },
+        ]}
+      />
       <h2>Ranking Card</h2>
       <div style={{ width: '651px' }}>
         <MppRankingCard
