@@ -1,8 +1,6 @@
-import goldTrophee from '../../../ressources/icons/coupe_or.svg';
-import silverTrophee from '../../../ressources/icons/coupe_argent.svg';
-import bronzeTrophee from '../../../ressources/icons/coupe_bronze.svg';
 import './MppPodiumStep.css';
 import React from 'react';
+import { MppIcons } from '../../../utils/MppIcons';
 
 interface MppPodiumStepProps {
   title: string;
@@ -26,17 +24,15 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
   return (
     <div className="podium_step__container">
       <div className="podium_step__content">
-        <img
-          src={
-            ranking == 1
-              ? goldTrophee
-              : ranking == 2
-                ? silverTrophee
-                : bronzeTrophee
-          }
-          alt="icone de coupe"
-          className="podium_step__img"
-        />
+        <div className="podium_step__img">
+          {ranking === 1 ? (
+            <MppIcons.goldTrophee />
+          ) : ranking === 2 ? (
+            <MppIcons.silverTrophee />
+          ) : (
+            <MppIcons.bronzeTrophee />
+          )}
+        </div>
         <ul className="podium_step__list">
           <li className="podium_step__list--title title_h3">{title}</li>
 
