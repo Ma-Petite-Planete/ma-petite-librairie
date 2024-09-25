@@ -154,9 +154,10 @@ function App() {
             {
               name: 'Classements',
               icon: MppIcons.trophee,
-              navigation: '/home',
+              navigation: '/tata',
             },
           ]}
+          actualPage="/tata"
           LinkComponent={'symbol'}
           menuType={MenuType.scoMenu}
           onLogout={() => console.log('suppr les comptes anonymes')}

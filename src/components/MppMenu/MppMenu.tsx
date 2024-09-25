@@ -15,6 +15,7 @@ interface MppMenuProps {
   LinkComponent: React.ElementType;
   menuType: MenuType;
   onLogout: () => void;
+  actualPage: string;
 }
 
 const MppMenu: React.FC<MppMenuProps> = ({
@@ -22,6 +23,7 @@ const MppMenu: React.FC<MppMenuProps> = ({
   LinkComponent,
   menuType,
   onLogout,
+  actualPage,
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -38,7 +40,10 @@ const MppMenu: React.FC<MppMenuProps> = ({
 
         <div className="navigation_background">
           {navigationLinks.map((navigationLink, index) => (
-            <div className="navigation_element" key={navigationLink.name}>
+            <div
+              className={`navigation_element ${actualPage.includes(navigationLink.navigation) ? 'actual_page' : ''}`}
+              key={navigationLink.name}
+            >
               <LinkComponent
                 href={navigationLink.navigation}
                 className="navigation_flex"
@@ -48,7 +53,10 @@ const MppMenu: React.FC<MppMenuProps> = ({
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   className={
-                    hoveredIndex === index ? 'text_body_sb' : 'text_body'
+                    hoveredIndex === index ||
+                    actualPage.includes(navigationLink.navigation)
+                      ? 'text_body_sb'
+                      : 'text_body'
                   }
                 >
                   {navigationLink.name}

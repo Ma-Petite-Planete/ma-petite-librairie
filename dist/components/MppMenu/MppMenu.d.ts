@@ -12,6 +12,7 @@ interface MppMenuProps {
     LinkComponent: React.ElementType;
     menuType: MenuType;
     onLogout: () => void;
+    actualPage: string;
 }
 declare const MppMenu: React.FC<MppMenuProps>;
 export default MppMenu;

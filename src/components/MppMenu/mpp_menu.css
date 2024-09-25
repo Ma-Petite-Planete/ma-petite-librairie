@@ -57,6 +57,11 @@
   fill: var(--dark_blue);
 }
 
+.actual_page {
+  color: var(--dark_blue);
+  fill: var(--dark_blue);
+}
+
 .bottom {
   margin-bottom: 26px;
 }
