@@ -129,12 +129,11 @@ function App() {
       </div>
       <h2>Carte edition</h2>
       <MppCardEdition
-        displayDaysLeft={true}
         backgroundColor={ScoColors.veryLightYellow}
         textColor={ScoColors.darkBlue}
         editionName={'Edition Automne 2024'}
-        startDate={'2024-02-12 08:57:38+00'}
-        endDate={'2024-03-03 08:57:49+00'}
+        editionDatesInfos='Du lundi 18 novembre 9h au lundi 9 décembre 20h'
+        editionMessage='Il reste 7 jours !'
       />
     </div>
   );
