@@ -4,16 +4,20 @@
   align-items: center;
   justify-content: space-between;
   background-color: var(--white);
+  width: 70vw;
   height: 100%;
-  width: 251px;
   padding-top: 25px;
   padding-bottom: 40px;
   border-radius: var(--standard_border_radius);
   box-shadow: 0px 4px 20px var(--shadow_color);
 }
 
+.logo_container {
+  width: 100%;
+}
+
 .logo {
-  width: 80%;
+  width: 100%;
   height: auto;
 }
 
@@ -55,4 +59,7 @@
 }
 
 @media (min-width: 896px) {
+  .menu_background {
+    width: 251px;
+  }
 }

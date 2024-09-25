@@ -28,11 +28,13 @@ const MppMenu: React.FC<MppMenuProps> = ({
   return (
     <div className="menu_background">
       <div className="center">
-        {menuType === MenuType.scoMenu ? (
-          <ScoYellowLogo className="logo" />
-        ) : (
-          <GpBlueLogo className="logo" />
-        )}
+        <div className="logo_container">
+          {menuType === MenuType.scoMenu ? (
+            <ScoYellowLogo className="logo" />
+          ) : (
+            <GpBlueLogo className="logo" />
+          )}
+        </div>
 
         <div className="navigation_background">
           {navigationLinks.map((navigationLink, index) => (
