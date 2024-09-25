@@ -7,7 +7,6 @@ interface NavigationLink {
     navigation: string;
 }
 interface MppMenuProps {
-    logo: string;
     navigationLinks: Array<NavigationLink>;
     LinkComponent: React.ElementType;
     menuType: MenuType;

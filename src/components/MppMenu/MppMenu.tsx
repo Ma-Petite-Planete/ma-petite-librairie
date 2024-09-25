@@ -10,7 +10,6 @@ interface NavigationLink {
 }
 
 interface MppMenuProps {
-  logo: string;
   navigationLinks: Array<NavigationLink>;
   LinkComponent: React.ElementType;
   menuType: MenuType;
@@ -26,6 +25,11 @@ const MppMenu: React.FC<MppMenuProps> = ({
   actualPage,
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  console.log(actualPage);
+  navigationLinks.map((navigationLink) =>
+    actualPage.includes(navigationLink.navigation)
+  );
 
   return (
     <div className="menu_background">

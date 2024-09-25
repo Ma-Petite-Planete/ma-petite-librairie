@@ -129,35 +129,34 @@ function App() {
       </div>
       <div style={{ height: '90vh' }}>
         <MppMenu
-          logo={''}
           navigationLinks={[
             {
               name: 'Tableau de bord',
               icon: MppIcons.graph,
-              navigation: '/home',
+              navigation: '/hmome',
             },
             {
               name: 'Aide',
               icon: MppIcons.help,
-              navigation: '/home',
+              navigation: '/hmome',
             },
             {
               name: 'Défis Territoire',
               icon: MppIcons.map,
-              navigation: '/home',
+              navigation: '/hmome',
             },
             {
               name: 'Ressources',
               icon: MppIcons.ressources,
-              navigation: '/home',
+              navigation: '/homme',
             },
             {
               name: 'Classements',
               icon: MppIcons.trophee,
-              navigation: '/tata',
+              navigation: '/homepage',
             },
           ]}
-          actualPage="/tata"
+          actualPage="/fr/homepage"
           LinkComponent={'symbol'}
           menuType={MenuType.scoMenu}
           onLogout={() => console.log('suppr les comptes anonymes')}

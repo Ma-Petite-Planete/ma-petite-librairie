@@ -847,6 +847,8 @@ var MenuType;
 
 const MppMenu = ({ navigationLinks, LinkComponent, menuType, onLogout, actualPage, }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
+    console.log(actualPage);
+    navigationLinks.map((navigationLink) => actualPage.includes(navigationLink.navigation));
     return (React__default.createElement("div", { className: "menu_background" },
         React__default.createElement("div", { className: "center" },
             React__default.createElement("div", { className: "logo_container" }, menuType === MenuType.scoMenu ? (React__default.createElement(SvgScoYellowLogoBlueText, { className: "logo" })) : (React__default.createElement(SvgGpBlueLogoBlueText, { className: "logo" }))),
