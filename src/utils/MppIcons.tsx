@@ -8,7 +8,7 @@ import { ReactComponent as trophee } from '../ressources/icons/trophee.svg';
 import { ReactComponent as goldTrophee } from '../ressources/icons/coupe_or.svg';
 import { ReactComponent as silverTrophee } from '../ressources/icons/coupe_argent.svg';
 import { ReactComponent as bronzeTrophee } from '../ressources/icons/coupe_bronze.svg';
-import { ReactComponent as history } from '../ressources/icons/history_pink.svg';
+import { ReactComponent as history } from '../ressources/icons/history.svg';
 
 export const MppIcons = {
   pen: pen,

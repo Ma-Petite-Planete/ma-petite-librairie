@@ -740,7 +740,7 @@ var SvgTrophee = function SvgTrophee(props) {
 
 var _path, _g;
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-var SvgHistoryPink = function SvgHistoryPink(props) {
+var SvgHistory = function SvgHistory(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({
     xmlns: "http://www.w3.org/2000/svg",
     width: 24,
@@ -748,7 +748,7 @@ var SvgHistoryPink = function SvgHistoryPink(props) {
     fill: "current",
     stroke: "current"
   }, props), /*#__PURE__*/React.createElement("mask", {
-    id: "history_pink_svg__a",
+    id: "history_svg__a",
     width: 24,
     height: 24,
     x: 0,
@@ -760,7 +760,7 @@ var SvgHistoryPink = function SvgHistoryPink(props) {
   }, _path || (_path = /*#__PURE__*/React.createElement("path", {
     d: "M0 0h24v24H0z"
   }))), _g || (_g = /*#__PURE__*/React.createElement("g", {
-    mask: "url(#history_pink_svg__a)"
+    mask: "url(#history_svg__a)"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M12 21q-3.15 0-5.575-1.913Q4 17.176 3.275 14.2a.74.74 0 0 1 .15-.687.97.97 0 0 1 .675-.363q.4-.05.725.15t.45.6q.6 2.25 2.475 3.675T12 19q2.925 0 4.962-2.038T19 12t-2.038-4.962T12 5a6.75 6.75 0 0 0-3.225.8A7.4 7.4 0 0 0 6.25 8H8q.424 0 .713.287Q9 8.576 9 9q0 .424-.287.713A.97.97 0 0 1 8 10H4a.97.97 0 0 1-.712-.287A.97.97 0 0 1 3 9V5q0-.424.288-.713A.97.97 0 0 1 4 4q.424 0 .713.287Q5 4.576 5 5v1.35a8.7 8.7 0 0 1 3.113-2.475A8.9 8.9 0 0 1 12 3q1.874 0 3.512.712a9.2 9.2 0 0 1 2.85 1.926 9.2 9.2 0 0 1 1.926 2.85A8.7 8.7 0 0 1 21 12q0 1.874-.712 3.512a9.2 9.2 0 0 1-1.925 2.85 9.2 9.2 0 0 1-2.85 1.926A8.7 8.7 0 0 1 12 21Zm1-9.4 2.5 2.5a.95.95 0 0 1 .275.7.95.95 0 0 1-.275.7.95.95 0 0 1-.7.275.95.95 0 0 1-.7-.275l-2.8-2.8a1 1 0 0 1-.225-.337 1 1 0 0 1-.075-.388V8q0-.424.287-.713A.97.97 0 0 1 12 7q.424 0 .713.287Q13 7.576 13 8z"
   }))));
@@ -777,7 +777,7 @@ const MppIcons = {
     goldTrophee: SvgCoupeOr,
     silverTrophee: SvgCoupeArgent,
     bronzeTrophee: SvgCoupeBronze,
-    history: SvgHistoryPink,
+    history: SvgHistory,
 };
 
 var css_248z$3 = ".ranking_card_background {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 11px 20px;\n  background-color: var(--white);\n  border-radius: 20px;\n  box-shadow: 0px 4px 20px var(--shadow_color);\n  margin-bottom: 10px;\n}\n\n.ranking_background {\n  border-radius: var(--standard_border_radius);\n  padding: 8px;\n  line-height: 1;\n}\n\n.flex_row {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n\n.content_background {\n  margin-left: 10px;\n}\n\n.sub_point_text {\n  color: var(--dark_grey);\n}\n";
