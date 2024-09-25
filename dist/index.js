@@ -839,17 +839,17 @@ const MppPodium = ({ rankedElements, typeOfPlayers, color, }) => {
 var css_248z = ".menu_background {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n  background-color: var(--white);\n  width: 70vw;\n  height: 100%;\n  border-radius: var(--standard_border_radius);\n  box-shadow: 0px 4px 20px var(--shadow_color);\n}\n\n.logo_container {\n  width: 80%;\n  margin-top: 16px;\n}\n\n.logo {\n  width: 100%;\n  height: auto;\n}\n\n.center {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n}\n\n.navigation_background {\n  display: flex;\n  flex-direction: column;\n  align-items: start;\n  width: 100%;\n  padding-left: 24px;\n  padding-top: 24px;\n}\n\n.icon {\n  width: 20px;\n  height: 20px;\n  padding-right: 12px;\n}\n\n.navigation_element {\n  margin-bottom: 16px;\n  color: var(--dark_grey);\n  fill: var(--dark_grey);\n}\n.navigation_flex {\n  display: flex;\n  flex-direction: row;\n}\n\n.navigation_element :hover {\n  cursor: pointer;\n  color: var(--dark_blue);\n  fill: var(--dark_blue);\n}\n\n.actual_page {\n  color: var(--dark_blue);\n  fill: var(--dark_blue);\n}\n\n.bottom {\n  margin-bottom: 26px;\n}\n\n@media (min-width: 896px) {\n  .menu_background {\n    width: 251px;\n    min-height: 100vh;\n  }\n}\n";
 styleInject(css_248z);
 
-var MenuType;
-(function (MenuType) {
-    MenuType[MenuType["scoMenu"] = 0] = "scoMenu";
-    MenuType[MenuType["gpMenu"] = 1] = "gpMenu";
-})(MenuType || (MenuType = {}));
+var BoType;
+(function (BoType) {
+    BoType[BoType["scoBO"] = 0] = "scoBO";
+    BoType[BoType["gpBo"] = 1] = "gpBo";
+})(BoType || (BoType = {}));
 
-const MppMenu = ({ navigationLinks, LinkComponent, menuType, onLogout, actualPage, }) => {
+const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage, }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     return (React__default.createElement("div", { className: "menu_background" },
         React__default.createElement("div", { className: "center" },
-            React__default.createElement("div", { className: "logo_container" }, menuType === MenuType.scoMenu ? (React__default.createElement(SvgScoYellowLogoBlueText, { className: "logo" })) : (React__default.createElement(SvgGpBlueLogoBlueText, { className: "logo" }))),
+            React__default.createElement("div", { className: "logo_container" }, boType === BoType.scoBO ? (React__default.createElement(SvgScoYellowLogoBlueText, { className: "logo" })) : (React__default.createElement(SvgGpBlueLogoBlueText, { className: "logo" }))),
             React__default.createElement("div", { className: "navigation_background" }, navigationLinks.map((navigationLink, index) => (React__default.createElement("div", { className: `navigation_element ${actualPage.includes(navigationLink.navigation) ? 'actual_page' : ''}`, key: navigationLink.name },
                 React__default.createElement(LinkComponent, { href: navigationLink.navigation, className: "navigation_flex" },
                     React__default.createElement(navigationLink.icon, { className: "icon" }),
@@ -858,7 +858,7 @@ const MppMenu = ({ navigationLinks, LinkComponent, menuType, onLogout, actualPag
                             ? 'text_body_sb'
                             : 'text_body' }, navigationLink.name))))))),
         React__default.createElement("div", { className: "navigation_background" },
-            menuType === MenuType.gpMenu ? 'ici selecteur de langue' : null,
+            boType === BoType.gpBo ? 'ici selecteur de langue' : null,
             React__default.createElement(LinkComponent, { className: "navigation_element", href: 'https://mapetiteplanete.org/' },
                 React__default.createElement("p", { className: "text_body" }, "A propos de Mpp")),
             React__default.createElement("div", { className: "navigation_element bottom" },
@@ -867,4 +867,4 @@ const MppMenu = ({ navigationLinks, LinkComponent, menuType, onLogout, actualPag
                     React__default.createElement("p", { className: "text_body_sb", onClick: onLogout }, "Se d\u00E9connecter"))))));
 };
 
-export { ButtonType, SvgGpBlueLogoBlueText as GpBlueLogo, MenuType, MppButton, MppIcons, MppInputText, MppMenu, MppPodium, MppRankingCard, ScoColors, SvgScoLogoOnlyYellow as ScoLogoOnly, SvgScoWhiteLogoWhiteText as ScoWhiteLogo, SvgScoYellowLogoBlueText as ScoYellowLogo, SvgCoupeBronze as scoBronzeTrophee, SvgCoupeOr as scoGoldTrophee, SvgCoupeArgent as scoSilverTrophee };
+export { BoType, ButtonType, SvgGpBlueLogoBlueText as GpBlueLogo, MppButton, MppIcons, MppInputText, MppMenu, MppPodium, MppRankingCard, ScoColors, SvgScoLogoOnlyYellow as ScoLogoOnly, SvgScoWhiteLogoWhiteText as ScoWhiteLogo, SvgScoYellowLogoBlueText as ScoYellowLogo, SvgCoupeBronze as scoBronzeTrophee, SvgCoupeOr as scoGoldTrophee, SvgCoupeArgent as scoSilverTrophee };

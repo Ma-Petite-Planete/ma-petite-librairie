@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './mpp_menu.css';
-import { MenuType } from './MenuType';
+import { BoType } from '../BoType';
 import { GpBlueLogo, MppIcons, ScoYellowLogo } from '../..';
 
 interface NavigationLink {
@@ -12,7 +12,7 @@ interface NavigationLink {
 interface MppMenuProps {
   navigationLinks: Array<NavigationLink>;
   LinkComponent: React.ElementType;
-  menuType: MenuType;
+  boType: BoType;
   onLogout: () => void;
   actualPage: string;
 }
@@ -20,7 +20,7 @@ interface MppMenuProps {
 const MppMenu: React.FC<MppMenuProps> = ({
   navigationLinks,
   LinkComponent,
-  menuType,
+  boType,
   onLogout,
   actualPage,
 }) => {
@@ -30,7 +30,7 @@ const MppMenu: React.FC<MppMenuProps> = ({
     <div className="menu_background">
       <div className="center">
         <div className="logo_container">
-          {menuType === MenuType.scoMenu ? (
+          {boType === BoType.scoBO ? (
             <ScoYellowLogo className="logo" />
           ) : (
             <GpBlueLogo className="logo" />
@@ -66,7 +66,7 @@ const MppMenu: React.FC<MppMenuProps> = ({
         </div>
       </div>
       <div className="navigation_background">
-        {menuType === MenuType.gpMenu ? 'ici selecteur de langue' : null}
+        {boType === BoType.gpBo ? 'ici selecteur de langue' : null}
         <LinkComponent
           className="navigation_element"
           href={'https://mapetiteplanete.org/'}

@@ -10,7 +10,8 @@ import MppRankingCard from './components/MppRankingCard/MppRankingCard';
 import { ScoColors } from './utils/Mppcolors';
 import MppPodium from './components/MppPodium/MppPodium';
 import { MppIcons } from './utils/MppIcons';
-import { MenuType, MppMenu } from './components/MppMenu';
+import MppMenu from './components/MppMenu/MppMenu';
+import { BoType } from './components/BoType';
 
 function App() {
   return (
@@ -158,7 +159,7 @@ function App() {
           ]}
           actualPage="/fr/homepage"
           LinkComponent={'symbol'}
-          menuType={MenuType.scoMenu}
+          boType={BoType.scoBO}
           onLogout={() => console.log('suppr les comptes anonymes')}
         />
       </div>

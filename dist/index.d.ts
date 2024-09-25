@@ -13,4 +13,5 @@ export { MppIcons } from './utils/MppIcons';
 export { ScoYellowLogo, ScoWhiteLogo, ScoLogoOnly, GpBlueLogo, scoGoldTrophee, scoSilverTrophee, scoBronzeTrophee, };
 export { default as MppRankingCard } from './components/MppRankingCard/MppRankingCard';
 export { default as MppPodium } from './components/MppPodium/MppPodium';
-export { MppMenu, MenuType } from './components/MppMenu';
+export { default as MppMenu } from './components/MppMenu/MppMenu';
+export { BoType } from './components/BoType';

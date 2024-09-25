@@ -1,6 +1,6 @@
 import React from 'react';
 import './mpp_menu.css';
-import { MenuType } from './MenuType';
+import { BoType } from '../BoType';
 interface NavigationLink {
     icon: React.FC<React.SVGProps<SVGSVGElement>>;
     name: string;
@@ -9,7 +9,7 @@ interface NavigationLink {
 interface MppMenuProps {
     navigationLinks: Array<NavigationLink>;
     LinkComponent: React.ElementType;
-    menuType: MenuType;
+    boType: BoType;
     onLogout: () => void;
     actualPage: string;
 }
