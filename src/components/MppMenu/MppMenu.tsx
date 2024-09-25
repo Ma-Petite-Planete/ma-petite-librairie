@@ -26,11 +26,6 @@ const MppMenu: React.FC<MppMenuProps> = ({
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  console.log(actualPage);
-  navigationLinks.map((navigationLink) =>
-    actualPage.includes(navigationLink.navigation)
-  );
-
   return (
     <div className="menu_background">
       <div className="center">
