@@ -10,6 +10,7 @@ import MppRankingCard from './components/MppRankingCard/MppRankingCard';
 import { ScoColors } from './utils/Mppcolors';
 import MppPodium from './components/MppPodium/MppPodium';
 import { MppIcons } from './utils/MppIcons';
+import MppCardEdition from './components/MppCardEdition/MppCardEdition';
 import MppMenu from './components/MppMenu/MppMenu';
 import { BoType } from './components/BoType';
 
@@ -128,6 +129,14 @@ function App() {
           rankingColorBackground={ScoColors.mainYellow}
         />
       </div>
+      <h2>Carte edition</h2>
+      <MppCardEdition
+        backgroundColor={ScoColors.veryLightYellow}
+        textColor={ScoColors.darkBlue}
+        editionName={'Edition Automne 2024'}
+        editionDatesInfos='Du lundi 18 novembre 9h au lundi 9 décembre 20h'
+        editionMessage='Il reste 7 jours !'
+      />
       <div style={{ height: '90vh' }}>
         <MppMenu
           navigationLinks={[
