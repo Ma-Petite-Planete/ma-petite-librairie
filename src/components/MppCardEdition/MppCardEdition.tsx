@@ -8,7 +8,7 @@ interface MppCardEditionProps {
   textColor?: string;
   editionName: string;
   editionDatesInfos: string;
-  editionMessage: string;
+  editionMessage?: string;
 }
 
 /**
