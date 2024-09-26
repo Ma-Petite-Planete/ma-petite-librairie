@@ -1,5 +1,5 @@
 import { ReactComponent as pen } from '../ressources/icons/pen.svg';
-import { ReactComponent as logo } from '../ressources/icons/logo_blue.svg';
+import { ReactComponent as logo } from '../ressources/icons/logo.svg';
 import { ReactComponent as graph } from '../ressources/icons/graph.svg';
 import { ReactComponent as help } from '../ressources/icons/help.svg';
 import { ReactComponent as map } from '../ressources/icons/map.svg';
@@ -9,6 +9,8 @@ import { ReactComponent as goldTrophee } from '../ressources/icons/coupe_or.svg'
 import { ReactComponent as silverTrophee } from '../ressources/icons/coupe_argent.svg';
 import { ReactComponent as bronzeTrophee } from '../ressources/icons/coupe_bronze.svg';
 import { ReactComponent as history } from '../ressources/icons/history.svg';
+import { ReactComponent as logOut } from '../ressources/icons/logout.svg';
+import { ReactComponent as burgerMenu } from '../ressources/icons/burgerMenu.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -22,4 +24,6 @@ export const MppIcons = {
   silverTrophee: silverTrophee,
   bronzeTrophee: bronzeTrophee,
   history: history,
+  logOut: logOut,
+  burgerMenu: burgerMenu,
 } as const;

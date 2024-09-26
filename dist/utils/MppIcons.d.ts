@@ -11,4 +11,6 @@ export declare const MppIcons: {
     readonly silverTrophee: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly bronzeTrophee: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly history: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly logOut: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly burgerMenu: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
 };

@@ -11,6 +11,8 @@ import { ScoColors } from './utils/Mppcolors';
 import MppPodium from './components/MppPodium/MppPodium';
 import { MppIcons } from './utils/MppIcons';
 import MppCardEdition from './components/MppCardEdition/MppCardEdition';
+import MppMenu from './components/MppMenu/MppMenu';
+import { BoType } from './components/BoType';
 
 function App() {
   return (
@@ -135,6 +137,41 @@ function App() {
         editionDatesInfos='Du lundi 18 novembre 9h au lundi 9 décembre 20h'
         editionMessage='Il reste 7 jours !'
       />
+      <div style={{ height: '90vh' }}>
+        <MppMenu
+          navigationLinks={[
+            {
+              name: 'Tableau de bord',
+              icon: MppIcons.graph,
+              navigation: '/hmome',
+            },
+            {
+              name: 'Aide',
+              icon: MppIcons.help,
+              navigation: '/hmome',
+            },
+            {
+              name: 'Défis Territoire',
+              icon: MppIcons.map,
+              navigation: '/hmome',
+            },
+            {
+              name: 'Ressources',
+              icon: MppIcons.ressources,
+              navigation: '/homme',
+            },
+            {
+              name: 'Classements',
+              icon: MppIcons.trophee,
+              navigation: '/homepage',
+            },
+          ]}
+          actualPage="/fr/homepage"
+          LinkComponent={'symbol'}
+          boType={BoType.scoBO}
+          onLogout={() => console.log('suppr les comptes anonymes')}
+        />
+      </div>
     </div>
   );
 }
