@@ -16,6 +16,7 @@ import { ReactComponent as WhiteLogo } from './ressources/logo/sco_white_logo_wh
 import { ReactComponent as LogoOnly } from './ressources/logo/sco_logo_only_yellow.svg';
 import { ScoColors } from './utils/Mppcolors';
 import { MppIcons } from './utils/MppIcons';
+import MppCardEdition from './components/MppCardEdition/MppCardEdition';
 
 function App() {
   return (
@@ -132,8 +133,15 @@ function App() {
           rankingColorBackground={ScoColors.mainYellow}
         />
       </div>
-      <h2>Menu</h2>
-      <div>
+      <h2>Carte edition</h2>
+      <MppCardEdition
+        backgroundColor={ScoColors.veryLightYellow}
+        textColor={ScoColors.darkBlue}
+        editionName={'Edition Automne 2024'}
+        editionDatesInfos='Du lundi 18 novembre 9h au lundi 9 décembre 20h'
+        editionMessage='Il reste 7 jours !'
+      />
+      <div style={{ height: '90vh' }}>
         <MppMenu
           navigationLinks={[
             {

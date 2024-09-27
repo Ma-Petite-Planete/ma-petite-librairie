@@ -8,6 +8,7 @@ import { ReactComponent as trophee } from '../ressources/icons/trophee.svg';
 import { ReactComponent as goldTrophee } from '../ressources/icons/coupe_or.svg';
 import { ReactComponent as silverTrophee } from '../ressources/icons/coupe_argent.svg';
 import { ReactComponent as bronzeTrophee } from '../ressources/icons/coupe_bronze.svg';
+import { ReactComponent as history } from '../ressources/icons/history.svg';
 import { ReactComponent as logOut } from '../ressources/icons/logout.svg';
 import { ReactComponent as burgerMenu } from '../ressources/icons/burgerMenu.svg';
 import { ReactComponent as training } from '../ressources/icons/training.svg';
@@ -31,6 +32,7 @@ export const MppIcons = {
   goldTrophee: goldTrophee,
   silverTrophee: silverTrophee,
   bronzeTrophee: bronzeTrophee,
+  history: history,
   logOut: logOut,
   burgerMenu: burgerMenu,
   training: training,
