@@ -1,17 +1,21 @@
 import './app.css';
+import React from 'react';
+
 import { MppButton, ButtonType } from './components/MppButton';
+import MppPodium from './components/MppPodium/MppPodium';
+import MppRankingCard from './components/MppRankingCard/MppRankingCard';
+import MppMenu from './components/MppMenu/MppMenu';
+import { BoType } from './components/BoType';
+import MppStatCard from './components/MppStatCard/MppStatCard';
+
 import MppTextStyle from './section/MppTextStyleSection/MppTextStyleSection';
 import InputDemo from './section/InputSection';
-import React from 'react';
+
 import { ReactComponent as YellowLogo } from './ressources/logo/sco_yellow_logo_blue_text.svg';
 import { ReactComponent as WhiteLogo } from './ressources/logo/sco_white_logo_white_text.svg';
 import { ReactComponent as LogoOnly } from './ressources/logo/sco_logo_only_yellow.svg';
-import MppRankingCard from './components/MppRankingCard/MppRankingCard';
 import { ScoColors } from './utils/Mppcolors';
-import MppPodium from './components/MppPodium/MppPodium';
 import { MppIcons } from './utils/MppIcons';
-import MppMenu from './components/MppMenu/MppMenu';
-import { BoType } from './components/BoType';
 
 function App() {
   return (
@@ -128,6 +132,7 @@ function App() {
           rankingColorBackground={ScoColors.mainYellow}
         />
       </div>
+      <h2>Menu</h2>
       <div style={{ height: '90vh' }}>
         <MppMenu
           navigationLinks={[
@@ -162,6 +167,33 @@ function App() {
           boType={BoType.scoBO}
           onLogout={() => console.log('suppr les comptes anonymes')}
         />
+
+        <h2>Stat Card</h2>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          {Object.entries(MppIcons)
+            .filter(([iconName]) =>
+              [
+                'training',
+                'users',
+                'target',
+                'chart',
+                'school',
+                'cloud',
+                'drops',
+                'trash',
+                'openBook',
+              ].includes(iconName)
+            )
+            .map(([iconName, IconComponent]) => (
+              <div key={iconName} style={{ margin: '10px' }}>
+                <MppStatCard
+                  title={iconName}
+                  IconComponent={IconComponent}
+                  stat={12}
+                />
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );

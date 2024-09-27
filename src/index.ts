@@ -24,4 +24,5 @@ export {
 export { default as MppRankingCard } from './components/MppRankingCard/MppRankingCard';
 export { default as MppPodium } from './components/MppPodium/MppPodium';
 export { default as MppMenu } from './components/MppMenu/MppMenu';
+export { default as MppStatCard } from './components/MppStatCard/MppStatCard';
 export { BoType } from './components/BoType';

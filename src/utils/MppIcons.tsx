@@ -10,6 +10,15 @@ import { ReactComponent as silverTrophee } from '../ressources/icons/coupe_argen
 import { ReactComponent as bronzeTrophee } from '../ressources/icons/coupe_bronze.svg';
 import { ReactComponent as logOut } from '../ressources/icons/logout.svg';
 import { ReactComponent as burgerMenu } from '../ressources/icons/burgerMenu.svg';
+import { ReactComponent as training } from '../ressources/icons/training.svg';
+import { ReactComponent as users } from '../ressources/icons/users.svg';
+import { ReactComponent as target } from '../ressources/icons/target.svg';
+import { ReactComponent as chart } from '../ressources/icons/chart.svg';
+import { ReactComponent as school } from '../ressources/icons/school.svg';
+import { ReactComponent as cloud } from '../ressources/icons/cloud.svg';
+import { ReactComponent as drops } from '../ressources/icons/drops.svg';
+import { ReactComponent as trash } from '../ressources/icons/trash.svg';
+import { ReactComponent as openBook } from '../ressources/icons/open_book.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -24,4 +33,13 @@ export const MppIcons = {
   bronzeTrophee: bronzeTrophee,
   logOut: logOut,
   burgerMenu: burgerMenu,
+  training: training,
+  users: users,
+  target: target,
+  chart: chart,
+  school: school,
+  cloud: cloud,
+  drops: drops,
+  trash: trash,
+  openBook: openBook,
 } as const;
