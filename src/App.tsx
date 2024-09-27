@@ -7,6 +7,7 @@ import MppRankingCard from './components/MppRankingCard/MppRankingCard';
 import MppMenu from './components/MppMenu/MppMenu';
 import { BoType } from './components/BoType';
 import MppStatCard from './components/MppStatCard/MppStatCard';
+import MppChallengeCard from './components/MppTopChallenges/MppChallengeCard/MppChallengeCard';
 
 import MppTextStyle from './section/MppTextStyleSection/MppTextStyleSection';
 import InputDemo from './section/InputSection';
@@ -194,6 +195,9 @@ function App() {
               </div>
             ))}
         </div>
+
+        <h2>Challenge Card</h2>
+          <MppChallengeCard/>
       </div>
     </div>
   );
