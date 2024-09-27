@@ -134,7 +134,7 @@ function App() {
         />
       </div>
       <h2>Menu</h2>
-      <div style={{ height: '90vh' }}>
+      <div>
         <MppMenu
           navigationLinks={[
             {
@@ -168,36 +168,49 @@ function App() {
           boType={BoType.scoBO}
           onLogout={() => console.log('suppr les comptes anonymes')}
         />
+      </div>
 
-        <h2>Stat Card</h2>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {Object.entries(MppIcons)
-            .filter(([iconName]) =>
-              [
-                'training',
-                'users',
-                'target',
-                'chart',
-                'school',
-                'cloud',
-                'drops',
-                'trash',
-                'openBook',
-              ].includes(iconName)
-            )
-            .map(([iconName, IconComponent]) => (
-              <div key={iconName} style={{ margin: '10px' }}>
-                <MppStatCard
-                  title={iconName}
-                  IconComponent={IconComponent}
-                  stat={12}
-                />
-              </div>
-            ))}
-        </div>
+      <h2>Stat Card</h2>
+      <MppStatCard
+        title={'Etablissements'}
+        IconComponent={MppIcons.training}
+        stat={39}
+      />
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {Object.entries(MppIcons)
+          .filter(([iconName]) =>
+            [
+              'training',
+              'users',
+              'target',
+              'chart',
+              'school',
+              'cloud',
+              'drops',
+              'trash',
+              'openBook',
+            ].includes(iconName)
+          )
+          .map(([iconName, IconComponent]) => (
+            <div key={iconName} style={{ margin: '10px 10px 0 0 ' }}>
+              <MppStatCard
+                title={iconName}
+                IconComponent={IconComponent}
+                stat={12}
+              />
+            </div>
+          ))}
+      </div>
 
-        <h2>Challenge Card</h2>
-          <MppChallengeCard/>
+      <h2>Challenge Card</h2>
+      <div className='ChallengeCard'>
+        <MppChallengeCard
+          index={1}
+          title={'Lorem ipsum dolor sit amet consectetur sit amet consectetur'}
+          category={'Alimentation'}
+          level={'Niveau PSCE1'}
+          points={13}
+        />
       </div>
     </div>
   );

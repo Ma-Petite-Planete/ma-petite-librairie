@@ -10,6 +10,28 @@ interface StatCardProps {
   boType?: BoType.gpBo;
 }
 
+/**
+ * Props pour le composant StatCard.
+ * @interface MppInputTextProps
+ * @property {(typeof MppIcons)[keyof typeof MppIcons]} IconComponent - Composant icon de MppIcons pour afficher l'icone de la stat.
+ * @property {string} title - Titre de la card.
+ * @property {number} stat - Nombre/statistique que l'on veut afficher.
+ * @property {BoType.gpBo} boType - Permet d'afficher une ombre spécifique au BO ECU, n'autorise que le type gpBo.
+ */
+
+/**
+ * Composant d'affichage des statisques dans une card avec une icone à gauche pour illustrer
+ *
+ * @example
+ * ```jsx
+ * <MppStatCard
+ * title={t('traduction')}
+ * IconComponent={MppIcons.training}
+ * stat={12}
+ * />
+ * ```
+ */
+
 const StatCard: React.FC<StatCardProps> = ({
   IconComponent,
   title,
