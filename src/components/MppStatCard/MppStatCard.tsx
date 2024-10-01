@@ -44,7 +44,7 @@ const StatCard: React.FC<StatCardProps> = ({
 }) => {
   return (
     <div
-      className={`stat_card__container ${boType ? 'stat_card__container--shadow' : ''}`}
+      className={`stat_card__container${boType ? ' stat_card__container--shadow' : ''}`}
     >
       <div className="stat_card__icon">
         <IconComponent />
