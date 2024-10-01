@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './mpp_menu.css';
 import { BoType } from '../BoType';
-import { GpBlueLogo, MppIcons, ScoYellowLogo } from '../..';
+import { MppIcons } from '../../utils/MppIcons';
+import { ReactComponent as ScoYellowLogo } from '../../ressources/logo/sco_yellow_logo_blue_text.svg';
 
 interface NavigationLink {
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -30,11 +31,7 @@ const MppMenu: React.FC<MppMenuProps> = ({
     <div className="menu_background">
       <div className="center">
         <div className="logo_container">
-          {boType === BoType.scoBO ? (
-            <ScoYellowLogo className="logo" />
-          ) : (
-            <GpBlueLogo className="logo" />
-          )}
+          {boType === BoType.scoBO ? <ScoYellowLogo className="logo" /> : null}
         </div>
 
         <div className="navigation_background">

@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import './mpp_login_layout.css';
-import {
-  ButtonType,
-  MppButton,
-  MppInputText,
-  ScoYellowLogo,
-  BoType,
-  GpBlueLogo,
-} from '..';
-import womanOnComputer from '../ressources/illustration/woman_on_computer.png';
+import { MppButton, ButtonType } from '../../components/MppButton';
+import { default as MppInputText } from '../../components/MppInputText/MppInputText';
+import { BoType } from '../../components/BoType';
+import { ReactComponent as ScoYellowLogo } from '../../ressources/logo/sco_yellow_logo_blue_text.svg';
+import womanOnComputer from '../../ressources/illustration/woman_on_computer.png';
 
 interface LoginLayoutProps {
   boType: BoType;
@@ -27,9 +23,7 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
       >
         {boType === BoType.scoBO ? (
           <ScoYellowLogo className="login_logo" />
-        ) : (
-          <GpBlueLogo />
-        )}
+        ) : null}
 
         <div className="login_welcome_text_container">
           <p className="title_h2 welcome_text">

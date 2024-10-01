@@ -3,6 +3,7 @@ import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
+import image from '@rollup/plugin-image';
 import { babel } from '@rollup/plugin-babel';
 
 export default {
@@ -16,6 +17,7 @@ export default {
     typescript(),
     commonjs(),
     resolve(),
+    image(),
     svgr({
       exportType: 'named',
       svgProps: {},

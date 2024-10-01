@@ -50,7 +50,7 @@
 }
 
 .login_sco_background {
-  background-image: url('../ressources/background/scoBackgroundMobile.svg');
+  background-image: url('../../ressources/background/scoBackgroundMobile.svg');
 }
 
 .login_gp_background {
@@ -96,7 +96,7 @@
   }
 
   .login_sco_background {
-    background-image: url('../ressources/background/scoBackground.svg');
+    background-image: url('../../ressources/background/scoBackground.svg');
   }
 
   .login_gp_background {

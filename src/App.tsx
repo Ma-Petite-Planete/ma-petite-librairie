@@ -13,7 +13,7 @@ import { MppIcons } from './utils/MppIcons';
 import MppCardEdition from './components/MppCardEdition/MppCardEdition';
 import MppMenu from './components/MppMenu/MppMenu';
 import { BoType } from './components/BoType';
-import MppLoginLayout from './layout/MppLoginLayout';
+import MppLoginLayout from './layout/login/MppLoginLayout';
 
 function App() {
   return (
