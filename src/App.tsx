@@ -204,6 +204,7 @@ function App() {
                 title={iconName}
                 IconComponent={IconComponent}
                 stat={12}
+                statDetails='test'
               />
             </div>
           ))}

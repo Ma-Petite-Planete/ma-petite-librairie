@@ -8,6 +8,7 @@ interface StatCardProps {
   title: string;
   stat: number;
   boType?: BoType.gpBo;
+  statDetails?: string;
 }
 
 /**
@@ -17,6 +18,7 @@ interface StatCardProps {
  * @property {string} title - Titre de la card.
  * @property {number} stat - Nombre/statistique que l'on veut afficher.
  * @property {BoType.gpBo} boType - Permet d'afficher une ombre spécifique au BO ECU, n'autorise que le type gpBo.
+ * @property {string} statDetails - String qui affiche des détails après les stats
  */
 
 /**
@@ -28,6 +30,7 @@ interface StatCardProps {
  * title={t('traduction')}
  * IconComponent={MppIcons.training}
  * stat={12}
+ * statDetails="/élèves"
  * />
  * ```
  */
@@ -37,6 +40,7 @@ const StatCard: React.FC<StatCardProps> = ({
   title,
   stat,
   boType,
+  statDetails
 }) => {
   return (
     <div
@@ -47,7 +51,7 @@ const StatCard: React.FC<StatCardProps> = ({
       </div>
       <div className="stat_card__content">
         <p className="stat_card__title text_small">{title}</p>
-        <p className="stat_card__number title_h3">{stat}</p>
+        <p className="stat_card__number title_h3">{stat} {statDetails ?? ""}</p>
       </div>
     </div>
   );
