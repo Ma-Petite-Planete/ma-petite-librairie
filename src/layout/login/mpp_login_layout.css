@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 
 .container_right_side {
@@ -96,7 +97,7 @@
   }
 
   .login_sco_background {
-    background-image: url('../../ressources/background/scoBackground.svg');
+    background-image: url('../../ressources/background/scoBackground.png');
   }
 
   .login_gp_background {
