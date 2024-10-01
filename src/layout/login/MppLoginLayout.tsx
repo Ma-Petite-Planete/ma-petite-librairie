@@ -4,6 +4,7 @@ import { MppButton, ButtonType } from '../../components/MppButton';
 import { default as MppInputText } from '../../components/MppInputText/MppInputText';
 import { BoType } from '../../components/BoType';
 import { ReactComponent as ScoYellowLogo } from '../../ressources/logo/sco_yellow_logo_blue_text.svg';
+import scoBackgroundDesktop from '../../ressources/background/scoBackground.png';
 import womanOnComputer from '../../ressources/illustration/woman_on_computer.png';
 
 interface LoginLayoutProps {
@@ -20,6 +21,7 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
     <div className="container_login_background">
       <div
         className={`container_right_side ${boType === BoType.scoBO ? 'login_sco_background' : 'login_gp_background'}`}
+        style={{ backgroundImage: `url(${scoBackgroundDesktop})` }}
       >
         {boType === BoType.scoBO ? (
           <ScoYellowLogo className="login_logo" />
