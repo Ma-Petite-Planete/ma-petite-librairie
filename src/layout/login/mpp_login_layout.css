@@ -50,14 +50,6 @@
   flex-grow: 1;
 }
 
-/* .login_sco_background {
-  background-image: url('../../ressources/background/scoBackgroundMobile.svg');
-}
-
-.login_gp_background {
-  background-image: url('ici url gp background mobile');
-} */
-
 .left_side_content {
   display: flex;
   flex-direction: column;
@@ -95,12 +87,4 @@
   .login_welcome_text_container {
     width: 50%;
   }
-
-  /* .login_sco_background {
-    background-image: url('../../ressources/background/scoBackground.png');
-  }
-
-  .login_gp_background {
-    background-image: url('ici url gp background desktop');
-  } */
 }
