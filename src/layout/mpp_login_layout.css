@@ -1,0 +1,105 @@
+.container_login_background {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.container_right_side {
+  position: relative;
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  height: 60%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login_logo {
+  position: relative;
+  margin: 26px 0px;
+  height: auto;
+  width: 50%;
+}
+
+.login_welcome_text_container {
+  margin: 0px 40px 12px;
+}
+
+.login_illustration {
+  width: 54%;
+  height: auto;
+  margin-bottom: 66px;
+}
+
+.welcome_text {
+  margin-bottom: 16px;
+}
+
+.container_left_side {
+  margin: 43px 23px 87px 23px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.login_sco_background {
+  background-image: url('../ressources/background/scoBackgroundMobile.svg');
+}
+
+.login_gp_background {
+  background-image: url('ici url gp background mobile');
+}
+
+.left_side_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 896px) {
+  .container_login_background {
+    flex-direction: row;
+  }
+  .container_right_side {
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .left_side_content {
+    width: 375px;
+    height: 215px;
+    align-items: stretch;
+  }
+
+  .login_logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 23%;
+  }
+
+  .login_illustration {
+    width: 33%;
+  }
+
+  .login_welcome_text_container {
+    width: 50%;
+  }
+
+  .login_sco_background {
+    background-image: url('../ressources/background/scoBackground.svg');
+  }
+
+  .login_gp_background {
+    background-image: url('ici url gp background desktop');
+  }
+}

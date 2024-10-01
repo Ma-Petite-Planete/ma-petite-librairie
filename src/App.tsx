@@ -13,6 +13,7 @@ import { MppIcons } from './utils/MppIcons';
 import MppCardEdition from './components/MppCardEdition/MppCardEdition';
 import MppMenu from './components/MppMenu/MppMenu';
 import { BoType } from './components/BoType';
+import MppLoginLayout from './layout/MppLoginLayout';
 
 function App() {
   return (
@@ -134,10 +135,11 @@ function App() {
         backgroundColor={ScoColors.veryLightYellow}
         textColor={ScoColors.darkBlue}
         editionName={'Edition Automne 2024'}
-        editionDatesInfos='Du lundi 18 novembre 9h au lundi 9 décembre 20h'
-        editionMessage='Il reste 7 jours !'
+        editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
+        editionMessage="Il reste 7 jours !"
       />
-      <div style={{ height: '90vh' }}>
+      <h2>Navigation Bar</h2>
+      <div style={{ height: '100vh' }}>
         <MppMenu
           navigationLinks={[
             {
@@ -170,6 +172,16 @@ function App() {
           LinkComponent={'symbol'}
           boType={BoType.scoBO}
           onLogout={() => console.log('suppr les comptes anonymes')}
+        />
+      </div>
+      <h2>Layout</h2>
+      <h3>Login Layout</h3>
+      <div style={{ width: '100vw', height: '100vh' }}>
+        <MppLoginLayout
+          boType={BoType.scoBO}
+          onPressLoginButon={function (): void {
+            throw new Error('Function not implemented.');
+          }}
         />
       </div>
     </div>

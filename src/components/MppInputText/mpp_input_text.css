@@ -4,6 +4,7 @@
   gap: 17px;
   padding: 16px;
   border: 2px solid var(--medium_grey);
+  background-color: var(--light_grey);
   border-radius: var(--standard_border_radius);
 }
 
