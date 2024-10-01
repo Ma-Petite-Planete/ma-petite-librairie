@@ -4,6 +4,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import image from '@rollup/plugin-image';
+import url from 'rollup-plugin-url';
 import { babel } from '@rollup/plugin-babel';
 
 export default {
@@ -18,6 +19,10 @@ export default {
     commonjs(),
     resolve(),
     image(),
+    url({
+      limit: 10 * 1024,
+      include: ['**/*.png', '**/*.jpg'],
+    }),
     svgr({
       exportType: 'named',
       svgProps: {},
