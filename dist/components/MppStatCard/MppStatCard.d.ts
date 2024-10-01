@@ -7,6 +7,7 @@ interface StatCardProps {
     title: string;
     stat: number;
     boType?: BoType.gpBo;
+    statDetails?: string;
 }
 /**
  * Props pour le composant StatCard.
@@ -15,6 +16,7 @@ interface StatCardProps {
  * @property {string} title - Titre de la card.
  * @property {number} stat - Nombre/statistique que l'on veut afficher.
  * @property {BoType.gpBo} boType - Permet d'afficher une ombre spécifique au BO ECU, n'autorise que le type gpBo.
+ * @property {string} statDetails - String qui affiche des détails après les stats
  */
 /**
  * Composant d'affichage des statisques dans une card avec une icone à gauche pour illustrer
@@ -25,6 +27,7 @@ interface StatCardProps {
  * title={t('traduction')}
  * IconComponent={MppIcons.training}
  * stat={12}
+ * statDetails="/élèves"
  * />
  * ```
  */
