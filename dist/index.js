@@ -1144,7 +1144,7 @@ styleInject(css_248z);
  * ```
  */
 const StatCard = ({ IconComponent, title, stat, boType, statDetails }) => {
-    return (React__default.createElement("div", { className: `stat_card__container ${boType ? 'stat_card__container--shadow' : ''}` },
+    return (React__default.createElement("div", { className: `stat_card__container${boType ? ' stat_card__container--shadow' : ''}` },
         React__default.createElement("div", { className: "stat_card__icon" },
             React__default.createElement(IconComponent, null)),
         React__default.createElement("div", { className: "stat_card__content" },
