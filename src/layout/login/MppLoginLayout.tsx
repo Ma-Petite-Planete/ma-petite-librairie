@@ -1,3 +1,5 @@
+// ComponentName.tsx
+
 import React, { useState, useEffect } from 'react';
 import './mpp_login_layout.css';
 import { MppButton, ButtonType } from '../../components/MppButton';
@@ -11,14 +13,36 @@ import womanOnComputer from '../../ressources/illustration/woman_on_computer.png
 interface LoginLayoutProps {
   boType: BoType;
   onPressLoginButon: (() => void) | null;
+  welcomeText: string;
+  welcomeTextBold: string;
+  welcomeSubtitle: string;
+  loginTitle: string;
+  loginSubtitle: string;
+  buttonText: string;
+  codeValue: string;
+  inputPlaceHolder: string;
+  setCodeValue: (code: string) => void;
+  onClickErrorMessage: string;
+  setOnClickErrorMessage: (error: string) => void;
 }
 
 const ComponentName: React.FC<LoginLayoutProps> = ({
   boType,
   onPressLoginButon,
+  welcomeText,
+  welcomeTextBold,
+  welcomeSubtitle,
+  loginTitle,
+  loginSubtitle,
+  buttonText,
+  codeValue,
+  setCodeValue,
+  inputPlaceHolder,
+  onClickErrorMessage,
+  setOnClickErrorMessage,
 }) => {
-  const [companyCode, setCompanyCode] = useState<string>('');
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 896);
+  const [hasError, setHasError] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,18 +50,29 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
     };
 
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    if (codeValue && onClickErrorMessage) {
+      setOnClickErrorMessage('');
+    }
+  }, [codeValue, onClickErrorMessage, setOnClickErrorMessage]);
 
   return (
     <div className="container_login_background">
       <div
         className={'container_right_side'}
         style={{
-          backgroundImage: `url(${boType === BoType.scoBO ? (isMobile ? scoBackgroundMobile : scoBackgroundDesktop) : null})`,
+          backgroundImage: `url(${
+            boType === BoType.scoBO
+              ? isMobile
+                ? scoBackgroundMobile
+                : scoBackgroundDesktop
+              : null
+          })`,
         }}
       >
         {boType === BoType.scoBO ? (
@@ -46,13 +81,9 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
 
         <div className="login_welcome_text_container">
           <p className="title_h2 welcome_text">
-            Bienvenue sur lespace client{' '}
-            <span className="title_h1">Mpp Scolaire</span>
+            {welcomeText} <span className="title_h1">{welcomeTextBold}</span>
           </p>
-          <p>
-            La plateforme qui permet aux chef.fe.s détablissement de visualiser
-            leur participation au challenge
-          </p>
+          <p>{welcomeSubtitle}</p>
         </div>
 
         <img
@@ -64,28 +95,27 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
 
       <div className="container_left_side">
         <div className="left_side_content">
-          <p className="title_h1">Connexion</p>
-          <p>Rentre le code que léquipe Mpp ta transmis </p>
+          <p className="title_h1">{loginTitle}</p>
+          <p>{loginSubtitle}</p>
           <div>
             <MppInputText
-              placeholder={'Code Client'}
-              value={companyCode}
-              onChange={function (value: string, hasError: boolean): void {
-                if (!hasError) setCompanyCode(value);
+              placeholder={inputPlaceHolder}
+              value={codeValue}
+              onChange={(value: string) => {
+                setCodeValue(value);
+                setHasError(false);
               }}
-              validationConditions={[
-                {
-                  condition: (value) => value.length >= 5,
-                  message: 'Le texte doit contenir au moins 5 caractères.',
-                },
-              ]}
+              setHasError={function (hasError: boolean): void {
+                setHasError(hasError);
+              }}
+              onClickErrorMessage={onClickErrorMessage}
             />
           </div>
           <div>
             <MppButton
-              title={'Entrer'}
+              title={buttonText}
               buttonType={ButtonType.primaryLarge}
-              onPress={onPressLoginButon}
+              onPress={hasError ? null : onPressLoginButon}
             />
           </div>
         </div>
