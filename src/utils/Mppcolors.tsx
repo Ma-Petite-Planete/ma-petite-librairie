@@ -1,6 +1,7 @@
 export const ScoColors = {
   error: 'var(--error)',
   white: 'var(--white)',
+  whiteTransparent: 'var(--white_transparent)',
   mainYellow: 'var(--main_yellow)',
   lightYellow: 'var(--light_yellow)',
   veryLightYellow: 'var(--very_light_yellow)',
