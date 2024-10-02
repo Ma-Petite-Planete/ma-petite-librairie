@@ -1,6 +1,7 @@
 export declare const ScoColors: {
     readonly error: "var(--error)";
     readonly white: "var(--white)";
+    readonly whiteTransparent: "var(--white_transparent)";
     readonly mainYellow: "var(--main_yellow)";
     readonly lightYellow: "var(--light_yellow)";
     readonly veryLightYellow: "var(--very_light_yellow)";
