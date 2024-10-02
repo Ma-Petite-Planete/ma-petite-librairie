@@ -13,4 +13,13 @@ export declare const MppIcons: {
     readonly history: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly logOut: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly burgerMenu: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly training: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly users: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly target: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly chart: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly school: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly cloud: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly drops: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly trash: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly openBook: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
 };
