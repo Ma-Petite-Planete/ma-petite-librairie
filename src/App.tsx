@@ -2,7 +2,7 @@ import './app.css';
 import { MppButton, ButtonType } from './components/MppButton';
 import MppTextStyle from './section/MppTextStyleSection/MppTextStyleSection';
 import InputDemo from './section/InputSection';
-import React, { useState } from 'react';
+import React from 'react';
 import { ReactComponent as YellowLogo } from './ressources/logo/sco_yellow_logo_blue_text.svg';
 import { ReactComponent as WhiteLogo } from './ressources/logo/sco_white_logo_white_text.svg';
 import { ReactComponent as LogoOnly } from './ressources/logo/sco_logo_only_yellow.svg';
@@ -13,18 +13,9 @@ import { MppIcons } from './utils/MppIcons';
 import MppCardEdition from './components/MppCardEdition/MppCardEdition';
 import MppMenu from './components/MppMenu/MppMenu';
 import { BoType } from './components/BoType';
-import MppLoginLayout from './layout/login/MppLoginLayout';
+import LayoutLoginSection from './section/MppLayoutLoginSection';
 
 function App() {
-  const [codeValue, setCodeValue] = useState('');
-  const [loginVerifMessage, setLoginVerifMessage] = useState('');
-
-  const handleLogin = (): void => {
-    if (codeValue === 'test') {
-      setLoginVerifMessage('Code Incorrect');
-    }
-  };
-
   return (
     <div className="main_background">
       <h2>Logo</h2>
@@ -185,29 +176,7 @@ function App() {
       </div>
       <h2>Layout</h2>
       <h3>Login Layout</h3>
-      <div style={{ width: '100vw', height: '100vh' }}>
-        <MppLoginLayout
-          boType={BoType.scoBO}
-          welcomeText={'Bienvenue sur lespace client'}
-          welcomeTextBold={'Mpp Scolaire'}
-          welcomeSubtitle={
-            'La plateforme qui permet aux chef.fe.s détablissement de visualiser leur participation au challenge'
-          }
-          loginTitle={'Connexion'}
-          loginSubtitle={'Rentre le code que léquipe Mpp ta transmis'}
-          buttonText={'Entrer'}
-          inputPlaceHolder={'Code Client'}
-          onPressLoginButon={handleLogin}
-          setCodeValue={function (code: string): void {
-            setCodeValue(code);
-          }}
-          codeValue={codeValue}
-          onClickErrorMessage={loginVerifMessage}
-          setOnClickErrorMessage={function (error: string): void {
-            setLoginVerifMessage(error);
-          }}
-        />
-      </div>
+      <LayoutLoginSection />
     </div>
   );
 }
