@@ -1,18 +1,23 @@
 import './app.css';
+import React from 'react';
+
 import { MppButton, ButtonType } from './components/MppButton';
+import MppPodium from './components/MppPodium/MppPodium';
+import MppRankingCard from './components/MppRankingCard/MppRankingCard';
+import MppMenu from './components/MppMenu/MppMenu';
+import { BoType } from './components/BoType';
+import MppStatCard from './components/MppStatCard/MppStatCard';
+
 import MppTextStyle from './section/MppTextStyleSection/MppTextStyleSection';
 import InputDemo from './section/InputSection';
-import React from 'react';
+
 import { ReactComponent as YellowLogo } from './ressources/logo/sco_yellow_logo_blue_text.svg';
 import { ReactComponent as WhiteLogo } from './ressources/logo/sco_white_logo_white_text.svg';
 import { ReactComponent as LogoOnly } from './ressources/logo/sco_logo_only_yellow.svg';
-import MppRankingCard from './components/MppRankingCard/MppRankingCard';
 import { ScoColors } from './utils/Mppcolors';
-import MppPodium from './components/MppPodium/MppPodium';
 import { MppIcons } from './utils/MppIcons';
 import MppCardEdition from './components/MppCardEdition/MppCardEdition';
-import MppMenu from './components/MppMenu/MppMenu';
-import { BoType } from './components/BoType';
+
 import LayoutLoginSection from './section/MppLayoutLoginSection';
 
 function App() {
@@ -177,6 +182,39 @@ function App() {
       <h2>Layout</h2>
       <h3>Login Layout</h3>
       <LayoutLoginSection />
+
+      <h2>Stat Card</h2>
+      <MppStatCard
+        title={'Etablissements'}
+        IconComponent={MppIcons.training}
+        stat={39}
+      />
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {Object.entries(MppIcons)
+          .filter(([iconName]) =>
+            [
+              'training',
+              'users',
+              'target',
+              'chart',
+              'school',
+              'cloud',
+              'drops',
+              'trash',
+              'openBook',
+            ].includes(iconName)
+          )
+          .map(([iconName, IconComponent]) => (
+            <div key={iconName} style={{ margin: '10px 10px 0 0 ' }}>
+              <MppStatCard
+                title={iconName}
+                IconComponent={IconComponent}
+                stat={12}
+                statDetails="test"
+              />
+            </div>
+          ))}
+      </div>
     </div>
   );
 }

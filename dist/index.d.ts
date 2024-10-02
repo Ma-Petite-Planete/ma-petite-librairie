@@ -11,5 +11,9 @@ export { default as MppRankingCard } from './components/MppRankingCard/MppRankin
 export { default as MppPodium } from './components/MppPodium/MppPodium';
 export { default as MppEditionCard } from './components/MppCardEdition/MppCardEdition';
 export { default as MppMenu } from './components/MppMenu/MppMenu';
+<<<<<<< HEAD
 export { default as MppLoginLayout } from './layout/login/MppLoginLayout';
+=======
+export { default as MppStatCard } from './components/MppStatCard/MppStatCard';
+>>>>>>> 801a4b70fad3b6819f6e68694209aaf242b2eff1
 export { BoType } from './components/BoType';
