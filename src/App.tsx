@@ -115,6 +115,12 @@ function App() {
       <h2>Ranking Card</h2>
       <div style={{ width: '651px' }}>
         <MppRankingCard
+          onHover={(e) => {
+            console.log(e.target);
+          }}
+          onHoverLeave={(e) => {
+            console.log(e.target);
+          }}
           onClick={(e) => {
             console.log(e.target);
           }}
@@ -128,6 +134,12 @@ function App() {
         />
         <MppRankingCard
           onClick={(e) => {
+            console.log(e.target);
+          }}
+          onHover={(e) => {
+            console.log(e.target);
+          }}
+          onHoverLeave={(e) => {
             console.log(e.target);
           }}
           title={'Les poulet'}
