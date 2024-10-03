@@ -32,7 +32,7 @@
 }
 
 .login_illustration {
-  width: 54%;
+  width: 262px;
   height: auto;
   margin-bottom: 66px;
 }
@@ -80,7 +80,8 @@
   }
 
   .login_illustration {
-    width: 33%;
+    width: 215px;
+    height: auto;
   }
 
   .login_welcome_text_container {
