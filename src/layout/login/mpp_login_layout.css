@@ -24,7 +24,7 @@
   position: relative;
   margin: 26px 0px;
   height: auto;
-  width: 50%;
+  width: 178px;
 }
 
 .login_welcome_text_container {
@@ -74,9 +74,9 @@
 
   .login_logo {
     position: absolute;
+    margin: 0;
     top: 20px;
     left: 20px;
-    width: 23%;
   }
 
   .login_illustration {
