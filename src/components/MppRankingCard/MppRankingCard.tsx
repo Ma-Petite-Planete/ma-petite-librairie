@@ -9,10 +9,11 @@ interface MppRankingCardProps {
   subPointsText?: string;
   pointsColor: string;
   rankingColorBackground: string;
+  onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-/** 
-* @example 
+/**
+* @example
 *  <MppRankingCard
         title={'Les poulet'}
         subtitle={'Collège Jean Rostand'}
@@ -32,9 +33,10 @@ const MppRankingCard: React.FC<MppRankingCardProps> = ({
   subPointsText,
   pointsColor,
   rankingColorBackground,
+  onClick
 }) => {
   return (
-    <div className="ranking_card_background ">
+    <div className="ranking_card_background " onClick={onClick}>
       <div className="flex_row">
         <p
           className="text_body_sb ranking_background"

@@ -115,6 +115,9 @@ function App() {
       <h2>Ranking Card</h2>
       <div style={{ width: '651px' }}>
         <MppRankingCard
+          onClick={(e) => {
+            console.log(e.target);
+          }}
           title={'Les pouleteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'}
           subtitle={'Collège Jean Rostand'}
           ranking={4}
@@ -124,6 +127,9 @@ function App() {
           rankingColorBackground={ScoColors.mainYellow}
         />
         <MppRankingCard
+          onClick={(e) => {
+            console.log(e.target);
+          }}
           title={'Les poulet'}
           subtitle={'Collège Jean Rostand'}
           ranking={4}
@@ -138,8 +144,8 @@ function App() {
         backgroundColor={ScoColors.veryLightYellow}
         textColor={ScoColors.darkBlue}
         editionName={'Edition Automne 2024'}
-        editionDatesInfos='Du lundi 18 novembre 9h au lundi 9 décembre 20h'
-        editionMessage='Il reste 7 jours !'
+        editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
+        editionMessage="Il reste 7 jours !"
       />
       <div style={{ height: '90vh' }}>
         <MppMenu
@@ -204,7 +210,7 @@ function App() {
                 title={iconName}
                 IconComponent={IconComponent}
                 stat={12}
-                statDetails='test'
+                statDetails="test"
               />
             </div>
           ))}
