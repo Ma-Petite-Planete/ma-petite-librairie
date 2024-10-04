@@ -5,8 +5,10 @@ import { BoType } from '../components/BoType';
 const LayoutLoginSection: React.FC = () => {
   const [codeValue, setCodeValue] = useState('');
   const [loginVerifMessage, setLoginVerifMessage] = useState('');
+  const [isLoading, setisLoading] = useState(false);
 
   const handleLogin = (): void => {
+    setisLoading(true);
     if (codeValue === 'test') {
       setLoginVerifMessage('Code Incorrect');
     }
@@ -33,6 +35,7 @@ const LayoutLoginSection: React.FC = () => {
         setOnClickErrorMessage={function (error: string): void {
           setLoginVerifMessage(error);
         }}
+        isLoading={isLoading}
       />
     </div>
   );

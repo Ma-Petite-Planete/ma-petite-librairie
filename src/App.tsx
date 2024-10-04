@@ -19,6 +19,7 @@ import { MppIcons } from './utils/MppIcons';
 import MppCardEdition from './components/MppCardEdition/MppCardEdition';
 
 import LayoutLoginSection from './section/MppLayoutLoginSection';
+import MppLoader from './components/MppLoader/MppLoader';
 
 function App() {
   return (
@@ -215,6 +216,8 @@ function App() {
             </div>
           ))}
       </div>
+      <h2>Loader</h2>
+      <MppLoader />
     </div>
   );
 }

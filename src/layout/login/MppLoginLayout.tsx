@@ -9,6 +9,7 @@ import { ReactComponent as ScoYellowLogo } from '../../ressources/logo/sco_yello
 import scoBackgroundMobile from '../../ressources/background/scoBackgroundMobile.png';
 import scoBackgroundDesktop from '../../ressources/background/scoBackground.png';
 import womanOnComputer from '../../ressources/illustration/woman_on_computer.png';
+import MppLoader from '../../components/MppLoader/MppLoader';
 
 interface LoginLayoutProps {
   boType: BoType;
@@ -24,6 +25,7 @@ interface LoginLayoutProps {
   setCodeValue: (code: string) => void;
   onClickErrorMessage: string;
   setOnClickErrorMessage: (error: string) => void;
+  isLoading: boolean;
 }
 
 const ComponentName: React.FC<LoginLayoutProps> = ({
@@ -40,6 +42,7 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
   inputPlaceHolder,
   onClickErrorMessage,
   setOnClickErrorMessage,
+  isLoading,
 }) => {
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 896);
   const [hasError, setHasError] = useState(true);
@@ -112,11 +115,15 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
             />
           </div>
           <div>
-            <MppButton
-              title={buttonText}
-              buttonType={ButtonType.primaryLarge}
-              onPress={hasError ? null : onPressLoginButon}
-            />
+            {isLoading ? (
+              <MppLoader />
+            ) : (
+              <MppButton
+                title={buttonText}
+                buttonType={ButtonType.primaryLarge}
+                onPress={hasError ? null : onPressLoginButon}
+              />
+            )}
           </div>
         </div>
       </div>

@@ -13,4 +13,5 @@ export { default as MppEditionCard } from './components/MppCardEdition/MppCardEd
 export { default as MppMenu } from './components/MppMenu/MppMenu';
 export { default as MppLoginLayout } from './layout/login/MppLoginLayout';
 export { default as MppStatCard } from './components/MppStatCard/MppStatCard';
+export { default as MppLoader } from './components/MppLoader/MppLoader';
 export { BoType } from './components/BoType';

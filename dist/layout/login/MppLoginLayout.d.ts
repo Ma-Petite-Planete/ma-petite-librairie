@@ -15,6 +15,7 @@ interface LoginLayoutProps {
     setCodeValue: (code: string) => void;
     onClickErrorMessage: string;
     setOnClickErrorMessage: (error: string) => void;
+    isLoading: boolean;
 }
 declare const ComponentName: React.FC<LoginLayoutProps>;
 export default ComponentName;
