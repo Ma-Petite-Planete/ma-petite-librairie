@@ -9,7 +9,7 @@ interface MppRankingCardProps {
   subPointsText?: string;
   pointsColor: string;
   rankingColorBackground: string;
-  onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   onHover?: (e: React.MouseEvent<HTMLDivElement>) => void; // Ajout onHover (onMouseEnter)
   onHoverLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
@@ -24,6 +24,15 @@ interface MppRankingCardProps {
         subPointsText={'par élève'}
         pointsColor={ScoColors.mainYellow}
         rankingColorBackground={ScoColors.mainYellow}
+        onHover={(e) => {
+          console.log(e.target);
+        }}
+        onHoverLeave={(e) => {
+          console.log(e.target);
+        }}
+        onClick={(e) => {
+          console.log(e.target);
+        }}
       />
 */
 
