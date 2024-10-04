@@ -1006,10 +1006,19 @@ styleInject(css_248z$5);
         subPointsText={'par élève'}
         pointsColor={ScoColors.mainYellow}
         rankingColorBackground={ScoColors.mainYellow}
+        onHover={(e) => {
+          console.log(e.target);
+        }}
+        onHoverLeave={(e) => {
+          console.log(e.target);
+        }}
+        onClick={(e) => {
+          console.log(e.target);
+        }}
       />
 */
-const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, pointsColor, rankingColorBackground, }) => {
-    return (React__default.createElement("div", { className: "ranking_card_background " },
+const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, pointsColor, rankingColorBackground, onClick, onHover, onHoverLeave, }) => {
+    return (React__default.createElement("div", { className: "ranking_card_background ", onClick: onClick, onMouseEnter: onHover, onMouseLeave: onHoverLeave },
         React__default.createElement("div", { className: "flex_row" },
             React__default.createElement("p", { className: "text_body_sb ranking_background", style: { backgroundColor: `${rankingColorBackground}` } }, ranking),
             React__default.createElement("div", { className: "content_background" },
