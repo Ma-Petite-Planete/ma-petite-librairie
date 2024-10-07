@@ -26,5 +26,6 @@
   .podium__container {
     padding: 4.5rem 6rem 2.5rem 6rem;
     max-width: 652px;
+    box-sizing: border-box;
   }
 }
