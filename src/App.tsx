@@ -178,6 +178,8 @@ function App() {
           LinkComponent={'symbol'}
           boType={BoType.scoBO}
           onLogout={() => console.log('suppr les comptes anonymes')}
+          aboutText={'A propos de MPP'}
+          logOutText={'Se déconnecter'}
         />
       </div>
       <h2>Layout</h2>

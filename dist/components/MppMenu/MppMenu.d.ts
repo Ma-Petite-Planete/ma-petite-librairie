@@ -12,6 +12,8 @@ interface MppMenuProps {
     boType: BoType;
     onLogout: () => void;
     actualPage: string;
+    aboutText: string;
+    logOutText: string;
 }
 declare const MppMenu: React.FC<MppMenuProps>;
 export default MppMenu;

@@ -16,6 +16,8 @@ interface MppMenuProps {
   boType: BoType;
   onLogout: () => void;
   actualPage: string;
+  aboutText: string;
+  logOutText: string;
 }
 
 const MppMenu: React.FC<MppMenuProps> = ({
@@ -24,6 +26,8 @@ const MppMenu: React.FC<MppMenuProps> = ({
   boType,
   onLogout,
   actualPage,
+  aboutText,
+  logOutText,
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -64,11 +68,11 @@ const MppMenu: React.FC<MppMenuProps> = ({
           className="navigation_element"
           href={'https://mapetiteplanete.org/'}
         >
-          <p className="text_body">A propos de Mpp</p>
+          <p className="text_body">{aboutText}</p>
         </LinkComponent>
         <div className="navigation_element bottom" onClick={onLogout}>
           <MppIcons.logOut className="icon" />
-          <p className="text_body_sb">Se déconnecter</p>
+          <p className="text_body_sb">{logOutText}</p>
         </div>
       </div>
     </div>

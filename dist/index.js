@@ -1149,7 +1149,7 @@ var BoType;
     BoType[BoType["gpBo"] = 1] = "gpBo";
 })(BoType || (BoType = {}));
 
-const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage, }) => {
+const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage, aboutText, logOutText, }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     return (React__default.createElement("div", { className: "menu_background" },
         React__default.createElement("div", { className: "center" },
@@ -1164,10 +1164,10 @@ const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage,
         React__default.createElement("div", { className: "navigation_background" },
             boType === BoType.gpBo ? 'ici selecteur de langue' : null,
             React__default.createElement(LinkComponent, { className: "navigation_element", href: 'https://mapetiteplanete.org/' },
-                React__default.createElement("p", { className: "text_body" }, "A propos de Mpp")),
+                React__default.createElement("p", { className: "text_body" }, aboutText)),
             React__default.createElement("div", { className: "navigation_element bottom", onClick: onLogout },
                 React__default.createElement(MppIcons.logOut, { className: "icon" }),
-                React__default.createElement("p", { className: "text_body_sb" }, "Se d\u00E9connecter")))));
+                React__default.createElement("p", { className: "text_body_sb" }, logOutText)))));
 };
 
 var css_248z$2 = ".container_login_background {\r\n  background-color: var(--white);\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  height: 100vh;\r\n  width: 100vw;\r\n}\r\n\r\n.container_right_side {\r\n  position: relative;\r\n  background-size: cover;\r\n  background-position: top;\r\n  background-repeat: no-repeat;\r\n  height: 60%;\r\n  width: 100%;\r\n  display: flex;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n}\r\n\r\n.login_logo {\r\n  position: relative;\r\n  margin: 26px 0px;\r\n  height: auto;\r\n  width: 178px;\r\n}\r\n\r\n.login_welcome_text_container {\r\n  margin: 0px 40px 12px;\r\n}\r\n\r\n.login_illustration {\r\n  width: 262px;\r\n  height: auto;\r\n  margin-bottom: 66px;\r\n}\r\n\r\n.welcome_text {\r\n  margin-bottom: 16px;\r\n}\r\n\r\n.container_left_side {\r\n  margin: 43px 23px 87px 23px;\r\n  display: flex;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n  flex-grow: 1;\r\n}\r\n\r\n.left_side_content {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\n@media (min-width: 896px) {\r\n  .container_login_background {\r\n    flex-direction: row;\r\n  }\r\n  .container_right_side {\r\n    width: 50%;\r\n    height: 100%;\r\n    justify-content: center;\r\n  }\r\n\r\n  .left_side_content {\r\n    width: 375px;\r\n    height: 215px;\r\n    align-items: stretch;\r\n  }\r\n\r\n  .login_logo {\r\n    position: absolute;\r\n    margin: 0;\r\n    top: 20px;\r\n    left: 20px;\r\n  }\r\n\r\n  .login_illustration {\r\n    width: 215px;\r\n    height: auto;\r\n  }\r\n\r\n  .login_welcome_text_container {\r\n    width: 50%;\r\n  }\r\n}\r\n";
