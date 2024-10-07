@@ -70,13 +70,9 @@ const MppMenu: React.FC<MppMenuProps> = ({
         >
           <p className="text_body">A propos de Mpp</p>
         </LinkComponent>
-        <div className="navigation_element bottom">
-          <LinkComponent href={'./onBoarding'} className="navigation_flex">
-            <MppIcons.logOut className="icon" />
-            <p className="text_body_sb" onClick={onLogout}>
-              Se déconnecter
-            </p>
-          </LinkComponent>
+        <div className="navigation_element bottom" onClick={onLogout}>
+          <MppIcons.logOut className="icon" />
+          <p className="text_body_sb">Se déconnecter</p>
         </div>
       </div>
     </div>
