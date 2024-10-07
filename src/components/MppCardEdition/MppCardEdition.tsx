@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './mpp_card_edition.css';
 import { MppIcons } from '../../utils/MppIcons';
 import { ScoColors } from '../../utils/Mppcolors';
@@ -43,34 +43,28 @@ const MppCardEdition: React.FC<MppCardEditionProps> = ({
   return (
     <div
       style={{ backgroundColor: `${backgroundColor}` }}
-      className='card_edition__container'
+      className="card_edition__container"
     >
-      <div style={{ color: `${textColor}` }} className='card_edition__infos'>
-        <p className='edition_infos__date text_body'>
-          <span className='edition_infos__name text_body_sb'>
+      <div style={{ color: `${textColor}` }} className="card_edition__infos">
+        <p className="edition_infos__date text_body">
+          <span className="edition_infos__name text_body_sb">
             {editionName} -{' '}
           </span>
-         {editionDatesInfos}
+          {editionDatesInfos}
         </p>
       </div>
 
       {editionMessage ? (
-        <div className='card_edition__days'>
+        <div className="card_edition__days">
           <MppIcons.history
             fill={ScoColors.tonicViolet}
-            className='card_edition__icon'
+            className="card_edition__icon"
           />
-          <p className='edition_days__details text_body_sb'>
-            {editionMessage}
-          </p>
+          <p className="edition_days__details text_body_sb">{editionMessage}</p>
         </div>
       ) : null}
     </div>
   );
 };
 
-
-
 export default MppCardEdition;
-
-

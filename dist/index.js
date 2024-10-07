@@ -398,6 +398,35 @@ const MppButton = ({ title, onPress, buttonType, style = {}, hoverStyle = {}, ac
 var css_248z$8 = ".mpp_input_container {\n  display: flex;\n  margin: 10px 0;\n  gap: 17px;\n  padding: 16px;\n  border: 2px solid var(--medium_grey);\n  background-color: var(--light_grey);\n  border-radius: var(--standard_border_radius);\n}\n\n.mpp_input {\n  border: none;\n  width: 100%;\n  font-size: 16px;\n  outline: none;\n  transition: border-color 0.3s ease;\n  background-color: transparent;\n}\n\n.focused {\n  border-color: var(--dark_blue);\n}\n\n.max_characteres {\n  color: var(--dark_blue) !important;\n}\n\n.error {\n  border-color: var(--error);\n}\n\n.input_error {\n  color: var(--error);\n  font-size: 12px;\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\n\n.input_counter {\n  color: var(--medium_grey);\n}\n\n.input_icon_pointer {\n  cursor: pointer;\n}\n";
 styleInject(css_248z$8);
 
+/**
+ * @interface MppInputTextProps
+ * @property {string} placeholder - Texte d'indice à afficher dans le champ de saisie.
+ * @property {string} value - Valeur actuelle du champ de saisie.
+ * @property {React.FC<React.SVGProps<SVGSVGElement>>} [icon] - Composant SVG optionnel à afficher comme icône.
+ * @property {boolean} [needCounter] - Indique si un compteur de caractères doit être affiché (par défaut : false).
+ * @property {number} [maxCharacteres] - Nombre maximum de caractères autorisés dans le champ.
+ * @property {Array<ValidationCondition>} [validationConditions] - Conditions de validation à appliquer au champ sera vérifié a chque changement dans l'input.
+ * @property {function(string, boolean): void} onChange - Fonction de rappel appelée lors du changement de valeur.
+ * @property {function(string): void} [onClickIcon] - Fonction de rappel appelée lorsque l'icône est cliquée.
+ * @property {function(boolean): void} [setHasError] - Fonction de rappel pour indiquer si le champ a des erreurs.
+ * @property {string} [onClickErrorMessage] - Message d'erreur affiché lors d'un clique exterieur.
+ *
+ * @example
+ *
+ * <MppInputText
+ *   placeholder="Entrez votre texte"
+ *   value={inputValue}
+ *   onChange={(value, hasError) => {
+ *     console.log('Valeur:', value, 'Erreur:', hasError);
+ *   }}
+ *   validationConditions={[
+ *     { condition: value => value.length >= 5, message: 'Doit avoir au moins 5 caractères.' },
+ *     { condition: value => /^[a-zA-Z]+$/.test(value), message: 'Ne doit contenir que des lettres.' },
+ *   ]}
+ *   needCounter
+ *   maxCharacteres={20}
+ * />
+ */
 const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacteres, validationConditions = [], onChange, onClickIcon, setHasError, onClickErrorMessage, }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFirstEntry, setIsFirstEntry] = useState(true);
@@ -1127,17 +1156,17 @@ styleInject(css_248z$4);
  * ````
  */
 const MppCardEdition = ({ backgroundColor, textColor, editionName, editionDatesInfos, editionMessage, }) => {
-    return (React__default.createElement("div", { style: { backgroundColor: `${backgroundColor}` }, className: 'card_edition__container' },
-        React__default.createElement("div", { style: { color: `${textColor}` }, className: 'card_edition__infos' },
-            React__default.createElement("p", { className: 'edition_infos__date text_body' },
-                React__default.createElement("span", { className: 'edition_infos__name text_body_sb' },
+    return (React__default.createElement("div", { style: { backgroundColor: `${backgroundColor}` }, className: "card_edition__container" },
+        React__default.createElement("div", { style: { color: `${textColor}` }, className: "card_edition__infos" },
+            React__default.createElement("p", { className: "edition_infos__date text_body" },
+                React__default.createElement("span", { className: "edition_infos__name text_body_sb" },
                     editionName,
                     " -",
                     ' '),
                 editionDatesInfos)),
-        editionMessage ? (React__default.createElement("div", { className: 'card_edition__days' },
-            React__default.createElement(MppIcons.history, { fill: ScoColors.tonicViolet, className: 'card_edition__icon' }),
-            React__default.createElement("p", { className: 'edition_days__details text_body_sb' }, editionMessage))) : null));
+        editionMessage ? (React__default.createElement("div", { className: "card_edition__days" },
+            React__default.createElement(MppIcons.history, { fill: ScoColors.tonicViolet, className: "card_edition__icon" }),
+            React__default.createElement("p", { className: "edition_days__details text_body_sb" }, editionMessage))) : null));
 };
 
 var css_248z$3 = ".menu_background {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n  background-color: var(--white);\n  width: 70vw;\n  height: 100%;\n  border-radius: var(--standard_border_radius);\n  box-shadow: 0px 4px 20px var(--shadow_color);\n}\n\n.logo_container {\n  width: 80%;\n  margin-top: 16px;\n}\n\n.logo {\n  width: 100%;\n  height: auto;\n}\n\n.center {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n}\n\n.navigation_background {\n  display: flex;\n  flex-direction: column;\n  align-items: start;\n  width: 100%;\n  padding-left: 24px;\n  padding-top: 24px;\n}\n\n.icon {\n  width: 20px;\n  height: 20px;\n  padding-right: 12px;\n}\n\n.navigation_element {\n  margin-bottom: 16px;\n  color: var(--dark_grey);\n  fill: var(--dark_grey);\n}\n.navigation_flex {\n  display: flex;\n  flex-direction: row;\n}\n\n.navigation_element :hover {\n  cursor: pointer;\n  color: var(--dark_blue);\n  fill: var(--dark_blue);\n}\n\n.actual_page {\n  color: var(--dark_blue);\n  fill: var(--dark_blue);\n}\n\n.bottom {\n  margin-bottom: 26px;\n  display: flex;\n}\n\n.bottom:hover {\n  cursor: pointer;\n  color: var(--dark_blue);\n}\n\n@media (min-width: 896px) {\n  .menu_background {\n    width: 251px;\n    min-height: 100vh;\n  }\n}\n";
@@ -1149,6 +1178,33 @@ var BoType;
     BoType[BoType["gpBo"] = 1] = "gpBo";
 })(BoType || (BoType = {}));
 
+/**
+ * @interface MppMenuProps
+ * @property {Array<NavigationLink>} navigationLinks - Liste des liens de navigation à afficher dans le menu.
+ * @property {React.ElementType} LinkComponent - Composant de lien à utiliser pour la navigation (ex : `Link` de Next.js).
+ * @property {BoType} boType - Type de back-office (ex : `scoBO` ou `gpBo`).
+ * @property {function(): void} onLogout - Fonction de rappel appelée lors de la déconnexion.
+ * @property {string} actualPage - URL ou nom de la page actuelle pour la mise en surbrillance.
+ * @property {string} aboutText - Texte à afficher pour la page "À propos".
+ * @property {string} logOutText - Texte à afficher pour le lien de déconnexion.
+ *
+ * @example
+ *
+ * const navigationLinks = [
+ *   { icon: MppIcons.tata, name: 'Accueil', navigation: '/' },
+ *   { icon: MppIcons.toto, name: 'Profil', navigation: '/profil' },
+ * ];
+ *
+ * <MppMenu
+ *   navigationLinks={navigationLinks}
+ *   LinkComponent={Link}
+ *   boType={BoType.scoBO}
+ *   onLogout={() => console.log('Déconnexion')}
+ *   actualPage="/"
+ *   aboutText="À propos"
+ *   logOutText="Déconnexion"
+ * />
+ */
 const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage, aboutText, logOutText, }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     return (React__default.createElement("div", { className: "menu_background" },
@@ -1187,7 +1243,42 @@ const MppLoader = () => {
         React__default.createElement("div", { className: "spinner" })));
 };
 
-// ComponentName.tsx
+/**
+ * @interface LoginLayoutProps
+ * @property {BoType} boType - Type de back-office utilisé pour déterminer l'arrière-plan et le logo.
+ * @property {(() => void) | null} onPressLoginButon - Fonction à appeler lors du clic sur le bouton de connexion.
+ * @property {string} welcomeText - Texte de bienvenue à afficher.
+ * @property {string} welcomeTextBold - Texte de bienvenue en gras à afficher.
+ * @property {string} welcomeSubtitle - Sous-titre de bienvenue à afficher.
+ * @property {string} loginTitle - Titre de la section de connexion.
+ * @property {string} loginSubtitle - Sous-titre de la section de connexion.
+ * @property {string} buttonText - Texte du bouton de connexion.
+ * @property {string} codeValue - Valeur actuelle du code (input).
+ * @property {string} inputPlaceHolder - Texte placeHolder pour l'input.
+ * @property {function(string): void} setCodeValue - Fonction pour mettre à jour la valeur du code.
+ * @property {string} onClickErrorMessage - Message d'erreur à afficher lors d'un clic sur le bouton.
+ * @property {function(string): void} setOnClickErrorMessage - Fonction pour mettre à jour le message d'erreur.
+ * @property {boolean} isLoading - État de chargement pour afficher un loader pendant la connexion.
+ *
+ * @example
+ *
+ * <ComponentName
+ *   boType={BoType.scoBO}
+ *   onPressLoginButon={() => console.log('Login pressed')}
+ *   welcomeText="Bienvenue sur"
+ *   welcomeTextBold="Ma Petite Planète"
+ *   welcomeSubtitle="Veuillez vous connecter"
+ *   loginTitle="Connexion"
+ *   loginSubtitle="Veuillez entrer votre code"
+ *   buttonText="Se connecter"
+ *   codeValue={codeValue}
+ *   inputPlaceHolder="Entrez votre code"
+ *   setCodeValue={setCodeValue}
+ *   onClickErrorMessage={errorMessage}
+ *   setOnClickErrorMessage={setErrorMessage}
+ *   isLoading={isLoading}
+ * />
+ */
 const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold, welcomeSubtitle, loginTitle, loginSubtitle, buttonText, codeValue, setCodeValue, inputPlaceHolder, onClickErrorMessage, setOnClickErrorMessage, isLoading, }) => {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 896);
     const [hasError, setHasError] = useState(true);
