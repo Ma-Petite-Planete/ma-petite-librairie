@@ -133,15 +133,6 @@ function App() {
           rankingColorBackground={ScoColors.mainYellow}
         />
         <MppRankingCard
-          onClick={(e) => {
-            console.log(e.target);
-          }}
-          onHover={(e) => {
-            console.log(e.target);
-          }}
-          onHoverLeave={(e) => {
-            console.log(e.target);
-          }}
           title={'Les poulet'}
           subtitle={'Collège Jean Rostand'}
           ranking={4}
