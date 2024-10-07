@@ -1052,7 +1052,7 @@ const MppPodiumStep = ({ title, subtitle, subtitleBold, pointsNumber, typeOfPlay
             React__default.createElement("span", { className: "podium_step_number__number text_body_sb", style: { backgroundColor: `${color}` } }, ranking))));
 };
 
-var css_248z$3 = ".podium__container {\r\n  padding: 1.625rem 0.3rem 1.5rem 0.3rem;\r\n  display: flex;\r\n  align-items: flex-end;\r\n  max-width: 652px;\r\n  min-width: 361px;\r\n  background-color: var(--dark_blue_light);\r\n  border-radius: var(--big_border_radius);\r\n}\r\n\r\n.podium_step__container:nth-child(2) {\r\n  order: 1;\r\n}\r\n\r\n.podium_step__container:nth-child(1) {\r\n  margin: 0 0.3rem;\r\n  order: 2;\r\n}\r\n\r\n.podium_step__container:nth-child(3) {\r\n  order: 3;\r\n}\r\n\r\n@media (min-width: 896px) {\r\n  .podium__container {\r\n    padding: 4.5rem 6rem 2.5rem 6rem;\r\n  }\r\n}\r\n";
+var css_248z$3 = ".podium__container {\r\n  box-sizing: border-box;\r\n  padding: 1.625rem 0.3rem 1.5rem 0.3rem;\r\n  display: flex;\r\n  align-items: flex-end;\r\n  max-width: 652px;\r\n  min-width: 361px;\r\n  background-color: var(--dark_blue_light);\r\n  border-radius: var(--big_border_radius);\r\n}\r\n\r\n.podium_step__container:nth-child(2) {\r\n  order: 1;\r\n}\r\n\r\n.podium_step__container:nth-child(1) {\r\n  margin: 0 0.3rem;\r\n  order: 2;\r\n}\r\n\r\n.podium_step__container:nth-child(3) {\r\n  order: 3;\r\n}\r\n\r\n@media (min-width: 896px) {\r\n  .podium__container {\r\n    padding: 4.5rem 6rem 2.5rem 6rem;\r\n  }\r\n}\r\n";
 styleInject(css_248z$3);
 
 const MppPodium = ({ rankedElements, typeOfPlayers, color, }) => {

@@ -1,4 +1,5 @@
 .podium__container {
+  box-sizing: border-box;
   padding: 1.625rem 0.3rem 1.5rem 0.3rem;
   display: flex;
   align-items: flex-end;
