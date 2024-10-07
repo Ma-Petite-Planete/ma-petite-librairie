@@ -37,7 +37,14 @@ const MppMenu: React.FC<MppMenuProps> = ({
         <div className="navigation_background">
           {navigationLinks.map((navigationLink, index) => (
             <div
-              className={`navigation_element ${actualPage.includes(navigationLink.navigation) ? 'actual_page' : ''}`}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className={`navigation_element ${actualPage.includes(navigationLink.navigation) ? 'actual_page' : ''} ${
+                hoveredIndex === index ||
+                actualPage.includes(navigationLink.navigation)
+                  ? 'text_body_sb '
+                  : 'text_body '
+              }`}
               key={navigationLink.name}
             >
               <LinkComponent
@@ -45,18 +52,7 @@ const MppMenu: React.FC<MppMenuProps> = ({
                 className="navigation_flex"
               >
                 <navigationLink.icon className="icon" />
-                <p
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  className={
-                    hoveredIndex === index ||
-                    actualPage.includes(navigationLink.navigation)
-                      ? 'text_body_sb'
-                      : 'text_body'
-                  }
-                >
-                  {navigationLink.name}
-                </p>
+                <p>{navigationLink.name}</p>
               </LinkComponent>
             </div>
           ))}
