@@ -20,6 +20,7 @@ import { ReactComponent as cloud } from '../ressources/icons/cloud.svg';
 import { ReactComponent as drops } from '../ressources/icons/drops.svg';
 import { ReactComponent as trash } from '../ressources/icons/trash.svg';
 import { ReactComponent as openBook } from '../ressources/icons/open_book.svg';
+import { ReactComponent as infos } from '../ressources/icons/Info.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -44,4 +45,5 @@ export const MppIcons = {
   drops: drops,
   trash: trash,
   openBook: openBook,
+  infos: infos,
 } as const;
