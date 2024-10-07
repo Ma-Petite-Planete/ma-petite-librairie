@@ -40,7 +40,7 @@ function App() {
       </div>
 
       <h2>Type de Bouton</h2>
-      <div className="button_background">
+      <div className='button_background'>
         <MppButton
           title="Bouton d'action"
           onPress={() => {
@@ -63,7 +63,7 @@ function App() {
           buttonType={ButtonType.primaryLarge}
         />
       </div>
-      <div className="button_background">
+      <div className='button_background'>
         <MppButton
           title="Bouton d'action"
           onPress={() => {
@@ -91,7 +91,7 @@ function App() {
       <h2>Trophés</h2>
       <MppPodium
         color={ScoColors.lightYellow}
-        typeOfPlayers="élève"
+        typeOfPlayers='élève'
         rankedElements={[
           {
             name: '4èmeD',
@@ -147,8 +147,8 @@ function App() {
         backgroundColor={ScoColors.veryLightYellow}
         textColor={ScoColors.darkBlue}
         editionName={'Edition Automne 2024'}
-        editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
-        editionMessage="Il reste 7 jours !"
+        editionDatesInfos='Du lundi 18 novembre 9h au lundi 9 décembre 20h'
+        editionMessage='Il reste 7 jours !'
       />
       <div style={{ height: '90vh' }}>
         <MppMenu
@@ -179,7 +179,7 @@ function App() {
               navigation: '/homepage',
             },
           ]}
-          actualPage="/fr/homepage"
+          actualPage='/fr/homepage'
           LinkComponent={'symbol'}
           boType={BoType.scoBO}
           onLogout={() => console.log('suppr les comptes anonymes')}
@@ -213,7 +213,7 @@ function App() {
                 title={iconName}
                 IconComponent={IconComponent}
                 stat={12}
-                statDetails="test"
+                statDetails='test'
               />
             </div>
           ))}
