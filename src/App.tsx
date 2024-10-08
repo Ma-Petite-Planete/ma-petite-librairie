@@ -40,7 +40,7 @@ function App() {
       </div>
 
       <h2>Type de Bouton</h2>
-      <div className="button_background">
+      <div className='button_background'>
         <MppButton
           title="Bouton d'action"
           onPress={() => {
@@ -63,7 +63,7 @@ function App() {
           buttonType={ButtonType.primaryLarge}
         />
       </div>
-      <div className="button_background">
+      <div className='button_background'>
         <MppButton
           title="Bouton d'action"
           onPress={() => {
@@ -91,7 +91,7 @@ function App() {
       <h2>Trophés</h2>
       <MppPodium
         color={ScoColors.lightYellow}
-        typeOfPlayers="élève"
+        typeOfPlayers='élève'
         rankedElements={[
           {
             name: '4èmeD',
@@ -115,6 +115,15 @@ function App() {
       <h2>Ranking Card</h2>
       <div style={{ width: '651px' }}>
         <MppRankingCard
+          onHover={(e) => {
+            console.log(e.target);
+          }}
+          onHoverLeave={(e) => {
+            console.log(e.target);
+          }}
+          onClick={(e) => {
+            console.log(e.target);
+          }}
           title={'Les pouleteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'}
           subtitle={'Collège Jean Rostand'}
           ranking={4}
@@ -170,7 +179,7 @@ function App() {
               navigation: '/homepage',
             },
           ]}
-          actualPage="/fr/homepage"
+          actualPage='/fr/homepage'
           LinkComponent={'symbol'}
           boType={BoType.scoBO}
           onLogout={() => console.log('suppr les comptes anonymes')}

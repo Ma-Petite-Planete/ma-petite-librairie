@@ -9,10 +9,13 @@ interface MppRankingCardProps {
   subPointsText?: string;
   pointsColor: string;
   rankingColorBackground: string;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onHover?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onHoverLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-/** 
-* @example 
+/**
+* @example
 *  <MppRankingCard
         title={'Les poulet'}
         subtitle={'Collège Jean Rostand'}
@@ -21,6 +24,15 @@ interface MppRankingCardProps {
         subPointsText={'par élève'}
         pointsColor={ScoColors.mainYellow}
         rankingColorBackground={ScoColors.mainYellow}
+        onHover={(e) => {
+          console.log(e.target);
+        }}
+        onHoverLeave={(e) => {
+          console.log(e.target);
+        }}
+        onClick={(e) => {
+          console.log(e.target);
+        }}
       />
 */
 
@@ -32,9 +44,17 @@ const MppRankingCard: React.FC<MppRankingCardProps> = ({
   subPointsText,
   pointsColor,
   rankingColorBackground,
+  onClick,
+  onHover,
+  onHoverLeave,
 }) => {
   return (
-    <div className="ranking_card_background ">
+    <div
+      className="ranking_card_background "
+      onClick={onClick}
+      onMouseEnter={onHover}
+      onMouseLeave={onHoverLeave}
+    >
       <div className="flex_row">
         <p
           className="text_body_sb ranking_background"
