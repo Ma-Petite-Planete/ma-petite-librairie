@@ -1087,10 +1087,19 @@ styleInject(css_248z$7);
         subPointsText={'par élève'}
         pointsColor={ScoColors.mainYellow}
         rankingColorBackground={ScoColors.mainYellow}
+        onHover={(e) => {
+          console.log(e.target);
+        }}
+        onHoverLeave={(e) => {
+          console.log(e.target);
+        }}
+        onClick={(e) => {
+          console.log(e.target);
+        }}
       />
 */
-const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, pointsColor, rankingColorBackground, }) => {
-    return (React__default.createElement("div", { className: "ranking_card_background " },
+const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, pointsColor, rankingColorBackground, onClick, onHover, onHoverLeave, }) => {
+    return (React__default.createElement("div", { className: "ranking_card_background ", onClick: onClick, onMouseEnter: onHover, onMouseLeave: onHoverLeave },
         React__default.createElement("div", { className: "flex_row" },
             React__default.createElement("p", { className: "text_body_sb ranking_background", style: { backgroundColor: `${rankingColorBackground}` } }, ranking),
             React__default.createElement("div", { className: "content_background" },
@@ -1124,7 +1133,7 @@ const MppPodiumStep = ({ title, subtitle, subtitleBold, pointsNumber, typeOfPlay
             React__default.createElement("span", { className: "podium_step_number__number text_body_sb", style: { backgroundColor: `${color}` } }, ranking))));
 };
 
-var css_248z$5 = ".podium__container {\n  padding: 1.625rem 0.3rem 1.5rem 0.3rem;\n  display: flex;\n  align-items: flex-end;\n  max-width: 625px;\n  min-width: 361px;\n  background-color: var(--dark_blue_light);\n  border-radius: var(--big_border_radius);\n}\n\n.podium_step__container:nth-child(2) {\n  order: 1;\n}\n\n.podium_step__container:nth-child(1) {\n  margin: 0 0.3rem;\n  order: 2;\n}\n\n.podium_step__container:nth-child(3) {\n  order: 3;\n}\n\n@media (min-width: 896px) {\n  .podium__container {\n    padding: 4.5rem 6rem 2.5rem 6rem;\n  }\n}\n";
+var css_248z$5 = ".podium__container {\n  box-sizing: border-box;\n  padding: 1.625rem 0.3rem 1.5rem 0.3rem;\n  display: flex;\n  align-items: flex-end;\n  max-width: 652px;\n  min-width: 361px;\n  background-color: var(--dark_blue_light);\n  border-radius: var(--big_border_radius);\n}\n\n.podium_step__container:nth-child(2) {\n  order: 1;\n}\n\n.podium_step__container:nth-child(1) {\n  margin: 0 0.3rem;\n  order: 2;\n}\n\n.podium_step__container:nth-child(3) {\n  order: 3;\n}\n\n@media (min-width: 896px) {\n  .podium__container {\n    padding: 4.5rem 6rem 2.5rem 6rem;\n    max-width: 652px;\n    box-sizing: border-box;\n  }\n}\n";
 styleInject(css_248z$5);
 
 const MppPodium = ({ rankedElements, typeOfPlayers, color, }) => {

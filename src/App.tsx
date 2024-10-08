@@ -26,9 +26,9 @@ function App() {
     <div className="main_background">
       <h2>Logo</h2>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <YellowLogo width={'460px'} />
-        <WhiteLogo width={'460px'} />
-        <LogoOnly width={'460px'} />
+        <YellowLogo width={'200px'} />
+        <WhiteLogo width={'200px'} />
+        <LogoOnly width={'70px'} />
       </div>
       <h2>Type de Texte</h2>
       <MppTextStyle />
@@ -118,6 +118,15 @@ function App() {
       <h2>Ranking Card</h2>
       <div style={{ width: '651px' }}>
         <MppRankingCard
+          onHover={(e) => {
+            console.log(e.target);
+          }}
+          onHoverLeave={(e) => {
+            console.log(e.target);
+          }}
+          onClick={(e) => {
+            console.log(e.target);
+          }}
           title={'Les pouleteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'}
           subtitle={'Collège Jean Rostand'}
           ranking={4}
