@@ -10,7 +10,7 @@ interface MppRankingCardProps {
   pointsColor: string;
   rankingColorBackground: string;
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  onHover?: (e: React.MouseEvent<HTMLDivElement>) => void; // Ajout onHover (onMouseEnter)
+  onHover?: (e: React.MouseEvent<HTMLDivElement>) => void;
   onHoverLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
