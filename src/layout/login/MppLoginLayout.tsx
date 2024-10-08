@@ -102,7 +102,7 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
   return (
     <div className="container_login_background">
       <div
-        className={'container_right_side'}
+        className={'container_image_section'}
         style={{
           backgroundImage: `url(${
             boType === BoType.scoBO
@@ -131,8 +131,8 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
         />
       </div>
 
-      <div className="container_left_side">
-        <div className="left_side_content">
+      <div className="container_input_section">
+        <div className="input_section_content">
           <p className="title_h1">{loginTitle}</p>
           <p>{loginSubtitle}</p>
           <div>
