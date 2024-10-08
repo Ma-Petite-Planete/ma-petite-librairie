@@ -1,6 +1,6 @@
 import React from 'react';
 import './mpp_input_text.css';
-interface ValidationCondition {
+export interface ValidationCondition {
     condition: (value: string) => boolean;
     message: string;
 }
@@ -13,85 +13,37 @@ interface MppInputTextProps {
     validationConditions?: Array<ValidationCondition>;
     onChange: (value: string, hasError: boolean) => void;
     onClickIcon?: (value: string) => void;
+    setHasError?: (hasError: boolean) => void;
+    onClickErrorMessage?: string;
 }
 /**
- * Props pour le composant MppInputText.
  * @interface MppInputTextProps
- * @property {string} placeholder - Texte d'espace réservé.
- * @property {string} value - Valeur contrôlée du champ de saisie.
- * @property {string} [iconUrl] - URL de l'image de l'icône.
- * @property {boolean} [needCounter] - Indique si un compteur de caractères doit être affiché.
- * @property {number} [maxCharacteres] - Nombre maximum de caractères autorisés.
- * @property {ValidationCondition[]} [validationConditions] - Liste des conditions de validation.
- * @property {(value: string, hasError: boolean) => void} onChange - Fonction appelée lors du changement de valeur.
- * @property {(value: string) => void} [onClickIcon] - Fonction appelée lors du clic sur l'icône.
- */
-/**
- * Composant de champ de saisie avec validation, icône cliquable et compteur de caractères.
+ * @property {string} placeholder - Texte d'indice à afficher dans le champ de saisie.
+ * @property {string} value - Valeur actuelle du champ de saisie.
+ * @property {React.FC<React.SVGProps<SVGSVGElement>>} [icon] - Composant SVG optionnel à afficher comme icône.
+ * @property {boolean} [needCounter] - Indique si un compteur de caractères doit être affiché (par défaut : false).
+ * @property {number} [maxCharacteres] - Nombre maximum de caractères autorisés dans le champ.
+ * @property {Array<ValidationCondition>} [validationConditions] - Conditions de validation à appliquer au champ sera vérifié a chque changement dans l'input.
+ * @property {function(string, boolean): void} onChange - Fonction de rappel appelée lors du changement de valeur.
+ * @property {function(string): void} [onClickIcon] - Fonction de rappel appelée lorsque l'icône est cliquée.
+ * @property {function(boolean): void} [setHasError] - Fonction de rappel pour indiquer si le champ a des erreurs.
+ * @property {string} [onClickErrorMessage] - Message d'erreur affiché lors d'un clique exterieur.
  *
  * @example
- * ```jsx
- * import React, { useState } from 'react';
- * import MppInputText from './component/MppInputText/MppInputText';
- * import pen from './pen.svg';
  *
- * const InputDemo: React.FC = () => {
- *   const [inputDemoIcon, setInputDemoIcon] = useState('');
- *
- *   const handleChangeDemoIcon = (value: string) => {
- *     setInputDemoIcon(value);
- *   };
- *
- *   const handleIconClick = () => {
- *     setInputDemoIcon('');
- *   };
- *
- *   const [inputDemoCounter, setInputDemoCounter] = useState('');
- *
- *   const handleChangeDemoCounter = (value: string) => {
- *     setInputDemoCounter(value);
- *   };
- *
- *   const [inputDemoCondition, setInputDemoCondition] = useState('');
- *   const handleChangeDemoCondition = (value: string, hasError: boolean) => {
- *     if (hasError) {
- *       console.log('Les conditions ne sont pas respectées');
- *     } else {
- *       setInputDemoCondition(value);
- *     }
- *   };
- *
- *   return (
- *     <div style={{ width: '300px' }}>
- *       <MppInputText
- *         placeholder="Exemple de validation"
- *         value={inputDemoCondition}
- *         onChange={handleChangeDemoCondition}
- *         validationConditions={[
- *           { condition: (value) => value.length >= 5, message: 'Le texte doit contenir au moins 5 caractères.' },
- *           { condition: (value) => /^[a-zA-Z]+$/.test(value), message: 'Le texte doit uniquement contenir des lettres.' },
- *         ]}
- *       />
- *       <MppInputText
- *         value={inputDemoIcon}
- *         placeholder="Exemple d'icône"
- *         onChange={handleChangeDemoIcon}
- *         iconUrl={MppIcons.pen}
- *         onClickIcon={handleIconClick}
- *       />
- *       <MppInputText
- *         value={inputDemoCounter}
- *         placeholder="Exemple de compteur"
- *         onChange={handleChangeDemoCounter}
- *         needCounter={true}
- *         maxCharacteres={20}
- *       />
- *     </div>
- *   );
- * };
- *
- * export default InputDemo;
- * ```
+ * <MppInputText
+ *   placeholder="Entrez votre texte"
+ *   value={inputValue}
+ *   onChange={(value, hasError) => {
+ *     console.log('Valeur:', value, 'Erreur:', hasError);
+ *   }}
+ *   validationConditions={[
+ *     { condition: value => value.length >= 5, message: 'Doit avoir au moins 5 caractères.' },
+ *     { condition: value => /^[a-zA-Z]+$/.test(value), message: 'Ne doit contenir que des lettres.' },
+ *   ]}
+ *   needCounter
+ *   maxCharacteres={20}
+ * />
  */
 declare const MppInputText: React.FC<MppInputTextProps>;
 export default MppInputText;

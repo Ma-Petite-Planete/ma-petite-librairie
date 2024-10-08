@@ -18,14 +18,17 @@ import { ScoColors } from './utils/Mppcolors';
 import { MppIcons } from './utils/MppIcons';
 import MppCardEdition from './components/MppCardEdition/MppCardEdition';
 
+import LayoutLoginSection from './section/MppLayoutLoginSection';
+import MppLoader from './components/MppLoader/MppLoader';
+
 function App() {
   return (
     <div className="main_background">
       <h2>Logo</h2>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <YellowLogo width={'460px'} />
-        <WhiteLogo width={'460px'} />
-        <LogoOnly width={'460px'} />
+        <YellowLogo width={'200px'} />
+        <WhiteLogo width={'200px'} />
+        <LogoOnly width={'70px'} />
       </div>
       <h2>Type de Texte</h2>
       <MppTextStyle />
@@ -40,7 +43,7 @@ function App() {
       </div>
 
       <h2>Type de Bouton</h2>
-      <div className='button_background'>
+      <div className="button_background">
         <MppButton
           title="Bouton d'action"
           onPress={() => {
@@ -63,7 +66,7 @@ function App() {
           buttonType={ButtonType.primaryLarge}
         />
       </div>
-      <div className='button_background'>
+      <div className="button_background">
         <MppButton
           title="Bouton d'action"
           onPress={() => {
@@ -91,7 +94,7 @@ function App() {
       <h2>Trophés</h2>
       <MppPodium
         color={ScoColors.lightYellow}
-        typeOfPlayers='élève'
+        typeOfPlayers="élève"
         rankedElements={[
           {
             name: '4èmeD',
@@ -147,10 +150,11 @@ function App() {
         backgroundColor={ScoColors.veryLightYellow}
         textColor={ScoColors.darkBlue}
         editionName={'Edition Automne 2024'}
-        editionDatesInfos='Du lundi 18 novembre 9h au lundi 9 décembre 20h'
-        editionMessage='Il reste 7 jours !'
+        editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
+        editionMessage="Il reste 7 jours !"
       />
-      <div style={{ height: '90vh' }}>
+      <h2>Navigation Bar</h2>
+      <div style={{ height: '100vh' }}>
         <MppMenu
           navigationLinks={[
             {
@@ -179,12 +183,17 @@ function App() {
               navigation: '/homepage',
             },
           ]}
-          actualPage='/fr/homepage'
+          actualPage="/fr/homepage"
           LinkComponent={'symbol'}
           boType={BoType.scoBO}
           onLogout={() => console.log('suppr les comptes anonymes')}
+          aboutText={'A propos de MPP'}
+          logOutText={'Se déconnecter'}
         />
       </div>
+      <h2>Layout</h2>
+      <h3>Login Layout</h3>
+      <LayoutLoginSection />
 
       <h2>Stat Card</h2>
       <MppStatCard
@@ -213,11 +222,13 @@ function App() {
                 title={iconName}
                 IconComponent={IconComponent}
                 stat={12}
-                statDetails='test'
+                statDetails="test"
               />
             </div>
           ))}
       </div>
+      <h2>Loader</h2>
+      <MppLoader />
     </div>
   );
 }
