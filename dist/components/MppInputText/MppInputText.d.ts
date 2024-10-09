@@ -15,6 +15,7 @@ interface MppInputTextProps {
     onClickIcon?: (value: string) => void;
     setHasError?: (hasError: boolean) => void;
     onClickErrorMessage?: string;
+    readOnly?: boolean;
 }
 /**
  * @interface MppInputTextProps
