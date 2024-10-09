@@ -2,9 +2,9 @@ import * as React from 'react';
 import React__default, { useState, useEffect, useCallback } from 'react';
 
 var _g$7, _defs$7;
-function _extends$o() { return _extends$o = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$o.apply(null, arguments); }
+function _extends$p() { return _extends$p = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$p.apply(null, arguments); }
 var SvgScoYellowLogoBlueText = function SvgScoYellowLogoBlueText(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$o({
+  return /*#__PURE__*/React.createElement("svg", _extends$p({
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
     viewBox: "0 0 460 189"
@@ -157,9 +157,9 @@ var SvgScoYellowLogoBlueText = function SvgScoYellowLogoBlueText(props) {
 };
 
 var _g$6, _defs$6;
-function _extends$n() { return _extends$n = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$n.apply(null, arguments); }
+function _extends$o() { return _extends$o = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$o.apply(null, arguments); }
 var SvgScoWhiteLogoWhiteText = function SvgScoWhiteLogoWhiteText(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$n({
+  return /*#__PURE__*/React.createElement("svg", _extends$o({
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
     viewBox: "0 0 460 189"
@@ -178,20 +178,20 @@ var SvgScoWhiteLogoWhiteText = function SvgScoWhiteLogoWhiteText(props) {
   })))));
 };
 
-var _path$h, _path2$7, _path3$2, _path4$1, _defs$5;
-function _extends$m() { return _extends$m = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$m.apply(null, arguments); }
+var _path$i, _path2$8, _path3$3, _path4$1, _defs$5;
+function _extends$n() { return _extends$n = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$n.apply(null, arguments); }
 var SvgScoLogoOnlyYellow = function SvgScoLogoOnlyYellow(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$m({
+  return /*#__PURE__*/React.createElement("svg", _extends$n({
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
     viewBox: "0 0 145 144"
-  }, props), _path$h || (_path$h = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$i || (_path$i = /*#__PURE__*/React.createElement("path", {
     fill: "url(#sco_logo_only_yellow_svg__a)",
     d: "M144.213 72.288a67.3 67.3 0 0 1-1.897 16.68 73 73 0 0 1-4.021 11.772 73.3 73.3 0 0 1-8.641 14.679 59 59 0 0 1-3.831 4.621c-1.048 1.142-2.059 2.307-3.193 3.383-2.783 2.686-5.762 5.193-8.925 7.438a70.1 70.1 0 0 1-22.148 10.507 72 72 0 0 1-9.652 1.935 66 66 0 0 1-4.907.475c-1.741.097-3.514.256-5.286.19-2.562-.065-5.097-.19-7.659-.476-3.07-.379-6.107-.914-9.117-1.676a72.8 72.8 0 0 1-25.284-11.965 63 63 0 0 1-5.696-4.687c-.914-.855-1.866-1.676-2.783-2.593a75.7 75.7 0 0 1-7.907-9.496 69 69 0 0 1-6.076-10.539c-2.307-4.972-4.02-10.193-5.059-15.538-.438-2.276-.724-4.555-.951-6.869a77 77 0 0 1-.287-7.565c.028-1.897.028-3.763.125-5.632.096-2.182.313-4.334.665-6.486.438-3.038 1.107-6.041 1.935-9.02a69.8 69.8 0 0 1 14.176-26.201 62 62 0 0 1 4.841-5.124 73 73 0 0 1 7.814-6.487 70.3 70.3 0 0 1 11.08-6.517c4.744-2.217 9.679-3.924 14.813-5.059 2.535-.6 5.125-1.01 7.718-1.296 1.583-.19 3.134-.286 4.745-.38C70.512.266 72.188.266 73.9.297c2.628.065 5.287.255 7.88.572a75.4 75.4 0 0 1 15.09 3.573 68.7 68.7 0 0 1 11.614 5.345 71 71 0 0 1 7.755 5.155c1.838 1.42 3.572 2.945 5.317 4.459a68 68 0 0 1 4.211 4.238 69 69 0 0 1 5.124 6.393c2.496 3.48 4.648 7.214 6.486 11.107 3.449 7.403 5.6 15.348 6.421 23.483.255 2.562.41 5.097.41 7.659h.007v.007zm-72.277 58.007c15.976-.22 29.273-5.572 40.383-16.11 11.424-10.793 17.721-24.052 18.29-39.908.573-16.452-4.714-30.724-16.11-42.566-10.89-11.327-24.273-17.566-40.032-17.938-16.11-.41-30.352 4.714-42.118 15.852-11.614 10.948-17.528 24.683-18.035 40.566s4.59 29.838 15.566 41.421c11.549 12.214 25.914 18.263 42.06 18.673l-.008.007h.004z"
-  })), _path2$7 || (_path2$7 = /*#__PURE__*/React.createElement("path", {
+  })), _path2$8 || (_path2$8 = /*#__PURE__*/React.createElement("path", {
     fill: "url(#sco_logo_only_yellow_svg__b)",
     d: "M39.184 92.198c-1.866.097-3.762-.124-5.573-.6a15.3 15.3 0 0 1-5.669-3.227 16.5 16.5 0 0 1-3.42-4.4c-.887-1.742-1.518-3.61-1.773-5.535a15.66 15.66 0 0 1 3.545-12.755 16.4 16.4 0 0 1 10.155-5.697 15.84 15.84 0 0 1 9.497 1.265c4.269 1.897 7.497 5.573 8.89 10.032 1.296 3.858 1.01 8.1-.697 11.772a16.1 16.1 0 0 1-3.572 5.124 14.68 14.68 0 0 1-8.67 4.049c-.951 0-1.8-.066-2.724-.028zm4.21-17.148c2.945.096 5.155-2.152 5.22-5.193.066-1.897-.854-3.287-2.275-4.431a4.24 4.24 0 0 0-3.193-1.108c-2.88.287-5.193 3.228-4.935 5.983.256 2.66 2.497 4.876 5.194 4.745h-.01z"
-  })), _path3$2 || (_path3$2 = /*#__PURE__*/React.createElement("path", {
+  })), _path3$3 || (_path3$3 = /*#__PURE__*/React.createElement("path", {
     fill: "url(#sco_logo_only_yellow_svg__c)",
     d: "M85.578 60.388c-.028-3.925.982-7.214 3.103-10.128A15.78 15.78 0 0 1 99.153 43.8c2.563-.38 5.194-.19 7.659.572a15 15 0 0 1 5.945 3.449c2.88 2.686 4.431 6.01 4.935 9.869.6 4.935-.438 9.431-3.704 13.29a15.37 15.37 0 0 1-10.127 5.476c-4.366.572-8.383-.41-11.9-3.104a16.3 16.3 0 0 1-6.27-10.414 33 33 0 0 1-.124-2.562l.007.007h.004zm20.414-11.832c-2.594 0-4.497 1.39-5.249 3.735-.665 2.276.314 4.934 2.276 5.983a5.88 5.88 0 0 0 5.945 0c1.993-1.076 3.104-3.831 2.372-5.918-.789-2.248-2.944-3.762-5.344-3.8"
   })), _path4$1 || (_path4$1 = /*#__PURE__*/React.createElement("path", {
@@ -348,10 +348,10 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$a = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');\n/* Regular (400), Medium (500), Semi-Bold (600), Bold (700) */\n\n:root {\n  font-family: 'Poppins', sans-serif;\n  font-size: 16px;\n  font-weight: 400;\n  line-height: auto;\n  color: var(--dark_blue);\n\n  /* graphique chart mpp scolaire */\n  --error: red;\n  --white: #ffffff;\n  --white_transparent: #ffffff99;\n  --main_yellow: #f9cf2f;\n  --light_yellow: #f9dc6c;\n  --very_light_yellow: #faf1c8;\n  --main_blue: #5fd3ac;\n  --light_blue: #cfeef4;\n  --dark_blue: #2c2c69;\n  --dark_blue_light: rgb(44, 44, 105, 0.8);\n  --dark_blue_very_light: rgb(44, 44, 105, 0.2);\n  --disable_dark_blue: #9595b4;\n  --tonic_violet: #b42ff5;\n  --pink: #f9c7e9;\n  --pastel_blue: #d0eff5;\n  --pastel_green: #c4e39a;\n  --pastel_violet: #dbd6ff;\n  --pastel_light_pink: #f9c7e9;\n  --pastel_dark_pink: #fab1bd;\n  --pastel_orange: #ffae92;\n  --pastel_dark_violet: #b1c5ff;\n  --pastel_turquoise: #7fd4b3;\n  --anthracite: #333333;\n  --dark_grey: #999999;\n  --medium_grey: #dadada;\n  --light_grey: #f4f4f4;\n  --utility_yellow: #e3ba1a;\n  --utility_green: #21be8b;\n  --green_background: #eefaf7;\n  --shadow_color: #0303841a;\n  --gradient_peps: linear-gradient(to right, #b42ff5, #cfeef4);\n  --gradient_peps_reverse: linear-gradient(to left, #b42ff5, #cfeef4);\n  --standard_border_radius: 8px;\n  --big_border_radius: 20px;\n}\n\np,\nspan {\n  margin: 0;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  background-color: var(--light_grey);\n}\n\n/* handle texte style */\n\n.title_h1 {\n  font-weight: 700;\n  font-size: 24px;\n}\n\n.title_h2 {\n  font-weight: 500;\n  font-size: 20px;\n}\n\n.title_h3 {\n  font-weight: 700;\n  font-size: 18px;\n}\n\n.subtitle {\n  font-weight: 500;\n}\n\n.text_body {\n  font-weight: 400;\n  font-size: 14px;\n}\n\n.text_body_sb {\n  font-weight: 600;\n  font-size: 14px;\n}\n\n.text_small_b {\n  font-weight: 700;\n  font-size: 12px;\n}\n\n.text_small {\n  font-weight: 400;\n  font-size: 12px;\n}\n\nli {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  line-height: 1;\n}\n\nul {\n  margin: 0;\n  padding: 0;\n}\n";
+var css_248z$a = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');\r\n/* Regular (400), Medium (500), Semi-Bold (600), Bold (700) */\r\n\r\n:root {\r\n  font-family: 'Poppins', sans-serif;\r\n  font-size: 16px;\r\n  font-weight: 400;\r\n  line-height: auto;\r\n  color: var(--dark_blue);\r\n\r\n  /* graphique chart mpp scolaire */\r\n  --error: red;\r\n  --white: #ffffff;\r\n  --white_transparent: #ffffff99;\r\n  --main_yellow: #f9cf2f;\r\n  --light_yellow: #f9dc6c;\r\n  --very_light_yellow: #faf1c8;\r\n  --main_blue: #5fd3ac;\r\n  --light_blue: #cfeef4;\r\n  --dark_blue: #2c2c69;\r\n  --dark_blue_light: rgb(44, 44, 105, 0.8);\r\n  --dark_blue_very_light: rgb(44, 44, 105, 0.2);\r\n  --disable_dark_blue: #9595b4;\r\n  --tonic_violet: #b42ff5;\r\n  --pink: #f9c7e9;\r\n  --pastel_blue: #d0eff5;\r\n  --pastel_green: #c4e39a;\r\n  --pastel_violet: #dbd6ff;\r\n  --pastel_light_pink: #f9c7e9;\r\n  --pastel_dark_pink: #fab1bd;\r\n  --pastel_orange: #ffae92;\r\n  --pastel_dark_violet: #b1c5ff;\r\n  --pastel_turquoise: #7fd4b3;\r\n  --anthracite: #333333;\r\n  --dark_grey: #999999;\r\n  --medium_grey: #dadada;\r\n  --light_grey: #f4f4f4;\r\n  --utility_yellow: #e3ba1a;\r\n  --utility_green: #21be8b;\r\n  --green_background: #eefaf7;\r\n  --shadow_color: #0303841a;\r\n  --gradient_peps: linear-gradient(to right, #b42ff5, #cfeef4);\r\n  --gradient_peps_reverse: linear-gradient(to left, #b42ff5, #cfeef4);\r\n  --standard_border_radius: 8px;\r\n  --big_border_radius: 20px;\r\n}\r\n\r\np,\r\nspan {\r\n  margin: 0;\r\n}\r\n\r\nbody {\r\n  margin: 0;\r\n  padding: 0;\r\n  background-color: var(--light_grey);\r\n}\r\n\r\n/* handle texte style */\r\n\r\n.title_h1 {\r\n  font-weight: 700;\r\n  font-size: 24px;\r\n}\r\n\r\n.title_h2 {\r\n  font-weight: 500;\r\n  font-size: 20px;\r\n}\r\n\r\n.title_h3 {\r\n  font-weight: 700;\r\n  font-size: 18px;\r\n}\r\n\r\n.subtitle {\r\n  font-weight: 500;\r\n}\r\n\r\n.text_body {\r\n  font-weight: 400;\r\n  font-size: 14px;\r\n}\r\n\r\n.text_body_sb {\r\n  font-weight: 600;\r\n  font-size: 14px;\r\n}\r\n\r\n.text_small_b {\r\n  font-weight: 700;\r\n  font-size: 12px;\r\n}\r\n\r\n.text_small {\r\n  font-weight: 400;\r\n  font-size: 12px;\r\n}\r\n\r\nli {\r\n  list-style: none;\r\n  padding: 0;\r\n  margin: 0;\r\n  line-height: 1;\r\n}\r\n\r\nul {\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n";
 styleInject(css_248z$a);
 
-var css_248z$9 = ".mpp_button {\n  background-color: var(--dark_blue);\n  color: var(--white);\n  border: none;\n  border-radius: var(--standard_border_radius);\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n\n.mpp_button:hover {\n  background-color: var(--dark_blue_light);\n}\n\n.secondary_type:hover {\n  background-color: var(--dark_blue_very_light);\n}\n\n.mpp_button:disabled {\n  background-color: var(--disable_dark_blue);\n  cursor: not-allowed;\n}\n\n.button_large {\n  padding: 12px 40px;\n}\n\n.button_medium {\n  padding: 8px 32px;\n}\n\n.secondary_type {\n  background-color: var(--white);\n  color: var(--dark_blue);\n  border: 2px solid var(--dark_blue);\n}\n\n.secondary_type:disabled {\n  color: var(--disable_dark_blue);\n  background-color: var(--white);\n  border: 2px solid var(--disable_dark_blue);\n}\n";
+var css_248z$9 = ".mpp_button {\r\n  background-color: var(--dark_blue);\r\n  color: var(--white);\r\n  border: none;\r\n  border-radius: var(--standard_border_radius);\r\n  cursor: pointer;\r\n  transition: background-color 0.3s ease;\r\n}\r\n\r\n.mpp_button:hover {\r\n  background-color: var(--dark_blue_light);\r\n}\r\n\r\n.secondary_type:hover {\r\n  background-color: var(--dark_blue_very_light);\r\n}\r\n\r\n.mpp_button:disabled {\r\n  background-color: var(--disable_dark_blue);\r\n  cursor: not-allowed;\r\n}\r\n\r\n.button_large {\r\n  padding: 12px 40px;\r\n}\r\n\r\n.button_medium {\r\n  padding: 8px 32px;\r\n}\r\n\r\n.secondary_type {\r\n  background-color: var(--white);\r\n  color: var(--dark_blue);\r\n  border: 2px solid var(--dark_blue);\r\n}\r\n\r\n.secondary_type:disabled {\r\n  color: var(--disable_dark_blue);\r\n  background-color: var(--white);\r\n  border: 2px solid var(--disable_dark_blue);\r\n}\r\n";
 styleInject(css_248z$9);
 
 var ButtonType;
@@ -395,7 +395,7 @@ const MppButton = ({ title, onPress, buttonType, style = {}, hoverStyle = {}, ac
                     : 'secondary_type button_medium text_body'}`, style: combinedStyle, onClick: !isDisabled ? onPress : undefined, onMouseEnter: () => !isDisabled && setHover(true), onMouseLeave: () => !isDisabled && setHover(false), onMouseDown: () => !isDisabled && setActive(true), onMouseUp: () => !isDisabled && setActive(false), disabled: isDisabled }, title));
 };
 
-var css_248z$8 = ".mpp_input_container {\n  display: flex;\n  margin: 10px 0;\n  gap: 17px;\n  padding: 16px;\n  border: 2px solid var(--medium_grey);\n  background-color: var(--light_grey);\n  border-radius: var(--standard_border_radius);\n}\n\n.mpp_input {\n  border: none;\n  width: 100%;\n  font-size: 16px;\n  outline: none;\n  transition: border-color 0.3s ease;\n  background-color: transparent;\n}\n\n.focused {\n  border-color: var(--dark_blue);\n}\n\n.max_characteres {\n  color: var(--dark_blue) !important;\n}\n\n.error {\n  border-color: var(--error);\n}\n\n.input_error {\n  color: var(--error);\n  font-size: 12px;\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\n\n.input_counter {\n  color: var(--medium_grey);\n}\n\n.input_icon_pointer {\n  cursor: pointer;\n}\n";
+var css_248z$8 = ".mpp_input_container {\r\n  display: flex;\r\n  margin: 10px 0;\r\n  gap: 17px;\r\n  padding: 16px;\r\n  border: 2px solid var(--medium_grey);\r\n  background-color: var(--light_grey);\r\n  border-radius: var(--standard_border_radius);\r\n}\r\n\r\n.mpp_input {\r\n  border: none;\r\n  width: 100%;\r\n  font-size: 16px;\r\n  outline: none;\r\n  transition: border-color 0.3s ease;\r\n  background-color: transparent;\r\n}\r\n\r\n.focused {\r\n  border-color: var(--dark_blue);\r\n}\r\n\r\n.max_characteres {\r\n  color: var(--dark_blue) !important;\r\n}\r\n\r\n.error {\r\n  border-color: var(--error);\r\n}\r\n\r\n.input_error {\r\n  color: var(--error);\r\n  font-size: 12px;\r\n  margin-top: 5px;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.input_counter {\r\n  color: var(--medium_grey);\r\n}\r\n\r\n.input_icon_pointer {\r\n  cursor: pointer;\r\n}\r\n";
 styleInject(css_248z$8);
 
 /**
@@ -518,79 +518,79 @@ const ScoColors = {
     gradientPepsReverse: 'var(--gradient_peps_reverse)',
 };
 
-var _path$g;
-function _extends$l() { return _extends$l = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$l.apply(null, arguments); }
+var _path$h;
+function _extends$m() { return _extends$m = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$m.apply(null, arguments); }
 var SvgPen = function SvgPen(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$l({
+  return /*#__PURE__*/React.createElement("svg", _extends$m({
     xmlns: "http://www.w3.org/2000/svg",
     width: 18,
     height: 18,
     fill: "current"
-  }, props), _path$g || (_path$g = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$h || (_path$h = /*#__PURE__*/React.createElement("path", {
     d: "M-.003 14.251v3.75h3.75l11.06-11.06-3.75-3.75zm17.71-10.21a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83 3.75 3.75z"
   })));
 };
 
-var _path$f, _path2$6;
-function _extends$k() { return _extends$k = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$k.apply(null, arguments); }
+var _path$g, _path2$7;
+function _extends$l() { return _extends$l = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$l.apply(null, arguments); }
 var SvgLogo = function SvgLogo(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$k({
+  return /*#__PURE__*/React.createElement("svg", _extends$l({
     xmlns: "http://www.w3.org/2000/svg",
     width: 30,
     height: 30,
     fill: "none"
-  }, props), _path$f || (_path$f = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$g || (_path$g = /*#__PURE__*/React.createElement("path", {
     fill: "#2C2C69",
     d: "M15 3a12 12 0 1 0 0 24 12 12 0 0 0 0-24m0 21.884A9.883 9.883 0 1 1 24.884 15 9.894 9.894 0 0 1 15 24.884"
-  })), _path2$6 || (_path2$6 = /*#__PURE__*/React.createElement("path", {
+  })), _path2$7 || (_path2$7 = /*#__PURE__*/React.createElement("path", {
     fill: "#2C2C69",
     d: "M19.929 10.315a2.678 2.678 0 1 0 0 5.356 2.678 2.678 0 0 0 0-5.356m.721 2.623a1.011 1.011 0 1 1 0-2.023 1.011 1.011 0 0 1 0 2.023M9.382 12.997a2.679 2.679 0 1 0 0 5.358 2.679 2.679 0 0 0 0-5.358m.721 2.623a1.01 1.01 0 1 1 0-2.022 1.01 1.01 0 0 1 0 2.022"
   })));
 };
 
+var _path$f;
+function _extends$k() { return _extends$k = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$k.apply(null, arguments); }
+var SvgGraph = function SvgGraph(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends$k({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 20,
+    height: 21,
+    fill: "current"
+  }, props), _path$f || (_path$f = /*#__PURE__*/React.createElement("path", {
+    d: "M2.292 18.273a.607.607 0 0 1-.625-.625v-8.75a.607.607 0 0 1 .625-.625h2.916a.607.607 0 0 1 .625.625v8.75a.607.607 0 0 1-.625.625zm6.25 0a.607.607 0 0 1-.625-.625V3.898a.607.607 0 0 1 .625-.625h2.916a.607.607 0 0 1 .625.625v13.75a.607.607 0 0 1-.625.625zm6.25 0a.607.607 0 0 1-.625-.625v-7.083a.607.607 0 0 1 .625-.625h2.916a.607.607 0 0 1 .625.625v7.083a.607.607 0 0 1-.625.625z"
+  })));
+};
+
 var _path$e;
 function _extends$j() { return _extends$j = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$j.apply(null, arguments); }
-var SvgGraph = function SvgGraph(props) {
+var SvgHelp = function SvgHelp(props) {
   return /*#__PURE__*/React.createElement("svg", _extends$j({
     xmlns: "http://www.w3.org/2000/svg",
     width: 20,
     height: 21,
     fill: "current"
   }, props), _path$e || (_path$e = /*#__PURE__*/React.createElement("path", {
-    d: "M2.292 18.273a.607.607 0 0 1-.625-.625v-8.75a.607.607 0 0 1 .625-.625h2.916a.607.607 0 0 1 .625.625v8.75a.607.607 0 0 1-.625.625zm6.25 0a.607.607 0 0 1-.625-.625V3.898a.607.607 0 0 1 .625-.625h2.916a.607.607 0 0 1 .625.625v13.75a.607.607 0 0 1-.625.625zm6.25 0a.607.607 0 0 1-.625-.625v-7.083a.607.607 0 0 1 .625-.625h2.916a.607.607 0 0 1 .625.625v7.083a.607.607 0 0 1-.625.625z"
+    d: "M10.083 15.628q.334 0 .563-.23a.76.76 0 0 0 .23-.562.77.77 0 0 0-.23-.562.77.77 0 0 0-.563-.23.77.77 0 0 0-.562.23.77.77 0 0 0-.23.562q0 .333.23.563.23.228.562.229m-.02-8.604q.708 0 1.145.385t.438.99q0 .416-.25.823t-.813.885q-.54.48-.864 1.01-.323.532-.323.97 0 .228.177.364a.65.65 0 0 0 .406.135.56.56 0 0 0 .417-.167.75.75 0 0 0 .208-.416q.063-.417.282-.74t.677-.698q.624-.52.906-1.041.28-.521.281-1.167 0-1.104-.719-1.77-.718-.668-1.906-.668-.792 0-1.458.313a2.8 2.8 0 0 0-1.104.917.64.64 0 0 0-.136.468q.031.24.198.365a.57.57 0 0 0 .49.104.73.73 0 0 0 .427-.292q.271-.375.656-.572.385-.198.865-.198M10 19.107a8.4 8.4 0 0 1-3.27-.635 8.1 8.1 0 0 1-2.647-1.76 8.3 8.3 0 0 1-1.77-2.647q-.646-1.52-.646-3.291a8.3 8.3 0 0 1 .646-3.271 8.3 8.3 0 0 1 1.77-2.646 8.3 8.3 0 0 1 2.646-1.77A8.3 8.3 0 0 1 10 2.44q1.73 0 3.25.646a8.3 8.3 0 0 1 2.646 1.771 8.4 8.4 0 0 1 1.781 2.646 8.2 8.2 0 0 1 .656 3.27q0 1.771-.656 3.292a8.4 8.4 0 0 1-1.781 2.646 8.1 8.1 0 0 1-2.646 1.76 8.35 8.35 0 0 1-3.25.636"
   })));
 };
 
 var _path$d;
 function _extends$i() { return _extends$i = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$i.apply(null, arguments); }
-var SvgHelp = function SvgHelp(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$i({
-    xmlns: "http://www.w3.org/2000/svg",
-    width: 20,
-    height: 21,
-    fill: "current"
-  }, props), _path$d || (_path$d = /*#__PURE__*/React.createElement("path", {
-    d: "M10.083 15.628q.334 0 .563-.23a.76.76 0 0 0 .23-.562.77.77 0 0 0-.23-.562.77.77 0 0 0-.563-.23.77.77 0 0 0-.562.23.77.77 0 0 0-.23.562q0 .333.23.563.23.228.562.229m-.02-8.604q.708 0 1.145.385t.438.99q0 .416-.25.823t-.813.885q-.54.48-.864 1.01-.323.532-.323.97 0 .228.177.364a.65.65 0 0 0 .406.135.56.56 0 0 0 .417-.167.75.75 0 0 0 .208-.416q.063-.417.282-.74t.677-.698q.624-.52.906-1.041.28-.521.281-1.167 0-1.104-.719-1.77-.718-.668-1.906-.668-.792 0-1.458.313a2.8 2.8 0 0 0-1.104.917.64.64 0 0 0-.136.468q.031.24.198.365a.57.57 0 0 0 .49.104.73.73 0 0 0 .427-.292q.271-.375.656-.572.385-.198.865-.198M10 19.107a8.4 8.4 0 0 1-3.27-.635 8.1 8.1 0 0 1-2.647-1.76 8.3 8.3 0 0 1-1.77-2.647q-.646-1.52-.646-3.291a8.3 8.3 0 0 1 .646-3.271 8.3 8.3 0 0 1 1.77-2.646 8.3 8.3 0 0 1 2.646-1.77A8.3 8.3 0 0 1 10 2.44q1.73 0 3.25.646a8.3 8.3 0 0 1 2.646 1.771 8.4 8.4 0 0 1 1.781 2.646 8.2 8.2 0 0 1 .656 3.27q0 1.771-.656 3.292a8.4 8.4 0 0 1-1.781 2.646 8.1 8.1 0 0 1-2.646 1.76 8.35 8.35 0 0 1-3.25.636"
-  })));
-};
-
-var _path$c;
-function _extends$h() { return _extends$h = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$h.apply(null, arguments); }
 var SvgMap = function SvgMap(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$h({
+  return /*#__PURE__*/React.createElement("svg", _extends$i({
     xmlns: "http://www.w3.org/2000/svg",
     width: 18,
     height: 19,
     fill: "current"
-  }, props), _path$c || (_path$c = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$d || (_path$d = /*#__PURE__*/React.createElement("path", {
     d: "m17.5.773-.16.03L12 2.873l-6-2.1-5.64 1.9c-.21.07-.36.25-.36.48v15.12c0 .28.22.5.5.5l.16-.03L6 16.673l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V1.273c0-.28-.22-.5-.5-.5M7 3.243l4 1.4v11.66l-4-1.4zm-5 .99 3-1.01v11.7l-3 1.16zm14 11.08-3 1.01V4.633l3-1.16z"
   })));
 };
 
 var _g$5, _defs$4;
-function _extends$g() { return _extends$g = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$g.apply(null, arguments); }
+function _extends$h() { return _extends$h = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$h.apply(null, arguments); }
 var SvgRessources = function SvgRessources(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$g({
+  return /*#__PURE__*/React.createElement("svg", _extends$h({
     xmlns: "http://www.w3.org/2000/svg",
     width: 20,
     height: 21,
@@ -606,21 +606,21 @@ var SvgRessources = function SvgRessources(props) {
   })))));
 };
 
-var _path$b, _path2$5;
-function _extends$f() { return _extends$f = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$f.apply(null, arguments); }
+var _path$c, _path2$6;
+function _extends$g() { return _extends$g = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$g.apply(null, arguments); }
 var SvgTrophee = function SvgTrophee(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$f({
+  return /*#__PURE__*/React.createElement("svg", _extends$g({
     xmlns: "http://www.w3.org/2000/svg",
     width: 20,
     height: 21,
     fill: "none"
-  }, props), _path$b || (_path$b = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$c || (_path$c = /*#__PURE__*/React.createElement("path", {
     stroke: "currentColor",
     strokeLinecap: "round",
     strokeLinejoin: "round",
     strokeWidth: 2,
     d: "M5.333 4.107v4.591c0 3.308 2.058 6.05 4.632 6.075a3.8 3.8 0 0 0 1.796-.443 4.8 4.8 0 0 0 1.526-1.298 6.3 6.3 0 0 0 1.021-1.952 7.5 7.5 0 0 0 .359-2.307V4.107a.77.77 0 0 0-.152-.472.47.47 0 0 0-.367-.195H5.852c-.138 0-.27.07-.367.195a.77.77 0 0 0-.152.472M7.708 18.273h4.584M10 15.148v3.125M14.667 10.107h.624c.542 0 1.061-.241 1.444-.67.383-.428.598-1.01.598-1.616V6.678a.6.6 0 0 0-.15-.404.49.49 0 0 0-.36-.167H14.78"
-  })), _path2$5 || (_path2$5 = /*#__PURE__*/React.createElement("path", {
+  })), _path2$6 || (_path2$6 = /*#__PURE__*/React.createElement("path", {
     stroke: "currentColor",
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -629,21 +629,21 @@ var SvgTrophee = function SvgTrophee(props) {
   })));
 };
 
-var _path$a, _path2$4, _path3$1, _path4, _path5, _path6, _path7, _path8, _path9;
-function _extends$e() { return _extends$e = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$e.apply(null, arguments); }
+var _path$b, _path2$5, _path3$2, _path4, _path5, _path6, _path7, _path8, _path9;
+function _extends$f() { return _extends$f = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$f.apply(null, arguments); }
 var SvgCoupeOr = function SvgCoupeOr(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$e({
+  return /*#__PURE__*/React.createElement("svg", _extends$f({
     xmlns: "http://www.w3.org/2000/svg",
     width: 62,
     height: 60,
     fill: "none"
-  }, props), _path$a || (_path$a = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$b || (_path$b = /*#__PURE__*/React.createElement("path", {
     fill: "#FFD121",
     d: "M32.752 45.887h-3.504v12.348h3.504z"
-  })), _path2$4 || (_path2$4 = /*#__PURE__*/React.createElement("path", {
+  })), _path2$5 || (_path2$5 = /*#__PURE__*/React.createElement("path", {
     fill: "#FFD121",
     d: "M23.126 56.472a1.764 1.764 0 1 0 0 3.528h15.748a1.764 1.764 0 1 0 0-3.528z"
-  })), _path3$1 || (_path3$1 = /*#__PURE__*/React.createElement("path", {
+  })), _path3$2 || (_path3$2 = /*#__PURE__*/React.createElement("path", {
     fill: "#FFF7CA",
     stroke: "#FFD121",
     strokeWidth: 4,
@@ -674,9 +674,9 @@ var SvgCoupeOr = function SvgCoupeOr(props) {
 };
 
 var _g$4, _defs$3;
-function _extends$d() { return _extends$d = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$d.apply(null, arguments); }
+function _extends$e() { return _extends$e = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$e.apply(null, arguments); }
 var SvgCoupeArgent = function SvgCoupeArgent(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$d({
+  return /*#__PURE__*/React.createElement("svg", _extends$e({
     xmlns: "http://www.w3.org/2000/svg",
     width: 61,
     height: 60,
@@ -744,9 +744,9 @@ var SvgCoupeArgent = function SvgCoupeArgent(props) {
 };
 
 var _g$3, _defs$2;
-function _extends$c() { return _extends$c = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$c.apply(null, arguments); }
+function _extends$d() { return _extends$d = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$d.apply(null, arguments); }
 var SvgCoupeBronze = function SvgCoupeBronze(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$c({
+  return /*#__PURE__*/React.createElement("svg", _extends$d({
     xmlns: "http://www.w3.org/2000/svg",
     width: 61,
     height: 60,
@@ -813,10 +813,10 @@ var SvgCoupeBronze = function SvgCoupeBronze(props) {
   })))));
 };
 
-var _path$9, _g$2;
-function _extends$b() { return _extends$b = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$b.apply(null, arguments); }
+var _path$a, _g$2;
+function _extends$c() { return _extends$c = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$c.apply(null, arguments); }
 var SvgHistory = function SvgHistory(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$b({
+  return /*#__PURE__*/React.createElement("svg", _extends$c({
     xmlns: "http://www.w3.org/2000/svg",
     width: 24,
     height: 24,
@@ -832,7 +832,7 @@ var SvgHistory = function SvgHistory(props) {
     style: {
       maskType: "alpha"
     }
-  }, _path$9 || (_path$9 = /*#__PURE__*/React.createElement("path", {
+  }, _path$a || (_path$a = /*#__PURE__*/React.createElement("path", {
     d: "M0 0h24v24H0z"
   }))), _g$2 || (_g$2 = /*#__PURE__*/React.createElement("g", {
     mask: "url(#history_svg__a)"
@@ -841,15 +841,15 @@ var SvgHistory = function SvgHistory(props) {
   }))));
 };
 
-var _path$8;
-function _extends$a() { return _extends$a = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$a.apply(null, arguments); }
+var _path$9;
+function _extends$b() { return _extends$b = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$b.apply(null, arguments); }
 var SvgLogout = function SvgLogout(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$a({
+  return /*#__PURE__*/React.createElement("svg", _extends$b({
     xmlns: "http://www.w3.org/2000/svg",
     width: 18,
     height: 18,
     fill: "none"
-  }, props), _path$8 || (_path$8 = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$9 || (_path$9 = /*#__PURE__*/React.createElement("path", {
     stroke: "currentColor",
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -858,15 +858,15 @@ var SvgLogout = function SvgLogout(props) {
   })));
 };
 
-var _path$7;
-function _extends$9() { return _extends$9 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$9.apply(null, arguments); }
+var _path$8;
+function _extends$a() { return _extends$a = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$a.apply(null, arguments); }
 var SvgBurgerMenu = function SvgBurgerMenu(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$9({
+  return /*#__PURE__*/React.createElement("svg", _extends$a({
     xmlns: "http://www.w3.org/2000/svg",
     width: 28,
     height: 23,
     fill: "none"
-  }, props), _path$7 || (_path$7 = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$8 || (_path$8 = /*#__PURE__*/React.createElement("path", {
     stroke: "currentColor",
     strokeLinecap: "round",
     strokeWidth: 3,
@@ -875,9 +875,9 @@ var SvgBurgerMenu = function SvgBurgerMenu(props) {
 };
 
 var _g$1, _defs$1;
-function _extends$8() { return _extends$8 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$8.apply(null, arguments); }
+function _extends$9() { return _extends$9 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$9.apply(null, arguments); }
 var SvgTraining = function SvgTraining(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$8({
+  return /*#__PURE__*/React.createElement("svg", _extends$9({
     xmlns: "http://www.w3.org/2000/svg",
     width: 36,
     height: 36,
@@ -897,26 +897,26 @@ var SvgTraining = function SvgTraining(props) {
   })))));
 };
 
-var _path$6, _path2$3, _path3;
-function _extends$7() { return _extends$7 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$7.apply(null, arguments); }
+var _path$7, _path2$4, _path3$1;
+function _extends$8() { return _extends$8 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$8.apply(null, arguments); }
 var SvgUsers = function SvgUsers(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$7({
+  return /*#__PURE__*/React.createElement("svg", _extends$8({
     xmlns: "http://www.w3.org/2000/svg",
     width: 32,
     height: 32,
     fill: "none"
-  }, props), _path$6 || (_path$6 = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$7 || (_path$7 = /*#__PURE__*/React.createElement("path", {
     stroke: "#F9CF2F",
     strokeMiterlimit: 10,
     strokeWidth: 3,
     d: "M11 20a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z"
-  })), _path2$3 || (_path2$3 = /*#__PURE__*/React.createElement("path", {
+  })), _path2$4 || (_path2$4 = /*#__PURE__*/React.createElement("path", {
     stroke: "#F9CF2F",
     strokeLinecap: "round",
     strokeLinejoin: "round",
     strokeWidth: 3,
     d: "M19.429 7.241A6.5 6.5 0 1 1 21.192 20M2 24.675a11.002 11.002 0 0 1 18-.001"
-  })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+  })), _path3$1 || (_path3$1 = /*#__PURE__*/React.createElement("path", {
     stroke: "#F9CF2F",
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -925,21 +925,21 @@ var SvgUsers = function SvgUsers(props) {
   })));
 };
 
-var _path$5, _path2$2;
-function _extends$6() { return _extends$6 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$6.apply(null, arguments); }
+var _path$6, _path2$3;
+function _extends$7() { return _extends$7 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$7.apply(null, arguments); }
 var SvgTarget = function SvgTarget(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$6({
+  return /*#__PURE__*/React.createElement("svg", _extends$7({
     xmlns: "http://www.w3.org/2000/svg",
     width: 36,
     height: 36,
     fill: "none"
-  }, props), _path$5 || (_path$5 = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$6 || (_path$6 = /*#__PURE__*/React.createElement("path", {
     stroke: "#C4E39A",
     strokeLinecap: "round",
     strokeLinejoin: "round",
     strokeWidth: 3,
     d: "M18 18 31.5 4.5M27.545 8.455a13.487 13.487 0 1 0 2.64 3.726"
-  })), _path2$2 || (_path2$2 = /*#__PURE__*/React.createElement("path", {
+  })), _path2$3 || (_path2$3 = /*#__PURE__*/React.createElement("path", {
     stroke: "#C4E39A",
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -949,9 +949,9 @@ var SvgTarget = function SvgTarget(props) {
 };
 
 var _g, _defs;
-function _extends$5() { return _extends$5 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$5.apply(null, arguments); }
+function _extends$6() { return _extends$6 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$6.apply(null, arguments); }
 var SvgChart = function SvgChart(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$5({
+  return /*#__PURE__*/React.createElement("svg", _extends$6({
     xmlns: "http://www.w3.org/2000/svg",
     width: 34,
     height: 34,
@@ -969,48 +969,48 @@ var SvgChart = function SvgChart(props) {
   })))));
 };
 
-var _path$4;
-function _extends$4() { return _extends$4 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$4.apply(null, arguments); }
+var _path$5;
+function _extends$5() { return _extends$5 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$5.apply(null, arguments); }
 var SvgSchool = function SvgSchool(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$4({
+  return /*#__PURE__*/React.createElement("svg", _extends$5({
     xmlns: "http://www.w3.org/2000/svg",
     width: 32,
     height: 34,
     fill: "none"
-  }, props), _path$4 || (_path$4 = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$5 || (_path$5 = /*#__PURE__*/React.createElement("path", {
     fill: "#F9C7E9",
     d: "M16.005 19.892a4.04 4.04 0 0 0 4.032-4.033 4.04 4.04 0 0 0-4.032-4.033 4.04 4.04 0 0 0-4.033 4.033 4.037 4.037 0 0 0 4.033 4.033m0-5.699c.918 0 1.665.747 1.665 1.666s-.747 1.666-1.666 1.666a1.67 1.67 0 0 1-1.665-1.666c0-.919.747-1.666 1.665-1.666m15.99 4.473a1.2 1.2 0 0 0-.073-.364c-.01-.027-.016-.054-.028-.079l-.015-.044-2.28-4.558c-.201-.401-.61-.654-1.06-.654h-3.38a1.18 1.18 0 0 0-.49-.919l-7.484-5.345v-.487H21.7c.654 0 1.184-.53 1.184-1.183v-3.42C22.884.96 22.354.43 21.7.43h-5.698c-.654 0-1.184.53-1.184 1.184v5.09l-7.483 5.344a1.18 1.18 0 0 0-.491.919h-3.38c-.449 0-.859.253-1.06.654l-2.28 4.558c-.007.015-.009.03-.015.044q-.015.039-.026.079-.068.177-.074.364c0 .014-.009.028-.009.043v13.677c0 .654.53 1.183 1.184 1.183h29.633c.653 0 1.183-.53 1.183-1.183V18.709c0-.015-.007-.029-.009-.043zm-3.09-1.141h-3.738v-2.191h2.643l1.097 2.19zM20.518 3.848h-3.332V2.796h3.332zM4.198 15.334h2.644v2.19H3.104l1.096-2.19zm-1.827 4.558h4.471v11.31h-4.47zm6.838-1.184V13.62l6.795-4.854L22.8 13.62v17.582h-2.192v-7.934c0-.654-.53-1.184-1.184-1.184h-6.838c-.654 0-1.183.53-1.183 1.184V31.2H9.209V18.707zm4.56 12.494v-6.75h4.471v6.75zm15.868 0h-4.47v-11.31h4.47zM5.79 22.127v3.42a1.183 1.183 0 1 1-2.367 0v-3.42a1.183 1.183 0 1 1 2.367 0m20.428 3.42v-3.42a1.183 1.183 0 1 1 2.367 0v3.42a1.183 1.183 0 1 1-2.367 0"
   })));
 };
 
-var _path$3;
-function _extends$3() { return _extends$3 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$3.apply(null, arguments); }
+var _path$4;
+function _extends$4() { return _extends$4 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$4.apply(null, arguments); }
 var SvgCloud = function SvgCloud(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$3({
+  return /*#__PURE__*/React.createElement("svg", _extends$4({
     xmlns: "http://www.w3.org/2000/svg",
     width: 40,
     height: 20,
     fill: "none"
-  }, props), _path$3 || (_path$3 = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$4 || (_path$4 = /*#__PURE__*/React.createElement("path", {
     fill: "#FFAE92",
     d: "M32.231 20H6.204C2.784 20 0 17.263 0 13.9s2.784-6.099 6.204-6.099a6.2 6.2 0 0 1 2.404.478C9.443 3.56 13.643 0 18.602 0c4.085 0 7.71 2.377 9.31 6.007a7.83 7.83 0 0 1 4.318-1.298c4.285 0 7.77 3.43 7.77 7.646C40.002 16.57 36.515 20 32.231 20M6.204 9.172c-2.625 0-4.762 2.121-4.762 4.728s2.137 4.728 4.762 4.728H32.23c3.49 0 6.33-2.816 6.33-6.274 0-3.46-2.839-6.274-6.33-6.274-1.53 0-3.009.553-4.166 1.56a.75.75 0 0 1-.674.157.71.71 0 0 1-.5-.46C25.72 3.768 22.39 1.37 18.601 1.37c-4.562 0-8.375 3.534-8.682 8.043a.69.69 0 0 1-.402.572.75.75 0 0 1-.722-.05 4.76 4.76 0 0 0-2.592-.764"
   })));
 };
 
-var _path$2, _path2$1;
-function _extends$2() { return _extends$2 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$2.apply(null, arguments); }
+var _path$3, _path2$2;
+function _extends$3() { return _extends$3 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$3.apply(null, arguments); }
 var SvgDrops = function SvgDrops(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$2({
+  return /*#__PURE__*/React.createElement("svg", _extends$3({
     xmlns: "http://www.w3.org/2000/svg",
     width: 26,
     height: 34,
     fill: "none"
-  }, props), _path$2 || (_path$2 = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$3 || (_path$3 = /*#__PURE__*/React.createElement("path", {
     fill: "#F9CF2F",
     fillRule: "evenodd",
     d: "M3.374 17.613a9.57 9.57 0 0 0-2.244 6.17c0 5.303 4.306 9.609 9.609 9.609s9.609-4.306 9.609-9.61c0-2.348-.844-4.5-2.244-6.169l-6.057-7.345a1.698 1.698 0 0 0-2.617 0zm.868.724 6.062-7.348a.56.56 0 0 1 .435-.206c.17 0 .33.075.435.206l6.062 7.348a8.44 8.44 0 0 1 1.982 5.446 8.48 8.48 0 0 1-8.48 8.478 8.48 8.48 0 0 1-8.478-8.478c0-2.073.745-3.972 1.982-5.446",
     clipRule: "evenodd"
-  })), _path2$1 || (_path2$1 = /*#__PURE__*/React.createElement("path", {
+  })), _path2$2 || (_path2$2 = /*#__PURE__*/React.createElement("path", {
     fill: "#F9CF2F",
     fillRule: "evenodd",
     d: "M10.739 28.87a5.09 5.09 0 0 1-5.087-5.088.565.565 0 1 0-1.13 0A6.22 6.22 0 0 0 10.738 30a.565.565 0 1 0 0-1.13M7.382 5.977l-1.958-3.39a1.695 1.695 0 0 0-2.936 0L.531 5.977a3.96 3.96 0 0 0 3.425 5.937 3.96 3.96 0 0 0 3.426-5.937m-.978.566L4.445 3.152a.563.563 0 0 0-.978 0L1.51 6.543a2.827 2.827 0 1 0 4.895 0M15.724 5.837q-.006.009-.014.018a5.654 5.654 0 0 0 4.638 8.884 5.654 5.654 0 0 0 4.637-8.884l-3.26-4.54a1.698 1.698 0 0 0-2.755 0zm.919.66 3.246-4.522a.564.564 0 0 1 .918 0l3.253 4.53a4.524 4.524 0 0 1-3.712 7.103 4.524 4.524 0 0 1-3.71-7.106z",
@@ -1018,34 +1018,60 @@ var SvgDrops = function SvgDrops(props) {
   })));
 };
 
-var _path$1, _path2;
-function _extends$1() { return _extends$1 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$1.apply(null, arguments); }
+var _path$2, _path2$1;
+function _extends$2() { return _extends$2 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$2.apply(null, arguments); }
 var SvgTrash = function SvgTrash(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$1({
+  return /*#__PURE__*/React.createElement("svg", _extends$2({
     xmlns: "http://www.w3.org/2000/svg",
     width: 22,
     height: 30,
     fill: "none"
-  }, props), _path$1 || (_path$1 = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$2 || (_path$2 = /*#__PURE__*/React.createElement("path", {
     fill: "#5FD3AC",
     d: "M22 5.26a1.42 1.42 0 0 0-1.42-1.42h-4.907V1.787A1.774 1.774 0 0 0 13.9.012H8.101a1.774 1.774 0 0 0-1.774 1.774v2.055H1.42A1.42 1.42 0 0 0 0 5.26v2.2a1.42 1.42 0 0 0 1.42 1.418h.755v17.56a3.55 3.55 0 0 0 3.549 3.55h10.552a3.55 3.55 0 0 0 3.549-3.55V8.88h.755A1.42 1.42 0 0 0 22 7.46zM7.746 1.786a.355.355 0 0 1 .355-.354H13.9a.355.355 0 0 1 .355.354v2.055H7.746zM18.391 26.44a2.13 2.13 0 0 1-2.129 2.129H5.72a2.13 2.13 0 0 1-2.129-2.13V8.88h14.814zm2.19-18.98H1.42v-2.2h19.16z"
-  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+  })), _path2$1 || (_path2$1 = /*#__PURE__*/React.createElement("path", {
     fill: "#5FD3AC",
     d: "M11 25.644a.71.71 0 0 0 .71-.71V12.907a.71.71 0 0 0-1.42 0v12.029a.71.71 0 0 0 .71.71M14.903 25.644a.71.71 0 0 0 .71-.71V12.907a.71.71 0 0 0-1.42 0v12.029a.71.71 0 0 0 .71.71M7.097 25.644a.71.71 0 0 0 .71-.71V12.907a.71.71 0 0 0-1.42 0v12.029a.71.71 0 0 0 .71.71"
   })));
 };
 
-var _path;
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+var _path$1;
+function _extends$1() { return _extends$1 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$1.apply(null, arguments); }
 var SvgOpenBook = function SvgOpenBook(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends({
+  return /*#__PURE__*/React.createElement("svg", _extends$1({
     xmlns: "http://www.w3.org/2000/svg",
     width: 30,
     height: 24,
     fill: "none"
-  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$1 || (_path$1 = /*#__PURE__*/React.createElement("path", {
     fill: "#2C2C69",
     d: "M18.08 6.853a.4.4 0 0 1-.028-.312.41.41 0 0 1 .205-.24 17.7 17.7 0 0 1 4.59-1.606.42.42 0 0 1 .317.059.406.406 0 0 1 .117.57.42.42 0 0 1-.269.173 16.8 16.8 0 0 0-4.37 1.53.42.42 0 0 1-.562-.174M6.986 5.497c1.522.308 2.992.823 4.37 1.53a.42.42 0 0 0 .562-.174.405.405 0 0 0-.177-.55A17.6 17.6 0 0 0 7.15 4.695a.42.42 0 0 0-.317.058.406.406 0 0 0 .152.743m0 4.312c1.522.307 2.992.821 4.37 1.529a.42.42 0 0 0 .562-.174.407.407 0 0 0-.177-.552A17.7 17.7 0 0 0 7.15 9.006a.417.417 0 0 0-.491.32.41.41 0 0 0 .326.482zm11.463 1.576a.4.4 0 0 0 .191-.046 16.8 16.8 0 0 1 4.372-1.53.41.41 0 0 0 .325-.481.417.417 0 0 0-.49-.321 17.7 17.7 0 0 0-4.59 1.606.408.408 0 0 0 .192.774zM6.984 14.122c1.524.306 2.994.82 4.371 1.53q.09.046.192.046a.408.408 0 0 0 .192-.774 17.7 17.7 0 0 0-4.59-1.606.409.409 0 1 0-.166.802zm15.864-.803a17.7 17.7 0 0 0-4.59 1.606.41.41 0 0 0-.215.462.414.414 0 0 0 .407.312.4.4 0 0 0 .192-.046 16.8 16.8 0 0 1 4.37-1.53.41.41 0 0 0 .327-.483.416.416 0 0 0-.491-.32m7.134 10.39-.01.028-.003.007v.002l-.025.05-.006.01a.3.3 0 0 1-.032.043l-.003.003v.001l-.037.036-.01.009-.001.001-.041.032h-.005a.3.3 0 0 1-.045.026l-.009.004a.3.3 0 0 1-.051.019H29.7q-.025.008-.05.011l-.014.003v-.001a.3.3 0 0 1-.05.004h-.005l-.042-.001h-.009a.1.1 0 0 1-.03-.005l-.023-.005-.017-.005-.028-.01-.009-.003-.006-.003c-3.193-1.26-8.047-1.975-14.42-2.117-6.372.142-11.225.857-14.422 2.12l-.005.003-.01.003q-.012.005-.027.009v.001l-.018.004-.02.006L.465 24H.456L.416 24H.41l-.05-.003-.015-.003a.3.3 0 0 1-.05-.011H.295a.3.3 0 0 1-.052-.019l-.01-.004q-.023-.011-.044-.025l-.004-.003-.043-.031-.011-.01H.13a.3.3 0 0 1-.035-.038L.09 23.85l-.03-.043-.006-.01a.3.3 0 0 1-.027-.05l-.002-.008q-.007-.015-.01-.029l-.005-.014-.006-.024.002-.002-.003-.021L0 23.63c-.002-.006 0-.02 0-.028V3.688a.4.4 0 0 1 .12-.29.42.42 0 0 1 .293-.121c.496 0 .999.022 1.5.057V2.23c0-.108.044-.212.123-.29a.42.42 0 0 1 .294-.119c.42 0 .841.018 1.263.046V.41A.417.417 0 0 1 4.01 0C7.86.01 11.65 1.393 15 4.006 18.348 1.392 22.139.01 25.985 0c.23 0 .417.183.417.41v1.46c.42-.03.844-.045 1.261-.047v-.001a.42.42 0 0 1 .295.12c.079.077.123.18.123.29v1.104a21 21 0 0 1 1.5-.058.42.42 0 0 1 .296.118c.08.078.123.181.123.29V23.63c0 .01 0 .011-.003.017v.002l-.003.02q0 .013-.006.024-.002.011-.006.016m-1.9-19.553v16.23a.4.4 0 0 1-.161.323.42.42 0 0 1-.359.073 19.07 19.07 0 0 0-10.471.318c5.122.228 9.176.865 12.075 1.9V4.1q-.542.013-1.084.055m-1.68-1.468v14.629a.41.41 0 0 1-.415.41 16.43 16.43 0 0 0-8.283 2.34 19.9 19.9 0 0 1 9.545-.202V2.646q-.423.011-.847.042M25.57.826c-3.553.105-7.051 1.449-10.154 3.902l-.001 15.869c3.123-2.317 6.608-3.584 10.153-3.681zm-21.14 0-.002 16.088c3.545.1 7.03 1.366 10.153 3.681l.002-15.868C11.478 2.275 7.98.93 4.428.826zM2.748 19.865c3.15-.71 6.43-.639 9.544.203a16.4 16.4 0 0 0-8.283-2.341.413.413 0 0 1-.415-.41V2.687c-.28-.02-.562-.037-.846-.042zM.83 4.1v18.897c2.9-1.034 6.953-1.67 12.076-1.9v.002a19.07 19.07 0 0 0-10.472-.318.42.42 0 0 1-.359-.073.4.4 0 0 1-.16-.324V4.155q-.542-.04-1.085-.054"
+  })));
+};
+
+var _path, _path2, _path3;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+var SvgInfo = function SvgInfo(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 30,
+    height: 30,
+    fill: "none"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    stroke: "#fff",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: 1.5,
+    d: "M15 26.25c6.213 0 11.25-5.037 11.25-11.25S21.213 3.75 15 3.75 3.75 8.787 3.75 15 8.787 26.25 15 26.25"
+  })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+    stroke: "#fff",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: 1.5,
+    d: "M14.063 14.063H15v6.562h.938"
+  })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M15 11.25a1.406 1.406 0 1 0 0-2.812 1.406 1.406 0 0 0 0 2.812"
   })));
 };
 
@@ -1072,9 +1098,10 @@ const MppIcons = {
     drops: SvgDrops,
     trash: SvgTrash,
     openBook: SvgOpenBook,
+    infos: SvgInfo,
 };
 
-var css_248z$7 = ".ranking_card_background {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 11px 20px;\n  background-color: var(--white);\n  border-radius: 20px;\n  box-shadow: 0px 4px 20px var(--shadow_color);\n  margin-bottom: 10px;\n}\n\n.ranking_background {\n  border-radius: var(--standard_border_radius);\n  padding: 8px;\n  line-height: 1;\n}\n\n.flex_row {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n\n.content_background {\n  margin-left: 10px;\n}\n\n.sub_point_text {\n  color: var(--dark_grey);\n}\n";
+var css_248z$7 = ".ranking_card_background {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 11px 20px;\r\n  background-color: var(--white);\r\n  border-radius: 20px;\r\n  box-shadow: 0px 4px 20px var(--shadow_color);\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.ranking_background {\r\n  border-radius: var(--standard_border_radius);\r\n  padding: 8px;\r\n  line-height: 1;\r\n}\r\n\r\n.flex_row {\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n}\r\n\r\n.content_background {\r\n  margin-left: 10px;\r\n}\r\n\r\n.sub_point_text {\r\n  color: var(--dark_grey);\r\n}\r\n";
 styleInject(css_248z$7);
 
 /**
@@ -1110,7 +1137,7 @@ const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, point
             React__default.createElement("p", { className: "sub_point_text text_small" }, subPointsText))));
 };
 
-var css_248z$6 = ".podium_step__container {\n  display: inline-block;\n  text-align: center;\n  width: 100%;\n}\n\n.podium_step__content {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.podium_step__img {\n  width: 3.75rem;\n  margin-bottom: 1rem;\n}\n\n.podium_step__list {\n  color: var(--white);\n  margin-bottom: 0.3rem;\n}\n\n.podium_step__list--subtitle {\n  margin-bottom: 0.2rem;\n}\n\nul.podium_step__list > li:nth-child(1),\nul.podium_step__list > li:nth-child(3) {\n  margin-bottom: 0.3rem;\n}\n\n.podium_step_number__container {\n  border-top-left-radius: var(--standard_border_radius);\n  border-top-right-radius: var(--standard_border_radius);\n  padding-top: 0.4rem;\n  width: auto;\n  background-color: var(--white);\n}\n\n.podium_step_number__number {\n  padding: 0.1rem 0.5rem;\n  border-radius: var(--standard_border_radius);\n}\n";
+var css_248z$6 = ".podium_step__container {\r\n  display: inline-block;\r\n  text-align: center;\r\n  width: 100%;\r\n}\r\n\r\n.podium_step__content {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\n.podium_step__img {\r\n  width: 3.75rem;\r\n  margin-bottom: 1rem;\r\n}\r\n\r\n.podium_step__list {\r\n  color: var(--white);\r\n  margin-bottom: 0.3rem;\r\n}\r\n\r\n.podium_step__list--subtitle {\r\n  margin-bottom: 0.2rem;\r\n}\r\n\r\nul.podium_step__list > li:nth-child(1),\r\nul.podium_step__list > li:nth-child(3) {\r\n  margin-bottom: 0.3rem;\r\n}\r\n\r\n.podium_step_number__container {\r\n  border-top-left-radius: var(--standard_border_radius);\r\n  border-top-right-radius: var(--standard_border_radius);\r\n  padding-top: 0.4rem;\r\n  width: auto;\r\n  background-color: var(--white);\r\n}\r\n\r\n.podium_step_number__number {\r\n  padding: 0.1rem 0.5rem;\r\n  border-radius: var(--standard_border_radius);\r\n}\r\n";
 styleInject(css_248z$6);
 
 const MppPodiumStep = ({ title, subtitle, subtitleBold, pointsNumber, typeOfPlayer, color, ranking, }) => {
@@ -1133,14 +1160,14 @@ const MppPodiumStep = ({ title, subtitle, subtitleBold, pointsNumber, typeOfPlay
             React__default.createElement("span", { className: "podium_step_number__number text_body_sb", style: { backgroundColor: `${color}` } }, ranking))));
 };
 
-var css_248z$5 = ".podium__container {\n  box-sizing: border-box;\n  padding: 1.625rem 0.3rem 1.5rem 0.3rem;\n  display: flex;\n  align-items: flex-end;\n  max-width: 652px;\n  min-width: 361px;\n  background-color: var(--dark_blue_light);\n  border-radius: var(--big_border_radius);\n}\n\n.podium_step__container:nth-child(2) {\n  order: 1;\n}\n\n.podium_step__container:nth-child(1) {\n  margin: 0 0.3rem;\n  order: 2;\n}\n\n.podium_step__container:nth-child(3) {\n  order: 3;\n}\n\n@media (min-width: 896px) {\n  .podium__container {\n    padding: 4.5rem 6rem 2.5rem 6rem;\n    max-width: 652px;\n    box-sizing: border-box;\n  }\n}\n";
+var css_248z$5 = ".podium__container {\r\n  box-sizing: border-box;\r\n  padding: 1.625rem 0.3rem 1.5rem 0.3rem;\r\n  display: flex;\r\n  align-items: flex-end;\r\n  max-width: 652px;\r\n  min-width: 361px;\r\n  background-color: var(--dark_blue_light);\r\n  border-radius: var(--big_border_radius);\r\n}\r\n\r\n.podium_step__container:nth-child(2) {\r\n  order: 1;\r\n}\r\n\r\n.podium_step__container:nth-child(1) {\r\n  margin: 0 0.3rem;\r\n  order: 2;\r\n}\r\n\r\n.podium_step__container:nth-child(3) {\r\n  order: 3;\r\n}\r\n\r\n@media (min-width: 896px) {\r\n  .podium__container {\r\n    padding: 4.5rem 6rem 2.5rem 6rem;\r\n    max-width: 652px;\r\n    box-sizing: border-box;\r\n  }\r\n}\r\n";
 styleInject(css_248z$5);
 
 const MppPodium = ({ rankedElements, typeOfPlayers, color, }) => {
     return (React__default.createElement("div", { className: "podium__container" }, rankedElements.map(({ name, points, ranking, city, structure }) => (React__default.createElement(MppPodiumStep, { subtitle: structure, subtitleBold: city, key: ranking, title: name, pointsNumber: points, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking })))));
 };
 
-var css_248z$4 = ".card_edition__container {\n  display: flex;\n  justify-content: space-between;\n  padding: 0.8rem 1.25rem;\n  align-items: center;\n  background-color: var(--very_light_yellow);\n  border-top-left-radius: var(--big_border_radius);\n  border-bottom-left-radius: var(--big_border_radius);\n}\n\n.card_edition__infos {\n  margin-right: 16px;\n  display: flex;\n  width: 30%;\n  min-width: 11rem;\n}\n\n.card_edition__days {\n  color: var(--tonic_violet);\n  display: flex;\n  align-items: flex-start;\n  justify-content: flex-end;\n}\n\n.edition_days__details {\n  width: 60%;\n}\n\n.card_edition__icon {\n  height: 24px;\n  width: 24px;\n  margin-right: .3rem;\n}\n\n@media (min-width: 896px) {\n  .card_edition__days {\n    align-items: center;\n    max-width: 100%;\n  }\n\n  .card_edition__infos {\n    width: auto;\n  }\n\n  .edition_days__details {\n    width: 100%;\n  }\n}\n";
+var css_248z$4 = ".card_edition__container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: 0.8rem 1.25rem;\r\n  align-items: center;\r\n  background-color: var(--very_light_yellow);\r\n  border-top-left-radius: var(--big_border_radius);\r\n  border-bottom-left-radius: var(--big_border_radius);\r\n}\r\n\r\n.card_edition__infos {\r\n  margin-right: 16px;\r\n  display: flex;\r\n  width: 30%;\r\n  min-width: 11rem;\r\n}\r\n\r\n.card_edition__days {\r\n  color: var(--tonic_violet);\r\n  display: flex;\r\n  align-items: flex-start;\r\n  justify-content: flex-end;\r\n}\r\n\r\n.edition_days__details {\r\n  width: 60%;\r\n}\r\n\r\n.card_edition__icon {\r\n  height: 24px;\r\n  width: 24px;\r\n  margin-right: .3rem;\r\n}\r\n\r\n@media (min-width: 896px) {\r\n  .card_edition__days {\r\n    align-items: center;\r\n    max-width: 100%;\r\n  }\r\n\r\n  .card_edition__infos {\r\n    width: auto;\r\n  }\r\n\r\n  .edition_days__details {\r\n    width: 100%;\r\n  }\r\n}\r\n";
 styleInject(css_248z$4);
 
 /**
@@ -1178,7 +1205,7 @@ const MppCardEdition = ({ backgroundColor, textColor, editionName, editionDatesI
             React__default.createElement("p", { className: "edition_days__details text_body_sb" }, editionMessage))) : null));
 };
 
-var css_248z$3 = ".menu_background {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n  background-color: var(--white);\n  width: 70vw;\n  height: 100%;\n  border-radius: var(--standard_border_radius);\n  box-shadow: 0px 4px 20px var(--shadow_color);\n}\n\n.logo_container {\n  width: 80%;\n  margin-top: 16px;\n}\n\n.logo {\n  width: 100%;\n  height: auto;\n}\n\n.center {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n}\n\n.navigation_background {\n  display: flex;\n  flex-direction: column;\n  align-items: start;\n  width: 100%;\n  padding-left: 24px;\n  padding-top: 24px;\n}\n\n.icon {\n  width: 20px;\n  height: 20px;\n  padding-right: 12px;\n}\n\n.navigation_element {\n  margin-bottom: 16px;\n  color: var(--dark_grey);\n  fill: var(--dark_grey);\n}\n.navigation_flex {\n  display: flex;\n  flex-direction: row;\n}\n\n.navigation_element :hover {\n  cursor: pointer;\n  color: var(--dark_blue);\n  fill: var(--dark_blue);\n}\n\n.actual_page {\n  color: var(--dark_blue);\n  fill: var(--dark_blue);\n}\n\n.bottom {\n  margin-bottom: 26px;\n  display: flex;\n}\n\n.bottom:hover {\n  cursor: pointer;\n  color: var(--dark_blue);\n}\n\n@media (min-width: 896px) {\n  .menu_background {\n    width: 251px;\n    min-height: 100vh;\n  }\n}\n";
+var css_248z$3 = ".menu_background {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  background-color: var(--white);\r\n  width: 70vw;\r\n  height: 100%;\r\n  border-radius: var(--standard_border_radius);\r\n  box-shadow: 0px 4px 20px var(--shadow_color);\r\n}\r\n\r\n.logo_container {\r\n  width: 80%;\r\n  margin-top: 16px;\r\n}\r\n\r\n.logo {\r\n  width: 100%;\r\n  height: auto;\r\n}\r\n\r\n.center {\r\n  display: flex;\r\n  align-items: center;\r\n  flex-direction: column;\r\n}\r\n\r\n.navigation_background {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: start;\r\n  width: 100%;\r\n  padding-left: 24px;\r\n  padding-top: 24px;\r\n}\r\n\r\n.icon {\r\n  width: 20px;\r\n  height: 20px;\r\n  padding-right: 12px;\r\n}\r\n\r\n.navigation_element {\r\n  margin-bottom: 16px;\r\n  color: var(--dark_grey);\r\n  fill: var(--dark_grey);\r\n}\r\n.navigation_flex {\r\n  display: flex;\r\n  flex-direction: row;\r\n}\r\n\r\n.navigation_element :hover {\r\n  cursor: pointer;\r\n  color: var(--dark_blue);\r\n  fill: var(--dark_blue);\r\n}\r\n\r\n.actual_page {\r\n  color: var(--dark_blue);\r\n  fill: var(--dark_blue);\r\n}\r\n\r\n.bottom {\r\n  margin-bottom: 26px;\r\n  display: flex;\r\n}\r\n\r\n.bottom:hover {\r\n  cursor: pointer;\r\n  color: var(--dark_blue);\r\n}\r\n\r\n@media (min-width: 896px) {\r\n  .menu_background {\r\n    width: 251px;\r\n    min-height: 100vh;\r\n  }\r\n}\r\n";
 styleInject(css_248z$3);
 
 var BoType;
@@ -1335,7 +1362,7 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
                 React__default.createElement("div", null, isLoading ? (React__default.createElement(MppLoader, null)) : (React__default.createElement(MppButton, { title: buttonText, buttonType: ButtonType.primaryLarge, onPress: hasError ? null : onPressLoginButon })))))));
 };
 
-var css_248z = ".stat_card__container {\n  display: inline-flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding: 20px 12px;\n  border-radius: var(--big_border_radius);\n  background-color: var(--white);\n  width: 200px;\n  box-sizing: border-box;\n  height: 96px;\n}\n\n.stat_card__icon{\n  background-color: var(--light_grey);\n  border-radius: 50%;\n  height: 56px;\n  width: 56px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.stat_card__content{\n  margin-left: 16px;\n}\n\n.stat_card__title{\n  color: var(--dark_grey)\n}\n\n.stat_card__container--shadow{\n  box-shadow: 0px 4px 20px 0px var(--shadow_color);\n}";
+var css_248z = ".stat_card__container {\r\n  display: inline-flex;\r\n  justify-content: flex-start;\r\n  align-items: center;\r\n  padding: 20px 12px;\r\n  border-radius: var(--big_border_radius);\r\n  background-color: var(--white);\r\n  width: 200px;\r\n  box-sizing: border-box;\r\n  height: 96px;\r\n}\r\n\r\n.stat_card__icon{\r\n  background-color: var(--light_grey);\r\n  border-radius: 50%;\r\n  height: 56px;\r\n  width: 56px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n\r\n.stat_card__content{\r\n  margin-left: 16px;\r\n}\r\n\r\n.stat_card__title{\r\n  color: var(--dark_grey)\r\n}\r\n\r\n.stat_card__container--shadow{\r\n  box-shadow: 0px 4px 20px 0px var(--shadow_color);\r\n}";
 styleInject(css_248z);
 
 /**

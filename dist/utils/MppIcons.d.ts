@@ -22,4 +22,5 @@ export declare const MppIcons: {
     readonly drops: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly trash: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly openBook: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly infos: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
 };

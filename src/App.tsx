@@ -228,6 +228,7 @@ function App() {
             </div>
           ))}
       </div>
+      <h2>MPP Glossaire</h2>
       <MppInfosPin
         direction={Direction.top_right}
         texts={[
