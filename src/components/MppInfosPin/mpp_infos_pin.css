@@ -1,0 +1,39 @@
+.infos_pin_main_icon {
+  display: block;
+}
+
+.infos_content_visible {
+  display: block;
+}
+
+.infos_content_invisible {
+  display: none;
+}
+
+.infos_pin_main {
+  border: 1px solid red;
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+  height: 30px;
+  width: 100%;
+}
+
+.infos_pin_container {
+  border: 1px solid blue;
+  position: absolute;
+  max-width: 20.625rem;
+  min-width: 15rem;
+  padding: 16px;
+  border-radius: var(--big_border_radius);
+  background-color: var(--white);
+}
+
+.infos_content {
+  border: 1px solid green;
+}
+
+.infos_content:not(:first-child):not(:last-child) {
+  background-color: red;
+  margin: 16px 0;
+}

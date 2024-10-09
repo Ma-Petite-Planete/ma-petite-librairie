@@ -17,6 +17,7 @@ import { ReactComponent as LogoOnly } from './ressources/logo/sco_logo_only_yell
 import { ScoColors } from './utils/Mppcolors';
 import { MppIcons } from './utils/MppIcons';
 import MppCardEdition from './components/MppCardEdition/MppCardEdition';
+import MppInfosPin, { Direction } from './components/MppInfosPin/MppInfosPin';
 
 function App() {
   return (
@@ -138,8 +139,8 @@ function App() {
         backgroundColor={ScoColors.veryLightYellow}
         textColor={ScoColors.darkBlue}
         editionName={'Edition Automne 2024'}
-        editionDatesInfos='Du lundi 18 novembre 9h au lundi 9 décembre 20h'
-        editionMessage='Il reste 7 jours !'
+        editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
+        editionMessage="Il reste 7 jours !"
       />
       <div style={{ height: '90vh' }}>
         <MppMenu
@@ -204,11 +205,25 @@ function App() {
                 title={iconName}
                 IconComponent={IconComponent}
                 stat={12}
-                statDetails='test'
+                statDetails="test"
               />
             </div>
           ))}
       </div>
+
+      <MppInfosPin
+        direction={Direction.top_right}
+        texts={[
+          {
+            titre: 'un titre de merde',
+            text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrumvoluptates est aliquam perferendis quos possimus alias quisquam porromagni animi?',
+          },
+          {
+            titre: 'un titre de merde',
+            text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrumvoluptates est aliquam perferendis quos possimus alias quisquam porromagni animi?',
+          },
+        ]}
+      />
     </div>
   );
 }
