@@ -17,6 +17,7 @@ interface MppInputTextProps {
   onClickIcon?: (value: string) => void;
   setHasError?: (hasError: boolean) => void;
   onClickErrorMessage?: string;
+  readOnly?: boolean;
 }
 
 /**
@@ -60,6 +61,7 @@ const MppInputText: React.FC<MppInputTextProps> = ({
   onClickIcon,
   setHasError,
   onClickErrorMessage,
+  readOnly = false,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isFirstEntry, setIsFirstEntry] = useState(true);
@@ -121,7 +123,7 @@ const MppInputText: React.FC<MppInputTextProps> = ({
   return (
     <>
       <div
-        className={`mpp_input_container ${isFocused ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}`}
+        className={`mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}`}
       >
         <input
           type="text"
@@ -130,7 +132,8 @@ const MppInputText: React.FC<MppInputTextProps> = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
-          className="mpp_input"
+          className={`mpp_input ${readOnly ? 'read_only' : ''}`}
+          readOnly={readOnly}
         />
         {(isFocused || inputValue) && Icon ? (
           <Icon
