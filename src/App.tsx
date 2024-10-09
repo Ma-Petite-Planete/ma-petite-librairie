@@ -215,12 +215,29 @@ function App() {
         direction={Direction.top_right}
         texts={[
           {
-            titre: 'un titre de merde',
-            text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrumvoluptates est aliquam perferendis quos possimus alias quisquam porromagni animi?',
+            title: 'un titre random',
+            content:
+              'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrumvoluptates est aliquam perferendis quos possimus alias quisquam porromagni animi?',
           },
           {
-            titre: 'un titre de merde',
-            text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrumvoluptates est aliquam perferendis quos possimus alias quisquam porromagni animi?',
+            title: 'un titre random',
+            content:
+              'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrumvoluptates est aliquam perferendis quos possimus alias quisquam porromagni animi?',
+          },
+          {
+            title: 'un titre random',
+            content:
+              'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrumvoluptates est aliquam perferendis quos possimus alias quisquam porromagni animi?',
+          },
+          {
+            title: 'un titre random',
+            content:
+              'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrumvoluptates est aliquam perferendis quos possimus alias quisquam porromagni animi?',
+          },
+          {
+            title: 'un titre random',
+            content:
+              'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrumvoluptates est aliquam perferendis quos possimus alias quisquam porromagni animi?',
           },
         ]}
       />

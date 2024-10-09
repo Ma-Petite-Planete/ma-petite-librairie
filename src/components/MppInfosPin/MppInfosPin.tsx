@@ -2,6 +2,11 @@ import React from 'react';
 import { MppIcons } from '../../utils/MppIcons';
 import './mpp_infos_pin.css';
 
+interface TextContent {
+  title: string;
+  content: string;
+}
+
 export enum Direction {
   top_right,
   top_left,
@@ -9,8 +14,8 @@ export enum Direction {
   bottom_right,
 }
 interface MppInfosPinProps {
-  texts: Array<object>;
-  direction: Direction;
+  texts: Array<TextContent>;
+  direction?: Direction;
 }
 
 const MppInfosPin: React.FC<MppInfosPinProps> = ({
@@ -41,48 +46,32 @@ const MppInfosPin: React.FC<MppInfosPinProps> = ({
     default:
       directionStyleValues = {
         top: '46px',
-        right: '0',
+        right: 0,
       };
   }
 
-  console.log('🚀 ~ texts:', texts);
-  const [hover, setHover] = React.useState(true);
+  const [hover, setHover] = React.useState(false);
+  const isMobile = () => window.innerWidth < 896;
 
   return (
     <div className="infos_pin_main">
       <MppIcons.infos
         className="infos_pin_main_icon"
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
+        onMouseEnter={() => (isMobile() ? null : setHover(true))}
+        onMouseLeave={() => (isMobile() ? null : setHover(false))}
+        onClick={() => (isMobile() ? setHover(true) : null)}
       />
       <div
+        onClick={() => (isMobile() ? setHover(false) : null)}
         className={` ${hover ? 'infos_content_visible' : 'infos_content_invisible'} infos_pin_container`}
         style={directionStyleValues}
       >
-        <p className="infos_content text_small">
-          <span className="infos_title text_small_b">titre : </span>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-          voluptates est aliquam perferendis quos possimus alias quisquam porro
-          magni animi?
-        </p>
-        <p className="infos_content text_small">
-          <span className="infos_title text_small_b">titre : </span>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-          voluptates est aliquam perferendis quos possimus alias quisquam porro
-          magni animi?
-        </p>
-        <p className="infos_content text_small">
-          <span className="infos_title text_small_b">titre : </span>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-          voluptates est aliquam perferendis quos possimus alias quisquam porro
-          magni animi?
-        </p>
-        <p className="infos_content text_small">
-          <span className="infos_title text_small_b">titre : </span>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-          voluptates est aliquam perferendis quos possimus alias quisquam porro
-          magni animi?
-        </p>
+        {texts.map((text, index) => (
+          <p key={index} className="infos_content text_small">
+            <span className="infos_title text_small_b">{text.title} : </span>
+            {text.content}
+          </p>
+        ))}
       </div>
     </div>
   );
