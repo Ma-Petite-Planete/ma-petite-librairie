@@ -959,12 +959,10 @@ var SvgChart = function SvgChart(props) {
   }, props), _g || (_g = /*#__PURE__*/React.createElement("g", {
     clipPath: "url(#chart_svg__a)"
   }, /*#__PURE__*/React.createElement("path", {
-    fill: "#B1C5FF",
     d: "M9.284 13.313h.274c1.053 0 1.915.862 1.915 1.916v9.579a1.92 1.92 0 0 1-1.915 1.916h-.274a1.92 1.92 0 0 1-1.916-1.916v-9.579c0-1.054.862-1.916 1.916-1.916m7.663-5.747c1.054 0 1.916.862 1.916 1.916v15.326a1.92 1.92 0 0 1-1.916 1.916 1.92 1.92 0 0 1-1.916-1.916V9.482c0-1.054.862-1.916 1.916-1.916m7.663 10.947c1.054 0 1.916.862 1.916 1.916v4.379a1.92 1.92 0 0 1-1.916 1.916 1.92 1.92 0 0 1-1.916-1.916v-4.38c0-1.053.862-1.915 1.916-1.915"
   }))), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
     id: "chart_svg__a"
   }, /*#__PURE__*/React.createElement("path", {
-    fill: "#fff",
     d: "M.526.724h32.842v32.842H.526z"
   })))));
 };
