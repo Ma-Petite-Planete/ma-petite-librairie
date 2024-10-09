@@ -19,14 +19,17 @@ import { MppIcons } from './utils/MppIcons';
 import MppCardEdition from './components/MppCardEdition/MppCardEdition';
 import MppInfosPin, { Direction } from './components/MppInfosPin/MppInfosPin';
 
+import LayoutLoginSection from './section/MppLayoutLoginSection';
+import MppLoader from './components/MppLoader/MppLoader';
+
 function App() {
   return (
     <div className="main_background">
       <h2>Logo</h2>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <YellowLogo width={'460px'} />
-        <WhiteLogo width={'460px'} />
-        <LogoOnly width={'460px'} />
+        <YellowLogo width={'200px'} />
+        <WhiteLogo width={'200px'} />
+        <LogoOnly width={'70px'} />
       </div>
       <h2>Type de Texte</h2>
       <MppTextStyle />
@@ -116,6 +119,15 @@ function App() {
       <h2>Ranking Card</h2>
       <div style={{ width: '651px' }}>
         <MppRankingCard
+          onHover={(e) => {
+            console.log(e.target);
+          }}
+          onHoverLeave={(e) => {
+            console.log(e.target);
+          }}
+          onClick={(e) => {
+            console.log(e.target);
+          }}
           title={'Les pouleteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'}
           subtitle={'Collège Jean Rostand'}
           ranking={4}
@@ -142,7 +154,8 @@ function App() {
         editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
         editionMessage="Il reste 7 jours !"
       />
-      <div style={{ height: '90vh' }}>
+      <h2>Navigation Bar</h2>
+      <div style={{ height: '100vh' }}>
         <MppMenu
           navigationLinks={[
             {
@@ -175,8 +188,13 @@ function App() {
           LinkComponent={'symbol'}
           boType={BoType.scoBO}
           onLogout={() => console.log('suppr les comptes anonymes')}
+          aboutText={'A propos de MPP'}
+          logOutText={'Se déconnecter'}
         />
       </div>
+      <h2>Layout</h2>
+      <h3>Login Layout</h3>
+      <LayoutLoginSection />
 
       <h2>Stat Card</h2>
       <MppStatCard
@@ -210,7 +228,6 @@ function App() {
             </div>
           ))}
       </div>
-
       <MppInfosPin
         direction={Direction.top_right}
         texts={[
@@ -241,6 +258,8 @@ function App() {
           },
         ]}
       />
+      <h2>Loader</h2>
+      <MppLoader />
     </div>
   );
 }
