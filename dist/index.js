@@ -1444,4 +1444,4 @@ const MppInfosPin = ({ texts, direction = Direction.bottom_left, }) => {
             text.content))))));
 };
 
-export { BoType, ButtonType, MppButton, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin as MppInofsPin, MppInputText, MppLoader, ComponentName as MppLoginLayout, MppMenu, MppPodium, MppRankingCard, StatCard as MppStatCard, ScoColors, SvgScoLogoOnlyYellow as ScoLogoOnly, SvgScoWhiteLogoWhiteText as ScoWhiteLogo, SvgScoYellowLogoBlueText as ScoYellowLogo };
+export { BoType, ButtonType, MppButton, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInputText, MppLoader, ComponentName as MppLoginLayout, MppMenu, MppPodium, MppRankingCard, StatCard as MppStatCard, ScoColors, SvgScoLogoOnlyYellow as ScoLogoOnly, SvgScoWhiteLogoWhiteText as ScoWhiteLogo, SvgScoYellowLogoBlueText as ScoYellowLogo };
