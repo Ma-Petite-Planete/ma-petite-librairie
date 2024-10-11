@@ -1436,7 +1436,7 @@ const MppInfosPin = ({ texts, direction = Direction.bottom_left, }) => {
     const [hover, setHover] = React__default.useState(false);
     const isMobile = () => window.innerWidth < 896;
     return (React__default.createElement("div", { className: "infos_pin_main" },
-        React__default.createElement(MppIcons.infos, { className: "infos_pin_main_icon", onMouseEnter: () => (isMobile() ? null : setHover(true)), onMouseLeave: () => (isMobile() ? null : setHover(false)), onClick: () => (isMobile() ? setHover(true) : null) }),
+        React__default.createElement(MppIcons.infos, { className: "infos_pin_main_icon", onMouseEnter: () => (isMobile() ? null : setHover(true)), onMouseLeave: () => (isMobile() ? null : setHover(false)), onClick: () => (isMobile() ? setHover(!hover) : null) }),
         React__default.createElement("div", { onClick: () => (isMobile() ? setHover(false) : null), className: ` ${hover ? 'infos_content_visible' : 'infos_content_invisible'} infos_pin_container`, style: directionStyleValues }, texts.map((text, index) => (React__default.createElement("p", { key: index, className: "infos_content text_small" },
             React__default.createElement("span", { className: "infos_title text_small_b" },
                 text.title,
