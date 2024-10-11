@@ -59,7 +59,7 @@ const MppInfosPin: React.FC<MppInfosPinProps> = ({
         className="infos_pin_main_icon"
         onMouseEnter={() => (isMobile() ? null : setHover(true))}
         onMouseLeave={() => (isMobile() ? null : setHover(false))}
-        onClick={() => (isMobile() ? setHover(true) : null)}
+        onClick={() => (isMobile() ? setHover(!hover) : null)}
       />
       <div
         onClick={() => (isMobile() ? setHover(false) : null)}
