@@ -476,7 +476,7 @@ const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false
     };
     return (React__default.createElement(React__default.Fragment, null,
         React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}` },
-            React__default.createElement("input", { type: "text", placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly }),
+            React__default.createElement("input", { type: "text", placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly }),
             (isFocused || inputValue) && Icon ? (React__default.createElement(Icon, { className: onClickIcon ? 'input_icon_pointer' : '', onClick: handleIconClick })) : needCounter ? (React__default.createElement("span", { className: `input_counter ${inputValue.length === maxCharacteres ? 'max_characteres' : ''}` }, `${inputValue.length}/${maxCharacteres}`)) : null),
         React__default.createElement("div", { className: "input_errors" }, errorMessages.length > 0 &&
             inputValue &&
@@ -1405,7 +1405,7 @@ const MppTextArea = ({ placeholder, value = '', validationConditions = [], onCha
     };
     return (React__default.createElement(React__default.Fragment, null,
         React__default.createElement("div", { className: `mpp_text_area_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}` },
-            React__default.createElement("textarea", { placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: `mpp_text_area ${readOnly ? 'read_only' : ''}`, readOnly: readOnly })),
+            React__default.createElement("textarea", { placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area ${readOnly ? 'read_only' : ''}`, readOnly: readOnly })),
         React__default.createElement("div", { className: "input_errors" }, errorMessages.length > 0 &&
             inputValue &&
             !isFirstEntry &&

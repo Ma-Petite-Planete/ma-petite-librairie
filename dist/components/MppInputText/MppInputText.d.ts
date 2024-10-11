@@ -11,7 +11,7 @@ interface MppInputTextProps {
     needCounter?: boolean;
     maxCharacteres?: number;
     validationConditions?: Array<ValidationCondition>;
-    onChange: (value: string, hasError: boolean) => void;
+    onChange?: (value: string, hasError: boolean) => void;
     onClickIcon?: (value: string) => void;
     setHasError?: (hasError: boolean) => void;
     onClickErrorMessage?: string;
