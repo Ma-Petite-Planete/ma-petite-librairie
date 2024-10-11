@@ -1,4 +1,4 @@
-.mpp_input_container {
+.mpp_text_area_container {
   display: flex;
   margin: 10px 0;
   gap: 17px;
@@ -6,23 +6,23 @@
   border: 2px solid var(--medium_grey);
   background-color: var(--light_grey);
   border-radius: var(--standard_border_radius);
+  height: 100%;
+  box-sizing: border-box;
 }
 
-.mpp_input {
+.mpp_text_area {
   border: none;
   width: 100%;
   font-size: 16px;
   outline: none;
+  resize: none;
+  font-family: inherit;
   transition: border-color 0.3s ease;
   background-color: transparent;
 }
 
 .focused {
   border-color: var(--dark_blue);
-}
-
-.max_characteres {
-  color: var(--dark_blue) !important;
 }
 
 .error {
@@ -34,14 +34,6 @@
   font-size: 12px;
   margin-top: 5px;
   margin-bottom: 5px;
-}
-
-.input_counter {
-  color: var(--medium_grey);
-}
-
-.input_icon_pointer {
-  cursor: pointer;
 }
 
 .read_only {

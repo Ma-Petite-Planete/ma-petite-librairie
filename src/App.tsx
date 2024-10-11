@@ -20,6 +20,7 @@ import MppCardEdition from './components/MppCardEdition/MppCardEdition';
 
 import LayoutLoginSection from './section/MppLayoutLoginSection';
 import MppLoader from './components/MppLoader/MppLoader';
+import MppTextArea from './components/MppTextArea/MppTextArea';
 
 function App() {
   return (
@@ -90,6 +91,16 @@ function App() {
         />
       </div>
       <h2>Input</h2>
+      <div style={{ width: '400px', height: '150px' }}>
+        <MppTextArea
+          placeholder={'Je suis un texte area'}
+          value={''}
+          onChange={function (value: string): void {
+            console.log(value);
+          }}
+          readOnly={true}
+        ></MppTextArea>
+      </div>
       <InputDemo />
       <h2>Trophés</h2>
       <MppPodium
