@@ -1,0 +1,31 @@
+.infos_pin_main_icon {
+  display: block;
+}
+
+.infos_content_visible {
+  display: block;
+}
+
+.infos_content_invisible {
+  display: none;
+}
+
+.infos_pin_main {
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+  height: 30px;
+  width: 30px;
+}
+
+.infos_pin_container {
+  position: absolute;
+  width: 20.625rem;
+  padding: 16px;
+  border-radius: var(--big_border_radius);
+  background-color: var(--white);
+}
+
+.infos_content:not(:last-child) {
+  margin-bottom: 16px;
+}

@@ -17,6 +17,7 @@ import { ReactComponent as LogoOnly } from './ressources/logo/sco_logo_only_yell
 import { ScoColors } from './utils/Mppcolors';
 import { MppIcons } from './utils/MppIcons';
 import MppCardEdition from './components/MppCardEdition/MppCardEdition';
+import MppInfosPin, { Direction } from './components/MppInfosPin/MppInfosPin';
 
 import LayoutLoginSection from './section/MppLayoutLoginSection';
 import MppLoader from './components/MppLoader/MppLoader';
@@ -238,6 +239,37 @@ function App() {
             </div>
           ))}
       </div>
+      <h2>MPP Glossaire</h2>
+      <MppInfosPin
+        direction={Direction.top_right}
+        texts={[
+          {
+            title: 'un titre random',
+            content:
+              'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrumvoluptates est aliquam perferendis quos possimus alias quisquam porromagni animi?',
+          },
+          {
+            title: 'un titre random',
+            content:
+              'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrumvoluptates est aliquam perferendis quos possimus alias quisquam porromagni animi?',
+          },
+          {
+            title: 'un titre random',
+            content:
+              'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrumvoluptates est aliquam perferendis quos possimus alias quisquam porromagni animi?',
+          },
+          {
+            title: 'un titre random',
+            content:
+              'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrumvoluptates est aliquam perferendis quos possimus alias quisquam porromagni animi?',
+          },
+          {
+            title: 'un titre random',
+            content:
+              'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrumvoluptates est aliquam perferendis quos possimus alias quisquam porromagni animi?',
+          },
+        ]}
+      />
       <h2>Loader</h2>
       <MppLoader />
     </div>
