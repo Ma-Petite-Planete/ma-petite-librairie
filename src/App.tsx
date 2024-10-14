@@ -172,7 +172,7 @@ function App() {
             {
               name: 'Tableau de bord',
               icon: MppIcons.graph,
-              navigation: '/hmome',
+              navigation: '/hompage',
             },
             {
               name: 'Aide',
