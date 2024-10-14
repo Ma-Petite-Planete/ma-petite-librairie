@@ -95,7 +95,7 @@ function App() {
       <div style={{ width: '400px', height: '150px' }}>
         <MppTextArea
           placeholder={'Je suis un texte area'}
-          value={''}
+          value={'ddddddddddddddd'}
           onChange={function (value: string): void {
             console.log(value);
           }}
