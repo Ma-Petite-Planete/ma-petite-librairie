@@ -348,10 +348,10 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$b = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');\r\n/* Regular (400), Medium (500), Semi-Bold (600), Bold (700) */\r\n\r\n:root {\r\n  font-family: 'Poppins', sans-serif;\r\n  font-size: 16px;\r\n  font-weight: 400;\r\n  line-height: auto;\r\n  color: var(--dark_blue);\r\n\r\n  /* graphique chart mpp scolaire */\r\n  --error: red;\r\n  --white: #ffffff;\r\n  --white_transparent: #ffffff99;\r\n  --main_yellow: #f9cf2f;\r\n  --light_yellow: #f9dc6c;\r\n  --very_light_yellow: #faf1c8;\r\n  --main_blue: #5fd3ac;\r\n  --light_blue: #cfeef4;\r\n  --dark_blue: #2c2c69;\r\n  --dark_blue_light: rgb(44, 44, 105, 0.8);\r\n  --dark_blue_very_light: rgb(44, 44, 105, 0.2);\r\n  --disable_dark_blue: #9595b4;\r\n  --tonic_violet: #b42ff5;\r\n  --pink: #f9c7e9;\r\n  --pastel_blue: #d0eff5;\r\n  --pastel_green: #c4e39a;\r\n  --pastel_violet: #dbd6ff;\r\n  --pastel_light_pink: #f9c7e9;\r\n  --pastel_dark_pink: #fab1bd;\r\n  --pastel_orange: #ffae92;\r\n  --pastel_dark_violet: #b1c5ff;\r\n  --pastel_turquoise: #7fd4b3;\r\n  --anthracite: #333333;\r\n  --dark_grey: #999999;\r\n  --medium_grey: #dadada;\r\n  --light_grey: #f4f4f4;\r\n  --utility_yellow: #e3ba1a;\r\n  --utility_green: #21be8b;\r\n  --green_background: #eefaf7;\r\n  --shadow_color: #0303841a;\r\n  --gradient_peps: linear-gradient(to right, #b42ff5, #cfeef4);\r\n  --gradient_peps_reverse: linear-gradient(to left, #b42ff5, #cfeef4);\r\n  --standard_border_radius: 8px;\r\n  --big_border_radius: 20px;\r\n}\r\n\r\np,\r\nspan {\r\n  margin: 0;\r\n}\r\n\r\nbody {\r\n  margin: 0;\r\n  padding: 0;\r\n  background-color: var(--light_grey);\r\n}\r\n\r\n/* handle texte style */\r\n\r\n.title_h1 {\r\n  font-weight: 700;\r\n  font-size: 24px;\r\n}\r\n\r\n.title_h2 {\r\n  font-weight: 500;\r\n  font-size: 20px;\r\n}\r\n\r\n.title_h3 {\r\n  font-weight: 700;\r\n  font-size: 18px;\r\n}\r\n\r\n.subtitle {\r\n  font-weight: 500;\r\n}\r\n\r\n.text_body {\r\n  font-weight: 400;\r\n  font-size: 14px;\r\n}\r\n\r\n.text_body_sb {\r\n  font-weight: 600;\r\n  font-size: 14px;\r\n}\r\n\r\n.text_small_b {\r\n  font-weight: 700;\r\n  font-size: 12px;\r\n}\r\n\r\n.text_small {\r\n  font-weight: 400;\r\n  font-size: 12px;\r\n}\r\n\r\nli {\r\n  list-style: none;\r\n  padding: 0;\r\n  margin: 0;\r\n  line-height: 1;\r\n}\r\n\r\nul {\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n";
+var css_248z$b = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');\n/* Regular (400), Medium (500), Semi-Bold (600), Bold (700) */\n\n:root {\n  font-family: 'Poppins', sans-serif;\n  font-size: 16px;\n  font-weight: 400;\n  line-height: auto;\n  color: var(--dark_blue);\n\n  /* graphique chart mpp scolaire */\n  --error: red;\n  --white: #ffffff;\n  --white_transparent: #ffffff99;\n  --main_yellow: #f9cf2f;\n  --light_yellow: #f9dc6c;\n  --very_light_yellow: #faf1c8;\n  --main_blue: #5fd3ac;\n  --light_blue: #cfeef4;\n  --dark_blue: #2c2c69;\n  --dark_blue_light: rgb(44, 44, 105, 0.8);\n  --dark_blue_very_light: rgb(44, 44, 105, 0.2);\n  --disable_dark_blue: #9595b4;\n  --tonic_violet: #b42ff5;\n  --pink: #f9c7e9;\n  --pastel_blue: #d0eff5;\n  --pastel_green: #c4e39a;\n  --pastel_violet: #dbd6ff;\n  --pastel_light_pink: #f9c7e9;\n  --pastel_dark_pink: #fab1bd;\n  --pastel_orange: #ffae92;\n  --pastel_dark_violet: #b1c5ff;\n  --pastel_turquoise: #7fd4b3;\n  --anthracite: #333333;\n  --dark_grey: #999999;\n  --medium_grey: #dadada;\n  --light_grey: #f4f4f4;\n  --utility_yellow: #e3ba1a;\n  --utility_green: #21be8b;\n  --green_background: #eefaf7;\n  --shadow_color: #0303841a;\n  --gradient_peps: linear-gradient(to right, #b42ff5, #cfeef4);\n  --gradient_peps_reverse: linear-gradient(to left, #b42ff5, #cfeef4);\n  --standard_border_radius: 8px;\n  --big_border_radius: 20px;\n}\n\np,\nspan {\n  margin: 0;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  background-color: var(--light_grey);\n}\n\n/* handle texte style */\n\n.title_h1 {\n  font-weight: 700;\n  font-size: 24px;\n}\n\n.title_h2 {\n  font-weight: 500;\n  font-size: 20px;\n}\n\n.title_h3 {\n  font-weight: 700;\n  font-size: 18px;\n}\n\n.subtitle {\n  font-weight: 500;\n}\n\n.text_body {\n  font-weight: 400;\n  font-size: 14px;\n}\n\n.text_body_sb {\n  font-weight: 600;\n  font-size: 14px;\n}\n\n.text_small_b {\n  font-weight: 700;\n  font-size: 12px;\n}\n\n.text_small {\n  font-weight: 400;\n  font-size: 12px;\n}\n\nli {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  line-height: 1;\n}\n\nul {\n  margin: 0;\n  padding: 0;\n}\n";
 styleInject(css_248z$b);
 
-var css_248z$a = ".mpp_button {\r\n  background-color: var(--dark_blue);\r\n  color: var(--white);\r\n  border: none;\r\n  border-radius: var(--standard_border_radius);\r\n  cursor: pointer;\r\n  transition: background-color 0.3s ease;\r\n}\r\n\r\n.mpp_button:hover {\r\n  background-color: var(--dark_blue_light);\r\n}\r\n\r\n.secondary_type:hover {\r\n  background-color: var(--dark_blue_very_light);\r\n}\r\n\r\n.mpp_button:disabled {\r\n  background-color: var(--disable_dark_blue);\r\n  cursor: not-allowed;\r\n}\r\n\r\n.button_large {\r\n  padding: 12px 40px;\r\n}\r\n\r\n.button_medium {\r\n  padding: 8px 32px;\r\n}\r\n\r\n.secondary_type {\r\n  background-color: var(--white);\r\n  color: var(--dark_blue);\r\n  border: 2px solid var(--dark_blue);\r\n}\r\n\r\n.secondary_type:disabled {\r\n  color: var(--disable_dark_blue);\r\n  background-color: var(--white);\r\n  border: 2px solid var(--disable_dark_blue);\r\n}\r\n";
+var css_248z$a = ".mpp_button {\n  background-color: var(--dark_blue);\n  color: var(--white);\n  border: none;\n  border-radius: var(--standard_border_radius);\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n\n.mpp_button:hover {\n  background-color: var(--dark_blue_light);\n}\n\n.secondary_type:hover {\n  background-color: var(--dark_blue_very_light);\n}\n\n.mpp_button:disabled {\n  background-color: var(--disable_dark_blue);\n  cursor: not-allowed;\n}\n\n.button_large {\n  padding: 12px 40px;\n}\n\n.button_medium {\n  padding: 8px 32px;\n}\n\n.secondary_type {\n  background-color: var(--white);\n  color: var(--dark_blue);\n  border: 2px solid var(--dark_blue);\n}\n\n.secondary_type:disabled {\n  color: var(--disable_dark_blue);\n  background-color: var(--white);\n  border: 2px solid var(--disable_dark_blue);\n}\n";
 styleInject(css_248z$a);
 
 var ButtonType;
@@ -395,7 +395,7 @@ const MppButton = ({ title, onPress, buttonType, style = {}, hoverStyle = {}, ac
                     : 'secondary_type button_medium text_body'}`, style: combinedStyle, onClick: !isDisabled ? onPress : undefined, onMouseEnter: () => !isDisabled && setHover(true), onMouseLeave: () => !isDisabled && setHover(false), onMouseDown: () => !isDisabled && setActive(true), onMouseUp: () => !isDisabled && setActive(false), disabled: isDisabled }, title));
 };
 
-var css_248z$9 = ".mpp_input_container {\r\n  display: flex;\r\n  margin: 10px 0;\r\n  gap: 17px;\r\n  padding: 16px;\r\n  border: 2px solid var(--medium_grey);\r\n  background-color: var(--light_grey);\r\n  border-radius: var(--standard_border_radius);\r\n}\r\n\r\n.mpp_input {\r\n  border: none;\r\n  width: 100%;\r\n  font-size: 16px;\r\n  outline: none;\r\n  transition: border-color 0.3s ease;\r\n  background-color: transparent;\r\n}\r\n\r\n.focused {\r\n  border-color: var(--dark_blue);\r\n}\r\n\r\n.max_characteres {\r\n  color: var(--dark_blue) !important;\r\n}\r\n\r\n.error {\r\n  border-color: var(--error);\r\n}\r\n\r\n.input_error {\r\n  color: var(--error);\r\n  font-size: 12px;\r\n  margin-top: 5px;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.input_counter {\r\n  color: var(--medium_grey);\r\n}\r\n\r\n.input_icon_pointer {\r\n  cursor: pointer;\r\n}\r\n";
+var css_248z$9 = ".mpp_input_container {\n  display: flex;\n  margin: 10px 0;\n  gap: 17px;\n  padding: 16px;\n  border: 2px solid var(--medium_grey);\n  background-color: var(--light_grey);\n  border-radius: var(--standard_border_radius);\n}\n\n.mpp_input {\n  border: none;\n  width: 100%;\n  font-size: 16px;\n  outline: none;\n  transition: border-color 0.3s ease;\n  background-color: transparent;\n}\n\n.focused {\n  border-color: var(--dark_blue);\n}\n\n.max_characteres {\n  color: var(--dark_blue) !important;\n}\n\n.error {\n  border-color: var(--error);\n}\n\n.input_error {\n  color: var(--error);\n  font-size: 12px;\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\n\n.input_counter {\n  color: var(--medium_grey);\n}\n\n.input_icon_pointer {\n  cursor: pointer;\n}\n\n.read_only {\n  cursor: not-allowed;\n}\n";
 styleInject(css_248z$9);
 
 /**
@@ -427,7 +427,7 @@ styleInject(css_248z$9);
  *   maxCharacteres={20}
  * />
  */
-const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacteres, validationConditions = [], onChange, onClickIcon, setHasError, onClickErrorMessage, }) => {
+const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacteres, validationConditions = [], onChange, onClickIcon, setHasError, onClickErrorMessage, readOnly = false, }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFirstEntry, setIsFirstEntry] = useState(true);
     const [inputValue, setInputValue] = useState(value);
@@ -475,8 +475,8 @@ const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false
         }
     };
     return (React__default.createElement(React__default.Fragment, null,
-        React__default.createElement("div", { className: `mpp_input_container ${isFocused ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}` },
-            React__default.createElement("input", { type: "text", placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: "mpp_input" }),
+        React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}` },
+            React__default.createElement("input", { type: "text", placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly }),
             (isFocused || inputValue) && Icon ? (React__default.createElement(Icon, { className: onClickIcon ? 'input_icon_pointer' : '', onClick: handleIconClick })) : needCounter ? (React__default.createElement("span", { className: `input_counter ${inputValue.length === maxCharacteres ? 'max_characteres' : ''}` }, `${inputValue.length}/${maxCharacteres}`)) : null),
         React__default.createElement("div", { className: "input_errors" }, errorMessages.length > 0 &&
             inputValue &&
@@ -959,12 +959,10 @@ var SvgChart = function SvgChart(props) {
   }, props), _g || (_g = /*#__PURE__*/React.createElement("g", {
     clipPath: "url(#chart_svg__a)"
   }, /*#__PURE__*/React.createElement("path", {
-    fill: "#B1C5FF",
     d: "M9.284 13.313h.274c1.053 0 1.915.862 1.915 1.916v9.579a1.92 1.92 0 0 1-1.915 1.916h-.274a1.92 1.92 0 0 1-1.916-1.916v-9.579c0-1.054.862-1.916 1.916-1.916m7.663-5.747c1.054 0 1.916.862 1.916 1.916v15.326a1.92 1.92 0 0 1-1.916 1.916 1.92 1.92 0 0 1-1.916-1.916V9.482c0-1.054.862-1.916 1.916-1.916m7.663 10.947c1.054 0 1.916.862 1.916 1.916v4.379a1.92 1.92 0 0 1-1.916 1.916 1.92 1.92 0 0 1-1.916-1.916v-4.38c0-1.053.862-1.915 1.916-1.915"
   }))), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
     id: "chart_svg__a"
   }, /*#__PURE__*/React.createElement("path", {
-    fill: "#fff",
     d: "M.526.724h32.842v32.842H.526z"
   })))));
 };
@@ -1101,7 +1099,7 @@ const MppIcons = {
     infos: SvgInfo,
 };
 
-var css_248z$8 = ".ranking_card_background {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 11px 20px;\r\n  background-color: var(--white);\r\n  border-radius: 20px;\r\n  box-shadow: 0px 4px 20px var(--shadow_color);\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.ranking_background {\r\n  border-radius: var(--standard_border_radius);\r\n  padding: 8px;\r\n  line-height: 1;\r\n}\r\n\r\n.flex_row {\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n}\r\n\r\n.content_background {\r\n  margin-left: 10px;\r\n}\r\n\r\n.sub_point_text {\r\n  color: var(--dark_grey);\r\n}\r\n";
+var css_248z$8 = ".ranking_card_background {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 11px 20px;\n  background-color: var(--white);\n  border-radius: 20px;\n  box-shadow: 0px 4px 20px var(--shadow_color);\n  margin-bottom: 10px;\n}\n\n.ranking_background {\n  border-radius: var(--standard_border_radius);\n  padding: 8px;\n  line-height: 1;\n}\n\n.flex_row {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n\n.content_background {\n  margin-left: 10px;\n}\n\n.sub_point_text {\n  color: var(--dark_grey);\n}\n";
 styleInject(css_248z$8);
 
 /**
@@ -1137,7 +1135,7 @@ const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, point
             React__default.createElement("p", { className: "sub_point_text text_small" }, subPointsText))));
 };
 
-var css_248z$7 = ".podium_step__container {\r\n  display: inline-block;\r\n  text-align: center;\r\n  width: 100%;\r\n}\r\n\r\n.podium_step__content {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\n.podium_step__img {\r\n  width: 3.75rem;\r\n  margin-bottom: 1rem;\r\n}\r\n\r\n.podium_step__list {\r\n  color: var(--white);\r\n  margin-bottom: 0.3rem;\r\n}\r\n\r\n.podium_step__list--subtitle {\r\n  margin-bottom: 0.2rem;\r\n}\r\n\r\nul.podium_step__list > li:nth-child(1),\r\nul.podium_step__list > li:nth-child(3) {\r\n  margin-bottom: 0.3rem;\r\n}\r\n\r\n.podium_step_number__container {\r\n  border-top-left-radius: var(--standard_border_radius);\r\n  border-top-right-radius: var(--standard_border_radius);\r\n  padding-top: 0.4rem;\r\n  width: auto;\r\n  background-color: var(--white);\r\n}\r\n\r\n.podium_step_number__number {\r\n  padding: 0.1rem 0.5rem;\r\n  border-radius: var(--standard_border_radius);\r\n}\r\n";
+var css_248z$7 = ".podium_step__container {\n  display: inline-block;\n  text-align: center;\n  width: 100%;\n}\n\n.podium_step__content {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.podium_step__img {\n  width: 3.75rem;\n  margin-bottom: 1rem;\n}\n\n.podium_step__list {\n  color: var(--white);\n  margin-bottom: 0.3rem;\n}\n\n.podium_step__list--subtitle {\n  margin-bottom: 0.2rem;\n}\n\nul.podium_step__list > li:nth-child(1),\nul.podium_step__list > li:nth-child(3) {\n  margin-bottom: 0.3rem;\n}\n\n.podium_step_number__container {\n  border-top-left-radius: var(--standard_border_radius);\n  border-top-right-radius: var(--standard_border_radius);\n  padding-top: 0.4rem;\n  width: auto;\n  background-color: var(--white);\n}\n\n.podium_step_number__number {\n  padding: 0.1rem 0.5rem;\n  border-radius: var(--standard_border_radius);\n}\n";
 styleInject(css_248z$7);
 
 const MppPodiumStep = ({ title, subtitle, subtitleBold, pointsNumber, typeOfPlayer, color, ranking, }) => {
@@ -1160,14 +1158,14 @@ const MppPodiumStep = ({ title, subtitle, subtitleBold, pointsNumber, typeOfPlay
             React__default.createElement("span", { className: "podium_step_number__number text_body_sb", style: { backgroundColor: `${color}` } }, ranking))));
 };
 
-var css_248z$6 = ".podium__container {\r\n  box-sizing: border-box;\r\n  padding: 1.625rem 0.3rem 1.5rem 0.3rem;\r\n  display: flex;\r\n  align-items: flex-end;\r\n  max-width: 652px;\r\n  min-width: 361px;\r\n  background-color: var(--dark_blue_light);\r\n  border-radius: var(--big_border_radius);\r\n}\r\n\r\n.podium_step__container:nth-child(2) {\r\n  order: 1;\r\n}\r\n\r\n.podium_step__container:nth-child(1) {\r\n  margin: 0 0.3rem;\r\n  order: 2;\r\n}\r\n\r\n.podium_step__container:nth-child(3) {\r\n  order: 3;\r\n}\r\n\r\n@media (min-width: 896px) {\r\n  .podium__container {\r\n    padding: 4.5rem 6rem 2.5rem 6rem;\r\n    max-width: 652px;\r\n    box-sizing: border-box;\r\n  }\r\n}\r\n";
+var css_248z$6 = ".podium__container {\n  box-sizing: border-box;\n  padding: 1.625rem 0.3rem 1.5rem 0.3rem;\n  display: flex;\n  align-items: flex-end;\n  max-width: 652px;\n  min-width: 361px;\n  background-color: var(--dark_blue_light);\n  border-radius: var(--big_border_radius);\n}\n\n.podium_step__container:nth-child(2) {\n  order: 1;\n}\n\n.podium_step__container:nth-child(1) {\n  margin: 0 0.3rem;\n  order: 2;\n}\n\n.podium_step__container:nth-child(3) {\n  order: 3;\n}\n\n@media (min-width: 896px) {\n  .podium__container {\n    padding: 4.5rem 6rem 2.5rem 6rem;\n    max-width: 652px;\n    box-sizing: border-box;\n  }\n}\n";
 styleInject(css_248z$6);
 
 const MppPodium = ({ rankedElements, typeOfPlayers, color, }) => {
     return (React__default.createElement("div", { className: "podium__container" }, rankedElements.map(({ name, points, ranking, city, structure }) => (React__default.createElement(MppPodiumStep, { subtitle: structure, subtitleBold: city, key: ranking, title: name, pointsNumber: points, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking })))));
 };
 
-var css_248z$5 = ".card_edition__container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: 0.8rem 1.25rem;\r\n  align-items: center;\r\n  background-color: var(--very_light_yellow);\r\n  border-top-left-radius: var(--big_border_radius);\r\n  border-bottom-left-radius: var(--big_border_radius);\r\n}\r\n\r\n.card_edition__infos {\r\n  margin-right: 16px;\r\n  display: flex;\r\n  width: 30%;\r\n  min-width: 11rem;\r\n}\r\n\r\n.card_edition__days {\r\n  color: var(--tonic_violet);\r\n  display: flex;\r\n  align-items: flex-start;\r\n  justify-content: flex-end;\r\n}\r\n\r\n.edition_days__details {\r\n  width: 60%;\r\n}\r\n\r\n.card_edition__icon {\r\n  height: 24px;\r\n  width: 24px;\r\n  margin-right: .3rem;\r\n}\r\n\r\n@media (min-width: 896px) {\r\n  .card_edition__days {\r\n    align-items: center;\r\n    max-width: 100%;\r\n  }\r\n\r\n  .card_edition__infos {\r\n    width: auto;\r\n  }\r\n\r\n  .edition_days__details {\r\n    width: 100%;\r\n  }\r\n}\r\n";
+var css_248z$5 = ".card_edition__container {\n  display: flex;\n  justify-content: space-between;\n  padding: 0.8rem 1.25rem;\n  align-items: center;\n  background-color: var(--very_light_yellow);\n  border-top-left-radius: var(--big_border_radius);\n  border-bottom-left-radius: var(--big_border_radius);\n}\n\n.card_edition__infos {\n  margin-right: 16px;\n  display: flex;\n  width: 30%;\n  min-width: 11rem;\n}\n\n.card_edition__days {\n  color: var(--tonic_violet);\n  display: flex;\n  align-items: flex-start;\n  justify-content: flex-end;\n}\n\n.edition_days__details {\n  width: 60%;\n}\n\n.card_edition__icon {\n  height: 24px;\n  width: 24px;\n  margin-right: .3rem;\n}\n\n@media (min-width: 896px) {\n  .card_edition__days {\n    align-items: center;\n    max-width: 100%;\n  }\n\n  .card_edition__infos {\n    width: auto;\n  }\n\n  .edition_days__details {\n    width: 100%;\n  }\n}\n";
 styleInject(css_248z$5);
 
 /**
@@ -1205,7 +1203,7 @@ const MppCardEdition = ({ backgroundColor, textColor, editionName, editionDatesI
             React__default.createElement("p", { className: "edition_days__details text_body_sb" }, editionMessage))) : null));
 };
 
-var css_248z$4 = ".menu_background {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  background-color: var(--white);\r\n  width: 70vw;\r\n  height: 100%;\r\n  border-radius: var(--standard_border_radius);\r\n  box-shadow: 0px 4px 20px var(--shadow_color);\r\n}\r\n\r\n.logo_container {\r\n  width: 80%;\r\n  margin-top: 16px;\r\n}\r\n\r\n.logo {\r\n  width: 100%;\r\n  height: auto;\r\n}\r\n\r\n.center {\r\n  display: flex;\r\n  align-items: center;\r\n  flex-direction: column;\r\n}\r\n\r\n.navigation_background {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: start;\r\n  width: 100%;\r\n  padding-left: 24px;\r\n  padding-top: 24px;\r\n}\r\n\r\n.icon {\r\n  width: 20px;\r\n  height: 20px;\r\n  padding-right: 12px;\r\n}\r\n\r\n.navigation_element {\r\n  margin-bottom: 16px;\r\n  color: var(--dark_grey);\r\n  fill: var(--dark_grey);\r\n}\r\n.navigation_flex {\r\n  display: flex;\r\n  flex-direction: row;\r\n}\r\n\r\n.navigation_element :hover {\r\n  cursor: pointer;\r\n  color: var(--dark_blue);\r\n  fill: var(--dark_blue);\r\n}\r\n\r\n.actual_page {\r\n  color: var(--dark_blue);\r\n  fill: var(--dark_blue);\r\n}\r\n\r\n.bottom {\r\n  margin-bottom: 26px;\r\n  display: flex;\r\n}\r\n\r\n.bottom:hover {\r\n  cursor: pointer;\r\n  color: var(--dark_blue);\r\n}\r\n\r\n@media (min-width: 896px) {\r\n  .menu_background {\r\n    width: 251px;\r\n    min-height: 100vh;\r\n  }\r\n}\r\n";
+var css_248z$4 = ".menu_background {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n  background-color: var(--white);\n  width: 70vw;\n  height: 100%;\n  border-radius: var(--standard_border_radius);\n  box-shadow: 0px 4px 20px var(--shadow_color);\n}\n\n.logo_container {\n  width: 80%;\n  margin-top: 16px;\n}\n\n.logo {\n  width: 100%;\n  height: auto;\n}\n\n.center {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n}\n\n.navigation_background {\n  display: flex;\n  flex-direction: column;\n  align-items: start;\n  width: 100%;\n  padding-left: 24px;\n  padding-top: 24px;\n}\n\n.icon {\n  width: 20px;\n  height: 20px;\n  padding-right: 12px;\n}\n\n.navigation_element {\n  margin-bottom: 16px;\n  color: var(--dark_grey);\n  fill: var(--dark_grey);\n}\n.navigation_flex {\n  display: flex;\n  flex-direction: row;\n}\n\n.navigation_element :hover {\n  cursor: pointer;\n  color: var(--dark_blue);\n  fill: var(--dark_blue);\n}\n\n.actual_page {\n  color: var(--dark_blue);\n  fill: var(--dark_blue);\n}\n\n.bottom {\n  margin-bottom: 26px;\n  display: flex;\n}\n\n.bottom:hover {\n  cursor: pointer;\n  color: var(--dark_blue);\n}\n\n@media (min-width: 896px) {\n  .menu_background {\n    width: 251px;\n    min-height: 100vh;\n  }\n}\n";
 styleInject(css_248z$4);
 
 var BoType;
@@ -1362,7 +1360,7 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
                 React__default.createElement("div", null, isLoading ? (React__default.createElement(MppLoader, null)) : (React__default.createElement(MppButton, { title: buttonText, buttonType: ButtonType.primaryLarge, onPress: hasError ? null : onPressLoginButon })))))));
 };
 
-var css_248z$1 = ".stat_card__container {\r\n  display: inline-flex;\r\n  justify-content: flex-start;\r\n  align-items: center;\r\n  padding: 20px 12px;\r\n  border-radius: var(--big_border_radius);\r\n  background-color: var(--white);\r\n  width: 200px;\r\n  box-sizing: border-box;\r\n  height: 96px;\r\n}\r\n\r\n.stat_card__icon{\r\n  background-color: var(--light_grey);\r\n  border-radius: 50%;\r\n  height: 56px;\r\n  width: 56px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n\r\n.stat_card__content{\r\n  margin-left: 16px;\r\n}\r\n\r\n.stat_card__title{\r\n  color: var(--dark_grey)\r\n}\r\n\r\n.stat_card__container--shadow{\r\n  box-shadow: 0px 4px 20px 0px var(--shadow_color);\r\n}";
+var css_248z$1 = ".stat_card__container {\n  display: inline-flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding: 20px 12px;\n  border-radius: var(--big_border_radius);\n  background-color: var(--white);\n  width: 200px;\n  box-sizing: border-box;\n  height: 96px;\n}\n\n.stat_card__icon{\n  background-color: var(--light_grey);\n  border-radius: 50%;\n  height: 56px;\n  width: 56px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.stat_card__content{\n  margin-left: 16px;\n}\n\n.stat_card__title{\n  color: var(--dark_grey)\n}\n\n.stat_card__container--shadow{\n  box-shadow: 0px 4px 20px 0px var(--shadow_color);\n}";
 styleInject(css_248z$1);
 
 /**
@@ -1398,50 +1396,47 @@ const StatCard = ({ IconComponent, title, stat, boType, statDetails }) => {
                 " ", statDetails !== null && statDetails !== void 0 ? statDetails : ""))));
 };
 
-var css_248z = ".infos_pin_main_icon {\r\n  display: block;\r\n}\r\n\r\n.infos_content_visible {\r\n  display: block;\r\n}\r\n\r\n.infos_content_invisible {\r\n  display: none;\r\n}\r\n\r\n.infos_pin_main {\r\n  display: inline-block;\r\n  box-sizing: border-box;\r\n  position: relative;\r\n  height: 30px;\r\n  width: 30px;\r\n}\r\n\r\n.infos_pin_container {\r\n  position: absolute;\r\n  width: 20.625rem;\r\n  padding: 16px;\r\n  border-radius: var(--big_border_radius);\r\n  background-color: var(--white);\r\n}\r\n\r\n.infos_content:not(:last-child) {\r\n  margin-bottom: 16px;\r\n}\r\n";
+var css_248z = ".mpp_text_area_container {\r\n  display: flex;\r\n  margin: 10px 0;\r\n  gap: 17px;\r\n  padding: 16px;\r\n  border: 2px solid var(--medium_grey);\r\n  background-color: var(--light_grey);\r\n  border-radius: var(--standard_border_radius);\r\n  height: 100%;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.mpp_text_area {\r\n  border: none;\r\n  width: 100%;\r\n  font-size: 16px;\r\n  outline: none;\r\n  resize: none;\r\n  font-family: inherit;\r\n  transition: border-color 0.3s ease;\r\n  background-color: transparent;\r\n}\r\n\r\n.focused {\r\n  border-color: var(--dark_blue);\r\n}\r\n\r\n.error {\r\n  border-color: var(--error);\r\n}\r\n\r\n.input_error {\r\n  color: var(--error);\r\n  font-size: 12px;\r\n  margin-top: 5px;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.read_only {\r\n  cursor: not-allowed;\r\n}\r\n";
 styleInject(css_248z);
 
-var Direction;
-(function (Direction) {
-    Direction[Direction["top_right"] = 0] = "top_right";
-    Direction[Direction["top_left"] = 1] = "top_left";
-    Direction[Direction["bottom_left"] = 2] = "bottom_left";
-    Direction[Direction["bottom_right"] = 3] = "bottom_right";
-})(Direction || (Direction = {}));
-const MppInfosPin = ({ texts, direction = Direction.bottom_left, }) => {
-    let directionStyleValues;
-    switch (direction) {
-        case Direction.bottom_right:
-            directionStyleValues = {
-                top: '46px',
-            };
-            break;
-        case Direction.top_left:
-            directionStyleValues = {
-                bottom: '46px',
-                right: 0,
-            };
-            break;
-        case Direction.top_right:
-            directionStyleValues = {
-                bottom: '46px',
-            };
-            break;
-        default:
-            directionStyleValues = {
-                top: '46px',
-                right: 0,
-            };
-    }
-    const [hover, setHover] = React__default.useState(false);
-    const isMobile = () => window.innerWidth < 896;
-    return (React__default.createElement("div", { className: "infos_pin_main" },
-        React__default.createElement(MppIcons.infos, { className: "infos_pin_main_icon", onMouseEnter: () => (isMobile() ? null : setHover(true)), onMouseLeave: () => (isMobile() ? null : setHover(false)), onClick: () => (isMobile() ? setHover(!hover) : null) }),
-        React__default.createElement("div", { onClick: () => (isMobile() ? setHover(false) : null), className: ` ${hover ? 'infos_content_visible' : 'infos_content_invisible'} infos_pin_container`, style: directionStyleValues }, texts.map((text, index) => (React__default.createElement("p", { key: index, className: "infos_content text_small" },
-            React__default.createElement("span", { className: "infos_title text_small_b" },
-                text.title,
-                " : "),
-            text.content))))));
+const MppTextArea = ({ placeholder, value = '', validationConditions = [], onChange, setHasError, readOnly = false, }) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const [isFirstEntry, setIsFirstEntry] = useState(true);
+    const [inputValue, setInputValue] = useState(value);
+    const [errorMessages, setErrorMessages] = useState([]);
+    useEffect(() => {
+        setInputValue(value);
+    }, [value]);
+    const validateInput = useCallback((value) => {
+        const errors = validationConditions
+            .filter((validation) => !validation.condition(value))
+            .map((validation) => validation.message);
+        setErrorMessages(errors);
+        if (setHasError)
+            setHasError(errors.length > 0);
+        return errors.length > 0;
+    }, [validationConditions, setHasError]);
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+    const handleBlur = () => {
+        setIsFirstEntry(false);
+        setIsFocused(false);
+        validateInput(inputValue);
+    };
+    const handleChange = (e) => {
+        const newValue = e.target.value;
+        setInputValue(newValue);
+        const hasError = validateInput(newValue);
+        onChange(newValue, hasError);
+    };
+    return (React__default.createElement(React__default.Fragment, null,
+        React__default.createElement("div", { className: `mpp_text_area_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}` },
+            React__default.createElement("textarea", { placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: `mpp_text_area ${readOnly ? 'read_only' : ''}`, readOnly: readOnly })),
+        React__default.createElement("div", { className: "input_errors" }, errorMessages.length > 0 &&
+            inputValue &&
+            !isFirstEntry &&
+            errorMessages.map((error, index) => (React__default.createElement("p", { key: index, className: "input_error" }, error))))));
 };
 
-export { BoType, ButtonType, MppButton, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInputText, MppLoader, ComponentName as MppLoginLayout, MppMenu, MppPodium, MppRankingCard, StatCard as MppStatCard, ScoColors, SvgScoLogoOnlyYellow as ScoLogoOnly, SvgScoWhiteLogoWhiteText as ScoWhiteLogo, SvgScoYellowLogoBlueText as ScoYellowLogo };
+export { BoType, ButtonType, MppButton, MppCardEdition as MppEditionCard, MppIcons, MppInputText, MppLoader, ComponentName as MppLoginLayout, MppMenu, MppPodium, MppRankingCard, StatCard as MppStatCard, MppTextArea, ScoColors, SvgScoLogoOnlyYellow as ScoLogoOnly, SvgScoWhiteLogoWhiteText as ScoWhiteLogo, SvgScoYellowLogoBlueText as ScoYellowLogo };

@@ -14,5 +14,6 @@ export { default as MppMenu } from './components/MppMenu/MppMenu';
 export { default as MppLoginLayout } from './layout/login/MppLoginLayout';
 export { default as MppStatCard } from './components/MppStatCard/MppStatCard';
 export { default as MppLoader } from './components/MppLoader/MppLoader';
+export { default as MppTextArea } from './components/MppTextArea/MppTextArea';
 export { BoType } from './components/BoType';
 export { default as MppInfosPin } from './components/MppInfosPin/MppInfosPin';
