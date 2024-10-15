@@ -955,7 +955,7 @@ var SvgChart = function SvgChart(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 34,
     height: 34,
-    fill: "none"
+    fill: "#B1C5FF"
   }, props), _g || (_g = /*#__PURE__*/React.createElement("g", {
     clipPath: "url(#chart_svg__a)"
   }, /*#__PURE__*/React.createElement("path", {
