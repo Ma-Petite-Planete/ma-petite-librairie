@@ -8,7 +8,7 @@ interface MppTextAreaProps {
     placeholder: string;
     value: string;
     validationConditions?: Array<ValidationCondition>;
-    onChange: (value: string, hasError: boolean) => void;
+    onChange?: (value: string, hasError: boolean) => void;
     onClickIcon?: (value: string) => void;
     setHasError?: (hasError: boolean) => void;
     readOnly?: boolean;

@@ -10,7 +10,7 @@ interface MppTextAreaProps {
   placeholder: string;
   value: string;
   validationConditions?: Array<ValidationCondition>;
-  onChange: (value: string, hasError: boolean) => void;
+  onChange?: (value: string, hasError: boolean) => void;
   onClickIcon?: (value: string) => void;
   setHasError?: (hasError: boolean) => void;
   readOnly?: boolean;
@@ -72,7 +72,7 @@ const MppTextArea: React.FC<MppTextAreaProps> = ({
           value={inputValue}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          onChange={handleChange}
+          onChange={readOnly ? null : handleChange}
           className={`mpp_text_area ${readOnly ? 'read_only' : ''}`}
           readOnly={readOnly}
         />

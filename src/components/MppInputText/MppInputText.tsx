@@ -13,7 +13,7 @@ interface MppInputTextProps {
   needCounter?: boolean;
   maxCharacteres?: number;
   validationConditions?: Array<ValidationCondition>;
-  onChange: (value: string, hasError: boolean) => void;
+  onChange?: (value: string, hasError: boolean) => void;
   onClickIcon?: (value: string) => void;
   setHasError?: (hasError: boolean) => void;
   onClickErrorMessage?: string;
@@ -131,7 +131,7 @@ const MppInputText: React.FC<MppInputTextProps> = ({
           value={inputValue}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          onChange={handleChange}
+          onChange={readOnly ? null : handleChange}
           className={`mpp_input ${readOnly ? 'read_only' : ''}`}
           readOnly={readOnly}
         />
