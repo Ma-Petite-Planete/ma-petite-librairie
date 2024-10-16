@@ -1316,18 +1316,18 @@ const MppLoader = () => {
 const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold, welcomeSubtitle, loginTitle, loginSubtitle, buttonText, codeValue, setCodeValue, inputPlaceHolder, onClickErrorMessage, setOnClickErrorMessage, isLoading, }) => {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 896);
     const [hasError, setHasError] = useState(true);
+    const isClientRendering = typeof window !== 'undefined';
     useEffect(() => {
-        if (typeof window !== 'undefined') {
+        if (isClientRendering) {
             const handleResize = () => {
                 setIsMobile(window.innerWidth <= 896);
             };
-            handleResize();
             window.addEventListener('resize', handleResize);
             return () => {
                 window.removeEventListener('resize', handleResize);
             };
         }
-    }, []);
+    }, [isClientRendering]);
     useEffect(() => {
         if (codeValue && onClickErrorMessage) {
             setOnClickErrorMessage('');
