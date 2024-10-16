@@ -1317,13 +1317,16 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 896);
     const [hasError, setHasError] = useState(true);
     useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 896);
-        };
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
+        if (typeof window !== 'undefined') {
+            const handleResize = () => {
+                setIsMobile(window.innerWidth <= 896);
+            };
+            handleResize();
+            window.addEventListener('resize', handleResize);
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        }
     }, []);
     useEffect(() => {
         if (codeValue && onClickErrorMessage) {
