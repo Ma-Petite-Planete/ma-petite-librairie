@@ -16,6 +16,7 @@ interface LoginLayoutProps {
     onClickErrorMessage: string;
     setOnClickErrorMessage: (error: string) => void;
     isLoading: boolean;
+    isMobile: boolean;
 }
 /**
  * @interface LoginLayoutProps
@@ -33,6 +34,7 @@ interface LoginLayoutProps {
  * @property {string} onClickErrorMessage - Message d'erreur à afficher lors d'un clic sur le bouton.
  * @property {function(string): void} setOnClickErrorMessage - Fonction pour mettre à jour le message d'erreur.
  * @property {boolean} isLoading - État de chargement pour afficher un loader pendant la connexion.
+ * @property {boolean} isMoblie - Qu'elle format de background afficher en fonction de la width globale.
  *
  * @example
  *

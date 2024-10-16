@@ -1293,6 +1293,7 @@ const MppLoader = () => {
  * @property {string} onClickErrorMessage - Message d'erreur à afficher lors d'un clic sur le bouton.
  * @property {function(string): void} setOnClickErrorMessage - Fonction pour mettre à jour le message d'erreur.
  * @property {boolean} isLoading - État de chargement pour afficher un loader pendant la connexion.
+ * @property {boolean} isMoblie - Qu'elle format de background afficher en fonction de la width globale.
  *
  * @example
  *
@@ -1313,18 +1314,8 @@ const MppLoader = () => {
  *   isLoading={isLoading}
  * />
  */
-const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold, welcomeSubtitle, loginTitle, loginSubtitle, buttonText, codeValue, setCodeValue, inputPlaceHolder, onClickErrorMessage, setOnClickErrorMessage, isLoading, }) => {
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 896);
+const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold, welcomeSubtitle, loginTitle, loginSubtitle, buttonText, codeValue, setCodeValue, inputPlaceHolder, onClickErrorMessage, setOnClickErrorMessage, isLoading, isMobile, }) => {
     const [hasError, setHasError] = useState(true);
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 896);
-        };
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
     useEffect(() => {
         if (codeValue && onClickErrorMessage) {
             setOnClickErrorMessage('');

@@ -24,6 +24,7 @@ interface LoginLayoutProps {
   onClickErrorMessage: string;
   setOnClickErrorMessage: (error: string) => void;
   isLoading: boolean;
+  isMobile: boolean;
 }
 
 /**
@@ -42,6 +43,7 @@ interface LoginLayoutProps {
  * @property {string} onClickErrorMessage - Message d'erreur à afficher lors d'un clic sur le bouton.
  * @property {function(string): void} setOnClickErrorMessage - Fonction pour mettre à jour le message d'erreur.
  * @property {boolean} isLoading - État de chargement pour afficher un loader pendant la connexion.
+ * @property {boolean} isMoblie - Qu'elle format de background afficher en fonction de la width globale.
  *
  * @example
  *
@@ -78,20 +80,9 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
   onClickErrorMessage,
   setOnClickErrorMessage,
   isLoading,
+  isMobile,
 }) => {
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 896);
   const [hasError, setHasError] = useState(true);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 896);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     if (codeValue && onClickErrorMessage) {
