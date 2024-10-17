@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './mpp_login_layout.css';
 import { MppButton, ButtonType } from '../../components/MppButton';
 import { default as MppInputText } from '../../components/MppInputText/MppInputText';
@@ -25,47 +25,10 @@ interface LoginLayoutProps {
   setOnClickErrorMessage: (error: string) => void;
   isLoading: boolean;
   isMobile: boolean;
+  setHasError: (hasError: boolean) => void; // Ajout du gestionnaire d'erreur
 }
 
-/**
- * @interface LoginLayoutProps
- * @property {BoType} boType - Type de back-office utilisé pour déterminer l'arrière-plan et le logo.
- * @property {(() => void) | null} onPressLoginButon - Fonction à appeler lors du clic sur le bouton de connexion.
- * @property {string} welcomeText - Texte de bienvenue à afficher.
- * @property {string} welcomeTextBold - Texte de bienvenue en gras à afficher.
- * @property {string} welcomeSubtitle - Sous-titre de bienvenue à afficher.
- * @property {string} loginTitle - Titre de la section de connexion.
- * @property {string} loginSubtitle - Sous-titre de la section de connexion.
- * @property {string} buttonText - Texte du bouton de connexion.
- * @property {string} codeValue - Valeur actuelle du code (input).
- * @property {string} inputPlaceHolder - Texte placeHolder pour l'input.
- * @property {function(string): void} setCodeValue - Fonction pour mettre à jour la valeur du code.
- * @property {string} onClickErrorMessage - Message d'erreur à afficher lors d'un clic sur le bouton.
- * @property {function(string): void} setOnClickErrorMessage - Fonction pour mettre à jour le message d'erreur.
- * @property {boolean} isLoading - État de chargement pour afficher un loader pendant la connexion.
- * @property {boolean} isMoblie - Qu'elle format de background afficher en fonction de la width globale.
- *
- * @example
- *
- * <ComponentName
- *   boType={BoType.scoBO}
- *   onPressLoginButon={() => console.log('Login pressed')}
- *   welcomeText="Bienvenue sur"
- *   welcomeTextBold="Ma Petite Planète"
- *   welcomeSubtitle="Veuillez vous connecter"
- *   loginTitle="Connexion"
- *   loginSubtitle="Veuillez entrer votre code"
- *   buttonText="Se connecter"
- *   codeValue={codeValue}
- *   inputPlaceHolder="Entrez votre code"
- *   setCodeValue={setCodeValue}
- *   onClickErrorMessage={errorMessage}
- *   setOnClickErrorMessage={setErrorMessage}
- *   isLoading={isLoading}
- * />
- */
-
-const ComponentName: React.FC<LoginLayoutProps> = ({
+const MppLoginLayout: React.FC<LoginLayoutProps> = ({
   boType,
   onPressLoginButon,
   welcomeText,
@@ -81,14 +44,13 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
   setOnClickErrorMessage,
   isLoading,
   isMobile,
+  setHasError, // Ajout
 }) => {
-  const [hasError, setHasError] = useState(true);
-
   useEffect(() => {
     if (codeValue && onClickErrorMessage) {
       setOnClickErrorMessage('');
     }
-  }, [codeValue, onClickErrorMessage]);
+  }, [codeValue, onClickErrorMessage, setOnClickErrorMessage]);
 
   return (
     <div className="container_login_background">
@@ -132,11 +94,9 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
               value={codeValue}
               onChange={(value: string) => {
                 setCodeValue(value);
-                setHasError(false);
+                setHasError(false); // Réinitialisation de l'erreur lors du changement de valeur
               }}
-              setHasError={function (hasError: boolean): void {
-                setHasError(hasError);
-              }}
+              setHasError={setHasError} // Gestionnaire d'erreur
               onClickErrorMessage={onClickErrorMessage}
             />
           </div>
@@ -147,7 +107,7 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
               <MppButton
                 title={buttonText}
                 buttonType={ButtonType.primaryLarge}
-                onPress={hasError ? null : onPressLoginButon}
+                onPress={onPressLoginButon}
               />
             )}
           </div>
@@ -157,4 +117,4 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
   );
 };
 
-export default ComponentName;
+export default MppLoginLayout;

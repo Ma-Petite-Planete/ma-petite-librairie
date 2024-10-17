@@ -1277,50 +1277,13 @@ const MppLoader = () => {
         React__default.createElement("div", { className: "spinner" })));
 };
 
-/**
- * @interface LoginLayoutProps
- * @property {BoType} boType - Type de back-office utilisé pour déterminer l'arrière-plan et le logo.
- * @property {(() => void) | null} onPressLoginButon - Fonction à appeler lors du clic sur le bouton de connexion.
- * @property {string} welcomeText - Texte de bienvenue à afficher.
- * @property {string} welcomeTextBold - Texte de bienvenue en gras à afficher.
- * @property {string} welcomeSubtitle - Sous-titre de bienvenue à afficher.
- * @property {string} loginTitle - Titre de la section de connexion.
- * @property {string} loginSubtitle - Sous-titre de la section de connexion.
- * @property {string} buttonText - Texte du bouton de connexion.
- * @property {string} codeValue - Valeur actuelle du code (input).
- * @property {string} inputPlaceHolder - Texte placeHolder pour l'input.
- * @property {function(string): void} setCodeValue - Fonction pour mettre à jour la valeur du code.
- * @property {string} onClickErrorMessage - Message d'erreur à afficher lors d'un clic sur le bouton.
- * @property {function(string): void} setOnClickErrorMessage - Fonction pour mettre à jour le message d'erreur.
- * @property {boolean} isLoading - État de chargement pour afficher un loader pendant la connexion.
- * @property {boolean} isMoblie - Qu'elle format de background afficher en fonction de la width globale.
- *
- * @example
- *
- * <ComponentName
- *   boType={BoType.scoBO}
- *   onPressLoginButon={() => console.log('Login pressed')}
- *   welcomeText="Bienvenue sur"
- *   welcomeTextBold="Ma Petite Planète"
- *   welcomeSubtitle="Veuillez vous connecter"
- *   loginTitle="Connexion"
- *   loginSubtitle="Veuillez entrer votre code"
- *   buttonText="Se connecter"
- *   codeValue={codeValue}
- *   inputPlaceHolder="Entrez votre code"
- *   setCodeValue={setCodeValue}
- *   onClickErrorMessage={errorMessage}
- *   setOnClickErrorMessage={setErrorMessage}
- *   isLoading={isLoading}
- * />
- */
-const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold, welcomeSubtitle, loginTitle, loginSubtitle, buttonText, codeValue, setCodeValue, inputPlaceHolder, onClickErrorMessage, setOnClickErrorMessage, isLoading, isMobile, }) => {
-    const [hasError, setHasError] = useState(true);
+const MppLoginLayout = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold, welcomeSubtitle, loginTitle, loginSubtitle, buttonText, codeValue, setCodeValue, inputPlaceHolder, onClickErrorMessage, setOnClickErrorMessage, isLoading, isMobile, setHasError, // Ajout
+ }) => {
     useEffect(() => {
         if (codeValue && onClickErrorMessage) {
             setOnClickErrorMessage('');
         }
-    }, [codeValue, onClickErrorMessage]);
+    }, [codeValue, onClickErrorMessage, setOnClickErrorMessage]);
     return (React__default.createElement("div", { className: "container_login_background" },
         React__default.createElement("div", { className: 'container_image_section', style: {
                 backgroundImage: `url(${boType === BoType.scoBO
@@ -1344,11 +1307,9 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
                 React__default.createElement("div", null,
                     React__default.createElement(MppInputText, { placeholder: inputPlaceHolder, value: codeValue, onChange: (value) => {
                             setCodeValue(value);
-                            setHasError(false);
-                        }, setHasError: function (hasError) {
-                            setHasError(hasError);
-                        }, onClickErrorMessage: onClickErrorMessage })),
-                React__default.createElement("div", null, isLoading ? (React__default.createElement(MppLoader, null)) : (React__default.createElement(MppButton, { title: buttonText, buttonType: ButtonType.primaryLarge, onPress: hasError ? null : onPressLoginButon })))))));
+                            setHasError(false); // Réinitialisation de l'erreur lors du changement de valeur
+                        }, setHasError: setHasError, onClickErrorMessage: onClickErrorMessage })),
+                React__default.createElement("div", null, isLoading ? (React__default.createElement(MppLoader, null)) : (React__default.createElement(MppButton, { title: buttonText, buttonType: ButtonType.primaryLarge, onPress: onPressLoginButon })))))));
 };
 
 var css_248z$2 = ".stat_card__container {\n  display: inline-flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding: 20px 12px;\n  border-radius: var(--big_border_radius);\n  background-color: var(--white);\n  width: 200px;\n  box-sizing: border-box;\n  height: 96px;\n}\n\n.stat_card__icon{\n  background-color: var(--light_grey);\n  border-radius: 50%;\n  height: 56px;\n  width: 56px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.stat_card__content{\n  margin-left: 16px;\n}\n\n.stat_card__title{\n  color: var(--dark_grey)\n}\n\n.stat_card__container--shadow{\n  box-shadow: 0px 4px 20px 0px var(--shadow_color);\n}";
@@ -1476,4 +1437,4 @@ const MppInfosPin = ({ texts, direction = Direction.bottom_left, }) => {
             text.content))))));
 };
 
-export { BoType, ButtonType, MppButton, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInputText, MppLoader, ComponentName as MppLoginLayout, MppMenu, MppPodium, MppRankingCard, StatCard as MppStatCard, MppTextArea, ScoColors, SvgScoLogoOnlyYellow as ScoLogoOnly, SvgScoWhiteLogoWhiteText as ScoWhiteLogo, SvgScoYellowLogoBlueText as ScoYellowLogo };
+export { BoType, ButtonType, MppButton, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInputText, MppLoader, MppLoginLayout, MppMenu, MppPodium, MppRankingCard, StatCard as MppStatCard, MppTextArea, ScoColors, SvgScoLogoOnlyYellow as ScoLogoOnly, SvgScoWhiteLogoWhiteText as ScoWhiteLogo, SvgScoYellowLogoBlueText as ScoYellowLogo };

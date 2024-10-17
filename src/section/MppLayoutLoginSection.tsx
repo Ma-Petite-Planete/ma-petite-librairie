@@ -12,6 +12,7 @@ const LayoutLoginSection: React.FC = () => {
     if (codeValue === 'test') {
       setLoginVerifMessage('Code Incorrect');
     }
+    setisLoading(false);
   };
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
@@ -37,6 +38,9 @@ const LayoutLoginSection: React.FC = () => {
         }}
         isLoading={isLoading}
         isMobile={false}
+        setHasError={function (): void {
+          throw new Error('Function not implemented.');
+        }}
       />
     </div>
   );
