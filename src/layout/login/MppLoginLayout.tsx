@@ -88,7 +88,7 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
     if (codeValue && onClickErrorMessage) {
       setOnClickErrorMessage('');
     }
-  }, [codeValue, onClickErrorMessage, setOnClickErrorMessage]);
+  }, [codeValue, onClickErrorMessage]);
 
   return (
     <div className="container_login_background">

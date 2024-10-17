@@ -1320,7 +1320,7 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
         if (codeValue && onClickErrorMessage) {
             setOnClickErrorMessage('');
         }
-    }, [codeValue, onClickErrorMessage, setOnClickErrorMessage]);
+    }, [codeValue, onClickErrorMessage]);
     return (React__default.createElement("div", { className: "container_login_background" },
         React__default.createElement("div", { className: 'container_image_section', style: {
                 backgroundImage: `url(${boType === BoType.scoBO
