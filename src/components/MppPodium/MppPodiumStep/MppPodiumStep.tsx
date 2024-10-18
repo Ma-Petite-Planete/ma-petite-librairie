@@ -31,7 +31,6 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
   onHover,
   onHoverLeave,
 }) => {
-  console.log("🚀 ~ id:", id)
   return (
     <div
       className="podium_step__container"
