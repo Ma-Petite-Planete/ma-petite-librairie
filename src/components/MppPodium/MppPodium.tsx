@@ -3,6 +3,7 @@ import MppPodiumStep from './MppPodiumStep/MppPodiumStep';
 import './MppPodium.css';
 
 interface PodiumStep {
+  id?: string;
   name: string;
   points: number;
   ranking: number;
@@ -30,8 +31,9 @@ const MppPodium: React.FC<MppPodiumProps> = ({
 }) => {
   return (
     <div className="podium__container">
-      {rankedElements.map(({ name, points, ranking, city, structure }) => (
+      {rankedElements.map(({ name, points, ranking, city, structure, id }) => (
         <MppPodiumStep
+          id={id}
           onClick={onClick}
           onHover={onHover}
           onHoverLeave={onHoverLeave}

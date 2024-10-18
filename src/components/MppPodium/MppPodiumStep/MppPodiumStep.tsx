@@ -3,6 +3,7 @@ import React from 'react';
 import { MppIcons } from '../../../utils/MppIcons';
 
 interface MppPodiumStepProps {
+  id?: string;
   title: string;
   subtitle?: string;
   subtitleBold?: string;
@@ -17,6 +18,7 @@ interface MppPodiumStepProps {
 }
 
 const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
+  id,
   title,
   subtitle,
   subtitleBold,
@@ -29,12 +31,14 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
   onHover,
   onHoverLeave,
 }) => {
+  console.log("🚀 ~ id:", id)
   return (
     <div
       className="podium_step__container"
       onClick={onClick}
       onMouseEnter={onHover}
       onMouseLeave={onHoverLeave}
+      data-id={id ?? ''}
     >
       <div className="podium_step__content">
         <div className="podium_step__img">

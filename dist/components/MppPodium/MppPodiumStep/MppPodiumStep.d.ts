@@ -1,6 +1,7 @@
 import './MppPodiumStep.css';
 import React from 'react';
 interface MppPodiumStepProps {
+    id?: string;
     title: string;
     subtitle?: string;
     subtitleBold?: string;

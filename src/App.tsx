@@ -105,20 +105,15 @@ function App() {
       <InputDemo />
       <h2>Trophés</h2>
       <MppPodium
-        onClick={() => {
-          console.log('hello');
-        }}
-        onHover={() => {
-          console.log('yo');
-        }}
-        onHoverLeave={() => {
-          console.log('ciao');
-        }}
+        onClick={() => {}}
+        onHover={() => {}}
+        onHoverLeave={() => {}}
         displayFullInfos={false}
         color={ScoColors.lightYellow}
         typeOfPlayers="élève"
         rankedElements={[
           {
+            id: 'test',
             name: '4èmeD',
             points: 3,
             ranking: 1,
@@ -126,11 +121,13 @@ function App() {
             city: 'Lyon',
           },
           {
+            id: 'test2',
             name: '4èmeB',
             points: 3,
             ranking: 2,
           },
           {
+            id: 'test3',
             name: '4èmeA',
             points: 3,
             ranking: 3,

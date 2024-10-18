@@ -1,6 +1,7 @@
 import React from 'react';
 import './MppPodium.css';
 interface PodiumStep {
+    id?: string;
     name: string;
     points: number;
     ranking: number;
