@@ -1138,14 +1138,14 @@ const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, point
 var css_248z$8 = ".podium_step__container {\r\n  display: inline-block;\r\n  text-align: center;\r\n  width: 100%;\r\n}\r\n\r\n.podium_step__content {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\n.podium_step__img {\r\n  width: 3.75rem;\r\n  margin-bottom: 1rem;\r\n}\r\n\r\n.podium_step__list {\r\n  color: var(--white);\r\n  margin-bottom: 0.3rem;\r\n}\r\n\r\n.podium_step__list--subtitle {\r\n  margin-bottom: 0.2rem;\r\n}\r\n\r\nul.podium_step__list > li:nth-child(1),\r\nul.podium_step__list > li:nth-child(3) {\r\n  margin-bottom: 0.3rem;\r\n}\r\n\r\n.podium_step_number__container {\r\n  border-top-left-radius: var(--standard_border_radius);\r\n  border-top-right-radius: var(--standard_border_radius);\r\n  padding-top: 0.4rem;\r\n  width: auto;\r\n  background-color: var(--white);\r\n}\r\n\r\n.podium_step_number__number {\r\n  padding: 0.1rem 0.5rem;\r\n  border-radius: var(--standard_border_radius);\r\n}\r\n";
 styleInject(css_248z$8);
 
-const MppPodiumStep = ({ title, subtitle, subtitleBold, pointsNumber, typeOfPlayer, color, ranking, display_all_infos }) => {
+const MppPodiumStep = ({ title, subtitle, subtitleBold, pointsNumber, typeOfPlayer, color, ranking, displayAllInfos }) => {
     return (React__default.createElement("div", { className: "podium_step__container" },
         React__default.createElement("div", { className: "podium_step__content" },
             React__default.createElement("div", { className: "podium_step__img" }, ranking === 1 ? (React__default.createElement(MppIcons.goldTrophee, null)) : ranking === 2 ? (React__default.createElement(MppIcons.silverTrophee, null)) : (React__default.createElement(MppIcons.bronzeTrophee, null))),
             React__default.createElement("ul", { className: "podium_step__list" },
                 React__default.createElement("li", { className: "podium_step__list--title title_h3" }, title),
-                subtitle && display_all_infos ? (React__default.createElement("li", { className: "podium_step__list--subtitle text_small" }, subtitle)) : null,
-                subtitleBold && display_all_infos ? (React__default.createElement("li", { className: "podium_step__list--subtitle_bold text_small_b" }, subtitleBold)) : null,
+                subtitle && displayAllInfos ? (React__default.createElement("li", { className: "podium_step__list--subtitle text_small" }, subtitle)) : null,
+                subtitleBold && displayAllInfos ? (React__default.createElement("li", { className: "podium_step__list--subtitle_bold text_small_b" }, subtitleBold)) : null,
                 React__default.createElement("li", { style: { color: `${color}` }, className: "podium_step__list--type text_small_b" },
                     pointsNumber,
                     " pts",
@@ -1161,8 +1161,8 @@ const MppPodiumStep = ({ title, subtitle, subtitleBold, pointsNumber, typeOfPlay
 var css_248z$7 = ".podium__container {\r\n  box-sizing: border-box;\r\n  padding: 1.625rem 0.3rem 1.5rem 0.3rem;\r\n  display: flex;\r\n  align-items: flex-end;\r\n  max-width: 652px;\r\n  min-width: 361px;\r\n  background-color: var(--dark_blue_light);\r\n  border-radius: var(--big_border_radius);\r\n}\r\n\r\n.podium_step__container:nth-child(2) {\r\n  order: 1;\r\n}\r\n\r\n.podium_step__container:nth-child(1) {\r\n  margin: 0 0.3rem;\r\n  order: 2;\r\n}\r\n\r\n.podium_step__container:nth-child(3) {\r\n  order: 3;\r\n}\r\n\r\n@media (min-width: 896px) {\r\n  .podium__container {\r\n    padding: 4.5rem 6rem 2.5rem 6rem;\r\n    max-width: 652px;\r\n    box-sizing: border-box;\r\n  }\r\n}\r\n";
 styleInject(css_248z$7);
 
-const MppPodium = ({ rankedElements, typeOfPlayers, color, }) => {
-    return (React__default.createElement("div", { className: "podium__container" }, rankedElements.map(({ name, points, ranking, city, structure }) => (React__default.createElement(MppPodiumStep, { display_all_infos: true, subtitle: structure, subtitleBold: city, key: ranking, title: name, pointsNumber: points, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking })))));
+const MppPodium = ({ rankedElements, typeOfPlayers, color, displayFullInfos }) => {
+    return (React__default.createElement("div", { className: "podium__container" }, rankedElements.map(({ name, points, ranking, city, structure }) => (React__default.createElement(MppPodiumStep, { displayAllInfos: displayFullInfos, subtitle: structure, subtitleBold: city, key: ranking, title: name, pointsNumber: points, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking })))));
 };
 
 var css_248z$6 = ".card_edition__container {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: 0.8rem 1.25rem;\r\n  align-items: center;\r\n  background-color: var(--very_light_yellow);\r\n  border-top-left-radius: var(--big_border_radius);\r\n  border-bottom-left-radius: var(--big_border_radius);\r\n}\r\n\r\n.card_edition__infos {\r\n  margin-right: 16px;\r\n  display: flex;\r\n  width: 30%;\r\n  min-width: 11rem;\r\n}\r\n\r\n.card_edition__days {\r\n  color: var(--tonic_violet);\r\n  display: flex;\r\n  align-items: flex-start;\r\n  justify-content: flex-end;\r\n}\r\n\r\n.edition_days__details {\r\n  width: 60%;\r\n}\r\n\r\n.card_edition__icon {\r\n  height: 24px;\r\n  width: 24px;\r\n  margin-right: .3rem;\r\n}\r\n\r\n@media (min-width: 896px) {\r\n  .card_edition__days {\r\n    align-items: center;\r\n    max-width: 100%;\r\n  }\r\n\r\n  .card_edition__infos {\r\n    width: auto;\r\n  }\r\n\r\n  .edition_days__details {\r\n    width: 100%;\r\n  }\r\n}\r\n";

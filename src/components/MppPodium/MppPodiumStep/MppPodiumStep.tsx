@@ -10,7 +10,7 @@ interface MppPodiumStepProps {
   typeOfPlayer: string;
   color: string;
   ranking: number;
-  display_all_infos: boolean;
+  displayAllInfos: boolean;
 }
 
 const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
@@ -21,7 +21,7 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
   typeOfPlayer,
   color,
   ranking,
-  display_all_infos
+  displayAllInfos
 }) => {
   return (
     <div className="podium_step__container">
@@ -38,13 +38,13 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
         <ul className="podium_step__list">
           <li className="podium_step__list--title title_h3">{title}</li>
 
-          {subtitle && display_all_infos ? (
+          {subtitle && displayAllInfos ? (
             <li className="podium_step__list--subtitle text_small">
               {subtitle}
             </li>
           ) : null}
 
-          {subtitleBold && display_all_infos ? (
+          {subtitleBold && displayAllInfos ? (
             <li className="podium_step__list--subtitle_bold text_small_b">
               {subtitleBold}
             </li>

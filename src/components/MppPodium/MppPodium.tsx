@@ -13,18 +13,20 @@ interface MppPodiumProps {
   rankedElements: Array<PodiumStep>;
   color: string;
   typeOfPlayers: string;
+  displayFullInfos: boolean;
 }
 
 const MppPodium: React.FC<MppPodiumProps> = ({
   rankedElements,
   typeOfPlayers,
   color,
+  displayFullInfos
 }) => {
   return (
     <div className="podium__container">
       {rankedElements.map(({ name, points, ranking, city, structure }) => (
         <MppPodiumStep
-          display_all_infos={true}
+          displayAllInfos={displayFullInfos}
           subtitle={structure}
           subtitleBold={city}
           key={ranking}

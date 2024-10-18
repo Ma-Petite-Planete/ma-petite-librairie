@@ -105,6 +105,7 @@ function App() {
       <InputDemo />
       <h2>Trophés</h2>
       <MppPodium
+      displayFullInfos= {false}
         color={ScoColors.lightYellow}
         typeOfPlayers="élève"
         rankedElements={[
