@@ -1336,10 +1336,10 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
  */
 const StatCard = ({ IconComponent, title, stat, boType, statDetails, }) => {
     return (React__default.createElement("div", { className: `stat_card__container${boType ? ' stat_card__container--shadow' : ''}` },
-        stat ? (React__default.createElement("div", { className: "stat_card__icon" },
+        stat !== null && stat !== undefined ? (React__default.createElement("div", { className: "stat_card__icon" },
             React__default.createElement(IconComponent, null))) : (React__default.createElement("div", { className: "loader_background" },
             React__default.createElement(MppSkeletonLoader, { circular: true }))),
-        React__default.createElement("div", { className: "stat_card__content" }, stat ? (React__default.createElement(React__default.Fragment, null,
+        React__default.createElement("div", { className: "stat_card__content" }, stat !== null && stat !== undefined ? (React__default.createElement(React__default.Fragment, null,
             React__default.createElement("p", { className: "stat_card__title text_small" }, title),
             React__default.createElement("p", { className: "stat_card__number title_h3" },
                 stat,

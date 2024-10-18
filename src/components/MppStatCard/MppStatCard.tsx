@@ -47,7 +47,7 @@ const StatCard: React.FC<StatCardProps> = ({
     <div
       className={`stat_card__container${boType ? ' stat_card__container--shadow' : ''}`}
     >
-      {stat ? (
+      {stat !== null && stat !== undefined ? (
         <div className="stat_card__icon">
           <IconComponent />
         </div>
@@ -57,7 +57,7 @@ const StatCard: React.FC<StatCardProps> = ({
         </div>
       )}
       <div className="stat_card__content">
-        {stat ? (
+        {stat !== null && stat !== undefined ? (
           <>
             <p className="stat_card__title text_small">{title}</p>
             <p className="stat_card__number title_h3">
