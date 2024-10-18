@@ -19,3 +19,4 @@ export { default as MppLoader } from './components/MppLoader/MppLoader';
 export { default as MppTextArea } from './components/MppTextArea/MppTextArea';
 export { BoType } from './components/BoType';
 export { default as MppInfosPin } from './components/MppInfosPin/MppInfosPin';
+export { default as MppSkeletonLoader } from './components/MppSkeletonLoader/MppSkeletonLoader';

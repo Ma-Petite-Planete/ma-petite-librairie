@@ -14,6 +14,7 @@ interface MppMenuProps {
     actualPage: string;
     aboutText: string;
     logOutText: string;
+    clientIsLoad: boolean;
 }
 /**
  * @interface MppMenuProps

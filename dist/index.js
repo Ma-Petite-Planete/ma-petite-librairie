@@ -348,11 +348,11 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$c = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');\n/* Regular (400), Medium (500), Semi-Bold (600), Bold (700) */\n\n:root {\n  font-family: 'Poppins', sans-serif;\n  font-size: 16px;\n  font-weight: 400;\n  line-height: auto;\n  color: var(--dark_blue);\n\n  /* graphique chart mpp scolaire */\n  --error: red;\n  --white: #ffffff;\n  --white_transparent: #ffffff99;\n  --main_yellow: #f9cf2f;\n  --light_yellow: #f9dc6c;\n  --very_light_yellow: #faf1c8;\n  --main_blue: #5fd3ac;\n  --light_blue: #cfeef4;\n  --dark_blue: #2c2c69;\n  --dark_blue_light: rgb(44, 44, 105, 0.8);\n  --dark_blue_very_light: rgb(44, 44, 105, 0.2);\n  --disable_dark_blue: #9595b4;\n  --tonic_violet: #b42ff5;\n  --pink: #f9c7e9;\n  --pastel_blue: #d0eff5;\n  --pastel_green: #c4e39a;\n  --pastel_violet: #dbd6ff;\n  --pastel_light_pink: #f9c7e9;\n  --pastel_dark_pink: #fab1bd;\n  --pastel_orange: #ffae92;\n  --pastel_dark_violet: #b1c5ff;\n  --pastel_turquoise: #7fd4b3;\n  --anthracite: #333333;\n  --dark_grey: #999999;\n  --medium_grey: #dadada;\n  --light_grey: #f4f4f4;\n  --utility_yellow: #e3ba1a;\n  --utility_green: #21be8b;\n  --green_background: #eefaf7;\n  --shadow_color: #0303841a;\n  --gradient_peps: linear-gradient(to right, #b42ff5, #cfeef4);\n  --gradient_peps_reverse: linear-gradient(to left, #b42ff5, #cfeef4);\n  --standard_border_radius: 8px;\n  --big_border_radius: 20px;\n}\n\np,\nspan {\n  margin: 0;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  background-color: var(--light_grey);\n}\n\n/* handle texte style */\n\n.title_h1 {\n  font-weight: 700;\n  font-size: 24px;\n}\n\n.title_h2 {\n  font-weight: 500;\n  font-size: 20px;\n}\n\n.title_h3 {\n  font-weight: 700;\n  font-size: 18px;\n}\n\n.subtitle {\n  font-weight: 500;\n}\n\n.text_body {\n  font-weight: 400;\n  font-size: 14px;\n}\n\n.text_body_sb {\n  font-weight: 600;\n  font-size: 14px;\n}\n\n.text_small_b {\n  font-weight: 700;\n  font-size: 12px;\n}\n\n.text_small {\n  font-weight: 400;\n  font-size: 12px;\n}\n\nli {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  line-height: 1;\n}\n\nul {\n  margin: 0;\n  padding: 0;\n}\n\ninput,\ntextarea {\n  font-size: 16px;\n  font-weight: 400;\n  color: var(--dark_blue);\n}\n";
-styleInject(css_248z$c);
+var css_248z$d = "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');\n/* Regular (400), Medium (500), Semi-Bold (600), Bold (700) */\n\n:root {\n  font-family: 'Poppins', sans-serif;\n  font-size: 16px;\n  font-weight: 400;\n  line-height: auto;\n  color: var(--dark_blue);\n\n  /* graphique chart mpp scolaire */\n  --error: red;\n  --white: #ffffff;\n  --white_transparent: #ffffff99;\n  --main_yellow: #f9cf2f;\n  --light_yellow: #f9dc6c;\n  --very_light_yellow: #faf1c8;\n  --main_blue: #5fd3ac;\n  --light_blue: #cfeef4;\n  --dark_blue: #2c2c69;\n  --dark_blue_light: rgb(44, 44, 105, 0.8);\n  --dark_blue_very_light: rgb(44, 44, 105, 0.2);\n  --disable_dark_blue: #9595b4;\n  --tonic_violet: #b42ff5;\n  --pink: #f9c7e9;\n  --pastel_blue: #d0eff5;\n  --pastel_green: #c4e39a;\n  --pastel_violet: #dbd6ff;\n  --pastel_light_pink: #f9c7e9;\n  --pastel_dark_pink: #fab1bd;\n  --pastel_orange: #ffae92;\n  --pastel_dark_violet: #b1c5ff;\n  --pastel_turquoise: #7fd4b3;\n  --anthracite: #333333;\n  --dark_grey: #999999;\n  --medium_grey: #dadada;\n  --light_grey: #f4f4f4;\n  --utility_yellow: #e3ba1a;\n  --utility_green: #21be8b;\n  --green_background: #eefaf7;\n  --shadow_color: #0303841a;\n  --gradient_peps: linear-gradient(to right, #b42ff5, #cfeef4);\n  --gradient_peps_reverse: linear-gradient(to left, #b42ff5, #cfeef4);\n  --standard_border_radius: 8px;\n  --big_border_radius: 20px;\n}\n\np,\nspan {\n  margin: 0;\n}\n\n* {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  background-color: var(--light_grey);\n}\n\n/* handle texte style */\n\n.title_h1 {\n  font-weight: 700;\n  font-size: 24px;\n}\n\n.title_h2 {\n  font-weight: 500;\n  font-size: 20px;\n}\n\n.title_h3 {\n  font-weight: 700;\n  font-size: 18px;\n}\n\n.subtitle {\n  font-weight: 500;\n}\n\n.text_body {\n  font-weight: 400;\n  font-size: 14px;\n}\n\n.text_body_sb {\n  font-weight: 600;\n  font-size: 14px;\n}\n\n.text_small_b {\n  font-weight: 700;\n  font-size: 12px;\n}\n\n.text_small {\n  font-weight: 400;\n  font-size: 12px;\n}\n\nli {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  line-height: 1;\n}\n\nul {\n  margin: 0;\n  padding: 0;\n}\n\ninput,\ntextarea {\n  font-size: 16px;\n  font-weight: 400;\n  color: var(--dark_blue);\n}\n";
+styleInject(css_248z$d);
 
-var css_248z$b = ".mpp_button {\n  background-color: var(--dark_blue);\n  color: var(--white);\n  border: none;\n  border-radius: var(--standard_border_radius);\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n\n.mpp_button:hover {\n  background-color: var(--dark_blue_light);\n}\n\n.secondary_type:hover {\n  background-color: var(--dark_blue_very_light);\n}\n\n.mpp_button:disabled {\n  background-color: var(--disable_dark_blue);\n  cursor: not-allowed;\n}\n\n.button_large {\n  padding: 12px 40px;\n}\n\n.button_medium {\n  padding: 8px 32px;\n}\n\n.secondary_type {\n  background-color: var(--white);\n  color: var(--dark_blue);\n  border: 2px solid var(--dark_blue);\n}\n\n.secondary_type:disabled {\n  color: var(--disable_dark_blue);\n  background-color: var(--white);\n  border: 2px solid var(--disable_dark_blue);\n}\n";
-styleInject(css_248z$b);
+var css_248z$c = ".mpp_button {\n  background-color: var(--dark_blue);\n  color: var(--white);\n  border: none;\n  border-radius: var(--standard_border_radius);\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n\n.mpp_button:hover {\n  background-color: var(--dark_blue_light);\n}\n\n.secondary_type:hover {\n  background-color: var(--dark_blue_very_light);\n}\n\n.mpp_button:disabled {\n  background-color: var(--disable_dark_blue);\n  cursor: not-allowed;\n}\n\n.button_large {\n  padding: 12px 40px;\n}\n\n.button_medium {\n  padding: 8px 32px;\n}\n\n.secondary_type {\n  background-color: var(--white);\n  color: var(--dark_blue);\n  border: 2px solid var(--dark_blue);\n}\n\n.secondary_type:disabled {\n  color: var(--disable_dark_blue);\n  background-color: var(--white);\n  border: 2px solid var(--disable_dark_blue);\n}\n";
+styleInject(css_248z$c);
 
 var ButtonType;
 (function (ButtonType) {
@@ -395,8 +395,8 @@ const MppButton = ({ title, onPress, buttonType, style = {}, hoverStyle = {}, ac
                     : 'secondary_type button_medium text_body'}`, style: combinedStyle, onClick: !isDisabled ? onPress : undefined, onMouseEnter: () => !isDisabled && setHover(true), onMouseLeave: () => !isDisabled && setHover(false), onMouseDown: () => !isDisabled && setActive(true), onMouseUp: () => !isDisabled && setActive(false), disabled: isDisabled }, title));
 };
 
-var css_248z$a = ".mpp_input_container {\n  display: flex;\n  margin: 10px 0;\n  gap: 17px;\n  padding: 16px;\n  border: 2px solid var(--medium_grey);\n  background-color: var(--light_grey);\n  border-radius: var(--standard_border_radius);\n}\n\n.mpp_input {\n  border: none;\n  width: 100%;\n  font-size: 16px;\n  outline: none;\n  transition: border-color 0.3s ease;\n  background-color: transparent;\n}\n\n.focused {\n  border-color: var(--dark_blue);\n}\n\n.max_characteres {\n  color: var(--dark_blue) !important;\n}\n\n.error {\n  border-color: var(--error);\n}\n\n.input_error {\n  color: var(--error);\n  font-size: 12px;\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\n\n.input_counter {\n  color: var(--medium_grey);\n}\n\n.input_icon_pointer {\n  cursor: pointer;\n}\n\n.read_only {\n  cursor: not-allowed;\n}\n";
-styleInject(css_248z$a);
+var css_248z$b = ".mpp_input_container {\n  display: flex;\n  margin: 10px 0;\n  gap: 17px;\n  padding: 16px;\n  border: 2px solid var(--medium_grey);\n  background-color: var(--light_grey);\n  border-radius: var(--standard_border_radius);\n}\n\n.mpp_input {\n  border: none;\n  width: 100%;\n  font-size: 16px;\n  outline: none;\n  transition: border-color 0.3s ease;\n  background-color: transparent;\n}\n\n.focused {\n  border-color: var(--dark_blue);\n}\n\n.max_characteres {\n  color: var(--dark_blue) !important;\n}\n\n.error {\n  border-color: var(--error);\n}\n\n.input_error {\n  color: var(--error);\n  font-size: 12px;\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\n\n.input_counter {\n  color: var(--medium_grey);\n}\n\n.input_icon_pointer {\n  cursor: pointer;\n}\n\n.read_only {\n  cursor: not-allowed;\n}\n";
+styleInject(css_248z$b);
 
 /**
  * @interface MppInputTextProps
@@ -1099,8 +1099,21 @@ const MppIcons = {
     infos: SvgInfo,
 };
 
-var css_248z$9 = ".ranking_card_background {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 11px 20px;\n  background-color: var(--white);\n  border-radius: 20px;\n  box-shadow: 0px 4px 20px var(--shadow_color);\n  margin-bottom: 10px;\n}\n\n.ranking_background {\n  border-radius: var(--standard_border_radius);\n  padding: 8px;\n  line-height: 1;\n}\n\n.flex_row {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n\n.content_background {\n  margin-left: 10px;\n}\n\n.sub_point_text {\n  color: var(--dark_grey);\n}\n";
+var css_248z$a = ".ranking_card_background {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 11px 20px;\n  background-color: var(--white);\n  border-radius: 20px;\n  box-shadow: 0px 4px 20px var(--shadow_color);\n  margin-bottom: 10px;\n}\n\n.ranking_background {\n  border-radius: var(--standard_border_radius);\n  padding: 8px;\n  line-height: 1;\n}\n\n.flex_row {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n\n.content_background {\n  margin-left: 10px;\n}\n\n.sub_point_text {\n  color: var(--dark_grey);\n}\n\n.loading {\n  width: 200px;\n}\n\n.number_loading {\n  width: 40px;\n}\n\n.text_loading {\n  width: 300px;\n  margin-left: 10px;\n}\n\n.skeleton_loading {\n  width: 60px;\n}\n";
+styleInject(css_248z$a);
+
+var css_248z$9 = ".skeleton_wrapper {\r\n  width: 100%;\r\n}\r\n\r\n.skeleton {\r\n  margin-bottom: 10px;\r\n  animation: loading 4s infinite linear;\r\n  border-radius: 4px;\r\n}\r\n\r\n.skeleton_circular {\r\n  height: auto !important;\r\n  aspect-ratio: 1;\r\n  border-radius: 50%;\r\n  margin: 0 auto;\r\n}\r\n\r\n@keyframes loading {\r\n  0% {\r\n    background-position: 100% 0;\r\n  }\r\n  100% {\r\n    background-position: -130% 0;\r\n  }\r\n}\r\n";
 styleInject(css_248z$9);
+
+const MppSkeletonLoader = ({ backgroundColor = 'var(--medium_grey)', highlightColor = 'var(--light_grey)', count = 1, circular = false, spaceBetweenRow = '10px', heightRow = '16px', }) => {
+    const rows = Array.from({ length: count }, (_, index) => index);
+    return (React__default.createElement("div", { className: "skeleton_wrapper" }, rows.map((_, idx) => (React__default.createElement("div", { key: idx, className: `skeleton ${circular ? 'skeleton_circular' : ''}`, style: {
+            background: `linear-gradient(90deg, ${backgroundColor} 25%, ${highlightColor} 50%, ${backgroundColor} 80%)`,
+            backgroundSize: '400% 100%',
+            marginBottom: spaceBetweenRow,
+            height: heightRow,
+        } })))));
+};
 
 /**
 * @example
@@ -1125,24 +1138,28 @@ styleInject(css_248z$9);
 */
 const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, pointsColor, rankingColorBackground, onClick, onHover, onHoverLeave, }) => {
     return (React__default.createElement("div", { className: "ranking_card_background ", onClick: onClick, onMouseEnter: onHover, onMouseLeave: onHoverLeave },
-        React__default.createElement("div", { className: "flex_row" },
+        React__default.createElement("div", { className: `flex_row ${title ? '' : 'loading'}` }, title ? (React__default.createElement(React__default.Fragment, null,
             React__default.createElement("p", { className: "text_body_sb ranking_background", style: { backgroundColor: `${rankingColorBackground}` } }, ranking),
             React__default.createElement("div", { className: "content_background" },
                 React__default.createElement("p", { className: "text_body_sb" }, title),
-                React__default.createElement("p", { className: "text_small" }, subtitle))),
-        React__default.createElement("div", { className: "points_background" },
+                React__default.createElement("p", { className: "text_small" }, subtitle)))) : (React__default.createElement(React__default.Fragment, null,
+            React__default.createElement("div", { className: "number_loading" },
+                React__default.createElement(MppSkeletonLoader, { heightRow: "25px" })),
+            React__default.createElement("div", { className: "text_loading" },
+                React__default.createElement(MppSkeletonLoader, { count: 2 }))))),
+        React__default.createElement("div", { className: `"points_background ${title ? '' : 'skeleton_loading'}` }, title ? (React__default.createElement(React__default.Fragment, null,
             React__default.createElement("p", { className: "text_body_sb", style: { color: `${pointsColor}` } }, points),
-            React__default.createElement("p", { className: "sub_point_text text_small" }, subPointsText))));
+            React__default.createElement("p", { className: "sub_point_text text_small" }, subPointsText))) : (React__default.createElement(MppSkeletonLoader, { count: 2 })))));
 };
 
-var css_248z$8 = ".podium_step__container {\n  display: inline-block;\n  text-align: center;\n  width: 100%;\n}\n\n.podium_step__content {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.podium_step__img {\n  width: 3.75rem;\n  margin-bottom: 1rem;\n}\n\n.podium_step__list {\n  color: var(--white);\n  margin-bottom: 0.3rem;\n}\n\n.podium_step__list--subtitle {\n  margin-bottom: 0.2rem;\n}\n\nul.podium_step__list > li:nth-child(1),\nul.podium_step__list > li:nth-child(3) {\n  margin-bottom: 0.3rem;\n}\n\n.podium_step_number__container {\n  border-top-left-radius: var(--standard_border_radius);\n  border-top-right-radius: var(--standard_border_radius);\n  padding-top: 0.4rem;\n  width: auto;\n  background-color: var(--white);\n}\n\n.podium_step_number__number {\n  padding: 0.1rem 0.5rem;\n  border-radius: var(--standard_border_radius);\n}\n";
+var css_248z$8 = ".podium_step__container {\n  display: inline-block;\n  text-align: center;\n  width: 100%;\n}\n\n.podium_step__content {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.podium_step__img {\n  width: 3.75rem;\n  margin-bottom: 1rem;\n}\n\n.podium_step__list {\n  color: var(--white);\n  margin-bottom: 0.3rem;\n}\n\n.podium_step__list--subtitle {\n  margin-bottom: 0.2rem;\n}\n\nul.podium_step__list > li:nth-child(1),\nul.podium_step__list > li:nth-child(3) {\n  margin-bottom: 0.3rem;\n}\n\n.podium_step_number__container {\n  border-top-left-radius: var(--standard_border_radius);\n  border-top-right-radius: var(--standard_border_radius);\n  padding-top: 0.4rem;\n  width: auto;\n  background-color: var(--white);\n}\n\n.podium_step_number__number {\n  padding: 0.1rem 0.5rem;\n  border-radius: var(--standard_border_radius);\n}\n\n.loading_background {\n  padding: 0 20px;\n  margin-bottom: 8px;\n}\n";
 styleInject(css_248z$8);
 
 const MppPodiumStep = ({ title, subtitle, subtitleBold, pointsNumber, typeOfPlayer, color, ranking, }) => {
     return (React__default.createElement("div", { className: "podium_step__container" },
-        React__default.createElement("div", { className: "podium_step__content" },
+        React__default.createElement("div", { className: `podium_step__content ${title ? '' : 'loading_background'}` },
             React__default.createElement("div", { className: "podium_step__img" }, ranking === 1 ? (React__default.createElement(MppIcons.goldTrophee, null)) : ranking === 2 ? (React__default.createElement(MppIcons.silverTrophee, null)) : (React__default.createElement(MppIcons.bronzeTrophee, null))),
-            React__default.createElement("ul", { className: "podium_step__list" },
+            title ? (React__default.createElement("ul", { className: "podium_step__list" },
                 React__default.createElement("li", { className: "podium_step__list--title title_h3" }, title),
                 subtitle ? (React__default.createElement("li", { className: "podium_step__list--subtitle text_small" }, subtitle)) : null,
                 subtitleBold ? (React__default.createElement("li", { className: "podium_step__list--subtitle_bold text_small_b" }, subtitleBold)) : null,
@@ -1151,7 +1168,7 @@ const MppPodiumStep = ({ title, subtitle, subtitleBold, pointsNumber, typeOfPlay
                     " pts",
                     React__default.createElement("span", { className: "text_small" },
                         "/",
-                        typeOfPlayer)))),
+                        typeOfPlayer)))) : (React__default.createElement(MppSkeletonLoader, { count: 2, spaceBetweenRow: "5px" }))),
         React__default.createElement("div", { className: "podium_step_number__container", style: {
                 height: `${ranking == 1 ? '4.6em' : ranking == 2 ? '3.4em' : '2.1em'}`,
             } },
@@ -1162,7 +1179,9 @@ var css_248z$7 = ".podium__container {\n  box-sizing: border-box;\n  padding: 1.
 styleInject(css_248z$7);
 
 const MppPodium = ({ rankedElements, typeOfPlayers, color, }) => {
-    return (React__default.createElement("div", { className: "podium__container" }, rankedElements.map(({ name, points, ranking, city, structure }) => (React__default.createElement(MppPodiumStep, { subtitle: structure, subtitleBold: city, key: ranking, title: name, pointsNumber: points, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking })))));
+    return (React__default.createElement("div", { className: "podium__container" }, rankedElements
+        ? rankedElements.map(({ name, points, ranking, city, structure }) => (React__default.createElement(MppPodiumStep, { subtitle: structure, subtitleBold: city, key: ranking, title: name, pointsNumber: points, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking })))
+        : Array.from({ length: 3 }, (_, index) => (React__default.createElement(MppPodiumStep, { key: index, title: null, pointsNumber: 0, subtitle: "", subtitleBold: "", typeOfPlayer: typeOfPlayers, color: color, ranking: index + 1 })))));
 };
 
 var css_248z$6 = ".card_edition__container {\n  display: flex;\n  justify-content: space-between;\n  padding: 0.8rem 1.25rem;\n  align-items: center;\n  background-color: var(--very_light_yellow);\n  border-top-left-radius: var(--big_border_radius);\n  border-bottom-left-radius: var(--big_border_radius);\n}\n\n.card_edition__infos {\n  margin-right: 16px;\n  display: flex;\n  width: 30%;\n  min-width: 11rem;\n}\n\n.card_edition__days {\n  color: var(--tonic_violet);\n  display: flex;\n  align-items: flex-start;\n  justify-content: flex-end;\n}\n\n.edition_days__details {\n  width: 60%;\n}\n\n.card_edition__icon {\n  height: 24px;\n  width: 24px;\n  margin-right: .3rem;\n}\n\n@media (min-width: 896px) {\n  .card_edition__days {\n    align-items: center;\n    max-width: 100%;\n  }\n\n  .card_edition__infos {\n    width: auto;\n  }\n\n  .edition_days__details {\n    width: 100%;\n  }\n}\n";
@@ -1203,7 +1222,7 @@ const MppCardEdition = ({ backgroundColor, textColor, editionName, editionDatesI
             React__default.createElement("p", { className: "edition_days__details text_body_sb" }, editionMessage))) : null));
 };
 
-var css_248z$5 = ".menu_background {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n  background-color: var(--white);\n  width: 70vw;\n  height: 100%;\n  border-radius: var(--standard_border_radius);\n  box-shadow: 0px 4px 20px var(--shadow_color);\n}\n\n.logo_container {\n  width: 80%;\n  margin-top: 16px;\n}\n\n.logo {\n  width: 100%;\n  height: auto;\n}\n\n.center {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n}\n\n.navigation_background {\n  display: flex;\n  flex-direction: column;\n  align-items: start;\n  width: 100%;\n  padding-left: 24px;\n  padding-top: 24px;\n}\n\n.icon {\n  width: 20px;\n  height: 20px;\n  padding-right: 12px;\n}\n\n.navigation_element {\n  margin-bottom: 16px;\n  color: var(--dark_grey);\n  fill: var(--dark_grey);\n}\n.navigation_flex {\n  display: flex;\n  flex-direction: row;\n}\n\n.navigation_element :hover {\n  cursor: pointer;\n  color: var(--dark_blue);\n  fill: var(--dark_blue);\n}\n\n.actual_page {\n  color: var(--dark_blue);\n  fill: var(--dark_blue);\n}\n\n.bottom {\n  margin-bottom: 26px;\n  display: flex;\n}\n\n.bottom:hover {\n  cursor: pointer;\n  color: var(--dark_blue);\n}\n\n@media (min-width: 896px) {\n  .menu_background {\n    width: 251px;\n    min-height: 100vh;\n  }\n}\n";
+var css_248z$5 = ".menu_background {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n  background-color: var(--white);\n  width: 70vw;\n  height: 100%;\n  border-radius: var(--standard_border_radius);\n  box-shadow: 0px 4px 20px var(--shadow_color);\n}\n\n.logo_container {\n  width: 80%;\n  margin-top: 16px;\n}\n\n.logo {\n  width: 100%;\n  height: auto;\n}\n\n.center {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n}\n\n.navigation_background {\n  display: flex;\n  flex-direction: column;\n  align-items: start;\n  width: 100%;\n  padding-left: 24px;\n  padding-top: 24px;\n  padding: 24px 24px 0px 24px;\n}\n\n.icon {\n  width: 20px;\n  height: 20px;\n  margin-right: 12px;\n}\n\n.navigation_element {\n  margin-bottom: 16px;\n  color: var(--dark_grey);\n  fill: var(--dark_grey);\n}\n.navigation_flex {\n  display: flex;\n  flex-direction: row;\n}\n\n.navigation_element :hover {\n  cursor: pointer;\n  color: var(--dark_blue);\n  fill: var(--dark_blue);\n}\n\n.actual_page {\n  color: var(--dark_blue);\n  fill: var(--dark_blue);\n}\n\n.bottom {\n  margin-bottom: 26px;\n  display: flex;\n}\n\n.bottom:hover {\n  cursor: pointer;\n  color: var(--dark_blue);\n}\n\n@media (min-width: 896px) {\n  .menu_background {\n    width: 251px;\n    min-height: 100vh;\n  }\n}\n";
 styleInject(css_248z$5);
 
 var BoType;
@@ -1239,18 +1258,18 @@ var BoType;
  *   logOutText="Déconnexion"
  * />
  */
-const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage, aboutText, logOutText, }) => {
+const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage, aboutText, logOutText, clientIsLoad, }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     return (React__default.createElement("div", { className: "menu_background" },
         React__default.createElement("div", { className: "center" },
             React__default.createElement("div", { className: "logo_container" }, boType === BoType.scoBO ? React__default.createElement(SvgScoYellowLogoBlueText, { className: "logo" }) : null),
-            React__default.createElement("div", { className: "navigation_background" }, navigationLinks.map((navigationLink, index) => (React__default.createElement("div", { onMouseEnter: () => setHoveredIndex(index), onMouseLeave: () => setHoveredIndex(null), className: `navigation_element ${actualPage.includes(navigationLink.navigation) ? 'actual_page' : ''} ${hoveredIndex === index ||
+            React__default.createElement("div", { className: "navigation_background" }, clientIsLoad ? (navigationLinks.map((navigationLink, index) => (React__default.createElement("div", { onMouseEnter: () => setHoveredIndex(index), onMouseLeave: () => setHoveredIndex(null), className: `navigation_element ${actualPage.includes(navigationLink.navigation) ? 'actual_page' : ''} ${hoveredIndex === index ||
                     actualPage.includes(navigationLink.navigation)
                     ? 'text_body_sb '
                     : 'text_body '}`, key: navigationLink.name },
                 React__default.createElement(LinkComponent, { href: navigationLink.navigation, className: "navigation_flex" },
                     React__default.createElement(navigationLink.icon, { className: "icon" }),
-                    React__default.createElement("p", null, navigationLink.name))))))),
+                    React__default.createElement("p", null, navigationLink.name)))))) : (React__default.createElement(MppSkeletonLoader, { count: 5, spaceBetweenRow: "16px", heightRow: "20px" })))),
         React__default.createElement("div", { className: "navigation_background" },
             boType === BoType.gpBo ? 'ici selecteur de langue' : null,
             React__default.createElement(LinkComponent, { className: "navigation_element", href: 'https://mapetiteplanete.org/' },
@@ -1351,7 +1370,7 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
                 React__default.createElement("div", null, isLoading ? (React__default.createElement(MppLoader, null)) : (React__default.createElement(MppButton, { title: buttonText, buttonType: ButtonType.primaryLarge, onPress: hasError ? null : onPressLoginButon })))))));
 };
 
-var css_248z$2 = ".stat_card__container {\n  display: inline-flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding: 20px 12px;\n  border-radius: var(--big_border_radius);\n  background-color: var(--white);\n  width: 200px;\n  box-sizing: border-box;\n  height: 96px;\n}\n\n.stat_card__icon{\n  background-color: var(--light_grey);\n  border-radius: 50%;\n  height: 56px;\n  width: 56px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.stat_card__content{\n  margin-left: 16px;\n}\n\n.stat_card__title{\n  color: var(--dark_grey)\n}\n\n.stat_card__container--shadow{\n  box-shadow: 0px 4px 20px 0px var(--shadow_color);\n}";
+var css_248z$2 = ".stat_card__container {\n  display: inline-flex;\n  justify-content: flex-start;\n  align-items: center;\n  padding: 20px 12px;\n  border-radius: var(--big_border_radius);\n  background-color: var(--white);\n  width: 200px;\n  box-sizing: border-box;\n  height: 96px;\n}\n\n.stat_card__icon {\n  background-color: var(--light_grey);\n  border-radius: 50%;\n  height: 56px;\n  width: 56px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.stat_card__content {\n  margin-left: 16px;\n  flex: 1;\n}\n\n.stat_card__title {\n  color: var(--dark_grey);\n}\n\n.stat_card__container--shadow {\n  box-shadow: 0px 4px 20px 0px var(--shadow_color);\n}\n\n.loader_background {\n  height: 56px;\n  width: 56px;\n}\n";
 styleInject(css_248z$2);
 
 /**
@@ -1376,15 +1395,16 @@ styleInject(css_248z$2);
  * />
  * ```
  */
-const StatCard = ({ IconComponent, title, stat, boType, statDetails }) => {
+const StatCard = ({ IconComponent, title, stat, boType, statDetails, }) => {
     return (React__default.createElement("div", { className: `stat_card__container${boType ? ' stat_card__container--shadow' : ''}` },
-        React__default.createElement("div", { className: "stat_card__icon" },
-            React__default.createElement(IconComponent, null)),
-        React__default.createElement("div", { className: "stat_card__content" },
+        stat ? (React__default.createElement("div", { className: "stat_card__icon" },
+            React__default.createElement(IconComponent, null))) : (React__default.createElement("div", { className: "loader_background" },
+            React__default.createElement(MppSkeletonLoader, { circular: true }))),
+        React__default.createElement("div", { className: "stat_card__content" }, stat ? (React__default.createElement(React__default.Fragment, null,
             React__default.createElement("p", { className: "stat_card__title text_small" }, title),
             React__default.createElement("p", { className: "stat_card__number title_h3" },
                 stat,
-                " ", statDetails !== null && statDetails !== void 0 ? statDetails : ""))));
+                " ", statDetails !== null && statDetails !== void 0 ? statDetails : ''))) : (React__default.createElement(MppSkeletonLoader, { count: 2 })))));
 };
 
 var css_248z$1 = ".mpp_text_area_container {\n  display: flex;\n  margin: 10px 0;\n  gap: 17px;\n  padding: 16px;\n  border: 2px solid var(--medium_grey);\n  background-color: var(--light_grey);\n  border-radius: var(--standard_border_radius);\n  height: 100%;\n  box-sizing: border-box;\n}\n\n.mpp_text_area {\n  border: none;\n  width: 100%;\n  font-size: 16px;\n  outline: none;\n  resize: none;\n  font-family: inherit;\n  transition: border-color 0.3s ease;\n  background-color: transparent;\n}\n\n.focused {\n  border-color: var(--dark_blue);\n}\n\n.error {\n  border-color: var(--error);\n}\n\n.input_error {\n  color: var(--error);\n  font-size: 12px;\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\n\n.read_only {\n  cursor: not-allowed;\n}\n";
@@ -1476,4 +1496,4 @@ const MppInfosPin = ({ texts, direction = Direction.bottom_left, }) => {
             text.content))))));
 };
 
-export { BoType, ButtonType, MppButton, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInputText, MppLoader, ComponentName as MppLoginLayout, MppMenu, MppPodium, MppRankingCard, StatCard as MppStatCard, MppTextArea, ScoColors, SvgScoLogoOnlyYellow as ScoLogoOnly, SvgScoWhiteLogoWhiteText as ScoWhiteLogo, SvgScoYellowLogoBlueText as ScoYellowLogo };
+export { BoType, ButtonType, MppButton, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInputText, MppLoader, ComponentName as MppLoginLayout, MppMenu, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, ScoColors, SvgScoLogoOnlyYellow as ScoLogoOnly, SvgScoWhiteLogoWhiteText as ScoWhiteLogo, SvgScoYellowLogoBlueText as ScoYellowLogo };

@@ -1,6 +1,7 @@
 import './MppPodiumStep.css';
 import React from 'react';
 import { MppIcons } from '../../../utils/MppIcons';
+import MppSkeletonLoader from '../../MppSkeletonLoader/MppSkeletonLoader';
 
 interface MppPodiumStepProps {
   title: string;
@@ -23,7 +24,9 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
 }) => {
   return (
     <div className="podium_step__container">
-      <div className="podium_step__content">
+      <div
+        className={`podium_step__content ${title ? '' : 'loading_background'}`}
+      >
         <div className="podium_step__img">
           {ranking === 1 ? (
             <MppIcons.goldTrophee />
@@ -33,29 +36,33 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
             <MppIcons.bronzeTrophee />
           )}
         </div>
-        <ul className="podium_step__list">
-          <li className="podium_step__list--title title_h3">{title}</li>
+        {title ? (
+          <ul className="podium_step__list">
+            <li className="podium_step__list--title title_h3">{title}</li>
 
-          {subtitle ? (
-            <li className="podium_step__list--subtitle text_small">
-              {subtitle}
+            {subtitle ? (
+              <li className="podium_step__list--subtitle text_small">
+                {subtitle}
+              </li>
+            ) : null}
+
+            {subtitleBold ? (
+              <li className="podium_step__list--subtitle_bold text_small_b">
+                {subtitleBold}
+              </li>
+            ) : null}
+
+            <li
+              style={{ color: `${color}` }}
+              className="podium_step__list--type text_small_b"
+            >
+              {pointsNumber} pts
+              <span className="text_small">/{typeOfPlayer}</span>
             </li>
-          ) : null}
-
-          {subtitleBold ? (
-            <li className="podium_step__list--subtitle_bold text_small_b">
-              {subtitleBold}
-            </li>
-          ) : null}
-
-          <li
-            style={{ color: `${color}` }}
-            className="podium_step__list--type text_small_b"
-          >
-            {pointsNumber} pts
-            <span className="text_small">/{typeOfPlayer}</span>
-          </li>
-        </ul>
+          </ul>
+        ) : (
+          <MppSkeletonLoader count={2} spaceBetweenRow="5px" />
+        )}
       </div>
 
       <div

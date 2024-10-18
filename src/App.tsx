@@ -22,6 +22,7 @@ import MppInfosPin, { Direction } from './components/MppInfosPin/MppInfosPin';
 import LayoutLoginSection from './section/MppLayoutLoginSection';
 import MppLoader from './components/MppLoader/MppLoader';
 import MppTextArea from './components/MppTextArea/MppTextArea';
+import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader';
 
 function App() {
   return (
@@ -107,25 +108,26 @@ function App() {
       <MppPodium
         color={ScoColors.lightYellow}
         typeOfPlayers="élève"
-        rankedElements={[
-          {
-            name: '4èmeD',
-            points: 3,
-            ranking: 1,
-            structure: '2cole des intellos',
-            city: 'Lyon',
-          },
-          {
-            name: '4èmeB',
-            points: 3,
-            ranking: 2,
-          },
-          {
-            name: '4èmeA',
-            points: 3,
-            ranking: 3,
-          },
-        ]}
+        // rankedElements={[
+        //   {
+        //     name: '4èmeD',
+        //     points: 3,
+        //     ranking: 1,
+        //     structure: '2cole des intellos',
+        //     city: 'Lyon',
+        //   },
+        //   {
+        //     name: '4èmeB',
+        //     points: 3,
+        //     ranking: 2,
+        //   },
+        //   {
+        //     name: '4èmeA',
+        //     points: 3,
+        //     ranking: 3,
+        //   },
+        // ]}
+        rankedElements={null}
       />
       <h2>Ranking Card</h2>
       <div style={{ width: '651px' }}>
@@ -148,7 +150,7 @@ function App() {
           rankingColorBackground={ScoColors.mainYellow}
         />
         <MppRankingCard
-          title={'Les poulet'}
+          title={null}
           subtitle={'Collège Jean Rostand'}
           ranking={4}
           points={'26.2pts'}
@@ -201,6 +203,7 @@ function App() {
           onLogout={() => console.log('suppr les comptes anonymes')}
           aboutText={'A propos de MPP'}
           logOutText={'Se déconnecter'}
+          clientIsLoad={false}
         />
       </div>
       <h2>Layout</h2>
@@ -233,7 +236,7 @@ function App() {
               <MppStatCard
                 title={iconName}
                 IconComponent={IconComponent}
-                stat={12}
+                stat={null}
                 statDetails="test"
               />
             </div>
@@ -272,6 +275,12 @@ function App() {
       />
       <h2>Loader</h2>
       <MppLoader />
+      <div style={{ width: '400px', marginTop: '10px', display: 'flex' }}>
+        <div style={{ width: '70px', marginRight: '20px' }}>
+          <MppSkeletonLoader circular={true} />
+        </div>
+        <MppSkeletonLoader count={3} />
+      </div>
     </div>
   );
 }

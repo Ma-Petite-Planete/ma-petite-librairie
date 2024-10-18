@@ -29,3 +29,20 @@
 .sub_point_text {
   color: var(--dark_grey);
 }
+
+.loading {
+  width: 200px;
+}
+
+.number_loading {
+  width: 40px;
+}
+
+.text_loading {
+  width: 300px;
+  margin-left: 10px;
+}
+
+.skeleton_loading {
+  width: 60px;
+}

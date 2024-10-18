@@ -41,3 +41,8 @@ ul.podium_step__list > li:nth-child(3) {
   padding: 0.1rem 0.5rem;
   border-radius: var(--standard_border_radius);
 }
+
+.loading_background {
+  padding: 0 20px;
+  margin-bottom: 8px;
+}
