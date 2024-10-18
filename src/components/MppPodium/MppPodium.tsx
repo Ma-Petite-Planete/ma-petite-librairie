@@ -10,7 +10,7 @@ interface PodiumStep {
   structure?: string;
 }
 interface MppPodiumProps {
-  rankedElements: Array<PodiumStep>;
+  rankedElements: Array<PodiumStep> | null;
   color: string;
   typeOfPlayers: string;
 }
