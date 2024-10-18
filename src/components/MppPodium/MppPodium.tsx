@@ -24,6 +24,7 @@ const MppPodium: React.FC<MppPodiumProps> = ({
     <div className="podium__container">
       {rankedElements.map(({ name, points, ranking, city, structure }) => (
         <MppPodiumStep
+          display_all_infos={true}
           subtitle={structure}
           subtitleBold={city}
           key={ranking}

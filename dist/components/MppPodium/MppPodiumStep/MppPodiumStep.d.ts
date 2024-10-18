@@ -8,6 +8,7 @@ interface MppPodiumStepProps {
     typeOfPlayer: string;
     color: string;
     ranking: number;
+    display_all_infos: boolean;
 }
 declare const MppPodiumStep: React.FC<MppPodiumStepProps>;
 export default MppPodiumStep;
