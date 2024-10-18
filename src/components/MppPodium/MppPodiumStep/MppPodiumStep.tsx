@@ -11,6 +11,9 @@ interface MppPodiumStepProps {
   color: string;
   ranking: number;
   displayAllInfos: boolean;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onHover?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onHoverLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
@@ -21,10 +24,18 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
   typeOfPlayer,
   color,
   ranking,
-  displayAllInfos
+  displayAllInfos,
+  onClick,
+  onHover,
+  onHoverLeave,
 }) => {
   return (
-    <div className="podium_step__container">
+    <div
+      className="podium_step__container"
+      onClick={onClick}
+      onMouseEnter={onHover}
+      onMouseLeave={onHoverLeave}
+    >
       <div className="podium_step__content">
         <div className="podium_step__img">
           {ranking === 1 ? (

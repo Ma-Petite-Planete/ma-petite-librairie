@@ -14,18 +14,27 @@ interface MppPodiumProps {
   color: string;
   typeOfPlayers: string;
   displayFullInfos: boolean;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onHover?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onHoverLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 const MppPodium: React.FC<MppPodiumProps> = ({
   rankedElements,
   typeOfPlayers,
   color,
-  displayFullInfos
+  displayFullInfos,
+  onClick,
+  onHover,
+  onHoverLeave,
 }) => {
   return (
     <div className="podium__container">
       {rankedElements.map(({ name, points, ranking, city, structure }) => (
         <MppPodiumStep
+          onClick={onClick}
+          onHover={onHover}
+          onHoverLeave={onHoverLeave}
           displayAllInfos={displayFullInfos}
           subtitle={structure}
           subtitleBold={city}

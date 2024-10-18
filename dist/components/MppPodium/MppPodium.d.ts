@@ -12,6 +12,9 @@ interface MppPodiumProps {
     color: string;
     typeOfPlayers: string;
     displayFullInfos: boolean;
+    onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+    onHover?: (e: React.MouseEvent<HTMLDivElement>) => void;
+    onHoverLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 declare const MppPodium: React.FC<MppPodiumProps>;
 export default MppPodium;

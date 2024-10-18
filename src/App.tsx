@@ -105,7 +105,16 @@ function App() {
       <InputDemo />
       <h2>Trophés</h2>
       <MppPodium
-      displayFullInfos= {false}
+        onClick={() => {
+          console.log('hello');
+        }}
+        onHover={() => {
+          console.log('yo');
+        }}
+        onHoverLeave={() => {
+          console.log('ciao');
+        }}
+        displayFullInfos={false}
         color={ScoColors.lightYellow}
         typeOfPlayers="élève"
         rankedElements={[
