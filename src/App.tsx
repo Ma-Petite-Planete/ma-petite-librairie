@@ -163,7 +163,7 @@ function App() {
       <MppCardEdition
         backgroundColor={ScoColors.veryLightYellow}
         textColor={ScoColors.darkBlue}
-        editionName={'Edition Automne 2024'}
+        editionName={null}
         editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
         editionMessage="Il reste 7 jours !"
       />

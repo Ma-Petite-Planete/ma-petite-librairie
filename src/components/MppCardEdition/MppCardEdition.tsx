@@ -2,6 +2,7 @@ import React from 'react';
 import './mpp_card_edition.css';
 import { MppIcons } from '../../utils/MppIcons';
 import { ScoColors } from '../../utils/Mppcolors';
+import MppSkeletonLoader from '../MppSkeletonLoader/MppSkeletonLoader';
 
 interface MppCardEditionProps {
   backgroundColor?: string;
@@ -46,12 +47,18 @@ const MppCardEdition: React.FC<MppCardEditionProps> = ({
       className="card_edition__container"
     >
       <div style={{ color: `${textColor}` }} className="card_edition__infos">
-        <p className="edition_infos__date text_body">
-          <span className="edition_infos__name text_body_sb">
-            {editionName} -{' '}
-          </span>
-          {editionDatesInfos}
-        </p>
+        {editionName ? (
+          <>
+            <p className="edition_infos__date text_body">
+              <span className="edition_infos__name text_body_sb">
+                {editionName} -{' '}
+              </span>
+              {editionDatesInfos}
+            </p>
+          </>
+        ) : (
+          <MppSkeletonLoader heightRow="20px" spaceBetweenRow="0" />
+        )}
       </div>
 
       {editionMessage ? (

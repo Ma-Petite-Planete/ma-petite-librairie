@@ -1210,13 +1210,13 @@ styleInject(css_248z$6);
  */
 const MppCardEdition = ({ backgroundColor, textColor, editionName, editionDatesInfos, editionMessage, }) => {
     return (React__default.createElement("div", { style: { backgroundColor: `${backgroundColor}` }, className: "card_edition__container" },
-        React__default.createElement("div", { style: { color: `${textColor}` }, className: "card_edition__infos" },
+        React__default.createElement("div", { style: { color: `${textColor}` }, className: "card_edition__infos" }, editionName ? (React__default.createElement(React__default.Fragment, null,
             React__default.createElement("p", { className: "edition_infos__date text_body" },
                 React__default.createElement("span", { className: "edition_infos__name text_body_sb" },
                     editionName,
                     " -",
                     ' '),
-                editionDatesInfos)),
+                editionDatesInfos))) : (React__default.createElement(MppSkeletonLoader, { heightRow: "20px", spaceBetweenRow: "0" }))),
         editionMessage ? (React__default.createElement("div", { className: "card_edition__days" },
             React__default.createElement(MppIcons.history, { fill: ScoColors.tonicViolet, className: "card_edition__icon" }),
             React__default.createElement("p", { className: "edition_days__details text_body_sb" }, editionMessage))) : null));
