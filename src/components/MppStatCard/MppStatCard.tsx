@@ -7,7 +7,7 @@ import MppSkeletonLoader from '../MppSkeletonLoader/MppSkeletonLoader';
 interface StatCardProps {
   IconComponent: (typeof MppIcons)[keyof typeof MppIcons];
   title: string;
-  stat: number | null;
+  stat: number | null | undefined;
   boType?: BoType.gpBo;
   statDetails?: string;
 }
