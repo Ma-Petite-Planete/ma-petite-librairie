@@ -1,0 +1,29 @@
+.skeleton_wrapper {
+  width: 100%;
+}
+
+.skeleton {
+  margin-bottom: 10px;
+  animation: loading 4s infinite linear;
+  border-radius: 4px;
+}
+
+.skeleton:last-child {
+  margin-bottom: 0 !important;
+}
+
+.skeleton_circular {
+  height: auto !important;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -130% 0;
+  }
+}

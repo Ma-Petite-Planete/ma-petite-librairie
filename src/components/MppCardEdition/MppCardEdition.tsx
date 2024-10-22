@@ -46,12 +46,14 @@ const MppCardEdition: React.FC<MppCardEditionProps> = ({
       className="card_edition__container"
     >
       <div style={{ color: `${textColor}` }} className="card_edition__infos">
-        <p className="edition_infos__date text_body">
-          <span className="edition_infos__name text_body_sb">
-            {editionName} -{' '}
-          </span>
-          {editionDatesInfos}
-        </p>
+        <>
+          <p className="edition_infos__date text_body">
+            <span className="edition_infos__name text_body_sb">
+              {editionName} -{' '}
+            </span>
+            {editionDatesInfos}
+          </p>
+        </>
       </div>
 
       {editionMessage ? (

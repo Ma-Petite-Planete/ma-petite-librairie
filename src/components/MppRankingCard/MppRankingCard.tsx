@@ -1,5 +1,6 @@
 import React from 'react';
 import './mpp_ranking_card.css';
+import MppSkeletonLoader from '../MppSkeletonLoader/MppSkeletonLoader';
 
 interface MppRankingCardProps {
   title: string;
@@ -55,23 +56,42 @@ const MppRankingCard: React.FC<MppRankingCardProps> = ({
       onMouseEnter={onHover}
       onMouseLeave={onHoverLeave}
     >
-      <div className="flex_row">
-        <p
-          className="text_body_sb ranking_background"
-          style={{ backgroundColor: `${rankingColorBackground}` }}
-        >
-          {ranking}
-        </p>
-        <div className="content_background">
-          <p className="text_body_sb">{title}</p>
-          <p className="text_small">{subtitle}</p>
-        </div>
+      <div className={`flex_row ${title ? '' : 'loading'}`}>
+        {title ? (
+          <>
+            <p
+              className="text_body_sb ranking_background"
+              style={{ backgroundColor: `${rankingColorBackground}` }}
+            >
+              {ranking}
+            </p>
+            <div className="content_background">
+              <p className="text_body_sb">{title}</p>
+              <p className="text_small">{subtitle}</p>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="number_loading">
+              <MppSkeletonLoader heightRow="25px" />
+            </div>
+            <div className="text_loading">
+              <MppSkeletonLoader count={2} />
+            </div>
+          </>
+        )}
       </div>
-      <div className="points_background">
-        <p className="text_body_sb" style={{ color: `${pointsColor}` }}>
-          {points}
-        </p>
-        <p className="sub_point_text text_small">{subPointsText}</p>
+      <div className={`"points_background ${title ? '' : 'skeleton_loading'}`}>
+        {title ? (
+          <>
+            <p className="text_body_sb" style={{ color: `${pointsColor}` }}>
+              {points}
+            </p>
+            <p className="sub_point_text text_small">{subPointsText}</p>
+          </>
+        ) : (
+          <MppSkeletonLoader count={2} />
+        )}
       </div>
     </div>
   );

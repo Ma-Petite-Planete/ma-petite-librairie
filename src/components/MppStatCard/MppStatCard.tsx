@@ -2,11 +2,12 @@ import React from 'react';
 import { MppIcons } from '../../utils/MppIcons';
 import { BoType } from '../BoType';
 import './mpp_stat_card.css';
+import MppSkeletonLoader from '../MppSkeletonLoader/MppSkeletonLoader';
 
 interface StatCardProps {
   IconComponent: (typeof MppIcons)[keyof typeof MppIcons];
   title: string;
-  stat: number;
+  stat: number | null | undefined;
   boType?: BoType.gpBo;
   statDetails?: string;
 }
@@ -40,18 +41,32 @@ const StatCard: React.FC<StatCardProps> = ({
   title,
   stat,
   boType,
-  statDetails
+  statDetails,
 }) => {
   return (
     <div
       className={`stat_card__container${boType ? ' stat_card__container--shadow' : ''}`}
     >
-      <div className="stat_card__icon">
-        <IconComponent />
-      </div>
+      {stat !== null && stat !== undefined ? (
+        <div className="stat_card__icon">
+          <IconComponent />
+        </div>
+      ) : (
+        <div className="loader_background">
+          <MppSkeletonLoader circular={true} />
+        </div>
+      )}
       <div className="stat_card__content">
-        <p className="stat_card__title text_small">{title}</p>
-        <p className="stat_card__number title_h3">{stat} {statDetails ?? ""}</p>
+        {stat !== null && stat !== undefined ? (
+          <>
+            <p className="stat_card__title text_small">{title}</p>
+            <p className="stat_card__number title_h3">
+              {stat} {statDetails ?? ''}
+            </p>
+          </>
+        ) : (
+          <MppSkeletonLoader count={2} />
+        )}
       </div>
     </div>
   );

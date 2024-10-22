@@ -33,12 +33,13 @@
   width: 100%;
   padding-left: 24px;
   padding-top: 24px;
+  padding: 24px 24px 0px 24px;
 }
 
 .icon {
   width: 20px;
   height: 20px;
-  padding-right: 12px;
+  margin-right: 12px;
 }
 
 .navigation_element {

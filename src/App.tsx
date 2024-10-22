@@ -22,6 +22,7 @@ import MppInfosPin, { Direction } from './components/MppInfosPin/MppInfosPin';
 import LayoutLoginSection from './section/MppLayoutLoginSection';
 import MppLoader from './components/MppLoader/MppLoader';
 import MppTextArea from './components/MppTextArea/MppTextArea';
+import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader';
 
 function App() {
   return (
@@ -155,7 +156,7 @@ function App() {
           rankingColorBackground={ScoColors.mainYellow}
         />
         <MppRankingCard
-          title={'Les poulet'}
+          title={null}
           subtitle={'Collège Jean Rostand'}
           ranking={4}
           points={'26.2pts'}
@@ -168,7 +169,7 @@ function App() {
       <MppCardEdition
         backgroundColor={ScoColors.veryLightYellow}
         textColor={ScoColors.darkBlue}
-        editionName={'Edition Automne 2024'}
+        editionName={'Edition Printemps'}
         editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
         editionMessage="Il reste 7 jours !"
       />
@@ -208,6 +209,7 @@ function App() {
           onLogout={() => console.log('suppr les comptes anonymes')}
           aboutText={'A propos de MPP'}
           logOutText={'Se déconnecter'}
+          clientIsLoad={true}
         />
       </div>
       <h2>Layout</h2>
@@ -240,7 +242,7 @@ function App() {
               <MppStatCard
                 title={iconName}
                 IconComponent={IconComponent}
-                stat={12}
+                stat={0}
                 statDetails="test"
               />
             </div>
@@ -279,6 +281,12 @@ function App() {
       />
       <h2>Loader</h2>
       <MppLoader />
+      <div style={{ width: '400px', marginTop: '10px', display: 'flex' }}>
+        <div style={{ width: '70px', marginRight: '20px' }}>
+          <MppSkeletonLoader circular={true} />
+        </div>
+        <MppSkeletonLoader count={3} />
+      </div>
     </div>
   );
 }

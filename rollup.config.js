@@ -27,7 +27,10 @@ export default {
       exportType: 'named',
       svgProps: {},
     }),
-    postcss(),
+    postcss({
+      extract: true,
+      minimize: true,
+    }),
     babel({
       babelHelpers: 'bundled',
       presets: ['@babel/preset-react'],

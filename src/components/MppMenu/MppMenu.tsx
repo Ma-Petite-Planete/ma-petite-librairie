@@ -3,6 +3,7 @@ import './mpp_menu.css';
 import { BoType } from '../BoType';
 import { MppIcons } from '../../utils/MppIcons';
 import { ReactComponent as ScoYellowLogo } from '../../ressources/logo/sco_yellow_logo_blue_text.svg';
+import MppSkeletonLoader from '../MppSkeletonLoader/MppSkeletonLoader';
 
 interface NavigationLink {
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -18,6 +19,7 @@ interface MppMenuProps {
   actualPage: string;
   aboutText: string;
   logOutText: string;
+  clientIsLoad: boolean;
 }
 
 /**
@@ -56,6 +58,7 @@ const MppMenu: React.FC<MppMenuProps> = ({
   actualPage,
   aboutText,
   logOutText,
+  clientIsLoad,
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -67,27 +70,35 @@ const MppMenu: React.FC<MppMenuProps> = ({
         </div>
 
         <div className="navigation_background">
-          {navigationLinks.map((navigationLink, index) => (
-            <div
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              className={`navigation_element ${actualPage.includes(navigationLink.navigation) ? 'actual_page' : ''} ${
-                hoveredIndex === index ||
-                actualPage.includes(navigationLink.navigation)
-                  ? 'text_body_sb '
-                  : 'text_body '
-              }`}
-              key={navigationLink.name}
-            >
-              <LinkComponent
-                href={navigationLink.navigation}
-                className="navigation_flex"
+          {clientIsLoad ? (
+            navigationLinks.map((navigationLink, index) => (
+              <div
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className={`navigation_element ${actualPage.includes(navigationLink.navigation) ? 'actual_page' : ''} ${
+                  hoveredIndex === index ||
+                  actualPage.includes(navigationLink.navigation)
+                    ? 'text_body_sb '
+                    : 'text_body '
+                }`}
+                key={navigationLink.name}
               >
-                <navigationLink.icon className="icon" />
-                <p>{navigationLink.name}</p>
-              </LinkComponent>
-            </div>
-          ))}
+                <LinkComponent
+                  href={navigationLink.navigation}
+                  className="navigation_flex"
+                >
+                  <navigationLink.icon className="icon" />
+                  <p>{navigationLink.name}</p>
+                </LinkComponent>
+              </div>
+            ))
+          ) : (
+            <MppSkeletonLoader
+              count={5}
+              spaceBetweenRow="16px"
+              heightRow="20px"
+            />
+          )}
         </div>
       </div>
       <div className="navigation_background">
