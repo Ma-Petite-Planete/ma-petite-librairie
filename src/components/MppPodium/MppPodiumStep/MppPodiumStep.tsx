@@ -3,6 +3,7 @@ import React from 'react';
 import { MppIcons } from '../../../utils/MppIcons';
 
 interface MppPodiumStepProps {
+  id?: string;
   title: string;
   subtitle?: string;
   subtitleBold?: string;
@@ -10,9 +11,14 @@ interface MppPodiumStepProps {
   typeOfPlayer: string;
   color: string;
   ranking: number;
+  displayAllInfos: boolean;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onHover?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onHoverLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
+  id,
   title,
   subtitle,
   subtitleBold,
@@ -20,9 +26,19 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
   typeOfPlayer,
   color,
   ranking,
+  displayAllInfos,
+  onClick,
+  onHover,
+  onHoverLeave,
 }) => {
   return (
-    <div className="podium_step__container">
+    <div
+      className="podium_step__container"
+      onClick={onClick}
+      onMouseEnter={onHover}
+      onMouseLeave={onHoverLeave}
+      data-id={id ?? ''}
+    >
       <div className="podium_step__content">
         <div className="podium_step__img">
           {ranking === 1 ? (
@@ -36,13 +52,13 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
         <ul className="podium_step__list">
           <li className="podium_step__list--title title_h3">{title}</li>
 
-          {subtitle ? (
+          {subtitle && displayAllInfos ? (
             <li className="podium_step__list--subtitle text_small">
               {subtitle}
             </li>
           ) : null}
 
-          {subtitleBold ? (
+          {subtitleBold && displayAllInfos ? (
             <li className="podium_step__list--subtitle_bold text_small_b">
               {subtitleBold}
             </li>
