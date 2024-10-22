@@ -1112,14 +1112,14 @@ const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, point
             React__default.createElement("p", { className: "sub_point_text text_small" }, subPointsText))) : (React__default.createElement(MppSkeletonLoader, { count: 2 })))));
 };
 
-const MppPodiumStep = ({ title, subtitle, subtitleBold, pointsNumber, typeOfPlayer, color, ranking, }) => {
-    return (React__default.createElement("div", { className: "podium_step__container" },
+const MppPodiumStep = ({ id, title, subtitle, subtitleBold, pointsNumber, typeOfPlayer, color, ranking, displayAllInfos, onClick, onHover, onHoverLeave, }) => {
+    return (React__default.createElement("div", { className: "podium_step__container", onClick: onClick, onMouseEnter: onHover, onMouseLeave: onHoverLeave, "data-id": id !== null && id !== void 0 ? id : '' },
         React__default.createElement("div", { className: `podium_step__content ${title ? '' : 'loading_background'}` },
             React__default.createElement("div", { className: "podium_step__img" }, ranking === 1 ? (React__default.createElement(MppIcons.goldTrophee, null)) : ranking === 2 ? (React__default.createElement(MppIcons.silverTrophee, null)) : (React__default.createElement(MppIcons.bronzeTrophee, null))),
             title ? (React__default.createElement("ul", { className: "podium_step__list" },
                 React__default.createElement("li", { className: "podium_step__list--title title_h3" }, title),
-                subtitle ? (React__default.createElement("li", { className: "podium_step__list--subtitle text_small" }, subtitle)) : null,
-                subtitleBold ? (React__default.createElement("li", { className: "podium_step__list--subtitle_bold text_small_b" }, subtitleBold)) : null,
+                subtitle && displayAllInfos ? (React__default.createElement("li", { className: "podium_step__list--subtitle text_small" }, subtitle)) : null,
+                subtitleBold && displayAllInfos ? (React__default.createElement("li", { className: "podium_step__list--subtitle_bold text_small_b" }, subtitleBold)) : null,
                 React__default.createElement("li", { style: { color: `${color}` }, className: "podium_step__list--type text_small_b" },
                     pointsNumber,
                     " pts",
@@ -1132,10 +1132,10 @@ const MppPodiumStep = ({ title, subtitle, subtitleBold, pointsNumber, typeOfPlay
             React__default.createElement("span", { className: "podium_step_number__number text_body_sb", style: { backgroundColor: `${color}` } }, ranking))));
 };
 
-const MppPodium = ({ rankedElements, typeOfPlayers, color, }) => {
+const MppPodium = ({ rankedElements, typeOfPlayers, color, displayFullInfos, onClick, onHover, onHoverLeave, }) => {
     return (React__default.createElement("div", { className: "podium__container" }, rankedElements
-        ? rankedElements.map(({ name, points, ranking, city, structure }) => (React__default.createElement(MppPodiumStep, { subtitle: structure, subtitleBold: city, key: ranking, title: name, pointsNumber: points, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking })))
-        : Array.from({ length: 3 }, (_, index) => (React__default.createElement(MppPodiumStep, { key: index, title: null, pointsNumber: 0, subtitle: "", subtitleBold: "", typeOfPlayer: typeOfPlayers, color: color, ranking: index + 1 })))));
+        ? rankedElements.map(({ name, points, ranking, city, structure, id }) => (React__default.createElement(MppPodiumStep, { id: id, onClick: onClick, onHover: onHover, onHoverLeave: onHoverLeave, displayAllInfos: displayFullInfos, subtitle: structure, subtitleBold: city, key: ranking, title: name, pointsNumber: points, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking })))
+        : Array.from({ length: 3 }, (_, index) => (React__default.createElement(MppPodiumStep, { key: index, title: null, pointsNumber: 0, subtitle: "", subtitleBold: "", typeOfPlayer: typeOfPlayers, color: color, ranking: index + 1, displayAllInfos: false })))));
 };
 
 /**
