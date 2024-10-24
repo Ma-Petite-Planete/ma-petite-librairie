@@ -36,7 +36,6 @@ const LayoutLoginSection: React.FC = () => {
           setLoginVerifMessage(error);
         }}
         isLoading={isLoading}
-        isMobile={false}
       />
     </div>
   );

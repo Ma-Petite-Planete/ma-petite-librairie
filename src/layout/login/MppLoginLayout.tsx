@@ -4,8 +4,6 @@ import { MppButton, ButtonType } from '../../components/MppButton';
 import { default as MppInputText } from '../../components/MppInputText/MppInputText';
 import { BoType } from '../../components/BoType';
 import { ReactComponent as ScoYellowLogo } from '../../ressources/logo/sco_yellow_logo_blue_text.svg';
-import scoBackgroundMobile from '../../ressources/background/scoBackgroundMobile.png';
-import scoBackgroundDesktop from '../../ressources/background/scoBackground.png';
 import womanOnComputer from '../../ressources/illustration/woman_on_computer.png';
 import MppLoader from '../../components/MppLoader/MppLoader';
 
@@ -24,7 +22,6 @@ interface LoginLayoutProps {
   onClickErrorMessage: string;
   setOnClickErrorMessage: (error: string) => void;
   isLoading: boolean;
-  isMobile: boolean;
 }
 
 /**
@@ -80,7 +77,6 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
   onClickErrorMessage,
   setOnClickErrorMessage,
   isLoading,
-  isMobile,
 }) => {
   const [hasError, setHasError] = useState(true);
 
@@ -92,18 +88,7 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
 
   return (
     <div className="container_login_background">
-      <div
-        className={'container_image_section'}
-        style={{
-          backgroundImage: `url(${
-            boType === BoType.scoBO
-              ? isMobile
-                ? scoBackgroundMobile
-                : scoBackgroundDesktop
-              : null
-          })`,
-        }}
-      >
+      <div className={'container_image_section'}>
         {boType === BoType.scoBO ? (
           <ScoYellowLogo className="login_logo" />
         ) : null}

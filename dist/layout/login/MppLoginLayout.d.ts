@@ -16,7 +16,6 @@ interface LoginLayoutProps {
     onClickErrorMessage: string;
     setOnClickErrorMessage: (error: string) => void;
     isLoading: boolean;
-    isMobile: boolean;
 }
 /**
  * @interface LoginLayoutProps
