@@ -33,8 +33,8 @@ export default {
       minimize: true,
       plugins: [
         postcssUrl({
-          url: 'inline',
-          maxSize: 10 * 1024,
+          url: 'copy',
+          assetsPath: 'assets',
         }),
       ],
     }),
