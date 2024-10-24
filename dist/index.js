@@ -364,8 +364,7 @@ const MppButton = ({ title, onPress, buttonType, style = {}, hoverStyle = {}, ac
                     : 'secondary_type button_medium text_body'}`, style: combinedStyle, onClick: !isDisabled ? onPress : undefined, onMouseEnter: () => !isDisabled && setHover(true), onMouseLeave: () => !isDisabled && setHover(false), onMouseDown: () => !isDisabled && setActive(true), onMouseUp: () => !isDisabled && setActive(false), disabled: isDisabled }, title));
 };
 
-const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacteres, validationConditions = [], onChange, onClickIcon, setHasError, onClickErrorMessage, readOnly = false, onKeyDown, // Assurez-vous que cela est transmis au champ input
- }) => {
+const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacteres, validationConditions = [], onChange, onClickIcon, setHasError, onClickErrorMessage, readOnly = false, onKeyDown, }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFirstEntry, setIsFirstEntry] = useState(true);
     const [inputValue, setInputValue] = useState(value);
@@ -1207,18 +1206,13 @@ const MppLoader = () => {
         React__default.createElement("div", { className: "spinner" })));
 };
 
-const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold, welcomeSubtitle, loginTitle, loginSubtitle, buttonText, codeValue, setCodeValue, inputPlaceHolder, onClickErrorMessage, setOnClickErrorMessage, isLoading, }) => {
+const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold, welcomeSubtitle, loginTitle, loginSubtitle, buttonText, codeValue, setCodeValue, inputPlaceHolder, onClickErrorMessage, setOnClickErrorMessage, isLoading, onKeyDown, }) => {
     const [hasError, setHasError] = useState(true);
     useEffect(() => {
         if (codeValue && onClickErrorMessage) {
             setOnClickErrorMessage('');
         }
     }, [codeValue, onClickErrorMessage, setOnClickErrorMessage]);
-    const handleKeyDown = (event) => {
-        if (event.key === 'Enter' && onPressLoginButon && !hasError) {
-            onPressLoginButon();
-        }
-    };
     return (React__default.createElement("div", { className: "container_login_background" },
         React__default.createElement("div", { className: 'container_image_section' },
             boType === BoType.scoBO ? (React__default.createElement(SvgScoYellowLogoBlueText, { className: "login_logo" })) : null,
@@ -1239,7 +1233,7 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
                             setHasError(false);
                         }, setHasError: (hasError) => {
                             setHasError(hasError);
-                        }, onClickErrorMessage: onClickErrorMessage, onKeyDown: handleKeyDown })),
+                        }, onClickErrorMessage: onClickErrorMessage, onKeyDown: onKeyDown })),
                 React__default.createElement("div", null, isLoading ? (React__default.createElement(MppLoader, null)) : (React__default.createElement(MppButton, { title: buttonText, buttonType: ButtonType.primaryLarge, onPress: hasError ? null : onPressLoginButon })))))));
 };
 

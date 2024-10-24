@@ -38,7 +38,7 @@ const MppInputText: React.FC<MppInputTextProps> = ({
   setHasError,
   onClickErrorMessage,
   readOnly = false,
-  onKeyDown, // Assurez-vous que cela est transmis au champ input
+  onKeyDown,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isFirstEntry, setIsFirstEntry] = useState(true);
