@@ -18,7 +18,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  background-image: url('../../ressources/background/scoBackgroundMobile.png');
+  background-image: url('../../ressources/background/background_login_mobile.png');
 }
 
 .login_logo {
@@ -65,7 +65,7 @@
     width: 50%;
     height: 100%;
     justify-content: center;
-    background-image: url('../../ressources/background/scoBackground.png');
+    background-image: url('../../ressources/background/background_login.png');
   }
 
   .input_section_content {

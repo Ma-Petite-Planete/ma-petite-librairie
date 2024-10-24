@@ -35,10 +35,12 @@ export default {
       plugins: [
         postcssUrl({
           url: (asset) => {
-            if (asset.url.includes('background/')) {
-              return `ressources/background/${asset.url}`;
+            if (asset.url.includes('background/background_login_mobile.png')) {
+              return '/assets/background/background_login_mobile.png';
             }
-            return asset.url;
+            if (asset.url.includes('background/background_login.png')) {
+              return '/assets/background/background_login.png';
+            }
           },
         }),
       ],
