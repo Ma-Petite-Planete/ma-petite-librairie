@@ -364,36 +364,8 @@ const MppButton = ({ title, onPress, buttonType, style = {}, hoverStyle = {}, ac
                     : 'secondary_type button_medium text_body'}`, style: combinedStyle, onClick: !isDisabled ? onPress : undefined, onMouseEnter: () => !isDisabled && setHover(true), onMouseLeave: () => !isDisabled && setHover(false), onMouseDown: () => !isDisabled && setActive(true), onMouseUp: () => !isDisabled && setActive(false), disabled: isDisabled }, title));
 };
 
-/**
- * @interface MppInputTextProps
- * @property {string} placeholder - Texte d'indice à afficher dans le champ de saisie.
- * @property {string} value - Valeur actuelle du champ de saisie.
- * @property {React.FC<React.SVGProps<SVGSVGElement>>} [icon] - Composant SVG optionnel à afficher comme icône.
- * @property {boolean} [needCounter] - Indique si un compteur de caractères doit être affiché (par défaut : false).
- * @property {number} [maxCharacteres] - Nombre maximum de caractères autorisés dans le champ.
- * @property {Array<ValidationCondition>} [validationConditions] - Conditions de validation à appliquer au champ sera vérifié a chque changement dans l'input.
- * @property {function(string, boolean): void} onChange - Fonction de rappel appelée lors du changement de valeur.
- * @property {function(string): void} [onClickIcon] - Fonction de rappel appelée lorsque l'icône est cliquée.
- * @property {function(boolean): void} [setHasError] - Fonction de rappel pour indiquer si le champ a des erreurs.
- * @property {string} [onClickErrorMessage] - Message d'erreur affiché lors d'un clique exterieur.
- *
- * @example
- *
- * <MppInputText
- *   placeholder="Entrez votre texte"
- *   value={inputValue}
- *   onChange={(value, hasError) => {
- *     console.log('Valeur:', value, 'Erreur:', hasError);
- *   }}
- *   validationConditions={[
- *     { condition: value => value.length >= 5, message: 'Doit avoir au moins 5 caractères.' },
- *     { condition: value => /^[a-zA-Z]+$/.test(value), message: 'Ne doit contenir que des lettres.' },
- *   ]}
- *   needCounter
- *   maxCharacteres={20}
- * />
- */
-const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacteres, validationConditions = [], onChange, onClickIcon, setHasError, onClickErrorMessage, readOnly = false, }) => {
+const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacteres, validationConditions = [], onChange, onClickIcon, setHasError, onClickErrorMessage, readOnly = false, onKeyDown, // Assurez-vous que cela est transmis au champ input
+ }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFirstEntry, setIsFirstEntry] = useState(true);
     const [inputValue, setInputValue] = useState(value);
@@ -442,7 +414,7 @@ const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false
     };
     return (React__default.createElement(React__default.Fragment, null,
         React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}` },
-            React__default.createElement("input", { type: "text", placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly }),
+            React__default.createElement("input", { type: "text", placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown }),
             (isFocused || inputValue) && Icon ? (React__default.createElement(Icon, { className: onClickIcon ? 'input_icon_pointer' : '', onClick: handleIconClick })) : needCounter ? (React__default.createElement("span", { className: `input_counter ${inputValue.length === maxCharacteres ? 'max_characteres' : ''}` }, `${inputValue.length}/${maxCharacteres}`)) : null),
         React__default.createElement("div", { className: "input_errors" }, errorMessages.length > 0 &&
             inputValue &&
@@ -1235,43 +1207,6 @@ const MppLoader = () => {
         React__default.createElement("div", { className: "spinner" })));
 };
 
-/**
- * @interface LoginLayoutProps
- * @property {BoType} boType - Type de back-office utilisé pour déterminer l'arrière-plan et le logo.
- * @property {(() => void) | null} onPressLoginButon - Fonction à appeler lors du clic sur le bouton de connexion.
- * @property {string} welcomeText - Texte de bienvenue à afficher.
- * @property {string} welcomeTextBold - Texte de bienvenue en gras à afficher.
- * @property {string} welcomeSubtitle - Sous-titre de bienvenue à afficher.
- * @property {string} loginTitle - Titre de la section de connexion.
- * @property {string} loginSubtitle - Sous-titre de la section de connexion.
- * @property {string} buttonText - Texte du bouton de connexion.
- * @property {string} codeValue - Valeur actuelle du code (input).
- * @property {string} inputPlaceHolder - Texte placeHolder pour l'input.
- * @property {function(string): void} setCodeValue - Fonction pour mettre à jour la valeur du code.
- * @property {string} onClickErrorMessage - Message d'erreur à afficher lors d'un clic sur le bouton.
- * @property {function(string): void} setOnClickErrorMessage - Fonction pour mettre à jour le message d'erreur.
- * @property {boolean} isLoading - État de chargement pour afficher un loader pendant la connexion.
- * @property {boolean} isMoblie - Qu'elle format de background afficher en fonction de la width globale.
- *
- * @example
- *
- * <ComponentName
- *   boType={BoType.scoBO}
- *   onPressLoginButon={() => console.log('Login pressed')}
- *   welcomeText="Bienvenue sur"
- *   welcomeTextBold="Ma Petite Planète"
- *   welcomeSubtitle="Veuillez vous connecter"
- *   loginTitle="Connexion"
- *   loginSubtitle="Veuillez entrer votre code"
- *   buttonText="Se connecter"
- *   codeValue={codeValue}
- *   inputPlaceHolder="Entrez votre code"
- *   setCodeValue={setCodeValue}
- *   onClickErrorMessage={errorMessage}
- *   setOnClickErrorMessage={setErrorMessage}
- *   isLoading={isLoading}
- * />
- */
 const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold, welcomeSubtitle, loginTitle, loginSubtitle, buttonText, codeValue, setCodeValue, inputPlaceHolder, onClickErrorMessage, setOnClickErrorMessage, isLoading, }) => {
     const [hasError, setHasError] = useState(true);
     useEffect(() => {
@@ -1279,6 +1214,11 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
             setOnClickErrorMessage('');
         }
     }, [codeValue, onClickErrorMessage, setOnClickErrorMessage]);
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter' && onPressLoginButon && !hasError) {
+            onPressLoginButon();
+        }
+    };
     return (React__default.createElement("div", { className: "container_login_background" },
         React__default.createElement("div", { className: 'container_image_section' },
             boType === BoType.scoBO ? (React__default.createElement(SvgScoYellowLogoBlueText, { className: "login_logo" })) : null,
@@ -1297,9 +1237,9 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
                     React__default.createElement(MppInputText, { placeholder: inputPlaceHolder, value: codeValue, onChange: (value) => {
                             setCodeValue(value);
                             setHasError(false);
-                        }, setHasError: function (hasError) {
+                        }, setHasError: (hasError) => {
                             setHasError(hasError);
-                        }, onClickErrorMessage: onClickErrorMessage })),
+                        }, onClickErrorMessage: onClickErrorMessage, onKeyDown: handleKeyDown })),
                 React__default.createElement("div", null, isLoading ? (React__default.createElement(MppLoader, null)) : (React__default.createElement(MppButton, { title: buttonText, buttonType: ButtonType.primaryLarge, onPress: hasError ? null : onPressLoginButon })))))));
 };
 
