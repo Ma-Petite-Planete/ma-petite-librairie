@@ -28,8 +28,9 @@ export default {
       svgProps: {},
     }),
     postcss({
+      extract: true,
       minimize: true,
-      extract: resolve('dist/app.css'),
+      inject: true,
     }),
     babel({
       babelHelpers: 'bundled',
