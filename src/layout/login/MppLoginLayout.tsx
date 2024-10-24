@@ -1,4 +1,4 @@
-import React, { useState, useEffect, KeyboardEventHandler } from 'react';
+import React, { useState, useEffect } from 'react';
 import './mpp_login_layout.css';
 import { MppButton, ButtonType } from '../../components/MppButton';
 import { default as MppInputText } from '../../components/MppInputText/MppInputText';
@@ -22,7 +22,6 @@ interface LoginLayoutProps {
   onClickErrorMessage: string;
   setOnClickErrorMessage: (error: string) => void;
   isLoading: boolean;
-  onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
 }
 
 const ComponentName: React.FC<LoginLayoutProps> = ({
@@ -40,10 +39,14 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
   onClickErrorMessage,
   setOnClickErrorMessage,
   isLoading,
-  onKeyDown,
 }) => {
   const [hasError, setHasError] = useState(true);
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter' && onPressLoginButon && !hasError) {
+      onPressLoginButon();
+    }
+  };
   useEffect(() => {
     if (codeValue && onClickErrorMessage) {
       setOnClickErrorMessage('');
@@ -87,7 +90,7 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
                 setHasError(hasError);
               }}
               onClickErrorMessage={onClickErrorMessage}
-              onKeyDown={onKeyDown}
+              onKeyDown={handleKeyDown}
             />
           </div>
           <div>

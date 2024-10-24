@@ -1,4 +1,4 @@
-import React, { KeyboardEventHandler } from 'react';
+import React from 'react';
 import './mpp_login_layout.css';
 import { BoType } from '../../components/BoType';
 interface LoginLayoutProps {
@@ -16,7 +16,6 @@ interface LoginLayoutProps {
     onClickErrorMessage: string;
     setOnClickErrorMessage: (error: string) => void;
     isLoading: boolean;
-    onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
 }
 declare const ComponentName: React.FC<LoginLayoutProps>;
 export default ComponentName;

@@ -366,7 +366,7 @@ const MppButton = ({ title, onPress, buttonType, style = {}, hoverStyle = {}, ac
 
 const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacteres, validationConditions = [], onChange, onClickIcon, setHasError, onClickErrorMessage, readOnly = false, onKeyDown, }) => {
     const [isFocused, setIsFocused] = useState(false);
-    const [isFirstEntry, setIsFirstEntry] = useState(true);
+    const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
     const [inputValue, setInputValue] = useState(value);
     const [errorMessages, setErrorMessages] = useState([]);
     useEffect(() => {
@@ -1206,8 +1206,13 @@ const MppLoader = () => {
         React__default.createElement("div", { className: "spinner" })));
 };
 
-const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold, welcomeSubtitle, loginTitle, loginSubtitle, buttonText, codeValue, setCodeValue, inputPlaceHolder, onClickErrorMessage, setOnClickErrorMessage, isLoading, onKeyDown, }) => {
+const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold, welcomeSubtitle, loginTitle, loginSubtitle, buttonText, codeValue, setCodeValue, inputPlaceHolder, onClickErrorMessage, setOnClickErrorMessage, isLoading, }) => {
     const [hasError, setHasError] = useState(true);
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter' && onPressLoginButon && !hasError) {
+            onPressLoginButon();
+        }
+    };
     useEffect(() => {
         if (codeValue && onClickErrorMessage) {
             setOnClickErrorMessage('');
@@ -1233,7 +1238,7 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
                             setHasError(false);
                         }, setHasError: (hasError) => {
                             setHasError(hasError);
-                        }, onClickErrorMessage: onClickErrorMessage, onKeyDown: onKeyDown })),
+                        }, onClickErrorMessage: onClickErrorMessage, onKeyDown: handleKeyDown })),
                 React__default.createElement("div", null, isLoading ? (React__default.createElement(MppLoader, null)) : (React__default.createElement(MppButton, { title: buttonText, buttonType: ButtonType.primaryLarge, onPress: hasError ? null : onPressLoginButon })))))));
 };
 

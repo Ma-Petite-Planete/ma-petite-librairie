@@ -41,7 +41,7 @@ const MppInputText: React.FC<MppInputTextProps> = ({
   onKeyDown,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [isFirstEntry, setIsFirstEntry] = useState(true);
+  const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
   const [inputValue, setInputValue] = useState(value);
   const [errorMessages, setErrorMessages] = useState<Array<string>>([]);
 
