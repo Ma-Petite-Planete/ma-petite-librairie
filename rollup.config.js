@@ -5,6 +5,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import image from '@rollup/plugin-image';
 import url from 'rollup-plugin-url';
+import copy from 'rollup-plugin-copy';
 import postcssUrl from 'postcss-url';
 import { babel } from '@rollup/plugin-babel';
 
@@ -33,10 +34,23 @@ export default {
       minimize: true,
       plugins: [
         postcssUrl({
-          url: 'copy',
-          assetsPath: 'assets',
+          url: (asset) => {
+            if (asset.url.includes('background/')) {
+              return `ressources/background/${asset.url}`;
+            }
+            return asset.url;
+          },
         }),
       ],
+    }),
+    copy({
+      targets: [
+        {
+          src: 'src/ressources/background/*.png',
+          dest: 'dist',
+        },
+      ],
+      flatten: false,
     }),
     babel({
       babelHelpers: 'bundled',
