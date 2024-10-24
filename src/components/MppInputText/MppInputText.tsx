@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './mpp_input_text.css';
 
-interface ValidationCondition {
+export interface ValidationCondition {
   condition: (value: string) => boolean;
   message: string;
 }
@@ -9,132 +9,106 @@ interface ValidationCondition {
 interface MppInputTextProps {
   placeholder: string;
   value: string;
-  iconUrl?: string;
+  icon?: React.FC<React.SVGProps<SVGSVGElement>>;
   needCounter?: boolean;
   maxCharacteres?: number;
-  validationConditions?: ValidationCondition[];
-  onChange: (value: string, hasError: boolean) => void;
+  validationConditions?: Array<ValidationCondition>;
+  onChange?: (value: string, hasError: boolean) => void;
   onClickIcon?: (value: string) => void;
+  setHasError?: (hasError: boolean) => void;
+  onClickErrorMessage?: string;
+  readOnly?: boolean;
 }
 
 /**
- * Props pour le composant MppInputText.
  * @interface MppInputTextProps
- * @property {string} placeholder - Texte d'espace réservé.
- * @property {string} value - Valeur contrôlée du champ de saisie.
- * @property {string} [iconUrl] - URL de l'image de l'icône.
- * @property {boolean} [needCounter] - Indique si un compteur de caractères doit être affiché.
- * @property {number} [maxCharacteres] - Nombre maximum de caractères autorisés.
- * @property {ValidationCondition[]} [validationConditions] - Liste des conditions de validation.
- * @property {(value: string, hasError: boolean) => void} onChange - Fonction appelée lors du changement de valeur.
- * @property {(value: string) => void} [onClickIcon] - Fonction appelée lors du clic sur l'icône.
- */
-
-/**
- * Composant de champ de saisie avec validation, icône cliquable et compteur de caractères.
- * 
+ * @property {string} placeholder - Texte d'indice à afficher dans le champ de saisie.
+ * @property {string} value - Valeur actuelle du champ de saisie.
+ * @property {React.FC<React.SVGProps<SVGSVGElement>>} [icon] - Composant SVG optionnel à afficher comme icône.
+ * @property {boolean} [needCounter] - Indique si un compteur de caractères doit être affiché (par défaut : false).
+ * @property {number} [maxCharacteres] - Nombre maximum de caractères autorisés dans le champ.
+ * @property {Array<ValidationCondition>} [validationConditions] - Conditions de validation à appliquer au champ sera vérifié a chque changement dans l'input.
+ * @property {function(string, boolean): void} onChange - Fonction de rappel appelée lors du changement de valeur.
+ * @property {function(string): void} [onClickIcon] - Fonction de rappel appelée lorsque l'icône est cliquée.
+ * @property {function(boolean): void} [setHasError] - Fonction de rappel pour indiquer si le champ a des erreurs.
+ * @property {string} [onClickErrorMessage] - Message d'erreur affiché lors d'un clique exterieur.
+ *
  * @example
- * ```jsx
- * import React, { useState } from 'react';
- * import MppInputText from './component/MppInputText/MppInputText';
- * import pen from './pen.svg';
- * 
- * const InputDemo: React.FC = () => {
- *   const [inputDemoIcon, setInputDemoIcon] = useState('');
- * 
- *   const handleChangeDemoIcon = (value: string) => {
- *     setInputDemoIcon(value);
- *   };
- * 
- *   const handleIconClick = () => {
- *     setInputDemoIcon(''); 
- *   };
- * 
- *   const [inputDemoCounter, setInputDemoCounter] = useState('');
- * 
- *   const handleChangeDemoCounter = (value: string) => {
- *     setInputDemoCounter(value);
- *   };
- * 
- *   const [inputDemoCondition, setInputDemoCondition] = useState('');
- *   const handleChangeDemoCondition = (value: string, hasError: boolean) => {
- *     if (hasError) {
- *       console.log('Les conditions ne sont pas respectées');
- *     } else {
- *       setInputDemoCondition(value);
- *     }
- *   };
- * 
- *   return (
- *     <div style={{ width: '300px' }}>
- *       <MppInputText
- *         placeholder="Exemple de validation"
- *         value={inputDemoCondition}
- *         onChange={handleChangeDemoCondition}
- *         validationConditions={[
- *           { condition: (value) => value.length >= 5, message: 'Le texte doit contenir au moins 5 caractères.' },
- *           { condition: (value) => /^[a-zA-Z]+$/.test(value), message: 'Le texte doit uniquement contenir des lettres.' },
- *         ]}
- *       />
- *       <MppInputText 
- *         value={inputDemoIcon}
- *         placeholder="Exemple d'icône"
- *         onChange={handleChangeDemoIcon}
- *         iconUrl={pen}
- *         onClickIcon={handleIconClick}
- *       />
- *       <MppInputText 
- *         value={inputDemoCounter}
- *         placeholder="Exemple de compteur"
- *         onChange={handleChangeDemoCounter}
- *         needCounter={true}
- *         maxCharacteres={20}
- *       />
- *     </div>
- *   );
- * };
- * 
- * export default InputDemo;
- * ```
+ *
+ * <MppInputText
+ *   placeholder="Entrez votre texte"
+ *   value={inputValue}
+ *   onChange={(value, hasError) => {
+ *     console.log('Valeur:', value, 'Erreur:', hasError);
+ *   }}
+ *   validationConditions={[
+ *     { condition: value => value.length >= 5, message: 'Doit avoir au moins 5 caractères.' },
+ *     { condition: value => /^[a-zA-Z]+$/.test(value), message: 'Ne doit contenir que des lettres.' },
+ *   ]}
+ *   needCounter
+ *   maxCharacteres={20}
+ * />
  */
 
 const MppInputText: React.FC<MppInputTextProps> = ({
   placeholder,
   value = '',
-  iconUrl = '',
+  icon: Icon,
   needCounter = false,
   maxCharacteres,
   validationConditions = [],
   onChange,
-  onClickIcon
+  onClickIcon,
+  setHasError,
+  onClickErrorMessage,
+  readOnly = false,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isFirstEntry, setIsFirstEntry] = useState(true);
   const [inputValue, setInputValue] = useState(value);
-  const [errorMessages, setErrorMessages] = useState<string[]>([]);
+  const [errorMessages, setErrorMessages] = useState<Array<string>>([]);
 
   useEffect(() => {
     setInputValue(value);
   }, [value]);
 
-  const validateInput = (value: string) => {
-    const errors = validationConditions
-      .filter((validation) => !validation.condition(value))
-      .map((validation) => validation.message);
+  const validateInput = useCallback(
+    (value: string) => {
+      const errors = validationConditions
+        .filter((validation) => !validation.condition(value))
+        .map((validation) => validation.message);
 
-    setErrorMessages(errors);
-    return errors.length > 0;
+      if (onClickErrorMessage) {
+        errors.push(onClickErrorMessage);
+      }
+
+      setErrorMessages(errors);
+      if (setHasError) setHasError(errors.length > 0);
+      return errors.length > 0;
+    },
+    [validationConditions, onClickErrorMessage, setHasError]
+  );
+
+  useEffect(() => {
+    if (onClickErrorMessage) {
+      validateInput(inputValue);
+    }
+  }, [onClickErrorMessage, inputValue, validateInput]);
+
+  const handleFocus = () => {
+    setIsFocused(true);
   };
-
-  const handleFocus = () => setIsFocused(true);
   const handleBlur = () => {
     setIsFirstEntry(false);
     setIsFocused(false);
     validateInput(inputValue);
   };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
-    const newValueVerify = maxCharacteres ? newValue.slice(0, maxCharacteres) : newValue;
+    const newValueVerify = maxCharacteres
+      ? newValue.slice(0, maxCharacteres)
+      : newValue;
     setInputValue(newValueVerify);
     const hasError = validateInput(newValueVerify);
     onChange(newValueVerify, hasError);
@@ -148,36 +122,40 @@ const MppInputText: React.FC<MppInputTextProps> = ({
 
   return (
     <>
-      <div className={`mpp_input_container ${isFocused ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}`}>
+      <div
+        className={`mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}`}
+      >
         <input
           type="text"
           placeholder={placeholder}
           value={inputValue}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          onChange={handleChange}
-          className="mpp_input"
+          onChange={readOnly ? null : handleChange}
+          className={`mpp_input ${readOnly ? 'read_only' : ''}`}
+          readOnly={readOnly}
         />
-        {(isFocused || inputValue) && iconUrl ? (
-          <img
-            src={iconUrl}
-            className={onClickIcon ? "input_icon_pointer" :  ""}
-            alt="iconInput"
+        {(isFocused || inputValue) && Icon ? (
+          <Icon
+            className={onClickIcon ? 'input_icon_pointer' : ''}
             onClick={handleIconClick}
           />
         ) : needCounter ? (
-          <span className={`input_counter ${inputValue.length === maxCharacteres ? 'max_characteres' : ''}`}>{`${inputValue.length}/${maxCharacteres}`}</span>
+          <span
+            className={`input_counter ${inputValue.length === maxCharacteres ? 'max_characteres' : ''}`}
+          >{`${inputValue.length}/${maxCharacteres}`}</span>
         ) : null}
       </div>
-      {errorMessages.length > 0 && inputValue && !isFirstEntry && (
-        <div className="input_errors">
-          {errorMessages.map((error, index) => (
+      <div className="input_errors">
+        {errorMessages.length > 0 &&
+          inputValue &&
+          !isFirstEntry &&
+          errorMessages.map((error, index) => (
             <p key={index} className="input_error">
               {error}
             </p>
           ))}
-        </div>
-      )}
+      </div>
     </>
   );
 };

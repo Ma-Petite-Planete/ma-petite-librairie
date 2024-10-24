@@ -1,0 +1,48 @@
+.card_edition__container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 1.25rem;
+  align-items: center;
+  background-color: var(--very_light_yellow);
+  border-top-left-radius: var(--big_border_radius);
+  border-bottom-left-radius: var(--big_border_radius);
+}
+
+.card_edition__infos {
+  margin-right: 16px;
+  display: flex;
+  width: 30%;
+  min-width: 11rem;
+}
+
+.card_edition__days {
+  color: var(--tonic_violet);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.edition_days__details {
+  width: 60%;
+}
+
+.card_edition__icon {
+  height: 24px;
+  width: 24px;
+  margin-right: .3rem;
+}
+
+@media (min-width: 896px) {
+  .card_edition__days {
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .card_edition__infos {
+    width: auto;
+  }
+
+  .edition_days__details {
+    width: 100%;
+  }
+}
