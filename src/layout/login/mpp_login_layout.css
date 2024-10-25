@@ -57,6 +57,12 @@
   align-items: center;
 }
 
+.logo_sco {
+  background-image: url('../../ressources/logo/sco_yellow_logo_blue_text.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 @media (min-width: 896px) {
   .container_login_background {
     flex-direction: row;
@@ -79,12 +85,6 @@
     margin: 0;
     top: 20px;
     left: 20px;
-  }
-
-  .logo_sco {
-    background-image: url('../../ressources/logo/sco_yellow_logo_blue_text.png');
-    background-size: contain;
-    background-repeat: no-repeat;
   }
 
   .login_illustration {
