@@ -1,14 +1,67 @@
 import * as React from 'react';
 import React__default, { useState, useEffect, useCallback } from 'react';
 
-var _g$7, _defs$7;
+var _defs$7, _g$7;
 function _extends$p() { return _extends$p = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$p.apply(null, arguments); }
 var SvgScoYellowLogoBlueText = function SvgScoYellowLogoBlueText(props) {
   return /*#__PURE__*/React.createElement("svg", _extends$p({
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
     viewBox: "0 0 460 189"
-  }, props), _g$7 || (_g$7 = /*#__PURE__*/React.createElement("g", {
+  }, props), _defs$7 || (_defs$7 = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
+    id: "sco_yellow_logo_blue_text_svg__b",
+    x1: 34.332,
+    x2: 135.614,
+    y1: 152.059,
+    y2: 50.767,
+    gradientUnits: "userSpaceOnUse"
+  }, /*#__PURE__*/React.createElement("stop", {
+    stopColor: "#F8C52A"
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: 1,
+    stopColor: "#FEE066"
+  })), /*#__PURE__*/React.createElement("linearGradient", {
+    id: "sco_yellow_logo_blue_text_svg__c",
+    x1: 36.977,
+    x2: 65.416,
+    y1: 110.994,
+    y2: 94.574,
+    gradientUnits: "userSpaceOnUse"
+  }, /*#__PURE__*/React.createElement("stop", {
+    stopColor: "#F8C52A"
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: 1,
+    stopColor: "#FEE066"
+  })), /*#__PURE__*/React.createElement("linearGradient", {
+    id: "sco_yellow_logo_blue_text_svg__d",
+    x1: 99.473,
+    x2: 127.707,
+    y1: 94.969,
+    y2: 78.669,
+    gradientUnits: "userSpaceOnUse"
+  }, /*#__PURE__*/React.createElement("stop", {
+    stopColor: "#F8C52A"
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: 1,
+    stopColor: "#FEE066"
+  })), /*#__PURE__*/React.createElement("linearGradient", {
+    id: "sco_yellow_logo_blue_text_svg__e",
+    x1: 69.179,
+    x2: 116.937,
+    y1: 144.212,
+    y2: 116.634,
+    gradientUnits: "userSpaceOnUse"
+  }, /*#__PURE__*/React.createElement("stop", {
+    stopColor: "#F8C52A"
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: 1,
+    stopColor: "#FEE066"
+  })), /*#__PURE__*/React.createElement("clipPath", {
+    id: "sco_yellow_logo_blue_text_svg__a"
+  }, /*#__PURE__*/React.createElement("path", {
+    fill: "#fff",
+    d: "M0 0h460v188.079H0z"
+  })))), _g$7 || (_g$7 = /*#__PURE__*/React.createElement("g", {
     clipPath: "url(#sco_yellow_logo_blue_text_svg__a)"
   }, /*#__PURE__*/React.createElement("path", {
     fill: "url(#sco_yellow_logo_blue_text_svg__b)",
@@ -25,135 +78,7 @@ var SvgScoYellowLogoBlueText = function SvgScoYellowLogoBlueText(props) {
   }), /*#__PURE__*/React.createElement("path", {
     fill: "#2B2F68",
     d: "M193.924 144.481q-3.719-1.52-5.942-4.51-2.225-2.985-2.345-7.19h11.09q.243 2.376 1.645 3.625 1.4 1.25 3.655 1.248c1.504 0 2.762-.355 3.655-1.066q1.34-1.066 1.342-2.955 0-1.582-1.066-2.621-1.065-1.034-2.621-1.707c-1.034-.444-2.51-.955-4.417-1.524q-4.143-1.28-6.765-2.558-2.623-1.277-4.511-3.78-1.89-2.497-1.89-6.521c0-3.979 1.442-7.1 4.328-9.351q4.326-3.383 11.273-3.383c4.631 0 8.51 1.127 11.393 3.383q4.326 3.383 4.631 9.413h-11.273c-.082-1.379-.589-2.469-1.524-3.258q-1.4-1.19-3.596-1.19-1.889 0-3.049 1.007-1.158 1.005-1.158 2.893-.002 2.074 1.951 3.231 1.951 1.16 6.094 2.5 4.143 1.402 6.734 2.683c1.728.852 3.218 2.093 4.48 3.717q1.888 2.438 1.889 6.276c0 2.559-.62 4.652-1.858 6.642q-1.859 2.986-5.393 4.752-3.534 1.767-8.349 1.765c-3.21 0-5.931-.507-8.41-1.524zM224.424 119.316q2.162-3.963 6.031-6.094 3.87-2.13 8.866-2.131 6.399 0 10.693 3.352c2.866 2.235 4.742 5.383 5.638 9.445h-11.09q-1.4-3.9-5.424-3.9-2.866 0-4.569 2.224-1.707 2.225-1.707 6.369t1.707 6.369q1.706 2.224 4.569 2.224 4.024 0 5.424-3.9h11.09q-1.34 5.975-5.666 9.383-4.327 3.414-10.662 3.414-4.996.001-8.865-2.134-3.87-2.131-6.032-6.094-2.162-3.96-2.162-9.262 0-5.3 2.162-9.262zM267.687 143.933q-3.991-2.132-6.276-6.093-2.286-3.961-2.286-9.262c0-3.535.772-6.569 2.317-9.231 1.545-2.659 3.655-4.7 6.338-6.125 2.683-1.42 5.686-2.131 9.017-2.131q4.997 0 9.018 2.131t6.338 6.125q2.314 3.992 2.313 9.231 0 5.241-2.344 9.231-2.348 3.993-6.397 6.124c-2.704 1.421-5.717 2.135-9.049 2.135q-4.997 0-8.986-2.135zm14.076-9.079q2.101-2.194 2.103-6.276.001-4.082-2.041-6.276-2.043-2.193-5.028-2.193c-1.989 0-3.717.72-5.059 2.162q-2.01 2.163-2.01 6.307c0 2.762.659 4.814 1.979 6.276q1.981 2.193 4.966 2.193t5.09-2.193M310.432 100.484v45.094h-10.421v-45.094zM317.898 119.316q1.98-3.963 5.393-6.094 3.413-2.13 7.617-2.131 3.594 0 6.307 1.462 2.712 1.465 4.173 3.838v-4.813h10.421v34h-10.421v-4.814c-1.017 1.583-2.428 2.866-4.235 3.838q-2.711 1.463-6.307 1.462c-2.762 0-5.283-.72-7.555-2.162q-3.413-2.162-5.393-6.155-1.98-3.99-1.98-9.231 0-5.239 1.98-9.2m21.328 3.107q-2.163-2.256-5.273-2.256t-5.272 2.224q-2.163 2.225-2.162 6.125t2.162 6.186q2.163 2.286 5.272 2.286c2.073 0 3.828-.751 5.273-2.255q2.162-2.255 2.162-6.155t-2.162-6.155M360.122 106.426q-1.737-1.615-1.737-3.99c0-1.583.579-2.976 1.737-4.052q1.738-1.614 4.48-1.614c1.827 0 3.259.538 4.417 1.614q1.738 1.615 1.738 4.052c0 1.624-.579 2.914-1.738 3.99q-1.737 1.614-4.417 1.614c-1.786 0-3.321-.538-4.48-1.614m9.659 5.148v34.001H359.36v-34.001zM392.33 112.826q2.742-1.614 6.093-1.614v11.028h-2.865q-3.902 0-5.849 1.676-1.949 1.675-1.948 5.879v15.783H377.34v-34h10.421v5.665q1.826-2.803 4.569-4.417M435.286 131.074h-23.583q.242 3.17 2.041 4.845c1.197 1.118 2.673 1.676 4.417 1.676q3.899 0 5.425-3.29h11.089a15.2 15.2 0 0 1-3.076 6.032q-2.224 2.683-5.575 4.203-3.353 1.525-7.497 1.524-4.997.001-8.897-2.134-3.9-2.132-6.093-6.093-2.193-3.962-2.193-9.263 0-5.3 2.162-9.262t6.062-6.093 8.959-2.131c3.372 0 6.214.69 8.776 2.072q3.838 2.073 6.003 5.911 2.163 3.837 2.163 8.959-.002 1.461-.183 3.048zm-10.48-5.789q0-2.679-1.827-4.266-1.828-1.583-4.569-1.583c-1.828 0-3.221.507-4.418 1.524q-1.8 1.526-2.224 4.328h13.042zM225.731 42.704v37.542H218.2V55.828l-10.059 24.418h-5.7L192.33 55.828v24.418h-7.531V42.704h8.552l11.942 27.914 11.938-27.914h8.5M259.1 59.97q-1.425 2.636-4.465 4.248c-2.028 1.076-4.58 1.614-7.666 1.614h-6.293v14.414h-7.531V42.704h13.821c2.903 0 5.379.504 7.42 1.507q3.066 1.507 4.597 4.142 1.533 2.637 1.535 5.968 0 3.01-1.425 5.649zm-7.824-1.642q1.507-1.424 1.507-4.007-.001-5.486-6.131-5.486h-5.969v10.918h5.969q3.119 0 4.624-1.425M291.801 59.97q-1.426 2.636-4.466 4.248c-2.027 1.076-4.579 1.614-7.665 1.614h-6.293v14.414h-7.532V42.704h13.821q4.358.001 7.421 1.507 3.066 1.507 4.6 4.142 1.533 2.637 1.535 5.968-.001 3.01-1.424 5.649zm-7.824-1.642q1.506-1.424 1.507-4.007-.001-5.486-6.131-5.486h-5.97v10.918h5.97q3.118 0 4.624-1.425"
-  }))), _defs$7 || (_defs$7 = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
-    id: "sco_yellow_logo_blue_text_svg__b",
-    x1: 34.332,
-    x2: 135.614,
-    y1: 152.059,
-    y2: 50.767,
-    gradientUnits: "userSpaceOnUse"
-  }, /*#__PURE__*/React.createElement("stop", {
-    stopColor: "#F8C52A"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.03,
-    stopColor: "#F7C61C"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.06,
-    stopColor: "#F8C711"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.12,
-    stopColor: "#F8C70D"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.24,
-    stopColor: "#FACD25"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.43,
-    stopColor: "#FDD642"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.63,
-    stopColor: "#FEDC55"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.82,
-    stopColor: "#FFE061"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 1,
-    stopColor: "#FEE066"
-  })), /*#__PURE__*/React.createElement("linearGradient", {
-    id: "sco_yellow_logo_blue_text_svg__c",
-    x1: 36.977,
-    x2: 65.416,
-    y1: 110.994,
-    y2: 94.574,
-    gradientUnits: "userSpaceOnUse"
-  }, /*#__PURE__*/React.createElement("stop", {
-    stopColor: "#F8C52A"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.03,
-    stopColor: "#F7C61C"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.06,
-    stopColor: "#F8C711"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.12,
-    stopColor: "#F8C70D"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.42,
-    stopColor: "#FBD02B"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 1,
-    stopColor: "#FEE066"
-  })), /*#__PURE__*/React.createElement("linearGradient", {
-    id: "sco_yellow_logo_blue_text_svg__d",
-    x1: 99.473,
-    x2: 127.707,
-    y1: 94.969,
-    y2: 78.669,
-    gradientUnits: "userSpaceOnUse"
-  }, /*#__PURE__*/React.createElement("stop", {
-    stopColor: "#F8C52A"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.03,
-    stopColor: "#F7C61C"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.06,
-    stopColor: "#F8C711"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.12,
-    stopColor: "#F8C70D"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.24,
-    stopColor: "#FACD25"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.43,
-    stopColor: "#FDD642"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.63,
-    stopColor: "#FEDC55"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.82,
-    stopColor: "#FFE061"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 1,
-    stopColor: "#FEE066"
-  })), /*#__PURE__*/React.createElement("linearGradient", {
-    id: "sco_yellow_logo_blue_text_svg__e",
-    x1: 69.179,
-    x2: 116.937,
-    y1: 144.212,
-    y2: 116.634,
-    gradientUnits: "userSpaceOnUse"
-  }, /*#__PURE__*/React.createElement("stop", {
-    stopColor: "#F8C52A"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.03,
-    stopColor: "#F7C61C"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.06,
-    stopColor: "#F8C711"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.12,
-    stopColor: "#F8C70D"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.24,
-    stopColor: "#FACD25"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.43,
-    stopColor: "#FDD642"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.63,
-    stopColor: "#FEDC55"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 0.82,
-    stopColor: "#FFE061"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: 1,
-    stopColor: "#FEE066"
-  })), /*#__PURE__*/React.createElement("clipPath", {
-    id: "sco_yellow_logo_blue_text_svg__a"
-  }, /*#__PURE__*/React.createElement("path", {
-    fill: "#fff",
-    d: "M0 0h460v188.079H0z"
-  })))));
+  }))));
 };
 
 var _g$6, _defs$6;
