@@ -364,6 +364,41 @@ const MppButton = ({ title, onPress, buttonType, style = {}, hoverStyle = {}, ac
                     : 'secondary_type button_medium text_body'}`, style: combinedStyle, onClick: !isDisabled ? onPress : undefined, onMouseEnter: () => !isDisabled && setHover(true), onMouseLeave: () => !isDisabled && setHover(false), onMouseDown: () => !isDisabled && setActive(true), onMouseUp: () => !isDisabled && setActive(false), disabled: isDisabled }, title));
 };
 
+/**
+ * @interface MppInputTextProps
+ * @property {string} placeholder - Texte d'indice à afficher dans le champ de saisie.
+ * @property {string} value - Valeur actuelle du champ de saisie.
+ * @property {React.FC<React.SVGProps<SVGSVGElement>>} [icon] - Composant SVG optionnel à afficher comme icône dans le champ de saisie.
+ * @property {boolean} [needCounter=false] - Indique si un compteur de caractères doit être affiché (par défaut : false).
+ * @property {number} [maxCharacteres] - Nombre maximum de caractères autorisés dans le champ de saisie.
+ * @property {Array<ValidationCondition>} [validationConditions] - Conditions de validation à appliquer au champ de saisie. Chaque condition est un objet contenant une fonction de validation et un message d'erreur.
+ * @property {function(string, boolean): void} [onChange] - Fonction de rappel appelée lors du changement de valeur du champ. Fournit la nouvelle valeur et un indicateur d'erreur.
+ * @property {function(string): void} [onClickIcon] - Fonction de rappel appelée lorsque l'icône est cliquée.
+ * @property {function(boolean): void} [setHasError] - Fonction de rappel pour indiquer si le champ a des erreurs de validation.
+ * @property {string} [onClickErrorMessage] - Message d'erreur à afficher lors du clic à l'extérieur du champ de saisie.
+ * @property {boolean} [readOnly=false] - Indique si le champ est en lecture seule (par défaut : false).
+ * @property {KeyboardEventHandler<HTMLInputElement>} [onKeyDown] - Fonction de rappel appelée lors de l'appui sur une touche du clavier.
+ *
+ * @example
+ * <MppInputText
+ *   placeholder="Entrez votre texte ici"
+ *   value={inputValue}
+ *   onChange={(value, hasError) => {
+ *     console.log('Valeur :', value, 'Erreur :', hasError);
+ *   }}
+ *   validationConditions={[
+ *     { condition: (value) => value.length >= 5, message: 'Doit contenir au moins 5 caractères.' },
+ *     { condition: (value) => /^[a-zA-Z]+$/.test(value), message: 'Ne doit contenir que des lettres.' },
+ *   ]}
+ *   needCounter={true}
+ *   maxCharacteres={20}
+ *   icon={MyIconComponent}
+ *   onClickIcon={(value) => {
+ *     console.log('Icône cliquée avec la valeur :', value);
+ *   }}
+ *   readOnly={false}
+ * />
+ */
 const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacteres, validationConditions = [], onChange, onClickIcon, setHasError, onClickErrorMessage, readOnly = false, onKeyDown, }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
@@ -1206,6 +1241,41 @@ const MppLoader = () => {
         React__default.createElement("div", { className: "spinner" })));
 };
 
+/**
+ * @interface LoginLayoutProps
+ * @property {BoType} boType - Type de back-office, utilisé pour déterminer l'affichage du logo (ex: `scoBO`).
+ * @property {function(): void | null} onPressLoginButon - Fonction appelée lorsque le bouton de connexion est cliqué.
+ * @property {string} welcomeText - Texte principal de bienvenue à afficher.
+ * @property {string} welcomeTextBold - Partie du texte de bienvenue à afficher en gras.
+ * @property {string} welcomeSubtitle - Sous-titre du texte de bienvenue.
+ * @property {string} loginTitle - Titre de la section de connexion.
+ * @property {string} loginSubtitle - Sous-titre de la section de connexion.
+ * @property {string} buttonText - Texte du bouton de connexion.
+ * @property {string} codeValue - Valeur actuelle de l'input de connexion.
+ * @property {string} inputPlaceHolder - Texte d'indice à afficher dans l'input de connexion.
+ * @property {function(string): void} setCodeValue - Fonction pour mettre à jour la valeur de l'input de connexion.
+ * @property {string} onClickErrorMessage - Message d'erreur à afficher lors de l'échec de la connexion.
+ * @property {function(string): void} setOnClickErrorMessage - Fonction pour mettre à jour le message d'erreur de connexion.
+ * @property {boolean} isLoading - Indique si une requête est en cours de traitement pour afficher un loader.
+ *
+ * @example
+ * <LoginLayout
+ *   boType={BoType.scoBO}
+ *   onPressLoginButon={() => console.log('Login button pressed')}
+ *   welcomeText="Bienvenue"
+ *   welcomeTextBold="à SCOBO"
+ *   welcomeSubtitle="Connectez-vous pour accéder à votre espace."
+ *   loginTitle="Connexion"
+ *   loginSubtitle="Veuillez entrer votre code"
+ *   buttonText="Se connecter"
+ *   codeValue={code}
+ *   setCodeValue={setCode}
+ *   inputPlaceHolder="Entrez votre code"
+ *   onClickErrorMessage={errorMessage}
+ *   setOnClickErrorMessage={setErrorMessage}
+ *   isLoading={isLoggingIn}
+ * />
+ */
 const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold, welcomeSubtitle, loginTitle, loginSubtitle, buttonText, codeValue, setCodeValue, inputPlaceHolder, onClickErrorMessage, setOnClickErrorMessage, isLoading, }) => {
     const [hasError, setHasError] = useState(true);
     const handleKeyDown = (event) => {
