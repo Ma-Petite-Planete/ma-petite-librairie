@@ -3,7 +3,6 @@ import './mpp_login_layout.css';
 import { MppButton, ButtonType } from '../../components/MppButton';
 import { default as MppInputText } from '../../components/MppInputText/MppInputText';
 import { BoType } from '../../components/BoType';
-import { ReactComponent as ScoYellowLogo } from '../../ressources/logo/sco_yellow_logo_blue_text.svg';
 import womanOnComputer from '../../ressources/illustration/woman_on_computer.png';
 import MppLoader from '../../components/MppLoader/MppLoader';
 
@@ -92,9 +91,9 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
   return (
     <div className="container_login_background">
       <div className={'container_image_section'}>
-        {boType === BoType.scoBO ? (
-          <ScoYellowLogo className="login_logo" />
-        ) : null}
+        <div
+          className={`login_logo ${boType === BoType.scoBO ? 'logo_sco' : 'logo_gp'}`}
+        ></div>
 
         <div className="login_welcome_text_container">
           <p className="title_h2 welcome_text">

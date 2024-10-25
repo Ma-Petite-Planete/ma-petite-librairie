@@ -11,9 +11,6 @@ import MppStatCard from './components/MppStatCard/MppStatCard';
 import MppTextStyle from './section/MppTextStyleSection/MppTextStyleSection';
 import InputDemo from './section/InputSection';
 
-import { ReactComponent as YellowLogo } from './ressources/logo/sco_yellow_logo_blue_text.svg';
-import { ReactComponent as WhiteLogo } from './ressources/logo/sco_white_logo_white_text.svg';
-import { ReactComponent as LogoOnly } from './ressources/logo/sco_logo_only_yellow.svg';
 import { ScoColors } from './utils/Mppcolors';
 import { MppIcons } from './utils/MppIcons';
 import MppCardEdition from './components/MppCardEdition/MppCardEdition';
@@ -27,12 +24,6 @@ import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader'
 function App() {
   return (
     <div className="main_background">
-      <h2>Logo</h2>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <YellowLogo width={'200px'} />
-        <WhiteLogo width={'200px'} />
-        <LogoOnly width={'70px'} />
-      </div>
       <h2>Type de Texte</h2>
       <MppTextStyle />
       <h2>Icons</h2>

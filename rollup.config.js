@@ -40,6 +40,9 @@ export default {
             if (asset.url.includes('background/background_login.png')) {
               return '/assets/background/background_login.png';
             }
+            if (asset.url.includes('logo/sco_yellow_logo_blue_text.png')) {
+              return '/assets/logo/sco_yellow_logo_blue_text.png';
+            }
           },
         }),
       ],

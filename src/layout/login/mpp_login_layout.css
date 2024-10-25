@@ -24,7 +24,7 @@
 .login_logo {
   position: relative;
   margin: 26px 0px;
-  height: auto;
+  height: 72px;
   width: 178px;
 }
 
@@ -79,6 +79,12 @@
     margin: 0;
     top: 20px;
     left: 20px;
+  }
+
+  .logo_sco {
+    background-image: url('../../ressources/logo/sco_yellow_logo_blue_text.png');
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
   .login_illustration {
