@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './mpp_menu.css';
 import { BoType } from '../BoType';
 import { MppIcons } from '../../utils/MppIcons';
-import { ReactComponent as ScoYellowLogo } from '../../ressources/logo/sco_yellow_logo_blue_text.svg';
 import MppSkeletonLoader from '../MppSkeletonLoader/MppSkeletonLoader';
 
 interface NavigationLink {
@@ -65,10 +64,7 @@ const MppMenu: React.FC<MppMenuProps> = ({
   return (
     <div className="menu_background">
       <div className="center">
-        <div className="logo_container">
-          {boType === BoType.scoBO ? <ScoYellowLogo className="logo" /> : null}
-        </div>
-
+        <div className="logo_container"></div>
         <div className="navigation_background">
           {clientIsLoad ? (
             navigationLinks.map((navigationLink, index) => (

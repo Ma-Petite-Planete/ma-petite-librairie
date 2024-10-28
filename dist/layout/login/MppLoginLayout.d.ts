@@ -16,43 +16,40 @@ interface LoginLayoutProps {
     onClickErrorMessage: string;
     setOnClickErrorMessage: (error: string) => void;
     isLoading: boolean;
-    isMobile: boolean;
 }
 /**
  * @interface LoginLayoutProps
- * @property {BoType} boType - Type de back-office utilisé pour déterminer l'arrière-plan et le logo.
- * @property {(() => void) | null} onPressLoginButon - Fonction à appeler lors du clic sur le bouton de connexion.
- * @property {string} welcomeText - Texte de bienvenue à afficher.
- * @property {string} welcomeTextBold - Texte de bienvenue en gras à afficher.
- * @property {string} welcomeSubtitle - Sous-titre de bienvenue à afficher.
+ * @property {BoType} boType - Type de back-office, utilisé pour déterminer l'affichage du logo (ex: `scoBO`).
+ * @property {function(): void | null} onPressLoginButon - Fonction appelée lorsque le bouton de connexion est cliqué.
+ * @property {string} welcomeText - Texte principal de bienvenue à afficher.
+ * @property {string} welcomeTextBold - Partie du texte de bienvenue à afficher en gras.
+ * @property {string} welcomeSubtitle - Sous-titre du texte de bienvenue.
  * @property {string} loginTitle - Titre de la section de connexion.
  * @property {string} loginSubtitle - Sous-titre de la section de connexion.
  * @property {string} buttonText - Texte du bouton de connexion.
- * @property {string} codeValue - Valeur actuelle du code (input).
- * @property {string} inputPlaceHolder - Texte placeHolder pour l'input.
- * @property {function(string): void} setCodeValue - Fonction pour mettre à jour la valeur du code.
- * @property {string} onClickErrorMessage - Message d'erreur à afficher lors d'un clic sur le bouton.
- * @property {function(string): void} setOnClickErrorMessage - Fonction pour mettre à jour le message d'erreur.
- * @property {boolean} isLoading - État de chargement pour afficher un loader pendant la connexion.
- * @property {boolean} isMoblie - Qu'elle format de background afficher en fonction de la width globale.
+ * @property {string} codeValue - Valeur actuelle de l'input de connexion.
+ * @property {string} inputPlaceHolder - Texte d'indice à afficher dans l'input de connexion.
+ * @property {function(string): void} setCodeValue - Fonction pour mettre à jour la valeur de l'input de connexion.
+ * @property {string} onClickErrorMessage - Message d'erreur à afficher lors de l'échec de la connexion.
+ * @property {function(string): void} setOnClickErrorMessage - Fonction pour mettre à jour le message d'erreur de connexion.
+ * @property {boolean} isLoading - Indique si une requête est en cours de traitement pour afficher un loader.
  *
  * @example
- *
- * <ComponentName
+ * <LoginLayout
  *   boType={BoType.scoBO}
- *   onPressLoginButon={() => console.log('Login pressed')}
- *   welcomeText="Bienvenue sur"
- *   welcomeTextBold="Ma Petite Planète"
- *   welcomeSubtitle="Veuillez vous connecter"
+ *   onPressLoginButon={() => console.log('Login button pressed')}
+ *   welcomeText="Bienvenue"
+ *   welcomeTextBold="à SCOBO"
+ *   welcomeSubtitle="Connectez-vous pour accéder à votre espace."
  *   loginTitle="Connexion"
  *   loginSubtitle="Veuillez entrer votre code"
  *   buttonText="Se connecter"
- *   codeValue={codeValue}
+ *   codeValue={code}
+ *   setCodeValue={setCode}
  *   inputPlaceHolder="Entrez votre code"
- *   setCodeValue={setCodeValue}
  *   onClickErrorMessage={errorMessage}
  *   setOnClickErrorMessage={setErrorMessage}
- *   isLoading={isLoading}
+ *   isLoading={isLoggingIn}
  * />
  */
 declare const ComponentName: React.FC<LoginLayoutProps>;

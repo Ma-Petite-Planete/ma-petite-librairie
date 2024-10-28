@@ -3,9 +3,6 @@ import './mpp_login_layout.css';
 import { MppButton, ButtonType } from '../../components/MppButton';
 import { default as MppInputText } from '../../components/MppInputText/MppInputText';
 import { BoType } from '../../components/BoType';
-import { ReactComponent as ScoYellowLogo } from '../../ressources/logo/sco_yellow_logo_blue_text.svg';
-import scoBackgroundMobile from '../../ressources/background/scoBackgroundMobile.png';
-import scoBackgroundDesktop from '../../ressources/background/scoBackground.png';
 import womanOnComputer from '../../ressources/illustration/woman_on_computer.png';
 import MppLoader from '../../components/MppLoader/MppLoader';
 
@@ -24,44 +21,41 @@ interface LoginLayoutProps {
   onClickErrorMessage: string;
   setOnClickErrorMessage: (error: string) => void;
   isLoading: boolean;
-  isMobile: boolean;
 }
 
 /**
  * @interface LoginLayoutProps
- * @property {BoType} boType - Type de back-office utilisé pour déterminer l'arrière-plan et le logo.
- * @property {(() => void) | null} onPressLoginButon - Fonction à appeler lors du clic sur le bouton de connexion.
- * @property {string} welcomeText - Texte de bienvenue à afficher.
- * @property {string} welcomeTextBold - Texte de bienvenue en gras à afficher.
- * @property {string} welcomeSubtitle - Sous-titre de bienvenue à afficher.
+ * @property {BoType} boType - Type de back-office, utilisé pour déterminer l'affichage du logo (ex: `scoBO`).
+ * @property {function(): void | null} onPressLoginButon - Fonction appelée lorsque le bouton de connexion est cliqué.
+ * @property {string} welcomeText - Texte principal de bienvenue à afficher.
+ * @property {string} welcomeTextBold - Partie du texte de bienvenue à afficher en gras.
+ * @property {string} welcomeSubtitle - Sous-titre du texte de bienvenue.
  * @property {string} loginTitle - Titre de la section de connexion.
  * @property {string} loginSubtitle - Sous-titre de la section de connexion.
  * @property {string} buttonText - Texte du bouton de connexion.
- * @property {string} codeValue - Valeur actuelle du code (input).
- * @property {string} inputPlaceHolder - Texte placeHolder pour l'input.
- * @property {function(string): void} setCodeValue - Fonction pour mettre à jour la valeur du code.
- * @property {string} onClickErrorMessage - Message d'erreur à afficher lors d'un clic sur le bouton.
- * @property {function(string): void} setOnClickErrorMessage - Fonction pour mettre à jour le message d'erreur.
- * @property {boolean} isLoading - État de chargement pour afficher un loader pendant la connexion.
- * @property {boolean} isMoblie - Qu'elle format de background afficher en fonction de la width globale.
+ * @property {string} codeValue - Valeur actuelle de l'input de connexion.
+ * @property {string} inputPlaceHolder - Texte d'indice à afficher dans l'input de connexion.
+ * @property {function(string): void} setCodeValue - Fonction pour mettre à jour la valeur de l'input de connexion.
+ * @property {string} onClickErrorMessage - Message d'erreur à afficher lors de l'échec de la connexion.
+ * @property {function(string): void} setOnClickErrorMessage - Fonction pour mettre à jour le message d'erreur de connexion.
+ * @property {boolean} isLoading - Indique si une requête est en cours de traitement pour afficher un loader.
  *
  * @example
- *
- * <ComponentName
+ * <LoginLayout
  *   boType={BoType.scoBO}
- *   onPressLoginButon={() => console.log('Login pressed')}
- *   welcomeText="Bienvenue sur"
- *   welcomeTextBold="Ma Petite Planète"
- *   welcomeSubtitle="Veuillez vous connecter"
+ *   onPressLoginButon={() => console.log('Login button pressed')}
+ *   welcomeText="Bienvenue"
+ *   welcomeTextBold="à SCOBO"
+ *   welcomeSubtitle="Connectez-vous pour accéder à votre espace."
  *   loginTitle="Connexion"
  *   loginSubtitle="Veuillez entrer votre code"
  *   buttonText="Se connecter"
- *   codeValue={codeValue}
+ *   codeValue={code}
+ *   setCodeValue={setCode}
  *   inputPlaceHolder="Entrez votre code"
- *   setCodeValue={setCodeValue}
  *   onClickErrorMessage={errorMessage}
  *   setOnClickErrorMessage={setErrorMessage}
- *   isLoading={isLoading}
+ *   isLoading={isLoggingIn}
  * />
  */
 
@@ -80,10 +74,14 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
   onClickErrorMessage,
   setOnClickErrorMessage,
   isLoading,
-  isMobile,
 }) => {
   const [hasError, setHasError] = useState(true);
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter' && onPressLoginButon && !hasError) {
+      onPressLoginButon();
+    }
+  };
   useEffect(() => {
     if (codeValue && onClickErrorMessage) {
       setOnClickErrorMessage('');
@@ -92,21 +90,10 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
 
   return (
     <div className="container_login_background">
-      <div
-        className={'container_image_section'}
-        style={{
-          backgroundImage: `url(${
-            boType === BoType.scoBO
-              ? isMobile
-                ? scoBackgroundMobile
-                : scoBackgroundDesktop
-              : null
-          })`,
-        }}
-      >
-        {boType === BoType.scoBO ? (
-          <ScoYellowLogo className="login_logo" />
-        ) : null}
+      <div className={'container_image_section'}>
+        <div
+          className={`login_logo ${boType === BoType.scoBO ? 'logo_sco' : 'logo_gp'}`}
+        ></div>
 
         <div className="login_welcome_text_container">
           <p className="title_h2 welcome_text">
@@ -134,10 +121,11 @@ const ComponentName: React.FC<LoginLayoutProps> = ({
                 setCodeValue(value);
                 setHasError(false);
               }}
-              setHasError={function (hasError: boolean): void {
+              setHasError={(hasError: boolean): void => {
                 setHasError(hasError);
               }}
               onClickErrorMessage={onClickErrorMessage}
+              onKeyDown={handleKeyDown}
             />
           </div>
           <div>
