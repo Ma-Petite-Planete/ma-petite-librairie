@@ -44,7 +44,7 @@ const MppPodium: React.FC<MppPodiumProps> = ({
                 subtitleBold={city}
                 key={ranking}
                 title={name}
-                pointsNumber={points}
+                pointsNumber={`${points}`}
                 typeOfPlayer={typeOfPlayers}
                 color={color}
                 ranking={ranking}
@@ -55,7 +55,7 @@ const MppPodium: React.FC<MppPodiumProps> = ({
             <MppPodiumStep
               key={index}
               title={null}
-              pointsNumber={0}
+              pointsNumber={'0'}
               subtitle=""
               subtitleBold=""
               typeOfPlayer={typeOfPlayers}
