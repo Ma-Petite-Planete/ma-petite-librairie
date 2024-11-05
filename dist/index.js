@@ -1,5 +1,5 @@
 import * as React from 'react';
-import React__default, { useState, useEffect, useCallback } from 'react';
+import React__default, { useState, useEffect, useCallback, useRef } from 'react';
 
 var ButtonType;
 (function (ButtonType) {
@@ -806,10 +806,7 @@ const MppPodiumStep = ({ id, title, subtitle, subtitleBold, pointsNumber, typeOf
                 subtitleBold && displayAllInfos ? (React__default.createElement("li", { className: "podium_step__list--subtitle_bold text_small_b" }, subtitleBold)) : null,
                 React__default.createElement("li", { style: { color: `${color}` }, className: "podium_step__list--type text_small_b" },
                     pointsNumber,
-                    " pts",
-                    React__default.createElement("span", { className: "text_small" },
-                        "/",
-                        typeOfPlayer)))) : (React__default.createElement(MppSkeletonLoader, { count: 2, spaceBetweenRow: "5px" }))),
+                    React__default.createElement("span", { className: "text_small" }, typeOfPlayer)))) : (React__default.createElement(MppSkeletonLoader, { count: 2, spaceBetweenRow: "5px" }))),
         React__default.createElement("div", { className: "podium_step_number__container", style: {
                 height: `${ranking == 1 ? '4.6em' : ranking == 2 ? '3.4em' : '2.1em'}`,
             } },
@@ -818,8 +815,8 @@ const MppPodiumStep = ({ id, title, subtitle, subtitleBold, pointsNumber, typeOf
 
 const MppPodium = ({ rankedElements, typeOfPlayers, color, displayFullInfos, onClick, onHover, onHoverLeave, }) => {
     return (React__default.createElement("div", { className: "podium__container" }, rankedElements
-        ? rankedElements.map(({ name, points, ranking, city, structure, id }) => (React__default.createElement(MppPodiumStep, { id: id, onClick: onClick, onHover: onHover, onHoverLeave: onHoverLeave, displayAllInfos: displayFullInfos, subtitle: structure, subtitleBold: city, key: ranking, title: name, pointsNumber: points, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking })))
-        : Array.from({ length: 3 }, (_, index) => (React__default.createElement(MppPodiumStep, { key: index, title: null, pointsNumber: 0, subtitle: "", subtitleBold: "", typeOfPlayer: typeOfPlayers, color: color, ranking: index + 1, displayAllInfos: false })))));
+        ? rankedElements.map(({ name, points, ranking, city, structure, id }) => (React__default.createElement(MppPodiumStep, { id: id, onClick: onClick, onHover: onHover, onHoverLeave: onHoverLeave, displayAllInfos: displayFullInfos, subtitle: structure, subtitleBold: city, key: ranking, title: name, pointsNumber: `${points} pts `, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking })))
+        : Array.from({ length: 3 }, (_, index) => (React__default.createElement(MppPodiumStep, { key: index, title: null, pointsNumber: '0', subtitle: "", subtitleBold: "", typeOfPlayer: typeOfPlayers, color: color, ranking: index + 1, displayAllInfos: false })))));
 };
 
 /**
@@ -1024,44 +1021,35 @@ const StatCard = ({ IconComponent, title, stat, boType, statDetails, }) => {
                 " ", statDetails !== null && statDetails !== void 0 ? statDetails : ''))) : (React__default.createElement(MppSkeletonLoader, { count: 2 })))));
 };
 
-const MppTextArea = ({ placeholder, value = '', validationConditions = [], onChange, setHasError, readOnly = false, }) => {
+const MppTextArea = ({ placeholder, value = '', onChange, readOnly = false, }) => {
     const [isFocused, setIsFocused] = useState(false);
-    const [isFirstEntry, setIsFirstEntry] = useState(true);
     const [inputValue, setInputValue] = useState(value);
-    const [errorMessages, setErrorMessages] = useState([]);
+    const textAreaRef = useRef(null);
     useEffect(() => {
         setInputValue(value);
+        adjustHeight();
     }, [value]);
-    const validateInput = useCallback((value) => {
-        const errors = validationConditions
-            .filter((validation) => !validation.condition(value))
-            .map((validation) => validation.message);
-        setErrorMessages(errors);
-        if (setHasError)
-            setHasError(errors.length > 0);
-        return errors.length > 0;
-    }, [validationConditions, setHasError]);
+    const adjustHeight = () => {
+        if (textAreaRef.current) {
+            textAreaRef.current.style.height = 'auto';
+            textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
+        }
+    };
     const handleFocus = () => {
         setIsFocused(true);
     };
     const handleBlur = () => {
-        setIsFirstEntry(false);
         setIsFocused(false);
-        validateInput(inputValue);
     };
     const handleChange = (e) => {
         const newValue = e.target.value;
         setInputValue(newValue);
-        const hasError = validateInput(newValue);
-        onChange(newValue, hasError);
+        adjustHeight();
+        onChange(newValue);
     };
     return (React__default.createElement(React__default.Fragment, null,
-        React__default.createElement("div", { className: `mpp_text_area_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}` },
-            React__default.createElement("textarea", { placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area ${readOnly ? 'read_only' : ''}`, readOnly: readOnly })),
-        React__default.createElement("div", { className: "input_errors" }, errorMessages.length > 0 &&
-            inputValue &&
-            !isFirstEntry &&
-            errorMessages.map((error, index) => (React__default.createElement("p", { key: index, className: "input_error" }, error))))));
+        React__default.createElement("div", { className: `mpp_text_area_container ${isFocused && !readOnly ? 'focused' : ''}` },
+            React__default.createElement("textarea", { ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area ${readOnly ? 'read_only' : ''}`, readOnly: readOnly }))));
 };
 
 var Direction;

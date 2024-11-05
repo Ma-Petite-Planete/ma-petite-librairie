@@ -84,10 +84,12 @@ function App() {
         />
       </div>
       <h2>Input</h2>
-      <div style={{ width: '400px', height: '150px' }}>
+      <div style={{ width: '400px' }}>
         <MppTextArea
           placeholder={'Je suis un texte area'}
-          value={'ddddddddddddddd'}
+          value={
+            'ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'
+          }
           onChange={function (value: string): void {
             console.log(value);
           }}
