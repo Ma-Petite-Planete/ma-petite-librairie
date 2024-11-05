@@ -1,5 +1,5 @@
 import * as React from 'react';
-import React__default, { useState, useEffect, useCallback } from 'react';
+import React__default, { useState, useEffect, useCallback, useRef } from 'react';
 
 var ButtonType;
 (function (ButtonType) {
@@ -1021,44 +1021,35 @@ const StatCard = ({ IconComponent, title, stat, boType, statDetails, }) => {
                 " ", statDetails !== null && statDetails !== void 0 ? statDetails : ''))) : (React__default.createElement(MppSkeletonLoader, { count: 2 })))));
 };
 
-const MppTextArea = ({ placeholder, value = '', validationConditions = [], onChange, setHasError, readOnly = false, }) => {
+const MppTextArea = ({ placeholder, value = '', onChange, readOnly = false, }) => {
     const [isFocused, setIsFocused] = useState(false);
-    const [isFirstEntry, setIsFirstEntry] = useState(true);
     const [inputValue, setInputValue] = useState(value);
-    const [errorMessages, setErrorMessages] = useState([]);
+    const textAreaRef = useRef(null);
     useEffect(() => {
         setInputValue(value);
+        adjustHeight();
     }, [value]);
-    const validateInput = useCallback((value) => {
-        const errors = validationConditions
-            .filter((validation) => !validation.condition(value))
-            .map((validation) => validation.message);
-        setErrorMessages(errors);
-        if (setHasError)
-            setHasError(errors.length > 0);
-        return errors.length > 0;
-    }, [validationConditions, setHasError]);
+    const adjustHeight = () => {
+        if (textAreaRef.current) {
+            textAreaRef.current.style.height = 'auto';
+            textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
+        }
+    };
     const handleFocus = () => {
         setIsFocused(true);
     };
     const handleBlur = () => {
-        setIsFirstEntry(false);
         setIsFocused(false);
-        validateInput(inputValue);
     };
     const handleChange = (e) => {
         const newValue = e.target.value;
         setInputValue(newValue);
-        const hasError = validateInput(newValue);
-        onChange(newValue, hasError);
+        adjustHeight();
+        onChange(newValue);
     };
     return (React__default.createElement(React__default.Fragment, null,
-        React__default.createElement("div", { className: `mpp_text_area_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}` },
-            React__default.createElement("textarea", { placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area ${readOnly ? 'read_only' : ''}`, readOnly: readOnly })),
-        React__default.createElement("div", { className: "input_errors" }, errorMessages.length > 0 &&
-            inputValue &&
-            !isFirstEntry &&
-            errorMessages.map((error, index) => (React__default.createElement("p", { key: index, className: "input_error" }, error))))));
+        React__default.createElement("div", { className: `mpp_text_area_container ${isFocused && !readOnly ? 'focused' : ''}` },
+            React__default.createElement("textarea", { ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area ${readOnly ? 'read_only' : ''}`, readOnly: readOnly }))));
 };
 
 var Direction;
