@@ -24,8 +24,8 @@
 
 @media (min-width: 896px) {
   .podium__container {
-    padding: 4.5rem 6rem 2.5rem 6rem;
-    max-width: 652px;
+    padding: 72px 40px 40px 40px;
+    max-width: 541px;
     box-sizing: border-box;
   }
 }

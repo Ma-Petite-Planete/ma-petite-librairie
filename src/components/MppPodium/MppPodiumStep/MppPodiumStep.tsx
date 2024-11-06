@@ -8,7 +8,7 @@ interface MppPodiumStepProps {
   title: string;
   subtitle?: string;
   subtitleBold?: string;
-  pointsNumber: number;
+  pointsNumber: string;
   typeOfPlayer: string;
   color: string;
   ranking: number;
@@ -72,8 +72,8 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
               style={{ color: `${color}` }}
               className="podium_step__list--type text_small_b"
             >
-              {pointsNumber} pts
-              <span className="text_small">/{typeOfPlayer}</span>
+              {pointsNumber}
+              <span className="text_small">{typeOfPlayer}</span>
             </li>
           </ul>
         ) : (

@@ -25,17 +25,6 @@
   border-color: var(--dark_blue);
 }
 
-.error {
-  border-color: var(--error);
-}
-
-.input_error {
-  color: var(--error);
-  font-size: 12px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
 .read_only {
   cursor: not-allowed;
 }

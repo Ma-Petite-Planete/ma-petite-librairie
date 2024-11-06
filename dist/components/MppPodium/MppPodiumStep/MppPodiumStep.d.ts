@@ -5,7 +5,7 @@ interface MppPodiumStepProps {
     title: string;
     subtitle?: string;
     subtitleBold?: string;
-    pointsNumber: number;
+    pointsNumber: string;
     typeOfPlayer: string;
     color: string;
     ranking: number;

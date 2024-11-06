@@ -18,12 +18,13 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  background-image: url('../../ressources/background/background_login_mobile.png');
 }
 
 .login_logo {
   position: relative;
   margin: 26px 0px;
-  height: auto;
+  height: 72px;
   width: 178px;
 }
 
@@ -56,6 +57,12 @@
   align-items: center;
 }
 
+.logo_sco {
+  background-image: url('../../ressources/logo/sco_yellow_logo_blue_text.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 @media (min-width: 896px) {
   .container_login_background {
     flex-direction: row;
@@ -64,6 +71,7 @@
     width: 50%;
     height: 100%;
     justify-content: center;
+    background-image: url('../../ressources/background/background_login.png');
   }
 
   .input_section_content {

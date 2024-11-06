@@ -5,6 +5,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import image from '@rollup/plugin-image';
 import url from 'rollup-plugin-url';
+import postcssUrl from 'postcss-url';
 import { babel } from '@rollup/plugin-babel';
 
 export default {
@@ -30,6 +31,21 @@ export default {
     postcss({
       extract: true,
       minimize: true,
+      plugins: [
+        postcssUrl({
+          url: (asset) => {
+            if (asset.url.includes('background/background_login_mobile.png')) {
+              return '/assets/background/background_login_mobile.png';
+            }
+            if (asset.url.includes('background/background_login.png')) {
+              return '/assets/background/background_login.png';
+            }
+            if (asset.url.includes('logo/sco_yellow_logo_blue_text.png')) {
+              return '/assets/sco_yellow_logo_blue_text.png';
+            }
+          },
+        }),
+      ],
     }),
     babel({
       babelHelpers: 'bundled',
