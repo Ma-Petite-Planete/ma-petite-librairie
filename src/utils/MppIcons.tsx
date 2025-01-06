@@ -21,6 +21,8 @@ import { ReactComponent as drops } from '../ressources/icons/drops.svg';
 import { ReactComponent as trash } from '../ressources/icons/trash.svg';
 import { ReactComponent as openBook } from '../ressources/icons/open_book.svg';
 import { ReactComponent as infos } from '../ressources/icons/Info.svg';
+import { ReactComponent as copy } from '../ressources/icons/copy.svg';
+import { ReactComponent as remove } from '../ressources/icons/remove.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -46,4 +48,6 @@ export const MppIcons = {
   trash: trash,
   openBook: openBook,
   infos: infos,
+  copy: copy,
+  remove: remove
 } as const;
