@@ -8,16 +8,23 @@
   line-height: auto;
   color: var(--dark_blue);
 
-  /* graphique chart mpp scolaire */
-  --error: red;
+
   --white: #ffffff;
+  --dark_blue: #2c2c69;
+  --anthracite: #333333;
+  --dark_grey: #999999;
+  --medium_grey: #dadada;
+  --light_grey: #f4f4f4;
+
+
+  /* graphic chart mpp scolaire */
+  --error: red;
   --white_transparent: #ffffff99;
   --main_yellow: #f9cf2f;
   --light_yellow: #f9dc6c;
   --very_light_yellow: #faf1c8;
   --main_blue: #5fd3ac;
   --light_blue: #cfeef4;
-  --dark_blue: #2c2c69;
   --dark_blue_light: rgb(44, 44, 105, 0.8);
   --dark_blue_very_light: rgb(44, 44, 105, 0.2);
   --disable_dark_blue: #9595b4;
@@ -31,10 +38,6 @@
   --pastel_orange: #ffae92;
   --pastel_dark_violet: #b1c5ff;
   --pastel_turquoise: #7fd4b3;
-  --anthracite: #333333;
-  --dark_grey: #999999;
-  --medium_grey: #dadada;
-  --light_grey: #f4f4f4;
   --utility_yellow: #e3ba1a;
   --utility_green: #21be8b;
   --green_background: #eefaf7;
@@ -43,6 +46,23 @@
   --gradient_peps_reverse: linear-gradient(to left, #b42ff5, #cfeef4);
   --standard_border_radius: 8px;
   --big_border_radius: 20px;
+
+  /* graphic chart mpp adulte */
+  --orange: #FB921E;
+  --mint_green: #09B93B;
+  --light_blue: #A3E1F0;
+  --teal: #00B7B9;
+  --pink: #F9C7DD;
+  --royal_blue: #492FCB;
+  --light_green: #82D993;
+  --error_red:#EF6B51;
+  --pastel_green: #C1EDCE;
+  --pastel_orange: #FCD9B4;
+  --pastel_pink: #FCE3EE;
+  --light_beige: #FFFAF7;
+  --beige: #F2E9DC;
+  --taupe: #BEB2C8;
+  --kaki: #D0DB97;
 }
 
 p,

@@ -31,3 +31,21 @@ export const ScoColors = {
   gradientPeps: 'var(--gradient_peps)',
   gradientPepsReverse: 'var(--gradient_peps_reverse)',
 } as const;
+
+export const EcuColors = {
+  orange: 'var(--orange)',
+  mintGreen: 'var(--mint_green)',
+  lightBlue: 'var(--light_blue)',
+  teal: 'var(--teal)',
+  pink: 'var(--pink)',
+  royalBlue: 'var(--royal_blue)',
+  lightGreen: 'var(--light_green)',
+  errorRed: 'var(--error_red)',
+  pastelGreen: 'var(--pastel_green)',
+  pastelOrange: 'var(--pastel_orange)',
+  pastelPink: 'var(--pastel_pink)',
+  lightBeige: 'var(--light_beige)',
+  beige: 'var(--beige)',
+  taupe: 'var(--taupe)',
+  kaki: 'var(--kaki)',
+} as const;

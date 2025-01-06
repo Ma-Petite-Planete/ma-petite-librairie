@@ -31,3 +31,20 @@ export declare const ScoColors: {
     readonly gradientPeps: "var(--gradient_peps)";
     readonly gradientPepsReverse: "var(--gradient_peps_reverse)";
 };
+export declare const EcuColors: {
+    readonly orange: "var(--orange)";
+    readonly mintGreen: "var(--mint_green)";
+    readonly lightBlue: "var(--light_blue)";
+    readonly teal: "var(--teal)";
+    readonly pink: "var(--pink)";
+    readonly royalBlue: "var(--royal_blue)";
+    readonly lightGreen: "var(--light_green)";
+    readonly errorRed: "var(--error_red)";
+    readonly pastelGreen: "var(--pastel_green)";
+    readonly pastelOrange: "var(--pastel_orange)";
+    readonly pastelPink: "var(--pastel_pink)";
+    readonly lightBeige: "var(--light_beige)";
+    readonly beige: "var(--beige)";
+    readonly taupe: "var(--taupe)";
+    readonly kaki: "var(--kaki)";
+};
