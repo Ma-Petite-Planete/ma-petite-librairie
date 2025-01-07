@@ -280,7 +280,7 @@ function App() {
         </div>
         <MppSkeletonLoader count={3} />
       </div>
-
+      <h2>MultiSectionButtons</h2>
       <MppMultiSectionButtonProps
         buttons_actions={[
           {
