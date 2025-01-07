@@ -139,3 +139,7 @@ textarea {
   font-weight: 400;
   color: var(--dark_blue);
 }
+
+button {
+  background: none;
+}

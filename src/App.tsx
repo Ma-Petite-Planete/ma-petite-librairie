@@ -20,7 +20,7 @@ import LayoutLoginSection from './section/MppLayoutLoginSection';
 import MppLoader from './components/MppLoader/MppLoader';
 import MppTextArea from './components/MppTextArea/MppTextArea';
 import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader';
-
+import MppMultiSectionButtonProps from './components/MppMultiSectionButtons/MppMultiSectionButton';
 function App() {
   return (
     <div className="main_background">
@@ -280,6 +280,8 @@ function App() {
         </div>
         <MppSkeletonLoader count={3} />
       </div>
+
+      <MppMultiSectionButtonProps hello="Hello" />
     </div>
   );
 }

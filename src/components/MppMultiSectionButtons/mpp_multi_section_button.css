@@ -1,0 +1,21 @@
+.multi_section_button--button {
+  padding: 13.5px 40px;
+  background: var(--white);
+  border: solid 2px var(--dark_blue);
+  color: var(--dark_blue);
+}
+
+.multi_section_button--button:first-child,
+.multi_section_button--button:last-child {
+  padding: 13.5px 36px;
+}
+
+.multi_section_button--button:first-child {
+  border-radius: 50px 0px 0px 50px;
+  border-right: none;
+}
+
+.multi_section_button--button:last-child {
+  border-radius: 0px 50px 50px 0px;
+  border-left: none;
+}
