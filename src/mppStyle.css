@@ -143,3 +143,7 @@ textarea {
 button {
   background: none;
 }
+
+button:hover {
+  cursor: pointer;
+}

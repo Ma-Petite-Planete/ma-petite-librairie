@@ -12,10 +12,13 @@
 
 .multi_section_button--button:first-child {
   border-radius: 50px 0px 0px 50px;
-  border-right: none;
 }
 
 .multi_section_button--button:last-child {
   border-radius: 0px 50px 50px 0px;
+  border-left: none;
+}
+
+.multi_section_button--button:not(:first-child):not(:last-child) {
   border-left: none;
 }

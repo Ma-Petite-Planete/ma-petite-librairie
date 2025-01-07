@@ -281,7 +281,22 @@ function App() {
         <MppSkeletonLoader count={3} />
       </div>
 
-      <MppMultiSectionButtonProps hello="Hello" />
+      <MppMultiSectionButtonProps
+        buttons_actions={[
+          {
+            label: 'Action 1',
+            OnClick: () => console.log('Action 1'),
+          },
+          {
+            label: 'Action 2',
+            OnClick: () => console.log('Action 2'),
+          },
+          {
+            label: 'Action 3',
+            OnClick: () => console.log('Action 3'),
+          },
+        ]}
+      />
     </div>
   );
 }
