@@ -22,3 +22,16 @@
 .multi_section_button--button:not(:first-child):not(:last-child) {
   border-left: none;
 }
+
+.multi_section_button--selected {
+  background: var(--dark_blue);
+  color: var(--white);
+}
+
+.multi_section_button--button:hover {
+  background-color: var(--dark_blue_very_light);
+}
+
+.multi_section_button--selected:hover {
+  background-color: var(--dark_blue_light);
+}
