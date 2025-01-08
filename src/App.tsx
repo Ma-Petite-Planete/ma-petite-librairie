@@ -318,7 +318,9 @@ function App() {
         onChange={function (value: string): void {
           console.log(value);
         }}
+        placeholder='Sélectionner une langue'
         value={''}
+        isDisabled={false}
       />
     </div>
   );
