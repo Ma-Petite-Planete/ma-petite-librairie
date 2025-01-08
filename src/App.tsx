@@ -21,6 +21,7 @@ import MppLoader from './components/MppLoader/MppLoader';
 import MppTextArea from './components/MppTextArea/MppTextArea';
 import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader';
 import MppMultiSectionButtonProps from './components/MppMultiSectionButtons/MppMultiSectionButton';
+import MppSelectInput from './components/MppSelectInput/MppSelectInput';
 function App() {
   return (
     <div className="main_background">
@@ -296,6 +297,28 @@ function App() {
             OnClick: () => console.log('Action 3'),
           },
         ]}
+      />
+      <h2>Select Input</h2>
+      <MppSelectInput
+        options={[
+          {
+            value: 'Français',
+          },
+          {
+            value: 'English',
+          },
+          {
+            value: 'Italiano',
+          },
+          {
+            value: 'Español',
+          },
+          { value: 'Deutsch' },
+        ]}
+        onChange={function (value: string): void {
+          console.log(value);
+        }}
+        value={''}
       />
     </div>
   );
