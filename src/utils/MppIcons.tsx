@@ -23,6 +23,11 @@ import { ReactComponent as openBook } from '../ressources/icons/open_book.svg';
 import { ReactComponent as infos } from '../ressources/icons/Info.svg';
 import { ReactComponent as copy } from '../ressources/icons/copy.svg';
 import { ReactComponent as remove } from '../ressources/icons/remove.svg';
+import { ReactComponent as flag_fr } from '../ressources/icons/flag_fr.svg';
+import { ReactComponent as flag_en } from '../ressources/icons/flag_en.svg';
+import { ReactComponent as flag_es } from '../ressources/icons/flag_es.svg';
+import { ReactComponent as flag_de } from '../ressources/icons/flag_de.svg';
+import { ReactComponent as flag_it } from '../ressources/icons/flag_it.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -49,5 +54,12 @@ export const MppIcons = {
   openBook: openBook,
   infos: infos,
   copy: copy,
-  remove: remove
+  remove: remove,
+  flag_fr: flag_fr,
+  flag_en: flag_en,
+  flag_es: flag_es,
+  flag_de: flag_de,
+  flag_it: flag_it,
 } as const;
+
+export const getIconFromName = (iconName?: string) => MppIcons[iconName];

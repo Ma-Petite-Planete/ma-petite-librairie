@@ -21,7 +21,7 @@ import MppLoader from './components/MppLoader/MppLoader';
 import MppTextArea from './components/MppTextArea/MppTextArea';
 import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader';
 import MppMultiSectionButtonProps from './components/MppMultiSectionButtons/MppMultiSectionButton';
-import MppSelectInput from './components/MppSelectInput/MppSelectInput';
+import MppDropDown from './components/MppDropdown/MppDropDown';
 function App() {
   return (
     <div className="main_background">
@@ -299,27 +299,23 @@ function App() {
         ]}
       />
       <h2>Select Input</h2>
-      <MppSelectInput
+      <MppDropDown
         options={[
           {
-            value: 'Français',
+            value: 'fr',
+            prefixIconName: 'flag_fr',
+            label:'Français'
           },
           {
-            value: 'English',
+            value: 'en',
+            label:'English'
           },
-          {
-            value: 'Italiano',
-          },
-          {
-            value: 'Español',
-          },
-          { value: 'Deutsch' },
         ]}
         onChange={function (value: string): void {
           console.log(value);
         }}
-        placeholder='Sélectionner une langue'
-        value={''}
+        placeholder="Sélectionner une langue"
+        value={'Je sais pas'}
         isDisabled={false}
       />
     </div>
