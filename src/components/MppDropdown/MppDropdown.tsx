@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './mpp_dropdown.css';
 import { getIconFromName } from '../../utils/MppIcons';
+import useClickOutside from '../../hooks/clickOutside';
 
 interface Option {
   value: string;
@@ -29,19 +30,23 @@ const MppDropDown: React.FC<MppDropDownProps> = ({
   const [isDropdownVisible, setIsDropdownVisible] =
     React.useState<boolean>(false);
   const PrefixIcon = getIconFromName(selectedOption?.prefixIconName);
-
+  const dropDownRef = useRef<HTMLDivElement>(null);
+  useClickOutside(dropDownRef, () => {
+    if (!isDisabled) {
+      setIsDropdownVisible(false);
+    }
+  });
   useEffect(() => {
     if (isDisabled) {
       setSelectedOption(null);
-    } else {
-      setSelectedOption(
-        options.find((option) => option.value === value) || null
-      );
     }
-  }, [isDisabled, options, value]);
+  }, [isDisabled]);
 
   return (
-    <div className={`custom_select ${isDisabled ? 'select_disabled' : ''}`}>
+    <div
+      ref={dropDownRef}
+      className={`custom_select ${isDisabled ? 'select_disabled' : ''}`}
+    >
       <button
         disabled={isDisabled}
         onClick={
