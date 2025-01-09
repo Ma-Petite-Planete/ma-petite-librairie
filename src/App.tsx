@@ -311,7 +311,7 @@ function App() {
             label:'English'
           },
         ]}
-        onChange={function (value: string): void {
+        onChange={function (value): void {
           console.log(value);
         }}
         placeholder="Sélectionner une langue"

@@ -10,7 +10,7 @@ interface Option {
 
 interface MppDropDownProps {
   options: Array<Option>;
-  onChange: (value: string) => void;
+  onChange: (value: Option) => void;
   value: string;
   placeholder: string;
   isDisabled?: boolean;
@@ -33,8 +33,12 @@ const MppDropDown: React.FC<MppDropDownProps> = ({
   useEffect(() => {
     if (isDisabled) {
       setSelectedOption(null);
+    } else {
+      setSelectedOption(
+        options.find((option) => option.value === value) || null
+      );
     }
-  }, [isDisabled]);
+  }, [isDisabled, options, value]);
 
   return (
     <div className={`custom_select ${isDisabled ? 'select_disabled' : ''}`}>
@@ -43,7 +47,10 @@ const MppDropDown: React.FC<MppDropDownProps> = ({
         onClick={
           !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null
         }
-        className={`select_button text_body ${isDropdownVisible ? 'open' : ''}  ${(placeholder && value === '' && !selectedOption) || isDisabled ? 'default' : ''} ${selectedOption ? 'selected' : ''}`}
+        className={`select_button text_body
+          ${isDropdownVisible ? 'open' : ''}
+          ${(placeholder && value === '' && !selectedOption) || isDisabled ? 'default' : ''}
+          ${selectedOption ? 'selected' : ''}`}
       >
         <span className="select_button--selected_value">
           {selectedOption?.prefixIconName && (
@@ -51,6 +58,7 @@ const MppDropDown: React.FC<MppDropDownProps> = ({
               style={{ width: '14px', height: '14px', margin: '0 2px 0 0' }}
             />
           )}
+
           {selectedOption?.label
             ? selectedOption?.label
             : value
@@ -61,30 +69,36 @@ const MppDropDown: React.FC<MppDropDownProps> = ({
           className={`${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}`}
         ></span>
       </button>
-      <ul className={`select_dropdown ${isDropdownVisible ? '' : 'hidden'}`}>
-        {options.map((option, index) => {
-          const PrefixIcon = getIconFromName(option.prefixIconName);
-          return (
-            <li
-              className="text_body"
-              key={index}
-              onClick={() => {
-                setSelectedOption(option);
-                setIsDropdownVisible(false);
-                onChange(option.value);
-              }}
-            >
-              {option.prefixIconName && (
-                <PrefixIcon
-                  style={{ width: '14px', height: '14px', margin: '0 2px 0 0' }}
-                />
-              )}
-              {option.label}
-              <div className="select_dropdown_divider"></div>
-            </li>
-          );
-        })}
-      </ul>
+      {isDropdownVisible && (
+        <ul className="select_dropdown">
+          {options.map((option, index) => {
+            const OptionPrefixIcon = getIconFromName(option.prefixIconName);
+            return (
+              <li
+                className="text_body"
+                key={index}
+                onClick={() => {
+                  setSelectedOption(option);
+                  setIsDropdownVisible(false);
+                  onChange(option);
+                }}
+              >
+                {option.prefixIconName && (
+                  <OptionPrefixIcon
+                    style={{
+                      width: '14px',
+                      height: '14px',
+                      margin: '0 2px 0 0',
+                    }}
+                  />
+                )}
+                {option.label}
+                <div className="select_dropdown_divider"></div>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 };
