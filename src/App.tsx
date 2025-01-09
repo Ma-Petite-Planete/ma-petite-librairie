@@ -21,7 +21,8 @@ import MppLoader from './components/MppLoader/MppLoader';
 import MppTextArea from './components/MppTextArea/MppTextArea';
 import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader';
 import MppMultiSectionButtonProps from './components/MppMultiSectionButtons/MppMultiSectionButton';
-import MppDropDown from './components/MppDropdown/MppDropDown';
+import MppDropDown from './components/MppDropdown/MppDropdown';
+import MppLoaderDots from './components/MppLoaderDots/MppLoaderDots';
 function App() {
   return (
     <div className="main_background">
@@ -304,11 +305,11 @@ function App() {
           {
             value: 'fr',
             prefixIconName: 'flag_fr',
-            label:'Français'
+            label: 'Français',
           },
           {
             value: 'en',
-            label:'English'
+            label: 'English',
           },
         ]}
         onChange={function (value): void {
@@ -318,6 +319,8 @@ function App() {
         value={'Je sais pas'}
         isDisabled={false}
       />
+
+      <MppLoaderDots />
     </div>
   );
 }
