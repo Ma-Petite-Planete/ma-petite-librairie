@@ -23,6 +23,7 @@ import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader'
 import MppMultiSectionButtonProps from './components/MppMultiSectionButtons/MppMultiSectionButton';
 import MppDropDown from './components/MppDropdown/MppDropdown';
 import MppLoaderDots from './components/MppLoaderDots/MppLoaderDots';
+import LinearProgressBar from './components/MppLinearProgressBar/MppLinearProgressBar';
 function App() {
   return (
     <div className="main_background">
@@ -321,8 +322,10 @@ function App() {
       />
 
       <h2>Loader points</h2>
-
       <MppLoaderDots />
+
+      <h2>Linear progress bar</h2>
+      <LinearProgressBar maxValue={16} value={12} />
     </div>
   );
 }
