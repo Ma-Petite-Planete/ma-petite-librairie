@@ -320,6 +320,8 @@ function App() {
         isDisabled={false}
       />
 
+      <h2>Loader points</h2>
+
       <MppLoaderDots />
     </div>
   );
