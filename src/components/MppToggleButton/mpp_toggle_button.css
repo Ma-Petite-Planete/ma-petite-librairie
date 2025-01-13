@@ -4,7 +4,7 @@
 
 .toggle_button {
   position: relative;
-  background-color: #d2d2d2;
+  background-color: var(--dark_grey);
   width: 36px;
   height: 22px;
   border-radius: 200px;

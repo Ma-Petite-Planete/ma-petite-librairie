@@ -27,6 +27,9 @@ import LinearProgressBar, {
   ProgressBarStyle,
 } from './components/MppLinearProgressBar/MppLinearProgressBar';
 import MppToggleButton from './components/MppToggleButton/MppToggleButton';
+import MppLabelType, {
+  labelType,
+} from './components/MppLabelType/MppLabelType';
 function App() {
   return (
     <div className="main_background">
@@ -341,6 +344,13 @@ function App() {
           console.log(value);
         }}
       />
+
+      <h2>Label Type</h2>
+      <div className='label_section'>
+        <MppLabelType value={'Commu'} labelType={labelType.grey} />
+        <MppLabelType value={'Université'} labelType={labelType.orange} />
+        <MppLabelType value={'Entreprise'} labelType={labelType.green} />
+      </div>
     </div>
   );
 }

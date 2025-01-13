@@ -40,6 +40,7 @@
 }
 
 .select_dropdown {
+  background-color: var(--light_grey);
   position: absolute;
   width: 100%;
   border: 1px solid var(--dark_blue);
@@ -89,5 +90,3 @@
 .open {
   border: 1px solid var(--dark_blue);
 }
-
-
