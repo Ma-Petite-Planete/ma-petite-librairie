@@ -1,0 +1,37 @@
+.toggle_button_container {
+  display: inline-flex;
+}
+
+.toggle_button {
+  position: relative;
+  background-color: #d2d2d2;
+  width: 36px;
+  height: 22px;
+  border-radius: 200px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s;
+}
+
+.toggle_button_indicator {
+  position: relative;
+  top: 1px;
+  left: 1px;
+  height: 20px;
+  width: 20px;
+  background-color: var(--white);
+  border-radius: 100%;
+  transition: 0.3s;
+}
+input {
+  display: none;
+}
+
+.checked.toggle_button {
+  background-color: #20096d;
+}
+.checked .toggle_button_indicator {
+  left: 15px;
+  top: 1px;
+  transition: 0.3s;
+}
