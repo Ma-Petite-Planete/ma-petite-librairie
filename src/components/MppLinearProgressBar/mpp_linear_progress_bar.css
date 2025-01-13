@@ -14,10 +14,11 @@
   font-size: 10px;
   font-weight: 700;
   line-height: auto;
+  text-align: end;
 }
 
-/* default */
-.default .linear_progress_bar--background_value {
+/*----------------- DEFAULT ------------------*/
+.default .linear_progress_bar--main_value {
   display: none;
 }
 
@@ -26,15 +27,54 @@
   width: 100%;
 }
 
-/* red */
-.red .linear_progress_bar--background_value .progress_bar {
-  background-color: rgb(129, 79, 79);
+.default .background_value--max_value {
+  text-align: center;
 }
+
+/*--------------- RED ---------------*/
+
 .red .linear_progress_bar--main_value .progress_bar {
-  background-color: var(--medium_grey);
-  width: 25%;
+  background-color: var(--error_red);
+}
+.red .linear_progress_bar--background_value .progress_bar {
+  background-color: var(--error_red_transparent);
 }
 
-/* orange */
+.red .main_value--value {
+  color: var(--error_red);
+}
 
-/* green */
+.red .background_value--max_value {
+  color: var(--error_red_transparent);
+}
+/*----------------- ORANGE ----------------*/
+.orange .linear_progress_bar--main_value .progress_bar {
+  background-color: var(--orange);
+}
+.orange .linear_progress_bar--background_value .progress_bar {
+  background-color: var(--orange_transparent);
+}
+
+.orange .main_value--value {
+  color: var(--orange);
+}
+
+.orange .background_value--max_value {
+  color: var(--orange_transparent);
+}
+
+/*------------------ GREEN --------------------*/
+.green .linear_progress_bar--main_value .progress_bar {
+  background-color: var(--mint_green);
+}
+.green .linear_progress_bar--background_value .progress_bar {
+  background-color: var(--mint_green_transparent);
+}
+
+.green .main_value--value {
+  color: var(--mint_green);
+}
+
+.green .background_value--max_value {
+  color: var(--mint_green_transparent);
+}

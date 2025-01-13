@@ -40,13 +40,16 @@
 
   /* graphic chart mpp adulte */
   --orange: #fb921e;
+  --orange_transparent: #fb901e80;
   --mint_green: #09b93b;
+  --mint_green_transparent: #0aba3c80;
   --light_blue: #a3e1f0;
   --teal: #00b7b9;
   --pink: #f9c7dd;
   --royal_blue: #492fcb;
   --light_green: #82d993;
   --error_red: #ef6b51;
+  --error_red_transparent: #ef6c5280;
   --pastel_green: #c1edce;
   --pastel_orange: #fcd9b4;
   --pastel_pink: #fce3ee;

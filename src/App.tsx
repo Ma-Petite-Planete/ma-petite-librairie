@@ -23,7 +23,7 @@ import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader'
 import MppMultiSectionButtonProps from './components/MppMultiSectionButtons/MppMultiSectionButton';
 import MppDropDown from './components/MppDropdown/MppDropdown';
 import MppLoaderDots from './components/MppLoaderDots/MppLoaderDots';
-import LinearProgressBar from './components/MppLinearProgressBar/MppLinearProgressBar';
+import LinearProgressBar, { ProgressBarStyle } from './components/MppLinearProgressBar/MppLinearProgressBar';
 function App() {
   return (
     <div className="main_background">
@@ -102,9 +102,9 @@ function App() {
       <InputDemo />
       <h2>Trophés</h2>
       <MppPodium
-        onClick={() => {}}
-        onHover={() => {}}
-        onHoverLeave={() => {}}
+        onClick={() => { }}
+        onHover={() => { }}
+        onHoverLeave={() => { }}
         displayFullInfos={false}
         color={ScoColors.lightYellow}
         typeOfPlayers="élève"
@@ -325,7 +325,7 @@ function App() {
       <MppLoaderDots />
 
       <h2>Linear progress bar</h2>
-      <LinearProgressBar maxValue={16} value={12} />
+      <LinearProgressBar maxValue={16} value={16} colorStyle={ProgressBarStyle.green} />
     </div>
   );
 }
