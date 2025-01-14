@@ -368,7 +368,6 @@ function App() {
               console.log('🚀 ~ App ~ value:', value);
             }}
             checked={false}
-            htmlfor={element.id}
           />
         </div>
       ))}

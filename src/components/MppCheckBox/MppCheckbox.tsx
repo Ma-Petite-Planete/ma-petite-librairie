@@ -4,30 +4,35 @@ interface MppCheckboxProps {
   value: string;
   onChange: (value: string) => void;
   checked: boolean;
-  htmlfor: string;
 }
 
 const MppCheckbox: React.FC<MppCheckboxProps> = ({
   value,
   onChange,
   checked,
-  htmlfor,
 }) => {
   const [isSelected, setIsSelected] = useState<boolean>(checked);
   return (
     <div className="checkbox_container">
-      <label className="checkbox_container_label" htmlFor={htmlfor}></label>
-      <input
-        className="checkbox_container_input"
-        checked={isSelected}
-        type="checkbox"
-        name="checkbox"
-        id={`checkbox_${value}`}
-        onChange={() => {
-          setIsSelected((param) => !param);
-          onChange(value);
-        }}
-      />
+      <div className="checkbox_container_checkbox">
+        <label
+          className="checkbox_container_label"
+          htmlFor={`checkbox_${value}`}
+        >
+          <input
+            className="checkbox_container_input"
+            checked={isSelected}
+            type="checkbox"
+            name="checkbox"
+            id={`checkbox_${value}`}
+            onChange={() => {
+              setIsSelected((param) => !param);
+              onChange(value);
+            }}
+          />
+          <span className="checkmark"></span>
+        </label>
+      </div>
     </div>
   );
 };
