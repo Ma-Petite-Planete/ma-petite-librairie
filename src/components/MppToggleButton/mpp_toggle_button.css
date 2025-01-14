@@ -13,6 +13,10 @@
   transition: 0.2s;
 }
 
+.toggle_button:focus {
+  outline: 2px solid var(--anthracite);
+}
+
 .toggle_button_indicator {
   position: relative;
   top: 1px;
@@ -23,8 +27,10 @@
   border-radius: 100%;
   transition: 0.3s;
 }
-input {
-  display: none;
+.toggle_button_container input {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
 }
 
 .checked.toggle_button {

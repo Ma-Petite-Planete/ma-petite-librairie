@@ -30,6 +30,7 @@ import MppToggleButton from './components/MppToggleButton/MppToggleButton';
 import MppLabelType, {
   labelType,
 } from './components/MppLabelType/MppLabelType';
+import MppCheckbox from './components/MppCheckBox/MppCheckbox';
 function App() {
   return (
     <div className="main_background">
@@ -346,11 +347,31 @@ function App() {
       />
 
       <h2>Label Type</h2>
-      <div className='label_section'>
+      <div className="label_section">
         <MppLabelType value={'Commu'} labelType={labelType.grey} />
         <MppLabelType value={'Université'} labelType={labelType.orange} />
         <MppLabelType value={'Entreprise'} labelType={labelType.green} />
       </div>
+
+      <h2>Checkbox</h2>
+      {[
+        {
+          id: 'truc1',
+        },
+        { id: 'truc2' },
+        { id: 'truc3' },
+      ].map((element) => (
+        <div key={element.id}>
+          <MppCheckbox
+            value={element.id}
+            onChange={(value: string): void => {
+              console.log('🚀 ~ App ~ value:', value);
+            }}
+            checked={false}
+            htmlfor={element.id}
+          />
+        </div>
+      ))}
     </div>
   );
 }

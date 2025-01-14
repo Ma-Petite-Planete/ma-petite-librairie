@@ -34,7 +34,6 @@ interface MppMultiSectionButtonProps {
 const MppMultiSectionButton: React.FC<MppMultiSectionButtonProps> = ({
   buttons_actions,
 }) => {
-  console.log('🚀 ~ buttons_actions:', buttons_actions.length);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   return (

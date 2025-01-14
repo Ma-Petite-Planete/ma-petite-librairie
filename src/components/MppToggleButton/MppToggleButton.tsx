@@ -12,7 +12,8 @@ const MppToggleButton: React.FC<ToggleButtonPropos> = ({ value, onChange }) => {
   return (
     <div className="toggle_button_container">
       <label
-        htmlFor="check"
+        tabIndex={0}
+        htmlFor="toggle"
         className={`toggle_button ${toggleValue ? 'checked' : ''}`}
       >
         <input
@@ -21,10 +22,9 @@ const MppToggleButton: React.FC<ToggleButtonPropos> = ({ value, onChange }) => {
             setToggleValue(value);
             onChange(value);
           }}
-          defaultChecked={value}
           checked={toggleValue}
           type="checkbox"
-          id="check"
+          id="toggle"
         />
         <div className="toggle_button_indicator"></div>
       </label>
