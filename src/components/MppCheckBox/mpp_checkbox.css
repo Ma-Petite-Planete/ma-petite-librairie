@@ -20,23 +20,20 @@
 }
 .checkbox_container_checkbox {
   position: relative;
+  height: 22px;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
 .checkbox_container_checkbox .checkmark:after {
   content: '';
   position: absolute;
   display: none;
 }
 
-/* Show the checkmark when checked */
 .checkbox_container_checkbox input:checked ~ .checkmark:after {
   display: block;
   cursor: pointer;
-
 }
 
-/* Style the checkmark/indicator */
 .checkbox_container_checkbox .checkmark:after {
   left: 9.5px;
   top: 4px;
