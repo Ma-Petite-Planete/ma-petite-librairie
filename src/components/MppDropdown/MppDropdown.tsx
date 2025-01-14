@@ -80,6 +80,15 @@ const MppDropDown: React.FC<MppDropDownProps> = ({
             const OptionPrefixIcon = getIconFromName(option.prefixIconName);
             return (
               <li
+                onKeyDown={(event) => {
+                  console.log();
+                  if (event.key === 'Enter') {
+                    setSelectedOption(option);
+                    setIsDropdownVisible(false);
+                    onChange(option);
+                  }
+                }}
+                tabIndex={0}
                 className="text_body"
                 key={index}
                 onClick={() => {
