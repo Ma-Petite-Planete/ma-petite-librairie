@@ -23,7 +23,6 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
         >
           <input
             onKeyDown={(event) => {
-              console.log();
               if (event.key === 'Enter') {
                 setIsSelected((param) => !param);
                 onChange(value);
