@@ -12,6 +12,13 @@ const MppToggleButton: React.FC<ToggleButtonPropos> = ({ value, onChange }) => {
   return (
     <div className="toggle_button_container">
       <label
+        onKeyDown={(event) => {
+          if (event.key === 'Enter') {
+            const value = !toggleValue;
+            setToggleValue(value);
+            onChange(value);
+          }
+        }}
         tabIndex={0}
         htmlFor="toggle"
         className={`toggle_button ${toggleValue ? 'checked' : ''}`}

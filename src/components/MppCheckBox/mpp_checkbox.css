@@ -16,7 +16,7 @@
 
 .checkbox_container input[type='checkbox']:focus-visible,
 .checkbox_container input[type='checkbox']:hover {
-  border: 2px solid var(--dark_blue);
+  border: 1px solid var(--dark_blue);
 }
 .checkbox_container_checkbox {
   position: relative;
@@ -34,7 +34,7 @@
   cursor: pointer;
 }
 
-.checkbox_container_checkbox .checkmark:after {
+.checkbox_container_checkbox .secondary_checkbox .checkmark:after {
   left: 9.5px;
   top: 4px;
   width: 5px;
@@ -44,4 +44,13 @@
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.checkbox_container_checkbox .main_checkbox .checkmark:after {
+  left: 7px;
+  top: 11px;
+  width: 12px;
+  height: 2px;
+  background-color: var(--white);
+  border-radius: 5px;
 }

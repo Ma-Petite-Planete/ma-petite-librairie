@@ -4,22 +4,31 @@ interface MppCheckboxProps {
   value: string;
   onChange: (value: string) => void;
   checked: boolean;
+  isTableHeader: boolean;
 }
 
 const MppCheckbox: React.FC<MppCheckboxProps> = ({
   value,
   onChange,
   checked,
+  isTableHeader,
 }) => {
   const [isSelected, setIsSelected] = useState<boolean>(checked);
   return (
     <div className="checkbox_container">
       <div className="checkbox_container_checkbox">
         <label
-          className="checkbox_container_label"
+          className={`checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}`}
           htmlFor={`checkbox_${value}`}
         >
           <input
+            onKeyDown={(event) => {
+              console.log();
+              if (event.key === 'Enter') {
+                setIsSelected((param) => !param);
+                onChange(value);
+              }
+            }}
             className="checkbox_container_input"
             checked={isSelected}
             type="checkbox"
