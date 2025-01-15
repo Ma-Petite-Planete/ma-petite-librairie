@@ -11,10 +11,14 @@ interface MppMultiSectionButtonProps {
 }
 
 /**
- * Le composant MppMultiSectionButton rend un ensemble de boutons basés sur les actions fournies.
- * Chaque bouton peut être cliqué pour déclencher son action associée et indiquer visuellement la sélection.
+ * Le composant MppMultiSectionButton rend un bouton à sections multiples avec des actions personnalisables pour chaque section.
  *
  * @component
+ * @param {MppMultiSectionButtonProps} props - Les propriétés du composant MppMultiSectionButton.
+ * @param {Array<ButtonActions>} props.buttons_actions - Un tableau d'actions de boutons, chacun contenant un label et une fonction OnClick.
+ *
+ * @returns {JSX.Element} Le composant MppMultiSectionButton rendu.
+ *
  * @example
  * const buttonActions = [
  *   { label: 'Bouton 1', OnClick: () => console.log('Bouton 1 cliqué') },
@@ -25,10 +29,6 @@ interface MppMultiSectionButtonProps {
  * return (
  *   <MppMultiSectionButton buttons_actions={buttonActions} />
  * );
- *
- * @param {MppMultiSectionButtonProps} props - Les props pour le composant.
- * @param {Array<ButtonActions>} props.buttons_actions - Un tableau d'actions de boutons, chacun contenant un label et une fonction OnClick.
- * @returns {JSX.Element} Le composant MppMultiSectionButton rendu.
  */
 
 const MppMultiSectionButton: React.FC<MppMultiSectionButtonProps> = ({
