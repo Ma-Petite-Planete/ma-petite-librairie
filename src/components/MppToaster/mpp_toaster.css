@@ -1,0 +1,19 @@
+.toaster_message {
+  padding: 12px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--big_border_radius);
+  color: var(--white);
+}
+
+.toaster_message--span {
+  margin-left: 12px;
+}
+.success_message_container {
+  background-color: var(--mint_green);
+}
+
+.error_message_container {
+  background-color: var(--error_red);
+}

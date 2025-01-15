@@ -31,7 +31,7 @@ export declare const ScoColors: {
     readonly gradientPeps: "var(--gradient_peps)";
     readonly gradientPepsReverse: "var(--gradient_peps_reverse)";
 };
-export declare const EcuColors: {
+export declare const GpColors: {
     readonly orange: "var(--orange)";
     readonly mintGreen: "var(--mint_green)";
     readonly lightBlue: "var(--light_blue)";
@@ -47,4 +47,10 @@ export declare const EcuColors: {
     readonly beige: "var(--beige)";
     readonly taupe: "var(--taupe)";
     readonly kaki: "var(--kaki)";
+    readonly anthracite: "var(--anthracite)";
+    readonly darkGrey: "var(--dark_grey)";
+    readonly mediumGrey: "var(--medium_grey)";
+    readonly lightGrey: "var(--light_grey)";
+    readonly white: "var(--white)";
+    readonly darkBlue: "var(--dark_blue)";
 };

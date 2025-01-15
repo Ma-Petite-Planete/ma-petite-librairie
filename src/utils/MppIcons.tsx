@@ -34,6 +34,8 @@ import { ReactComponent as gear } from '../ressources/icons/gear.svg';
 import { ReactComponent as people } from '../ressources/icons/people.svg';
 import { ReactComponent as bubble } from '../ressources/icons/bubble.svg';
 import { ReactComponent as trophee_gp } from '../ressources/icons/trophee_gp.svg';
+import { ReactComponent as valid } from '../ressources/icons/valid.svg';
+import { ReactComponent as invalid } from '../ressources/icons/invalid.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -71,7 +73,9 @@ export const MppIcons = {
   megaphone: megaphone,
   people: people,
   bubble: bubble,
-  tropheeGp: trophee_gp
+  tropheeGp: trophee_gp,
+  valid: valid,
+  invalid: invalid,
 } as const;
 
 export const getIconFromName = (iconName?: string) => MppIcons[iconName];
