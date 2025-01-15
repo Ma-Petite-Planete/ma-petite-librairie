@@ -19,6 +19,10 @@ interface MppMenuProps {
   aboutText: string;
   logOutText: string;
   clientIsLoad: boolean;
+  clientName?: string;
+  codeClientInput?: React.ReactNode;
+  codeClientButton?: React.ReactNode;
+  languageDropDown?: React.ReactNode;
 }
 
 /**
@@ -58,13 +62,29 @@ const MppMenu: React.FC<MppMenuProps> = ({
   aboutText,
   logOutText,
   clientIsLoad,
+  clientName,
+  codeClientInput,
+  codeClientButton,
+  languageDropDown
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <div className="menu_background">
       <div className="center">
-        <div className="logo_container"></div>
+        <div
+          className={`logo_container ${boType === BoType.gpBo ? 'logo_gp' : 'logo_sco'}`}
+        ></div>
+        {boType === BoType.gpBo && (
+          <div className="gp_menu_client_data ">
+            {clientName && <span className="text_body_sb">{clientName}</span>}
+
+            <LinkComponent className="navigation_flex text_small_b navigation_return_link">
+              <MppIcons.arrowBack className="icon_arrow_back text_small_b" />
+              <span>Retour à mes clients</span>
+            </LinkComponent>
+          </div>
+        )}
         <div className="navigation_background">
           {clientIsLoad ? (
             navigationLinks.map((navigationLink, index) => (
@@ -97,8 +117,20 @@ const MppMenu: React.FC<MppMenuProps> = ({
           )}
         </div>
       </div>
+
       <div className="navigation_background">
-        {boType === BoType.gpBo ? 'ici selecteur de langue' : null}
+        {boType === BoType.gpBo && (
+          <>
+            <div className="navigation_client_code_section">
+              <div className="navigation_client_code_section--input">
+                {codeClientInput}
+              </div>
+              {codeClientButton}
+            </div>
+
+            {languageDropDown}
+          </>
+        )}
         <LinkComponent
           className="navigation_element"
           href={'https://mapetiteplanete.org/'}

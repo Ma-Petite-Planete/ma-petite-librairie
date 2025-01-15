@@ -31,6 +31,7 @@ import MppLabelType, {
   labelType,
 } from './components/MppLabelType/MppLabelType';
 import MppCheckbox from './components/MppCheckBox/MppCheckbox';
+import MppInputText from './components/MppInputText/MppInputText';
 function App() {
   return (
     <div className="main_background">
@@ -177,7 +178,37 @@ function App() {
         editionMessage="Il reste 7 jours !"
       />
       <h2>Navigation Bar</h2>
-      <div style={{ height: '100vh' }}>
+      <div
+        style={{
+          height: '100vh',
+          display: 'flex',
+          justifyContent: 'space-around',
+        }}
+      >
+        <MppMenu
+          // languageDropDown={}
+          codeClientInput={
+            <MppInputText placeholder={'code client'} value={'je sais pas'} />
+          }
+          codeClientButton={
+            <MppButton
+              title={'Go'}
+              buttonType={ButtonType.primaryLarge}
+              onPress={(): void => {
+                console.log('change de client');
+              }}
+            />
+          }
+          navigationLinks={[]}
+          actualPage="/fr/homepage"
+          LinkComponent={'symbol'}
+          boType={BoType.gpBo}
+          onLogout={() => console.log('suppr les comptes anonymes')}
+          aboutText={'A propos de MPP'}
+          logOutText={'Se déconnecter'}
+          clientIsLoad={true}
+          clientName="Airbus Helicopters"
+        />
         <MppMenu
           navigationLinks={[
             {
@@ -354,13 +385,7 @@ function App() {
       </div>
 
       <h2>Checkbox</h2>
-      {[
-        {
-          id: 'truc1',
-        },
-        { id: 'truc2' },
-        { id: 'truc3' },
-      ].map((element) => (
+      {[{ id: 'truc1' }, { id: 'truc2' }, { id: 'truc3' }].map((element) => (
         <div key={element.id}>
           <MppCheckbox
             value={element.id}

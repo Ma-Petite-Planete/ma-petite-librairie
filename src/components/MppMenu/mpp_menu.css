@@ -16,12 +16,21 @@
   width: 80%;
   height: 81px;
   margin-top: 16px;
+}
+.logo_sco {
   background-image: url('../../ressources/logo/sco_yellow_logo_blue_text.png');
 }
 
+.logo_gp {
+  background-image: url('../../ressources/logo/gp_logo_blue.png');
+}
 .logo {
   width: 100%;
   height: auto;
+}
+
+.gp_menu_client_data {
+  margin: 0 auto;
 }
 
 .center {
@@ -32,6 +41,7 @@
 }
 
 .navigation_background {
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -41,10 +51,34 @@
   padding: 24px 24px 0px 24px;
 }
 
+.navigation_client_code_section {
+  display: flex;
+  align-items: center;
+}
+.navigation_client_code_section--input .mpp_input_container {
+  margin: 0;
+  height: 52px;
+  margin-right: 8px;
+}
+
+.navigation_client_code_section .button_large {
+  padding: 12px 20px;
+}
+
 .icon {
   width: 20px;
   height: 20px;
   margin-right: 12px;
+}
+
+.icon_arrow_back {
+  margin-right: 12px;
+}
+
+.navigation_return_link {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .navigation_element {
