@@ -22,6 +22,23 @@
   justify-content: flex-end;
 }
 
+.card_edition__container .select_button {
+  background-color: var(--dark_blue);
+  border: none;
+  padding: 0;
+  color: var(--white);
+}
+
+.card_edition__container .arrow {
+  border-top: 7px solid var(--white);
+}
+
+.card_edition__container .select_dropdown {
+  border: none;
+  background-color: var(--dark_blue);
+  color: var(--white);
+}
+
 .edition_days__details {
   width: 60%;
 }
@@ -29,7 +46,7 @@
 .card_edition__icon {
   height: 24px;
   width: 24px;
-  margin-right: .3rem;
+  margin-right: 0.3rem;
 }
 
 @media (min-width: 896px) {

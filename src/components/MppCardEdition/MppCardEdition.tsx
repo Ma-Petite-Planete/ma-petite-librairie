@@ -9,6 +9,7 @@ interface MppCardEditionProps {
   editionName: string;
   editionDatesInfos: string;
   editionMessage?: string;
+  editionsDropDown?: React.ReactNode;
 }
 
 /**
@@ -39,6 +40,7 @@ const MppCardEdition: React.FC<MppCardEditionProps> = ({
   editionName,
   editionDatesInfos,
   editionMessage,
+  editionsDropDown,
 }) => {
   return (
     <div
@@ -55,7 +57,7 @@ const MppCardEdition: React.FC<MppCardEditionProps> = ({
           </p>
         </>
       </div>
-
+      {editionsDropDown}
       {editionMessage ? (
         <div className="card_edition__days">
           <MppIcons.history

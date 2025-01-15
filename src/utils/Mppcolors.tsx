@@ -32,7 +32,7 @@ export const ScoColors = {
   gradientPepsReverse: 'var(--gradient_peps_reverse)',
 } as const;
 
-export const EcuColors = {
+export const GpColors = {
   orange: 'var(--orange)',
   mintGreen: 'var(--mint_green)',
   lightBlue: 'var(--light_blue)',
@@ -48,4 +48,10 @@ export const EcuColors = {
   beige: 'var(--beige)',
   taupe: 'var(--taupe)',
   kaki: 'var(--kaki)',
+  anthracite: 'var(--anthracite)',
+  darkGrey: 'var(--dark_grey)',
+  mediumGrey: 'var(--medium_grey)',
+  lightGrey: 'var(--light_grey)',
+  white: 'var(--white)',
+  darkBlue: 'var(--dark_blue)',
 } as const;

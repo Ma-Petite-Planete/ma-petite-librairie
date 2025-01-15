@@ -11,7 +11,7 @@ import MppStatCard from './components/MppStatCard/MppStatCard';
 import MppTextStyle from './section/MppTextStyleSection/MppTextStyleSection';
 import InputDemo from './section/InputSection';
 
-import { ScoColors } from './utils/Mppcolors';
+import { ScoColors, GpColors } from './utils/Mppcolors';
 import { MppIcons } from './utils/MppIcons';
 import MppCardEdition from './components/MppCardEdition/MppCardEdition';
 import MppInfosPin, { Direction } from './components/MppInfosPin/MppInfosPin';
@@ -176,6 +176,36 @@ function App() {
         editionName={'Edition Printemps'}
         editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
         editionMessage="Il reste 7 jours !"
+      />
+
+      <MppCardEdition
+        backgroundColor={GpColors.darkBlue}
+        textColor={ScoColors.white}
+        editionName={'Edition Printemps'}
+        editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
+        editionsDropDown={
+          <MppDropDown
+            options={[
+              {
+                id: 'nfrjhnf',
+                value: 'Edition truc muche',
+              },
+              {
+                id: 'fnjhrfr',
+                value: 'Edition machin chose',
+              },
+            ]}
+            onChange={function (value): void {
+              console.log(value);
+            }}
+            placeholder="Sélectionner une langue"
+            defaultValue={{
+              id: '',
+              value: "Changer d'édition",
+            }}
+            isDisabled={false}
+          />
+        }
       />
       <h2>Navigation Bar</h2>
       <div
