@@ -339,23 +339,27 @@ function App() {
         ]}
       />
       <h2>Select Input</h2>
+
       <MppDropDown
         options={[
           {
-            value: 'fr',
+            id: 'fr',
+            value: 'Français',
             prefixIconName: 'flag_fr',
-            label: 'Français',
           },
           {
-            value: 'en',
-            label: 'English',
+            id: 'en',
+            value: 'English',
           },
         ]}
         onChange={function (value): void {
           console.log(value);
         }}
         placeholder="Sélectionner une langue"
-        value={'Je sais pas'}
+        defaultValue={{
+          id: 'test',
+          value: 'fr',
+        }}
         isDisabled={false}
       />
 

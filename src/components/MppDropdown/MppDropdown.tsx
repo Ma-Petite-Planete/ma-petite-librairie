@@ -3,30 +3,29 @@ import './mpp_dropdown.css';
 import { getIconFromName } from '../../utils/MppIcons';
 import useClickOutside from '../../hooks/clickOutside';
 
-interface Option {
-  value: string;
+interface OptionType {
   prefixIconName?: string;
-  label: string;
+  label?: string;
+  id: string;
+  value?: string;
 }
 
-interface MppDropDownProps {
-  options: Array<Option>;
-  onChange: (value: Option) => void;
-  value: string;
+interface MppDropDownProps<T> {
+  options: Array<T>;
+  onChange: (value: T) => void;
+  defaultValue: T;
   placeholder: string;
   isDisabled?: boolean;
 }
 
-const MppDropDown: React.FC<MppDropDownProps> = ({
+const MppDropDown = <T extends OptionType>({
   placeholder,
   onChange,
   options,
   isDisabled,
-  value,
-}) => {
-  const [selectedOption, setSelectedOption] = React.useState<Option | null>(
-    null
-  );
+  defaultValue,
+}: MppDropDownProps<T>) => {
+  const [selectedOption, setSelectedOption] = React.useState<T | null>(null);
   const [isDropdownVisible, setIsDropdownVisible] =
     React.useState<boolean>(false);
   const PrefixIcon = getIconFromName(selectedOption?.prefixIconName);
@@ -54,7 +53,7 @@ const MppDropDown: React.FC<MppDropDownProps> = ({
         }
         className={`select_button text_body
           ${isDropdownVisible ? 'open' : ''}
-          ${(placeholder && value === '' && !selectedOption) || isDisabled ? 'default' : ''}
+          ${(placeholder && defaultValue.value === '' && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}`}
       >
         <span className="select_button--selected_value">
@@ -64,10 +63,10 @@ const MppDropDown: React.FC<MppDropDownProps> = ({
             />
           )}
 
-          {selectedOption?.label
-            ? selectedOption?.label
-            : value
-              ? value
+          {selectedOption?.value
+            ? selectedOption?.value
+            : defaultValue.value
+              ? defaultValue.value
               : placeholder}
         </span>
         <span
@@ -81,7 +80,6 @@ const MppDropDown: React.FC<MppDropDownProps> = ({
             return (
               <li
                 onKeyDown={(event) => {
-                  console.log();
                   if (event.key === 'Enter') {
                     setSelectedOption(option);
                     setIsDropdownVisible(false);
@@ -106,7 +104,7 @@ const MppDropDown: React.FC<MppDropDownProps> = ({
                     }}
                   />
                 )}
-                {option.label}
+                {option.value}
                 <div className="select_dropdown_divider"></div>
               </li>
             );
