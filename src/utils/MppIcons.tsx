@@ -29,6 +29,11 @@ import { ReactComponent as flag_es } from '../ressources/icons/flag_es.svg';
 import { ReactComponent as flag_de } from '../ressources/icons/flag_de.svg';
 import { ReactComponent as flag_it } from '../ressources/icons/flag_it.svg';
 import { ReactComponent as arrowBack } from '../ressources/icons/arrow_back.svg';
+import { ReactComponent as megaphone } from '../ressources/icons/megaphone.svg';
+import { ReactComponent as gear } from '../ressources/icons/gear.svg';
+import { ReactComponent as people } from '../ressources/icons/people.svg';
+import { ReactComponent as bubble } from '../ressources/icons/bubble.svg';
+import { ReactComponent as trophee_gp } from '../ressources/icons/trophee_gp.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -62,6 +67,11 @@ export const MppIcons = {
   flag_de: flag_de,
   flag_it: flag_it,
   arrowBack: arrowBack,
+  gear: gear,
+  megaphone: megaphone,
+  people: people,
+  bubble: bubble,
+  tropheeGp: trophee_gp
 } as const;
 
 export const getIconFromName = (iconName?: string) => MppIcons[iconName];

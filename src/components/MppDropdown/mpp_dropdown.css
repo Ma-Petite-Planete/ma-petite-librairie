@@ -13,12 +13,12 @@
   border-radius: var(--standard_border_radius);
 }
 .select_button {
-  background-color: var(--light-grey);
+  background-color: var(--light_grey);;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 16px;
+  padding: 12px 16px;
   border: 1px solid var(--medium_grey);
   border-radius: var(--standard_border_radius);
   cursor: pointer;

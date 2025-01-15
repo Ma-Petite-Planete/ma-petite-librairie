@@ -25,7 +25,9 @@ const MppDropDown = <T extends OptionType>({
   isDisabled,
   defaultValue,
 }: MppDropDownProps<T>) => {
-  const [selectedOption, setSelectedOption] = React.useState<T | null>(null);
+  const [selectedOption, setSelectedOption] = React.useState<T | null>(
+    defaultValue
+  );
   const [isDropdownVisible, setIsDropdownVisible] =
     React.useState<boolean>(false);
   const PrefixIcon = getIconFromName(selectedOption?.prefixIconName);
@@ -57,7 +59,8 @@ const MppDropDown = <T extends OptionType>({
           ${selectedOption ? 'selected' : ''}`}
       >
         <span className="select_button--selected_value">
-          {selectedOption?.prefixIconName && (
+          {(selectedOption?.prefixIconName ||
+            selectedOption?.prefixIconName) && (
             <PrefixIcon
               style={{ width: '14px', height: '14px', margin: '0 2px 0 0' }}
             />

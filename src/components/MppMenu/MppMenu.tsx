@@ -11,6 +11,7 @@ interface NavigationLink {
 }
 
 interface MppMenuProps {
+  backToClientsLink?: NavigationLink;
   navigationLinks: Array<NavigationLink>;
   LinkComponent: React.ElementType;
   boType: BoType;
@@ -65,7 +66,8 @@ const MppMenu: React.FC<MppMenuProps> = ({
   clientName,
   codeClientInput,
   codeClientButton,
-  languageDropDown
+  languageDropDown,
+  backToClientsLink,
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -75,13 +77,16 @@ const MppMenu: React.FC<MppMenuProps> = ({
         <div
           className={`logo_container ${boType === BoType.gpBo ? 'logo_gp' : 'logo_sco'}`}
         ></div>
-        {boType === BoType.gpBo && (
+        {boType === BoType.gpBo && backToClientsLink && (
           <div className="gp_menu_client_data ">
             {clientName && <span className="text_body_sb">{clientName}</span>}
 
-            <LinkComponent className="navigation_flex text_small_b navigation_return_link">
+            <LinkComponent
+              href={backToClientsLink.navigation}
+              className="navigation_flex text_small_b navigation_return_link"
+            >
               <MppIcons.arrowBack className="icon_arrow_back text_small_b" />
-              <span>Retour à mes clients</span>
+              <span>{backToClientsLink.name}</span>
             </LinkComponent>
           </div>
         )}
@@ -117,19 +122,18 @@ const MppMenu: React.FC<MppMenuProps> = ({
           )}
         </div>
       </div>
+      {boType === BoType.gpBo && (
+        <div className="navigation_client_code_section">
+          <div className="navigation_client_code_section--input">
+            {codeClientInput}
+          </div>
+          {codeClientButton}
+        </div>
+      )}
 
       <div className="navigation_background">
         {boType === BoType.gpBo && (
-          <>
-            <div className="navigation_client_code_section">
-              <div className="navigation_client_code_section--input">
-                {codeClientInput}
-              </div>
-              {codeClientButton}
-            </div>
-
-            {languageDropDown}
-          </>
+          <div className="navigation_language_dropdown">{languageDropDown}</div>
         )}
         <LinkComponent
           className="navigation_element"

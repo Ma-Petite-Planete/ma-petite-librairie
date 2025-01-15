@@ -186,9 +186,45 @@ function App() {
         }}
       >
         <MppMenu
-          // languageDropDown={}
+          backToClientsLink={{
+            name: 'Tableau de bord',
+            icon: MppIcons.graph,
+            navigation: '/hompage',
+          }}
+          languageDropDown={
+            <MppDropDown
+              options={[
+                {
+                  id: 'fr',
+                  value: 'Français',
+                  prefixIconName: 'flag_fr',
+                },
+                {
+                  id: 'en',
+                  value: 'English',
+                  prefixIconName: 'flag_en',
+                },
+              ]}
+              onChange={function (value): void {
+                console.log(value);
+              }}
+              placeholder="Sélectionner une langue"
+              defaultValue={{
+                id: 'en',
+                value: 'English',
+                prefixIconName: 'flag_en',
+              }}
+              isDisabled={false}
+            />
+          }
           codeClientInput={
-            <MppInputText placeholder={'code client'} value={'je sais pas'} />
+            <MppInputText
+              onChange={(value) => {
+                console.log(value);
+              }}
+              placeholder={'code client'}
+              value={'je sais pas'}
+            />
           }
           codeClientButton={
             <MppButton
@@ -199,8 +235,49 @@ function App() {
               }}
             />
           }
-          navigationLinks={[]}
-          actualPage="/fr/homepage"
+          navigationLinks={[
+            {
+              name: 'Mes ligues',
+              icon: MppIcons.bubble,
+              navigation: '/hompage',
+            },
+            {
+              name: 'Players',
+              icon: MppIcons.people,
+              navigation: '/hmome',
+            },
+            {
+              name: 'Ma structure',
+              icon: MppIcons.gear,
+              navigation: '/hmfrfrome',
+            },
+            {
+              name: 'Tableau de bord',
+              icon: MppIcons.graph,
+              navigation: '/hfrfomme',
+            },
+            {
+              name: 'Classements',
+              icon: MppIcons.tropheeGp,
+              navigation: '/homepage',
+            },
+            {
+              name: 'Espace porteurs de projet',
+              icon: MppIcons.ressources,
+              navigation: '/hmofrfrme',
+            },
+            {
+              name: 'Kit ambassadeur.rice',
+              icon: MppIcons.megaphone,
+              navigation: '/hmfrfome',
+            },
+            {
+              name: 'aide',
+              icon: MppIcons.help,
+              navigation: '/hnjfrnome',
+            },
+          ]}
+          actualPage="/fr/hmome"
           LinkComponent={'symbol'}
           boType={BoType.gpBo}
           onLogout={() => console.log('suppr les comptes anonymes')}
