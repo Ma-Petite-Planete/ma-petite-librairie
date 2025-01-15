@@ -16,6 +16,7 @@ interface MppDropDownProps<T> {
   defaultValue: T;
   placeholder: string;
   isDisabled?: boolean;
+  textClassname?: string;
 }
 
 const MppDropDown = <T extends OptionType>({
@@ -24,6 +25,7 @@ const MppDropDown = <T extends OptionType>({
   options,
   isDisabled,
   defaultValue,
+  textClassname = 'text_body'
 }: MppDropDownProps<T>) => {
   const [selectedOption, setSelectedOption] = React.useState<T | null>(
     defaultValue
@@ -53,7 +55,7 @@ const MppDropDown = <T extends OptionType>({
         onClick={
           !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null
         }
-        className={`select_button text_body
+        className={`select_button ${textClassname}
           ${isDropdownVisible ? 'open' : ''}
           ${(placeholder && defaultValue.value === '' && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}`}

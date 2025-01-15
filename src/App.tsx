@@ -185,6 +185,7 @@ function App() {
         editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
         editionsDropDown={
           <MppDropDown
+            textClassname="text_body_sb"
             options={[
               {
                 id: 'nfrjhnf',

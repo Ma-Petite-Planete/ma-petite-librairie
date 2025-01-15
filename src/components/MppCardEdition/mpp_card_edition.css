@@ -39,6 +39,9 @@
   color: var(--white);
 }
 
+.card_edition__container .select_dropdown li:hover{
+  background-color: var(--light_grey_disable);
+}
 .edition_days__details {
   width: 60%;
 }
