@@ -486,12 +486,14 @@ function App() {
       />
 
       <h2>Toggle button</h2>
-      <MppToggleButton
-        value={true}
-        onChange={(value: boolean) => {
-          console.log(value);
-        }}
-      />
+      <div style={{ width: '40%' }}>
+        <MppToggleButton
+          value={true}
+          onChange={(value: boolean) => {
+            console.log(value);
+          }}
+        />
+      </div>
 
       <h2>Label Type</h2>
       <div className="label_section">
