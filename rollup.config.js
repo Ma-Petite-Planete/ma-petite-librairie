@@ -43,6 +43,9 @@ export default {
             if (asset.url.includes('logo/sco_yellow_logo_blue_text.png')) {
               return '/assets/sco_yellow_logo_blue_text.png';
             }
+            if (asset.url.includes('logo/gp_logo_blue.png')) {
+              return '/assets/gp_logo_blue.png.png';
+            }
           },
         }),
       ],
