@@ -1,10 +1,14 @@
 .toaster_message_container {
   position: relative;
-  height: 100px;
-  border: 1px solid red;
 }
 .toaster_message_container--top {
   animation-name: toast-in-from-top;
+  animation-duration: 4s;
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.toaster_message_container--bottom {
+  animation-name: toast-in-from-bottom;
   animation-duration: 4s;
   animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
 }
@@ -54,11 +58,18 @@
   }
 }
 
-/* @keyframes toast-in-from-bottom {
-  from {
-    transform: translateY(-100%);
+@keyframes toast-in-from-bottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
   }
-  to {
-    transform: translateY(0);
+
+  50% {
+    transform: translateY(0px);
+    opacity: 1;
   }
-} */
+  100% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}

@@ -32,7 +32,10 @@ import MppLabelType, {
 } from './components/MppLabelType/MppLabelType';
 import MppCheckbox from './components/MppCheckBox/MppCheckbox';
 import MppInputText from './components/MppInputText/MppInputText';
-import MppToaster, { MessageType } from './components/MppToaster/MppToaster';
+import MppToaster, {
+  AnimationDirection,
+  MessageType,
+} from './components/MppToaster/MppToaster';
 function App() {
   return (
     <div className="main_background">
@@ -512,17 +515,22 @@ function App() {
       ))}
 
       <h2>Toaster</h2>
-
-      <MppToaster
-        displayToast={true}
-        messageType={MessageType.succes}
-        message="bien joué"
-      />
-      <MppToaster
-        displayToast={true}
-        messageType={MessageType.error}
-        message="pas ouf"
-      />
+      <div style={{ height: '70px' }}>
+        <MppToaster
+          animationDirection={AnimationDirection.from_top}
+          displayToast={true}
+          messageType={MessageType.error}
+          message="pas ouf"
+        />
+      </div>
+      <div style={{ height: '70px' }}>
+        <MppToaster
+          animationDirection={AnimationDirection.from_bottom}
+          displayToast={true}
+          messageType={MessageType.succes}
+          message="bien joué"
+        />
+      </div>
     </div>
   );
 }

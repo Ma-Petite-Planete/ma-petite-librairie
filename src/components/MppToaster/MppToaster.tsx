@@ -7,16 +7,23 @@ export enum MessageType {
   succes,
 }
 
+export enum AnimationDirection {
+  from_bottom = 'toaster_message_container--bottom',
+  from_top = 'toaster_message_container--top',
+}
+
 interface MppToasterProps {
   message: string;
   displayToast: boolean;
   messageType: MessageType;
+  animationDirection: AnimationDirection;
 }
 
 const MppToaster: React.FC<MppToasterProps> = ({
   message,
   displayToast,
   messageType,
+  animationDirection,
 }) => {
   const [displayToaster, setDisplayToaster] = useState<boolean>(displayToast);
 
@@ -27,10 +34,11 @@ const MppToaster: React.FC<MppToasterProps> = ({
       }, 3500);
     }
   }, [displayToaster]);
+
   return (
     <div className="toaster_message_container">
       <div
-        className={`${messageType === MessageType.error ? 'error_message_container' : 'success_message_container'} ${displayToaster ? 'visible' : 'hidden'}  toaster_message_container--top toaster_message`}
+        className={`${messageType === MessageType.error ? 'error_message_container' : 'success_message_container'} ${displayToaster ? 'visible' : 'hidden'}  ${animationDirection} toaster_message`}
       >
         {messageType === MessageType.error ? (
           <MppIcons.invalid />
