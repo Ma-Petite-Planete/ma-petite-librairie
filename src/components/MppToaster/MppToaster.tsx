@@ -1,48 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MppIcons } from '../../utils/MppIcons';
 import './mpp_toaster.css';
 
-interface MppToasterProps {
-  successMessage?: string;
-  errorMessage?: string;
+export enum MessageType {
+  error,
+  succes,
 }
 
-/**
- * Le composant MppToaster affiche des messages de succès et d'erreur.
- *
- * @composant
- * @param {Object} props - L'objet des propriétés.
- * @param {string} props.successMessage - Le message de succès à afficher.
- * @param {string} props.errorMessage - Le message d'erreur à afficher.
- *
- * @exemple
- * <MppToaster successMessage="Opération réussie !" errorMessage="Échec de l'opération !" />
- *
- * @returns {JSX.Element} Le composant rendu.
- */
+interface MppToasterProps {
+  message: string;
+  displayToast: boolean;
+  messageType: MessageType;
+}
 
 const MppToaster: React.FC<MppToasterProps> = ({
-  successMessage,
-  errorMessage,
+  message,
+  displayToast,
+  messageType,
 }) => {
+  const [displayToaster, setDisplayToaster] = useState<boolean>(displayToast);
+
+  useEffect(() => {
+    if (displayToaster) {
+      setTimeout(() => {
+        setDisplayToaster(false);
+      }, 3500);
+    }
+  }, [displayToaster]);
   return (
-    <div>
-      {successMessage && (
-        <div className="success_message_container toaster_message">
-          <MppIcons.valid />
-          <span className="toaster_message--span text_body">
-            {successMessage}
-          </span>
-        </div>
-      )}
-      {errorMessage && (
-        <div className="error_message_container toaster_message">
+    <div className="toaster_message_container">
+      <div
+        className={`${messageType === MessageType.error ? 'error_message_container' : 'success_message_container'} ${displayToaster ? 'visible' : 'hidden'}  toaster_message_container--top toaster_message`}
+      >
+        {messageType === MessageType.error ? (
           <MppIcons.invalid />
-          <span className="toaster_message--span text_body">
-            {errorMessage}
-          </span>
-        </div>
-      )}
+        ) : (
+          <MppIcons.valid />
+        )}
+        <span className="toaster_message--span text_body">{message}</span>
+      </div>
     </div>
   );
 };
