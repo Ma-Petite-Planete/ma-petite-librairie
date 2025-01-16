@@ -4,7 +4,7 @@ interface MppCheckboxProps {
   value: string;
   onChange: (value: string) => void;
   checked: boolean;
-  isTableHeader: boolean;
+  isTableHeader?: boolean;
 }
 
 /**
@@ -31,7 +31,7 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
   value,
   onChange,
   checked,
-  isTableHeader,
+  isTableHeader = false,
 }) => {
   const [isSelected, setIsSelected] = useState<boolean>(checked);
   return (
@@ -42,12 +42,6 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
           htmlFor={`checkbox_${value}`}
         >
           <input
-            onKeyDown={(event) => {
-              if (event.key === 'Enter') {
-                setIsSelected((param) => !param);
-                onChange(value);
-              }
-            }}
             className="checkbox_container_input"
             checked={isSelected}
             type="checkbox"

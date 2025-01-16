@@ -5,9 +5,8 @@ const useClickOutside = (
   callback: () => void
 ) => {
   const handleClickOutside = (event: MouseEvent) => {
-
     if (
-      !elementRef.current.contains(event.target as Element) &&
+      !elementRef.current.contains(event.target as Node) &&
       callbackRef.current
     ) {
       callbackRef.current();
@@ -21,6 +20,6 @@ const useClickOutside = (
     return () => {
       document.removeEventListener('click', handleClickOutside, true);
     };
-  }, [elementRef, callbackRef]);
+  });
 };
 export default useClickOutside;

@@ -511,7 +511,6 @@ function App() {
               console.log('🚀 ~ App ~ value:', value);
             }}
             checked={false}
-            isTableHeader={false}
           />
         </div>
       ))}

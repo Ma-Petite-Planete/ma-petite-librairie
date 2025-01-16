@@ -16,7 +16,6 @@
   background-color: var(--dark_blue);
 }
 
-.checkbox_container .checkbox_container_input:focus-visible,
 .checkbox_container_checkbox:hover .checkbox_container_input {
   border: 2px solid var(--dark_blue);
 }

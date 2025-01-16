@@ -5,7 +5,7 @@ export declare enum labelType {
     orange = "orange_label",
     green = "green_label"
 }
-interface MppLabelType {
+interface MppLabelTypeProps {
     value: string;
     labelType: labelType;
 }
@@ -13,7 +13,7 @@ interface MppLabelType {
  * Le composant MppLabelType rend une étiquette avec un type et une valeur spécifiques.
  *
  * @component
- * @param {MppLabelType} props - Les propriétés du composant MppLabelType.
+ * @param {MppLabelTypeProps} props - Les propriétés du composant MppLabelType.
  * @param {string} props.value - La valeur à afficher à l'intérieur de l'étiquette.
  * @param {labelType} props.labelType - Le type de l'étiquette qui détermine la classe CSS à appliquer.
  *
@@ -25,5 +25,5 @@ interface MppLabelType {
  *   labelType={labelType.grey}
  * />
  */
-declare const MppLabelType: React.FC<MppLabelType>;
+declare const MppLabelType: React.FC<MppLabelTypeProps>;
 export default MppLabelType;

@@ -3239,6 +3239,7 @@ const MppIcons = {
     valid: SvgValid,
     invalid: SvgInvalid,
 };
+const getIconFromName = (iconName) => MppIcons[iconName];
 
 const MppSkeletonLoader = ({ backgroundColor = 'var(--medium_grey)', highlightColor = 'var(--light_grey)', count = 1, circular = false, spaceBetweenRow = '10px', heightRow = '16px', }) => {
     const rows = Array.from({ length: count }, (_, index) => index);
@@ -3624,4 +3625,309 @@ const MppMultiSectionButton = ({ buttons_actions, }) => {
         } }, button.label)))));
 };
 
-export { BoType, ButtonType, MppButton, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInputText, MppLoader, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, ScoColors };
+const useClickOutside = (elementRef, callback) => {
+    const handleClickOutside = (event) => {
+        if (!elementRef.current.contains(event.target) &&
+            callbackRef.current) {
+            callbackRef.current();
+        }
+    };
+    const callbackRef = useRef();
+    callbackRef.current = callback;
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside, true);
+        return () => {
+            document.removeEventListener('click', handleClickOutside, true);
+        };
+    });
+};
+
+/**
+ * Le composant MppDropDown rend un menu déroulant personnalisable.
+ *
+ * @template T - Le type des options.
+ *
+ * @param {MppDropDownProps<T>} props - Les propriétés du composant dropdown.
+ * @param {string} props.placeholder - Le texte de l'espace réservé à afficher lorsqu'aucune option n'est sélectionnée.
+ * @param {(option: T) => void} props.onChange - La fonction de rappel pour gérer les changements de sélection d'option.
+ * @param {T[]} props.options - La liste des options à afficher dans le menu déroulant.
+ * @param {boolean} [props.isDisabled] - Indicateur pour désactiver le menu déroulant.
+ * @param {T} props.defaultValue - L'option sélectionnée par défaut.
+ * @param {string} [props.textClassname='text_body'] - Le nom de la classe CSS pour le texte.
+ *
+ * @example
+ * ```tsx
+const ExampleComponent = () => {
+  const options = [
+    { id: '1', value: 'Option 1', prefixIconName: 'icon1' },
+    { id: '2', value: 'Option 2', prefixIconName: 'icon2' },
+    { id: '3', value: 'Option 3', prefixIconName: 'icon3' },
+  ];
+
+  const handleChange = (selectedOption: OptionType) => {
+    console.log('Option sélectionnée:', selectedOption);
+  };
+
+  return (
+    <MppDropDown
+      options={options}
+      onChange={handleChange}
+      defaultValue={options[0]}
+      placeholder="Sélectionnez une option"
+    />
+  );
+};
+ * ```
+ */
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = 'text_body', }) => {
+    const [selectedOption, setSelectedOption] = React__default.useState(defaultValue);
+    const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
+    const PrefixIcon = getIconFromName(selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption.prefixIconName);
+    const dropDownRef = useRef(null);
+    useClickOutside(dropDownRef, () => {
+        if (!isDisabled) {
+            setIsDropdownVisible(false);
+        }
+    });
+    useEffect(() => {
+        if (isDisabled) {
+            setSelectedOption(null);
+        }
+    }, [isDisabled]);
+    return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''}` },
+        React__default.createElement("button", { disabled: isDisabled, onClick: !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null, className: `select_button ${textClassname}
+          ${isDropdownVisible ? 'open' : ''}
+          ${(placeholder && defaultValue.value === '' && !selectedOption) || isDisabled ? 'default' : ''}
+          ${selectedOption ? 'selected' : ''}` },
+            React__default.createElement("span", { className: "select_button--selected_value" },
+                ((selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption.prefixIconName) ||
+                    (selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption.prefixIconName)) && (React__default.createElement(PrefixIcon, { style: { width: '14px', height: '14px', margin: '0 2px 0 0' } })),
+                (selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption.value)
+                    ? selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption.value
+                    : defaultValue.value
+                        ? defaultValue.value
+                        : placeholder),
+            React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
+        isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, options.map((option, index) => {
+            const OptionPrefixIcon = getIconFromName(option.prefixIconName);
+            return (React__default.createElement("li", { onKeyDown: (event) => {
+                    if (event.key === 'Enter') {
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
+                    }
+                }, tabIndex: 0, className: "text_body", key: index, onClick: () => {
+                    setSelectedOption(option);
+                    setIsDropdownVisible(false);
+                    onChange(option);
+                } },
+                option.prefixIconName && (React__default.createElement(OptionPrefixIcon, { style: {
+                        width: '14px',
+                        height: '14px',
+                        margin: '0 2px 0 0',
+                    } })),
+                option.value,
+                React__default.createElement("div", { className: "select_dropdown_divider" })));
+        })))));
+};
+
+/**
+ * Le composant MppLoaderDots rend une animation de chargement avec des points élastiques.
+ *
+ * @component
+ *
+ * @returns {JSX.Element} Le composant MppLoaderDots rendu.
+ *
+ * @example
+ * <MppLoaderDots />
+ */
+const MppLoaderDots = () => {
+    return (React__default.createElement("div", { className: "snippet", "data-title": "dot-elastic" },
+        React__default.createElement("div", { className: "stage" },
+            React__default.createElement("div", { className: "dot-elastic" }))));
+};
+
+var labelType;
+(function (labelType) {
+    labelType["grey"] = "grey_label";
+    labelType["orange"] = "orange_label";
+    labelType["green"] = "green_label";
+})(labelType || (labelType = {}));
+/**
+ * Le composant MppLabelType rend une étiquette avec un type et une valeur spécifiques.
+ *
+ * @component
+ * @param {MppLabelTypeProps} props - Les propriétés du composant MppLabelType.
+ * @param {string} props.value - La valeur à afficher à l'intérieur de l'étiquette.
+ * @param {labelType} props.labelType - Le type de l'étiquette qui détermine la classe CSS à appliquer.
+ *
+ * @returns {JSX.Element} Le composant MppLabelType rendu.
+ *
+ * @example
+ * <MppLabelType
+ *   value="Exemple de valeur"
+ *   labelType={labelType.grey}
+ * />
+ */
+const MppLabelType = ({ value, labelType }) => {
+    return (React__default.createElement("div", null,
+        React__default.createElement("span", { className: `${labelType} text_small_b label` }, value)));
+};
+
+var ColumnType;
+(function (ColumnType) {
+    ColumnType[ColumnType["league_created_vs_previsions"] = 0] = "league_created_vs_previsions";
+    ColumnType[ColumnType["leagyues_with_more_then_4_players"] = 1] = "leagyues_with_more_then_4_players";
+    ColumnType[ColumnType["players_registered"] = 2] = "players_registered";
+    ColumnType[ColumnType["activity_rate"] = 3] = "activity_rate";
+})(ColumnType || (ColumnType = {}));
+var ProgressBarStyle;
+(function (ProgressBarStyle) {
+    ProgressBarStyle["red"] = "red";
+    ProgressBarStyle["green"] = "green";
+    ProgressBarStyle["orange"] = "orange";
+    ProgressBarStyle["invisible"] = "invisible";
+    ProgressBarStyle["default"] = "default";
+})(ProgressBarStyle || (ProgressBarStyle = {}));
+/**
+ * Le composant LinearProgressBar rend une barre de progression linéaire personnalisable avec un style de couleur.
+ *
+ * @component
+ * @param {LinearProgressBarProps} props - Les propriétés du composant LinearProgressBar.
+ * @param {number} props.maxValue - La valeur maximale de la barre de progression.
+ * @param {number} props.value - La valeur actuelle de la barre de progression.
+ * @param {ProgressBarStyle} props.colorStyle - Le style de couleur de la barre de progression.
+ *
+ * @returns {JSX.Element} Le composant LinearProgressBar rendu.
+ *
+ * @example
+ * <LinearProgressBar
+ *   maxValue={100}
+ *   value={50}
+ *   colorStyle={ProgressBarStyle.green}
+ * />
+ */
+const LinearProgressBar = ({ maxValue, value, colorStyle, }) => {
+    const getProgressBarPercentage = (maxValue, value) => Math.round((value / maxValue) * 100);
+    const progressBarColor = value === 0 ? 'default' : value === maxValue ? 'green' : colorStyle;
+    return (React__default.createElement("div", { className: `linear_progress_bar_container ${progressBarColor}` },
+        React__default.createElement("div", { className: "linear_progress_bar--background_value" },
+            React__default.createElement("div", { className: "progress_bar background_value--indicator" },
+                React__default.createElement("div", { className: "linear_progress_bar--main_value", style: { width: `${getProgressBarPercentage(maxValue, value)}%` } },
+                    React__default.createElement("div", { className: "progress_bar main_value--indicator" }),
+                    React__default.createElement("p", { className: "main_value--value" }, value))),
+            React__default.createElement("p", { className: "background_value--max_value" }, maxValue))));
+};
+
+var MessageType;
+(function (MessageType) {
+    MessageType[MessageType["error"] = 0] = "error";
+    MessageType[MessageType["succes"] = 1] = "succes";
+})(MessageType || (MessageType = {}));
+var AnimationDirection;
+(function (AnimationDirection) {
+    AnimationDirection["from_bottom"] = "toaster_message_container--bottom";
+    AnimationDirection["from_top"] = "toaster_message_container--top";
+})(AnimationDirection || (AnimationDirection = {}));
+/**
+ * Le composant MppToaster rend un message de notification (toast) avec des styles et animations personnalisables.
+ *
+ * @component
+ * @param {MppToasterProps} props - Les propriétés du composant MppToaster.
+ * @param {string} props.message - Le message à afficher dans le toast.
+ * @param {boolean} props.displayToast - Indicateur pour afficher ou masquer le toast.
+ * @param {MessageType} props.messageType - Le type de message (erreur ou succès).
+ * @param {AnimationDirection} props.animationDirection - La direction de l'animation du toast.
+ *
+ * @returns {JSX.Element} Le composant MppToaster rendu.
+ *
+ * @example
+ * <MppToaster
+ *   message="Opération réussie"
+ *   displayToast={true}
+ *   messageType={MessageType.succes}
+ *   animationDirection={AnimationDirection.from_bottom}
+ * />
+ */
+const MppToaster = ({ message, displayToast, messageType, animationDirection, }) => {
+    const [displayToaster, setDisplayToaster] = useState(displayToast);
+    useEffect(() => {
+        if (displayToaster) {
+            setTimeout(() => {
+                setDisplayToaster(false);
+            }, 3500);
+        }
+    }, [displayToaster]);
+    return (React__default.createElement("div", { className: "toaster_message_container" },
+        React__default.createElement("div", { className: `${messageType === MessageType.error ? 'error_message_container' : 'success_message_container'} ${displayToaster ? 'visible' : 'hidden'}  ${animationDirection} toaster_message` },
+            messageType === MessageType.error ? (React__default.createElement(MppIcons.invalid, null)) : (React__default.createElement(MppIcons.valid, null)),
+            React__default.createElement("span", { className: "toaster_message--span text_body" }, message))));
+};
+
+/**
+ * Le composant MppToggleButton rend un bouton bascule personnalisable.
+ *
+ * @component
+ * @param {ToggleButtonProps} props - Les propriétés du composant MppToggleButton.
+ * @param {boolean} props.value - L'état initial du bouton bascule.
+ * @param {function} props.onChange - La fonction de rappel pour gérer les changements d'état du bouton bascule.
+ *
+ * @returns {JSX.Element} Le composant MppToggleButton rendu.
+ *
+ * @example
+ * <MppToggleButton
+ *   value={true}
+ *   onChange={(newValue) => console.log(newValue)}
+ * />
+ */
+const MppToggleButton = ({ value, onChange }) => {
+    const [toggleValue, setToggleValue] = useState(value);
+    return (React__default.createElement("div", { className: "toggle_button_container" },
+        React__default.createElement("label", { onKeyDown: (event) => {
+                if (event.key === 'Enter') {
+                    const value = !toggleValue;
+                    setToggleValue(value);
+                    onChange(value);
+                }
+            }, tabIndex: 0, htmlFor: "toggle", className: `toggle_button ${toggleValue ? 'checked' : ''}` },
+            React__default.createElement("input", { onChange: () => {
+                    const value = !toggleValue;
+                    setToggleValue(value);
+                    onChange(value);
+                }, checked: toggleValue, type: "checkbox", id: "toggle" }),
+            React__default.createElement("div", { className: "toggle_button_indicator" }))));
+};
+
+/**
+ * Le composant MppCheckbox rend une case à cocher personnalisable avec un style optionnel pour l'en-tête de tableau.
+ *
+ * @component
+ * @param {MppCheckboxProps} props - Les propriétés du composant MppCheckbox.
+ * @param {string} props.value - La valeur associée à la case à cocher.
+ * @param {function} props.onChange - La fonction de rappel pour gérer les changements d'état de la case à cocher.
+ * @param {boolean} props.checked - L'état initial de la case à cocher.
+ * @param {boolean} props.isTableHeader - Indicateur pour déterminer si la case à cocher est utilisée dans un en-tête de tableau.
+ *
+ * @returns {JSX.Element} Le composant MppCheckbox rendu.
+ *
+ * @example
+ * <MppCheckbox
+ *   value="exampleValue"
+ *   onChange={handleCheckboxChange}
+ *   checked={true}
+ *   isTableHeader={false}
+ * />
+ */
+const MppCheckbox = ({ value, onChange, checked, isTableHeader = false, }) => {
+    const [isSelected, setIsSelected] = useState(checked);
+    return (React__default.createElement("div", { className: "checkbox_container" },
+        React__default.createElement("div", { className: "checkbox_container_checkbox" },
+            React__default.createElement("label", { className: `checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}`, htmlFor: `checkbox_${value}` },
+                React__default.createElement("input", { className: "checkbox_container_input", checked: isSelected, type: "checkbox", name: "checkbox", id: `checkbox_${value}`, onChange: () => {
+                        setIsSelected((param) => !param);
+                        onChange(value);
+                    } }),
+                React__default.createElement("span", { className: "checkmark" })))));
+};
+
+export { BoType, ButtonType, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInputText, MppLabelType, LinearProgressBar as MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ScoColors };
