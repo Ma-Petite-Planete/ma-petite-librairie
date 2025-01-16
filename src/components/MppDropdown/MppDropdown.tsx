@@ -3,7 +3,7 @@ import './mpp_dropdown.css';
 import { getIconFromName } from '../../utils/MppIcons';
 import useClickOutside from '../../hooks/clickOutside';
 
-export interface OptionType {
+interface OptionType {
   prefixIconName?: string;
   label?: string;
   id: string;
