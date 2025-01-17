@@ -67,5 +67,3 @@ export const MppIcons = {
   valid: valid,
   invalid: invalid,
 } as const;
-
-export const getIconFromName = (iconName?: string) => MppIcons[iconName];
