@@ -23,11 +23,6 @@ import { ReactComponent as openBook } from '../ressources/icons/open_book.svg';
 import { ReactComponent as infos } from '../ressources/icons/Info.svg';
 import { ReactComponent as copy } from '../ressources/icons/copy.svg';
 import { ReactComponent as remove } from '../ressources/icons/remove.svg';
-import { ReactComponent as flag_fr } from '../ressources/icons/flag_fr.svg';
-import { ReactComponent as flag_en } from '../ressources/icons/flag_en.svg';
-import { ReactComponent as flag_es } from '../ressources/icons/flag_es.svg';
-import { ReactComponent as flag_de } from '../ressources/icons/flag_de.svg';
-import { ReactComponent as flag_it } from '../ressources/icons/flag_it.svg';
 import { ReactComponent as arrowBack } from '../ressources/icons/arrow_back.svg';
 import { ReactComponent as megaphone } from '../ressources/icons/megaphone.svg';
 import { ReactComponent as gear } from '../ressources/icons/gear.svg';
@@ -63,11 +58,6 @@ export const MppIcons = {
   infos: infos,
   copy: copy,
   remove: remove,
-  flag_fr: flag_fr,
-  flag_en: flag_en,
-  flag_es: flag_es,
-  flag_de: flag_de,
-  flag_it: flag_it,
   arrowBack: arrowBack,
   gear: gear,
   megaphone: megaphone,

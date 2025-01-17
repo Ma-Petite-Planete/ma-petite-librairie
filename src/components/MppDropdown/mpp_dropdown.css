@@ -75,10 +75,6 @@
   border-top-right-radius: var(--standard_border_radius);
 }
 
-.hidden {
-  display: none;
-}
-
 .default {
   color: var(--dark_grey);
 }

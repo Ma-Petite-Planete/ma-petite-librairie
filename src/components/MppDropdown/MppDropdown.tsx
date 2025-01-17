@@ -1,10 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import './mpp_dropdown.css';
-import { getIconFromName } from '../../utils/MppIcons';
 import useClickOutside from '../../hooks/clickOutside';
 
 interface OptionType {
-  prefixIconName?: string;
   label?: string;
   id: string;
   value?: string;
@@ -70,7 +68,6 @@ const MppDropDown = <T extends OptionType>({
   );
   const [isDropdownVisible, setIsDropdownVisible] =
     React.useState<boolean>(false);
-  const PrefixIcon = getIconFromName(selectedOption?.prefixIconName);
   const dropDownRef = useRef<HTMLDivElement>(null);
   useClickOutside(dropDownRef, () => {
     if (!isDisabled) {
@@ -93,19 +90,12 @@ const MppDropDown = <T extends OptionType>({
         onClick={
           !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null
         }
-        className={`select_button ${textClassname}
+        className={` select_button ${textClassname}
           ${isDropdownVisible ? 'open' : ''}
           ${(placeholder && defaultValue.value === '' && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}`}
       >
-        <span className="select_button--selected_value">
-          {(selectedOption?.prefixIconName ||
-            selectedOption?.prefixIconName) && (
-            <PrefixIcon
-              style={{ width: '14px', height: '14px', margin: '0 2px 0 0' }}
-            />
-          )}
-
+        <span className="select_button--selected_value noto-color-emoji-regular">
           {selectedOption?.value
             ? selectedOption?.value
             : defaultValue.value
@@ -117,9 +107,8 @@ const MppDropDown = <T extends OptionType>({
         ></span>
       </button>
       {isDropdownVisible && (
-        <ul className="select_dropdown">
+        <ul className="select_dropdown ">
           {options.map((option, index) => {
-            const OptionPrefixIcon = getIconFromName(option.prefixIconName);
             return (
               <li
                 onKeyDown={(event) => {
@@ -130,7 +119,7 @@ const MppDropDown = <T extends OptionType>({
                   }
                 }}
                 tabIndex={0}
-                className="text_body"
+                className="text_body noto-color-emoji-regular"
                 key={index}
                 onClick={() => {
                   setSelectedOption(option);
@@ -138,15 +127,6 @@ const MppDropDown = <T extends OptionType>({
                   onChange(option);
                 }}
               >
-                {option.prefixIconName && (
-                  <OptionPrefixIcon
-                    style={{
-                      width: '14px',
-                      height: '14px',
-                      margin: '0 2px 0 0',
-                    }}
-                  />
-                )}
                 {option.value}
                 <div className="select_dropdown_divider"></div>
               </li>

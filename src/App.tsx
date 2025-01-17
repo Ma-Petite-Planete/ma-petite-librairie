@@ -452,28 +452,29 @@ function App() {
       />
       <h2>Select Input</h2>
 
-      <MppDropDown
-        options={[
-          {
-            id: 'fr',
-            value: 'Français',
-            prefixIconName: 'flag_fr',
-          },
-          {
-            id: 'en',
-            value: 'English',
-          },
-        ]}
-        onChange={function (value): void {
-          console.log(value);
-        }}
-        placeholder="Sélectionner une langue"
-        defaultValue={{
-          id: 'test',
-          value: 'fr',
-        }}
-        isDisabled={false}
-      />
+      <div style={{ width: '20%' }}>
+        <MppDropDown
+          options={[
+            {
+              id: 'fr',
+              value: '🇨🇵 Français',
+            },
+            {
+              id: 'en',
+              value: 'English',
+            },
+          ]}
+          onChange={function (value): void {
+            console.log(value);
+          }}
+          placeholder="Sélectionner une langue"
+          defaultValue={{
+            id: 'test',
+            value: '🇨🇵 🇮🇹 🇪🇸 🇩🇪 🇬🇧',
+          }}
+          isDisabled={false}
+        />
+      </div>
 
       <h2>Loader points</h2>
       <MppLoaderDots />
