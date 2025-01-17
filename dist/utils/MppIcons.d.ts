@@ -25,11 +25,6 @@ export declare const MppIcons: {
     readonly infos: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly copy: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly remove: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
-    readonly flag_fr: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
-    readonly flag_en: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
-    readonly flag_es: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
-    readonly flag_de: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
-    readonly flag_it: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly arrowBack: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly gear: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly megaphone: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
@@ -39,4 +34,3 @@ export declare const MppIcons: {
     readonly valid: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly invalid: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
 };
-export declare const getIconFromName: (iconName?: string) => any;

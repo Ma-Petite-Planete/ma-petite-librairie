@@ -1,7 +1,6 @@
 import React from 'react';
 import './mpp_dropdown.css';
 interface OptionType {
-    prefixIconName?: string;
     label?: string;
     id: string;
     value?: string;
