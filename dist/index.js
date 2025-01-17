@@ -747,12 +747,12 @@ function _extends$8() { return _extends$8 = Object.assign ? Object.assign.bind()
 var SvgRemove = function SvgRemove(props) {
   return /*#__PURE__*/React.createElement("svg", _extends$8({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 36,
-    height: 36,
+    width: 28,
+    height: 28,
     fill: "none"
   }, props), _path$8 || (_path$8 = /*#__PURE__*/React.createElement("path", {
     fill: "#2C2C69",
-    d: "M18 0C8.046 0 0 8.046 0 18s8.046 18 18 18 18-8.046 18-18S27.954 0 18 0m0 32.4c-7.938 0-14.4-6.462-14.4-14.4S10.062 3.6 18 3.6 32.4 10.062 32.4 18 25.938 32.4 18 32.4M24.462 9 18 15.462 11.538 9 9 11.538 15.462 18 9 24.462 11.538 27 18 20.538 24.462 27 27 24.462 20.538 18 27 11.538z"
+    d: "M14 0C6.258 0 0 6.258 0 14s6.258 14 14 14 14-6.258 14-14S21.742 0 14 0m0 25.2C7.826 25.2 2.8 20.174 2.8 14S7.826 2.8 14 2.8 25.2 7.826 25.2 14 20.174 25.2 14 25.2M19.026 7 14 12.026 8.974 7 7 8.974 12.026 14 7 19.026 8.974 21 14 15.974 19.026 21 21 19.026 15.974 14 21 8.974z"
   })));
 };
 
@@ -1374,7 +1374,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
           ${isDropdownVisible ? 'open' : ''}
           ${(placeholder && defaultValue.value === '' && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}` },
-            React__default.createElement("span", { className: "select_button--selected_value noto-color-emoji-regular" }, (selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption.value)
+            React__default.createElement("span", { className: "select_button--selected_value emoji" }, (selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption.value)
                 ? selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption.value
                 : defaultValue.value
                     ? defaultValue.value
@@ -1387,7 +1387,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                         setIsDropdownVisible(false);
                         onChange(option);
                     }
-                }, tabIndex: 0, className: "text_body noto-color-emoji-regular", key: index, onClick: () => {
+                }, tabIndex: 0, className: "emoji", key: index, onClick: () => {
                     setSelectedOption(option);
                     setIsDropdownVisible(false);
                     onChange(option);
