@@ -7,6 +7,7 @@ interface NavigationLink {
     navigation: string;
 }
 interface MppMenuProps {
+    backToClientsLink?: NavigationLink;
     navigationLinks: Array<NavigationLink>;
     LinkComponent: React.ElementType;
     boType: BoType;
@@ -15,6 +16,10 @@ interface MppMenuProps {
     aboutText: string;
     logOutText: string;
     clientIsLoad: boolean;
+    clientName?: string;
+    codeClientInput?: React.ReactNode;
+    codeClientButton?: React.ReactNode;
+    languageDropDown?: React.ReactNode;
 }
 /**
  * @interface MppMenuProps

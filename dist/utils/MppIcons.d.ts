@@ -23,4 +23,14 @@ export declare const MppIcons: {
     readonly trash: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly openBook: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly infos: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly copy: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly remove: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly arrowBack: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly gear: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly megaphone: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly people: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly bubble: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly tropheeGp: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly valid: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly invalid: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
 };

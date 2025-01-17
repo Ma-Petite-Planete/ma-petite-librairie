@@ -15,3 +15,12 @@ export { default as MppTextArea } from './components/MppTextArea/MppTextArea';
 export { BoType } from './components/BoType';
 export { default as MppInfosPin } from './components/MppInfosPin/MppInfosPin';
 export { default as MppSkeletonLoader } from './components/MppSkeletonLoader/MppSkeletonLoader';
+export { default as MppMultiSectionButton } from './components/MppMultiSectionButtons/MppMultiSectionButton';
+export { default as MppDropDown } from './components/MppDropdown/MppDropdown';
+export { default as MppLoaderDots } from './components/MppLoaderDots/MppLoaderDots';
+export { default as MppLabelType } from './components/MppLabelType/MppLabelType';
+export { default as MppLinearProgressBar } from './components/MppLinearProgressBar/MppLinearProgressBar';
+export { default as MppToaster } from './components/MppToaster/MppToaster';
+export { default as MppToggleButton } from './components/MppToggleButton/MppToggleButton';
+export { default as MppCheckBox } from './components/MppCheckBox/MppCheckbox';
+

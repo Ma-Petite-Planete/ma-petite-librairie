@@ -11,7 +11,7 @@ import MppStatCard from './components/MppStatCard/MppStatCard';
 import MppTextStyle from './section/MppTextStyleSection/MppTextStyleSection';
 import InputDemo from './section/InputSection';
 
-import { ScoColors } from './utils/Mppcolors';
+import { ScoColors, GpColors } from './utils/Mppcolors';
 import { MppIcons } from './utils/MppIcons';
 import MppCardEdition from './components/MppCardEdition/MppCardEdition';
 import MppInfosPin, { Direction } from './components/MppInfosPin/MppInfosPin';
@@ -20,7 +20,22 @@ import LayoutLoginSection from './section/MppLayoutLoginSection';
 import MppLoader from './components/MppLoader/MppLoader';
 import MppTextArea from './components/MppTextArea/MppTextArea';
 import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader';
-
+import MppMultiSectionButtonProps from './components/MppMultiSectionButtons/MppMultiSectionButton';
+import MppDropDown from './components/MppDropdown/MppDropdown';
+import MppLoaderDots from './components/MppLoaderDots/MppLoaderDots';
+import LinearProgressBar, {
+  ProgressBarStyle,
+} from './components/MppLinearProgressBar/MppLinearProgressBar';
+import MppToggleButton from './components/MppToggleButton/MppToggleButton';
+import MppLabelType, {
+  labelType,
+} from './components/MppLabelType/MppLabelType';
+import MppCheckbox from './components/MppCheckBox/MppCheckbox';
+import MppInputText from './components/MppInputText/MppInputText';
+import MppToaster, {
+  AnimationDirection,
+  MessageType,
+} from './components/MppToaster/MppToaster';
 function App() {
   return (
     <div className="main_background">
@@ -166,8 +181,146 @@ function App() {
         editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
         editionMessage="Il reste 7 jours !"
       />
+
+      <MppCardEdition
+        backgroundColor={GpColors.darkBlue}
+        textColor={ScoColors.white}
+        editionName={'Edition Printemps'}
+        editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
+        editionsDropDown={
+          <MppDropDown
+            textClassname="text_body_sb"
+            options={[
+              {
+                id: 'nfrjhnf',
+                value: 'Edition truc muche',
+              },
+              {
+                id: 'fnjhrfr',
+                value: 'Edition machin chose',
+              },
+            ]}
+            onChange={function (value): void {
+              console.log(value);
+            }}
+            placeholder="Sélectionner une langue"
+            defaultValue={{
+              id: '',
+              value: "Changer d'édition",
+            }}
+            isDisabled={false}
+          />
+        }
+      />
       <h2>Navigation Bar</h2>
-      <div style={{ height: '100vh' }}>
+      <div
+        style={{
+          height: '100vh',
+          display: 'flex',
+          justifyContent: 'space-around',
+        }}
+      >
+        <MppMenu
+          backToClientsLink={{
+            name: 'Tableau de bord',
+            icon: MppIcons.graph,
+            navigation: '/hompage',
+          }}
+          languageDropDown={
+            <MppDropDown
+              options={[
+                {
+                  id: 'fr',
+                  value: 'Français',
+                  prefixIconName: 'flag_fr',
+                },
+                {
+                  id: 'en',
+                  value: 'English',
+                  prefixIconName: 'flag_en',
+                },
+              ]}
+              onChange={function (value): void {
+                console.log(value);
+              }}
+              placeholder="Sélectionner une langue"
+              defaultValue={{
+                id: 'en',
+                value: 'English',
+                prefixIconName: 'flag_en',
+              }}
+              isDisabled={false}
+            />
+          }
+          codeClientInput={
+            <MppInputText
+              onChange={(value) => {
+                console.log(value);
+              }}
+              placeholder={'code client'}
+              value={'je sais pas'}
+            />
+          }
+          codeClientButton={
+            <MppButton
+              title={'Go'}
+              buttonType={ButtonType.primaryLarge}
+              onPress={(): void => {
+                console.log('change de client');
+              }}
+            />
+          }
+          navigationLinks={[
+            {
+              name: 'Mes ligues',
+              icon: MppIcons.bubble,
+              navigation: '/hompage',
+            },
+            {
+              name: 'Players',
+              icon: MppIcons.people,
+              navigation: '/hmome',
+            },
+            {
+              name: 'Ma structure',
+              icon: MppIcons.gear,
+              navigation: '/hmfrfrome',
+            },
+            {
+              name: 'Tableau de bord',
+              icon: MppIcons.graph,
+              navigation: '/hfrfomme',
+            },
+            {
+              name: 'Classements',
+              icon: MppIcons.tropheeGp,
+              navigation: '/homepage',
+            },
+            {
+              name: 'Espace porteurs de projet',
+              icon: MppIcons.ressources,
+              navigation: '/hmofrfrme',
+            },
+            {
+              name: 'Kit ambassadeur.rice',
+              icon: MppIcons.megaphone,
+              navigation: '/hmfrfome',
+            },
+            {
+              name: 'aide',
+              icon: MppIcons.help,
+              navigation: '/hnjfrnome',
+            },
+          ]}
+          actualPage="/fr/hmome"
+          LinkComponent={'symbol'}
+          boType={BoType.gpBo}
+          onLogout={() => console.log('suppr les comptes anonymes')}
+          aboutText={'A propos de MPP'}
+          logOutText={'Se déconnecter'}
+          clientIsLoad={true}
+          clientName="Airbus Helicopters"
+        />
         <MppMenu
           navigationLinks={[
             {
@@ -279,6 +432,106 @@ function App() {
           <MppSkeletonLoader circular={true} />
         </div>
         <MppSkeletonLoader count={3} />
+      </div>
+      <h2>MultiSectionButtons</h2>
+      <MppMultiSectionButtonProps
+        buttons_actions={[
+          {
+            label: 'Action 1',
+            OnClick: () => console.log('Action 1'),
+          },
+          {
+            label: 'Action 2',
+            OnClick: () => console.log('Action 2'),
+          },
+          {
+            label: 'Action 3',
+            OnClick: () => console.log('Action 3'),
+          },
+        ]}
+      />
+      <h2>Select Input</h2>
+
+      <div style={{ width: '20%' }}>
+        <MppDropDown
+          options={[
+            {
+              id: 'fr',
+              value: '🇨🇵 Français',
+            },
+            {
+              id: 'en',
+              value: 'English',
+            },
+          ]}
+          onChange={function (value): void {
+            console.log(value);
+          }}
+          placeholder="Sélectionner une langue"
+          defaultValue={{
+            id: 'test',
+            value: '🇨🇵 🇮🇹 🇪🇸 🇩🇪 🇬🇧',
+          }}
+          isDisabled={false}
+        />
+      </div>
+
+      <h2>Loader points</h2>
+      <MppLoaderDots />
+
+      <h2>Linear progress bar</h2>
+      <LinearProgressBar
+        maxValue={16}
+        value={16}
+        colorStyle={ProgressBarStyle.green}
+      />
+
+      <h2>Toggle button</h2>
+      <div style={{ width: '40%' }}>
+        <MppToggleButton
+          value={true}
+          onChange={(value: boolean) => {
+            console.log(value);
+          }}
+        />
+      </div>
+
+      <h2>Label Type</h2>
+      <div className="label_section">
+        <MppLabelType value={'Commu'} labelType={labelType.grey} />
+        <MppLabelType value={'Université'} labelType={labelType.orange} />
+        <MppLabelType value={'Entreprise'} labelType={labelType.green} />
+      </div>
+
+      <h2>Checkbox</h2>
+      {[{ id: 'truc1' }, { id: 'truc2' }, { id: 'truc3' }].map((element) => (
+        <div key={element.id}>
+          <MppCheckbox
+            value={element.id}
+            onChange={(value: string): void => {
+              console.log('🚀 ~ App ~ value:', value);
+            }}
+            checked={false}
+          />
+        </div>
+      ))}
+
+      <h2>Toaster</h2>
+      <div style={{ height: '70px' }}>
+        <MppToaster
+          animationDirection={AnimationDirection.from_top}
+          displayToast={true}
+          messageType={MessageType.error}
+          message="pas ouf"
+        />
+      </div>
+      <div style={{ height: '70px' }}>
+        <MppToaster
+          animationDirection={AnimationDirection.from_bottom}
+          displayToast={true}
+          messageType={MessageType.succes}
+          message="bien joué"
+        />
       </div>
     </div>
   );
