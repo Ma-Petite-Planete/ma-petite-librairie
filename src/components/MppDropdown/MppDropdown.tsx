@@ -95,7 +95,7 @@ const MppDropDown = <T extends OptionType>({
           ${(placeholder && defaultValue.value === '' && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}`}
       >
-        <span className="select_button--selected_value noto-color-emoji-regular">
+        <span className="select_button--selected_value emoji">
           {selectedOption?.value
             ? selectedOption?.value
             : defaultValue.value
@@ -119,7 +119,7 @@ const MppDropDown = <T extends OptionType>({
                   }
                 }}
                 tabIndex={0}
-                className="text_body noto-color-emoji-regular"
+                className="emoji"
                 key={index}
                 onClick={() => {
                   setSelectedOption(option);

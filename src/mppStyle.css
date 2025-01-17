@@ -160,8 +160,6 @@ button:hover {
   cursor: pointer;
 }
 
-.noto-color-emoji-regular {
-  font-family: "Noto Color Emoji", 'Poppins', sans-serif;
-  font-weight: 400;
-  font-style: normal;
+.emoji {
+  font-family: 'Noto Color Emoji', 'Poppins', sans-serif;
 }
