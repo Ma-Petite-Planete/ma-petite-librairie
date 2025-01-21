@@ -1,11 +1,7 @@
 import React from 'react';
 import './mpp_dropdown.css';
-interface OptionType {
-    label?: string;
-    id: string;
-    value?: string;
-}
-interface MppDropDownProps<T> {
+interface MppDropDownProps<T extends object, K extends keyof T> {
+    property: K;
     options: Array<T>;
     onChange: (value: T) => void;
     defaultValue: T;
@@ -50,5 +46,5 @@ const ExampleComponent = () => {
 };
  * ```
  */
-declare const MppDropDown: <T extends OptionType>({ placeholder, onChange, options, isDisabled, defaultValue, textClassname, }: MppDropDownProps<T>) => React.JSX.Element;
+declare const MppDropDown: <T extends object, K extends keyof T>({ placeholder, onChange, options, isDisabled, defaultValue, textClassname, property, }: MppDropDownProps<T, K>) => React.JSX.Element;
 export default MppDropDown;
