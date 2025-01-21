@@ -189,15 +189,16 @@ function App() {
         editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
         editionsDropDown={
           <MppDropDown
+            property="name"
             textClassname="text_body_sb"
             options={[
               {
                 id: 'nfrjhnf',
-                value: 'Edition truc muche',
+                name: 'Edition truc muche',
               },
               {
                 id: 'fnjhrfr',
-                value: 'Edition machin chose',
+                name: 'Edition machin chose',
               },
             ]}
             onChange={function (value): void {
@@ -206,7 +207,7 @@ function App() {
             placeholder="Sélectionner une langue"
             defaultValue={{
               id: '',
-              value: "Changer d'édition",
+              name: "Changer d'édition",
             }}
             isDisabled={false}
           />
@@ -228,16 +229,15 @@ function App() {
           }}
           languageDropDown={
             <MppDropDown
+              property="name"
               options={[
                 {
                   id: 'fr',
-                  value: 'Français',
-                  prefixIconName: 'flag_fr',
+                  name: 'Français',
                 },
                 {
                   id: 'en',
-                  value: 'English',
-                  prefixIconName: 'flag_en',
+                  name: 'English',
                 },
               ]}
               onChange={function (value): void {
@@ -246,8 +246,7 @@ function App() {
               placeholder="Sélectionner une langue"
               defaultValue={{
                 id: 'en',
-                value: 'English',
-                prefixIconName: 'flag_en',
+                name: 'English',
               }}
               isDisabled={false}
             />
@@ -454,6 +453,7 @@ function App() {
 
       <div style={{ width: '20%' }}>
         <MppDropDown
+          property="value"
           options={[
             {
               id: 'fr',

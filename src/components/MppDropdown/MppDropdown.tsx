@@ -2,13 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import './mpp_dropdown.css';
 import useClickOutside from '../../hooks/clickOutside';
 
-interface OptionType {
-  label?: string;
-  id: string;
-  value?: string;
-}
-
-interface MppDropDownProps<T> {
+interface MppDropDownProps<T extends object, K extends keyof T> {
+  property: K;
   options: Array<T>;
   onChange: (value: T) => void;
   defaultValue: T;
@@ -55,20 +50,25 @@ const ExampleComponent = () => {
  * ```
  */
 
-const MppDropDown = <T extends OptionType>({
+const MppDropDown = <T extends object, K extends keyof T>({
   placeholder,
   onChange,
   options,
   isDisabled,
   defaultValue,
   textClassname = 'text_body',
-}: MppDropDownProps<T>) => {
+  property,
+}: MppDropDownProps<T, K>) => {
   const [selectedOption, setSelectedOption] = React.useState<T | null>(
     defaultValue
   );
   const [isDropdownVisible, setIsDropdownVisible] =
     React.useState<boolean>(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
+
+  const testdefaultvalue = defaultValue[property] as string;
+  const testselectedvalue = selectedOption[property] as string;
+
   useClickOutside(dropDownRef, () => {
     if (!isDisabled) {
       setIsDropdownVisible(false);
@@ -92,14 +92,14 @@ const MppDropDown = <T extends OptionType>({
         }
         className={` select_button ${textClassname}
           ${isDropdownVisible ? 'open' : ''}
-          ${(placeholder && defaultValue.value === '' && !selectedOption) || isDisabled ? 'default' : ''}
+          ${(placeholder && testdefaultvalue === '' && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}`}
       >
         <span className="select_button--selected_value emoji">
-          {selectedOption?.value
-            ? selectedOption?.value
-            : defaultValue.value
-              ? defaultValue.value
+          {testselectedvalue
+            ? testselectedvalue
+            : testdefaultvalue
+              ? testdefaultvalue
               : placeholder}
         </span>
         <span
@@ -109,6 +109,7 @@ const MppDropDown = <T extends OptionType>({
       {isDropdownVisible && (
         <ul className="select_dropdown ">
           {options.map((option, index) => {
+            const displayedvalue = option[property] as string
             return (
               <li
                 onKeyDown={(event) => {
@@ -127,7 +128,7 @@ const MppDropDown = <T extends OptionType>({
                   onChange(option);
                 }}
               >
-                {option.value}
+                {displayedvalue}
                 <div className="select_dropdown_divider"></div>
               </li>
             );
@@ -138,4 +139,19 @@ const MppDropDown = <T extends OptionType>({
   );
 };
 
+// const MppDropDown = <T extends object, K extends keyof T>({ data, property }: MppDropDownProps<T, K>) => {
+//   const value = data[property] as string;
+
+//   return (
+//     <div>
+//       {typeof property === 'string' ? (
+//         <p>
+//           {property}: {value}{' '}
+//         </p>
+//       ) : (
+//         ''
+//       )}
+//     </div>
+//   );
+// };
 export default MppDropDown;
