@@ -9,6 +9,7 @@ interface MppButtonProps {
     style?: React.CSSProperties;
     hoverStyle?: React.CSSProperties;
     activeStyle?: React.CSSProperties;
+    isSubmitDisabled?: boolean;
 }
 /**
  * @interface MppButtonProps

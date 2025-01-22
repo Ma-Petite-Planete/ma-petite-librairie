@@ -10,6 +10,7 @@ interface MppButtonProps {
   style?: React.CSSProperties;
   hoverStyle?: React.CSSProperties;
   activeStyle?: React.CSSProperties;
+  isSubmitDisabled?: boolean;
 }
 
 /**
@@ -38,11 +39,12 @@ const MppButton: React.FC<MppButtonProps> = ({
   style = {},
   hoverStyle = {},
   activeStyle = {},
+  isSubmitDisabled = true,
 }) => {
   const [hover, setHover] = React.useState(false);
   const [active, setActive] = React.useState(false);
 
-  const isDisabled = !onPress;
+  const isDisabled = type === 'submit' ? isSubmitDisabled : !onPress;
 
   const combinedStyle: React.CSSProperties = {
     ...style,
