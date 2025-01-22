@@ -17,6 +17,7 @@ interface MppInputTextProps {
     onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
     isPassword?: boolean;
     errorMessage?: string;
+    autoComplete?: string;
 }
 declare const MppInput: React.FC<MppInputTextProps>;
 export default MppInput;

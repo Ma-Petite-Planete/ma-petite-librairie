@@ -20,6 +20,7 @@ interface MppInputTextProps {
   onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
   isPassword?: boolean;
   errorMessage?: string;
+  autoComplete?: string;
 }
 
 const MppInput: React.FC<MppInputTextProps> = ({
@@ -34,6 +35,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
   onKeyDown,
   onClickIcon,
   isPassword = false,
+  autoComplete,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
@@ -77,6 +79,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
           className={`mpp_input ${readOnly ? 'read_only' : ''}`}
           readOnly={readOnly}
           onKeyDown={onKeyDown}
+          autoComplete={autoComplete}
         />
         {(isFocused || value) && Icon ? (
           <Icon
