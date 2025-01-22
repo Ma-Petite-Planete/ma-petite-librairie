@@ -52,7 +52,7 @@ const InputDemo: React.FC = () => {
         ]}
       />
 
-      <MppInputText
+      <MppInput
         value={inputDemoIcon}
         placeholder={'exemple password'}
         isPassword={true}

@@ -17,7 +17,6 @@ interface MppInputTextProps {
     onClickErrorMessage?: string;
     readOnly?: boolean;
     onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
-    isPassword?: boolean;
 }
 /**
  * @interface MppInputTextProps

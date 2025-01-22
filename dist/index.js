@@ -40,6 +40,132 @@ const MppButton = ({ title, onPress, buttonType, type = 'button', style = {}, ho
                     : 'secondary_type button_medium text_body'}`, style: combinedStyle, onClick: !isDisabled ? onPress : undefined, onMouseEnter: () => !isDisabled && setHover(true), onMouseLeave: () => !isDisabled && setHover(false), onMouseDown: () => !isDisabled && setActive(true), onMouseUp: () => !isDisabled && setActive(false), disabled: isDisabled }, title));
 };
 
+/**
+ * @interface MppInputTextProps
+ * @property {string} placeholder - Texte d'indice à afficher dans le champ de saisie.
+ * @property {string} value - Valeur actuelle du champ de saisie.
+ * @property {React.FC<React.SVGProps<SVGSVGElement>>} [icon] - Composant SVG optionnel à afficher comme icône dans le champ de saisie.
+ * @property {boolean} [needCounter=false] - Indique si un compteur de caractères doit être affiché (par défaut : false).
+ * @property {number} [maxCharacteres] - Nombre maximum de caractères autorisés dans le champ de saisie.
+ * @property {Array<ValidationCondition>} [validationConditions] - Conditions de validation à appliquer au champ de saisie. Chaque condition est un objet contenant une fonction de validation et un message d'erreur.
+ * @property {function(string, boolean): void} [onChange] - Fonction de rappel appelée lors du changement de valeur du champ. Fournit la nouvelle valeur et un indicateur d'erreur.
+ * @property {function(string): void} [onClickIcon] - Fonction de rappel appelée lorsque l'icône est cliquée.
+ * @property {function(boolean): void} [setHasError] - Fonction de rappel pour indiquer si le champ a des erreurs de validation.
+ * @property {string} [onClickErrorMessage] - Message d'erreur à afficher lors du clic à l'extérieur du champ de saisie.
+ * @property {boolean} [readOnly=false] - Indique si le champ est en lecture seule (par défaut : false).
+ * @property {KeyboardEventHandler<HTMLInputElement>} [onKeyDown] - Fonction de rappel appelée lors de l'appui sur une touche du clavier.
+ *
+ * @example
+ * <MppInputText
+ *   placeholder="Entrez votre texte ici"
+ *   value={inputValue}
+ *   onChange={(value, hasError) => {
+ *     console.log('Valeur :', value, 'Erreur :', hasError);
+ *   }}
+ *   validationConditions={[
+ *     { condition: (value) => value.length >= 5, message: 'Doit contenir au moins 5 caractères.' },
+ *     { condition: (value) => /^[a-zA-Z]+$/.test(value), message: 'Ne doit contenir que des lettres.' },
+ *   ]}
+ *   needCounter={true}
+ *   maxCharacteres={20}
+ *   icon={MyIconComponent}
+ *   onClickIcon={(value) => {
+ *     console.log('Icône cliquée avec la valeur :', value);
+ *   }}
+ *   readOnly={false}
+ * />
+ */
+const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacteres, validationConditions = [], onChange, onClickIcon, setHasError, onClickErrorMessage, readOnly = false, onKeyDown, }) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
+    const [inputValue, setInputValue] = useState(value);
+    const [errorMessages, setErrorMessages] = useState([]);
+    useEffect(() => {
+        setInputValue(value);
+    }, [value]);
+    const validateInput = useCallback((value) => {
+        const errors = validationConditions
+            .filter((validation) => !validation.condition(value))
+            .map((validation) => validation.message);
+        if (onClickErrorMessage) {
+            errors.push(onClickErrorMessage);
+        }
+        setErrorMessages(errors);
+        if (setHasError)
+            setHasError(errors.length > 0);
+        return errors.length > 0;
+    }, [validationConditions, onClickErrorMessage, setHasError]);
+    useEffect(() => {
+        if (onClickErrorMessage) {
+            validateInput(inputValue);
+        }
+    }, [onClickErrorMessage, inputValue, validateInput]);
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+    const handleBlur = () => {
+        setIsFirstEntry(false);
+        setIsFocused(false);
+        validateInput(inputValue);
+    };
+    const handleChange = (e) => {
+        const newValue = e.target.value;
+        const newValueVerify = maxCharacteres
+            ? newValue.slice(0, maxCharacteres)
+            : newValue;
+        setInputValue(newValueVerify);
+        const hasError = validateInput(newValueVerify);
+        onChange(newValueVerify, hasError);
+    };
+    const handleIconClick = () => {
+        if (onClickIcon) {
+            onClickIcon(inputValue);
+        }
+    };
+    return (React__default.createElement(React__default.Fragment, null,
+        React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}` },
+            React__default.createElement("input", { type: "text", placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown }),
+            (isFocused || inputValue) && Icon ? (React__default.createElement(Icon, { className: onClickIcon ? 'input_icon_pointer' : '', onClick: handleIconClick })) : needCounter ? (React__default.createElement("span", { className: `input_counter ${inputValue.length === maxCharacteres ? 'max_characteres' : ''}` }, `${inputValue.length}/${maxCharacteres}`)) : null),
+        React__default.createElement("div", { className: "input_errors" }, errorMessages.length > 0 &&
+            inputValue &&
+            !isFirstEntry &&
+            errorMessages.map((error, index) => (React__default.createElement("p", { key: index, className: "input_error" }, error))))));
+};
+
+const ScoColors = {
+    error: 'var(--error)',
+    white: 'var(--white)',
+    whiteTransparent: 'var(--white_transparent)',
+    mainYellow: 'var(--main_yellow)',
+    lightYellow: 'var(--light_yellow)',
+    veryLightYellow: 'var(--very_light_yellow)',
+    mainBlue: 'var(--main_blue)',
+    lightBlue: 'var(--light_blue)',
+    darkBlue: 'var(--dark_blue)',
+    darkBlueLight: 'var(--dark_blue_light)',
+    darkBlueVeryLight: 'var(--dark_blue_very_light)',
+    disableDarkBlue: 'var(--disable_dark_blue)',
+    tonicViolet: 'var(--tonic_violet)',
+    pink: 'var(--pink)',
+    pastelBlue: 'var(--pastel_blue)',
+    pastelGreen: 'var(--pastel_green)',
+    pastelViolet: 'var(--pastel_violet)',
+    pastelLightPink: 'var(--pastel_light_pink)',
+    pastelDarkPink: 'var(--pastel_dark_pink)',
+    pastelOrange: 'var(--pastel_orange)',
+    pastelDarkViolet: 'var(--pastel_dark_violet)',
+    pastelTurquoise: 'var(--pastel_turquoise)',
+    anthracite: 'var(--anthracite)',
+    darkGrey: 'var(--dark_grey)',
+    mediumGrey: 'var(--medium_grey)',
+    lightGrey: 'var(--light_grey)',
+    utilityYellow: 'var(--utility_yellow)',
+    utilityGreen: 'var(--utility_green)',
+    greenBackground: 'var(--green_background)',
+    gradientPeps: 'var(--gradient_peps)',
+    gradientPepsReverse: 'var(--gradient_peps_reverse)',
+};
+
 var _path$s;
 function _extends$x() { return _extends$x = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$x.apply(null, arguments); }
 var SvgPen = function SvgPen(props) {
@@ -801,136 +927,6 @@ const MppIcons = {
     valid: SvgValid,
     invalid: SvgInvalid,
     eye: SvgEye,
-};
-
-/**
- * @interface MppInputTextProps
- * @property {string} placeholder - Texte d'indice à afficher dans le champ de saisie.
- * @property {string} value - Valeur actuelle du champ de saisie.
- * @property {React.FC<React.SVGProps<SVGSVGElement>>} [icon] - Composant SVG optionnel à afficher comme icône dans le champ de saisie.
- * @property {boolean} [needCounter=false] - Indique si un compteur de caractères doit être affiché (par défaut : false).
- * @property {number} [maxCharacteres] - Nombre maximum de caractères autorisés dans le champ de saisie.
- * @property {Array<ValidationCondition>} [validationConditions] - Conditions de validation à appliquer au champ de saisie. Chaque condition est un objet contenant une fonction de validation et un message d'erreur.
- * @property {function(string, boolean): void} [onChange] - Fonction de rappel appelée lors du changement de valeur du champ. Fournit la nouvelle valeur et un indicateur d'erreur.
- * @property {function(string): void} [onClickIcon] - Fonction de rappel appelée lorsque l'icône est cliquée.
- * @property {function(boolean): void} [setHasError] - Fonction de rappel pour indiquer si le champ a des erreurs de validation.
- * @property {string} [onClickErrorMessage] - Message d'erreur à afficher lors du clic à l'extérieur du champ de saisie.
- * @property {boolean} [readOnly=false] - Indique si le champ est en lecture seule (par défaut : false).
- * @property {KeyboardEventHandler<HTMLInputElement>} [onKeyDown] - Fonction de rappel appelée lors de l'appui sur une touche du clavier.
- *
- * @example
- * <MppInputText
- *   placeholder="Entrez votre texte ici"
- *   value={inputValue}
- *   onChange={(value, hasError) => {
- *     console.log('Valeur :', value, 'Erreur :', hasError);
- *   }}
- *   validationConditions={[
- *     { condition: (value) => value.length >= 5, message: 'Doit contenir au moins 5 caractères.' },
- *     { condition: (value) => /^[a-zA-Z]+$/.test(value), message: 'Ne doit contenir que des lettres.' },
- *   ]}
- *   needCounter={true}
- *   maxCharacteres={20}
- *   icon={MyIconComponent}
- *   onClickIcon={(value) => {
- *     console.log('Icône cliquée avec la valeur :', value);
- *   }}
- *   readOnly={false}
- * />
- */
-const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacteres, validationConditions = [], onChange, onClickIcon, setHasError, onClickErrorMessage, readOnly = false, onKeyDown, isPassword = false, }) => {
-    const [isFocused, setIsFocused] = useState(false);
-    const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
-    const [inputValue, setInputValue] = useState(value);
-    const [errorMessages, setErrorMessages] = useState([]);
-    const [showPassword, setShowPassword] = useState(false);
-    useEffect(() => {
-        setInputValue(value);
-    }, [value]);
-    const validateInput = useCallback((value) => {
-        const errors = validationConditions
-            .filter((validation) => !validation.condition(value))
-            .map((validation) => validation.message);
-        if (onClickErrorMessage) {
-            errors.push(onClickErrorMessage);
-        }
-        setErrorMessages(errors);
-        if (setHasError)
-            setHasError(errors.length > 0);
-        return errors.length > 0;
-    }, [validationConditions, onClickErrorMessage, setHasError]);
-    useEffect(() => {
-        if (onClickErrorMessage) {
-            validateInput(inputValue);
-        }
-    }, [onClickErrorMessage, inputValue, validateInput]);
-    const handleFocus = () => {
-        setIsFocused(true);
-    };
-    const handleBlur = () => {
-        setIsFirstEntry(false);
-        setIsFocused(false);
-        validateInput(inputValue);
-    };
-    const handleChange = (e) => {
-        const newValue = e.target.value;
-        const newValueVerify = maxCharacteres
-            ? newValue.slice(0, maxCharacteres)
-            : newValue;
-        setInputValue(newValueVerify);
-        const hasError = validateInput(newValueVerify);
-        onChange(newValueVerify, hasError);
-    };
-    const handleIconClick = () => {
-        if (onClickIcon) {
-            onClickIcon(inputValue);
-        }
-    };
-    const handleShowPassword = () => {
-        setShowPassword(!showPassword);
-    };
-    return (React__default.createElement(React__default.Fragment, null,
-        React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}` },
-            React__default.createElement("input", { type: showPassword ? 'text' : 'password', placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown }),
-            (isFocused || inputValue) && Icon ? (React__default.createElement(Icon, { className: onClickIcon ? 'input_icon_pointer' : '', onClick: handleIconClick })) : isPassword ? (React__default.createElement(MppIcons.eye, { className: `input_icon_pointer ${showPassword ? 'eye_focus' : 'eye_unfocus'}`, onClick: handleShowPassword })) : needCounter ? (React__default.createElement("span", { className: `input_counter ${inputValue.length === maxCharacteres ? 'max_characteres' : ''}` }, `${inputValue.length}/${maxCharacteres}`)) : null),
-        React__default.createElement("div", { className: "input_errors" }, errorMessages.length > 0 &&
-            inputValue &&
-            !isFirstEntry &&
-            errorMessages.map((error, index) => (React__default.createElement("p", { key: index, className: "input_error" }, error))))));
-};
-
-const ScoColors = {
-    error: 'var(--error)',
-    white: 'var(--white)',
-    whiteTransparent: 'var(--white_transparent)',
-    mainYellow: 'var(--main_yellow)',
-    lightYellow: 'var(--light_yellow)',
-    veryLightYellow: 'var(--very_light_yellow)',
-    mainBlue: 'var(--main_blue)',
-    lightBlue: 'var(--light_blue)',
-    darkBlue: 'var(--dark_blue)',
-    darkBlueLight: 'var(--dark_blue_light)',
-    darkBlueVeryLight: 'var(--dark_blue_very_light)',
-    disableDarkBlue: 'var(--disable_dark_blue)',
-    tonicViolet: 'var(--tonic_violet)',
-    pink: 'var(--pink)',
-    pastelBlue: 'var(--pastel_blue)',
-    pastelGreen: 'var(--pastel_green)',
-    pastelViolet: 'var(--pastel_violet)',
-    pastelLightPink: 'var(--pastel_light_pink)',
-    pastelDarkPink: 'var(--pastel_dark_pink)',
-    pastelOrange: 'var(--pastel_orange)',
-    pastelDarkViolet: 'var(--pastel_dark_violet)',
-    pastelTurquoise: 'var(--pastel_turquoise)',
-    anthracite: 'var(--anthracite)',
-    darkGrey: 'var(--dark_grey)',
-    mediumGrey: 'var(--medium_grey)',
-    lightGrey: 'var(--light_grey)',
-    utilityYellow: 'var(--utility_yellow)',
-    utilityGreen: 'var(--utility_green)',
-    greenBackground: 'var(--green_background)',
-    gradientPeps: 'var(--gradient_peps)',
-    gradientPepsReverse: 'var(--gradient_peps_reverse)',
 };
 
 const MppSkeletonLoader = ({ backgroundColor = 'var(--medium_grey)', highlightColor = 'var(--light_grey)', count = 1, circular = false, spaceBetweenRow = '10px', heightRow = '16px', }) => {
