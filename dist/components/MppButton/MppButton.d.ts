@@ -5,7 +5,7 @@ interface MppButtonProps {
     title: string;
     buttonType: ButtonType;
     type?: 'button' | 'submit' | 'reset';
-    onPress?: () => void;
+    onPress?: (() => void) | null;
     style?: React.CSSProperties;
     hoverStyle?: React.CSSProperties;
     activeStyle?: React.CSSProperties;

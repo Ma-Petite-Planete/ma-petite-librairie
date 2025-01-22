@@ -29,7 +29,7 @@ var ButtonType;
 const MppButton = ({ title, onPress, buttonType, type = 'button', style = {}, hoverStyle = {}, activeStyle = {}, isSubmitDisabled = true, }) => {
     const [hover, setHover] = React__default.useState(false);
     const [active, setActive] = React__default.useState(false);
-    const isDisabled = type === 'submit' ? isSubmitDisabled : !onPress;
+    const isDisabled = type === 'submit' ? isSubmitDisabled : onPress === null;
     const combinedStyle = Object.assign(Object.assign(Object.assign({}, style), (hover && !isDisabled ? hoverStyle : {})), (active && !isDisabled ? activeStyle : {}));
     return (React__default.createElement("button", { type: type, className: `mpp_button ${buttonType === ButtonType.primaryLarge
             ? 'button_large text_body_sb'
