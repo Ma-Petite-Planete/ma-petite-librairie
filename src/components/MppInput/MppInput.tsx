@@ -28,7 +28,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
   icon: Icon,
   needCounter = false,
   maxCharacters,
-  errorMessage,
+  errorMessage = '',
   readOnly = false,
   onChange,
   onKeyDown,

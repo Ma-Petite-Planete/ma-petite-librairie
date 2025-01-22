@@ -1602,7 +1602,7 @@ const MppCheckbox = ({ value, onChange, checked, isTableHeader = false, }) => {
                 React__default.createElement("span", { className: "checkmark" })))));
 };
 
-const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacters, errorMessage, readOnly = false, onChange, onKeyDown, onClickIcon, isPassword = false, }) => {
+const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacters, errorMessage = '', readOnly = false, onChange, onKeyDown, onClickIcon, isPassword = false, }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
     const [showPassword, setShowPassword] = useState(false);
