@@ -5,6 +5,7 @@ import { ButtonType } from './ButtonType';
 interface MppButtonProps {
   title: string;
   buttonType: ButtonType;
+  type?: 'button' | 'submit' | 'reset';
   onPress: ((event?: React.MouseEvent<HTMLButtonElement>) => void) | null;
   style?: React.CSSProperties;
   hoverStyle?: React.CSSProperties;
@@ -35,6 +36,7 @@ const MppButton: React.FC<MppButtonProps> = ({
   title,
   onPress,
   buttonType,
+  type = 'button',
   style = {},
   hoverStyle = {},
   activeStyle = {},
@@ -52,6 +54,7 @@ const MppButton: React.FC<MppButtonProps> = ({
 
   return (
     <button
+      type={type}
       className={`mpp_button  ${
         buttonType === ButtonType.primaryLarge
           ? 'button_large text_body_sb'

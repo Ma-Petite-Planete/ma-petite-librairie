@@ -28,12 +28,12 @@ onPress={() => {
 buttonType={ButtonType.primaryLarge}
 />
 */
-const MppButton = ({ title, onPress, buttonType, style = {}, hoverStyle = {}, activeStyle = {}, }) => {
+const MppButton = ({ title, onPress, buttonType, type = 'button', style = {}, hoverStyle = {}, activeStyle = {}, }) => {
     const [hover, setHover] = React__default.useState(false);
     const [active, setActive] = React__default.useState(false);
     const isDisabled = onPress === null;
     const combinedStyle = Object.assign(Object.assign(Object.assign({}, style), (hover && !isDisabled ? hoverStyle : {})), (active && !isDisabled ? activeStyle : {}));
-    return (React__default.createElement("button", { className: `mpp_button  ${buttonType === ButtonType.primaryLarge
+    return (React__default.createElement("button", { type: type, className: `mpp_button  ${buttonType === ButtonType.primaryLarge
             ? 'button_large text_body_sb'
             : buttonType === ButtonType.primaryMedium
                 ? 'button_medium text_body'
