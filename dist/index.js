@@ -12,38 +12,32 @@ var ButtonType;
 /**
  * @interface MppButtonProps
  * @property {string} title - Titre du bouton.
- * @property {ButtonType} buttonType - enum pour le style
- * @property {void || null} onPress - fonction du bouton
- * @property {React.CSSProperties} style - style pour écraser les standards.
- * @property {React.CSSProperties} hoverStyle - style pour écraser les standards.
- * @property {React.CSSProperties} activeStyle - style pour écraser les standards.
+ * @property {ButtonType} buttonType - Enum pour le style.
+ * @property {() => void} [onPress] - Fonction à exécuter lorsque le bouton est cliqué.
+ * @property {React.CSSProperties} [style] - Style personnalisé.
+ * @property {React.CSSProperties} [hoverStyle] - Style au survol.
+ * @property {React.CSSProperties} [activeStyle] - Style lors du clic.
  *
  * @example
  *
  * <MppButton
-title="Bouton d'action"
-onPress={() => {
-  console.log('Bouton cliqué!');
-}}
-buttonType={ButtonType.primaryLarge}
-/>
-*/
+ *   title="Bouton d'action"
+ *   onPress={() => console.log('Bouton cliqué!')}
+ *   buttonType={ButtonType.primaryLarge}
+ * />
+ */
 const MppButton = ({ title, onPress, buttonType, type = 'button', style = {}, hoverStyle = {}, activeStyle = {}, }) => {
     const [hover, setHover] = React__default.useState(false);
     const [active, setActive] = React__default.useState(false);
-    const isDisabled = onPress === null;
+    const isDisabled = !onPress;
     const combinedStyle = Object.assign(Object.assign(Object.assign({}, style), (hover && !isDisabled ? hoverStyle : {})), (active && !isDisabled ? activeStyle : {}));
-    return (React__default.createElement("button", { type: type, className: `mpp_button  ${buttonType === ButtonType.primaryLarge
+    return (React__default.createElement("button", { type: type, className: `mpp_button ${buttonType === ButtonType.primaryLarge
             ? 'button_large text_body_sb'
             : buttonType === ButtonType.primaryMedium
                 ? 'button_medium text_body'
                 : buttonType === ButtonType.secondaryLarge
                     ? 'secondary_type button_large text_body_sb'
-                    : 'secondary_type button_medium text_body'}`, style: combinedStyle, onClick: (event) => {
-            if (!isDisabled && onPress) {
-                onPress(event);
-            }
-        }, onMouseEnter: () => !isDisabled && setHover(true), onMouseLeave: () => !isDisabled && setHover(false), onMouseDown: () => !isDisabled && setActive(true), onMouseUp: () => !isDisabled && setActive(false), disabled: isDisabled }, title));
+                    : 'secondary_type button_medium text_body'}`, style: combinedStyle, onClick: !isDisabled ? onPress : undefined, onMouseEnter: () => !isDisabled && setHover(true), onMouseLeave: () => !isDisabled && setHover(false), onMouseDown: () => !isDisabled && setActive(true), onMouseUp: () => !isDisabled && setActive(false), disabled: isDisabled }, title));
 };
 
 var _path$s;
@@ -897,7 +891,7 @@ const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false
     };
     return (React__default.createElement(React__default.Fragment, null,
         React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}` },
-            React__default.createElement("input", { type: !showPassword && isPassword ? 'password' : 'text', placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown }),
+            React__default.createElement("input", { type: showPassword ? 'text' : 'password', placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown }),
             (isFocused || inputValue) && Icon ? (React__default.createElement(Icon, { className: onClickIcon ? 'input_icon_pointer' : '', onClick: handleIconClick })) : isPassword ? (React__default.createElement(MppIcons.eye, { className: `input_icon_pointer ${showPassword ? 'eye_focus' : 'eye_unfocus'}`, onClick: handleShowPassword })) : needCounter ? (React__default.createElement("span", { className: `input_counter ${inputValue.length === maxCharacteres ? 'max_characteres' : ''}` }, `${inputValue.length}/${maxCharacteres}`)) : null),
         React__default.createElement("div", { className: "input_errors" }, errorMessages.length > 0 &&
             inputValue &&
@@ -1612,4 +1606,34 @@ const MppCheckbox = ({ value, onChange, checked, isTableHeader = false, }) => {
                 React__default.createElement("span", { className: "checkmark" })))));
 };
 
-export { BoType, ButtonType, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInputText, MppLabelType, LinearProgressBar as MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ScoColors };
+const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacters, errorMessage, readOnly = false, onChange, onKeyDown, onClickIcon, isPassword = false, }) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
+    const [showPassword, setShowPassword] = useState(false);
+    const handleChange = (e) => {
+        const newValue = e.target.value.slice(0, maxCharacters || undefined);
+        onChange(newValue);
+    };
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+    const handleBlur = () => {
+        setIsFirstEntry(false);
+        setIsFocused(false);
+    };
+    const handleIconClick = () => {
+        if (onClickIcon) {
+            onClickIcon(value);
+        }
+    };
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword);
+    };
+    return (React__default.createElement(React__default.Fragment, null,
+        React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}` },
+            React__default.createElement("input", { type: showPassword && isPassword ? 'text' : 'password', placeholder: placeholder, value: value, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown }),
+            (isFocused || value) && Icon ? (React__default.createElement(Icon, { className: onClickIcon ? 'input_icon_pointer' : '', onClick: handleIconClick })) : isPassword ? (React__default.createElement(MppIcons.eye, { className: `input_icon_pointer ${showPassword ? 'eye_focus' : 'eye_unfocus'}`, onClick: handleShowPassword })) : needCounter ? (React__default.createElement("span", { className: `input_counter ${value.length === maxCharacters ? 'max_characteres' : ''}` }, `${value.length}/${maxCharacters}`)) : null),
+        React__default.createElement("div", { className: "input_errors" }, errorMessage.length > 0 && value && !isFirstEntry && (React__default.createElement("p", { className: "input_error" }, errorMessage)))));
+};
+
+export { BoType, ButtonType, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInput, MppInputText, MppLabelType, LinearProgressBar as MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ScoColors };

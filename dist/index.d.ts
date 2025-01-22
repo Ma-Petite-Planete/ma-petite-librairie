@@ -22,3 +22,4 @@ export { default as MppLinearProgressBar } from './components/MppLinearProgressB
 export { default as MppToaster } from './components/MppToaster/MppToaster';
 export { default as MppToggleButton } from './components/MppToggleButton/MppToggleButton';
 export { default as MppCheckBox } from './components/MppCheckBox/MppCheckbox';
+export { default as MppInput } from './components/MppInput/MppInput';

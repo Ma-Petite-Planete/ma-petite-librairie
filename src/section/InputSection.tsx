@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import MppInputText from '../components/MppInputText/MppInputText';
 import React from 'react';
+import MppInput from '../components/MppInput/MppInput';
 
 const InputDemo: React.FC = () => {
   const [inputDemoIcon, setInputDemoIcon] = useState('');
@@ -14,9 +15,15 @@ const InputDemo: React.FC = () => {
   };
 
   const [inputDemoCounter, setInputDemoCounter] = useState('');
+  const [errorDemoCounter, setErrorDemoCounter] = useState('');
 
   const handleChangeDemoCounter = (value: string) => {
     setInputDemoCounter(value);
+    if (value.length > 15) {
+      setErrorDemoCounter('Le texte ne doit pas dépasser 15 caractères.');
+    } else {
+      setErrorDemoCounter('');
+    }
   };
 
   const [inputDemoCondition, setInputDemoCondition] = useState('');
@@ -53,12 +60,13 @@ const InputDemo: React.FC = () => {
         onClickIcon={handleIconClick}
       />
 
-      <MppInputText
+      <MppInput
         value={inputDemoCounter}
         placeholder={'exemple counter'}
         onChange={handleChangeDemoCounter}
         needCounter={true}
-        maxCharacteres={20}
+        maxCharacters={20}
+        errorMessage={errorDemoCounter}
       />
     </div>
   );
