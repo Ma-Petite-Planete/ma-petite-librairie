@@ -68,7 +68,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
         className={`mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}`}
       >
         <input
-          type={showPassword && isPassword ? 'text' : 'password'}
+          type={showPassword && !isPassword ? 'text' : 'password'}
           placeholder={placeholder}
           value={value}
           onFocus={handleFocus}
