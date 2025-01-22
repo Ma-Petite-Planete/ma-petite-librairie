@@ -5,6 +5,7 @@ import React, {
   KeyboardEventHandler,
 } from 'react';
 import './mpp_input_text.css';
+import { MppIcons } from '../../utils/MppIcons';
 
 export interface ValidationCondition {
   condition: (value: string) => boolean;
@@ -24,6 +25,7 @@ interface MppInputTextProps {
   onClickErrorMessage?: string;
   readOnly?: boolean;
   onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
+  isPassword?: boolean;
 }
 
 /**
@@ -75,11 +77,13 @@ const MppInputText: React.FC<MppInputTextProps> = ({
   onClickErrorMessage,
   readOnly = false,
   onKeyDown,
+  isPassword = false,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
   const [inputValue, setInputValue] = useState(value);
   const [errorMessages, setErrorMessages] = useState<Array<string>>([]);
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     setInputValue(value);
@@ -133,13 +137,17 @@ const MppInputText: React.FC<MppInputTextProps> = ({
     }
   };
 
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <>
       <div
         className={`mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessages.length > 0 && !isFirstEntry && inputValue ? 'error' : ''}`}
       >
         <input
-          type="text"
+          type={showPassword ? 'text' : 'password'}
           placeholder={placeholder}
           value={inputValue}
           onFocus={handleFocus}
@@ -153,6 +161,11 @@ const MppInputText: React.FC<MppInputTextProps> = ({
           <Icon
             className={onClickIcon ? 'input_icon_pointer' : ''}
             onClick={handleIconClick}
+          />
+        ) : isPassword ? (
+          <MppIcons.eye
+            className={`input_icon_pointer ${showPassword ? 'eye_focus' : 'eye_unfocus'}`}
+            onClick={handleShowPassword}
           />
         ) : needCounter ? (
           <span

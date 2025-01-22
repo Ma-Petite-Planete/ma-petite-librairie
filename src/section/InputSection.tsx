@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { MppIcons } from '../utils/MppIcons';
 import MppInputText from '../components/MppInputText/MppInputText';
 import React from 'react';
 
@@ -48,9 +47,9 @@ const InputDemo: React.FC = () => {
 
       <MppInputText
         value={inputDemoIcon}
-        placeholder={'exemple icon'}
+        placeholder={'exemple password'}
+        isPassword={true}
         onChange={handleChangeDemoIcon}
-        icon={MppIcons.pen}
         onClickIcon={handleIconClick}
       />
 

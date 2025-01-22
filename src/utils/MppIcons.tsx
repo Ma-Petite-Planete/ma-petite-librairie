@@ -31,6 +31,7 @@ import { ReactComponent as bubble } from '../ressources/icons/bubble.svg';
 import { ReactComponent as trophee_gp } from '../ressources/icons/trophee_gp.svg';
 import { ReactComponent as valid } from '../ressources/icons/valid.svg';
 import { ReactComponent as invalid } from '../ressources/icons/invalid.svg';
+import { ReactComponent as eye } from '../ressources/icons/eye.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -66,4 +67,5 @@ export const MppIcons = {
   tropheeGp: trophee_gp,
   valid: valid,
   invalid: invalid,
+  eye: eye,
 } as const;
