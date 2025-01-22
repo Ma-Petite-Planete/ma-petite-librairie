@@ -107,7 +107,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
         ></span>
       </button>
       {isDropdownVisible && (
-        <ul className="select_dropdown ">
+        <ul className="select_dropdown">
           {options.map((option, index) => {
             const displayedvalue = option[property] as string
             return (
