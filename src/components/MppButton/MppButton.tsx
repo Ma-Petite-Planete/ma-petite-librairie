@@ -5,7 +5,7 @@ import { ButtonType } from './ButtonType';
 interface MppButtonProps {
   title: string;
   buttonType: ButtonType;
-  onPress: (() => void) | null;
+  onPress: ((event?: React.MouseEvent<HTMLButtonElement>) => void) | null;
   style?: React.CSSProperties;
   hoverStyle?: React.CSSProperties;
   activeStyle?: React.CSSProperties;
@@ -62,7 +62,11 @@ const MppButton: React.FC<MppButtonProps> = ({
               : 'secondary_type button_medium text_body'
       }`}
       style={combinedStyle}
-      onClick={!isDisabled ? onPress : undefined}
+      onClick={(event) => {
+        if (!isDisabled && onPress) {
+          onPress(event);
+        }
+      }}
       onMouseEnter={() => !isDisabled && setHover(true)}
       onMouseLeave={() => !isDisabled && setHover(false)}
       onMouseDown={() => !isDisabled && setActive(true)}

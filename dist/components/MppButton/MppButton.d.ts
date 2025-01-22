@@ -4,7 +4,7 @@ import { ButtonType } from './ButtonType';
 interface MppButtonProps {
     title: string;
     buttonType: ButtonType;
-    onPress: (() => void) | null;
+    onPress: ((event?: React.MouseEvent<HTMLButtonElement>) => void) | null;
     style?: React.CSSProperties;
     hoverStyle?: React.CSSProperties;
     activeStyle?: React.CSSProperties;
