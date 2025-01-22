@@ -884,7 +884,7 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
 var SvgEye = function SvgEye(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 22,
+    width: 25,
     height: 16,
     fill: "currentColor"
   }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
