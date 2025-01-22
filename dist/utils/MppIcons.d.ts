@@ -33,4 +33,5 @@ export declare const MppIcons: {
     readonly tropheeGp: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly valid: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly invalid: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly eye: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
 };
