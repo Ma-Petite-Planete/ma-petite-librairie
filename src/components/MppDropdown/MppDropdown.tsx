@@ -69,8 +69,8 @@ const MppDropDown = <T extends object, K extends keyof T>({
     React.useState<boolean>(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
 
-  const testdefaultvalue = defaultValue[property] as string;
-  const testselectedvalue = selectedOption[property] as string;
+  const displayedDefaultValue = defaultValue[property] as string;
+  const selectedValue = selectedOption[property] as string;
 
   useClickOutside(dropDownRef, () => {
     if (!isDisabled) {
@@ -95,14 +95,14 @@ const MppDropDown = <T extends object, K extends keyof T>({
         }
         className={` select_button ${textClassname}
           ${isDropdownVisible ? 'open' : ''}
-          ${(placeholder && testdefaultvalue === '' && !selectedOption) || isDisabled ? 'default' : ''}
+          ${(placeholder && displayedDefaultValue === '' && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}`}
       >
         <span className="select_button--selected_value emoji">
-          {testselectedvalue
-            ? testselectedvalue
-            : testdefaultvalue
-              ? testdefaultvalue
+          {selectedValue
+            ? selectedValue
+            : displayedDefaultValue
+              ? displayedDefaultValue
               : placeholder}
         </span>
         <span
