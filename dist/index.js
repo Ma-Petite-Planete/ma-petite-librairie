@@ -1322,43 +1322,48 @@ const useClickOutside = (elementRef, callback) => {
  * Le composant MppDropDown rend un menu déroulant personnalisable.
  *
  * @template T - Le type des options.
+ * @template K - La clé du type des options.
  *
- * @param {MppDropDownProps<T>} props - Les propriétés du composant dropdown.
+ * @param {MppDropDownProps<T, K>} props - Les propriétés du composant dropdown.
  * @param {string} props.placeholder - Le texte de l'espace réservé à afficher lorsqu'aucune option n'est sélectionnée.
  * @param {(option: T) => void} props.onChange - La fonction de rappel pour gérer les changements de sélection d'option.
  * @param {T[]} props.options - La liste des options à afficher dans le menu déroulant.
  * @param {boolean} [props.isDisabled] - Indicateur pour désactiver le menu déroulant.
  * @param {T} props.defaultValue - L'option sélectionnée par défaut.
  * @param {string} [props.textClassname='text_body'] - Le nom de la classe CSS pour le texte.
+ * @param {K} props.property - La propriété de l'option à afficher dans le menu déroulant.
  *
  * @example
  * ```tsx
-const ExampleComponent = () => {
-  const options = [
-    { id: '1', value: 'Option 1', prefixIconName: 'icon1' },
-    { id: '2', value: 'Option 2', prefixIconName: 'icon2' },
-    { id: '3', value: 'Option 3', prefixIconName: 'icon3' },
-  ];
-
-  const handleChange = (selectedOption: OptionType) => {
-    console.log('Option sélectionnée:', selectedOption);
-  };
-
-  return (
-    <MppDropDown
-      options={options}
-      onChange={handleChange}
-      defaultValue={options[0]}
-      placeholder="Sélectionnez une option"
-    />
-  );
-};
+ * const ExampleComponent = () => {
+ *   const options = [
+ *     { id: '1', value: 'Option 1' },
+ *     { id: '2', value: 'Option 2' },
+ *     { id: '3', value: 'Option 3' },
+ *   ];
+ *
+ *   const handleChange = (selectedOption: T) => {
+ *     console.log('Option sélectionnée:', selectedOption);
+ *   };
+ *
+ *   return (
+ *     <MppDropDown
+ *       options={options}
+ *       onChange={handleChange}
+ *       defaultValue={options[0]}
+ *       placeholder="Sélectionnez une option"
+ *       property="value"
+ *     />
+ *   );
+ * };
  * ```
  */
-const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = 'text_body', }) => {
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = 'text_body', property, }) => {
     const [selectedOption, setSelectedOption] = React__default.useState(defaultValue);
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
     const dropDownRef = useRef(null);
+    const displayedDefaultValue = defaultValue[property];
+    const selectedValue = selectedOption[property];
     useClickOutside(dropDownRef, () => {
         if (!isDisabled) {
             setIsDropdownVisible(false);
@@ -1372,15 +1377,16 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
     return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''}` },
         React__default.createElement("button", { disabled: isDisabled, onClick: !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null, className: ` select_button ${textClassname}
           ${isDropdownVisible ? 'open' : ''}
-          ${(placeholder && defaultValue.value === '' && !selectedOption) || isDisabled ? 'default' : ''}
+          ${(placeholder && displayedDefaultValue === '' && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}` },
-            React__default.createElement("span", { className: "select_button--selected_value emoji" }, (selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption.value)
-                ? selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption.value
-                : defaultValue.value
-                    ? defaultValue.value
+            React__default.createElement("span", { className: "select_button--selected_value emoji" }, selectedValue
+                ? selectedValue
+                : displayedDefaultValue
+                    ? displayedDefaultValue
                     : placeholder),
             React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
-        isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown " }, options.map((option, index) => {
+        isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, options.map((option, index) => {
+            const displayedvalue = option[property];
             return (React__default.createElement("li", { onKeyDown: (event) => {
                     if (event.key === 'Enter') {
                         setSelectedOption(option);
@@ -1392,7 +1398,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                     setIsDropdownVisible(false);
                     onChange(option);
                 } },
-                option.value,
+                displayedvalue,
                 React__default.createElement("div", { className: "select_dropdown_divider" })));
         })))));
 };

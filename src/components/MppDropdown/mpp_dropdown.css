@@ -13,7 +13,7 @@
   border-radius: var(--standard_border_radius);
 }
 .select_button {
-  background-color: var(--light_grey);;
+  background-color: var(--light_grey);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,8 +56,7 @@
 .select_dropdown li {
   cursor: pointer;
   padding: 8px 16px;
-  display: flex;
-  align-items: center;
+  white-space: nowrap;
 }
 
 .select_button--selected_value {
