@@ -28,12 +28,12 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
  * ```tsx
  * const ExampleComponent = () => {
  *   const options = [
- *     { id: '1', value: 'Option 1', prefixIconName: 'icon1' },
- *     { id: '2', value: 'Option 2', prefixIconName: 'icon2' },
- *     { id: '3', value: 'Option 3', prefixIconName: 'icon3' },
+ *     { id: '1', value: 'Option 1' },
+ *     { id: '2', value: 'Option 2' },
+ *     { id: '3', value: 'Option 3' },
  *   ];
  *
- *   const handleChange = (selectedOption: OptionType) => {
+ *   const handleChange = (selectedOption: T) => {
  *     console.log('Option sélectionnée:', selectedOption);
  *   };
  *
