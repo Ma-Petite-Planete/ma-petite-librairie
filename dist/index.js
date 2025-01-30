@@ -165,6 +165,29 @@ const ScoColors = {
     gradientPeps: 'var(--gradient_peps)',
     gradientPepsReverse: 'var(--gradient_peps_reverse)',
 };
+const GpColors = {
+    orange: 'var(--orange)',
+    mintGreen: 'var(--mint_green)',
+    lightBlue: 'var(--light_blue)',
+    teal: 'var(--teal)',
+    pink: 'var(--pink)',
+    royalBlue: 'var(--royal_blue)',
+    lightGreen: 'var(--light_green)',
+    errorRed: 'var(--error_red)',
+    pastelGreen: 'var(--pastel_green)',
+    pastelOrange: 'var(--pastel_orange)',
+    pastelPink: 'var(--pastel_pink)',
+    lightBeige: 'var(--light_beige)',
+    beige: 'var(--beige)',
+    taupe: 'var(--taupe)',
+    kaki: 'var(--kaki)',
+    anthracite: 'var(--anthracite)',
+    darkGrey: 'var(--dark_grey)',
+    mediumGrey: 'var(--medium_grey)',
+    lightGrey: 'var(--light_grey)',
+    white: 'var(--white)',
+    darkBlue: 'var(--dark_blue)',
+};
 
 var _path$s;
 function _extends$x() { return _extends$x = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$x.apply(null, arguments); }
@@ -1638,4 +1661,4 @@ const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, ma
         React__default.createElement("div", { className: "input_errors" }, errorMessage.length > 0 && value && !isFirstEntry && (React__default.createElement("p", { className: "input_error" }, errorMessage)))));
 };
 
-export { BoType, ButtonType, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInput, MppInputText, MppLabelType, LinearProgressBar as MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ScoColors };
+export { BoType, ButtonType, GpColors, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInput, MppInputText, MppLabelType, LinearProgressBar as MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ScoColors };
