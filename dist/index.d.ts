@@ -1,7 +1,7 @@
 import './mppStyle.css';
 export { MppButton, ButtonType } from './components/MppButton';
 export { default as MppInputText } from './components/MppInputText/MppInputText';
-export { ScoColors } from './utils/Mppcolors';
+export { ScoColors, GpColors } from './utils/Mppcolors';
 export { MppIcons } from './utils/MppIcons';
 export { default as MppRankingCard } from './components/MppRankingCard/MppRankingCard';
 export { default as MppPodium } from './components/MppPodium/MppPodium';
