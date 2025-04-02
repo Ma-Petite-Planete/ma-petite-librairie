@@ -114,6 +114,11 @@
   color: var(--dark_blue);
 }
 
+.toggle_language_container{
+  display: flex;
+  gap: 10px;
+}
+
 @media (min-width: 896px) {
   .menu_background {
     width: 251px;

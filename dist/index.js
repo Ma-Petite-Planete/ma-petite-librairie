@@ -1093,7 +1093,7 @@ var BoType;
  *   logOutText="Déconnexion"
  * />
  */
-const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage, aboutText, logOutText, clientIsLoad, clientName, codeClientInput, codeClientButton, languageDropDown, backToClientsLink, }) => {
+const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage, aboutText, logOutText, clientIsLoad, clientName, codeClientInput, codeClientButton, backToClientsLink, languageToggle, }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     return (React__default.createElement("div", { className: "menu_background" },
         React__default.createElement("div", { className: "center" },
@@ -1114,9 +1114,9 @@ const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage,
             React__default.createElement("div", { className: "navigation_client_code_section--input" }, codeClientInput),
             codeClientButton)),
         React__default.createElement("div", { className: "navigation_background" },
-            boType === BoType.gpBo && (React__default.createElement("div", { className: "navigation_language_dropdown" }, languageDropDown)),
-            React__default.createElement(LinkComponent, { className: "navigation_element", href: 'https://mapetiteplanete.org/' },
-                React__default.createElement("p", { className: "text_body" }, aboutText)),
+            aboutText && (React__default.createElement(LinkComponent, { className: "navigation_element", href: 'https://mapetiteplanete.org/' },
+                React__default.createElement("p", { className: "text_body" }, aboutText))),
+            languageToggle && languageToggle,
             React__default.createElement("div", { className: "navigation_element bottom", onClick: onLogout },
                 React__default.createElement(MppIcons.logOut, { className: "icon" }),
                 React__default.createElement("p", { className: "text_body_sb" }, logOutText)))));

@@ -15,15 +15,16 @@ interface MppMenuProps {
   navigationLinks: Array<NavigationLink>;
   LinkComponent: React.ElementType;
   boType: BoType;
+  toggleLanguage?: string;
   onLogout: () => void;
   actualPage: string;
-  aboutText: string;
+  aboutText?: string;
   logOutText: string;
   clientIsLoad: boolean;
   clientName?: string;
   codeClientInput?: React.ReactNode;
   codeClientButton?: React.ReactNode;
-  languageDropDown?: React.ReactNode;
+  languageToggle?: React.ReactNode;
 }
 
 /**
@@ -66,8 +67,8 @@ const MppMenu: React.FC<MppMenuProps> = ({
   clientName,
   codeClientInput,
   codeClientButton,
-  languageDropDown,
   backToClientsLink,
+  languageToggle,
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -132,15 +133,16 @@ const MppMenu: React.FC<MppMenuProps> = ({
       )}
 
       <div className="navigation_background">
-        {boType === BoType.gpBo && (
-          <div className="navigation_language_dropdown">{languageDropDown}</div>
+        {aboutText && (
+          <LinkComponent
+            className="navigation_element"
+            href={'https://mapetiteplanete.org/'}
+          >
+            <p className="text_body">{aboutText}</p>
+          </LinkComponent>
         )}
-        <LinkComponent
-          className="navigation_element"
-          href={'https://mapetiteplanete.org/'}
-        >
-          <p className="text_body">{aboutText}</p>
-        </LinkComponent>
+        {languageToggle && languageToggle}
+
         <div className="navigation_element bottom" onClick={onLogout}>
           <MppIcons.logOut className="icon" />
           <p className="text_body_sb">{logOutText}</p>

@@ -11,15 +11,16 @@ interface MppMenuProps {
     navigationLinks: Array<NavigationLink>;
     LinkComponent: React.ElementType;
     boType: BoType;
+    toggleLanguage?: string;
     onLogout: () => void;
     actualPage: string;
-    aboutText: string;
+    aboutText?: string;
     logOutText: string;
     clientIsLoad: boolean;
     clientName?: string;
     codeClientInput?: React.ReactNode;
     codeClientButton?: React.ReactNode;
-    languageDropDown?: React.ReactNode;
+    languageToggle?: React.ReactNode;
 }
 /**
  * @interface MppMenuProps
