@@ -78,17 +78,18 @@ const MppMenu: React.FC<MppMenuProps> = ({
         <div
           className={`logo_container ${boType === BoType.gpBo ? 'logo_gp' : 'logo_sco'}`}
         ></div>
-        {boType === BoType.gpBo && backToClientsLink && (
+        {boType === BoType.gpBo && (
           <div className="gp_menu_client_data ">
             {clientName && <span className="text_body_sb">{clientName}</span>}
-
-            <LinkComponent
-              href={backToClientsLink.navigation}
-              className="navigation_flex text_small_b navigation_return_link"
-            >
-              <MppIcons.arrowBack className="icon_arrow_back text_small_b" />
-              <span>{backToClientsLink.name}</span>
-            </LinkComponent>
+            {backToClientsLink && (
+              <LinkComponent
+                href={backToClientsLink.navigation}
+                className="navigation_flex text_small_b navigation_return_link"
+              >
+                <MppIcons.arrowBack className="icon_arrow_back text_small_b" />
+                <span>{backToClientsLink.name}</span>
+              </LinkComponent>
+            )}
           </div>
         )}
         <div className="navigation_background">
