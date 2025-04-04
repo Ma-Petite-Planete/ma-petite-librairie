@@ -1565,10 +1565,9 @@ const MppToaster = ({ message, displayToast, messageType, animationDirection, })
             }, 3500);
         }
     }, [displayToaster]);
-    return (React__default.createElement("div", { className: "toaster_message_container" },
-        React__default.createElement("div", { className: `${messageType === MessageType.error ? 'error_message_container' : 'success_message_container'} ${displayToaster ? 'visible' : 'hidden'}  ${animationDirection} toaster_message` },
-            messageType === MessageType.error ? (React__default.createElement(MppIcons.invalid, null)) : (React__default.createElement(MppIcons.valid, null)),
-            React__default.createElement("span", { className: "toaster_message--span text_body" }, message))));
+    return (React__default.createElement("div", { className: `${messageType === MessageType.error ? 'error_message_container' : 'success_message_container'} ${displayToaster ? 'visible' : 'hidden'}  ${animationDirection} toaster_message` },
+        messageType === MessageType.error ? (React__default.createElement(MppIcons.invalid, null)) : (React__default.createElement(MppIcons.valid, null)),
+        React__default.createElement("span", { className: "toaster_message--span text_body" }, message)));
 };
 
 /**
