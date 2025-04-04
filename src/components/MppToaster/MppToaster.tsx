@@ -40,7 +40,7 @@ interface MppToasterProps {
  * />
  */
 
-const MppToaster: React.FC<MppToasterProps> = ({
+export const MppToaster: React.FC<MppToasterProps> = ({
   message,
   displayToast,
   messageType,
@@ -71,5 +71,3 @@ const MppToaster: React.FC<MppToasterProps> = ({
     </div>
   );
 };
-
-export default MppToaster;

@@ -32,7 +32,8 @@ import MppLabelType, {
 } from './components/MppLabelType/MppLabelType';
 import MppCheckbox from './components/MppCheckBox/MppCheckbox';
 import MppInputText from './components/MppInputText/MppInputText';
-import MppToaster, {
+import {
+  MppToaster,
   AnimationDirection,
   MessageType,
 } from './components/MppToaster/MppToaster';
@@ -314,7 +315,7 @@ function App() {
           actualPage="/fr/hmome"
           LinkComponent={'symbol'}
           boType={BoType.gpBo}
-          toggleLanguage='true'
+          toggleLanguage="true"
           onLogout={() => console.log('suppr les comptes anonymes')}
           // aboutText={'A propos de MPP'}
 
