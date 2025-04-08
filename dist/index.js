@@ -1476,7 +1476,7 @@ var labelType;
  *   labelType={labelType.grey}
  * />
  */
-const MppLabelType = ({ value, labelType }) => {
+const MppLabelType = ({ value, labelType, }) => {
     return (React__default.createElement("div", null,
         React__default.createElement("span", { className: `${labelType} text_small_b label` }, value)));
 };
@@ -1661,4 +1661,4 @@ const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, ma
         React__default.createElement("div", { className: "input_errors" }, errorMessage.length > 0 && value && !isFirstEntry && (React__default.createElement("p", { className: "input_error" }, errorMessage)))));
 };
 
-export { BoType, ButtonType, GpColors, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInput, MppInputText, MppLabelType, LinearProgressBar as MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ScoColors };
+export { BoType, ButtonType, GpColors, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInput, MppInputText, MppLabelType, LinearProgressBar as MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ScoColors, labelType };

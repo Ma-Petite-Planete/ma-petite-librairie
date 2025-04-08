@@ -27,7 +27,8 @@ import LinearProgressBar, {
   ProgressBarStyle,
 } from './components/MppLinearProgressBar/MppLinearProgressBar';
 import MppToggleButton from './components/MppToggleButton/MppToggleButton';
-import MppLabelType, {
+import {
+  MppLabelType,
   labelType,
 } from './components/MppLabelType/MppLabelType';
 import MppCheckbox from './components/MppCheckBox/MppCheckbox';

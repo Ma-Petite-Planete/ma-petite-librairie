@@ -28,12 +28,13 @@ interface MppLabelTypeProps {
  *   labelType={labelType.grey}
  * />
  */
-const MppLabelType: React.FC<MppLabelTypeProps> = ({ value, labelType }) => {
+export const MppLabelType: React.FC<MppLabelTypeProps> = ({
+  value,
+  labelType,
+}) => {
   return (
     <div>
       <span className={`${labelType} text_small_b label`}>{value}</span>
     </div>
   );
 };
-
-export default MppLabelType;
