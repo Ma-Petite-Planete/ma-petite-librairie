@@ -1514,7 +1514,7 @@ var ProgressBarStyle;
  *   colorStyle={ProgressBarStyle.green}
  * />
  */
-const LinearProgressBar = ({ maxValue, value, colorStyle, }) => {
+const MppLinearProgressBar = ({ maxValue, value, colorStyle, }) => {
     const getProgressBarPercentage = (maxValue, value) => Math.round((value / maxValue) * 100);
     const progressBarColor = value === 0 ? 'default' : value === maxValue ? 'green' : colorStyle;
     return (React__default.createElement("div", { className: `linear_progress_bar_container ${progressBarColor}` },
@@ -1661,4 +1661,4 @@ const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, ma
         React__default.createElement("div", { className: "input_errors" }, errorMessage.length > 0 && value && !isFirstEntry && (React__default.createElement("p", { className: "input_error" }, errorMessage)))));
 };
 
-export { BoType, ButtonType, ColumnType, GpColors, LinearProgressBar, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ProgressBarStyle, ScoColors, labelType };
+export { BoType, ButtonType, ColumnType, GpColors, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ProgressBarStyle, ScoColors, labelType };

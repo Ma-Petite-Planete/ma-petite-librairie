@@ -24,7 +24,7 @@ import MppMultiSectionButtonProps from './components/MppMultiSectionButtons/MppM
 import MppDropDown from './components/MppDropdown/MppDropdown';
 import MppLoaderDots from './components/MppLoaderDots/MppLoaderDots';
 import {
-  LinearProgressBar,
+  MppLinearProgressBar,
   ProgressBarStyle,
 } from './components/MppLinearProgressBar/MppLinearProgressBar';
 import MppToggleButton from './components/MppToggleButton/MppToggleButton';
@@ -482,7 +482,7 @@ function App() {
       <MppLoaderDots />
 
       <h2>Linear progress bar</h2>
-      <LinearProgressBar
+      <MppLinearProgressBar
         maxValue={16}
         value={16}
         colorStyle={ProgressBarStyle.green}
