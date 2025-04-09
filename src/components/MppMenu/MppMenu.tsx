@@ -167,7 +167,7 @@ const MppMenu: React.FC<MppMenuProps> = ({
             <p className="text_body">{aboutText}</p>
           </LinkComponent>
         )}
-        {languageToggle && languageToggle}
+        {languageToggle}
 
         <div className="navigation_element bottom" onClick={onLogout}>
           <MppIcons.logOut className="icon" />
