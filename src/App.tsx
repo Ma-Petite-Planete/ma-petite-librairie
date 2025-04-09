@@ -32,7 +32,8 @@ import MppLabelType, {
 } from './components/MppLabelType/MppLabelType';
 import MppCheckbox from './components/MppCheckBox/MppCheckbox';
 import MppInputText from './components/MppInputText/MppInputText';
-import MppToaster, {
+import {
+  MppToaster,
   AnimationDirection,
   MessageType,
 } from './components/MppToaster/MppToaster';
@@ -227,30 +228,6 @@ function App() {
             icon: MppIcons.graph,
             navigation: '/hompage',
           }}
-          languageDropDown={
-            <MppDropDown
-              property="name"
-              options={[
-                {
-                  id: 'fr',
-                  name: 'Français',
-                },
-                {
-                  id: 'en',
-                  name: 'English',
-                },
-              ]}
-              onChange={function (value): void {
-                console.log(value);
-              }}
-              placeholder="Sélectionner une langue"
-              defaultValue={{
-                id: 'en',
-                name: 'English',
-              }}
-              isDisabled={false}
-            />
-          }
           codeClientInput={
             <MppInputText
               onChange={(value) => {
@@ -315,7 +292,6 @@ function App() {
           LinkComponent={'symbol'}
           boType={BoType.gpBo}
           onLogout={() => console.log('suppr les comptes anonymes')}
-          aboutText={'A propos de MPP'}
           logOutText={'Se déconnecter'}
           clientIsLoad={true}
           clientName="Airbus Helicopters"

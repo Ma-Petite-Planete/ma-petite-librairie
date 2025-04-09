@@ -34,5 +34,5 @@ interface MppToasterProps {
  *   animationDirection={AnimationDirection.from_bottom}
  * />
  */
-declare const MppToaster: React.FC<MppToasterProps>;
-export default MppToaster;
+export declare const MppToaster: React.FC<MppToasterProps>;
+export {};

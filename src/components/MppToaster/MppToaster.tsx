@@ -40,7 +40,7 @@ interface MppToasterProps {
  * />
  */
 
-const MppToaster: React.FC<MppToasterProps> = ({
+export const MppToaster: React.FC<MppToasterProps> = ({
   message,
   displayToast,
   messageType,
@@ -57,19 +57,15 @@ const MppToaster: React.FC<MppToasterProps> = ({
   }, [displayToaster]);
 
   return (
-    <div className="toaster_message_container">
-      <div
-        className={`${messageType === MessageType.error ? 'error_message_container' : 'success_message_container'} ${displayToaster ? 'visible' : 'hidden'}  ${animationDirection} toaster_message`}
-      >
-        {messageType === MessageType.error ? (
-          <MppIcons.invalid />
-        ) : (
-          <MppIcons.valid />
-        )}
-        <span className="toaster_message--span text_body">{message}</span>
-      </div>
+    <div
+      className={`${messageType === MessageType.error ? 'error_message_container' : 'success_message_container'} ${displayToaster ? 'visible' : 'hidden'}  ${animationDirection} toaster_message`}
+    >
+      {messageType === MessageType.error ? (
+        <MppIcons.invalid />
+      ) : (
+        <MppIcons.valid />
+      )}
+      <span className="toaster_message--span text_body">{message}</span>
     </div>
   );
 };
-
-export default MppToaster;
