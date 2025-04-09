@@ -23,7 +23,8 @@ import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader'
 import MppMultiSectionButtonProps from './components/MppMultiSectionButtons/MppMultiSectionButton';
 import MppDropDown from './components/MppDropdown/MppDropdown';
 import MppLoaderDots from './components/MppLoaderDots/MppLoaderDots';
-import LinearProgressBar, {
+import {
+  LinearProgressBar,
   ProgressBarStyle,
 } from './components/MppLinearProgressBar/MppLinearProgressBar';
 import MppToggleButton from './components/MppToggleButton/MppToggleButton';

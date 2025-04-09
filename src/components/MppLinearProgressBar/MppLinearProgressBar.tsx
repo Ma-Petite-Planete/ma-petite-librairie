@@ -40,7 +40,7 @@ export enum ProgressBarStyle {
  * />
  */
 
-const LinearProgressBar: React.FC<LinearProgressBarProps> = ({
+export const LinearProgressBar: React.FC<LinearProgressBarProps> = ({
   maxValue,
   value,
   colorStyle,
@@ -67,5 +67,3 @@ const LinearProgressBar: React.FC<LinearProgressBarProps> = ({
     </div>
   );
 };
-
-export default LinearProgressBar;
