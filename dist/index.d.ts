@@ -19,7 +19,7 @@ export { default as MppDropDown } from './components/MppDropdown/MppDropdown';
 export { default as MppLoaderDots } from './components/MppLoaderDots/MppLoaderDots';
 export * from './components/MppLabelType/MppLabelType';
 export * from './components/MppLinearProgressBar/MppLinearProgressBar';
-export { default as MppToaster } from './components/MppToaster/MppToaster';
+export * from './components/MppToaster/MppToaster';
 export { default as MppToggleButton } from './components/MppToggleButton/MppToggleButton';
 export { default as MppCheckBox } from './components/MppCheckBox/MppCheckbox';
 export { default as MppInput } from './components/MppInput/MppInput';

@@ -1067,42 +1067,67 @@ var BoType;
 })(BoType || (BoType = {}));
 
 /**
+ * Composant de menu principal pour les interfaces back-office (GP ou SCO).
+ *
+ * @component
+ * @param {MppMenuProps} props - Propriétés du composant
+ *
  * @interface MppMenuProps
- * @property {Array<NavigationLink>} navigationLinks - Liste des liens de navigation à afficher dans le menu.
- * @property {React.ElementType} LinkComponent - Composant de lien à utiliser pour la navigation (ex : `Link` de Next.js).
- * @property {BoType} boType - Type de back-office (ex : `scoBO` ou `gpBo`).
- * @property {function(): void} onLogout - Fonction de rappel appelée lors de la déconnexion.
- * @property {string} actualPage - URL ou nom de la page actuelle pour la mise en surbrillance.
- * @property {string} aboutText - Texte à afficher pour la page "À propos".
- * @property {string} logOutText - Texte à afficher pour le lien de déconnexion.
+ * @property {NavigationLink[]} navigationLinks - Liste des liens de navigation affichés dans le menu.
+ * @property {React.ElementType} LinkComponent - Composant de lien utilisé pour la navigation (ex : `Link` de Next.js).
+ * @property {BoType} boType - Type de back-office (ex : `BoType.scoBO` ou `BoType.gpBo`).
+ * @property {() => void} onLogout - Fonction appelée lors du clic sur le bouton de déconnexion.
+ * @property {string} actualPage - Nom ou URL de la page actuelle, utilisé pour la mise en surbrillance du lien actif.
+ * @property {string} logOutText - Texte affiché pour le bouton de déconnexion.
+ * @property {boolean} clientIsLoad - Indique si les données client sont chargées (affiche un loader sinon).
+ * @property {string} [clientName] - Nom du client à afficher (pour le back-office GP).
+ * @property {React.ReactNode} [codeClientInput] - Composant d’input pour la saisie du code client (GP uniquement).
+ * @property {React.ReactNode} [codeClientButton] - Composant bouton associé à l’input du code client.
+ * @property {NavigationLink} [backToClientsLink] - Lien de retour à la liste des clients (GP uniquement).
+ * @property {React.ReactNode} [languageToggle] - Composant pour le changement de langue.
+ * @property {string} [aboutText] - Texte du lien "À propos", redirigeant vers le site Ma Petite Planète.
+ *
+ * @interface NavigationLink
+ * @property {React.FC<React.SVGProps<SVGSVGElement>>} icon - Icône du lien de navigation.
+ * @property {string} name - Nom du lien affiché.
+ * @property {string} navigation - URL de destination.
  *
  * @example
- *
  * const navigationLinks = [
- *   { icon: MppIcons.tata, name: 'Accueil', navigation: '/' },
- *   { icon: MppIcons.toto, name: 'Profil', navigation: '/profil' },
+ *   { icon: MppIcons.home, name: 'Accueil', navigation: '/' },
+ *   { icon: MppIcons.profile, name: 'Profil', navigation: '/profil' },
  * ];
  *
  * <MppMenu
  *   navigationLinks={navigationLinks}
  *   LinkComponent={Link}
- *   boType={BoType.scoBO}
+ *   boType={BoType.gpBo}
  *   onLogout={() => console.log('Déconnexion')}
  *   actualPage="/"
+ *   logOutText="Se déconnecter"
+ *   clientIsLoad={true}
+ *   clientName="Entreprise ABC"
+ *   codeClientInput={<input />}
+ *   codeClientButton={<button>Valider</button>}
+ *   backToClientsLink={{
+ *     name: 'Retour aux clients',
+ *     navigation: '/clients',
+ *     icon: MppIcons.arrowBack
+ *   }}
+ *   languageToggle={<LanguageSwitcher />}
  *   aboutText="À propos"
- *   logOutText="Déconnexion"
  * />
  */
-const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage, aboutText, logOutText, clientIsLoad, clientName, codeClientInput, codeClientButton, languageDropDown, backToClientsLink, }) => {
+const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage, aboutText, logOutText, clientIsLoad, clientName, codeClientInput, codeClientButton, backToClientsLink, languageToggle, }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     return (React__default.createElement("div", { className: "menu_background" },
         React__default.createElement("div", { className: "center" },
             React__default.createElement("div", { className: `logo_container ${boType === BoType.gpBo ? 'logo_gp' : 'logo_sco'}` }),
-            boType === BoType.gpBo && backToClientsLink && (React__default.createElement("div", { className: "gp_menu_client_data " },
+            boType === BoType.gpBo && (React__default.createElement("div", { className: "gp_menu_client_data " },
                 clientName && React__default.createElement("span", { className: "text_body_sb" }, clientName),
-                React__default.createElement(LinkComponent, { href: backToClientsLink.navigation, className: "navigation_flex text_small_b navigation_return_link" },
+                backToClientsLink && (React__default.createElement(LinkComponent, { href: backToClientsLink.navigation, className: "navigation_flex text_small_b navigation_return_link" },
                     React__default.createElement(MppIcons.arrowBack, { className: "icon_arrow_back text_small_b" }),
-                    React__default.createElement("span", null, backToClientsLink.name)))),
+                    React__default.createElement("span", null, backToClientsLink.name))))),
             React__default.createElement("div", { className: "navigation_background" }, clientIsLoad ? (navigationLinks.map((navigationLink, index) => (React__default.createElement("div", { onMouseEnter: () => setHoveredIndex(index), onMouseLeave: () => setHoveredIndex(null), className: `navigation_element ${actualPage.includes(navigationLink.navigation) ? 'actual_page' : ''} ${hoveredIndex === index ||
                     actualPage.includes(navigationLink.navigation)
                     ? 'text_body_sb '
@@ -1114,9 +1139,9 @@ const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage,
             React__default.createElement("div", { className: "navigation_client_code_section--input" }, codeClientInput),
             codeClientButton)),
         React__default.createElement("div", { className: "navigation_background" },
-            boType === BoType.gpBo && (React__default.createElement("div", { className: "navigation_language_dropdown" }, languageDropDown)),
-            React__default.createElement(LinkComponent, { className: "navigation_element", href: 'https://mapetiteplanete.org/' },
-                React__default.createElement("p", { className: "text_body" }, aboutText)),
+            aboutText && (React__default.createElement(LinkComponent, { className: "navigation_element", href: 'https://mapetiteplanete.org/' },
+                React__default.createElement("p", { className: "text_body" }, aboutText))),
+            languageToggle,
             React__default.createElement("div", { className: "navigation_element bottom", onClick: onLogout },
                 React__default.createElement(MppIcons.logOut, { className: "icon" }),
                 React__default.createElement("p", { className: "text_body_sb" }, logOutText)))));
@@ -1565,10 +1590,9 @@ const MppToaster = ({ message, displayToast, messageType, animationDirection, })
             }, 3500);
         }
     }, [displayToaster]);
-    return (React__default.createElement("div", { className: "toaster_message_container" },
-        React__default.createElement("div", { className: `${messageType === MessageType.error ? 'error_message_container' : 'success_message_container'} ${displayToaster ? 'visible' : 'hidden'}  ${animationDirection} toaster_message` },
-            messageType === MessageType.error ? (React__default.createElement(MppIcons.invalid, null)) : (React__default.createElement(MppIcons.valid, null)),
-            React__default.createElement("span", { className: "toaster_message--span text_body" }, message))));
+    return (React__default.createElement("div", { className: `${messageType === MessageType.error ? 'error_message_container' : 'success_message_container'} ${displayToaster ? 'visible' : 'hidden'}  ${animationDirection} toaster_message` },
+        messageType === MessageType.error ? (React__default.createElement(MppIcons.invalid, null)) : (React__default.createElement(MppIcons.valid, null)),
+        React__default.createElement("span", { className: "toaster_message--span text_body" }, message)));
 };
 
 /**
@@ -1661,4 +1685,4 @@ const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, ma
         React__default.createElement("div", { className: "input_errors" }, errorMessage.length > 0 && value && !isFirstEntry && (React__default.createElement("p", { className: "input_error" }, errorMessage)))));
 };
 
-export { BoType, ButtonType, ColumnType, GpColors, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ProgressBarStyle, ScoColors, labelType };
+export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ProgressBarStyle, ScoColors, labelType };
