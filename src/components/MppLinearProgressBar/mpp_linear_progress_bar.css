@@ -15,13 +15,11 @@
   font-size: 10px;
   font-weight: 700;
   line-height: auto;
-}
-
-.main_value--value {
   text-align: end;
+  position: relative;
 }
 
-.background_value--max_value {
+.end_line_number {
   position: absolute;
   right: -20px;
 }
