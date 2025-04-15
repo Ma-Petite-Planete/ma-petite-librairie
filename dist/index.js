@@ -1541,8 +1541,7 @@ var ProgressBarStyle;
  * />
  */
 const MppLinearProgressBar = ({ maxValue, value, colorStyle, }) => {
-    const progressBarColor = value === 0 ? 'default' : value === maxValue ? 'green' : colorStyle;
-    return (React__default.createElement("div", { className: `linear_progress_bar_container ${progressBarColor}` },
+    return (React__default.createElement("div", { className: `linear_progress_bar_container ${colorStyle}` },
         React__default.createElement("div", { className: "linear_progress_bar--background_value" },
             React__default.createElement("div", { className: "progress_bar background_value--indicator" },
                 React__default.createElement("div", { className: "linear_progress_bar--main_value", style: { width: `${Math.round((value / maxValue) * 100)}%` } },

@@ -46,11 +46,8 @@ export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
   value,
   colorStyle,
 }) => {
-  const progressBarColor =
-    value === 0 ? 'default' : value === maxValue ? 'green' : colorStyle;
-
   return (
-    <div className={`linear_progress_bar_container ${progressBarColor}`}>
+    <div className={`linear_progress_bar_container ${colorStyle}`}>
       <div className="linear_progress_bar--background_value">
         <div className="progress_bar background_value--indicator">
           <div
