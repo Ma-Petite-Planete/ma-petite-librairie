@@ -24,6 +24,10 @@
   right: -20px;
 }
 
+.hide {
+  display: none;
+}
+
 /*----------------- DEFAULT ------------------*/
 .default .linear_progress_bar--main_value {
   display: none;

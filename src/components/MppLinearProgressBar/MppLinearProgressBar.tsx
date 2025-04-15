@@ -62,7 +62,7 @@ export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
         </div>
       </div>
       <p
-        className={`background_value--max_value ${finishPercentage > 80 ? 'end_line_number' : ''}`}
+        className={`background_value--max_value ${finishPercentage >= 100 ? 'hide' : finishPercentage > 80 ? 'end_line_number' : ''}`}
       >
         {maxValue}
       </p>
