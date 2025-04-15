@@ -1541,15 +1541,14 @@ var ProgressBarStyle;
  * />
  */
 const MppLinearProgressBar = ({ maxValue, value, colorStyle, }) => {
-    const getProgressBarPercentage = (maxValue, value) => Math.round((value / maxValue) * 100);
     const progressBarColor = value === 0 ? 'default' : value === maxValue ? 'green' : colorStyle;
     return (React__default.createElement("div", { className: `linear_progress_bar_container ${progressBarColor}` },
         React__default.createElement("div", { className: "linear_progress_bar--background_value" },
             React__default.createElement("div", { className: "progress_bar background_value--indicator" },
-                React__default.createElement("div", { className: "linear_progress_bar--main_value", style: { width: `${getProgressBarPercentage(maxValue, value)}%` } },
+                React__default.createElement("div", { className: "linear_progress_bar--main_value", style: { width: `${Math.round((value / maxValue) * 100)}%` } },
                     React__default.createElement("div", { className: "progress_bar main_value--indicator" }),
-                    React__default.createElement("p", { className: "main_value--value" }, value))),
-            React__default.createElement("p", { className: "background_value--max_value" }, maxValue))));
+                    React__default.createElement("p", { className: "main_value--value" }, Math.round(value))))),
+        React__default.createElement("p", { className: "background_value--max_value" }, maxValue)));
 };
 
 var MessageType;
