@@ -1542,13 +1542,14 @@ var ProgressBarStyle;
  */
 const MppLinearProgressBar = ({ maxValue, value, colorStyle, }) => {
     const finishPercentage = Math.round((value / maxValue) * 100);
-    return (React__default.createElement("div", { className: `linear_progress_bar_container ${colorStyle}` },
-        React__default.createElement("div", { className: "linear_progress_bar--background_value" },
-            React__default.createElement("div", { className: "progress_bar background_value--indicator" },
-                React__default.createElement("div", { className: "linear_progress_bar--main_value", style: { width: `${finishPercentage}%` } },
-                    React__default.createElement("div", { className: "progress_bar main_value--indicator" }),
-                    React__default.createElement("p", { className: "main_value--value" }, Math.round(value))))),
-        React__default.createElement("p", { className: `background_value--max_value ${finishPercentage >= 100 ? 'hide' : finishPercentage > 80 ? 'end_line_number' : ''}` }, maxValue)));
+    return (React__default.createElement(React__default.Fragment, null,
+        React__default.createElement("div", { className: `linear_progress_bar_container ${colorStyle}` },
+            React__default.createElement("div", { className: "linear_progress_bar--background_value" },
+                React__default.createElement("div", { className: "progress_bar background_value--indicator" },
+                    React__default.createElement("div", { className: "linear_progress_bar--main_value", style: { width: `${finishPercentage}%` } },
+                        React__default.createElement("div", { className: "progress_bar main_value--indicator" }),
+                        React__default.createElement("p", { className: "main_value--value" }, Math.round(value))))),
+            React__default.createElement("p", { className: `background_value--max_value ${finishPercentage >= 100 ? 'hide' : finishPercentage > 80 ? 'end_line_number' : ''}` }, maxValue))));
 };
 
 var MessageType;

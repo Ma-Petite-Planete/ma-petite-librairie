@@ -14,14 +14,17 @@
 .background_value--max_value {
   font-size: 10px;
   font-weight: 700;
-  line-height: auto;
-  text-align: end;
-  position: relative;
+  right: 0;
+  position: absolute;
 }
 
 .end_line_number {
   position: absolute;
   right: -20px;
+}
+
+.linear_progress_bar--main_value {
+  position: relative;
 }
 
 .hide {

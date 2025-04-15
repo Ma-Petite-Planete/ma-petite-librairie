@@ -460,7 +460,7 @@ function App() {
       <h2>Linear progress bar</h2>
       <MppLinearProgressBar
         maxValue={100}
-        value={100}
+        value={90}
         colorStyle={ProgressBarStyle.green}
       />
 
