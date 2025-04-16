@@ -16,7 +16,6 @@ export declare enum ProgressBarStyle {
     green = "green",
     orange = "orange",
     invisible = "invisible",
-    darkBlue = "dark_blue",
     default = "default"
 }
 /**

@@ -1519,7 +1519,6 @@ var ProgressBarStyle;
     ProgressBarStyle["green"] = "green";
     ProgressBarStyle["orange"] = "orange";
     ProgressBarStyle["invisible"] = "invisible";
-    ProgressBarStyle["darkBlue"] = "dark_blue";
     ProgressBarStyle["default"] = "default";
 })(ProgressBarStyle || (ProgressBarStyle = {}));
 /**
