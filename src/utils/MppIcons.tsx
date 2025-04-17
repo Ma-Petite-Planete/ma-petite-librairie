@@ -32,6 +32,7 @@ import { ReactComponent as trophee_gp } from '../ressources/icons/trophee_gp.svg
 import { ReactComponent as valid } from '../ressources/icons/valid.svg';
 import { ReactComponent as invalid } from '../ressources/icons/invalid.svg';
 import { ReactComponent as eye } from '../ressources/icons/eye.svg';
+import { ReactComponent as triangle } from '../ressources/icons/triangle.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -68,4 +69,5 @@ export const MppIcons = {
   valid: valid,
   invalid: invalid,
   eye: eye,
+  triangle: triangle,
 } as const;
