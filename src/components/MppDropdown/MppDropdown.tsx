@@ -100,7 +100,9 @@ const MppDropDown = <T extends object, K extends keyof T>({
           ${(placeholder && displayedDefaultValue === '' && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}`}
       >
-        <span className="select_button--selected_value emoji">
+        <span
+          className={`select_button--selected_value ${needEmojiFont ? 'emoji' : ''}`}
+        >
           {selectedValue
             ? selectedValue
             : displayedDefaultValue

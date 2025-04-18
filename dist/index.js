@@ -1454,7 +1454,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
           ${isDropdownVisible ? 'open' : ''}
           ${(placeholder && displayedDefaultValue === '' && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}` },
-            React__default.createElement("span", { className: "select_button--selected_value emoji" }, selectedValue
+            React__default.createElement("span", { className: `select_button--selected_value ${needEmojiFont ? 'emoji' : ''}` }, selectedValue
                 ? selectedValue
                 : displayedDefaultValue
                     ? displayedDefaultValue
