@@ -36,5 +36,5 @@ export declare enum ProgressBarStyle {
  *   colorStyle={ProgressBarStyle.green}
  * />
  */
-declare const LinearProgressBar: React.FC<LinearProgressBarProps>;
-export default LinearProgressBar;
+export declare const MppLinearProgressBar: React.FC<LinearProgressBarProps>;
+export {};

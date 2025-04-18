@@ -10,6 +10,7 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
   placeholder: string;
   isDisabled?: boolean;
   textClassname?: string;
+  needEmojiFont?: boolean;
 }
 
 /**
@@ -61,6 +62,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
   defaultValue,
   textClassname = 'text_body',
   property,
+  needEmojiFont = false,
 }: MppDropDownProps<T, K>) => {
   const [selectedOption, setSelectedOption] = React.useState<T | null>(
     defaultValue
@@ -98,7 +100,9 @@ const MppDropDown = <T extends object, K extends keyof T>({
           ${(placeholder && displayedDefaultValue === '' && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}`}
       >
-        <span className="select_button--selected_value emoji">
+        <span
+          className={`select_button--selected_value ${needEmojiFont ? 'emoji' : ''}`}
+        >
           {selectedValue
             ? selectedValue
             : displayedDefaultValue
@@ -112,7 +116,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
       {isDropdownVisible && (
         <ul className="select_dropdown">
           {options.map((option, index) => {
-            const displayedvalue = option[property] as string
+            const displayedvalue = option[property] as string;
             return (
               <li
                 onKeyDown={(event) => {
@@ -123,7 +127,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
                   }
                 }}
                 tabIndex={0}
-                className="emoji"
+                className={needEmojiFont ? 'emoji' : ''}
                 key={index}
                 onClick={() => {
                   setSelectedOption(option);

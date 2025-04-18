@@ -40,32 +40,33 @@ export enum ProgressBarStyle {
  * />
  */
 
-const LinearProgressBar: React.FC<LinearProgressBarProps> = ({
+export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
   maxValue,
   value,
   colorStyle,
 }) => {
-  const getProgressBarPercentage = (maxValue: number, value: number) =>
-    Math.round((value / maxValue) * 100);
-  const progressBarColor =
-    value === 0 ? 'default' : value === maxValue ? 'green' : colorStyle;
+  const finishPercentage = Math.round((value / maxValue) * 100);
 
   return (
-    <div className={`linear_progress_bar_container ${progressBarColor}`}>
-      <div className="linear_progress_bar--background_value">
-        <div className="progress_bar background_value--indicator">
-          <div
-            className="linear_progress_bar--main_value"
-            style={{ width: `${getProgressBarPercentage(maxValue, value)}%` }}
-          >
-            <div className="progress_bar main_value--indicator"></div>
-            <p className="main_value--value">{value}</p>
+    <>
+      <div className={`linear_progress_bar_container ${colorStyle}`}>
+        <div className="linear_progress_bar--background_value">
+          <div className="progress_bar background_value--indicator">
+            <div
+              className="linear_progress_bar--main_value"
+              style={{ width: `${finishPercentage}%` }}
+            >
+              <div className="progress_bar main_value--indicator"></div>
+              <p className="main_value--value">{Math.round(value)}</p>
+            </div>
           </div>
         </div>
-        <p className="background_value--max_value">{maxValue}</p>
+        <p
+          className={`background_value--max_value ${finishPercentage >= 100 ? 'hide' : finishPercentage > 80 ? 'end_line_number' : ''}`}
+        >
+          {maxValue}
+        </p>
       </div>
-    </div>
+    </>
   );
 };
-
-export default LinearProgressBar;

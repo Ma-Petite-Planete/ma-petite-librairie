@@ -25,5 +25,5 @@ interface MppLabelTypeProps {
  *   labelType={labelType.grey}
  * />
  */
-declare const MppLabelType: React.FC<MppLabelTypeProps>;
-export default MppLabelType;
+export declare const MppLabelType: React.FC<MppLabelTypeProps>;
+export {};
