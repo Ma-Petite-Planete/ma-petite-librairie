@@ -35,4 +35,6 @@ export declare const MppIcons: {
     readonly invalid: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly eye: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly triangle: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly download: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly research: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
 };
