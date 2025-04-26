@@ -1704,6 +1704,7 @@ const MppCheckbox = ({ value, onChange, checked, isTableHeader = false, }) => {
 };
 
 const MppInput = ({ placeholder, value = '', icon: Icon, prefixIcon: PrefixIcon, needCounter = false, maxCharacters, errorMessage = '', readOnly = false, onChange, onKeyDown, onClickIcon, isPassword = false, autoComplete, }) => {
+    console.log('prefixIcon reçu :', PrefixIcon);
     const [isFocused, setIsFocused] = useState(false);
     const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
     const [showPassword, setShowPassword] = useState(false);
@@ -1726,7 +1727,6 @@ const MppInput = ({ placeholder, value = '', icon: Icon, prefixIcon: PrefixIcon,
     const handleShowPassword = () => {
         setShowPassword(!showPassword);
     };
-    console.log('prefixIcon reçu :', PrefixIcon);
     return (React__default.createElement(React__default.Fragment, null,
         React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}` },
             PrefixIcon,

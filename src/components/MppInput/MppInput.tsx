@@ -9,6 +9,7 @@ export interface ValidationCondition {
 }
 
 interface MppInputTextProps {
+
   placeholder: string;
   value: string;
   icon?: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -26,6 +27,7 @@ interface MppInputTextProps {
 }
 
 const MppInput: React.FC<MppInputTextProps> = ({
+
   placeholder,
   value = '',
   icon: Icon,
@@ -40,6 +42,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
   isPassword = false,
   autoComplete,
 }) => {
+  console.log('prefixIcon reçu :', PrefixIcon);
   const [isFocused, setIsFocused] = useState(false);
   const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
   const [showPassword, setShowPassword] = useState(false);
@@ -66,7 +69,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
-  console.log('prefixIcon reçu :', PrefixIcon);
+
   return (
     <>
       <div
