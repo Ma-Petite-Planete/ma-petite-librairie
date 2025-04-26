@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import MppInputText from '../components/MppInputText/MppInputText';
+import MppInputText from '../../components/MppInputText/MppInputText';
 import React from 'react';
-import MppInput from '../components/MppInput/MppInput';
+import MppInput from '../../components/MppInput/MppInput';
+import { MppIcons } from '../../utils/MppIcons';
+import './input_section_style.css'
 
 const InputDemo: React.FC = () => {
   const [inputDemoIcon, setInputDemoIcon] = useState('');
@@ -27,6 +29,7 @@ const InputDemo: React.FC = () => {
   };
 
   const [inputDemoCondition, setInputDemoCondition] = useState('');
+  const [valueDemoResearch, setInputDemoResearch] = useState('');
   const handleChangeDemoCondition = (value: string, hasError: boolean) => {
     if (hasError) {
       console.log('les conditions ne sont pas respecté');
@@ -67,6 +70,13 @@ const InputDemo: React.FC = () => {
         needCounter={true}
         maxCharacters={20}
         errorMessage={errorDemoCounter}
+      />
+      <MppInput
+        value={valueDemoResearch}
+        prefixIcon={<MppIcons.research className="research_icon" />}
+        placeholder={'moteur de recherche'}
+        onChange={setInputDemoResearch}
+        needCounter={false}
       />
     </div>
   );

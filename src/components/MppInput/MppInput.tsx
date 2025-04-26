@@ -1,4 +1,4 @@
-import React, { useState, KeyboardEventHandler } from 'react';
+import React, { useState, KeyboardEventHandler, ReactNode } from 'react';
 import './mpp_input.css';
 import { MppIcons } from '../../utils/MppIcons';
 
@@ -11,6 +11,7 @@ interface MppInputTextProps {
   placeholder: string;
   value: string;
   icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  prefixIcon?: ReactNode;
   needCounter?: boolean;
   maxCharacters?: number;
   validationConditions?: Array<ValidationCondition>;
@@ -27,6 +28,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
   placeholder,
   value = '',
   icon: Icon,
+  prefixIcon: PrefixIcon,
   needCounter = false,
   maxCharacters,
   errorMessage = '',
@@ -69,6 +71,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
       <div
         className={`mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}`}
       >
+        {PrefixIcon}
         <input
           type={!showPassword && isPassword ? 'password' : 'text'}
           placeholder={placeholder}
@@ -76,7 +79,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
-          className={`mpp_input ${readOnly ? 'read_only' : ''}`}
+          className={`mpp_input ${readOnly ? 'read_only' : ''} ${PrefixIcon ? 'with_prefix_icon' : ''}`}
           readOnly={readOnly}
           onKeyDown={onKeyDown}
           autoComplete={autoComplete}
