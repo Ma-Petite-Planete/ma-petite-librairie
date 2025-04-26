@@ -1726,6 +1726,7 @@ const MppInput = ({ placeholder, value = '', icon: Icon, prefixIcon: PrefixIcon,
     const handleShowPassword = () => {
         setShowPassword(!showPassword);
     };
+    console.log('prefixIcon reçu :', PrefixIcon);
     return (React__default.createElement(React__default.Fragment, null,
         React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}` },
             PrefixIcon,

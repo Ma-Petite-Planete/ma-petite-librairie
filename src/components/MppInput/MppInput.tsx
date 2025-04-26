@@ -5,6 +5,7 @@ import { MppIcons } from '../../utils/MppIcons';
 export interface ValidationCondition {
   condition: (value: string) => boolean;
   message: string;
+
 }
 
 interface MppInputTextProps {
@@ -65,7 +66,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
-
+  console.log('prefixIcon reçu :', PrefixIcon);
   return (
     <>
       <div
