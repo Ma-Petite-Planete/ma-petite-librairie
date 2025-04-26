@@ -73,7 +73,7 @@ const InputDemo: React.FC = () => {
       />
       <MppInput
         value={valueDemoResearch}
-        prefixIcon={MppIcons.research}
+        prefixIcon={<MppIcons.research className="research_icon" />}
         placeholder={'moteur de recherche'}
         onChange={setInputDemoResearch}
         needCounter={false}

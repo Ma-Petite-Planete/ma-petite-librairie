@@ -11,7 +11,7 @@ interface MppInputTextProps {
   placeholder: string;
   value: string;
   icon?: React.FC<React.SVGProps<SVGSVGElement>>;
-  prefixIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  prefixIcon?: ReactNode;
   needCounter?: boolean;
   maxCharacters?: number;
   validationConditions?: Array<ValidationCondition>;
@@ -71,7 +71,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
       <div
         className={`mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}`}
       >
-        {<PrefixIcon />}
+        {PrefixIcon}
         <input
           type={!showPassword && isPassword ? 'password' : 'text'}
           placeholder={placeholder}

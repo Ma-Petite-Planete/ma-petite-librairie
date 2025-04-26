@@ -1,4 +1,4 @@
-import React, { KeyboardEventHandler } from 'react';
+import React, { KeyboardEventHandler, ReactNode } from 'react';
 import './mpp_input.css';
 export interface ValidationCondition {
     condition: (value: string) => boolean;
@@ -8,6 +8,7 @@ interface MppInputTextProps {
     placeholder: string;
     value: string;
     icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+    prefixIcon?: ReactNode;
     needCounter?: boolean;
     maxCharacters?: number;
     validationConditions?: Array<ValidationCondition>;
