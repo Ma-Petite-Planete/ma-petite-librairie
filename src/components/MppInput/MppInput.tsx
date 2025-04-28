@@ -24,6 +24,7 @@ interface MppInputTextProps {
   isPassword?: boolean;
   errorMessage?: string;
   autoComplete?: string;
+  canClearField?: boolean;
 }
 
 const MppInput: React.FC<MppInputTextProps> = ({
@@ -41,6 +42,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
   onClickIcon,
   isPassword = false,
   autoComplete,
+  canClearField = false,
 }) => {
   console.log('prefixIcon reçu :', PrefixIcon);
   const [isFocused, setIsFocused] = useState(false);
@@ -69,6 +71,10 @@ const MppInput: React.FC<MppInputTextProps> = ({
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
+  const clearField = () => {
+    onChange('');
+  }
 
   return (
     <>
@@ -102,6 +108,11 @@ const MppInput: React.FC<MppInputTextProps> = ({
           <span
             className={`input_counter ${value.length === maxCharacters ? 'max_characteres' : ''}`}
           >{`${value.length}/${maxCharacters}`}</span>
+        ) : canClearField ? (
+          <MppIcons.input_close
+            className={`input_icon_pointer`}
+            onClick={clearField}
+          />
         ) : null}
       </div>
       <div className="input_errors">

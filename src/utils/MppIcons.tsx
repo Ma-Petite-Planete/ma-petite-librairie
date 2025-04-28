@@ -34,6 +34,7 @@ import { ReactComponent as invalid } from '../ressources/icons/invalid.svg';
 import { ReactComponent as eye } from '../ressources/icons/eye.svg';
 import { ReactComponent as triangle } from '../ressources/icons/triangle.svg';
 import { ReactComponent as download } from '../ressources/icons/download.svg';
+import { ReactComponent as input_close } from '../ressources/icons/input_close.svg';
 import { ReactComponent as research } from '../ressources/icons/research.svg';
 
 export const MppIcons = {
@@ -73,5 +74,6 @@ export const MppIcons = {
   eye: eye,
   triangle: triangle,
   download: download,
-  research: research
+  research: research,
+  input_close: input_close
 } as const;

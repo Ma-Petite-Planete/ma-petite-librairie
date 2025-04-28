@@ -37,4 +37,5 @@ export declare const MppIcons: {
     readonly triangle: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly download: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly research: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly input_close: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
 };
