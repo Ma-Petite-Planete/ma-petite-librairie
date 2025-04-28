@@ -75,7 +75,13 @@ const MppInput: React.FC<MppInputTextProps> = ({
   const clearField = () => {
     onChange('');
   }
-
+  console.log('MppInput props:', {
+    value,
+    canClearField,
+    icon: !!Icon,
+    isPassword,
+    needCounter
+  });
   return (
     <>
       <div
