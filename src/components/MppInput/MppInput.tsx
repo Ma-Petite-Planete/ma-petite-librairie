@@ -44,7 +44,6 @@ const MppInput: React.FC<MppInputTextProps> = ({
   autoComplete,
   canClearField = false,
 }) => {
-  console.log('prefixIcon reçu :', PrefixIcon);
   const [isFocused, setIsFocused] = useState(false);
   const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
   const [showPassword, setShowPassword] = useState(false);

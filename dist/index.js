@@ -1719,7 +1719,6 @@ const MppCheckbox = ({ value, onChange, checked, isTableHeader = false, }) => {
 };
 
 const MppInput = ({ placeholder, value = '', icon: Icon, prefixIcon: PrefixIcon, needCounter = false, maxCharacters, errorMessage = '', readOnly = false, onChange, onKeyDown, onClickIcon, isPassword = false, autoComplete, canClearField = false, }) => {
-    console.log('prefixIcon reçu :', PrefixIcon);
     const [isFocused, setIsFocused] = useState(false);
     const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
     const [showPassword, setShowPassword] = useState(false);
