@@ -9,7 +9,7 @@ import { BoType } from './components/BoType';
 import MppStatCard from './components/MppStatCard/MppStatCard';
 
 import MppTextStyle from './section/MppTextStyleSection/MppTextStyleSection';
-import InputDemo from './section/InputSection';
+import InputDemo from './section/InputSection/InputSection';
 
 import { ScoColors, GpColors } from './utils/Mppcolors';
 import { MppIcons } from './utils/MppIcons';
@@ -117,9 +117,9 @@ function App() {
       <InputDemo />
       <h2>Trophés</h2>
       <MppPodium
-        onClick={() => {}}
-        onHover={() => {}}
-        onHoverLeave={() => {}}
+        onClick={() => { }}
+        onHover={() => { }}
+        onHoverLeave={() => { }}
         displayFullInfos={false}
         color={ScoColors.lightYellow}
         typeOfPlayers="élève"

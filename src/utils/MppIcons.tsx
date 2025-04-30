@@ -33,6 +33,9 @@ import { ReactComponent as valid } from '../ressources/icons/valid.svg';
 import { ReactComponent as invalid } from '../ressources/icons/invalid.svg';
 import { ReactComponent as eye } from '../ressources/icons/eye.svg';
 import { ReactComponent as triangle } from '../ressources/icons/triangle.svg';
+import { ReactComponent as download } from '../ressources/icons/download.svg';
+import { ReactComponent as inputClose } from '../ressources/icons/input_close.svg';
+import { ReactComponent as research } from '../ressources/icons/research.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -70,4 +73,7 @@ export const MppIcons = {
   invalid: invalid,
   eye: eye,
   triangle: triangle,
+  download: download,
+  research: research,
+  inputClose: inputClose
 } as const;

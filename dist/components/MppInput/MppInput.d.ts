@@ -18,6 +18,7 @@ interface MppInputTextProps {
     isPassword?: boolean;
     errorMessage?: string;
     autoComplete?: string;
+    isResearch?: boolean;
 }
 declare const MppInput: React.FC<MppInputTextProps>;
 export default MppInput;
