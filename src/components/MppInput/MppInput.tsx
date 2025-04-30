@@ -119,7 +119,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
             className={`input_counter ${value.length === maxCharacters ? 'max_characteres' : ''}`}
           >{`${value.length}/${maxCharacters}`}</span>
         ) : canClearField ? (
-          <MppIcons.input_close
+          <MppIcons.inputClose
             className={`input_icon_pointer`}
             onClick={clearField}
           />

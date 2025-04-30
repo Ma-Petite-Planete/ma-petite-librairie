@@ -1012,7 +1012,7 @@ const MppIcons = {
     triangle: SvgTriangle,
     download: SvgDownload,
     research: SvgResearch,
-    input_close: SvgInputClose
+    inputClose: SvgInputClose
 };
 
 const MppSkeletonLoader = ({ backgroundColor = 'var(--medium_grey)', highlightColor = 'var(--light_grey)', count = 1, circular = false, spaceBetweenRow = '10px', heightRow = '16px', }) => {
@@ -1757,7 +1757,7 @@ const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, ma
         React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}` },
             isResearch ? (React__default.createElement(MppIcons.research, null)) : null,
             React__default.createElement("input", { type: !showPassword && isPassword ? 'password' : 'text', placeholder: placeholder, value: value, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''} ${isResearch ? 'with_prefix_icon' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown, autoComplete: autoComplete }),
-            (isFocused || value) && Icon ? (React__default.createElement(Icon, { className: onClickIcon ? 'input_icon_pointer' : '', onClick: handleIconClick })) : isPassword ? (React__default.createElement(MppIcons.eye, { className: `input_icon_pointer ${showPassword ? 'eye_focus' : 'eye_unfocus'}`, onClick: handleShowPassword })) : needCounter ? (React__default.createElement("span", { className: `input_counter ${value.length === maxCharacters ? 'max_characteres' : ''}` }, `${value.length}/${maxCharacters}`)) : canClearField ? (React__default.createElement(MppIcons.input_close, { className: `input_icon_pointer`, onClick: clearField })) : null),
+            (isFocused || value) && Icon ? (React__default.createElement(Icon, { className: onClickIcon ? 'input_icon_pointer' : '', onClick: handleIconClick })) : isPassword ? (React__default.createElement(MppIcons.eye, { className: `input_icon_pointer ${showPassword ? 'eye_focus' : 'eye_unfocus'}`, onClick: handleShowPassword })) : needCounter ? (React__default.createElement("span", { className: `input_counter ${value.length === maxCharacters ? 'max_characteres' : ''}` }, `${value.length}/${maxCharacters}`)) : canClearField ? (React__default.createElement(MppIcons.inputClose, { className: `input_icon_pointer`, onClick: clearField })) : null),
         React__default.createElement("div", { className: "input_errors" }, errorMessage.length > 0 && value && !isFirstEntry && (React__default.createElement("p", { className: "input_error" }, errorMessage)))));
 };
 
