@@ -1718,10 +1718,11 @@ const MppCheckbox = ({ value, onChange, checked, isTableHeader = false, }) => {
                 React__default.createElement("span", { className: "checkmark" })))));
 };
 
-const MppInput = ({ placeholder, value = '', icon: Icon, prefixIcon: PrefixIcon, needCounter = false, maxCharacters, errorMessage = '', readOnly = false, onChange, onKeyDown, onClickIcon, isPassword = false, autoComplete, canClearField = false, }) => {
+const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacters, errorMessage = '', readOnly = false, onChange, onKeyDown, onClickIcon, isPassword = false, autoComplete, isResearch = false, }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
     const [showPassword, setShowPassword] = useState(false);
+    const [canClearField, setCanClearField] = useState(false);
     const handleChange = (e) => {
         const newValue = e.target.value.slice(0, maxCharacters || undefined);
         onChange(newValue);
@@ -1741,13 +1742,21 @@ const MppInput = ({ placeholder, value = '', icon: Icon, prefixIcon: PrefixIcon,
     const handleShowPassword = () => {
         setShowPassword(!showPassword);
     };
+    useEffect(() => {
+        if (isResearch && value.length > 0) {
+            setCanClearField(true);
+        }
+        else {
+            setCanClearField(false);
+        }
+    }, [value, isResearch]);
     const clearField = () => {
         onChange('');
     };
     return (React__default.createElement(React__default.Fragment, null,
         React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}` },
-            PrefixIcon,
-            React__default.createElement("input", { type: !showPassword && isPassword ? 'password' : 'text', placeholder: placeholder, value: value, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''} ${PrefixIcon ? 'with_prefix_icon' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown, autoComplete: autoComplete }),
+            isResearch ? (React__default.createElement(MppIcons.research, null)) : null,
+            React__default.createElement("input", { type: !showPassword && isPassword ? 'password' : 'text', placeholder: placeholder, value: value, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''} ${isResearch ? 'with_prefix_icon' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown, autoComplete: autoComplete }),
             (isFocused || value) && Icon ? (React__default.createElement(Icon, { className: onClickIcon ? 'input_icon_pointer' : '', onClick: handleIconClick })) : isPassword ? (React__default.createElement(MppIcons.eye, { className: `input_icon_pointer ${showPassword ? 'eye_focus' : 'eye_unfocus'}`, onClick: handleShowPassword })) : needCounter ? (React__default.createElement("span", { className: `input_counter ${value.length === maxCharacters ? 'max_characteres' : ''}` }, `${value.length}/${maxCharacters}`)) : canClearField ? (React__default.createElement(MppIcons.input_close, { className: `input_icon_pointer`, onClick: clearField })) : null),
         React__default.createElement("div", { className: "input_errors" }, errorMessage.length > 0 && value && !isFirstEntry && (React__default.createElement("p", { className: "input_error" }, errorMessage)))));
 };

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MppInputText from '../../components/MppInputText/MppInputText';
 import React from 'react';
 import MppInput from '../../components/MppInput/MppInput';
@@ -30,6 +30,11 @@ const InputDemo: React.FC = () => {
 
   const [inputDemoCondition, setInputDemoCondition] = useState('');
   const [valueDemoResearch, setInputDemoResearch] = useState('');
+
+  // useEffect(() => {
+  //   setTest("");
+  // }, []);
+
   const handleChangeDemoCondition = (value: string, hasError: boolean) => {
     if (hasError) {
       console.log('les conditions ne sont pas respecté');
@@ -37,6 +42,8 @@ const InputDemo: React.FC = () => {
       setInputDemoCondition(value);
     }
   };
+
+  const [test, setTest] = useState('');
   return (
     <div style={{ width: '300px' }}>
       <MppInputText
@@ -71,12 +78,12 @@ const InputDemo: React.FC = () => {
         maxCharacters={20}
         errorMessage={errorDemoCounter}
       />
+
       <MppInput
-        value={valueDemoResearch}
-        prefixIcon={<MppIcons.research />}
+        value={test}
         placeholder={'moteur de recherche'}
-        onChange={setInputDemoResearch}
-        needCounter={false}
+        onChange={(value) => setTest(value)}
+        isResearch={true}
       />
     </div>
   );
