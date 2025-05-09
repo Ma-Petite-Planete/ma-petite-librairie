@@ -39,3 +39,20 @@
   background-color: var(--white);
   border: 2px solid var(--disable_dark_blue);
 }
+
+.primary_red_design {
+  background-color: var(--error_red);
+}
+
+.primary_red_design:hover {
+  background-color: var(--error_red_transparent);
+}
+
+.secondary_red_design {
+  border: solid 2px var(--error_red);
+  color: var(--error_red);
+}
+
+.secondary_red_design:hover {
+  background-color: var(--error_red_transparent);
+}

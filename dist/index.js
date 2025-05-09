@@ -5,8 +5,10 @@ var ButtonType;
 (function (ButtonType) {
     ButtonType[ButtonType["primaryLarge"] = 0] = "primaryLarge";
     ButtonType[ButtonType["primaryMedium"] = 1] = "primaryMedium";
-    ButtonType[ButtonType["secondaryLarge"] = 2] = "secondaryLarge";
-    ButtonType[ButtonType["secondaryMedium"] = 3] = "secondaryMedium";
+    ButtonType[ButtonType["primaryMediumRed"] = 2] = "primaryMediumRed";
+    ButtonType[ButtonType["secondaryLarge"] = 3] = "secondaryLarge";
+    ButtonType[ButtonType["secondaryMedium"] = 4] = "secondaryMedium";
+    ButtonType[ButtonType["secondaryMediumRed"] = 5] = "secondaryMediumRed";
 })(ButtonType || (ButtonType = {}));
 
 /**
@@ -31,13 +33,30 @@ const MppButton = ({ title, onPress, buttonType, type = 'button', style = {}, ho
     const [active, setActive] = React__default.useState(false);
     const isDisabled = type === 'submit' ? isSubmitDisabled : onPress === null;
     const combinedStyle = Object.assign(Object.assign(Object.assign({}, style), (hover && !isDisabled ? hoverStyle : {})), (active && !isDisabled ? activeStyle : {}));
-    return (React__default.createElement("button", { type: type, className: `mpp_button ${buttonType === ButtonType.primaryLarge
-            ? 'button_large text_body_sb'
-            : buttonType === ButtonType.primaryMedium
-                ? 'button_medium text_body'
-                : buttonType === ButtonType.secondaryLarge
-                    ? 'secondary_type button_large text_body_sb'
-                    : 'secondary_type button_medium text_body'}`, style: combinedStyle, onClick: !isDisabled ? onPress : undefined, onMouseEnter: () => !isDisabled && setHover(true), onMouseLeave: () => !isDisabled && setHover(false), onMouseDown: () => !isDisabled && setActive(true), onMouseUp: () => !isDisabled && setActive(false), disabled: isDisabled }, title));
+    let buttonStyle;
+    switch (buttonType) {
+        case ButtonType.primaryLarge:
+            buttonStyle = 'button_large text_body_sb';
+            break;
+        case ButtonType.primaryMedium:
+            buttonStyle = 'button_medium text_body';
+            break;
+        case ButtonType.primaryMediumRed:
+            buttonStyle = 'button_medium text_body primary_red_design';
+            break;
+        case ButtonType.secondaryLarge:
+            buttonStyle = 'secondary_type button_large text_body_sb';
+            break;
+        case ButtonType.secondaryMedium:
+        default:
+            buttonStyle = 'secondary_type button_medium text_body';
+            break;
+        case ButtonType.secondaryMediumRed:
+            buttonStyle =
+                'secondary_type button_medium text_body secondary_red_design';
+            break;
+    }
+    return (React__default.createElement("button", { type: type, className: `mpp_button ${buttonStyle}`, style: combinedStyle, onClick: !isDisabled ? onPress : undefined, onMouseEnter: () => !isDisabled && setHover(true), onMouseLeave: () => !isDisabled && setHover(false), onMouseDown: () => !isDisabled && setActive(true), onMouseUp: () => !isDisabled && setActive(false), disabled: isDisabled }, title));
 };
 
 /**

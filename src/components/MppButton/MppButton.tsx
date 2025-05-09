@@ -52,18 +52,34 @@ const MppButton: React.FC<MppButtonProps> = ({
     ...(active && !isDisabled ? activeStyle : {}),
   };
 
+  let buttonStyle: string;
+  switch (buttonType) {
+    case ButtonType.primaryLarge:
+      buttonStyle = 'button_large text_body_sb';
+      break;
+    case ButtonType.primaryMedium:
+      buttonStyle = 'button_medium text_body';
+      break;
+    case ButtonType.primaryMediumRed:
+      buttonStyle = 'button_medium text_body primary_red_design';
+      break;
+    case ButtonType.secondaryLarge:
+      buttonStyle = 'secondary_type button_large text_body_sb';
+      break;
+    case ButtonType.secondaryMedium:
+    default:
+      buttonStyle = 'secondary_type button_medium text_body';
+      break;
+    case ButtonType.secondaryMediumRed:
+      buttonStyle =
+        'secondary_type button_medium text_body secondary_red_design';
+      break;
+  }
+
   return (
     <button
       type={type}
-      className={`mpp_button ${
-        buttonType === ButtonType.primaryLarge
-          ? 'button_large text_body_sb'
-          : buttonType === ButtonType.primaryMedium
-            ? 'button_medium text_body'
-            : buttonType === ButtonType.secondaryLarge
-              ? 'secondary_type button_large text_body_sb'
-              : 'secondary_type button_medium text_body'
-      }`}
+      className={`mpp_button ${buttonStyle}`}
       style={combinedStyle}
       onClick={!isDisabled ? onPress : undefined}
       onMouseEnter={() => !isDisabled && setHover(true)}
