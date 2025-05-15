@@ -74,6 +74,13 @@ function App() {
         </div>
         <MppButton
           title="Bouton d'action"
+          onPress={() => {
+            console.log('Bouton cliqué!');
+          }}
+          buttonType={ButtonType.primaryMediumRed}
+        />
+        <MppButton
+          title="Bouton d'action"
           onPress={null}
           buttonType={ButtonType.primaryLarge}
         />
@@ -97,6 +104,13 @@ function App() {
         </div>
         <MppButton
           title="Bouton d'action"
+          onPress={() => {
+            console.log('Bouton cliqué!');
+          }}
+          buttonType={ButtonType.secondaryMediumRed}
+        />
+        <MppButton
+          title="Bouton d'action"
           onPress={null}
           buttonType={ButtonType.secondaryLarge}
         />
@@ -117,9 +131,9 @@ function App() {
       <InputDemo />
       <h2>Trophés</h2>
       <MppPodium
-        onClick={() => { }}
-        onHover={() => { }}
-        onHoverLeave={() => { }}
+        onClick={() => {}}
+        onHover={() => {}}
+        onHoverLeave={() => {}}
         displayFullInfos={false}
         color={ScoColors.lightYellow}
         typeOfPlayers="élève"

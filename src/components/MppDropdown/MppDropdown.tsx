@@ -85,6 +85,10 @@ const MppDropDown = <T extends object, K extends keyof T>({
     }
   }, [isDisabled]);
 
+  useEffect(() => {
+    setSelectedOption(defaultValue);
+  }, [defaultValue]);
+
   return (
     <div
       ref={dropDownRef}
