@@ -13,6 +13,7 @@ interface MppToasterProps {
     displayToast: boolean;
     messageType: MessageType;
     animationDirection: AnimationDirection;
+    setReset?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 /**
  * Le composant MppToaster rend un message de notification (toast) avec des styles et animations personnalisables.
