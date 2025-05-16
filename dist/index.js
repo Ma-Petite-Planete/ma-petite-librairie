@@ -1673,7 +1673,7 @@ const MppToaster = ({ message, displayToast, messageType, animationDirection, se
             return;
         const timeout = setTimeout(() => {
             setDisplayToaster(false);
-            setReset === null || setReset === void 0 ? void 0 : setReset(true);
+            setReset === null || setReset === void 0 ? void 0 : setReset();
         }, 3500);
         return () => clearTimeout(timeout);
     }, [displayToaster, setReset]);
