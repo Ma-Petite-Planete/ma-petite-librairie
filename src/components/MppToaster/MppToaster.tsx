@@ -58,7 +58,7 @@ export const MppToaster: React.FC<MppToasterProps> = ({
   useEffect(() => {
     const timeout = setTimeout(() => {
       setDisplayToaster(false);
-    }, 3500);
+    }, 3000);
 
     return () => clearTimeout(timeout);
   }, [displayToaster]);

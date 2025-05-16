@@ -1676,7 +1676,7 @@ const MppToaster = ({ message, displayToast, messageType, animationDirection, })
     useEffect(() => {
         const timeout = setTimeout(() => {
             setDisplayToaster(false);
-        }, 3500);
+        }, 3000);
         return () => clearTimeout(timeout);
     }, [displayToaster]);
     return (React__default.createElement("div", { className: `
