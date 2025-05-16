@@ -25,7 +25,7 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
  * @param {T[]} props.options - La liste des options à afficher dans le menu déroulant.
  * @param {boolean} [props.isDisabled] - Indicateur pour désactiver le menu déroulant.
  * @param {T} props.defaultValue - L'option sélectionnée par défaut.
- * @param {string} [props.textClassname='text_body'] - Le nom de la classe CSS pour le texte.
+ * @param {string} [props.textClassname=''] - Le nom de la classe CSS pour le texte.
  * @param {K} props.property - La propriété de l'option à afficher dans le menu déroulant.
  *
  * @example
@@ -60,7 +60,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
   options,
   isDisabled,
   defaultValue,
-  textClassname = 'text_body',
+  textClassname = '',
   property,
   needEmojiFont = false,
 }: MppDropDownProps<T, K>) => {
@@ -105,7 +105,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
           ${selectedOption ? 'selected' : ''}`}
       >
         <span
-          className={`select_button--selected_value ${needEmojiFont ? 'emoji' : ''}`}
+          className={`select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}`}
         >
           {selectedValue
             ? selectedValue
@@ -131,7 +131,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
                   }
                 }}
                 tabIndex={0}
-                className={needEmojiFont ? 'emoji' : ''}
+                className={`${needEmojiFont ? 'emoji' : ''}${textClassname}`}
                 key={index}
                 onClick={() => {
                   setSelectedOption(option);

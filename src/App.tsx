@@ -445,6 +445,7 @@ function App() {
 
       <div style={{ width: '20%' }}>
         <MppDropDown
+          needEmojiFont={true}
           property="value"
           options={[
             {
@@ -463,6 +464,28 @@ function App() {
           defaultValue={{
             id: 'test',
             value: '🇨🇵 🇮🇹 🇪🇸 🇩🇪 🇬🇧',
+          }}
+          isDisabled={false}
+        />
+        <MppDropDown
+          property="value"
+          options={[
+            {
+              id: 'id1',
+              value: 'valeur 1',
+            },
+            {
+              id: 'id2',
+              value: 'valeur 2',
+            },
+          ]}
+          onChange={function (value): void {
+            console.log(value);
+          }}
+          placeholder="Sélectionner une langue"
+          defaultValue={{
+            id: 'id0',
+            value: 'valeur par défaut',
           }}
           isDisabled={false}
         />
