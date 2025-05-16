@@ -5,7 +5,7 @@ interface NavigationLink {
     icon: React.FC<React.SVGProps<SVGSVGElement>>;
     name: string;
     navigation: string;
-    target?: "_blank";
+    target?: "_blank" | null;
 }
 interface MppMenuProps {
     backToClientsLink?: NavigationLink;
