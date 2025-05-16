@@ -17,7 +17,6 @@ interface MppToasterProps {
   displayToast: boolean;
   messageType: MessageType;
   animationDirection: AnimationDirection;
-  setReset?: () => void;
 }
 
 /**
