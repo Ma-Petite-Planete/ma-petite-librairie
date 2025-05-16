@@ -287,6 +287,7 @@ function App() {
               name: 'Classements',
               icon: MppIcons.tropheeGp,
               navigation: '/homepage',
+              target:"_blank"
             },
             {
               name: 'Espace porteurs de projet',
