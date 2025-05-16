@@ -1,7 +1,6 @@
 .mpp_input_container {
   display: flex;
   margin: 10px 0;
-  gap: 17px;
   padding: 16px;
   align-items: center;
   border: 1px solid var(--medium_grey);
@@ -55,4 +54,12 @@
 
 .read_only {
   cursor: not-allowed;
+}
+
+.with_prefix_icon {
+  margin-right: 8px;
+}
+
+.with_suffix_component {
+  margin-left: 17px;
 }
