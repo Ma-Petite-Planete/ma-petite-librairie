@@ -145,6 +145,7 @@ ul {
 input,
 textarea,
 span {
+  font-size: 16px;
   font-weight: 400;
   color: var(--dark_blue);
   font-family: 'Poppins', sans-serif;
