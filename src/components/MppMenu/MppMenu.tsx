@@ -8,7 +8,7 @@ interface NavigationLink {
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
   name: string;
   navigation: string;
-  target?: "_blank" | null;
+  target?: string | null;
 }
 
 interface MppMenuProps {
@@ -53,7 +53,7 @@ interface MppMenuProps {
  * @property {React.FC<React.SVGProps<SVGSVGElement>>} icon - Icône du lien de navigation.
  * @property {string} name - Nom du lien affiché.
  * @property {string} navigation - URL de destination.
- * @property {"_blank"} [target] - Spécifie si le lien doit s'ouvrir dans un nouvel onglet.
+ * @property {string} [target] - Spécifie si le lien doit s'ouvrir dans un nouvel onglet.
  *
  * @example
  * ```tsx
