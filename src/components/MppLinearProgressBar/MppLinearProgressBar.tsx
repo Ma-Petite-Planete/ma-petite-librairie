@@ -3,7 +3,6 @@ import './mpp_linear_progress_bar.css';
 interface LinearProgressBarProps {
   maxValue: number;
   value: number;
-  colorStyle: ProgressBarStyle;
   conditionForRed: boolean;
   conditionForGreen: boolean;
 }
@@ -29,7 +28,6 @@ export enum ProgressBarStyle {
  * @param {LinearProgressBarProps} props - Les propriétés du composant LinearProgressBar.
  * @param {number} props.maxValue - La valeur maximale de la barre de progression.
  * @param {number} props.value - La valeur actuelle de la barre de progression.
- * @param {ProgressBarStyle} props.colorStyle - Le style de couleur de la barre de progression.
  *
  * @returns {JSX.Element} Le composant LinearProgressBar rendu.
  *
@@ -37,14 +35,12 @@ export enum ProgressBarStyle {
  * <LinearProgressBar
  *   maxValue={100}
  *   value={50}
- *   colorStyle={ProgressBarStyle.green}
  * />
  */
 
 export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
   maxValue,
   value,
-  // colorStyle,
   conditionForGreen,
   conditionForRed,
 }) => {

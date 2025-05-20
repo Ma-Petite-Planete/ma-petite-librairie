@@ -1618,7 +1618,6 @@ var ProgressBarStyle;
  * @param {LinearProgressBarProps} props - Les propriétés du composant LinearProgressBar.
  * @param {number} props.maxValue - La valeur maximale de la barre de progression.
  * @param {number} props.value - La valeur actuelle de la barre de progression.
- * @param {ProgressBarStyle} props.colorStyle - Le style de couleur de la barre de progression.
  *
  * @returns {JSX.Element} Le composant LinearProgressBar rendu.
  *
@@ -1626,12 +1625,9 @@ var ProgressBarStyle;
  * <LinearProgressBar
  *   maxValue={100}
  *   value={50}
- *   colorStyle={ProgressBarStyle.green}
  * />
  */
-const MppLinearProgressBar = ({ maxValue, value, 
-// colorStyle,
-conditionForGreen, conditionForRed, }) => {
+const MppLinearProgressBar = ({ maxValue, value, conditionForGreen, conditionForRed, }) => {
     const finishPercentage = Math.round((value / maxValue) * 100);
     const colorToDisplay = () => {
         if (conditionForRed) {

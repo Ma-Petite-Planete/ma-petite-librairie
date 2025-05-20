@@ -501,7 +501,6 @@ function App() {
         conditionForRed={2 > 3}
         maxValue={0}
         value={0}
-        colorStyle={ProgressBarStyle.green}
       />
 
       <h2>Toggle button</h2>
