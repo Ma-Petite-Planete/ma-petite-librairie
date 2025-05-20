@@ -287,7 +287,7 @@ function App() {
               name: 'Classements',
               icon: MppIcons.tropheeGp,
               navigation: '/homepage',
-              target:"_blank"
+              target: '_blank',
             },
             {
               name: 'Espace porteurs de projet',
@@ -497,6 +497,8 @@ function App() {
 
       <h2>Linear progress bar</h2>
       <MppLinearProgressBar
+        conditionForGreen={2 < 2}
+        conditionForRed={2 > 3}
         maxValue={0}
         value={0}
         colorStyle={ProgressBarStyle.green}

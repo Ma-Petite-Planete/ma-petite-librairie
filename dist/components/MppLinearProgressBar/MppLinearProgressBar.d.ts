@@ -4,6 +4,8 @@ interface LinearProgressBarProps {
     maxValue: number;
     value: number;
     colorStyle: ProgressBarStyle;
+    conditionForRed: boolean;
+    conditionForGreen: boolean;
 }
 export declare enum ColumnType {
     league_created_vs_previsions = 0,
@@ -15,7 +17,6 @@ export declare enum ProgressBarStyle {
     red = "red",
     green = "green",
     orange = "orange",
-    invisible = "invisible",
     default = "default"
 }
 /**

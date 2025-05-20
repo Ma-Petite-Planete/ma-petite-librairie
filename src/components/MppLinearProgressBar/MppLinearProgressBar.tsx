@@ -4,6 +4,8 @@ interface LinearProgressBarProps {
   maxValue: number;
   value: number;
   colorStyle: ProgressBarStyle;
+  conditionForRed: boolean;
+  conditionForGreen: boolean;
 }
 
 export enum ColumnType {
@@ -17,7 +19,6 @@ export enum ProgressBarStyle {
   red = 'red',
   green = 'green',
   orange = 'orange',
-  invisible = 'invisible',
   default = 'default',
 }
 
@@ -43,13 +44,26 @@ export enum ProgressBarStyle {
 export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
   maxValue,
   value,
-  colorStyle,
+  // colorStyle,
+  conditionForGreen,
+  conditionForRed,
 }) => {
   const finishPercentage = Math.round((value / maxValue) * 100);
+  const colorToDisplay = (): ProgressBarStyle => {
+    if (conditionForRed) {
+      return ProgressBarStyle.red;
+    } else if (conditionForGreen) {
+      return ProgressBarStyle.green;
+    } else if (value === 0) {
+      return ProgressBarStyle.default;
+    } else {
+      return ProgressBarStyle.orange;
+    }
+  };
 
   return (
     <>
-      <div className={`linear_progress_bar_container ${colorStyle}`}>
+      <div className={`linear_progress_bar_container ${colorToDisplay()}`}>
         <div className="linear_progress_bar--background_value">
           <div className="progress_bar background_value--indicator">
             <div

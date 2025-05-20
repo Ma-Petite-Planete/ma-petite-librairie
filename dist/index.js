@@ -1609,7 +1609,6 @@ var ProgressBarStyle;
     ProgressBarStyle["red"] = "red";
     ProgressBarStyle["green"] = "green";
     ProgressBarStyle["orange"] = "orange";
-    ProgressBarStyle["invisible"] = "invisible";
     ProgressBarStyle["default"] = "default";
 })(ProgressBarStyle || (ProgressBarStyle = {}));
 /**
@@ -1630,10 +1629,26 @@ var ProgressBarStyle;
  *   colorStyle={ProgressBarStyle.green}
  * />
  */
-const MppLinearProgressBar = ({ maxValue, value, colorStyle, }) => {
+const MppLinearProgressBar = ({ maxValue, value, 
+// colorStyle,
+conditionForGreen, conditionForRed, }) => {
     const finishPercentage = Math.round((value / maxValue) * 100);
+    const colorToDisplay = () => {
+        if (conditionForRed) {
+            return ProgressBarStyle.red;
+        }
+        else if (conditionForGreen) {
+            return ProgressBarStyle.green;
+        }
+        else if (value === 0) {
+            return ProgressBarStyle.default;
+        }
+        else {
+            return ProgressBarStyle.orange;
+        }
+    };
     return (React__default.createElement(React__default.Fragment, null,
-        React__default.createElement("div", { className: `linear_progress_bar_container ${colorStyle}` },
+        React__default.createElement("div", { className: `linear_progress_bar_container ${colorToDisplay()}` },
             React__default.createElement("div", { className: "linear_progress_bar--background_value" },
                 React__default.createElement("div", { className: "progress_bar background_value--indicator" },
                     React__default.createElement("div", { className: "linear_progress_bar--main_value", style: { width: `${finishPercentage}%` } },
