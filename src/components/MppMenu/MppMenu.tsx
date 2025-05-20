@@ -115,7 +115,7 @@ const MppMenu: React.FC<MppMenuProps> = ({
                 className="navigation_flex text_small_b navigation_return_link"
               >
                 <MppIcons.arrowBack className="icon_arrow_back text_small_b" />
-                <span>{backToClientsLink.name}</span>
+                <span className='text_small_b' >{backToClientsLink.name}</span>
               </LinkComponent>
             )}
           </div>
