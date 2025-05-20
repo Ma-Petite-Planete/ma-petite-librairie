@@ -5,6 +5,7 @@ interface LinearProgressBarProps {
     value: number;
     conditionForRed: boolean;
     conditionForGreen: boolean;
+    displayRawValue?: boolean;
 }
 export declare enum ColumnType {
     league_created_vs_previsions = 0,

@@ -25,7 +25,6 @@ import MppDropDown from './components/MppDropdown/MppDropdown';
 import MppLoaderDots from './components/MppLoaderDots/MppLoaderDots';
 import {
   MppLinearProgressBar,
-  ProgressBarStyle,
 } from './components/MppLinearProgressBar/MppLinearProgressBar';
 import MppToggleButton from './components/MppToggleButton/MppToggleButton';
 import {

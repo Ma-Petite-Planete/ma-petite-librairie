@@ -5,6 +5,7 @@ interface LinearProgressBarProps {
   value: number;
   conditionForRed: boolean;
   conditionForGreen: boolean;
+  displayRawValue?: boolean;
 }
 
 export enum ColumnType {
@@ -43,6 +44,7 @@ export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
   value,
   conditionForGreen,
   conditionForRed,
+  displayRawValue
 }) => {
   const finishPercentage = Math.round((value / maxValue) * 100);
   const colorToDisplay = (): ProgressBarStyle => {
@@ -64,7 +66,7 @@ export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
           <div className="progress_bar background_value--indicator">
             <div
               className="linear_progress_bar--main_value"
-              style={{ width: `${finishPercentage}%` }}
+              style={{ width: `${displayRawValue  ? value :finishPercentage}%` }} // pour le truc passer direct la value ici
             >
               <div className="progress_bar main_value--indicator"></div>
               <p className="main_value--value">{Math.round(value)}</p>
