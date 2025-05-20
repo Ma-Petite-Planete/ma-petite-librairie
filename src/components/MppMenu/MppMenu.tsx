@@ -4,7 +4,7 @@ import { BoType } from '../BoType';
 import { MppIcons } from '../../utils/MppIcons';
 import MppSkeletonLoader from '../MppSkeletonLoader/MppSkeletonLoader';
 
-interface NavigationLink {
+export interface NavigationLink {
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
   name: string;
   navigation: string;
