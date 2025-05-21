@@ -1636,7 +1636,7 @@ const MppLinearProgressBar = ({ maxValue, value, conditionForGreen, conditionFor
         else if (conditionForGreen) {
             return ProgressBarStyle.green;
         }
-        else if (value === 0 && maxValue === 0) {
+        else if (value === 0) {
             return ProgressBarStyle.default;
         }
         else {
@@ -1652,7 +1652,7 @@ const MppLinearProgressBar = ({ maxValue, value, conditionForGreen, conditionFor
                         } },
                         React__default.createElement("div", { className: "progress_bar main_value--indicator" }),
                         React__default.createElement("p", { className: "main_value--value" }, Math.round(value))))),
-            React__default.createElement("p", { className: `background_value--max_value ${progressBarPercentage >= 100 ? 'hide' : 'end_line_number'}` }, maxValue))));
+            React__default.createElement("p", { className: `background_value--max_value ${progressBarPercentage >= 100 || value === 0 ? 'hide' : 'end_line_number'}` }, maxValue))));
 };
 
 var MessageType;
