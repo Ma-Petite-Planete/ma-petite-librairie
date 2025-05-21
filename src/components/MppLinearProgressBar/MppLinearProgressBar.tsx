@@ -44,15 +44,15 @@ export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
   value,
   conditionForGreen,
   conditionForRed,
-  displayRawValue
+  displayRawValue,
 }) => {
-  const finishPercentage = Math.round((value / maxValue) * 100);
+  const progressBarPercentage = Math.round((value / maxValue) * 100);
   const colorToDisplay = (): ProgressBarStyle => {
     if (conditionForRed) {
       return ProgressBarStyle.red;
     } else if (conditionForGreen) {
       return ProgressBarStyle.green;
-    } else if (value === 0) {
+    } else if (value === 0 && maxValue === 0) {
       return ProgressBarStyle.default;
     } else {
       return ProgressBarStyle.orange;
@@ -66,7 +66,9 @@ export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
           <div className="progress_bar background_value--indicator">
             <div
               className="linear_progress_bar--main_value"
-              style={{ width: `${displayRawValue  ? value :finishPercentage}%` }} // pour le truc passer direct la value ici
+              style={{
+                width: `${displayRawValue ? value : progressBarPercentage}%`,
+              }}
             >
               <div className="progress_bar main_value--indicator"></div>
               <p className="main_value--value">{Math.round(value)}</p>
@@ -74,7 +76,7 @@ export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
           </div>
         </div>
         <p
-          className={`background_value--max_value ${finishPercentage >= 100 ? 'hide' : finishPercentage > 80 ? 'end_line_number' : ''}`}
+          className={`background_value--max_value ${progressBarPercentage >= 100 ? 'hide' : 'end_line_number'}`}
         >
           {maxValue}
         </p>

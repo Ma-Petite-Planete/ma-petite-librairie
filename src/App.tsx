@@ -23,9 +23,7 @@ import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader'
 import MppMultiSectionButtonProps from './components/MppMultiSectionButtons/MppMultiSectionButton';
 import MppDropDown from './components/MppDropdown/MppDropdown';
 import MppLoaderDots from './components/MppLoaderDots/MppLoaderDots';
-import {
-  MppLinearProgressBar,
-} from './components/MppLinearProgressBar/MppLinearProgressBar';
+import { MppLinearProgressBar } from './components/MppLinearProgressBar/MppLinearProgressBar';
 import MppToggleButton from './components/MppToggleButton/MppToggleButton';
 import {
   MppLabelType,
@@ -496,9 +494,15 @@ function App() {
 
       <h2>Linear progress bar</h2>
       <MppLinearProgressBar
-        conditionForGreen={2 < 2}
-        conditionForRed={2 > 3}
-        maxValue={0}
+        conditionForGreen={(1/2) < 2}
+        conditionForRed={(1/2) > 3}
+        maxValue={2}
+        value={1}
+      />
+      <MppLinearProgressBar
+        conditionForGreen={(0 / 1) >= 1}
+        conditionForRed={(0 / 1) <.8}
+        maxValue={1}
         value={0}
       />
 
