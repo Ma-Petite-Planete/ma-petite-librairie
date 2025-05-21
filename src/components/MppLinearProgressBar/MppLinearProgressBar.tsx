@@ -66,9 +66,13 @@ export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
           <div className="progress_bar background_value--indicator">
             <div
               className="linear_progress_bar--main_value"
-              style={{
-                width: `${displayRawValue ? value : progressBarPercentage}%`,
-              }}
+              style={
+                value !== 0
+                  ? {
+                      width: `${displayRawValue ? value : progressBarPercentage}%`,
+                    }
+                  : null
+              }
             >
               <div className="progress_bar main_value--indicator"></div>
               <p className="main_value--value">{Math.round(value)}</p>
