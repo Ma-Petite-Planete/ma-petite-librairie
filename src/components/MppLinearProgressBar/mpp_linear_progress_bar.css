@@ -32,7 +32,7 @@
 }
 
 /*----------------- DEFAULT ------------------*/
-.default .linear_progress_bar--main_value {
+.default .background_value--max_value {
   display: none;
 }
 
@@ -41,8 +41,8 @@
   width: 100%;
 }
 
-.default .background_value--max_value {
-  right: 50%;
+.default .linear_progress_bar--main_value {
+  width: 50%;
 }
 
 /*--------------- RED ---------------*/

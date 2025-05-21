@@ -48,12 +48,12 @@ export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
 }) => {
   const progressBarPercentage = Math.round((value / maxValue) * 100);
   const colorToDisplay = (): ProgressBarStyle => {
-    if (conditionForRed) {
-      return ProgressBarStyle.red;
+    if (value === 0) {
+      return ProgressBarStyle.default;
     } else if (conditionForGreen) {
       return ProgressBarStyle.green;
-    } else if (value === 0) {
-      return ProgressBarStyle.default;
+    } else if (conditionForRed) {
+      return ProgressBarStyle.red;
     } else {
       return ProgressBarStyle.orange;
     }
@@ -76,7 +76,7 @@ export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
           </div>
         </div>
         <p
-          className={`background_value--max_value ${progressBarPercentage >= 100 || value === 0 ? 'hide' : 'end_line_number'}`}
+          className={`background_value--max_value ${progressBarPercentage >= 100 ? 'hide' : 'end_line_number'}`}
         >
           {maxValue}
         </p>
