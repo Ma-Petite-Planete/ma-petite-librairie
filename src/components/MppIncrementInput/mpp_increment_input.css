@@ -1,7 +1,7 @@
 .increment_input_background {
   display: inline-flex;
   border: 1px solid var(--medium_grey);
-  padding: 16px;
+  padding: 12px;
   align-items: center;
   background: var(--light_grey);
   border-radius: 8px;
