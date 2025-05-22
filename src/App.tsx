@@ -493,7 +493,7 @@ function App() {
       <MppLoaderDots />
 
       <h2>Linear progress bar</h2>
-      <div className = "linear_progress_bar_container">
+      <div className="linear_progress_bar_container">
         <MppLinearProgressBar
           conditionForGreen={1 / 2 < 2}
           conditionForRed={1 / 2 > 3}
@@ -506,9 +506,11 @@ function App() {
           maxValue={1}
           value={0}
         />
+        <MppLinearProgressBar value={158} displayValueAsDefault={true} />
         <MppLinearProgressBar
-          value={158}
-          displayValueAsDefault={true}
+          conditionForGreen={2 > 0}
+          maxValue={0}
+          value={2}
         />
       </div>
 
