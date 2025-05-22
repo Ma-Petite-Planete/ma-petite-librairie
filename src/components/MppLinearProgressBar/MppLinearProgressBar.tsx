@@ -55,7 +55,6 @@ export enum ProgressBarStyle {
  * <MppLinearProgressBar value={value} displayValueAsDefault={true} />
  **/
 
-
 export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
   maxValue,
   value,
@@ -67,9 +66,8 @@ export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
   const progressBarPercentage = (() => {
     if (displayValueAsDefault || value === 0) return 51;
     if (useValueAsProgressBarWidth) return value;
-    if(maxValue !== null){
-      return value > maxValue ? 100 :
-      Math.round((value / maxValue) * 100)
+    if (maxValue !== null) {
+      return Math.round((value / maxValue) * 100);
     }
     return 0;
   })();
