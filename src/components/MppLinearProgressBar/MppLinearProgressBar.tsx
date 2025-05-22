@@ -1,26 +1,13 @@
 import React from 'react';
 import './mpp_linear_progress_bar.css';
-interface BaseProps {
+interface LinearProgressBarProps {
   value: number;
   useValueAsProgressBarWidth?: boolean;
+  maxValue?: number;
+  displayValueAsDefault?: boolean;
+  conditionForGreen?: boolean;
+  conditionForRed?: boolean;
 }
-
-type PropsWithDefault = {
-  displayValueAsDefault: true;
-  conditionForGreen?: null;
-  conditionForRed?: null;
-  maxValue?: null;
-};
-
-type PropsWithConditions = {
-  displayValueAsDefault?: false;
-  conditionForGreen: boolean;
-  conditionForRed: boolean;
-  maxValue: number;
-};
-
-export type LinearProgressBarProps = BaseProps &
-  (PropsWithDefault | PropsWithConditions);
 
 export enum ColumnType {
   league_created_vs_previsions,
@@ -64,7 +51,11 @@ export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
   const progressBarPercentage = (() => {
     if (displayValueAsDefault || value === 0) return 51;
     if (useValueAsProgressBarWidth) return value;
-    return maxValue ? Math.round((value / maxValue) * 100) : 0;
+    return maxValue
+      ? maxValue >= value
+        ? 100
+        : Math.round((value / maxValue) * 100)
+      : 0;
   })();
 
   const colorToDisplay = (): ProgressBarStyle => {

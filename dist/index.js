@@ -1633,7 +1633,11 @@ const MppLinearProgressBar = ({ maxValue, value, conditionForGreen, conditionFor
             return 51;
         if (useValueAsProgressBarWidth)
             return value;
-        return maxValue ? Math.round((value / maxValue) * 100) : 0;
+        return maxValue
+            ? maxValue >= value
+                ? 100
+                : Math.round((value / maxValue) * 100)
+            : 0;
     })();
     const colorToDisplay = () => {
         if (value === 0 || displayValueAsDefault) {
