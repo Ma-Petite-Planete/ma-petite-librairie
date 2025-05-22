@@ -5,6 +5,7 @@
   align-items: center;
   background: var(--light_grey);
   border-radius: 8px;
+  max-height: 46.4px;
 }
 
 .increment_button {
