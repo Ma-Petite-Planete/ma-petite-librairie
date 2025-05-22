@@ -53,7 +53,6 @@ function App() {
           </div>
         ))}
       </div>
-
       <h2>Type de Bouton</h2>
       <div className="button_background">
         <MppButton

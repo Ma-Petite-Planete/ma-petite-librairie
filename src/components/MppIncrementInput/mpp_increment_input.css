@@ -1,0 +1,44 @@
+.increment_input_background {
+  display: inline-flex;
+  border: 1px solid var(--medium_grey);
+  padding: 16px;
+  align-items: center;
+  background: var(--light_grey);
+  border-radius: 8px;
+}
+
+.increment_button {
+  background: var(--medium_grey);
+  border: none;
+  border-radius: 8px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.increment_button:hover:not(:disabled) {
+  background: var(--dark_grey);
+}
+
+.increment_button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.increment_value_input {
+  width: 48px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.increment_value_input::-webkit-outer-spin-button,
+.increment_value_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

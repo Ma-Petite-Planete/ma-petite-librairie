@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import MppInputText from '../../components/MppInputText/MppInputText';
 import React from 'react';
 import MppInput from '../../components/MppInput/MppInput';
-import { MppIcons } from '../../utils/MppIcons';
-import './input_section_style.css'
+import './input_section_style.css';
+import { MppIncrementInput } from '../../components/MppIncrementInput/MppIncrementInput';
 
 const InputDemo: React.FC = () => {
   const [inputDemoIcon, setInputDemoIcon] = useState('');
+  const [incrementValue, setIncrementValue] = useState(0);
 
   const handleChangeDemoIcon = (value: string) => {
     setInputDemoIcon(value);
@@ -29,11 +30,6 @@ const InputDemo: React.FC = () => {
   };
 
   const [inputDemoCondition, setInputDemoCondition] = useState('');
-  const [valueDemoResearch, setInputDemoResearch] = useState('');
-
-  // useEffect(() => {
-  //   setTest("");
-  // }, []);
 
   const handleChangeDemoCondition = (value: string, hasError: boolean) => {
     if (hasError) {
@@ -43,6 +39,9 @@ const InputDemo: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    console.log(incrementValue);
+  }, [incrementValue]);
   const [test, setTest] = useState('');
   return (
     <div style={{ width: '300px' }}>
@@ -84,6 +83,12 @@ const InputDemo: React.FC = () => {
         placeholder={'moteur de recherche'}
         onChange={(value) => setTest(value)}
         isResearch={true}
+      />
+
+      <MppIncrementInput
+        value={incrementValue}
+        onChange={setIncrementValue}
+        maxIncrement={100}
       />
     </div>
   );
