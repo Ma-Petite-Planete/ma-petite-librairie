@@ -1627,10 +1627,16 @@ var ProgressBarStyle;
  *   value={50}
  * />
  */
-const MppLinearProgressBar = ({ maxValue, value, conditionForGreen, conditionForRed, displayRawValue, }) => {
-    const progressBarPercentage = Math.round((value / maxValue) * 100);
+const MppLinearProgressBar = ({ maxValue, value, conditionForGreen, conditionForRed, useValueAsProgressBarWidth = false, displayValueAsDefault, }) => {
+    const progressBarPercentage = (() => {
+        if (displayValueAsDefault || value === 0)
+            return 51;
+        if (useValueAsProgressBarWidth)
+            return value;
+        return maxValue ? Math.round((value / maxValue) * 100) : 0;
+    })();
     const colorToDisplay = () => {
-        if (value === 0) {
+        if (value === 0 || displayValueAsDefault) {
             return ProgressBarStyle.default;
         }
         else if (conditionForGreen) {
@@ -1647,14 +1653,12 @@ const MppLinearProgressBar = ({ maxValue, value, conditionForGreen, conditionFor
         React__default.createElement("div", { className: `linear_progress_bar_container ${colorToDisplay()}` },
             React__default.createElement("div", { className: "linear_progress_bar--background_value" },
                 React__default.createElement("div", { className: "progress_bar background_value--indicator" },
-                    React__default.createElement("div", { className: "linear_progress_bar--main_value", style: value !== 0
-                            ? {
-                                width: `${displayRawValue ? value : progressBarPercentage}%`,
-                            }
-                            : null },
+                    React__default.createElement("div", { className: "linear_progress_bar--main_value", style: {
+                            width: `${progressBarPercentage}%`,
+                        } },
                         React__default.createElement("div", { className: "progress_bar main_value--indicator" }),
                         React__default.createElement("p", { className: "main_value--value" }, Math.round(value))))),
-            React__default.createElement("p", { className: `background_value--max_value ${progressBarPercentage >= 100 ? 'hide' : 'end_line_number'}` }, maxValue))));
+            !displayValueAsDefault && (React__default.createElement("p", { className: `background_value--max_value ${progressBarPercentage >= 100 ? 'hide' : 'end_line_number'}` }, maxValue)))));
 };
 
 var MessageType;

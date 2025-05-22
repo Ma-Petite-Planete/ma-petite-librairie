@@ -1,12 +1,22 @@
 import React from 'react';
 import './mpp_linear_progress_bar.css';
-interface LinearProgressBarProps {
-    maxValue: number;
+interface BaseProps {
     value: number;
-    conditionForRed: boolean;
-    conditionForGreen: boolean;
-    displayRawValue?: boolean;
+    useValueAsProgressBarWidth?: boolean;
 }
+type PropsWithDefault = {
+    displayValueAsDefault: true;
+    conditionForGreen?: null;
+    conditionForRed?: null;
+    maxValue?: null;
+};
+type PropsWithConditions = {
+    displayValueAsDefault?: false;
+    conditionForGreen: boolean;
+    conditionForRed: boolean;
+    maxValue: number;
+};
+export type LinearProgressBarProps = BaseProps & (PropsWithDefault | PropsWithConditions);
 export declare enum ColumnType {
     league_created_vs_previsions = 0,
     leagyues_with_more_then_4_players = 1,

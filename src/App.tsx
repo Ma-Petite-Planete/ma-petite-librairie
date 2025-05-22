@@ -493,18 +493,24 @@ function App() {
       <MppLoaderDots />
 
       <h2>Linear progress bar</h2>
-      <MppLinearProgressBar
-        conditionForGreen={(1/2) < 2}
-        conditionForRed={(1/2) > 3}
-        maxValue={2}
-        value={1}
-      />
-      <MppLinearProgressBar
-        conditionForGreen={(0 / 1) >= 1}
-        conditionForRed={(0 / 1) <.8}
-        maxValue={1}
-        value={0}
-      />
+      <div className = "linear_progress_bar_container">
+        <MppLinearProgressBar
+          conditionForGreen={1 / 2 < 2}
+          conditionForRed={1 / 2 > 3}
+          maxValue={2}
+          value={1}
+        />
+        <MppLinearProgressBar
+          conditionForGreen={0 / 1 >= 1}
+          conditionForRed={0 / 1 < 0.8}
+          maxValue={1}
+          value={0}
+        />
+        <MppLinearProgressBar
+          value={158}
+          displayValueAsDefault={true}
+        />
+      </div>
 
       <h2>Toggle button</h2>
       <div style={{ width: '40%' }}>

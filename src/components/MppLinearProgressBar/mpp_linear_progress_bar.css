@@ -14,7 +14,7 @@
 .background_value--max_value {
   font-size: 10px;
   font-weight: 700;
-  right: 0;
+  right: -2px;
   position: absolute;
 }
 
@@ -39,10 +39,6 @@
 .default .progress_bar {
   background-color: var(--medium_grey);
   width: 100%;
-}
-
-.default .linear_progress_bar--main_value {
-  width: 50%;
 }
 
 /*--------------- RED ---------------*/
