@@ -3,7 +3,7 @@ import MppInputText from '../../components/MppInputText/MppInputText';
 import React from 'react';
 import MppInput from '../../components/MppInput/MppInput';
 import './input_section_style.css';
-import { MppIncrementInput } from '../../components/MppIncrementInput/MppIncrementInput';
+import MppIncrementInput from '../../components/MppIncrementInput/MppIncrementInput';
 
 const InputDemo: React.FC = () => {
   const [inputDemoIcon, setInputDemoIcon] = useState('');

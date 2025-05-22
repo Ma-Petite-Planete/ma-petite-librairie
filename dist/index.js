@@ -1794,4 +1794,60 @@ const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, ma
         React__default.createElement("div", { className: "input_errors" }, errorMessage.length > 0 && value && !isFirstEntry && (React__default.createElement("p", { className: "input_error" }, errorMessage)))));
 };
 
-export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ProgressBarStyle, ScoColors, labelType };
+/**
+ * Le composant MppIncrementInput fournit un contrôle numérique avec boutons d’incrémentation et décrmentation,
+ * ainsi qu’un champ pour saisir la valeur manuellement.
+ *
+ * @param {MppIncrementInputProps} props - Les propriétés du composant.
+ * @param {number} props.value - La valeur actuelle affichée et contrôlée par le composant.
+ * @param {(newValue: number) => void} props.onChange - Fonction de rappel invoquée avec la nouvelle valeur
+ *        dès qu’elle change (via les boutons ou la saisie manuelle).
+ * @param {number} props.maxIncrement - La valeur maximale autorisée (le bouton + et la saisie sont clampés entre 0 et maxIncrement).
+ *
+ * @example
+ * ```tsx
+ * import React, { useState } from 'react';
+ * import { MppIncrementInput } from './MppIncrementInput';
+ *
+ * const ExampleComponent = () => {
+ *   const [quantity, setQuantity] = useState(0);
+ *
+ *   return (
+ *     <MppIncrementInput
+ *       value={quantity}
+ *       onChange={setQuantity}
+ *       maxIncrement={100}
+ *     />
+ *   );
+ * };
+ * ```
+ */
+const MppIncrementInput = ({ value, onChange, maxIncrement, }) => {
+    const [inputValue, setInputValue] = useState(value.toString());
+    useEffect(() => {
+        setInputValue(value.toString());
+    }, [value]);
+    const commitChange = () => {
+        let n = parseInt(inputValue, 10);
+        if (isNaN(n)) {
+            setInputValue(value.toString());
+            return;
+        }
+        n = Math.max(0, Math.min(maxIncrement, n));
+        onChange(n);
+        setInputValue(n.toString());
+    };
+    return (React__default.createElement("div", { className: "increment_input_background text_body" },
+        React__default.createElement("button", { className: "increment_button", onClick: () => onChange(Math.max(0, value - 1)), disabled: value <= 0 }, "\u2212"),
+        React__default.createElement("input", { type: "text", inputMode: "numeric", pattern: "\\d*", maxLength: maxIncrement.toString().length, className: "increment_value increment_value_input", value: inputValue, onChange: (e) => {
+                const digitsOnly = e.target.value.replace(/\D/g, '');
+                setInputValue(digitsOnly);
+            }, onBlur: commitChange, onKeyDown: (e) => {
+                if (e.key === 'Enter') {
+                    e.target.blur();
+                }
+            }, min: 0, max: maxIncrement }),
+        React__default.createElement("button", { className: "increment_button", onClick: () => onChange(Math.min(maxIncrement, value + 1)), disabled: value >= maxIncrement }, "+")));
+};
+
+export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ProgressBarStyle, ScoColors, labelType };

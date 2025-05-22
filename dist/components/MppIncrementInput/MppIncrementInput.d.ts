@@ -33,5 +33,5 @@ interface MppIncrementInputProps {
  * };
  * ```
  */
-export declare const MppIncrementInput: React.FC<MppIncrementInputProps>;
-export {};
+declare const MppIncrementInput: React.FC<MppIncrementInputProps>;
+export default MppIncrementInput;
