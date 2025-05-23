@@ -1710,15 +1710,26 @@ var AnimationDirection;
  * />
  */
 const MppToaster = ({ message, displayToast, messageType, animationDirection, }) => {
-    const [displayToaster, setDisplayToaster] = useState(displayToast);
+    const [displayToaster, setDisplayToaster] = useState(false);
     useEffect(() => {
-        if (displayToaster) {
-            setTimeout(() => {
-                setDisplayToaster(false);
-            }, 3500);
+        if (displayToast) {
+            setDisplayToaster(true);
         }
+    }, [displayToast]);
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setDisplayToaster(false);
+        }, 3000);
+        return () => clearTimeout(timeout);
     }, [displayToaster]);
-    return (React__default.createElement("div", { className: `${messageType === MessageType.error ? 'error_message_container' : 'success_message_container'} ${displayToaster ? 'visible' : 'hidden'}  ${animationDirection} toaster_message` },
+    return (React__default.createElement("div", { className: `
+        ${messageType === MessageType.error
+            ? 'error_message_container'
+            : 'success_message_container'}
+        ${displayToaster ? 'visible' : 'hidden'}
+        ${animationDirection}
+        toaster_message
+      ` },
         messageType === MessageType.error ? (React__default.createElement(MppIcons.invalid, null)) : (React__default.createElement(MppIcons.valid, null)),
         React__default.createElement("span", { className: "toaster_message--span text_body" }, message)));
 };

@@ -46,19 +46,34 @@ export const MppToaster: React.FC<MppToasterProps> = ({
   messageType,
   animationDirection,
 }) => {
-  const [displayToaster, setDisplayToaster] = useState<boolean>(displayToast);
+  const [displayToaster, setDisplayToaster] = useState<boolean>(false);
 
   useEffect(() => {
-    if (displayToaster) {
-      setTimeout(() => {
-        setDisplayToaster(false);
-      }, 3500);
+    if (displayToast) {
+      setDisplayToaster(true);
     }
+  }, [displayToast]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setDisplayToaster(false);
+    }, 3000);
+
+    return () => clearTimeout(timeout);
   }, [displayToaster]);
 
   return (
     <div
-      className={`${messageType === MessageType.error ? 'error_message_container' : 'success_message_container'} ${displayToaster ? 'visible' : 'hidden'}  ${animationDirection} toaster_message`}
+      className={`
+        ${
+          messageType === MessageType.error
+            ? 'error_message_container'
+            : 'success_message_container'
+        }
+        ${displayToaster ? 'visible' : 'hidden'}
+        ${animationDirection}
+        toaster_message
+      `}
     >
       {messageType === MessageType.error ? (
         <MppIcons.invalid />
