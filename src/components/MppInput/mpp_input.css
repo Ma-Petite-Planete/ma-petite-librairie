@@ -23,7 +23,7 @@
 }
 
 .max_characteres {
-  color: var(--dark_blue) !important;
+  color: var(--error);
 }
 
 .error {

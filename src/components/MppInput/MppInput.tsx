@@ -1,15 +1,13 @@
-import React, { useState, KeyboardEventHandler, ReactNode, useEffect } from 'react';
+import React, { useState, KeyboardEventHandler, useEffect } from 'react';
 import './mpp_input.css';
 import { MppIcons } from '../../utils/MppIcons';
 
 export interface ValidationCondition {
   condition: (value: string) => boolean;
   message: string;
-
 }
 
 interface MppInputTextProps {
-
   placeholder: string;
   value: string;
   icon?: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -27,7 +25,6 @@ interface MppInputTextProps {
 }
 
 const MppInput: React.FC<MppInputTextProps> = ({
-
   placeholder,
   value = '',
   icon: Icon,
@@ -41,7 +38,6 @@ const MppInput: React.FC<MppInputTextProps> = ({
   isPassword = false,
   autoComplete,
   isResearch = false,
-
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
@@ -81,17 +77,14 @@ const MppInput: React.FC<MppInputTextProps> = ({
   }, [value, isResearch]);
   const clearField = () => {
     onChange('');
-  }
+  };
 
   return (
     <>
       <div
         className={`mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}`}
       >
-        {isResearch ? (
-          <MppIcons.research
-          />
-        ) : null}
+        {isResearch ? <MppIcons.research /> : null}
         <input
           type={!showPassword && isPassword ? 'password' : 'text'}
           placeholder={placeholder}
