@@ -60,39 +60,7 @@ const MppButton = ({ title, onPress, buttonType, type = 'button', style = {}, ho
 };
 
 /**
- * @interface MppInputTextProps
- * @property {string} placeholder - Texte d'indice à afficher dans le champ de saisie.
- * @property {string} value - Valeur actuelle du champ de saisie.
- * @property {React.FC<React.SVGProps<SVGSVGElement>>} [icon] - Composant SVG optionnel à afficher comme icône dans le champ de saisie.
- * @property {boolean} [needCounter=false] - Indique si un compteur de caractères doit être affiché (par défaut : false).
- * @property {number} [maxCharacteres] - Nombre maximum de caractères autorisés dans le champ de saisie.
- * @property {Array<ValidationCondition>} [validationConditions] - Conditions de validation à appliquer au champ de saisie. Chaque condition est un objet contenant une fonction de validation et un message d'erreur.
- * @property {function(string, boolean): void} [onChange] - Fonction de rappel appelée lors du changement de valeur du champ. Fournit la nouvelle valeur et un indicateur d'erreur.
- * @property {function(string): void} [onClickIcon] - Fonction de rappel appelée lorsque l'icône est cliquée.
- * @property {function(boolean): void} [setHasError] - Fonction de rappel pour indiquer si le champ a des erreurs de validation.
- * @property {string} [onClickErrorMessage] - Message d'erreur à afficher lors du clic à l'extérieur du champ de saisie.
- * @property {boolean} [readOnly=false] - Indique si le champ est en lecture seule (par défaut : false).
- * @property {KeyboardEventHandler<HTMLInputElement>} [onKeyDown] - Fonction de rappel appelée lors de l'appui sur une touche du clavier.
- *
- * @example
- * <MppInputText
- *   placeholder="Entrez votre texte ici"
- *   value={inputValue}
- *   onChange={(value, hasError) => {
- *     console.log('Valeur :', value, 'Erreur :', hasError);
- *   }}
- *   validationConditions={[
- *     { condition: (value) => value.length >= 5, message: 'Doit contenir au moins 5 caractères.' },
- *     { condition: (value) => /^[a-zA-Z]+$/.test(value), message: 'Ne doit contenir que des lettres.' },
- *   ]}
- *   needCounter={true}
- *   maxCharacteres={20}
- *   icon={MyIconComponent}
- *   onClickIcon={(value) => {
- *     console.log('Icône cliquée avec la valeur :', value);
- *   }}
- *   readOnly={false}
- * />
+    NE doit plus etre utilisé ancien composé trop complexe, favoriser MppInput
  */
 const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacteres, validationConditions = [], onChange, onClickIcon, setHasError, onClickErrorMessage, readOnly = false, onKeyDown, }) => {
     const [isFocused, setIsFocused] = useState(false);
@@ -1751,6 +1719,40 @@ const MppCheckbox = ({ value, onChange, checked, isTableHeader = false, }) => {
                 React__default.createElement("span", { className: "checkmark" })))));
 };
 
+/**
+ * Le composant MppInput rend un champ de saisie personnalisable avec diverses options :
+ * compteur de caractères, icône, affichage conditionnel du mot de passe, champ de recherche, etc.
+ *
+ * @component
+ * @param {MppInputTextProps} props - Les propriétés du composant MppInput.
+ * @param {string} props.placeholder - Le texte d'indication affiché lorsque l'input est vide.
+ * @param {string} props.value - La valeur actuelle de l'input.
+ * @param {React.FC<React.SVGProps<SVGSVGElement>>} [props.icon] - Une icône SVG facultative affichée à droite de l'input.
+ * @param {boolean} [props.needCounter=false] - Affiche un compteur de caractères si défini à true.
+ * @param {number} [props.maxCharacters] - Le nombre maximum de caractères autorisés dans l'input.
+ * @param {Array<ValidationCondition>} [props.validationConditions] - Une liste de conditions de validation personnalisées.
+ * @param {(value: string) => void} props.onChange - Fonction appelée lors de la modification de la valeur.
+ * @param {(value: string) => void} [props.onClickIcon] - Fonction appelée lors du clic sur l’icône.
+ * @param {boolean} [props.readOnly=false] - Rend le champ en lecture seule si défini à true.
+ * @param {KeyboardEventHandler<HTMLInputElement>} [props.onKeyDown] - Gestionnaire d'événement pour les touches clavier.
+ * @param {boolean} [props.isPassword=false] - Rend le champ de type mot de passe avec possibilité d’afficher/masquer.
+ * @param {string} [props.errorMessage] - Message d’erreur affiché sous le champ si présent.
+ * @param {string} [props.autoComplete] - Valeur de l’attribut autoComplete pour le champ.
+ * @param {boolean} [props.isResearch=false] - Affiche une icône de recherche à gauche et un bouton de suppression à droite si défini à true.
+ *
+ * @returns {JSX.Element} Le composant MppInput rendu.
+ *
+ * @example
+ * <MppInput
+ *   placeholder="Entrez votre email"
+ *   value={email}
+ *   icon={MppIcons.check}
+ *   needCounter
+ *   maxCharacters={50}
+ *   onChange={setEmail}
+ *   isPassword
+ * />
+ */
 const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacters, errorMessage = '', readOnly = false, onChange, onKeyDown, onClickIcon, isPassword = false, autoComplete, isResearch = false, }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
