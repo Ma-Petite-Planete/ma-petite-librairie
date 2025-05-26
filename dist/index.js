@@ -1812,7 +1812,7 @@ const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, ma
  * import { MppIncrementInput } from './MppIncrementInput';
  *
  * const ExampleComponent = () => {
- *   const [quantity, setQuantity] = useState(0);
+ *   const [quantity, setQuantity] = useState(1);
  *
  *   return (
  *     <MppIncrementInput
@@ -1835,12 +1835,12 @@ const MppIncrementInput = ({ value, onChange, maxIncrement, }) => {
             setInputValue(value.toString());
             return;
         }
-        n = Math.max(0, Math.min(maxIncrement, n));
+        n = Math.max(1, Math.min(maxIncrement, n));
         onChange(n);
         setInputValue(n.toString());
     };
     return (React__default.createElement("div", { className: "increment_input_background text_body" },
-        React__default.createElement("button", { className: "increment_button", onClick: () => onChange(Math.max(0, value - 1)), disabled: value <= 0 }, "\u2212"),
+        React__default.createElement("button", { className: "increment_button", onClick: () => onChange(Math.max(1, value - 1)), disabled: value <= 1 }, "\u2212"),
         React__default.createElement("input", { type: "text", inputMode: "numeric", pattern: "\\d*", maxLength: maxIncrement.toString().length, className: "increment_value increment_value_input", value: inputValue, onChange: (e) => {
                 const digitsOnly = e.target.value.replace(/\D/g, '');
                 setInputValue(digitsOnly);
@@ -1848,7 +1848,7 @@ const MppIncrementInput = ({ value, onChange, maxIncrement, }) => {
                 if (e.key === 'Enter') {
                     e.target.blur();
                 }
-            }, min: 0, max: maxIncrement }),
+            }, min: 1, max: maxIncrement }),
         React__default.createElement("button", { className: "increment_button", onClick: () => onChange(Math.min(maxIncrement, value + 1)), disabled: value >= maxIncrement }, "+")));
 };
 

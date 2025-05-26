@@ -21,7 +21,7 @@ interface MppIncrementInputProps {
  * import { MppIncrementInput } from './MppIncrementInput';
  *
  * const ExampleComponent = () => {
- *   const [quantity, setQuantity] = useState(0);
+ *   const [quantity, setQuantity] = useState(1);
  *
  *   return (
  *     <MppIncrementInput

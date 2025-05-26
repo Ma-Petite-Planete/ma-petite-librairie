@@ -23,7 +23,7 @@ interface MppIncrementInputProps {
  * import { MppIncrementInput } from './MppIncrementInput';
  *
  * const ExampleComponent = () => {
- *   const [quantity, setQuantity] = useState(0);
+ *   const [quantity, setQuantity] = useState(1);
  *
  *   return (
  *     <MppIncrementInput
@@ -53,7 +53,7 @@ const MppIncrementInput: React.FC<MppIncrementInputProps> = ({
       setInputValue(value.toString());
       return;
     }
-    n = Math.max(0, Math.min(maxIncrement, n));
+    n = Math.max(1, Math.min(maxIncrement, n));
 
     onChange(n);
     setInputValue(n.toString());
@@ -63,8 +63,8 @@ const MppIncrementInput: React.FC<MppIncrementInputProps> = ({
     <div className="increment_input_background text_body">
       <button
         className="increment_button"
-        onClick={() => onChange(Math.max(0, value - 1))}
-        disabled={value <= 0}
+        onClick={() => onChange(Math.max(1, value - 1))}
+        disabled={value <= 1}
       >
         −
       </button>
@@ -86,7 +86,7 @@ const MppIncrementInput: React.FC<MppIncrementInputProps> = ({
             (e.target as HTMLInputElement).blur();
           }
         }}
-        min={0}
+        min={1}
         max={maxIncrement}
       />
 
