@@ -14,13 +14,13 @@
 .background_value--max_value {
   font-size: 10px;
   font-weight: 700;
-  right: 0;
+  right: -3px;
   position: absolute;
 }
 
 .end_line_number {
   position: absolute;
-  right: -20px;
+  right: -10px;
 }
 
 .linear_progress_bar--main_value {
@@ -32,17 +32,13 @@
 }
 
 /*----------------- DEFAULT ------------------*/
-.default .linear_progress_bar--main_value {
+.default .background_value--max_value {
   display: none;
 }
 
 .default .progress_bar {
   background-color: var(--medium_grey);
   width: 100%;
-}
-
-.default .background_value--max_value {
-  right: 50%;
 }
 
 /*--------------- RED ---------------*/

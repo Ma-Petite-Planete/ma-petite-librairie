@@ -1,15 +1,13 @@
-import React, { useState, KeyboardEventHandler, ReactNode, useEffect } from 'react';
+import React, { useState, KeyboardEventHandler, useEffect } from 'react';
 import './mpp_input.css';
 import { MppIcons } from '../../utils/MppIcons';
 
 export interface ValidationCondition {
   condition: (value: string) => boolean;
   message: string;
-
 }
 
 interface MppInputTextProps {
-
   placeholder: string;
   value: string;
   icon?: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -23,11 +21,48 @@ interface MppInputTextProps {
   isPassword?: boolean;
   errorMessage?: string;
   autoComplete?: string;
-  isResearch?: boolean;
+  canClearField?: boolean;
+  prefixIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
 }
 
+/**
+ * Composant d'entrée personnalisée pour les formulaires.
+ *
+ * Affiche un champ de saisie avec diverses options telles que l'icône, le compteur de caractères,
+ * la gestion du mot de passe, la validation, et la possibilité de vider le champ.
+ *
+ * @param {string} placeholder - Texte affiché lorsque le champ est vide.
+ * @param {string} value - Valeur actuelle du champ.
+ * @param {React.FC<React.SVGProps<SVGSVGElement>>} [icon] - Icône suffixe à afficher dans le champ.
+ * @param {boolean} [needCounter] - Affiche un compteur de caractères si vrai.
+ * @param {number} [maxCharacters] - Nombre maximal de caractères autorisés.
+ * @param {Array<ValidationCondition>} [validationConditions] - Conditions de validation personnalisées.
+ * @param {(value: string) => void} onChange - Callback appelé lors d'un changement de valeur.
+ * @param {(value: string) => void} [onClickIcon] - Callback appelé lors d'un clic sur l'icône.
+ * @param {boolean} [readOnly] - Rend le champ en lecture seule si vrai.
+ * @param {KeyboardEventHandler<HTMLInputElement>} [onKeyDown] - Callback pour la gestion des événements clavier.
+ * @param {boolean} [isPassword] - Affiche le champ comme un mot de passe si vrai.
+ * @param {string} [errorMessage] - Message d'erreur à afficher.
+ * @param {string} [autoComplete] - Attribut autoComplete du champ.
+ * @param {boolean} [canClearField] - Affiche une icône pour vider le champ si vrai.
+ * @param {React.FC<React.SVGProps<SVGSVGElement>>} [prefixIcon] - Icône préfixe à afficher dans le champ.
+ *
+ * @example
+ * ```tsx
+ * <MppInput
+ *   placeholder="Votre email"
+ *   value={email}
+ *   onChange={setEmail}
+ *   icon={MailIcon}
+ *   needCounter={true}
+ *   maxCharacters={50}
+ *   errorMessage={emailError}
+ *   isPassword={false}
+ *   canClearField={true}
+ * />
+ * ```
+ */
 const MppInput: React.FC<MppInputTextProps> = ({
-
   placeholder,
   value = '',
   icon: Icon,
@@ -40,13 +75,12 @@ const MppInput: React.FC<MppInputTextProps> = ({
   onClickIcon,
   isPassword = false,
   autoComplete,
-  isResearch = false,
-
+  canClearField = false,
+  prefixIcon: PrefixIcon,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
   const [showPassword, setShowPassword] = useState(false);
-  const [canClearField, setCanClearField] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value.slice(0, maxCharacters || undefined);
@@ -71,27 +105,14 @@ const MppInput: React.FC<MppInputTextProps> = ({
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
-
-  useEffect(() => {
-    if (isResearch && value.length > 0) {
-      setCanClearField(true);
-    } else {
-      setCanClearField(false);
-    }
-  }, [value, isResearch]);
-  const clearField = () => {
-    onChange('');
-  }
+  const suffixComponentClassname = 'with_suffix_component';
 
   return (
     <>
       <div
         className={`mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}`}
       >
-        {isResearch ? (
-          <MppIcons.research
-          />
-        ) : null}
+        {PrefixIcon ? <PrefixIcon className="with_prefix_icon" /> : null}
         <input
           type={!showPassword && isPassword ? 'password' : 'text'}
           placeholder={placeholder}
@@ -99,29 +120,31 @@ const MppInput: React.FC<MppInputTextProps> = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
-          className={`mpp_input ${readOnly ? 'read_only' : ''} ${isResearch ? 'with_prefix_icon' : ''}`}
+          className={`mpp_input ${readOnly ? 'read_only' : ''}`}
           readOnly={readOnly}
           onKeyDown={onKeyDown}
           autoComplete={autoComplete}
         />
         {(isFocused || value) && Icon ? (
           <Icon
-            className={onClickIcon ? 'input_icon_pointer' : ''}
+            className={`${onClickIcon ? 'input_icon_pointer' : ''} ${suffixComponentClassname} `}
             onClick={handleIconClick}
           />
         ) : isPassword ? (
           <MppIcons.eye
-            className={`input_icon_pointer ${showPassword ? 'eye_focus' : 'eye_unfocus'}`}
+            className={`input_icon_pointer ${showPassword ? 'eye_focus' : 'eye_unfocus'} ${suffixComponentClassname} `}
             onClick={handleShowPassword}
           />
         ) : needCounter ? (
           <span
-            className={`input_counter ${value.length === maxCharacters ? 'max_characteres' : ''}`}
+            className={`input_counter ${value.length === maxCharacters ? 'max_characteres' : ''} ${suffixComponentClassname} `}
           >{`${value.length}/${maxCharacters}`}</span>
-        ) : canClearField ? (
+        ) : canClearField && value.length > 0 ? (
           <MppIcons.inputClose
-            className={`input_icon_pointer`}
-            onClick={clearField}
+            className={`input_icon_pointer ${suffixComponentClassname}`}
+            onClick={() => {
+              onChange('');
+            }}
           />
         ) : null}
       </div>

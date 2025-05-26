@@ -1156,7 +1156,7 @@ var BoType;
  *
  * @interface MppMenuProps
  * @property {NavigationLink[]} navigationLinks - Liste des liens de navigation affichés dans le menu.
- * @property {React.ElementType} LinkComponent - Composant de lien utilisé pour la navigation (ex : `Link` de Next.js).
+ * @property {React.ElementType} LinkComponent - Composant de lien utilisé pour la navigation (ex : `Link` de Next.js ou React Router).
  * @property {BoType} boType - Type de back-office (ex : `BoType.scoBO` ou `BoType.gpBo`).
  * @property {() => void} onLogout - Fonction appelée lors du clic sur le bouton de déconnexion.
  * @property {string} actualPage - Nom ou URL de la page actuelle, utilisé pour la mise en surbrillance du lien actif.
@@ -1173,8 +1173,10 @@ var BoType;
  * @property {React.FC<React.SVGProps<SVGSVGElement>>} icon - Icône du lien de navigation.
  * @property {string} name - Nom du lien affiché.
  * @property {string} navigation - URL de destination.
+ * @property {string} [target] - Spécifie si le lien doit s'ouvrir dans un nouvel onglet.
  *
  * @example
+ * ```tsx
  * const navigationLinks = [
  *   { icon: MppIcons.home, name: 'Accueil', navigation: '/' },
  *   { icon: MppIcons.profile, name: 'Profil', navigation: '/profil' },
@@ -1199,6 +1201,7 @@ var BoType;
  *   languageToggle={<LanguageSwitcher />}
  *   aboutText="À propos"
  * />
+ * ```
  */
 const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage, aboutText, logOutText, clientIsLoad, clientName, codeClientInput, codeClientButton, backToClientsLink, languageToggle, }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -1209,14 +1212,17 @@ const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage,
                 clientName && React__default.createElement("span", { className: "text_body_sb" }, clientName),
                 backToClientsLink && (React__default.createElement(LinkComponent, { href: backToClientsLink.navigation, className: "navigation_flex text_small_b navigation_return_link" },
                     React__default.createElement(MppIcons.arrowBack, { className: "icon_arrow_back text_small_b" }),
-                    React__default.createElement("span", null, backToClientsLink.name))))),
-            React__default.createElement("div", { className: "navigation_background" }, clientIsLoad ? (navigationLinks.map((navigationLink, index) => (React__default.createElement("div", { onMouseEnter: () => setHoveredIndex(index), onMouseLeave: () => setHoveredIndex(null), className: `navigation_element ${actualPage.includes(navigationLink.navigation) ? 'actual_page' : ''} ${hoveredIndex === index ||
-                    actualPage.includes(navigationLink.navigation)
-                    ? 'text_body_sb '
-                    : 'text_body '}`, key: navigationLink.name },
-                React__default.createElement(LinkComponent, { href: navigationLink.navigation, className: "navigation_flex" },
-                    React__default.createElement(navigationLink.icon, { className: "icon" }),
-                    React__default.createElement("p", null, navigationLink.name)))))) : (React__default.createElement(MppSkeletonLoader, { count: 5, spaceBetweenRow: "16px", heightRow: "20px" })))),
+                    React__default.createElement("span", { className: 'text_small_b' }, backToClientsLink.name))))),
+            React__default.createElement("div", { className: "navigation_background" }, clientIsLoad ? (navigationLinks.map((navigationLink, index) => {
+                var _a;
+                return (React__default.createElement("div", { onMouseEnter: () => setHoveredIndex(index), onMouseLeave: () => setHoveredIndex(null), className: `navigation_element ${actualPage.includes(navigationLink.navigation) ? 'actual_page' : ''} ${hoveredIndex === index ||
+                        actualPage.includes(navigationLink.navigation)
+                        ? 'text_body_sb '
+                        : 'text_body '}`, key: navigationLink.name },
+                    React__default.createElement(LinkComponent, { href: navigationLink.navigation, className: "navigation_flex", target: (_a = navigationLink.target) !== null && _a !== void 0 ? _a : '' },
+                        React__default.createElement(navigationLink.icon, { className: "icon" }),
+                        React__default.createElement("p", null, navigationLink.name))));
+            })) : (React__default.createElement(MppSkeletonLoader, { count: 5, spaceBetweenRow: "16px", heightRow: "20px" })))),
         boType === BoType.gpBo && (React__default.createElement("div", { className: "navigation_client_code_section" },
             React__default.createElement("div", { className: "navigation_client_code_section--input" }, codeClientInput),
             codeClientButton)),
@@ -1472,7 +1478,7 @@ const useClickOutside = (elementRef, callback) => {
  * @param {T[]} props.options - La liste des options à afficher dans le menu déroulant.
  * @param {boolean} [props.isDisabled] - Indicateur pour désactiver le menu déroulant.
  * @param {T} props.defaultValue - L'option sélectionnée par défaut.
- * @param {string} [props.textClassname='text_body'] - Le nom de la classe CSS pour le texte.
+ * @param {string} [props.textClassname=''] - Le nom de la classe CSS pour le texte.
  * @param {K} props.property - La propriété de l'option à afficher dans le menu déroulant.
  *
  * @example
@@ -1500,7 +1506,7 @@ const useClickOutside = (elementRef, callback) => {
  * };
  * ```
  */
-const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = 'text_body', property, needEmojiFont = false, }) => {
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, }) => {
     const [selectedOption, setSelectedOption] = React__default.useState(defaultValue);
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
     const dropDownRef = useRef(null);
@@ -1524,7 +1530,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
           ${isDropdownVisible ? 'open' : ''}
           ${(placeholder && displayedDefaultValue === '' && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}` },
-            React__default.createElement("span", { className: `select_button--selected_value ${needEmojiFont ? 'emoji' : ''}` }, selectedValue
+            React__default.createElement("span", { className: `select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}` }, selectedValue
                 ? selectedValue
                 : displayedDefaultValue
                     ? displayedDefaultValue
@@ -1538,7 +1544,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                         setIsDropdownVisible(false);
                         onChange(option);
                     }
-                }, tabIndex: 0, className: needEmojiFont ? 'emoji' : '', key: index, onClick: () => {
+                }, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}`, key: index, onClick: () => {
                     setSelectedOption(option);
                     setIsDropdownVisible(false);
                     onChange(option);
@@ -1603,37 +1609,74 @@ var ProgressBarStyle;
     ProgressBarStyle["red"] = "red";
     ProgressBarStyle["green"] = "green";
     ProgressBarStyle["orange"] = "orange";
-    ProgressBarStyle["invisible"] = "invisible";
     ProgressBarStyle["default"] = "default";
 })(ProgressBarStyle || (ProgressBarStyle = {}));
 /**
- * Le composant LinearProgressBar rend une barre de progression linéaire personnalisable avec un style de couleur.
+ * Le composant `MppLinearProgressBar` rend une barre de progression linéaire personnalisable avec un style dynamique basé sur des conditions.
  *
  * @component
- * @param {LinearProgressBarProps} props - Les propriétés du composant LinearProgressBar.
- * @param {number} props.maxValue - La valeur maximale de la barre de progression.
- * @param {number} props.value - La valeur actuelle de la barre de progression.
- * @param {ProgressBarStyle} props.colorStyle - Le style de couleur de la barre de progression.
+ * @param {LinearProgressBarProps} props - Propriétés permettant de configurer la barre de progression.
+ * @param {number} props.value - Valeur actuelle de la barre de progression (obligatoire).
+ * @param {boolean} [props.useValueAsProgressBarWidth=false] - Si `true`, la valeur est utilisée directement comme pourcentage de largeur (0 à 100).
+ * @param {number} [props.maxValue] - La valeur maximale, utilisée pour calculer le pourcentage de progression si `useValueAsProgressBarWidth` est `false`.
+ * @param {boolean} [props.displayValueAsDefault] - Si `true`, affiche une barre par défaut sans se baser sur la valeur, utile pour les cas sans données.
+ * @param {boolean} [props.conditionForGreen] - Condition qui force le style de la barre en vert.
+ * @param {boolean} [props.conditionForRed] - Condition qui force le style de la barre en rouge.
  *
- * @returns {JSX.Element} Le composant LinearProgressBar rendu.
+ * @returns {JSX.Element} Le composant React représentant la barre de progression.
  *
  * @example
- * <LinearProgressBar
- *   maxValue={100}
- *   value={50}
- *   colorStyle={ProgressBarStyle.green}
- * />
- */
-const MppLinearProgressBar = ({ maxValue, value, colorStyle, }) => {
-    const finishPercentage = Math.round((value / maxValue) * 100);
+ * // Utilisation classique avec valeur et maximum
+ * const value = 40
+ * const maxValue = 100
+ * <MppLinearProgressBar value={40} maxValue={100} conditionForGreen={value < 100} conditionForRed={value === 100}/>
+ *
+ * @example
+ * // Utiliser la valeur comme pourcentage de largeur directement
+ * // A utiliser si la value est déjà un pourcentage
+ * // Du coup doit être moins de 100
+ * <MppLinearProgressBar value={75} useValueAsProgressBarWidth={true} />
+ *
+ * @example
+ * // Affichage de la barre par défaut sans données
+ * const value = 8
+ * <MppLinearProgressBar value={value} displayValueAsDefault={true} />
+ **/
+const MppLinearProgressBar = ({ maxValue, value, conditionForGreen, conditionForRed, useValueAsProgressBarWidth = false, displayValueAsDefault, }) => {
+    const progressBarPercentage = (() => {
+        if (displayValueAsDefault || value === 0)
+            return 51;
+        if (useValueAsProgressBarWidth)
+            return value;
+        if (maxValue !== null) {
+            return Math.round((value / maxValue) * 100);
+        }
+        return 0;
+    })();
+    const colorToDisplay = () => {
+        if (value === 0 || displayValueAsDefault) {
+            return ProgressBarStyle.default;
+        }
+        else if (conditionForGreen) {
+            return ProgressBarStyle.green;
+        }
+        else if (conditionForRed) {
+            return ProgressBarStyle.red;
+        }
+        else {
+            return ProgressBarStyle.orange;
+        }
+    };
     return (React__default.createElement(React__default.Fragment, null,
-        React__default.createElement("div", { className: `linear_progress_bar_container ${colorStyle}` },
+        React__default.createElement("div", { className: `linear_progress_bar_container ${colorToDisplay()}` },
             React__default.createElement("div", { className: "linear_progress_bar--background_value" },
                 React__default.createElement("div", { className: "progress_bar background_value--indicator" },
-                    React__default.createElement("div", { className: "linear_progress_bar--main_value", style: { width: `${finishPercentage}%` } },
+                    React__default.createElement("div", { className: "linear_progress_bar--main_value", style: {
+                            width: `${progressBarPercentage}%`,
+                        } },
                         React__default.createElement("div", { className: "progress_bar main_value--indicator" }),
                         React__default.createElement("p", { className: "main_value--value" }, Math.round(value))))),
-            React__default.createElement("p", { className: `background_value--max_value ${finishPercentage >= 100 ? 'hide' : finishPercentage > 80 ? 'end_line_number' : ''}` }, maxValue))));
+            !displayValueAsDefault && (React__default.createElement("p", { className: `background_value--max_value ${progressBarPercentage >= 100 ? 'hide' : 'end_line_number'}` }, maxValue)))));
 };
 
 var MessageType;
@@ -1751,11 +1794,47 @@ const MppCheckbox = ({ value, onChange, checked, isTableHeader = false, }) => {
                 React__default.createElement("span", { className: "checkmark" })))));
 };
 
-const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacters, errorMessage = '', readOnly = false, onChange, onKeyDown, onClickIcon, isPassword = false, autoComplete, isResearch = false, }) => {
+/**
+ * Composant d'entrée personnalisée pour les formulaires.
+ *
+ * Affiche un champ de saisie avec diverses options telles que l'icône, le compteur de caractères,
+ * la gestion du mot de passe, la validation, et la possibilité de vider le champ.
+ *
+ * @param {string} placeholder - Texte affiché lorsque le champ est vide.
+ * @param {string} value - Valeur actuelle du champ.
+ * @param {React.FC<React.SVGProps<SVGSVGElement>>} [icon] - Icône suffixe à afficher dans le champ.
+ * @param {boolean} [needCounter] - Affiche un compteur de caractères si vrai.
+ * @param {number} [maxCharacters] - Nombre maximal de caractères autorisés.
+ * @param {Array<ValidationCondition>} [validationConditions] - Conditions de validation personnalisées.
+ * @param {(value: string) => void} onChange - Callback appelé lors d'un changement de valeur.
+ * @param {(value: string) => void} [onClickIcon] - Callback appelé lors d'un clic sur l'icône.
+ * @param {boolean} [readOnly] - Rend le champ en lecture seule si vrai.
+ * @param {KeyboardEventHandler<HTMLInputElement>} [onKeyDown] - Callback pour la gestion des événements clavier.
+ * @param {boolean} [isPassword] - Affiche le champ comme un mot de passe si vrai.
+ * @param {string} [errorMessage] - Message d'erreur à afficher.
+ * @param {string} [autoComplete] - Attribut autoComplete du champ.
+ * @param {boolean} [canClearField] - Affiche une icône pour vider le champ si vrai.
+ * @param {React.FC<React.SVGProps<SVGSVGElement>>} [prefixIcon] - Icône préfixe à afficher dans le champ.
+ *
+ * @example
+ * ```tsx
+ * <MppInput
+ *   placeholder="Votre email"
+ *   value={email}
+ *   onChange={setEmail}
+ *   icon={MailIcon}
+ *   needCounter={true}
+ *   maxCharacters={50}
+ *   errorMessage={emailError}
+ *   isPassword={false}
+ *   canClearField={true}
+ * />
+ * ```
+ */
+const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacters, errorMessage = '', readOnly = false, onChange, onKeyDown, onClickIcon, isPassword = false, autoComplete, canClearField = false, prefixIcon: PrefixIcon, }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
     const [showPassword, setShowPassword] = useState(false);
-    const [canClearField, setCanClearField] = useState(false);
     const handleChange = (e) => {
         const newValue = e.target.value.slice(0, maxCharacters || undefined);
         onChange(newValue);
@@ -1775,22 +1854,14 @@ const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, ma
     const handleShowPassword = () => {
         setShowPassword(!showPassword);
     };
-    useEffect(() => {
-        if (isResearch && value.length > 0) {
-            setCanClearField(true);
-        }
-        else {
-            setCanClearField(false);
-        }
-    }, [value, isResearch]);
-    const clearField = () => {
-        onChange('');
-    };
+    const suffixComponentClassname = 'with_suffix_component';
     return (React__default.createElement(React__default.Fragment, null,
         React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}` },
-            isResearch ? (React__default.createElement(MppIcons.research, null)) : null,
-            React__default.createElement("input", { type: !showPassword && isPassword ? 'password' : 'text', placeholder: placeholder, value: value, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''} ${isResearch ? 'with_prefix_icon' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown, autoComplete: autoComplete }),
-            (isFocused || value) && Icon ? (React__default.createElement(Icon, { className: onClickIcon ? 'input_icon_pointer' : '', onClick: handleIconClick })) : isPassword ? (React__default.createElement(MppIcons.eye, { className: `input_icon_pointer ${showPassword ? 'eye_focus' : 'eye_unfocus'}`, onClick: handleShowPassword })) : needCounter ? (React__default.createElement("span", { className: `input_counter ${value.length === maxCharacters ? 'max_characteres' : ''}` }, `${value.length}/${maxCharacters}`)) : canClearField ? (React__default.createElement(MppIcons.inputClose, { className: `input_icon_pointer`, onClick: clearField })) : null),
+            PrefixIcon ? React__default.createElement(PrefixIcon, { className: "with_prefix_icon" }) : null,
+            React__default.createElement("input", { type: !showPassword && isPassword ? 'password' : 'text', placeholder: placeholder, value: value, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown, autoComplete: autoComplete }),
+            (isFocused || value) && Icon ? (React__default.createElement(Icon, { className: `${onClickIcon ? 'input_icon_pointer' : ''} ${suffixComponentClassname} `, onClick: handleIconClick })) : isPassword ? (React__default.createElement(MppIcons.eye, { className: `input_icon_pointer ${showPassword ? 'eye_focus' : 'eye_unfocus'} ${suffixComponentClassname} `, onClick: handleShowPassword })) : needCounter ? (React__default.createElement("span", { className: `input_counter ${value.length === maxCharacters ? 'max_characteres' : ''} ${suffixComponentClassname} ` }, `${value.length}/${maxCharacters}`)) : canClearField && value.length > 0 ? (React__default.createElement(MppIcons.inputClose, { className: `input_icon_pointer ${suffixComponentClassname}`, onClick: () => {
+                    onChange('');
+                } })) : null),
         React__default.createElement("div", { className: "input_errors" }, errorMessage.length > 0 && value && !isFirstEntry && (React__default.createElement("p", { className: "input_error" }, errorMessage)))));
 };
 

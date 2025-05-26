@@ -23,10 +23,7 @@ import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader'
 import MppMultiSectionButtonProps from './components/MppMultiSectionButtons/MppMultiSectionButton';
 import MppDropDown from './components/MppDropdown/MppDropdown';
 import MppLoaderDots from './components/MppLoaderDots/MppLoaderDots';
-import {
-  MppLinearProgressBar,
-  ProgressBarStyle,
-} from './components/MppLinearProgressBar/MppLinearProgressBar';
+import { MppLinearProgressBar } from './components/MppLinearProgressBar/MppLinearProgressBar';
 import MppToggleButton from './components/MppToggleButton/MppToggleButton';
 import {
   MppLabelType,
@@ -287,6 +284,7 @@ function App() {
               name: 'Classements',
               icon: MppIcons.tropheeGp,
               navigation: '/homepage',
+              target: '_blank',
             },
             {
               name: 'Espace porteurs de projet',
@@ -445,6 +443,7 @@ function App() {
 
       <div style={{ width: '20%' }}>
         <MppDropDown
+          needEmojiFont={true}
           property="value"
           options={[
             {
@@ -466,17 +465,54 @@ function App() {
           }}
           isDisabled={false}
         />
+        <MppDropDown
+          property="value"
+          options={[
+            {
+              id: 'id1',
+              value: 'valeur 1',
+            },
+            {
+              id: 'id2',
+              value: 'valeur 2',
+            },
+          ]}
+          onChange={function (value): void {
+            console.log(value);
+          }}
+          placeholder="Sélectionner une langue"
+          defaultValue={{
+            id: 'id0',
+            value: 'valeur par défaut',
+          }}
+          isDisabled={false}
+        />
       </div>
 
       <h2>Loader points</h2>
       <MppLoaderDots />
 
       <h2>Linear progress bar</h2>
-      <MppLinearProgressBar
-        maxValue={0}
-        value={0}
-        colorStyle={ProgressBarStyle.green}
-      />
+      <div className="linear_progress_bar_container">
+        <MppLinearProgressBar
+          conditionForGreen={1 / 2 < 2}
+          conditionForRed={1 / 2 > 3}
+          maxValue={2}
+          value={1}
+        />
+        <MppLinearProgressBar
+          conditionForGreen={0 / 1 >= 1}
+          conditionForRed={0 / 1 < 0.8}
+          maxValue={1}
+          value={0}
+        />
+        <MppLinearProgressBar value={158} displayValueAsDefault={true} />
+        <MppLinearProgressBar
+          conditionForGreen={2 > 0}
+          maxValue={0}
+          value={2}
+        />
+      </div>
 
       <h2>Toggle button</h2>
       <div style={{ width: '40%' }}>
