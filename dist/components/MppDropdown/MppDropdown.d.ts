@@ -9,6 +9,8 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
     isDisabled?: boolean;
     textClassname?: string;
     needEmojiFont?: boolean;
+    isDropDownEmpty?: boolean;
+    emptyValue?: React.ReactNode;
 }
 /**
  * Le composant MppDropDown rend un menu déroulant personnalisable.
@@ -50,5 +52,5 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
  * };
  * ```
  */
-declare const MppDropDown: <T extends object, K extends keyof T>({ placeholder, onChange, options, isDisabled, defaultValue, textClassname, property, needEmojiFont, }: MppDropDownProps<T, K>) => React.JSX.Element;
+declare const MppDropDown: <T extends object, K extends keyof T>({ placeholder, onChange, options, isDisabled, defaultValue, textClassname, property, needEmojiFont, isDropDownEmpty, emptyValue, }: MppDropDownProps<T, K>) => React.JSX.Element;
 export default MppDropDown;

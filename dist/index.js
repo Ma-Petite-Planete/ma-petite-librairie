@@ -1468,7 +1468,7 @@ const useClickOutside = (elementRef, callback) => {
  * };
  * ```
  */
-const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = 'text_body', property, needEmojiFont = false, }) => {
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = 'text_body', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, }) => {
     const [selectedOption, setSelectedOption] = React__default.useState(defaultValue);
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
     const dropDownRef = useRef(null);
@@ -1498,7 +1498,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                     ? displayedDefaultValue
                     : placeholder),
             React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
-        isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, options.map((option, index) => {
+        isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, isDropDownEmpty ? (React__default.createElement("li", null, emptyValue)) : (options.map((option, index) => {
             const displayedvalue = option[property];
             return (React__default.createElement("li", { onKeyDown: (event) => {
                     if (event.key === 'Enter') {
@@ -1513,7 +1513,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                 } },
                 displayedvalue,
                 React__default.createElement("div", { className: "select_dropdown_divider" })));
-        })))));
+        }))))));
 };
 
 /**

@@ -226,6 +226,7 @@ function App() {
               name: "Changer d'édition",
             }}
             isDisabled={false}
+            isDropDownEmpty={false}
           />
         }
       />
