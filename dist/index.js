@@ -1498,7 +1498,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                     ? displayedDefaultValue
                     : placeholder),
             React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
-        isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, isDropDownEmpty ? (React__default.createElement("li", null, emptyValue)) : (options.map((option, index) => {
+        isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
             const displayedvalue = option[property];
             return (React__default.createElement("li", { onKeyDown: (event) => {
                     if (event.key === 'Enter') {

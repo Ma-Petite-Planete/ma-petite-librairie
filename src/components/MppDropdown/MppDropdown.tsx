@@ -124,7 +124,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
       {isDropdownVisible && (
         <ul className="select_dropdown">
           {isDropDownEmpty ? (
-            <li>{emptyValue}</li>
+            <div>{emptyValue}</div>
           ) : (
             options.map((option, index) => {
               const displayedvalue = option[property] as string;

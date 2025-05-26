@@ -465,6 +465,14 @@ function App() {
             value: '🇨🇵 🇮🇹 🇪🇸 🇩🇪 🇬🇧',
           }}
           isDisabled={false}
+          isDropDownEmpty={true}
+          emptyValue={
+            <p>
+              Aucune catégorie n est crée pour le moment.
+              <br></br>
+              <a>Ajouter une catégorie</a>
+            </p>
+          }
         />
       </div>
 
