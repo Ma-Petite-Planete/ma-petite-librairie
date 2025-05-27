@@ -5,6 +5,7 @@ interface NavigationLink {
     icon: React.FC<React.SVGProps<SVGSVGElement>>;
     name: string;
     navigation: string;
+    target?: string | null;
 }
 interface MppMenuProps {
     backToClientsLink?: NavigationLink;
@@ -30,7 +31,7 @@ interface MppMenuProps {
  *
  * @interface MppMenuProps
  * @property {NavigationLink[]} navigationLinks - Liste des liens de navigation affichés dans le menu.
- * @property {React.ElementType} LinkComponent - Composant de lien utilisé pour la navigation (ex : `Link` de Next.js).
+ * @property {React.ElementType} LinkComponent - Composant de lien utilisé pour la navigation (ex : `Link` de Next.js ou React Router).
  * @property {BoType} boType - Type de back-office (ex : `BoType.scoBO` ou `BoType.gpBo`).
  * @property {() => void} onLogout - Fonction appelée lors du clic sur le bouton de déconnexion.
  * @property {string} actualPage - Nom ou URL de la page actuelle, utilisé pour la mise en surbrillance du lien actif.
@@ -47,8 +48,10 @@ interface MppMenuProps {
  * @property {React.FC<React.SVGProps<SVGSVGElement>>} icon - Icône du lien de navigation.
  * @property {string} name - Nom du lien affiché.
  * @property {string} navigation - URL de destination.
+ * @property {string} [target] - Spécifie si le lien doit s'ouvrir dans un nouvel onglet.
  *
  * @example
+ * ```tsx
  * const navigationLinks = [
  *   { icon: MppIcons.home, name: 'Accueil', navigation: '/' },
  *   { icon: MppIcons.profile, name: 'Profil', navigation: '/profil' },
@@ -73,6 +76,7 @@ interface MppMenuProps {
  *   languageToggle={<LanguageSwitcher />}
  *   aboutText="À propos"
  * />
+ * ```
  */
 declare const MppMenu: React.FC<MppMenuProps>;
 export default MppMenu;

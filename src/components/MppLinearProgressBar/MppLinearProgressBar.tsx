@@ -1,9 +1,12 @@
 import React from 'react';
 import './mpp_linear_progress_bar.css';
 interface LinearProgressBarProps {
-  maxValue: number;
   value: number;
-  colorStyle: ProgressBarStyle;
+  useValueAsProgressBarWidth?: boolean;
+  maxValue?: number;
+  displayValueAsDefault?: boolean;
+  conditionForGreen?: boolean;
+  conditionForRed?: boolean;
 }
 
 export enum ColumnType {
@@ -17,55 +20,93 @@ export enum ProgressBarStyle {
   red = 'red',
   green = 'green',
   orange = 'orange',
-  invisible = 'invisible',
   default = 'default',
 }
 
 /**
- * Le composant LinearProgressBar rend une barre de progression linéaire personnalisable avec un style de couleur.
+ * Le composant `MppLinearProgressBar` rend une barre de progression linéaire personnalisable avec un style dynamique basé sur des conditions.
  *
  * @component
- * @param {LinearProgressBarProps} props - Les propriétés du composant LinearProgressBar.
- * @param {number} props.maxValue - La valeur maximale de la barre de progression.
- * @param {number} props.value - La valeur actuelle de la barre de progression.
- * @param {ProgressBarStyle} props.colorStyle - Le style de couleur de la barre de progression.
+ * @param {LinearProgressBarProps} props - Propriétés permettant de configurer la barre de progression.
+ * @param {number} props.value - Valeur actuelle de la barre de progression (obligatoire).
+ * @param {boolean} [props.useValueAsProgressBarWidth=false] - Si `true`, la valeur est utilisée directement comme pourcentage de largeur (0 à 100).
+ * @param {number} [props.maxValue] - La valeur maximale, utilisée pour calculer le pourcentage de progression si `useValueAsProgressBarWidth` est `false`.
+ * @param {boolean} [props.displayValueAsDefault] - Si `true`, affiche une barre par défaut sans se baser sur la valeur, utile pour les cas sans données.
+ * @param {boolean} [props.conditionForGreen] - Condition qui force le style de la barre en vert.
+ * @param {boolean} [props.conditionForRed] - Condition qui force le style de la barre en rouge.
  *
- * @returns {JSX.Element} Le composant LinearProgressBar rendu.
+ * @returns {JSX.Element} Le composant React représentant la barre de progression.
  *
  * @example
- * <LinearProgressBar
- *   maxValue={100}
- *   value={50}
- *   colorStyle={ProgressBarStyle.green}
- * />
- */
+ * // Utilisation classique avec valeur et maximum
+ * const value = 40
+ * const maxValue = 100
+ * <MppLinearProgressBar value={40} maxValue={100} conditionForGreen={value < 100} conditionForRed={value === 100}/>
+ *
+ * @example
+ * // Utiliser la valeur comme pourcentage de largeur directement
+ * // A utiliser si la value est déjà un pourcentage
+ * // Du coup doit être moins de 100
+ * <MppLinearProgressBar value={75} useValueAsProgressBarWidth={true} />
+ *
+ * @example
+ * // Affichage de la barre par défaut sans données
+ * const value = 8
+ * <MppLinearProgressBar value={value} displayValueAsDefault={true} />
+ **/
 
 export const MppLinearProgressBar: React.FC<LinearProgressBarProps> = ({
   maxValue,
   value,
-  colorStyle,
-}) => {
-  const finishPercentage = Math.round((value / maxValue) * 100);
+  conditionForGreen,
+  conditionForRed,
+  useValueAsProgressBarWidth = false,
+  displayValueAsDefault,
+}: LinearProgressBarProps): JSX.Element => {
+  const progressBarPercentage = (() => {
+    if (displayValueAsDefault || value === 0) return 51;
+    if (useValueAsProgressBarWidth) return value;
+    if (maxValue !== null) {
+      return Math.round((value / maxValue) * 100);
+    }
+    return 0;
+  })();
+
+  const colorToDisplay = (): ProgressBarStyle => {
+    if (value === 0 || displayValueAsDefault) {
+      return ProgressBarStyle.default;
+    } else if (conditionForGreen) {
+      return ProgressBarStyle.green;
+    } else if (conditionForRed) {
+      return ProgressBarStyle.red;
+    } else {
+      return ProgressBarStyle.orange;
+    }
+  };
 
   return (
     <>
-      <div className={`linear_progress_bar_container ${colorStyle}`}>
+      <div className={`linear_progress_bar_container ${colorToDisplay()}`}>
         <div className="linear_progress_bar--background_value">
           <div className="progress_bar background_value--indicator">
             <div
               className="linear_progress_bar--main_value"
-              style={{ width: `${finishPercentage}%` }}
+              style={{
+                width: `${progressBarPercentage}%`,
+              }}
             >
               <div className="progress_bar main_value--indicator"></div>
               <p className="main_value--value">{Math.round(value)}</p>
             </div>
           </div>
         </div>
-        <p
-          className={`background_value--max_value ${finishPercentage >= 100 ? 'hide' : finishPercentage > 80 ? 'end_line_number' : ''}`}
-        >
-          {maxValue}
-        </p>
+        {!displayValueAsDefault && (
+          <p
+            className={`background_value--max_value ${progressBarPercentage >= 100 ? 'hide' : 'end_line_number'}`}
+          >
+            {maxValue}
+          </p>
+        )}
       </div>
     </>
   );

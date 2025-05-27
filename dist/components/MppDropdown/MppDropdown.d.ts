@@ -24,7 +24,7 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
  * @param {T[]} props.options - La liste des options à afficher dans le menu déroulant.
  * @param {boolean} [props.isDisabled] - Indicateur pour désactiver le menu déroulant.
  * @param {T} props.defaultValue - L'option sélectionnée par défaut.
- * @param {string} [props.textClassname='text_body'] - Le nom de la classe CSS pour le texte.
+ * @param {string} [props.textClassname=''] - Le nom de la classe CSS pour le texte.
  * @param {K} props.property - La propriété de l'option à afficher dans le menu déroulant.
  *
  * @example

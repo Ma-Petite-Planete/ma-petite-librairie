@@ -150,6 +150,11 @@ textarea {
   font-family: 'Poppins', sans-serif;
 }
 
+span {
+  font-size: 16px;
+  font-weight: 400;
+}
+
 button {
   background: none;
   font-family: 'Poppins', sans-serif;

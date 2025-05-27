@@ -1,7 +1,6 @@
 .mpp_input_container {
   display: flex;
   margin: 10px 0;
-  gap: 17px;
   padding: 16px;
   border: 1px solid var(--medium_grey);
   background-color: var(--light_grey);
