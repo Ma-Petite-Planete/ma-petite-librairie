@@ -60,39 +60,7 @@ const MppButton = ({ title, onPress, buttonType, type = 'button', style = {}, ho
 };
 
 /**
- * @interface MppInputTextProps
- * @property {string} placeholder - Texte d'indice à afficher dans le champ de saisie.
- * @property {string} value - Valeur actuelle du champ de saisie.
- * @property {React.FC<React.SVGProps<SVGSVGElement>>} [icon] - Composant SVG optionnel à afficher comme icône dans le champ de saisie.
- * @property {boolean} [needCounter=false] - Indique si un compteur de caractères doit être affiché (par défaut : false).
- * @property {number} [maxCharacteres] - Nombre maximum de caractères autorisés dans le champ de saisie.
- * @property {Array<ValidationCondition>} [validationConditions] - Conditions de validation à appliquer au champ de saisie. Chaque condition est un objet contenant une fonction de validation et un message d'erreur.
- * @property {function(string, boolean): void} [onChange] - Fonction de rappel appelée lors du changement de valeur du champ. Fournit la nouvelle valeur et un indicateur d'erreur.
- * @property {function(string): void} [onClickIcon] - Fonction de rappel appelée lorsque l'icône est cliquée.
- * @property {function(boolean): void} [setHasError] - Fonction de rappel pour indiquer si le champ a des erreurs de validation.
- * @property {string} [onClickErrorMessage] - Message d'erreur à afficher lors du clic à l'extérieur du champ de saisie.
- * @property {boolean} [readOnly=false] - Indique si le champ est en lecture seule (par défaut : false).
- * @property {KeyboardEventHandler<HTMLInputElement>} [onKeyDown] - Fonction de rappel appelée lors de l'appui sur une touche du clavier.
- *
- * @example
- * <MppInputText
- *   placeholder="Entrez votre texte ici"
- *   value={inputValue}
- *   onChange={(value, hasError) => {
- *     console.log('Valeur :', value, 'Erreur :', hasError);
- *   }}
- *   validationConditions={[
- *     { condition: (value) => value.length >= 5, message: 'Doit contenir au moins 5 caractères.' },
- *     { condition: (value) => /^[a-zA-Z]+$/.test(value), message: 'Ne doit contenir que des lettres.' },
- *   ]}
- *   needCounter={true}
- *   maxCharacteres={20}
- *   icon={MyIconComponent}
- *   onClickIcon={(value) => {
- *     console.log('Icône cliquée avec la valeur :', value);
- *   }}
- *   readOnly={false}
- * />
+    NE doit plus etre utilisé ancien composé trop complexe, favoriser MppInput
  */
 const MppInputText = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacteres, validationConditions = [], onChange, onClickIcon, setHasError, onClickErrorMessage, readOnly = false, onKeyDown, }) => {
     const [isFocused, setIsFocused] = useState(false);
@@ -1506,7 +1474,7 @@ const useClickOutside = (elementRef, callback) => {
  * };
  * ```
  */
-const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, }) => {
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, }) => {
     const [selectedOption, setSelectedOption] = React__default.useState(defaultValue);
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
     const dropDownRef = useRef(null);
@@ -1536,7 +1504,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                     ? displayedDefaultValue
                     : placeholder),
             React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
-        isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, options.map((option, index) => {
+        isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
             const displayedvalue = option[property];
             return (React__default.createElement("li", { onKeyDown: (event) => {
                     if (event.key === 'Enter') {
@@ -1551,7 +1519,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                 } },
                 displayedvalue,
                 React__default.createElement("div", { className: "select_dropdown_divider" })));
-        })))));
+        }))))));
 };
 
 /**
@@ -1865,4 +1833,60 @@ const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, ma
         React__default.createElement("div", { className: "input_errors" }, errorMessage.length > 0 && value && !isFirstEntry && (React__default.createElement("p", { className: "input_error" }, errorMessage)))));
 };
 
-export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ProgressBarStyle, ScoColors, labelType };
+/**
+ * Le composant MppIncrementInput fournit un contrôle numérique avec boutons d’incrémentation et décrmentation,
+ * ainsi qu’un champ pour saisir la valeur manuellement.
+ *
+ * @param {MppIncrementInputProps} props - Les propriétés du composant.
+ * @param {number} props.value - La valeur actuelle affichée et contrôlée par le composant.
+ * @param {(newValue: number) => void} props.onChange - Fonction de rappel invoquée avec la nouvelle valeur
+ *        dès qu’elle change (via les boutons ou la saisie manuelle).
+ * @param {number} props.maxIncrement - La valeur maximale autorisée (le bouton + et la saisie sont clampés entre 0 et maxIncrement).
+ *
+ * @example
+ * ```tsx
+ * import React, { useState } from 'react';
+ * import { MppIncrementInput } from './MppIncrementInput';
+ *
+ * const ExampleComponent = () => {
+ *   const [quantity, setQuantity] = useState(1);
+ *
+ *   return (
+ *     <MppIncrementInput
+ *       value={quantity}
+ *       onChange={setQuantity}
+ *       maxIncrement={100}
+ *     />
+ *   );
+ * };
+ * ```
+ */
+const MppIncrementInput = ({ value, onChange, maxIncrement, }) => {
+    const [inputValue, setInputValue] = useState(value.toString());
+    useEffect(() => {
+        setInputValue(value.toString());
+    }, [value]);
+    const commitChange = () => {
+        let n = parseInt(inputValue, 10);
+        if (isNaN(n)) {
+            setInputValue(value.toString());
+            return;
+        }
+        n = Math.max(1, Math.min(maxIncrement, n));
+        onChange(n);
+        setInputValue(n.toString());
+    };
+    return (React__default.createElement("div", { className: "increment_input_background text_body" },
+        React__default.createElement("button", { className: "increment_button", onClick: () => onChange(Math.max(1, value - 1)), disabled: value <= 1 }, "\u2212"),
+        React__default.createElement("input", { type: "text", inputMode: "numeric", pattern: "\\d*", maxLength: maxIncrement.toString().length, className: "increment_value increment_value_input", value: inputValue, onChange: (e) => {
+                const digitsOnly = e.target.value.replace(/\D/g, '');
+                setInputValue(digitsOnly);
+            }, onBlur: commitChange, onKeyDown: (e) => {
+                if (e.key === 'Enter') {
+                    e.target.blur();
+                }
+            }, min: 1, max: maxIncrement }),
+        React__default.createElement("button", { className: "increment_button", onClick: () => onChange(Math.min(maxIncrement, value + 1)), disabled: value >= maxIncrement }, "+")));
+};
+
+export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ProgressBarStyle, ScoColors, labelType };

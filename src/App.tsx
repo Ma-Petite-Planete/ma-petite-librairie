@@ -50,7 +50,6 @@ function App() {
           </div>
         ))}
       </div>
-
       <h2>Type de Bouton</h2>
       <div className="button_background">
         <MppButton
@@ -224,6 +223,7 @@ function App() {
               name: "Changer d'édition",
             }}
             isDisabled={false}
+            isDropDownEmpty={false}
           />
         }
       />
@@ -464,6 +464,14 @@ function App() {
             value: '🇨🇵 🇮🇹 🇪🇸 🇩🇪 🇬🇧',
           }}
           isDisabled={false}
+          isDropDownEmpty={true}
+          emptyValue={
+            <p>
+              Aucune catégorie n est crée pour le moment.
+              <br></br>
+              <a>Ajouter une catégorie</a>
+            </p>
+          }
         />
         <MppDropDown
           property="value"

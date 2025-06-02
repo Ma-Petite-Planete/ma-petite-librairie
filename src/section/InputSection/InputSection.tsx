@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import MppInputText from '../../components/MppInputText/MppInputText';
 import React from 'react';
 import MppInput from '../../components/MppInput/MppInput';
 import { MppIcons } from '../../utils/MppIcons';
 import './input_section_style.css';
+import MppIncrementInput from '../../components/MppIncrementInput/MppIncrementInput';
 
 const InputDemo: React.FC = () => {
   const [inputDemoIcon, setInputDemoIcon] = useState('');
@@ -11,6 +12,7 @@ const InputDemo: React.FC = () => {
   const [inputDemoCounter, setInputDemoCounter] = useState('');
   const [errorDemoCounter, setErrorDemoCounter] = useState('');
   const [inputDemoCondition, setInputDemoCondition] = useState('');
+  const [incrementValue, setIncrementValue] = useState(1);
 
   const handleChangeDemoIcon = (value: string) => {
     setInputDemoIcon(value);
@@ -77,7 +79,13 @@ const InputDemo: React.FC = () => {
         placeholder={'moteur de recherche'}
         onChange={(value) => setinputDemoClear(value)}
         canClearField={true}
-        prefixIcon = {MppIcons.research}
+        prefixIcon={MppIcons.research}
+      />
+
+      <MppIncrementInput
+        value={incrementValue}
+        onChange={setIncrementValue}
+        maxIncrement={100}
       />
     </div>
   );

@@ -11,6 +11,8 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
   isDisabled?: boolean;
   textClassname?: string;
   needEmojiFont?: boolean;
+  isDropDownEmpty?: boolean;
+  emptyValue?: React.ReactNode;
 }
 
 /**
@@ -63,6 +65,8 @@ const MppDropDown = <T extends object, K extends keyof T>({
   textClassname = '',
   property,
   needEmojiFont = false,
+  isDropDownEmpty = false,
+  emptyValue,
 }: MppDropDownProps<T, K>) => {
   const [selectedOption, setSelectedOption] = React.useState<T | null>(
     defaultValue
@@ -119,31 +123,35 @@ const MppDropDown = <T extends object, K extends keyof T>({
       </button>
       {isDropdownVisible && (
         <ul className="select_dropdown">
-          {options.map((option, index) => {
-            const displayedvalue = option[property] as string;
-            return (
-              <li
-                onKeyDown={(event) => {
-                  if (event.key === 'Enter') {
+          {isDropDownEmpty ? (
+            <div>{emptyValue}</div>
+          ) : (
+            options.map((option, index) => {
+              const displayedvalue = option[property] as string;
+              return (
+                <li
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter') {
+                      setSelectedOption(option);
+                      setIsDropdownVisible(false);
+                      onChange(option);
+                    }
+                  }}
+                  tabIndex={0}
+                  className={`${needEmojiFont ? 'emoji' : ''}${textClassname}`}
+                  key={index}
+                  onClick={() => {
                     setSelectedOption(option);
                     setIsDropdownVisible(false);
                     onChange(option);
-                  }
-                }}
-                tabIndex={0}
-                className={`${needEmojiFont ? 'emoji' : ''}${textClassname}`}
-                key={index}
-                onClick={() => {
-                  setSelectedOption(option);
-                  setIsDropdownVisible(false);
-                  onChange(option);
-                }}
-              >
-                {displayedvalue}
-                <div className="select_dropdown_divider"></div>
-              </li>
-            );
-          })}
+                  }}
+                >
+                  {displayedvalue}
+                  <div className="select_dropdown_divider"></div>
+                </li>
+              );
+            })
+          )}
         </ul>
       )}
     </div>

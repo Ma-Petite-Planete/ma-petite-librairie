@@ -1,4 +1,4 @@
-import React, { useState, KeyboardEventHandler, useEffect } from 'react';
+import React, { useState, KeyboardEventHandler } from 'react';
 import './mpp_input.css';
 import { MppIcons } from '../../utils/MppIcons';
 
