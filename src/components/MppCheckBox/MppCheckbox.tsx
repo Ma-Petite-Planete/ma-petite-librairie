@@ -1,62 +1,68 @@
-import React, { useState } from 'react';
-import './mpp_checkbox.css';
-interface MppCheckboxProps {
-  value: string;
-  onChange: (value: string) => void;
+// src/components/MppCheckboxTable.tsx
+"use client";
+import React, { forwardRef, useEffect, useRef } from "react";
+import "./mpp_checkbox.css"; // même CSS que MppCheckbox
+
+interface MppCheckboxTableProps {
+  /** L’état “coché ou non” que TanStack Table nous passe */
   checked: boolean;
+  /** État “trois états” (dash) pour TanStack Table */
+  indeterminate?: boolean;
+  /** Callback à appeler quand l’utilisateur clique, on retransmet à TanStack Table */
+  onChange: (newChecked: boolean) => void;
+  /** Optionnel : si on veut un style “en-tête” (main) ou “cellule” */
   isTableHeader?: boolean;
 }
 
 /**
- * Le composant MppCheckbox rend une case à cocher personnalisable avec un style optionnel pour l'en-tête de tableau.
- *
- * @component
- * @param {MppCheckboxProps} props - Les propriétés du composant MppCheckbox.
- * @param {string} props.value - La valeur associée à la case à cocher.
- * @param {function} props.onChange - La fonction de rappel pour gérer les changements d'état de la case à cocher.
- * @param {boolean} props.checked - L'état initial de la case à cocher.
- * @param {boolean} props.isTableHeader - Indicateur pour déterminer si la case à cocher est utilisée dans un en-tête de tableau.
- *
- * @returns {JSX.Element} Le composant MppCheckbox rendu.
- *
- * @example
- * <MppCheckbox
- *   value="exampleValue"
- *   onChange={handleCheckboxChange}
- *   checked={true}
- *   isTableHeader={false}
- * />
+ * Ce composant est un wrapper de MppCheckbox : 
+ * - On supprime le useState interne
+ * - On accepte checked, indeterminate et onChange
+ * - On expose un ref pour permettre à TanStack de définir `input.indeterminate`
  */
-const MppCheckbox: React.FC<MppCheckboxProps> = ({
-  value,
-  onChange,
-  checked,
-  isTableHeader = false,
-}) => {
-  const [isSelected, setIsSelected] = useState<boolean>(checked);
-  return (
-    <div className="checkbox_container">
-      <div className="checkbox_container_checkbox">
-        <label
-          className={`checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}`}
-          htmlFor={`checkbox_${value}`}
-        >
-          <input
-            className="checkbox_container_input"
-            checked={isSelected}
-            type="checkbox"
-            name="checkbox"
-            id={`checkbox_${value}`}
-            onChange={() => {
-              setIsSelected((param) => !param);
-              onChange(value);
-            }}
-          />
-          <span className="checkmark"></span>
-        </label>
-      </div>
-    </div>
-  );
-};
+export const MppCheckboxTable = forwardRef<
+  HTMLInputElement,
+  MppCheckboxTableProps
+>(
+  ({ checked, indeterminate = false, onChange, isTableHeader = false }, ref) => {
+    // On combine le ref passé par TanStack et notre ref interne
+    const internalRef = useRef<HTMLInputElement>(null);
+    const resolvedRef = (ref ?? internalRef) as React.RefObject<HTMLInputElement>;
 
-export default MppCheckbox;
+    // À chaque render, TanStack veut pouvoir régler “indeterminate”
+    useEffect(() => {
+      if (resolvedRef.current) {
+        resolvedRef.current.indeterminate = indeterminate;
+      }
+    }, [resolvedRef, indeterminate]);
+
+    return (
+      <div className="checkbox_container">
+        <div className="checkbox_container_checkbox">
+          <label
+            className={
+              isTableHeader
+                ? "checkbox_container_label main_checkbox"
+                : "checkbox_container_label secondary_checkbox"
+            }
+            htmlFor={`checkbox_table_${isTableHeader ? "header" : Math.random()}`}
+          >
+            <input
+              ref={resolvedRef}
+              type="checkbox"
+              className="checkbox_container_input"
+              id={`checkbox_table_${isTableHeader ? "header" : Math.random()}`}
+              checked={checked}
+              onChange={(e) => {
+                onChange(e.target.checked);
+              }}
+            />
+            <span className="checkmark"></span>
+          </label>
+        </div>
+      </div>
+    );
+  }
+);
+
+MppCheckboxTable.displayName = "MppCheckboxTable";
