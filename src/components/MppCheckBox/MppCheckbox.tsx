@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './mpp_checkbox.css';
 interface MppCheckboxProps {
   value: string;
-  onChange: (value: string) => void;
-  checked: boolean;
+  onChange: (data: { value: string; checked: boolean }) => void;
+  checked?: boolean;
   isTableHeader?: boolean;
 }
 
@@ -33,7 +33,7 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
   checked,
   isTableHeader = false,
 }) => {
-  const [isSelected, setIsSelected] = useState<boolean>(checked);
+  const [isSelected, setIsSelected] = useState<boolean>(checked ?? false);
   return (
     <div className="checkbox_container">
       <div className="checkbox_container_checkbox">
@@ -49,7 +49,10 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
             id={`checkbox_${value}`}
             onChange={() => {
               setIsSelected((param) => !param);
-              onChange(value);
+              onChange({
+                value: value,
+                checked: !isSelected,
+              });
             }}
           />
           <span className="checkmark"></span>

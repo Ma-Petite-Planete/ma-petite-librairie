@@ -544,10 +544,11 @@ function App() {
         <div key={element.id}>
           <MppCheckbox
             value={element.id}
-            onChange={(value: string): void => {
-              console.log('🚀 ~ App ~ value:', value);
+            onChange={(data): void => {
+              console.log('🚀 ~ App ~ value:', data.value);
+              console.log('🚀 ~ App ~ checked:', data.checked);
             }}
-            checked={false}
+            isTableHeader={true}
           />
         </div>
       ))}
