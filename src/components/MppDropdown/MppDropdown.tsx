@@ -25,7 +25,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
   options,
   isDisabled,
   defaultValue,
-  defaultValues = [],                      // ADDED
+  defaultValues = [],
   textClassname = '',
   property,
   needEmojiFont = false,
@@ -39,7 +39,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
   );
   const [selectedOptions, setSelectedOptions] = React.useState<T[]>(
     defaultValues
-  );                                      // ADDED
+  );
   const [isDropdownVisible, setIsDropdownVisible] =
     React.useState<boolean>(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
@@ -67,7 +67,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
         setSelectedOption(null);
       }
     }
-  }, [isDisabled, canClearField]);         // ADDED canClearField
+  }, [isDisabled, canClearField]);
 
   useEffect(() => {
     if (canClearField) {
@@ -75,7 +75,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
     } else {
       setSelectedOption(defaultValue);
     }
-  }, [defaultValue, defaultValues, canClearField]); // ADDED defaultValues and canClearField
+  }, [defaultValue, defaultValues, canClearField]);
 
   const handleClear = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -149,7 +149,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
           {selectedValue || placeholder}
         </span>
 
-        {canClearField && (selectedOptions.length > 0) && (
+        {canClearField && selectedOptions.length > 0 && (
           <div className="dropdown_icon_wrapper">
             <span
               className="dropdown_clear_icon"
@@ -160,10 +160,10 @@ const MppDropDown = <T extends object, K extends keyof T>({
             </span>
             <span
               className={`${isDropdownVisible
-                  ? 'arrow arrow--open'
-                  : isDisabled
-                    ? 'arrow--disabled arrow'
-                    : 'arrow'
+                ? 'arrow arrow--open'
+                : isDisabled
+                  ? 'arrow--disabled arrow'
+                  : 'arrow'
                 }`}
             ></span>
           </div>
@@ -180,10 +180,10 @@ const MppDropDown = <T extends object, K extends keyof T>({
             </span>
             <span
               className={`${isDropdownVisible
-                  ? 'arrow arrow--open'
-                  : isDisabled
-                    ? 'arrow--disabled arrow'
-                    : 'arrow'
+                ? 'arrow arrow--open'
+                : isDisabled
+                  ? 'arrow--disabled arrow'
+                  : 'arrow'
                 }`}
             ></span>
           </div>
@@ -195,10 +195,10 @@ const MppDropDown = <T extends object, K extends keyof T>({
         ) && (
             <span
               className={`${isDropdownVisible
-                  ? 'arrow arrow--open'
-                  : isDisabled
-                    ? 'arrow--disabled arrow'
-                    : 'arrow'
+                ? 'arrow arrow--open'
+                : isDisabled
+                  ? 'arrow--disabled arrow'
+                  : 'arrow'
                 }`}
             ></span>
           )}

@@ -1434,10 +1434,9 @@ const useClickOutside = (elementRef, callback) => {
     });
 };
 
-const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, defaultValues = [], // ADDED
-textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, canClearField = false, clearValue, }) => {
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, defaultValues = [], textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, canClearField = false, clearValue, }) => {
     const [selectedOption, setSelectedOption] = React__default.useState(defaultValue);
-    const [selectedOptions, setSelectedOptions] = React__default.useState(defaultValues); // ADDED
+    const [selectedOptions, setSelectedOptions] = React__default.useState(defaultValues);
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
     const dropDownRef = useRef(null);
     const displayedDefaultValue = canClearField
@@ -1462,7 +1461,7 @@ textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, em
                 setSelectedOption(null);
             }
         }
-    }, [isDisabled, canClearField]); // ADDED canClearField
+    }, [isDisabled, canClearField]);
     useEffect(() => {
         if (canClearField) {
             setSelectedOptions(defaultValues);
@@ -1470,7 +1469,7 @@ textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, em
         else {
             setSelectedOption(defaultValue);
         }
-    }, [defaultValue, defaultValues, canClearField]); // ADDED defaultValues and canClearField
+    }, [defaultValue, defaultValues, canClearField]);
     const handleClear = (e) => {
         e.stopPropagation();
         if (canClearField) {
@@ -1521,7 +1520,7 @@ textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, em
                     ? 'selected'
                     : ''}` },
             React__default.createElement("span", { className: `select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}` }, selectedValue || placeholder),
-            canClearField && (selectedOptions.length > 0) && (React__default.createElement("div", { className: "dropdown_icon_wrapper" },
+            canClearField && selectedOptions.length > 0 && (React__default.createElement("div", { className: "dropdown_icon_wrapper" },
                 React__default.createElement("span", { className: "dropdown_clear_icon", onClick: handleClear, "aria-label": "Clear selection" },
                     React__default.createElement(MppIcons.inputClose, null)),
                 React__default.createElement("span", { className: `${isDropdownVisible
