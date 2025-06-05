@@ -1474,7 +1474,7 @@ const useClickOutside = (elementRef, callback) => {
  * };
  * ```
  */
-const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, }) => {
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, canClearField = false, }) => {
     const [selectedOption, setSelectedOption] = React__default.useState(defaultValue);
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
     const dropDownRef = useRef(null);
@@ -1493,6 +1493,11 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
     useEffect(() => {
         setSelectedOption(defaultValue);
     }, [defaultValue]);
+    const handleClear = (e) => {
+        e.stopPropagation();
+        setSelectedOption(defaultValue);
+        onChange(defaultValue);
+    };
     return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''}` },
         React__default.createElement("button", { disabled: isDisabled, onClick: !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null, className: ` select_button ${textClassname}
           ${isDropdownVisible ? 'open' : ''}
@@ -1503,6 +1508,8 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                 : displayedDefaultValue
                     ? displayedDefaultValue
                     : placeholder),
+            canClearField && selectedOption && (selectedValue || displayedDefaultValue) && (React__default.createElement("span", { className: "dropdown_clear_icon", onClick: handleClear, "aria-label": "Clear selection" },
+                React__default.createElement(MppIcons.inputClose, null))),
             React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
         isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
             const displayedvalue = option[property];

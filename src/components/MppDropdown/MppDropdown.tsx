@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './mpp_dropdown.css';
 import useClickOutside from '../../hooks/clickOutside';
+import { MppIcons } from '../../utils/MppIcons';
 
 interface MppDropDownProps<T extends object, K extends keyof T> {
   property: K;
@@ -13,6 +14,7 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
   needEmojiFont?: boolean;
   isDropDownEmpty?: boolean;
   emptyValue?: React.ReactNode;
+  canClearField?: boolean;
 }
 
 /**
@@ -67,6 +69,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
   needEmojiFont = false,
   isDropDownEmpty = false,
   emptyValue,
+  canClearField = false,
 }: MppDropDownProps<T, K>) => {
   const [selectedOption, setSelectedOption] = React.useState<T | null>(
     defaultValue
@@ -93,6 +96,12 @@ const MppDropDown = <T extends object, K extends keyof T>({
     setSelectedOption(defaultValue);
   }, [defaultValue]);
 
+  const handleClear = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSelectedOption(defaultValue);
+    onChange(defaultValue);
+  };
+
   return (
     <div
       ref={dropDownRef}
@@ -117,6 +126,16 @@ const MppDropDown = <T extends object, K extends keyof T>({
               ? displayedDefaultValue
               : placeholder}
         </span>
+        {canClearField && selectedOption && (selectedValue || displayedDefaultValue) && (
+          <span
+            className="dropdown_clear_icon"
+            onClick={handleClear}
+            aria-label="Clear selection"
+          >
+            <MppIcons.inputClose />
+          </span>
+        )}
+
         <span
           className={`${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}`}
         ></span>
