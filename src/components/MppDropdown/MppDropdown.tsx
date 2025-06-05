@@ -15,6 +15,7 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
   isDropDownEmpty?: boolean;
   emptyValue?: React.ReactNode;
   canClearField?: boolean;
+  clearValue?: T;
 }
 
 /**
@@ -70,6 +71,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
   isDropDownEmpty = false,
   emptyValue,
   canClearField = false,
+  clearValue,
 }: MppDropDownProps<T, K>) => {
   const [selectedOption, setSelectedOption] = React.useState<T | null>(
     defaultValue
@@ -98,10 +100,15 @@ const MppDropDown = <T extends object, K extends keyof T>({
 
   const handleClear = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setSelectedOption(defaultValue);
-    onChange(defaultValue);
+    if (clearValue !== undefined) {
+      setSelectedOption(clearValue);
+      onChange(clearValue);
+    } else {
+      setSelectedOption(defaultValue);
+      onChange(defaultValue);
+    }
   };
-  console.log("dropdown a jour")
+  console.log("dropdown a jour 2")
   return (
     <div
       ref={dropDownRef}
