@@ -12,6 +12,7 @@
   background-color: var(--light_grey_disable);
   border-radius: var(--standard_border_radius);
 }
+
 .select_button {
   background-color: var(--light_grey);
   display: flex;
@@ -23,6 +24,7 @@
   border-radius: var(--standard_border_radius);
   cursor: pointer;
 }
+
 .arrow {
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
@@ -84,4 +86,9 @@
 
 .open {
   border: 1px solid var(--dark_blue);
+}
+
+.dropdown_icon_wrapper {
+  display: flex;
+  align-items: center;
 }

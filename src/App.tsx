@@ -127,9 +127,9 @@ function App() {
       <InputDemo />
       <h2>Trophés</h2>
       <MppPodium
-        onClick={() => {}}
-        onHover={() => {}}
-        onHoverLeave={() => {}}
+        onClick={() => { }}
+        onHover={() => { }}
+        onHoverLeave={() => { }}
         displayFullInfos={false}
         color={ScoColors.lightYellow}
         typeOfPlayers="élève"
@@ -472,6 +472,8 @@ function App() {
               <a>Ajouter une catégorie</a>
             </p>
           }
+          canClearField={true}
+
         />
         <MppDropDown
           property="value"

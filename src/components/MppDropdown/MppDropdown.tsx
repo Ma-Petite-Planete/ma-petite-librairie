@@ -108,7 +108,6 @@ const MppDropDown = <T extends object, K extends keyof T>({
       onChange(defaultValue);
     }
   };
-  console.log("dropdown a jour 2")
   return (
     <div
       ref={dropDownRef}
@@ -133,19 +132,35 @@ const MppDropDown = <T extends object, K extends keyof T>({
               ? displayedDefaultValue
               : placeholder}
         </span>
-        {canClearField && selectedOption && (selectedValue || displayedDefaultValue) && (
-          <span
-            className="dropdown_clear_icon"
-            onClick={handleClear}
-            aria-label="Clear selection"
-          >
-            <MppIcons.inputClose />
-          </span>
-        )}
 
-        <span
-          className={`${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}`}
-        ></span>
+        {canClearField && selectedOption && (selectedValue || displayedDefaultValue) ? (
+          <div className="dropdown_icon_wrapper">
+            <span
+              className="dropdown_clear_icon"
+              onClick={handleClear}
+              aria-label="Clear selection"
+            >
+              <MppIcons.inputClose />
+            </span>
+            <span
+              className={`${isDropdownVisible
+                ? 'arrow arrow--open'
+                : isDisabled
+                  ? 'arrow--disabled arrow'
+                  : 'arrow'
+                }`}
+            ></span>
+          </div>
+        ) : (
+          <span
+            className={`${isDropdownVisible
+              ? 'arrow arrow--open'
+              : isDisabled
+                ? 'arrow--disabled arrow'
+                : 'arrow'
+              }`}
+          ></span>
+        )}
       </button>
       {isDropdownVisible && (
         <ul className="select_dropdown">
