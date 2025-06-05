@@ -169,39 +169,16 @@ const MppDropDown = <T extends object, K extends keyof T>({
           </div>
         )}
 
-        {!canClearField && selectedOption && (
-          <div className="dropdown_icon_wrapper">
-            <span
-              className="dropdown_clear_icon"
-              onClick={handleClear}
-              aria-label="Clear selection"
-            >
-              <MppIcons.inputClose />
-            </span>
-            <span
-              className={`${isDropdownVisible
-                ? 'arrow arrow--open'
-                : isDisabled
-                  ? 'arrow--disabled arrow'
-                  : 'arrow'
-                }`}
-            ></span>
-          </div>
+        {!canClearField && (
+          <span
+            className={`${isDropdownVisible
+              ? 'arrow arrow--open'
+              : isDisabled
+                ? 'arrow--disabled arrow'
+                : 'arrow'
+              }`}
+          ></span>
         )}
-
-        {!(
-          (canClearField && selectedOptions.length > 0) ||
-          (!canClearField && selectedOption)
-        ) && (
-            <span
-              className={`${isDropdownVisible
-                ? 'arrow arrow--open'
-                : isDisabled
-                  ? 'arrow--disabled arrow'
-                  : 'arrow'
-                }`}
-            ></span>
-          )}
       </button>
 
       {isDropdownVisible && (

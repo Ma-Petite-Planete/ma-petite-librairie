@@ -1528,16 +1528,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                         : isDisabled
                             ? 'arrow--disabled arrow'
                             : 'arrow'}` }))),
-            !canClearField && selectedOption && (React__default.createElement("div", { className: "dropdown_icon_wrapper" },
-                React__default.createElement("span", { className: "dropdown_clear_icon", onClick: handleClear, "aria-label": "Clear selection" },
-                    React__default.createElement(MppIcons.inputClose, null)),
-                React__default.createElement("span", { className: `${isDropdownVisible
-                        ? 'arrow arrow--open'
-                        : isDisabled
-                            ? 'arrow--disabled arrow'
-                            : 'arrow'}` }))),
-            !((canClearField && selectedOptions.length > 0) ||
-                (!canClearField && selectedOption)) && (React__default.createElement("span", { className: `${isDropdownVisible
+            !canClearField && (React__default.createElement("span", { className: `${isDropdownVisible
                     ? 'arrow arrow--open'
                     : isDisabled
                         ? 'arrow--disabled arrow'
