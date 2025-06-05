@@ -101,7 +101,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
     setSelectedOption(defaultValue);
     onChange(defaultValue);
   };
-
+  console.log("dropdown a jour")
   return (
     <div
       ref={dropDownRef}

@@ -1498,6 +1498,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
         setSelectedOption(defaultValue);
         onChange(defaultValue);
     };
+    console.log("dropdown a jour");
     return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''}` },
         React__default.createElement("button", { disabled: isDisabled, onClick: !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null, className: ` select_button ${textClassname}
           ${isDropdownVisible ? 'open' : ''}
