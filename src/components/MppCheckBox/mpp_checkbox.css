@@ -72,6 +72,10 @@
   border-radius: 1px;
 }
 
+.checkbox_container_checkbox .main_checkbox .checkbox_container_input:indeterminate+.checkmark:before {
+  display: none;
+}
+
 .checkbox_container_checkbox .main_checkbox .checkbox_container_input:checked+.checkmark:after {
   display: block;
   left: 5px;
