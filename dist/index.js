@@ -1750,14 +1750,26 @@ const MppToggleButton = ({ value, onChange }) => {
  *   isTableHeader={false}
  * />
  */
-const MppCheckbox = ({ value, onChange, checked, isTableHeader = false, }) => {
-    const [isSelected, setIsSelected] = useState(checked);
+const MppCheckbox = ({ value, onChange, checked, indeterminate, isTableHeader = false, }) => {
+    const [isSelected, setIsSelected] = useState(checked !== null && checked !== void 0 ? checked : false);
+    const inputRef = useRef(null);
+    useEffect(() => {
+        if (inputRef.current) {
+            inputRef.current.indeterminate = indeterminate !== null && indeterminate !== void 0 ? indeterminate : false;
+        }
+    }, [indeterminate]);
+    useEffect(() => {
+        setIsSelected(checked !== null && checked !== void 0 ? checked : false);
+    }, [checked]);
     return (React__default.createElement("div", { className: "checkbox_container" },
         React__default.createElement("div", { className: "checkbox_container_checkbox" },
             React__default.createElement("label", { className: `checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}`, htmlFor: `checkbox_${value}` },
                 React__default.createElement("input", { className: "checkbox_container_input", checked: isSelected, type: "checkbox", name: "checkbox", id: `checkbox_${value}`, onChange: () => {
                         setIsSelected((param) => !param);
-                        onChange(value);
+                        onChange({
+                            value: value,
+                            checked: !isSelected,
+                        });
                     } }),
                 React__default.createElement("span", { className: "checkmark" })))));
 };

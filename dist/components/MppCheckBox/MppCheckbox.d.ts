@@ -2,8 +2,12 @@ import React from 'react';
 import './mpp_checkbox.css';
 interface MppCheckboxProps {
     value: string;
-    onChange: (value: string) => void;
-    checked: boolean;
+    onChange: (data: {
+        value: string;
+        checked: boolean;
+    }) => void;
+    checked?: boolean;
+    indeterminate?: boolean;
     isTableHeader?: boolean;
 }
 /**
