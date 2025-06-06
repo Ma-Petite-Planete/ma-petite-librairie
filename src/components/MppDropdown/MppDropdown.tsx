@@ -148,26 +148,37 @@ const MppDropDown = <T extends object, K extends keyof T>({
           {selectedValue || placeholder}
         </span>
 
-        {/* Affichage conditionnel de la croix : uniquement si canClearField && au moins une sélection */}
-        {canClearField && selectedOptions.length > 0 && (
-          <span
-            className="dropdown_clear_icon"
-            onClick={handleClear}
-            aria-label="Clear selection"
-          >
-            <MppIcons.inputClose />
-          </span>
-        )}
+        {/* Wrapper pour la croix ET la flèche */}
+        <div className="icon_wrapper">
+          {/**
+         * – Si canClearField et qu’au moins une option est sélectionnée,
+         *   on affiche la croix pour vider la sélection :
+         */}
+          {canClearField && selectedOptions.length > 0 && (
+            <span
+              className="dropdown_clear_icon"
+              onClick={handleClear}
+              aria-label="Clear selection"
+            >
+              <MppIcons.inputClose />
+            </span>
+          )}
 
-        {/* La flèche est toujours rendue, quel que soit canClearField */}
-        <span
-          className={`${isDropdownVisible
-              ? 'arrow arrow--open'
-              : isDisabled
-                ? 'arrow--disabled arrow'
-                : 'arrow'
-            }`}
-        ></span>
+          {/**
+         * – La flèche est toujours affichée :
+         *   • open  => 'arrow arrow--open'
+         *   • disabled => 'arrow--disabled arrow'
+         *   • sinon => 'arrow'
+         */}
+          <span
+            className={`${isDropdownVisible
+                ? 'arrow arrow--open'
+                : isDisabled
+                  ? 'arrow--disabled arrow'
+                  : 'arrow'
+              }`}
+          ></span>
+        </div>
       </button>
 
       {isDropdownVisible && (
@@ -209,6 +220,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
       )}
     </div>
   );
+
 
 };
 

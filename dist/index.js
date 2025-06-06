@@ -1520,13 +1520,14 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                     ? 'selected'
                     : ''}` },
             React__default.createElement("span", { className: `select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}` }, selectedValue || placeholder),
-            canClearField && selectedOptions.length > 0 && (React__default.createElement("span", { className: "dropdown_clear_icon", onClick: handleClear, "aria-label": "Clear selection" },
-                React__default.createElement(MppIcons.inputClose, null))),
-            React__default.createElement("span", { className: `${isDropdownVisible
-                    ? 'arrow arrow--open'
-                    : isDisabled
-                        ? 'arrow--disabled arrow'
-                        : 'arrow'}` })),
+            React__default.createElement("div", { className: "icon_wrapper" },
+                canClearField && selectedOptions.length > 0 && (React__default.createElement("span", { className: "dropdown_clear_icon", onClick: handleClear, "aria-label": "Clear selection" },
+                    React__default.createElement(MppIcons.inputClose, null))),
+                React__default.createElement("span", { className: `${isDropdownVisible
+                        ? 'arrow arrow--open'
+                        : isDisabled
+                            ? 'arrow--disabled arrow'
+                            : 'arrow'}` }))),
         isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
             const displayedvalue = option[property];
             const isSelected = canClearField
