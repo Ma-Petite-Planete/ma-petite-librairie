@@ -17,6 +17,7 @@ interface MppToasterProps {
   displayToast: boolean;
   messageType: MessageType;
   animationDirection: AnimationDirection;
+  onAnimationEnd?: () => void;
 }
 
 /**
@@ -45,6 +46,7 @@ export const MppToaster: React.FC<MppToasterProps> = ({
   displayToast,
   messageType,
   animationDirection,
+  onAnimationEnd,
 }) => {
   const [displayToaster, setDisplayToaster] = useState<boolean>(false);
 
@@ -57,10 +59,11 @@ export const MppToaster: React.FC<MppToasterProps> = ({
   useEffect(() => {
     const timeout = setTimeout(() => {
       setDisplayToaster(false);
+      onAnimationEnd();
     }, 3000);
 
     return () => clearTimeout(timeout);
-  }, [displayToaster]);
+  }, [displayToaster, onAnimationEnd]);
 
   return (
     <div
