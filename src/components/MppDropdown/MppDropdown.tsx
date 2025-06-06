@@ -123,8 +123,8 @@ const MppDropDown = <T extends object, K extends keyof T>({
           !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : undefined
         }
         className={`select_button ${textClassname}
-          ${isDropdownVisible ? 'open' : ''}
-          ${(placeholder &&
+        ${isDropdownVisible ? 'open' : ''}
+        ${(placeholder &&
             displayedDefaultValue === '' &&
             (canClearField
               ? selectedOptions.length === 0
@@ -133,7 +133,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
             ? 'default'
             : ''
           }
-          ${canClearField
+        ${canClearField
             ? selectedOptions.length > 0
               ? 'selected'
               : ''
@@ -143,42 +143,31 @@ const MppDropDown = <T extends object, K extends keyof T>({
           }`}
       >
         <span
-          className={`select_button--selected_value ${needEmojiFont ? 'emoji' : ''
-            } ${textClassname}`}
+          className={`select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}`}
         >
           {selectedValue || placeholder}
         </span>
 
+        {/* Affichage conditionnel de la croix : uniquement si canClearField && au moins une sélection */}
         {canClearField && selectedOptions.length > 0 && (
-          <div className="dropdown_icon_wrapper">
-            <span
-              className="dropdown_clear_icon"
-              onClick={handleClear}
-              aria-label="Clear selection"
-            >
-              <MppIcons.inputClose />
-            </span>
-            <span
-              className={`${isDropdownVisible
-                ? 'arrow arrow--open'
-                : isDisabled
-                  ? 'arrow--disabled arrow'
-                  : 'arrow'
-                }`}
-            ></span>
-          </div>
+          <span
+            className="dropdown_clear_icon"
+            onClick={handleClear}
+            aria-label="Clear selection"
+          >
+            <MppIcons.inputClose />
+          </span>
         )}
 
-        {!canClearField && (
-          <span
-            className={`${isDropdownVisible
+        {/* La flèche est toujours rendue, quel que soit canClearField */}
+        <span
+          className={`${isDropdownVisible
               ? 'arrow arrow--open'
               : isDisabled
                 ? 'arrow--disabled arrow'
                 : 'arrow'
-              }`}
-          ></span>
-        )}
+            }`}
+        ></span>
       </button>
 
       {isDropdownVisible && (
@@ -189,9 +178,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
             options.map((option, index) => {
               const displayedvalue = option[property] as string;
               const isSelected = canClearField
-                ? selectedOptions.some(
-                  (o) => o[property] === option[property]
-                )
+                ? selectedOptions.some((o) => o[property] === option[property])
                 : selectedOption
                   ? selectedOption[property] === option[property]
                   : false;
@@ -222,6 +209,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
       )}
     </div>
   );
+
 };
 
 export default MppDropDown;
