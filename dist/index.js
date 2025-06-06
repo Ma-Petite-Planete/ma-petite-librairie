@@ -1687,7 +1687,7 @@ const MppToaster = ({ message, displayToast, messageType, animationDirection, on
     useEffect(() => {
         const timeout = setTimeout(() => {
             setDisplayToaster(false);
-            onAnimationEnd();
+            onAnimationEnd === null || onAnimationEnd === void 0 ? void 0 : onAnimationEnd();
         }, 3000);
         return () => clearTimeout(timeout);
     }, [displayToaster, onAnimationEnd]);
