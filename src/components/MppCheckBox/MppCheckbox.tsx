@@ -55,6 +55,7 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
           htmlFor={`checkbox_${value}`}
         >
           <input
+            ref={inputRef}
             className="checkbox_container_input"
             checked={isSelected}
             type="checkbox"
