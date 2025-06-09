@@ -127,9 +127,9 @@ function App() {
       <InputDemo />
       <h2>Trophés</h2>
       <MppPodium
-        onClick={() => {}}
-        onHover={() => {}}
-        onHoverLeave={() => {}}
+        onClick={() => { }}
+        onHover={() => { }}
+        onHoverLeave={() => { }}
         displayFullInfos={false}
         color={ScoColors.lightYellow}
         typeOfPlayers="élève"
@@ -548,7 +548,7 @@ function App() {
               console.log('🚀 ~ App ~ value:', data.value);
               console.log('🚀 ~ App ~ checked:', data.checked);
             }}
-            isTableHeader={true}
+            isTableHeader={false}
           />
         </div>
       ))}
