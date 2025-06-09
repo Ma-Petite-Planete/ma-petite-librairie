@@ -31,28 +31,33 @@ interface MppCheckboxProps {
 const MppCheckbox: React.FC<MppCheckboxProps> = ({
   value,
   onChange,
-  checked = false,
-  indeterminate = false,
+  checked,
+  indeterminate,
   isTableHeader = false,
 }) => {
-  const [isSelected, setIsSelected] = useState<boolean>(checked);
+  const [isSelected, setIsSelected] = useState<boolean>(checked ?? false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (inputRef.current) {
-      inputRef.current.indeterminate = indeterminate;
+      inputRef.current.indeterminate = indeterminate ?? false;
     }
   }, [indeterminate]);
 
-  useEffect(() => {
-    setIsSelected(checked);
-  }, [checked]);
+  if (isTableHeader) {
+    console.log("indeterminate", indeterminate)
+  }
 
+  useEffect(() => {
+    setIsSelected(checked ?? false);
+  }, [checked]);
   return (
     <div className="checkbox_container">
       <div className="checkbox_container_checkbox">
         <label
-          className={`checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}`}
+          className={`
+            checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}  
+            ${isTableHeader && indeterminate ? 'indeterminated_checkbox' : null} `}
           htmlFor={`checkbox_${value}`}
         >
           <input
@@ -63,11 +68,11 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
             name="checkbox"
             id={`checkbox_${value}`}
             onChange={() => {
-              const next = !isSelected;
-              setIsSelected(next);
+              setIsSelected((param) => !param);
               onChange({
                 value: value,
-                checked: next,
+                checked: !isSelected,
+
               });
             }}
           />

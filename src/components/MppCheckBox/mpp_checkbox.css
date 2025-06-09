@@ -1,29 +1,64 @@
+.checkbox_container input[type='checkbox'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid var(--dark_blue);
+  cursor: pointer;
+}
+
+.checkbox_container_label {
+  display: inline-flex;
+}
+
+.checkbox_container input:checked {
+  background-color: var(--dark_blue);
+}
+
+.checkbox_container_checkbox:hover .checkbox_container_input {
+  border: 2px solid var(--dark_blue);
+}
+
 .checkbox_container_checkbox {
   position: relative;
 }
 
-/* cache par défaut */
-.checkbox_container_checkbox .checkmark::before,
-.checkbox_container_checkbox .checkmark::after {
-  content: "";
+.checkbox_container_checkbox .checkmark:after {
+  content: '';
   position: absolute;
   display: none;
 }
 
-/* coche (✓) quand checked */
-.checkbox_container_checkbox .checkbox_container_input:checked+.checkmark::after {
+.checkbox_container_checkbox input:checked~.checkmark:after {
   display: block;
-  left: 6px;
-  top: 2px;
-  width: 6px;
-  height: 12px;
+  cursor: pointer;
+}
+
+.checkbox_container_checkbox .secondary_checkbox .checkmark:after {
+  left: 8px;
+  top: 4px;
+  width: 8px;
+  height: 10px;
   border: solid var(--white);
-  border-width: 0 2px 2px 0;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
-/* dash (–) quand indeterminate */
-.checkbox_container_checkbox .checkbox_container_input:indeterminate+.checkmark::before {
+.checkbox_container_checkbox .main_checkbox .checkmark:after {
+  left: 8px;
+  top: 4px;
+  width: 8px;
+  height: 10px;
+  border: solid var(--white);
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+
+.indeterminated_checkboxe+.checkmark::before {
   display: block;
   left: 4px;
   top: 8px;
