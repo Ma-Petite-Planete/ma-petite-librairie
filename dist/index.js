@@ -1776,7 +1776,8 @@ const MppCheckbox = ({ value, onChange, checked, indeterminate, isTableHeader = 
                             checked: !isSelected,
                         });
                     } }),
-                React__default.createElement("span", { className: "checkmark" })))));
+                React__default.createElement("span", { className: "checkmark" }),
+                React__default.createElement("span", { className: "checkmark_indeterminate", style: { display: indeterminate ? 'block' : 'none' } })))));
 };
 
 /**

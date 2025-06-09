@@ -78,6 +78,7 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
             }}
           />
           <span className="checkmark"></span>
+          <span className="checkmark_indeterminate" style={{ display: indeterminate ? 'block' : 'none' }}></span>
         </label>
       </div>
     </div>

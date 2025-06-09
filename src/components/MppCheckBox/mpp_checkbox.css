@@ -67,3 +67,13 @@
   background-color: var(--white);
   border-radius: 1px;
 }
+
+.checkmark_indeterminate {
+  display: none;
+  left: 4px;
+  top: 8px;
+  width: 12px;
+  height: 2px;
+  background-color: var(--white);
+  border-radius: 1px;
+}
