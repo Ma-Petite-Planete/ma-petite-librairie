@@ -58,7 +58,7 @@
 }
 
 
-.indeterminated_checkbox>.checkmark::before {
+.checkbox_container_checkbox .indeterminated_checkbox .checkmark::before {
   display: block;
   left: 4px;
   top: 8px;
