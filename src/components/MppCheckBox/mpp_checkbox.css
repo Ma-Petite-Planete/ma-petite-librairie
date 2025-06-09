@@ -64,12 +64,12 @@
   cursor: pointer;
 }
 
-.indeterminated_checkbox:after {
-  left: 8px;
-  top: 4px;
-  width: 8px;
-  height: 10px;
-  border: solid var(--white);
-  border-width: 0 3px 3px 0;
-  transform: rotate(0deg);
+.checkbox_container_checkbox .checkbox_container_input:indeterminate+.checkmark::before {
+  display: block;
+  left: 4px;
+  top: 8px;
+  width: 12px;
+  height: 2px;
+  background-color: var(--white);
+  border-radius: 1px;
 }
