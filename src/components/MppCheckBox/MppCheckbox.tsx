@@ -55,7 +55,9 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
     <div className="checkbox_container">
       <div className="checkbox_container_checkbox">
         <label
-          className={`checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}`}
+          className={`
+            checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}  
+            ${isTableHeader && indeterminate ? 'indeterminated_checkbox' : null} `}
           htmlFor={`checkbox_${value}`}
         >
           <input

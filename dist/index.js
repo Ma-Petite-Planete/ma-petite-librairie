@@ -1766,7 +1766,9 @@ const MppCheckbox = ({ value, onChange, checked, indeterminate, isTableHeader = 
     }, [checked]);
     return (React__default.createElement("div", { className: "checkbox_container" },
         React__default.createElement("div", { className: "checkbox_container_checkbox" },
-            React__default.createElement("label", { className: `checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}`, htmlFor: `checkbox_${value}` },
+            React__default.createElement("label", { className: `
+            checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}  
+            ${isTableHeader && indeterminate ? 'indeterminated_checkbox' : null} `, htmlFor: `checkbox_${value}` },
                 React__default.createElement("input", { ref: inputRef, className: "checkbox_container_input", checked: isSelected, type: "checkbox", name: "checkbox", id: `checkbox_${value}`, onChange: () => {
                         setIsSelected((param) => !param);
                         onChange({
