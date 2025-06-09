@@ -58,7 +58,7 @@
 }
 
 
-.indeterminated_checkboxe>span:after {
+.indeterminated_checkbox>span:after {
   display: block;
   left: 4px;
   top: 8px;
