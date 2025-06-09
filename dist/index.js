@@ -1758,8 +1758,9 @@ const MppCheckbox = ({ value, onChange, checked, indeterminate, isTableHeader = 
             inputRef.current.indeterminate = indeterminate !== null && indeterminate !== void 0 ? indeterminate : false;
         }
     }, [indeterminate]);
-    console.log("isTableHeader", isTableHeader);
-    console.log("indeterminate", indeterminate);
+    if (isTableHeader) {
+        console.log("indeterminate", indeterminate);
+    }
     useEffect(() => {
         setIsSelected(checked !== null && checked !== void 0 ? checked : false);
     }, [checked]);
