@@ -44,6 +44,7 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
     }
   }, [indeterminate]);
   console.log("isTableHeader", isTableHeader)
+  console.log("indeterminate", indeterminate)
   useEffect(() => {
     setIsSelected(checked ?? false);
   }, [checked]);
