@@ -33,7 +33,7 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
   onChange,
   checked,
   indeterminate,
-  isTableHeader = false,
+  isTableHeader = true,
 }) => {
   const [isSelected, setIsSelected] = useState<boolean>(checked ?? false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -43,7 +43,7 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
       inputRef.current.indeterminate = indeterminate ?? false;
     }
   }, [indeterminate]);
-
+  console.log("isTableHeader", isTableHeader)
   useEffect(() => {
     setIsSelected(checked ?? false);
   }, [checked]);
@@ -66,6 +66,7 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
               onChange({
                 value: value,
                 checked: !isSelected,
+
               });
             }}
           />
