@@ -1750,7 +1750,7 @@ const MppToggleButton = ({ value, onChange }) => {
  *   isTableHeader={false}
  * />
  */
-const MppCheckbox = ({ value, onChange, checked, indeterminate, isTableHeader = true, }) => {
+const MppCheckbox = ({ value, onChange, checked, indeterminate, isTableHeader = false, }) => {
     const [isSelected, setIsSelected] = useState(checked !== null && checked !== void 0 ? checked : false);
     const inputRef = useRef(null);
     useEffect(() => {
