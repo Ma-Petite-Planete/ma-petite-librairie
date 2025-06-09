@@ -60,6 +60,7 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
             ${isTableHeader && indeterminate ? 'indeterminated_checkbox' : null} `}
           htmlFor={`checkbox_${value}`}
         >
+
           <input
             ref={inputRef}
             className="checkbox_container_input"

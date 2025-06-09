@@ -58,7 +58,7 @@
 }
 
 
-.indeterminated_checkboxe+.checkmark::before {
+.indeterminated_checkboxe>span {
   display: block;
   left: 4px;
   top: 8px;
