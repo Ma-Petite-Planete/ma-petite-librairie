@@ -69,11 +69,12 @@
 }
 
 .checkmark_indeterminate {
+  position: absolute;
   display: none;
-  left: 4px;
+  left: 3px;
   top: 8px;
   width: 12px;
-  height: 2px;
-  background-color: var(--white);
+  height: 3px;
+  background-color: var(--dark_blue);
   border-radius: 1px;
 }
