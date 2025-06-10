@@ -200,32 +200,32 @@ function App() {
         textColor={ScoColors.white}
         editionName={'Edition Printemps'}
         editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
-        editionsDropDown={
-          <MppDropDown
-            property="name"
-            textClassname="text_body_sb"
-            options={[
-              {
-                id: 'nfrjhnf',
-                name: 'Edition truc muche',
-              },
-              {
-                id: 'fnjhrfr',
-                name: 'Edition machin chose',
-              },
-            ]}
-            onChange={function (value): void {
-              console.log(value);
-            }}
-            placeholder="Sélectionner une langue"
-            defaultValue={{
-              id: '',
-              name: "Changer d'édition",
-            }}
-            isDisabled={false}
-            isDropDownEmpty={false}
-          />
-        }
+        // editionsDropDown={
+        //   <MppDropDown
+        //     property="name"
+        //     textClassname="text_body_sb"
+        //     options={[
+        //       {
+        //         id: 'nfrjhnf',
+        //         name: 'Edition truc muche',
+        //       },
+        //       {
+        //         id: 'fnjhrfr',
+        //         name: 'Edition machin chose',
+        //       },
+        //     ]}
+        //     onChange={function (value): void {
+        //       console.log(value);
+        //     }}
+        //     placeholder="Sélectionner une langue"
+        //     defaultValue={{
+        //       id: '',
+        //       name: "Changer d'édition",
+        //     }}
+        //     isDisabled={false}
+        //     isDropDownEmpty={false}
+        //   />
+        // }
       />
       <h2>Navigation Bar</h2>
       <div
@@ -442,7 +442,7 @@ function App() {
       <h2>Select Input</h2>
 
       <div style={{ width: '20%' }}>
-        <MppDropDown
+        {/* <MppDropDown
           needEmojiFont={true}
           property="value"
           options={[
@@ -472,8 +472,8 @@ function App() {
               <a>Ajouter une catégorie</a>
             </p>
           }
-        />
-        <MppDropDown
+        /> */}
+        {/* <MppDropDown
           property="value"
           options={[
             {
@@ -494,7 +494,7 @@ function App() {
             value: 'valeur par défaut',
           }}
           isDisabled={false}
-        />
+        /> */}
       </div>
 
       <h2>Loader points</h2>
@@ -569,6 +569,50 @@ function App() {
           message="bien joué"
         />
       </div>
+      {/* <p>cas 1 : defaultvalue dans options</p>
+      <MppDropDown
+        property="name"
+        textClassname="text_body_sb"
+        options={[
+          {
+            id: 'a',
+            name: 'Edition truc muche',
+          },
+          {
+            id: 'b',
+            name: 'Edition machin chose',
+          },
+        ]}
+        onChange={function (value): void {
+          console.log(value);
+        }}
+        placeholder="Sélectionner une langue"
+        defaultValue={{
+          id: 'a',
+          name: 'Edition truc muche',
+        }}
+      /> */}
+
+      <p>cas 2 : defaultvalue à null</p>
+      <MppDropDown
+        property="name"
+        textClassname="text_body_sb"
+        options={[
+          {
+            id: 'nfrjhnf',
+            name: 'Edition truc muche',
+          },
+          {
+            id: 'fnjhrfr',
+            name: 'Edition machin chose',
+          },
+        ]}
+        onChange={function (value): void {
+          console.log(value);
+        }}
+        placeholder="Sélectionner une langue"
+        defaultValue={null}
+      />
     </div>
   );
 }

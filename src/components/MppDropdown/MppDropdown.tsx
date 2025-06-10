@@ -6,7 +6,7 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
   property: K;
   options: Array<T>;
   onChange: (value: T) => void;
-  defaultValue: T;
+  defaultValue: T | null;
   placeholder: string;
   isDisabled?: boolean;
   textClassname?: string;
@@ -68,30 +68,36 @@ const MppDropDown = <T extends object, K extends keyof T>({
   isDropDownEmpty = false,
   emptyValue,
 }: MppDropDownProps<T, K>) => {
-  const [selectedOption, setSelectedOption] = React.useState<T | null>(
-    defaultValue
-  );
+  const [selectedOption, setSelectedOption] = React.useState<T | null>(null);
   const [isDropdownVisible, setIsDropdownVisible] =
     React.useState<boolean>(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
 
-  const displayedDefaultValue = defaultValue[property] as string;
-  const selectedValue = selectedOption[property] as string;
+  useEffect(() => {
+    if (defaultValue) {
+      setSelectedOption(defaultValue);
+    }
+  }, [defaultValue, options]);
 
   useClickOutside(dropDownRef, () => {
     if (!isDisabled) {
       setIsDropdownVisible(false);
     }
   });
+
   useEffect(() => {
     if (isDisabled) {
       setSelectedOption(null);
     }
   }, [isDisabled]);
 
-  useEffect(() => {
-    setSelectedOption(defaultValue);
-  }, [defaultValue]);
+  const displayedDefaultValue = defaultValue
+    ? (defaultValue[property] as string)
+    : null;
+
+  const displaySelectedValue = selectedOption
+    ? (selectedOption[property] as string)
+    : null;
 
   return (
     <div
@@ -105,14 +111,14 @@ const MppDropDown = <T extends object, K extends keyof T>({
         }
         className={` select_button ${textClassname}
           ${isDropdownVisible ? 'open' : ''}
-          ${(placeholder && displayedDefaultValue === '' && !selectedOption) || isDisabled ? 'default' : ''}
+          ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}`}
       >
         <span
           className={`select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}`}
         >
-          {selectedValue
-            ? selectedValue
+          {displaySelectedValue
+            ? displaySelectedValue
             : displayedDefaultValue
               ? displayedDefaultValue
               : placeholder}
@@ -127,7 +133,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
             <div>{emptyValue}</div>
           ) : (
             options.map((option, index) => {
-              const displayedvalue = option[property] as string;
+              const displayedValueInDropdown = option[property] as string;
               return (
                 <li
                   onKeyDown={(event) => {
@@ -146,7 +152,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
                     onChange(option);
                   }}
                 >
-                  {displayedvalue}
+                  {displayedValueInDropdown}
                   <div className="select_dropdown_divider"></div>
                 </li>
               );
