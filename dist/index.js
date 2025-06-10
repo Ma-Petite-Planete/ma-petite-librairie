@@ -1758,9 +1758,12 @@ const MppCheckbox = ({ value, onChange, checked, indeterminate, isTableHeader = 
     //     inputRef.current.indeterminate = indeterminate ?? false;
     //   }
     // }, [indeterminate]);
-    // useEffect(() => {
-    //   setIsSelected(checked ?? false);
-    // }, [checked]);
+    // if (isTableHeader) {
+    //   console.log("indeterminate", indeterminate)
+    // }
+    useEffect(() => {
+        setIsSelected(checked !== null && checked !== void 0 ? checked : false);
+    }, [checked]);
     return (React__default.createElement("div", { className: "checkbox_container" },
         React__default.createElement("div", { className: "checkbox_container_checkbox" },
             React__default.createElement("label", { className: `
