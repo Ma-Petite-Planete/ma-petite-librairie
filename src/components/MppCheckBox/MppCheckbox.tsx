@@ -52,7 +52,6 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
         >
 
           <input
-            ref={inputRef}
             className="checkbox_container_input"
             checked={isSelected}
             type="checkbox"
