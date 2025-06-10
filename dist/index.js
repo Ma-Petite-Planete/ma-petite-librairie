@@ -1753,17 +1753,14 @@ const MppToggleButton = ({ value, onChange }) => {
 const MppCheckbox = ({ value, onChange, checked, indeterminate, isTableHeader = false, }) => {
     const [isSelected, setIsSelected] = useState(checked !== null && checked !== void 0 ? checked : false);
     const inputRef = useRef(null);
-    useEffect(() => {
-        if (inputRef.current) {
-            inputRef.current.indeterminate = indeterminate !== null && indeterminate !== void 0 ? indeterminate : false;
-        }
-    }, [indeterminate]);
-    if (isTableHeader) {
-        console.log("indeterminate", indeterminate);
-    }
-    useEffect(() => {
-        setIsSelected(checked !== null && checked !== void 0 ? checked : false);
-    }, [checked]);
+    // useEffect(() => {
+    //   if (inputRef.current) {
+    //     inputRef.current.indeterminate = indeterminate ?? false;
+    //   }
+    // }, [indeterminate]);
+    // useEffect(() => {
+    //   setIsSelected(checked ?? false);
+    // }, [checked]);
     return (React__default.createElement("div", { className: "checkbox_container" },
         React__default.createElement("div", { className: "checkbox_container_checkbox" },
             React__default.createElement("label", { className: `
