@@ -1475,11 +1475,14 @@ const useClickOutside = (elementRef, callback) => {
  * ```
  */
 const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, }) => {
-    const [selectedOption, setSelectedOption] = React__default.useState(defaultValue);
+    const [selectedOption, setSelectedOption] = React__default.useState(null);
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
     const dropDownRef = useRef(null);
-    const displayedDefaultValue = defaultValue[property];
-    const selectedValue = selectedOption[property];
+    useEffect(() => {
+        if (defaultValue) {
+            setSelectedOption(defaultValue);
+        }
+    }, [defaultValue, options]);
     useClickOutside(dropDownRef, () => {
         if (!isDisabled) {
             setIsDropdownVisible(false);
@@ -1490,22 +1493,25 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
             setSelectedOption(null);
         }
     }, [isDisabled]);
-    useEffect(() => {
-        setSelectedOption(defaultValue);
-    }, [defaultValue]);
+    const displayedDefaultValue = defaultValue
+        ? defaultValue[property]
+        : null;
+    const displaySelectedValue = selectedOption
+        ? selectedOption[property]
+        : null;
     return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''}` },
         React__default.createElement("button", { disabled: isDisabled, onClick: !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null, className: ` select_button ${textClassname}
           ${isDropdownVisible ? 'open' : ''}
-          ${(placeholder && displayedDefaultValue === '' && !selectedOption) || isDisabled ? 'default' : ''}
+          ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}` },
-            React__default.createElement("span", { className: `select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}` }, selectedValue
-                ? selectedValue
+            React__default.createElement("span", { className: `select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}` }, displaySelectedValue
+                ? displaySelectedValue
                 : displayedDefaultValue
                     ? displayedDefaultValue
                     : placeholder),
             React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
         isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
-            const displayedvalue = option[property];
+            const displayedValueInDropdown = option[property];
             return (React__default.createElement("li", { onKeyDown: (event) => {
                     if (event.key === 'Enter') {
                         setSelectedOption(option);
@@ -1517,7 +1523,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                     setIsDropdownVisible(false);
                     onChange(option);
                 } },
-                displayedvalue,
+                displayedValueInDropdown,
                 React__default.createElement("div", { className: "select_dropdown_divider" })));
         }))))));
 };

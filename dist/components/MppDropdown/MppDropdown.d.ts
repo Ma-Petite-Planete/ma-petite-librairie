@@ -4,7 +4,7 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
     property: K;
     options: Array<T>;
     onChange: (value: T) => void;
-    defaultValue: T;
+    defaultValue: T | null;
     placeholder: string;
     isDisabled?: boolean;
     textClassname?: string;
