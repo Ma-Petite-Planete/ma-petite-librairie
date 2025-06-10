@@ -65,7 +65,7 @@
   width: 12px;
   height: 2px;
   background-color: var(--white);
-  border-radius: 1px;
+  border-radius: 5px;
 }
 
 .checkmark_indeterminate {
