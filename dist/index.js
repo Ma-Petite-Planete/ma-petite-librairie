@@ -1434,19 +1434,52 @@ const useClickOutside = (elementRef, callback) => {
     });
 };
 
-const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, defaultValues = [], textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, canClearField = false, clearValue, }) => {
+/**
+ * Le composant MppDropDown rend un menu déroulant personnalisable.
+ *
+ * @template T - Le type des options.
+ * @template K - La clé du type des options.
+ *
+ * @param {MppDropDownProps<T, K>} props - Les propriétés du composant dropdown.
+ * @param {string} props.placeholder - Le texte de l'espace réservé à afficher lorsqu'aucune option n'est sélectionnée.
+ * @param {(option: T) => void} props.onChange - La fonction de rappel pour gérer les changements de sélection d'option.
+ * @param {T[]} props.options - La liste des options à afficher dans le menu déroulant.
+ * @param {boolean} [props.isDisabled] - Indicateur pour désactiver le menu déroulant.
+ * @param {T} props.defaultValue - L'option sélectionnée par défaut.
+ * @param {string} [props.textClassname=''] - Le nom de la classe CSS pour le texte.
+ * @param {K} props.property - La propriété de l'option à afficher dans le menu déroulant.
+ *
+ * @example
+ * ```tsx
+ * const ExampleComponent = () => {
+ *   const options = [
+ *     { id: '1', value: 'Option 1' },
+ *     { id: '2', value: 'Option 2' },
+ *     { id: '3', value: 'Option 3' },
+ *   ];
+ *
+ *   const handleChange = (selectedOption: T) => {
+ *     console.log('Option sélectionnée:', selectedOption);
+ *   };
+ *
+ *   return (
+ *     <MppDropDown
+ *       options={options}
+ *       onChange={handleChange}
+ *       defaultValue={options[0]}
+ *       placeholder="Sélectionnez une option"
+ *       property="value"
+ *     />
+ *   );
+ * };
+ * ```
+ */
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, }) => {
     const [selectedOption, setSelectedOption] = React__default.useState(defaultValue);
-    const [selectedOptions, setSelectedOptions] = React__default.useState(defaultValues);
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
     const dropDownRef = useRef(null);
-    const displayedDefaultValue = canClearField
-        ? defaultValues.map((v) => v[property]).join(', ')
-        : defaultValue[property] || '';
-    const selectedValue = canClearField
-        ? selectedOptions.map((v) => v[property]).join(', ')
-        : selectedOption
-            ? selectedOption[property]
-            : '';
+    const displayedDefaultValue = defaultValue[property];
+    const selectedValue = selectedOption[property];
     useClickOutside(dropDownRef, () => {
         if (!isDisabled) {
             setIsDropdownVisible(false);
@@ -1454,97 +1487,37 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
     });
     useEffect(() => {
         if (isDisabled) {
-            if (canClearField) {
-                setSelectedOptions([]);
-            }
-            else {
-                setSelectedOption(null);
-            }
+            setSelectedOption(null);
         }
-    }, [isDisabled, canClearField]);
+    }, [isDisabled]);
     useEffect(() => {
-        if (canClearField) {
-            setSelectedOptions(defaultValues);
-        }
-        else {
-            setSelectedOption(defaultValue);
-        }
-    }, [defaultValue, defaultValues, canClearField]);
-    const handleClear = (e) => {
-        e.stopPropagation();
-        if (canClearField) {
-            const toClear = clearValue;
-            setSelectedOptions(toClear !== null && toClear !== void 0 ? toClear : []);
-            onChange(toClear);
-        }
-        else {
-            const toClear = clearValue;
-            setSelectedOption(toClear !== null && toClear !== void 0 ? toClear : defaultValue);
-            onChange(toClear);
-        }
-    };
-    const toggleOption = (option) => {
-        if (!canClearField) {
-            setSelectedOption(option);
-            onChange(option);
-            setIsDropdownVisible(false);
-            return;
-        }
-        const exists = selectedOptions.some((o) => o[property] === option[property]);
-        let newSelection;
-        if (exists) {
-            newSelection = selectedOptions.filter((o) => o[property] !== option[property]);
-        }
-        else {
-            newSelection = [...selectedOptions, option];
-        }
-        setSelectedOptions(newSelection);
-        onChange(newSelection);
-    };
+        setSelectedOption(defaultValue);
+    }, [defaultValue]);
     return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''}` },
-        React__default.createElement("button", { disabled: isDisabled, onClick: !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : undefined, className: `select_button ${textClassname}
-        ${isDropdownVisible ? 'open' : ''}
-        ${(placeholder &&
-                displayedDefaultValue === '' &&
-                (canClearField
-                    ? selectedOptions.length === 0
-                    : !selectedOption)) ||
-                isDisabled
-                ? 'default'
-                : ''}
-        ${canClearField
-                ? selectedOptions.length > 0
-                    ? 'selected'
-                    : ''
-                : selectedOption
-                    ? 'selected'
-                    : ''}` },
-            React__default.createElement("span", { className: `select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}` }, selectedValue || placeholder),
-            React__default.createElement("div", { className: "dropdown_icon_wrapper" },
-                canClearField && selectedOptions.length > 0 && (React__default.createElement("span", { className: "dropdown_clear_icon", onClick: handleClear, "aria-label": "Clear selection" },
-                    React__default.createElement(MppIcons.inputClose, null))),
-                React__default.createElement("span", { className: `${isDropdownVisible
-                        ? 'arrow arrow--open'
-                        : isDisabled
-                            ? 'arrow--disabled arrow'
-                            : 'arrow'}` }))),
+        React__default.createElement("button", { disabled: isDisabled, onClick: !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null, className: ` select_button ${textClassname}
+          ${isDropdownVisible ? 'open' : ''}
+          ${(placeholder && displayedDefaultValue === '' && !selectedOption) || isDisabled ? 'default' : ''}
+          ${selectedOption ? 'selected' : ''}` },
+            React__default.createElement("span", { className: `select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}` }, selectedValue
+                ? selectedValue
+                : displayedDefaultValue
+                    ? displayedDefaultValue
+                    : placeholder),
+            React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
         isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
             const displayedvalue = option[property];
-            const isSelected = canClearField
-                ? selectedOptions.some((o) => o[property] === option[property])
-                : selectedOption
-                    ? selectedOption[property] === option[property]
-                    : false;
-            return (React__default.createElement("li", { key: index, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}`, onKeyDown: (event) => {
+            return (React__default.createElement("li", { onKeyDown: (event) => {
                     if (event.key === 'Enter') {
-                        toggleOption(option);
-                        if (!canClearField)
-                            setIsDropdownVisible(false);
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
                     }
-                }, onClick: () => {
-                    toggleOption(option);
+                }, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}`, key: index, onClick: () => {
+                    setSelectedOption(option);
+                    setIsDropdownVisible(false);
+                    onChange(option);
                 } },
-                React__default.createElement("span", { className: isSelected ? 'selected_item' : '' }, displayedvalue),
+                displayedvalue,
                 React__default.createElement("div", { className: "select_dropdown_divider" })));
         }))))));
 };

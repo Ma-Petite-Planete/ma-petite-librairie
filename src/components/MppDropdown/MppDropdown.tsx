@@ -1,22 +1,18 @@
 import React, { useEffect, useRef } from 'react';
 import './mpp_dropdown.css';
 import useClickOutside from '../../hooks/clickOutside';
-import { MppIcons } from '../../utils/MppIcons';
 
 interface MppDropDownProps<T extends object, K extends keyof T> {
   property: K;
   options: Array<T>;
-  onChange: (value: T | T[] | undefined) => void;
+  onChange: (value: T) => void;
   defaultValue: T;
-  defaultValues?: T[];
   placeholder: string;
   isDisabled?: boolean;
   textClassname?: string;
   needEmojiFont?: boolean;
   isDropDownEmpty?: boolean;
   emptyValue?: React.ReactNode;
-  canClearField?: boolean;
-  clearValue?: T | T[];
 }
 
 /**
@@ -66,92 +62,36 @@ const MppDropDown = <T extends object, K extends keyof T>({
   options,
   isDisabled,
   defaultValue,
-  defaultValues = [],
   textClassname = '',
   property,
   needEmojiFont = false,
   isDropDownEmpty = false,
   emptyValue,
-  canClearField = false,
-  clearValue,
 }: MppDropDownProps<T, K>) => {
   const [selectedOption, setSelectedOption] = React.useState<T | null>(
     defaultValue
-  );
-  const [selectedOptions, setSelectedOptions] = React.useState<T[]>(
-    defaultValues
   );
   const [isDropdownVisible, setIsDropdownVisible] =
     React.useState<boolean>(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
 
-  const displayedDefaultValue = canClearField
-    ? defaultValues.map((value) => (value[property] as string)).join(', ')
-    : (defaultValue[property] as string) || '';
-  const selectedValue = canClearField
-    ? selectedOptions.map((value) => (value[property] as string)).join(', ')
-    : selectedOption
-      ? (selectedOption[property] as string)
-      : '';
+  const displayedDefaultValue = defaultValue[property] as string;
+  const selectedValue = selectedOption[property] as string;
 
   useClickOutside(dropDownRef, () => {
     if (!isDisabled) {
       setIsDropdownVisible(false);
     }
   });
-
   useEffect(() => {
     if (isDisabled) {
-      if (canClearField) {
-        setSelectedOptions([]);
-      } else {
-        setSelectedOption(null);
-      }
+      setSelectedOption(null);
     }
-  }, [isDisabled, canClearField]);
+  }, [isDisabled]);
 
   useEffect(() => {
-    if (canClearField) {
-      setSelectedOptions(defaultValues);
-    } else {
-      setSelectedOption(defaultValue);
-    }
-  }, [defaultValue, defaultValues, canClearField]);
-
-  const handleClear = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (canClearField) {
-      const toClear = clearValue as T[] | undefined;
-      setSelectedOptions(toClear ?? []);
-      onChange(toClear);
-    } else {
-      const toClear = clearValue as T | undefined;
-      setSelectedOption(toClear ?? defaultValue);
-      onChange(toClear);
-    }
-  };
-
-  const toggleOption = (option: T) => {
-    if (!canClearField) {
-      setSelectedOption(option);
-      onChange(option);
-      setIsDropdownVisible(false);
-      return;
-    }
-    const exists = selectedOptions.some(
-      (selectedOption) => selectedOption[property] === option[property]
-    );
-    let newSelection: T[];
-    if (exists) {
-      newSelection = selectedOptions.filter(
-        (selectedOption) => selectedOption[property] !== option[property]
-      );
-    } else {
-      newSelection = [...selectedOptions, option];
-    }
-    setSelectedOptions(newSelection);
-    onChange(newSelection);
-  };
+    setSelectedOption(defaultValue);
+  }, [defaultValue]);
 
   return (
     <div
@@ -161,52 +101,25 @@ const MppDropDown = <T extends object, K extends keyof T>({
       <button
         disabled={isDisabled}
         onClick={
-          !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : undefined
+          !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null
         }
-        className={`select_button ${textClassname}
-        ${isDropdownVisible ? 'open' : ''}
-        ${(placeholder &&
-            displayedDefaultValue === '' &&
-            (canClearField
-              ? selectedOptions.length === 0
-              : !selectedOption)) ||
-            isDisabled
-            ? 'default'
-            : ''
-          }
-        ${canClearField
-            ? selectedOptions.length > 0
-              ? 'selected'
-              : ''
-            : selectedOption
-              ? 'selected'
-              : ''
-          }`}
+        className={` select_button ${textClassname}
+          ${isDropdownVisible ? 'open' : ''}
+          ${(placeholder && displayedDefaultValue === '' && !selectedOption) || isDisabled ? 'default' : ''}
+          ${selectedOption ? 'selected' : ''}`}
       >
         <span
           className={`select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}`}
         >
-          {selectedValue || placeholder}
+          {selectedValue
+            ? selectedValue
+            : displayedDefaultValue
+              ? displayedDefaultValue
+              : placeholder}
         </span>
-        <div className="dropdown_icon_wrapper">
-          {canClearField && selectedOptions.length > 0 && (
-            <span
-              className="dropdown_clear_icon"
-              onClick={handleClear}
-              aria-label="Clear selection"
-            >
-              <MppIcons.inputClose />
-            </span>
-          )}
-          <span
-            className={`${isDropdownVisible
-              ? 'arrow arrow--open'
-              : isDisabled
-                ? 'arrow--disabled arrow'
-                : 'arrow'
-              }`}
-          ></span>
-        </div>
+        <span
+          className={`${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}`}
+        ></span>
       </button>
       {isDropdownVisible && (
         <ul className="select_dropdown">
@@ -215,29 +128,25 @@ const MppDropDown = <T extends object, K extends keyof T>({
           ) : (
             options.map((option, index) => {
               const displayedvalue = option[property] as string;
-              const isSelected = canClearField
-                ? selectedOptions.some((o) => o[property] === option[property])
-                : selectedOption
-                  ? selectedOption[property] === option[property]
-                  : false;
               return (
                 <li
-                  key={index}
-                  tabIndex={0}
-                  className={`${needEmojiFont ? 'emoji' : ''}${textClassname}`}
                   onKeyDown={(event) => {
                     if (event.key === 'Enter') {
-                      toggleOption(option);
-                      if (!canClearField) setIsDropdownVisible(false);
+                      setSelectedOption(option);
+                      setIsDropdownVisible(false);
+                      onChange(option);
                     }
                   }}
+                  tabIndex={0}
+                  className={`${needEmojiFont ? 'emoji' : ''}${textClassname}`}
+                  key={index}
                   onClick={() => {
-                    toggleOption(option);
+                    setSelectedOption(option);
+                    setIsDropdownVisible(false);
+                    onChange(option);
                   }}
                 >
-                  <span className={isSelected ? 'selected_item' : ''}>
-                    {displayedvalue}
-                  </span>
+                  {displayedvalue}
                   <div className="select_dropdown_divider"></div>
                 </li>
               );
@@ -247,8 +156,6 @@ const MppDropDown = <T extends object, K extends keyof T>({
       )}
     </div>
   );
-
-
 };
 
 export default MppDropDown;
