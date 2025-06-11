@@ -25,6 +25,7 @@ export declare const MppIcons: {
     readonly infos: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly copy: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly remove: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly removeSmall: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly arrowBack: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly gear: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly megaphone: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
