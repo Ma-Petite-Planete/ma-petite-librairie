@@ -96,7 +96,7 @@
 
 .select_dropdown_divider {
   height: 1.5px;
-  background-color: var(--light_grey);
+  background-color: var(--grey_divider);
   width: 90%;
   margin: 0 auto;
 }
