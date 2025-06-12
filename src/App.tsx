@@ -559,6 +559,9 @@ function App() {
           displayToast={true}
           messageType={MessageType.error}
           message="pas ouf"
+          onAnimationEnd={()=> {
+            console.log('Animation terminée');
+          }}
         />
       </div>
       <div style={{ height: '70px' }}>
