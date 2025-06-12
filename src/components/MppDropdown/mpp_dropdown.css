@@ -66,12 +66,12 @@
   align-items: center;
 }
 
-.select_dropdown li:hover,
-.select_dropdown li:focus {
+ul.select_dropdown div:hover,
+ul.select_dropdown div:focus {
   background-color: var(--medium_grey);
 }
 
-.select_dropdown li:hover:first-child {
+ul.select_dropdown > div:first-of-type:hover {
   border-top-left-radius: var(--standard_border_radius);
   border-top-right-radius: var(--standard_border_radius);
 }
