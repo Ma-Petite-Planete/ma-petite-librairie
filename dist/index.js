@@ -1489,7 +1489,7 @@ const useClickOutside = (elementRef, callback) => {
  * };
  * ```
  */
-const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, }) => {
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, }) => {
     const [selectedOption, setSelectedOption] = React__default.useState(null);
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
     const dropDownRef = useRef(null);
@@ -1526,20 +1526,26 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                     : placeholder),
             React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
         isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
+            var _a;
             const displayedValueInDropdown = option[property];
-            return (React__default.createElement("li", { onKeyDown: (event) => {
-                    if (event.key === 'Enter') {
-                        setSelectedOption(option);
-                        setIsDropdownVisible(false);
-                        onChange(option);
-                    }
-                }, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}`, key: index, onClick: () => {
-                    setSelectedOption(option);
-                    setIsDropdownVisible(false);
-                    onChange(option);
-                } },
-                displayedValueInDropdown,
-                React__default.createElement("div", { className: "select_dropdown_divider" })));
+            const isDisabledOption = (_a = isOptionDisabled === null || isOptionDisabled === void 0 ? void 0 : isOptionDisabled(option)) !== null && _a !== void 0 ? _a : false;
+            return (React__default.createElement(React__default.Fragment, null,
+                React__default.createElement("li", { onKeyDown: (event) => {
+                        if (event.key === 'Enter' && !isDisabledOption) {
+                            setSelectedOption(option);
+                            setIsDropdownVisible(false);
+                            onChange(option);
+                        }
+                    }, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}
+                    ${isDisabledOption ? 'option_disabled' : ''}
+                    ${highlightCurrentOption && selectedOption === option ? 'text_body_sb' : ''}`, key: index, onClick: () => {
+                        if (!isDisabledOption) {
+                            setSelectedOption(option);
+                            setIsDropdownVisible(false);
+                            onChange(option);
+                        }
+                    }, "aria-disabled": isDisabledOption }, displayedValueInDropdown),
+                index !== (options.length - 1) && (React__default.createElement("div", { className: "select_dropdown_divider" }, " "))));
         }))))));
 };
 

@@ -12,17 +12,19 @@
   background-color: var(--light_grey_disable);
   border-radius: var(--standard_border_radius);
 }
+
 .select_button {
   background-color: var(--light_grey);
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 12px;
+  padding: 16px;
   border: 1px solid var(--medium_grey);
   border-radius: var(--standard_border_radius);
   cursor: pointer;
 }
+
 .arrow {
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
@@ -56,7 +58,7 @@
 
 .select_dropdown li {
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 16px;
 }
 
 .select_button--selected_value {
@@ -78,10 +80,23 @@
   color: var(--dark_grey);
 }
 
+.option_disabled {
+  color: var(--dark_grey);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .selected {
   color: var(--dark_blue);
 }
 
 .open {
   border: 1px solid var(--dark_blue);
+}
+
+.select_dropdown_divider {
+  height: 1.5px;
+  background-color: var(--light_grey);
+  width: 90%;
+  margin: 0 auto;
 }
