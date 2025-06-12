@@ -13,6 +13,7 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
   needEmojiFont?: boolean;
   isDropDownEmpty?: boolean;
   emptyValue?: React.ReactNode;
+  isOptionDisabled?: (option: T) => boolean;
 }
 
 /**
@@ -67,6 +68,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
   needEmojiFont = false,
   isDropDownEmpty = false,
   emptyValue,
+  isOptionDisabled,
 }: MppDropDownProps<T, K>) => {
   const [selectedOption, setSelectedOption] = React.useState<T | null>(null);
   const [isDropdownVisible, setIsDropdownVisible] =
@@ -134,22 +136,27 @@ const MppDropDown = <T extends object, K extends keyof T>({
           ) : (
             options.map((option, index) => {
               const displayedValueInDropdown = option[property] as string;
+              const isDisabledOption = isOptionDisabled?.(option) ?? false;
               return (
                 <li
                   onKeyDown={(event) => {
-                    if (event.key === 'Enter') {
+                    if (event.key === 'Enter' && !isDisabledOption) {
                       setSelectedOption(option);
                       setIsDropdownVisible(false);
                       onChange(option);
                     }
                   }}
                   tabIndex={0}
-                  className={`${needEmojiFont ? 'emoji' : ''}${textClassname}`}
+                  className={`${needEmojiFont ? 'emoji' : ''}${textClassname}
+                    ${isDisabledOption ? 'option_disabled' : ''}
+        ${selectedOption === option ? 'option_selected' : ''}`}
                   key={index}
                   onClick={() => {
-                    setSelectedOption(option);
-                    setIsDropdownVisible(false);
-                    onChange(option);
+                    if (!isDisabledOption) {
+                      setSelectedOption(option);
+                      setIsDropdownVisible(false);
+                      onChange(option);
+                    }
                   }}
                 >
                   {displayedValueInDropdown}
