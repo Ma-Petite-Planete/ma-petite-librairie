@@ -6,6 +6,7 @@ interface MppCheckboxProps {
   checked?: boolean;
   indeterminate?: boolean;
   isTableHeader?: boolean;
+  specialClassName?: string;
 }
 
 /**
@@ -34,6 +35,7 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
   checked,
   indeterminate,
   isTableHeader = false,
+  specialClassName
 }) => {
   const [isSelected, setIsSelected] = useState<boolean>(checked ?? false);
 
@@ -65,8 +67,8 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
               });
             }}
           />
-          <span className="checkmark"></span>
-          <span className="checkmark_indeterminate" style={{ display: indeterminate ? 'block' : 'none' }}></span>
+          <span className={`checkmark ${specialClassName}`}></span>
+          <span className={`checkmark_indeterminate ${specialClassName}`} style={{ display: indeterminate ? 'block' : 'none' }}></span>
         </label>
       </div>
     </div>

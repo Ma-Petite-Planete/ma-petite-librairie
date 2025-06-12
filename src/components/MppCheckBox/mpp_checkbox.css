@@ -78,3 +78,8 @@
   background-color: var(--dark_blue);
   border-radius: 1px;
 }
+
+.from_tan_stack {
+  left: 8px;
+  top: 4px;
+}

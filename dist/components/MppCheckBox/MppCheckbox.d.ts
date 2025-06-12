@@ -9,6 +9,7 @@ interface MppCheckboxProps {
     checked?: boolean;
     indeterminate?: boolean;
     isTableHeader?: boolean;
+    specialClassName?: string;
 }
 /**
  * Le composant MppCheckbox rend une case à cocher personnalisable avec un style optionnel pour l'en-tête de tableau.

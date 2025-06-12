@@ -92,8 +92,6 @@ const CategoryMultiFilter: React.FC<CategoryMultiFilterProps> = ({
                     value={cat.id}
                     checked={isSelected}
                     onChange={({ checked }) => {
-                      // onChange n'envoie que {value, checked}, 
-                      // on se sert uniquement de checked pour toggler
                       toggleCategory(cat);
                     }}
                   />
