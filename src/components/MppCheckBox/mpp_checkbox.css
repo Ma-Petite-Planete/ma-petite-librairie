@@ -79,7 +79,7 @@
   border-radius: 1px;
 }
 
-.from_tan_stack:after {
+.checkbox_container_checkbox .main_checkbox .from_tan_stack:after {
   left: 5px;
   top: 1px;
 }
