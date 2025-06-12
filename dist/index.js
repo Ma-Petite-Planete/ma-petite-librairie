@@ -1530,7 +1530,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
             var _a;
             const displayedValueInDropdown = option[property];
             const isDisabledOption = (_a = isOptionDisabled === null || isOptionDisabled === void 0 ? void 0 : isOptionDisabled(option)) !== null && _a !== void 0 ? _a : false;
-            return (React__default.createElement(React__default.Fragment, null,
+            return (React__default.createElement("div", { key: index },
                 React__default.createElement("li", { onKeyDown: (event) => {
                         if (event.key === 'Enter' && !isDisabledOption) {
                             setSelectedOption(option);
@@ -1539,14 +1539,14 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                         }
                     }, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}
                     ${isDisabledOption ? 'option_disabled' : ''}
-                    ${highlightCurrentOption && selectedOption === option ? 'text_body_sb' : ''}`, key: index, onClick: () => {
+                    ${highlightCurrentOption && selectedOption === option ? 'text_body_sb' : ''}`, onClick: () => {
                         if (!isDisabledOption) {
                             setSelectedOption(option);
                             setIsDropdownVisible(false);
                             onChange(option);
                         }
                     }, "aria-disabled": isDisabledOption }, displayedValueInDropdown),
-                index !== (options.length - 1) && (React__default.createElement("div", { className: "select_dropdown_divider" }, " "))));
+                index !== options.length - 1 && (React__default.createElement("div", { className: "select_dropdown_divider" }, " "))));
         }))))));
 };
 

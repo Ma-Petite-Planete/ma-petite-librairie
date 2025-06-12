@@ -140,7 +140,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
               const displayedValueInDropdown = option[property] as string;
               const isDisabledOption = isOptionDisabled?.(option) ?? false;
               return (
-                <>
+                <div key={index}>
                   <li
                     onKeyDown={(event) => {
                       if (event.key === 'Enter' && !isDisabledOption) {
@@ -153,7 +153,6 @@ const MppDropDown = <T extends object, K extends keyof T>({
                     className={`${needEmojiFont ? 'emoji' : ''}${textClassname}
                     ${isDisabledOption ? 'option_disabled' : ''}
                     ${highlightCurrentOption && selectedOption === option ? 'text_body_sb' : ''}`}
-                    key={index}
                     onClick={() => {
                       if (!isDisabledOption) {
                         setSelectedOption(option);
@@ -165,10 +164,10 @@ const MppDropDown = <T extends object, K extends keyof T>({
                   >
                     {displayedValueInDropdown}
                   </li>
-                  {index !== (options.length - 1) && (
+                  {index !== options.length - 1 && (
                     <div className="select_dropdown_divider"> </div>
                   )}
-                </>
+                </div>
               );
             })
           )}
