@@ -67,7 +67,8 @@
   --dark_grey: #999999;
   --medium_grey: #dadada;
   --light_grey: #f4f4f4;
-  --light_grey_disable: hsla(0, 0%, 60%, 0.2);
+  --light_grey_disable: #99999933;
+  --grey_divider: #dfe0eb;
 }
 
 p,
