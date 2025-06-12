@@ -79,7 +79,7 @@
   border-radius: 1px;
 }
 
-.from_tan_stack {
+.from_tan_stack:after {
   left: 8px;
   top: 4px;
 }
