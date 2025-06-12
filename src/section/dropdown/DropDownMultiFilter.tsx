@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { demoIdentifiers, Identifier } from '../../types_and_demo_data/identifier';
-import CategoryMultiFilter from '../../components/MppDropdown/MppMultiDropDownFilter';
+import CategoryMultiFilter from '../../components/MppMultiDropDownFilter/MppMultiDropDownFilter';
 
 const DropDownMultiFilters: React.FC = () => {
     const [selectedCategories, setSelectedCategories] = useState<Identifier[]>([]);

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import './mpp_dropdown.css';
+import './mpp_multi_dropdown_filter.css';
 import useClickOutside from '../../hooks/clickOutside';
 import { MppIcons } from '../../utils/MppIcons';
 import { Identifier } from '../../types_and_demo_data/identifier';
