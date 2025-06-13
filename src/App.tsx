@@ -36,6 +36,7 @@ import {
   AnimationDirection,
   MessageType,
 } from './components/MppToaster/MppToaster';
+import DropDownMultiFilters from './section/dropdown/DropDownMultiFilter';
 function App() {
   return (
     <div className="main_background">
@@ -127,9 +128,9 @@ function App() {
       <InputDemo />
       <h2>Trophés</h2>
       <MppPodium
-        onClick={() => {}}
-        onHover={() => {}}
-        onHoverLeave={() => {}}
+        onClick={() => { }}
+        onHover={() => { }}
+        onHoverLeave={() => { }}
         displayFullInfos={false}
         color={ScoColors.lightYellow}
         typeOfPlayers="élève"
@@ -442,6 +443,7 @@ function App() {
       <h2>Select Input</h2>
 
       <div style={{ width: '20%' }}>
+        <DropDownMultiFilters />
         <MppDropDown
           needEmojiFont={true}
           property="value"
@@ -472,6 +474,7 @@ function App() {
               <a>Ajouter une catégorie</a>
             </p>
           }
+
         />
         <MppDropDown
           property="value"
@@ -622,6 +625,9 @@ function App() {
           displayToast={true}
           messageType={MessageType.error}
           message="pas ouf"
+          onAnimationEnd={()=> {
+            console.log('Animation terminée');
+          }}
         />
       </div>
       <div style={{ height: '70px' }}>

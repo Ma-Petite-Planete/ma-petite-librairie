@@ -1705,7 +1705,7 @@ var AnimationDirection;
  *   animationDirection={AnimationDirection.from_bottom}
  * />
  */
-const MppToaster = ({ message, displayToast, messageType, animationDirection, }) => {
+const MppToaster = ({ message, displayToast, messageType, animationDirection, onAnimationEnd, }) => {
     const [displayToaster, setDisplayToaster] = useState(false);
     useEffect(() => {
         if (displayToast) {
@@ -1715,9 +1715,10 @@ const MppToaster = ({ message, displayToast, messageType, animationDirection, })
     useEffect(() => {
         const timeout = setTimeout(() => {
             setDisplayToaster(false);
+            onAnimationEnd === null || onAnimationEnd === void 0 ? void 0 : onAnimationEnd();
         }, 3000);
         return () => clearTimeout(timeout);
-    }, [displayToaster]);
+    }, [displayToaster, onAnimationEnd]);
     return (React__default.createElement("div", { className: `
         ${messageType === MessageType.error
             ? 'error_message_container'

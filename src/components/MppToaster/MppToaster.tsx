@@ -17,19 +17,21 @@ interface MppToasterProps {
   displayToast: boolean;
   messageType: MessageType;
   animationDirection: AnimationDirection;
+  onAnimationEnd?: () => void;
 }
 
 /**
- * Le composant MppToaster rend un message de notification (toast) avec des styles et animations personnalisables.
+ * MppToaster affiche un message de notification temporaire (toast) avec styles et animations personnalisables.
  *
  * @component
- * @param {MppToasterProps} props - Les propriétés du composant MppToaster.
- * @param {string} props.message - Le message à afficher dans le toast.
- * @param {boolean} props.displayToast - Indicateur pour afficher ou masquer le toast.
- * @param {MessageType} props.messageType - Le type de message (erreur ou succès).
- * @param {AnimationDirection} props.animationDirection - La direction de l'animation du toast.
+ * @param {Object} props - Propriétés du composant.
+ * @param {string} props.message - Message à afficher dans le toast.
+ * @param {boolean} props.displayToast - Contrôle l'affichage du toast.
+ * @param {MessageType} props.messageType - Type de message (MessageType.error ou MessageType.succes).
+ * @param {AnimationDirection} props.animationDirection - Direction de l'animation d'apparition.
+ * @param {() => void} [props.onAnimationEnd] - Callback appelé à la fin de l'animation.
  *
- * @returns {JSX.Element} Le composant MppToaster rendu.
+ * @returns {JSX.Element} Composant MppToaster.
  *
  * @example
  * <MppToaster
@@ -37,6 +39,7 @@ interface MppToasterProps {
  *   displayToast={true}
  *   messageType={MessageType.succes}
  *   animationDirection={AnimationDirection.from_bottom}
+ *   onAnimationEnd={() => console.log('Toast fermé')}
  * />
  */
 
@@ -45,6 +48,7 @@ export const MppToaster: React.FC<MppToasterProps> = ({
   displayToast,
   messageType,
   animationDirection,
+  onAnimationEnd,
 }) => {
   const [displayToaster, setDisplayToaster] = useState<boolean>(false);
 
@@ -57,10 +61,11 @@ export const MppToaster: React.FC<MppToasterProps> = ({
   useEffect(() => {
     const timeout = setTimeout(() => {
       setDisplayToaster(false);
+      onAnimationEnd?.();
     }, 3000);
 
     return () => clearTimeout(timeout);
-  }, [displayToaster]);
+  }, [displayToaster, onAnimationEnd]);
 
   return (
     <div

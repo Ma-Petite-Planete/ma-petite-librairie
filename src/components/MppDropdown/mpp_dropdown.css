@@ -100,3 +100,28 @@ ul.select_dropdown > div:first-of-type:hover {
   width: 90%;
   margin: 0 auto;
 }
+
+.dropdown_icon_wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.select_multifilter_dropdown_divider {
+  height: 1px;
+  background-color: var(--medium_grey);
+  margin: 0.25rem 1rem;
+}
+
+.custom_select.dropdown-multi-filters-dropdown
+  .select_dropdown
+  > .dropdown-item:first-child {
+  margin-top: 5px;
+}
+
+.custom_select.dropdown-multi-filters-dropdown .select_button .label {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
