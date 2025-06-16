@@ -91,3 +91,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+}
+
+.item-label {
+    margin-left: 10px;
+}

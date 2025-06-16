@@ -1658,16 +1658,17 @@ var AnimationDirection;
     AnimationDirection["from_top"] = "toaster_message_container--top";
 })(AnimationDirection || (AnimationDirection = {}));
 /**
- * Le composant MppToaster rend un message de notification (toast) avec des styles et animations personnalisables.
+ * MppToaster affiche un message de notification temporaire (toast) avec styles et animations personnalisables.
  *
  * @component
- * @param {MppToasterProps} props - Les propriétés du composant MppToaster.
- * @param {string} props.message - Le message à afficher dans le toast.
- * @param {boolean} props.displayToast - Indicateur pour afficher ou masquer le toast.
- * @param {MessageType} props.messageType - Le type de message (erreur ou succès).
- * @param {AnimationDirection} props.animationDirection - La direction de l'animation du toast.
+ * @param {Object} props - Propriétés du composant.
+ * @param {string} props.message - Message à afficher dans le toast.
+ * @param {boolean} props.displayToast - Contrôle l'affichage du toast.
+ * @param {MessageType} props.messageType - Type de message (MessageType.error ou MessageType.succes).
+ * @param {AnimationDirection} props.animationDirection - Direction de l'animation d'apparition.
+ * @param {() => void} [props.onAnimationEnd] - Callback appelé à la fin de l'animation.
  *
- * @returns {JSX.Element} Le composant MppToaster rendu.
+ * @returns {JSX.Element} Composant MppToaster.
  *
  * @example
  * <MppToaster
@@ -1675,6 +1676,7 @@ var AnimationDirection;
  *   displayToast={true}
  *   messageType={MessageType.succes}
  *   animationDirection={AnimationDirection.from_bottom}
+ *   onAnimationEnd={() => console.log('Toast fermé')}
  * />
  */
 const MppToaster = ({ message, displayToast, messageType, animationDirection, onAnimationEnd, }) => {
@@ -1751,16 +1753,22 @@ const MppToggleButton = ({ value, onChange }) => {
  *   isTableHeader={false}
  * />
  */
-const MppCheckbox = ({ value, onChange, checked, isTableHeader = false, }) => {
-    const [isSelected, setIsSelected] = useState(checked);
+const MppCheckbox = ({ onChange, checked, indeterminate = false, isTableHeader = false, specialClassName = '', }) => {
+    const [isSelected, setIsSelected] = useState(checked !== null && checked !== void 0 ? checked : false);
+    useEffect(() => {
+        setIsSelected(checked !== null && checked !== void 0 ? checked : false);
+    }, [checked]);
     return (React__default.createElement("div", { className: "checkbox_container" },
         React__default.createElement("div", { className: "checkbox_container_checkbox" },
-            React__default.createElement("label", { className: `checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}`, htmlFor: `checkbox_${value}` },
-                React__default.createElement("input", { className: "checkbox_container_input", checked: isSelected, type: "checkbox", name: "checkbox", id: `checkbox_${value}`, onChange: () => {
-                        setIsSelected((param) => !param);
-                        onChange(value);
+            React__default.createElement("label", { className: `
+            checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}  
+            ${isTableHeader && indeterminate ? 'indeterminated_checkbox' : ''} ` },
+                React__default.createElement("input", { type: "checkbox", checked: isSelected, onChange: (e) => {
+                        setIsSelected(e.target.checked);
+                        onChange(e);
                     } }),
-                React__default.createElement("span", { className: "checkmark" })))));
+                React__default.createElement("span", { className: `checkmark ${specialClassName}` }),
+                React__default.createElement("span", { className: `checkmark_indeterminate ${specialClassName}`, style: { display: indeterminate ? 'block' : 'none' } })))));
 };
 
 /**

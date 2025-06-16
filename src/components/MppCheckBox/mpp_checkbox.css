@@ -19,6 +19,7 @@
 .checkbox_container_checkbox:hover .checkbox_container_input {
   border: 2px solid var(--dark_blue);
 }
+
 .checkbox_container_checkbox {
   position: relative;
 }
@@ -29,15 +30,15 @@
   display: none;
 }
 
-.checkbox_container_checkbox input:checked ~ .checkmark:after {
+.checkbox_container_checkbox input:checked~.checkmark:after {
   display: block;
   cursor: pointer;
 }
 
 .checkbox_container_checkbox .secondary_checkbox .checkmark:after {
-  left: 9.5px;
+  left: 8px;
   top: 4px;
-  width: 5px;
+  width: 6px;
   height: 10px;
   border: solid var(--white);
   border-width: 0 3px 3px 0;
@@ -47,10 +48,38 @@
 }
 
 .checkbox_container_checkbox .main_checkbox .checkmark:after {
-  left: 7px;
-  top: 11px;
+  left: 8px;
+  top: 4px;
+  width: 6px;
+  height: 10px;
+  border: solid var(--white);
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+
+.checkbox_container_checkbox .indeterminated_checkbox .checkmark::before {
+  display: block;
+  left: 4px;
+  top: 8px;
   width: 12px;
   height: 2px;
   background-color: var(--white);
   border-radius: 5px;
+}
+
+.checkmark_indeterminate {
+  position: absolute;
+  display: none;
+  left: 3px;
+  top: 8px;
+  width: 12px;
+  height: 3px;
+  background-color: var(--dark_blue);
+  border-radius: 1px;
+}
+
+.checkbox_container_checkbox input:checked~.checkmark:after {
+  left: 5px;
+  top: 1px;
 }
