@@ -10,5 +10,5 @@ interface MppCategoryMultiFilterProps {
 /**
  * CategoryMultiFilter rends une liste de catégories multi-sélectionnables dans un dropdown.
  */
-declare const CategoryMultiFilter: React.FC<MppCategoryMultiFilterProps>;
-export default CategoryMultiFilter;
+declare const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps>;
+export default MppCategoryMultiFilter;
