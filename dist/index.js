@@ -1694,7 +1694,7 @@ var AnimationDirection;
  * @param {boolean} props.displayToast - Contrôle l'affichage du toast.
  * @param {MessageType} props.messageType - Type de message (MessageType.error ou MessageType.succes).
  * @param {AnimationDirection} props.animationDirection - Direction de l'animation d'apparition.
- * @param {() => void} [props.onAnimationEnd] - Callback appelé à la fin de l'animation.
+ * @param {() => void} [props.onAnimationLaunch] - Callback appelé après le déclenchement de l'animation.
  *
  * @returns {JSX.Element} Composant MppToaster.
  *
@@ -1704,23 +1704,23 @@ var AnimationDirection;
  *   displayToast={true}
  *   messageType={MessageType.succes}
  *   animationDirection={AnimationDirection.from_bottom}
- *   onAnimationEnd={() => console.log('Toast fermé')}
+ *   onAnimationLaunch={() => console.log('Toast fermé')}
  * />
  */
-const MppToaster = ({ message, displayToast, messageType, animationDirection, onAnimationEnd, }) => {
+const MppToaster = ({ message, displayToast, messageType, animationDirection, onAnimationLaunch, }) => {
     const [displayToaster, setDisplayToaster] = useState(false);
     useEffect(() => {
         if (displayToast) {
             setDisplayToaster(true);
+            onAnimationLaunch === null || onAnimationLaunch === void 0 ? void 0 : onAnimationLaunch();
         }
-    }, [displayToast]);
+    }, [displayToast, onAnimationLaunch]);
     useEffect(() => {
         const timeout = setTimeout(() => {
             setDisplayToaster(false);
-            onAnimationEnd === null || onAnimationEnd === void 0 ? void 0 : onAnimationEnd();
         }, 3000);
         return () => clearTimeout(timeout);
-    }, [displayToaster, onAnimationEnd]);
+    }, [displayToaster]);
     return (React__default.createElement("div", { className: `
         ${messageType === MessageType.error
             ? 'error_message_container'

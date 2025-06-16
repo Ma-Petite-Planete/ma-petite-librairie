@@ -13,7 +13,7 @@ interface MppToasterProps {
     displayToast: boolean;
     messageType: MessageType;
     animationDirection: AnimationDirection;
-    onAnimationEnd?: () => void;
+    onAnimationLaunch?: () => void;
 }
 /**
  * MppToaster affiche un message de notification temporaire (toast) avec styles et animations personnalisables.
@@ -24,7 +24,7 @@ interface MppToasterProps {
  * @param {boolean} props.displayToast - Contrôle l'affichage du toast.
  * @param {MessageType} props.messageType - Type de message (MessageType.error ou MessageType.succes).
  * @param {AnimationDirection} props.animationDirection - Direction de l'animation d'apparition.
- * @param {() => void} [props.onAnimationEnd] - Callback appelé à la fin de l'animation.
+ * @param {() => void} [props.onAnimationLaunch] - Callback appelé après le déclenchement de l'animation.
  *
  * @returns {JSX.Element} Composant MppToaster.
  *
@@ -34,7 +34,7 @@ interface MppToasterProps {
  *   displayToast={true}
  *   messageType={MessageType.succes}
  *   animationDirection={AnimationDirection.from_bottom}
- *   onAnimationEnd={() => console.log('Toast fermé')}
+ *   onAnimationLaunch={() => console.log('Toast fermé')}
  * />
  */
 export declare const MppToaster: React.FC<MppToasterProps>;

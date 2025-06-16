@@ -17,7 +17,7 @@ interface MppToasterProps {
   displayToast: boolean;
   messageType: MessageType;
   animationDirection: AnimationDirection;
-  onAnimationEnd?: () => void;
+  onAnimationLaunch?: () => void;
 }
 
 /**
@@ -29,7 +29,7 @@ interface MppToasterProps {
  * @param {boolean} props.displayToast - Contrôle l'affichage du toast.
  * @param {MessageType} props.messageType - Type de message (MessageType.error ou MessageType.succes).
  * @param {AnimationDirection} props.animationDirection - Direction de l'animation d'apparition.
- * @param {() => void} [props.onAnimationEnd] - Callback appelé à la fin de l'animation.
+ * @param {() => void} [props.onAnimationLaunch] - Callback appelé après le déclenchement de l'animation.
  *
  * @returns {JSX.Element} Composant MppToaster.
  *
@@ -39,7 +39,7 @@ interface MppToasterProps {
  *   displayToast={true}
  *   messageType={MessageType.succes}
  *   animationDirection={AnimationDirection.from_bottom}
- *   onAnimationEnd={() => console.log('Toast fermé')}
+ *   onAnimationLaunch={() => console.log('Toast fermé')}
  * />
  */
 
@@ -48,24 +48,24 @@ export const MppToaster: React.FC<MppToasterProps> = ({
   displayToast,
   messageType,
   animationDirection,
-  onAnimationEnd,
+  onAnimationLaunch,
 }) => {
   const [displayToaster, setDisplayToaster] = useState<boolean>(false);
 
   useEffect(() => {
     if (displayToast) {
       setDisplayToaster(true);
+      onAnimationLaunch?.();
     }
-  }, [displayToast]);
+  }, [displayToast, onAnimationLaunch]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setDisplayToaster(false);
-      onAnimationEnd?.();
     }, 3000);
 
     return () => clearTimeout(timeout);
-  }, [displayToaster, onAnimationEnd]);
+  }, [displayToaster]);
 
   return (
     <div
