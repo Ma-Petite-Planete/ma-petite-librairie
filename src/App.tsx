@@ -545,7 +545,6 @@ function App() {
       {[{ id: 'truc1' }, { id: 'truc2' }, { id: 'truc3' }].map((element) => (
         <div key={element.id}>
           <MppCheckbox
-            value={element.id}
             onChange={(data): void => {
               console.log('🚀 ~ App ~ value:', data);
               console.log('🚀 ~ App ~ checked:', data);

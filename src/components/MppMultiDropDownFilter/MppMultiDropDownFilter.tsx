@@ -87,7 +87,6 @@ const CategoryMultiFilter: React.FC<CategoryMultiFilterProps> = ({
                   }}
                 >
                   <MppCheckbox
-                    value={cat.id}
                     checked={isSelected}
                     onChange={() => toggleCategory(cat)}
                   />

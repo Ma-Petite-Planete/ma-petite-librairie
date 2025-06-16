@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './mpp_checkbox.css';
 interface MppCheckboxProps {
-  value: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
   checked?: boolean;
   indeterminate?: boolean;
@@ -30,7 +29,6 @@ interface MppCheckboxProps {
  * />
  */
 const MppCheckbox: React.FC<MppCheckboxProps> = ({
-  value,
   onChange,
   checked,
   indeterminate = false,
@@ -49,7 +47,6 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
           className={`
             checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}  
             ${isTableHeader && indeterminate ? 'indeterminated_checkbox' : ''} `}
-          htmlFor={`checkbox_${value}`}
         >
           <input
             type="checkbox"
