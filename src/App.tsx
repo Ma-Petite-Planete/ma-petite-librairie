@@ -128,9 +128,9 @@ function App() {
       <InputDemo />
       <h2>Trophés</h2>
       <MppPodium
-        onClick={() => {}}
-        onHover={() => {}}
-        onHoverLeave={() => {}}
+        onClick={() => { }}
+        onHover={() => { }}
+        onHoverLeave={() => { }}
         displayFullInfos={false}
         color={ScoColors.lightYellow}
         typeOfPlayers="élève"
@@ -474,6 +474,7 @@ function App() {
               <a>Ajouter une catégorie</a>
             </p>
           }
+
         />
         <MppDropDown
           property="value"
@@ -498,49 +499,49 @@ function App() {
           isDisabled={false}
         />
         <p>cas 1 : defaultvalue dans options</p>
-        <MppDropDown
-          property="name"
-          textClassname="text_body_sb"
-          options={[
-            {
-              id: 'a',
-              name: 'Edition truc muche',
-            },
-            {
-              id: 'b',
-              name: 'Edition machin chose',
-            },
-          ]}
-          onChange={function (value): void {
-            console.log(value);
-          }}
-          placeholder="Sélectionner une langue"
-          defaultValue={{
+      <MppDropDown
+        property="name"
+        textClassname="text_body_sb"
+        options={[
+          {
             id: 'a',
             name: 'Edition truc muche',
-          }}
-        />
+          },
+          {
+            id: 'b',
+            name: 'Edition machin chose',
+          },
+        ]}
+        onChange={function (value): void {
+          console.log(value);
+        }}
+        placeholder="Sélectionner une langue"
+        defaultValue={{
+          id: 'a',
+          name: 'Edition truc muche',
+        }}
+      />
 
         <p>cas 2 : defaultvalue à null</p>
-        <MppDropDown
-          property="name"
-          textClassname="text_body_sb"
-          options={[
-            {
-              id: 'nfrjhnf',
-              name: 'Edition truc muche',
-            },
-            {
-              id: 'fnjhrfr',
-              name: 'Edition machin chose',
-            },
-          ]}
-          onChange={function (value): void {
-            console.log(value);
-          }}
-          placeholder="Sélectionner une langue"
-          defaultValue={null}
-        />
+      <MppDropDown
+        property="name"
+        textClassname="text_body_sb"
+        options={[
+          {
+            id: 'nfrjhnf',
+            name: 'Edition truc muche',
+          },
+          {
+            id: 'fnjhrfr',
+            name: 'Edition machin chose',
+          },
+        ]}
+        onChange={function (value): void {
+          console.log(value);
+        }}
+        placeholder="Sélectionner une langue"
+        defaultValue={null}
+      />
 
         <p>cas 3 : disbale une option et highlight une autre</p>
         <MppDropDown
@@ -624,8 +625,8 @@ function App() {
           displayToast={true}
           messageType={MessageType.error}
           message="pas ouf"
-          onAnimationLaunch={() => {
-            console.log('Animation lancée');
+          onAnimationEnd={()=> {
+            console.log('Animation terminée');
           }}
         />
       </div>
