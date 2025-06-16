@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './mpp_checkbox.css';
 interface MppCheckboxProps {
   value: string;
-  onChange: (data: { value: string; checked: boolean }) => void;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
   checked?: boolean;
   indeterminate?: boolean;
   isTableHeader?: boolean;
@@ -33,10 +33,10 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
   value,
   onChange,
   checked,
-  indeterminate,
+  indeterminate = false,
   isTableHeader = false,
-  specialClassName = ""
-}) => {
+  specialClassName = '',
+}: MppCheckboxProps): JSX.Element => {
   const [isSelected, setIsSelected] = useState<boolean>(checked ?? false);
 
   useEffect(() => {
@@ -51,24 +51,19 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
             ${isTableHeader && indeterminate ? 'indeterminated_checkbox' : ''} `}
           htmlFor={`checkbox_${value}`}
         >
-
           <input
-            className="checkbox_container_input"
-            checked={isSelected}
             type="checkbox"
-            name="checkbox"
-            id={`checkbox_${value}`}
-            onChange={() => {
-              setIsSelected((param) => !param);
-              onChange({
-                value: value,
-                checked: !isSelected,
-
-              });
+            checked={isSelected}
+            onChange={(e) => {
+              setIsSelected(e.target.checked);
+              onChange(e);
             }}
           />
           <span className={`checkmark ${specialClassName}`}></span>
-          <span className={`checkmark_indeterminate ${specialClassName}`} style={{ display: indeterminate ? 'block' : 'none' }}></span>
+          <span
+            className={`checkmark_indeterminate ${specialClassName}`}
+            style={{ display: indeterminate ? 'block' : 'none' }}
+          ></span>
         </label>
       </div>
     </div>

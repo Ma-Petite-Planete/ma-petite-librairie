@@ -128,9 +128,9 @@ function App() {
       <InputDemo />
       <h2>Trophés</h2>
       <MppPodium
-        onClick={() => { }}
-        onHover={() => { }}
-        onHoverLeave={() => { }}
+        onClick={() => {}}
+        onHover={() => {}}
+        onHoverLeave={() => {}}
         displayFullInfos={false}
         color={ScoColors.lightYellow}
         typeOfPlayers="élève"
@@ -474,7 +474,6 @@ function App() {
               <a>Ajouter une catégorie</a>
             </p>
           }
-
         />
         <MppDropDown
           property="value"
@@ -548,8 +547,8 @@ function App() {
           <MppCheckbox
             value={element.id}
             onChange={(data): void => {
-              console.log('🚀 ~ App ~ value:', data.value);
-              console.log('🚀 ~ App ~ checked:', data.checked);
+              console.log('🚀 ~ App ~ value:', data);
+              console.log('🚀 ~ App ~ checked:', data);
             }}
             isTableHeader={false}
           />
@@ -563,7 +562,7 @@ function App() {
           displayToast={true}
           messageType={MessageType.error}
           message="pas ouf"
-          onAnimationEnd={()=> {
+          onAnimationEnd={() => {
             console.log('Animation terminée');
           }}
         />
