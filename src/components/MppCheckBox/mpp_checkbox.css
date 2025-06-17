@@ -22,6 +22,7 @@
 
 .checkbox_container_checkbox {
   position: relative;
+  display: flex;
 }
 
 .checkbox_container_checkbox .checkmark:after {
