@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './mpp_checkbox.css';
 interface MppCheckboxProps {
-  value: string;
-  onChange: (value: string) => void;
-  checked: boolean;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  checked?: boolean;
+  indeterminate?: boolean;
   isTableHeader?: boolean;
+  specialClassName?: string;
 }
 
 /**
@@ -28,31 +29,38 @@ interface MppCheckboxProps {
  * />
  */
 const MppCheckbox: React.FC<MppCheckboxProps> = ({
-  value,
   onChange,
   checked,
+  indeterminate = false,
   isTableHeader = false,
-}) => {
-  const [isSelected, setIsSelected] = useState<boolean>(checked);
+  specialClassName = '',
+}: MppCheckboxProps): JSX.Element => {
+  const [isSelected, setIsSelected] = useState<boolean>(checked ?? false);
+
+  useEffect(() => {
+    setIsSelected(checked ?? false);
+  }, [checked]);
   return (
     <div className="checkbox_container">
       <div className="checkbox_container_checkbox">
         <label
-          className={`checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}`}
-          htmlFor={`checkbox_${value}`}
+          className={`
+            checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}  
+            ${isTableHeader && indeterminate ? 'indeterminated_checkbox' : ''} `}
         >
           <input
-            className="checkbox_container_input"
-            checked={isSelected}
             type="checkbox"
-            name="checkbox"
-            id={`checkbox_${value}`}
-            onChange={() => {
-              setIsSelected((param) => !param);
-              onChange(value);
+            checked={isSelected}
+            onChange={(e) => {
+              setIsSelected(e.target.checked);
+              onChange(e);
             }}
           />
-          <span className="checkmark"></span>
+          <span className={`checkmark ${specialClassName}`}></span>
+          <span
+            className={`checkmark_indeterminate ${specialClassName}`}
+            style={{ display: indeterminate ? 'block' : 'none' }}
+          ></span>
         </label>
       </div>
     </div>

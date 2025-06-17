@@ -2,9 +2,9 @@ import React from 'react';
 import './mpp_multi_dropdown_filter.css';
 import { Identifier } from '../../types_and_demo_data/identifier';
 interface CategoryMultiFilterProps {
-    categories: Identifier[];
-    selectedCategories: Identifier[];
-    onChange: (selected: Identifier[]) => void;
+    categories: Array<Identifier>;
+    selectedCategories: Array<Identifier>;
+    onChange: (selected: Array<Identifier>) => void;
     placeholder: string;
 }
 /**
