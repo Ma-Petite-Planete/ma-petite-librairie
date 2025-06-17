@@ -736,9 +736,8 @@ function _extends$e() { return _extends$e = Object.assign ? Object.assign.bind()
 var SvgCopy = function SvgCopy(props) {
   return /*#__PURE__*/React.createElement("svg", _extends$e({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 36,
-    height: 36,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 36 36"
   }, props), _circle || (_circle = /*#__PURE__*/React.createElement("circle", {
     cx: 18,
     cy: 18,
