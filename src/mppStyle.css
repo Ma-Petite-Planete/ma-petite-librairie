@@ -169,3 +169,7 @@ button:hover {
 .emoji {
   font-family: 'Noto Color Emoji', 'Poppins', sans-serif;
 }
+
+label {
+  margin: 0;
+}
