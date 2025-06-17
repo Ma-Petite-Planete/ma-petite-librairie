@@ -5,7 +5,7 @@ import { MppIcons } from '../../utils/MppIcons';
 import { Identifier } from '../../types_and_demo_data/identifier';
 import MppCheckbox from '../MppCheckBox/MppCheckbox';
 
-interface CategoryMultiFilterProps {
+interface MppCategoryMultiFilterProps {
   categories: Array<Identifier>;
   selectedCategories: Array<Identifier>;
   onChange: (selected: Array<Identifier>) => void;
@@ -15,7 +15,7 @@ interface CategoryMultiFilterProps {
 /**
  * CategoryMultiFilter rends une liste de catégories multi-sélectionnables dans un dropdown.
  */
-const CategoryMultiFilter: React.FC<CategoryMultiFilterProps> = ({
+const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
   categories,
   selectedCategories,
   onChange,
@@ -101,4 +101,4 @@ const CategoryMultiFilter: React.FC<CategoryMultiFilterProps> = ({
   );
 };
 
-export default CategoryMultiFilter;
+export default MppCategoryMultiFilter;
