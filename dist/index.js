@@ -1898,4 +1898,26 @@ const MppIncrementInput = ({ value, onChange, maxIncrement, }) => {
         React__default.createElement("button", { className: "increment_button", onClick: () => onChange(Math.min(maxIncrement, value + 1)), disabled: value >= maxIncrement }, "+")));
 };
 
-export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ProgressBarStyle, ScoColors, labelType };
+const MppToggleSection = ({ title, children, isSectionOpenByDefault = false, }) => {
+    const [isOpen, setIsOpen] = useState(isSectionOpenByDefault);
+    const [height, setHeight] = useState('0px');
+    const contentRef = useRef(null);
+    useEffect(() => {
+        if (contentRef.current) {
+            setHeight(isOpen ? `${contentRef.current.scrollHeight}px` : '0px');
+        }
+    }, [isOpen]);
+    const toggleSection = () => setIsOpen(!isOpen);
+    return (React__default.createElement("div", { className: "toggle_section_container" },
+        React__default.createElement("div", { className: "toggle_section_header", onClick: toggleSection },
+            React__default.createElement("p", null, title),
+            React__default.createElement("div", { className: `toggle_section_arrow ${isOpen ? 'arrow_open' : ''}` })),
+        React__default.createElement("div", { ref: contentRef, className: "toggle_section_content", style: {
+                height,
+                overflow: 'hidden',
+                transition: 'height 0.4s ease',
+            } },
+            React__default.createElement("div", { className: "toggle_section_inner" }, children))));
+};
+
+export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };
