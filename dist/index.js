@@ -737,9 +737,8 @@ function _extends$f() { return _extends$f = Object.assign ? Object.assign.bind()
 var SvgCopy = function SvgCopy(props) {
   return /*#__PURE__*/React.createElement("svg", _extends$f({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 36,
-    height: 36,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 36 36"
   }, props), _circle || (_circle = /*#__PURE__*/React.createElement("circle", {
     cx: 18,
     cy: 18,
@@ -1551,6 +1550,85 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
 };
 
 /**
+ * Le composant MppCheckbox rend une case à cocher personnalisable avec un style optionnel pour l'en-tête de tableau.
+ *
+ * @component
+ * @param {MppCheckboxProps} props - Les propriétés du composant MppCheckbox.
+ * @param {string} props.value - La valeur associée à la case à cocher.
+ * @param {function} props.onChange - La fonction de rappel pour gérer les changements d'état de la case à cocher.
+ * @param {boolean} props.checked - L'état initial de la case à cocher.
+ * @param {boolean} props.isTableHeader - Indicateur pour déterminer si la case à cocher est utilisée dans un en-tête de tableau.
+ *
+ * @returns {JSX.Element} Le composant MppCheckbox rendu.
+ *
+ * @example
+ * <MppCheckbox
+ *   value="exampleValue"
+ *   onChange={handleCheckboxChange}
+ *   checked={true}
+ *   isTableHeader={false}
+ * />
+ */
+const MppCheckbox = ({ onChange, checked, indeterminate = false, isTableHeader = false, specialClassName = '', }) => {
+    const [isSelected, setIsSelected] = useState(checked !== null && checked !== void 0 ? checked : false);
+    useEffect(() => {
+        setIsSelected(checked !== null && checked !== void 0 ? checked : false);
+    }, [checked]);
+    return (React__default.createElement("div", { className: "checkbox_container" },
+        React__default.createElement("div", { className: "checkbox_container_checkbox" },
+            React__default.createElement("label", { className: `
+            checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}  
+            ${isTableHeader && indeterminate ? 'indeterminated_checkbox' : ''} ` },
+                React__default.createElement("input", { type: "checkbox", checked: isSelected, onChange: (e) => {
+                        setIsSelected(e.target.checked);
+                        onChange(e);
+                    } }),
+                React__default.createElement("span", { className: `checkmark ${specialClassName}` }),
+                React__default.createElement("span", { className: `checkmark_indeterminate ${specialClassName}`, style: { display: indeterminate ? 'block' : 'none' } })))));
+};
+
+/**
+ * CategoryMultiFilter rends une liste de catégories multi-sélectionnables dans un dropdown.
+ */
+const MppCategoryMultiFilter = ({ categories, selectedCategories, onChange, placeholder = 'Sélectionner...', }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const containerRef = useRef(null);
+    useClickOutside(containerRef, () => setIsOpen(false));
+    const handleClear = (e) => {
+        e.stopPropagation();
+        onChange([]);
+    };
+    const toggleCategory = (category) => {
+        const exists = selectedCategories.some((cat) => cat.id === category.id);
+        const newSelection = exists
+            ? selectedCategories.filter((cat) => cat.id !== category.id)
+            : [...selectedCategories, category];
+        onChange(newSelection);
+    };
+    const displayLabel = selectedCategories.length > 0
+        ? selectedCategories.map((cat) => cat.name).join(', ')
+        : placeholder;
+    return (React__default.createElement("div", { ref: containerRef, className: "custom_select dropdown-multi-filters-dropdown" },
+        React__default.createElement("button", { type: "button", className: `select_button ${isOpen ? 'open' : ''}`, onClick: () => setIsOpen((prev) => !prev) },
+            React__default.createElement("span", { className: "label" }, displayLabel),
+            React__default.createElement("div", { className: "dropdown_icon_wrapper" },
+                selectedCategories.length > 0 && (React__default.createElement("span", { className: "dropdown_clear_icon", onClick: handleClear, "aria-label": "Clear selection" },
+                    React__default.createElement(MppIcons.inputClose, null))),
+                React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
+        isOpen && (React__default.createElement("ul", { className: "select_dropdown" }, categories.map((cat, idx) => {
+            const isSelected = selectedCategories.some((c) => c.id === cat.id);
+            return (React__default.createElement(React__default.Fragment, { key: cat.id },
+                idx > 0 && (React__default.createElement("div", { className: "select_multifilter_dropdown_divider" })),
+                React__default.createElement("li", { className: `dropdown-item ${isSelected ? 'selected' : ''}`, onClick: () => toggleCategory(cat), tabIndex: 0, onKeyDown: (e) => {
+                        if (e.key === 'Enter')
+                            toggleCategory(cat);
+                    } },
+                    React__default.createElement(MppCheckbox, { checked: isSelected, onChange: () => toggleCategory(cat) }),
+                    React__default.createElement("span", { className: "item-label" }, cat.name))));
+        })))));
+};
+
+/**
  * Le composant MppLoaderDots rend une animation de chargement avec des points élastiques.
  *
  * @component
@@ -1762,44 +1840,6 @@ const MppToggleButton = ({ value, onChange }) => {
 };
 
 /**
- * Le composant MppCheckbox rend une case à cocher personnalisable avec un style optionnel pour l'en-tête de tableau.
- *
- * @component
- * @param {MppCheckboxProps} props - Les propriétés du composant MppCheckbox.
- * @param {string} props.value - La valeur associée à la case à cocher.
- * @param {function} props.onChange - La fonction de rappel pour gérer les changements d'état de la case à cocher.
- * @param {boolean} props.checked - L'état initial de la case à cocher.
- * @param {boolean} props.isTableHeader - Indicateur pour déterminer si la case à cocher est utilisée dans un en-tête de tableau.
- *
- * @returns {JSX.Element} Le composant MppCheckbox rendu.
- *
- * @example
- * <MppCheckbox
- *   value="exampleValue"
- *   onChange={handleCheckboxChange}
- *   checked={true}
- *   isTableHeader={false}
- * />
- */
-const MppCheckbox = ({ onChange, checked, indeterminate = false, isTableHeader = false, specialClassName = '', }) => {
-    const [isSelected, setIsSelected] = useState(checked !== null && checked !== void 0 ? checked : false);
-    useEffect(() => {
-        setIsSelected(checked !== null && checked !== void 0 ? checked : false);
-    }, [checked]);
-    return (React__default.createElement("div", { className: "checkbox_container" },
-        React__default.createElement("div", { className: "checkbox_container_checkbox" },
-            React__default.createElement("label", { className: `
-            checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}  
-            ${isTableHeader && indeterminate ? 'indeterminated_checkbox' : ''} ` },
-                React__default.createElement("input", { type: "checkbox", checked: isSelected, onChange: (e) => {
-                        setIsSelected(e.target.checked);
-                        onChange(e);
-                    } }),
-                React__default.createElement("span", { className: `checkmark ${specialClassName}` }),
-                React__default.createElement("span", { className: `checkmark_indeterminate ${specialClassName}`, style: { display: indeterminate ? 'block' : 'none' } })))));
-};
-
-/**
  * Composant d'entrée personnalisée pour les formulaires.
  *
  * Affiche un champ de saisie avec diverses options telles que l'icône, le compteur de caractères,
@@ -1926,4 +1966,26 @@ const MppIncrementInput = ({ value, onChange, maxIncrement, }) => {
         React__default.createElement("button", { className: "increment_button", onClick: () => onChange(Math.min(maxIncrement, value + 1)), disabled: value >= maxIncrement }, "+")));
 };
 
-export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, ProgressBarStyle, ScoColors, labelType };
+const MppToggleSection = ({ title, children, isSectionOpenByDefault = false, }) => {
+    const [isOpen, setIsOpen] = useState(isSectionOpenByDefault);
+    const [height, setHeight] = useState('0px');
+    const contentRef = useRef(null);
+    useEffect(() => {
+        if (contentRef.current) {
+            setHeight(isOpen ? `${contentRef.current.scrollHeight}px` : '0px');
+        }
+    }, [isOpen]);
+    const toggleSection = () => setIsOpen(!isOpen);
+    return (React__default.createElement("div", { className: "toggle_section_container" },
+        React__default.createElement("div", { className: "toggle_section_header", onClick: toggleSection },
+            React__default.createElement("p", null, title),
+            React__default.createElement("div", { className: `toggle_section_arrow ${isOpen ? 'arrow_open' : ''}` })),
+        React__default.createElement("div", { ref: contentRef, className: "toggle_section_content", style: {
+                height,
+                overflow: 'hidden',
+                transition: 'height 0.4s ease',
+            } },
+            React__default.createElement("div", { className: "toggle_section_inner" }, children))));
+};
+
+export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };

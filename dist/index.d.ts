@@ -16,6 +16,7 @@ export { default as MppInfosPin } from './components/MppInfosPin/MppInfosPin';
 export { default as MppSkeletonLoader } from './components/MppSkeletonLoader/MppSkeletonLoader';
 export { default as MppMultiSectionButton } from './components/MppMultiSectionButtons/MppMultiSectionButton';
 export { default as MppDropDown } from './components/MppDropdown/MppDropdown';
+export { default as MppCategoryMultiFilter } from './components/MppMultiDropDownFilter/MppMultiDropDownFilter';
 export { default as MppLoaderDots } from './components/MppLoaderDots/MppLoaderDots';
 export * from './components/MppLabelType/MppLabelType';
 export * from './components/MppLinearProgressBar/MppLinearProgressBar';
@@ -24,3 +25,4 @@ export { default as MppToggleButton } from './components/MppToggleButton/MppTogg
 export { default as MppCheckBox } from './components/MppCheckBox/MppCheckbox';
 export { default as MppInput } from './components/MppInput/MppInput';
 export { default as MppIncrementInput } from './components/MppIncrementInput/MppIncrementInput';
+export { default as MppToggleSection } from './components/MppToggleSection/MppToggleSection';
