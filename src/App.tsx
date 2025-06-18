@@ -37,6 +37,7 @@ import {
   MessageType,
 } from './components/MppToaster/MppToaster';
 import DropDownMultiFilters from './section/dropdown/DropDownMultiFilter';
+import MppToggleSection from './components/MppToggleSection/MppToggleSection';
 function App() {
   return (
     <div className="main_background">
@@ -574,6 +575,10 @@ function App() {
           message="bien joué"
         />
       </div>
+      <h2>Toggle section</h2>
+      <MppToggleSection title={'Je suis un titre'}>
+        <div>Je suis du contenue</div>
+      </MppToggleSection>
     </div>
   );
 }
