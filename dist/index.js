@@ -1938,6 +1938,26 @@ const MppIncrementInput = ({ value, onChange, maxIncrement, }) => {
         React__default.createElement("button", { className: "increment_button", onClick: () => onChange(Math.min(maxIncrement, value + 1)), disabled: value >= maxIncrement }, "+")));
 };
 
+/**
+ * Le composant MppToggleSection affiche une section repliable avec un titre,
+ * permettant à l'utilisateur de développer ou réduire le contenu.
+ *
+ * @component
+ * @param {MppToggleSectionProps} props - Les propriétés du composant MppToggleSection.
+ * @param {string} props.title - Le titre affiché dans l'en-tête de la section.
+ * @param {React.ReactNode} props.children - Le contenu de la section repliable.
+ * @param {boolean} [props.isSectionOpenByDefault=false] - Détermine si la section est ouverte par défaut.
+ *
+ * @returns {JSX.Element} Le composant MppToggleSection rendu.
+ *
+ * @example
+ * <MppToggleSection
+ *   title="Mes paramètres"
+ *   isSectionOpenByDefault={true}
+ * >
+ *   <p>Contenu de la section</p>
+ * </MppToggleSection>
+ */
 const MppToggleSection = ({ title, children, isSectionOpenByDefault = false, }) => {
     const [isOpen, setIsOpen] = useState(isSectionOpenByDefault);
     const [height, setHeight] = useState('0px');
@@ -1947,6 +1967,9 @@ const MppToggleSection = ({ title, children, isSectionOpenByDefault = false, }) 
             setHeight(isOpen ? `${contentRef.current.scrollHeight}px` : '0px');
         }
     }, [isOpen]);
+    useEffect(() => {
+        setIsOpen(isSectionOpenByDefault);
+    }, [isSectionOpenByDefault]);
     const toggleSection = () => setIsOpen(!isOpen);
     return (React__default.createElement("div", { className: "toggle_section_container" },
         React__default.createElement("div", { className: "toggle_section_header", onClick: toggleSection },
