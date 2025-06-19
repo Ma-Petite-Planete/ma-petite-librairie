@@ -53,4 +53,5 @@ export declare const GpColors: {
     readonly lightGrey: "var(--light_grey)";
     readonly white: "var(--white)";
     readonly darkBlue: "var(--dark_blue)";
+    readonly greyDivider: "var(--grey_divider)";
 };
