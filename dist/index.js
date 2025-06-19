@@ -755,9 +755,8 @@ function _extends$e() { return _extends$e = Object.assign ? Object.assign.bind()
 var SvgRemove = function SvgRemove(props) {
   return /*#__PURE__*/React.createElement("svg", _extends$e({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 28,
-    height: 28,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 28 28"
   }, props), _path$e || (_path$e = /*#__PURE__*/React.createElement("path", {
     fill: "#2C2C69",
     d: "M14 0C6.258 0 0 6.258 0 14s6.258 14 14 14 14-6.258 14-14S21.742 0 14 0m0 25.2C7.826 25.2 2.8 20.174 2.8 14S7.826 2.8 14 2.8 25.2 7.826 25.2 14 20.174 25.2 14 25.2M19.026 7 14 12.026 8.974 7 7 8.974 12.026 14 7 19.026 8.974 21 14 15.974 19.026 21 21 19.026 15.974 14 21 8.974z"
