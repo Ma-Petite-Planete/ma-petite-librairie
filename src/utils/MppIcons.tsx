@@ -23,7 +23,6 @@ import { ReactComponent as openBook } from '../ressources/icons/open_book.svg';
 import { ReactComponent as infos } from '../ressources/icons/Info.svg';
 import { ReactComponent as copy } from '../ressources/icons/copy.svg';
 import { ReactComponent as remove } from '../ressources/icons/remove.svg';
-import { ReactComponent as removeSmall } from '../ressources/icons/remove_small.svg';
 import { ReactComponent as arrowBack } from '../ressources/icons/arrow_back.svg';
 import { ReactComponent as megaphone } from '../ressources/icons/megaphone.svg';
 import { ReactComponent as gear } from '../ressources/icons/gear.svg';
@@ -64,7 +63,6 @@ export const MppIcons = {
   infos: infos,
   copy: copy,
   remove: remove,
-  removeSmall: removeSmall,
   arrowBack: arrowBack,
   gear: gear,
   megaphone: megaphone,
