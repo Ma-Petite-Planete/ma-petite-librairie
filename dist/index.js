@@ -1179,8 +1179,8 @@ const MppMenu = ({ navigationLinks, LinkComponent, boType, onLogout, actualPage,
                 clientName && React__default.createElement("span", { className: "text_body_sb" }, clientName),
                 backToClientsLink && (React__default.createElement(LinkComponent, { href: backToClientsLink.navigation, className: "navigation_flex text_small_b navigation_return_link" },
                     React__default.createElement(MppIcons.arrowBack, { className: "icon_arrow_back text_small_b" }),
-                    React__default.createElement("span", { className: 'text_small_b' }, backToClientsLink.name))))),
-            React__default.createElement("div", { className: "navigation_background" }, clientIsLoad ? (navigationLinks.map((navigationLink, index) => {
+                    React__default.createElement("span", { className: "text_small_b" }, backToClientsLink.name))))),
+            React__default.createElement("div", { className: `navigation_background ${boType === BoType.gpBo ? `navigation_bo_ecu` : `navigation_bo_sco`}` }, clientIsLoad ? (navigationLinks.map((navigationLink, index) => {
                 var _a;
                 return (React__default.createElement("div", { onMouseEnter: () => setHoveredIndex(index), onMouseLeave: () => setHoveredIndex(null), className: `navigation_element ${actualPage.includes(navigationLink.navigation) ? 'actual_page' : ''} ${hoveredIndex === index ||
                         actualPage.includes(navigationLink.navigation)
