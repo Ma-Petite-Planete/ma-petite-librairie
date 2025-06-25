@@ -1478,9 +1478,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
     const dropDownRef = useRef(null);
     useEffect(() => {
-        if (defaultValue) {
-            setSelectedOption(defaultValue);
-        }
+        setSelectedOption(defaultValue);
     }, [defaultValue, options]);
     useClickOutside(dropDownRef, () => {
         if (!isDisabled) {
