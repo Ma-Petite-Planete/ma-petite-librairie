@@ -310,7 +310,7 @@ function App() {
           onLogout={() => console.log('suppr les comptes anonymes')}
           logOutText={'Se déconnecter'}
           clientIsLoad={true}
-          clientName="Airbus Helicopters"
+          clientName="Mpp"
         />
         <MppMenu
           navigationLinks={[
