@@ -1595,7 +1595,7 @@ const MppCategoryMultiFilter = ({ categories, selectedCategories, onChange, plac
     const categoriesIsNotEmpty = categories.length > 0;
     return (React__default.createElement("div", { ref: containerRef, className: "multi-filters-custom-select dropdown-multi-filters-dropdown" },
         React__default.createElement("button", { type: "button", className: `multi-filters-select-button ${isOpen ? 'open' : ''}`, onClick: () => categoriesIsNotEmpty ? setIsOpen((prev) => !prev) : null },
-            React__default.createElement("span", { className: `label ${categoriesIsNotEmpty && selectedCategories.length > 0 ? '' : 'empty_values'}` }, displayLabel),
+            React__default.createElement("span", { className: `multi-filters-label ${categoriesIsNotEmpty && selectedCategories.length > 0 ? '' : 'empty_values'}` }, displayLabel),
             React__default.createElement("div", { className: "dropdown_icon_wrapper" },
                 selectedCategories.length > 0 && (React__default.createElement("span", { className: "dropdown_clear_icon", onClick: handleClear, "aria-label": "Clear selection" },
                     React__default.createElement(MppIcons.inputClose, null))),

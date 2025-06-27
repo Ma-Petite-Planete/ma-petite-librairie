@@ -84,7 +84,7 @@ multi-filters-select-dropdown li:hover:last-child {
 
 .multi-filters-custom-select.dropdown-multi-filters-dropdown
   .multi-filters-select-button
-  .label {
+  .multi-filters-label {
   display: inline-block;
   max-width: 100%;
   white-space: nowrap;

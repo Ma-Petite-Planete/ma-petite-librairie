@@ -59,7 +59,7 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
         }
       >
         <span
-          className={`label ${categoriesIsNotEmpty && selectedCategories.length > 0 ? '' : 'empty_values'}`}
+          className={`multi-filters-label ${categoriesIsNotEmpty && selectedCategories.length > 0 ? '' : 'empty_values'}`}
         >
           {displayLabel}
         </span>
