@@ -44,17 +44,19 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
       ? selectedCategories.map((cat) => cat.name).join(', ')
       : placeholder;
 
+      const isNotEmpty = selectedCategories.length > 0;
+
   return (
     <div
       ref={containerRef}
-      className="custom_select dropdown-multi-filters-dropdown"
+      className="multi-filters-custom-select dropdown-multi-filters-dropdown"
     >
       <button
         type="button"
-        className={`select_button ${isOpen ? 'open' : ''}`}
+        className={`multi-filters-select-button ${isOpen && isNotEmpty ? 'open' : ''}`}
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <span className="label">{displayLabel}</span>
+        <span className={`label ${isNotEmpty ? "" : "empty_values"}`}>{displayLabel}</span>
         <div className="dropdown_icon_wrapper">
           {selectedCategories.length > 0 && (
             <span
@@ -65,16 +67,16 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
               <MppIcons.inputClose />
             </span>
           )}
-          <span className={`arrow ${isOpen ? 'arrow--open' : ''}`} />
+          <span className={`arrow ${isOpen && isNotEmpty ? 'arrow--open' : ''}`} />
         </div>
       </button>
 
-      {isOpen && (
-        <ul className="select_dropdown">
+      {isOpen && isNotEmpty && (
+        <ul className="multi-filters-select-dropdown">
           {categories.map((cat, idx) => {
             const isSelected = selectedCategories.some((c) => c.id === cat.id);
             return (
-              <React.Fragment key={cat.id}>
+              <>
                 {idx > 0 && (
                   <div className="select_multifilter_dropdown_divider" />
                 )}
@@ -92,7 +94,7 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
                   />
                   <span className="item-label">{cat.name}</span>
                 </li>
-              </React.Fragment>
+              </>
             );
           })}
         </ul>
