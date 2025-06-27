@@ -43,22 +43,17 @@
 
 .multi-filters-select-dropdown li {
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 16px;
 }
 
 .select_button--selected_value {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .multi-filters-select-dropdown li:hover,
 .multi-filters-select-dropdown li:focus {
   background-color: var(--medium_grey);
-}
-
-.multi-filters-select-dropdown li:hover:first-child {
-  border-top-left-radius: var(--standard_border_radius);
-  border-top-right-radius: var(--standard_border_radius);
 }
 
 .selected {
@@ -77,6 +72,8 @@
 .select_multifilter_dropdown_divider {
   height: 1px;
   background-color: var(--medium_grey);
+  width: 90%;
+  margin: 0 auto;
 }
 
 .multi-filters-custom-select.dropdown-multi-filters-dropdown
@@ -104,6 +101,6 @@
   margin-left: 10px;
 }
 
-.empty_values{
+.empty_values {
   color: var(--dark_grey);
 }

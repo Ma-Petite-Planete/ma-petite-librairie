@@ -44,7 +44,7 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
       ? selectedCategories.map((cat) => cat.name).join(', ')
       : placeholder;
 
-      const isNotEmpty = selectedCategories.length > 0;
+  const categoriesIsNotEmpty = categories.length > 0;
 
   return (
     <div
@@ -53,10 +53,16 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
     >
       <button
         type="button"
-        className={`multi-filters-select-button ${isOpen && isNotEmpty ? 'open' : ''}`}
-        onClick={() => setIsOpen((prev) => !prev)}
+        className={`multi-filters-select-button ${isOpen ? 'open' : ''}`}
+        onClick={() =>
+          categoriesIsNotEmpty ? setIsOpen((prev) => !prev) : null
+        }
       >
-        <span className={`label ${isNotEmpty ? "" : "empty_values"}`}>{displayLabel}</span>
+        <span
+          className={`label ${categoriesIsNotEmpty && selectedCategories.length > 0 ? '' : 'empty_values'}`}
+        >
+          {displayLabel}
+        </span>
         <div className="dropdown_icon_wrapper">
           {selectedCategories.length > 0 && (
             <span
@@ -67,11 +73,13 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
               <MppIcons.inputClose />
             </span>
           )}
-          <span className={`arrow ${isOpen && isNotEmpty ? 'arrow--open' : ''}`} />
+          <span
+            className={`arrow ${isOpen && categoriesIsNotEmpty ? 'arrow--open' : ''}`}
+          />
         </div>
       </button>
 
-      {isOpen && isNotEmpty && (
+      {isOpen && categoriesIsNotEmpty && (
         <ul className="multi-filters-select-dropdown">
           {categories.map((cat, idx) => {
             const isSelected = selectedCategories.some((c) => c.id === cat.id);
