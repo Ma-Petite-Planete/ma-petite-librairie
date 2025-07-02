@@ -78,9 +78,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
   const dropDownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (defaultValue) {
-      setSelectedOption(defaultValue);
-    }
+    setSelectedOption(defaultValue);
   }, [defaultValue, options]);
 
   useClickOutside(dropDownRef, () => {

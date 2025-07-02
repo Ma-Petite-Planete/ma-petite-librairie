@@ -115,12 +115,14 @@ const MppMenu: React.FC<MppMenuProps> = ({
                 className="navigation_flex text_small_b navigation_return_link"
               >
                 <MppIcons.arrowBack className="icon_arrow_back text_small_b" />
-                <span className='text_small_b' >{backToClientsLink.name}</span>
+                <span className="text_small_b">{backToClientsLink.name}</span>
               </LinkComponent>
             )}
           </div>
         )}
-        <div className="navigation_background">
+        <div
+          className={`navigation_background ${boType === BoType.gpBo ? `navigation_bo_ecu` : `navigation_bo_sco`}`}
+        >
           {clientIsLoad ? (
             navigationLinks.map((navigationLink, index) => (
               <div
