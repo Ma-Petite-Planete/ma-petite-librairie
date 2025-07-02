@@ -1513,23 +1513,21 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
             var _a;
             const displayedValueInDropdown = option[property];
             const isDisabledOption = (_a = isOptionDisabled === null || isOptionDisabled === void 0 ? void 0 : isOptionDisabled(option)) !== null && _a !== void 0 ? _a : false;
-            return (React__default.createElement("div", { key: index },
-                React__default.createElement("li", { onKeyDown: (event) => {
-                        if (event.key === 'Enter' && !isDisabledOption) {
-                            setSelectedOption(option);
-                            setIsDropdownVisible(false);
-                            onChange(option);
-                        }
-                    }, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}
+            return (React__default.createElement("li", { key: index, onKeyDown: (event) => {
+                    if (event.key === 'Enter' && !isDisabledOption) {
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
+                    }
+                }, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}
                     ${isDisabledOption ? 'option_disabled' : ''}
                     ${highlightCurrentOption && selectedOption === option ? 'text_body_sb' : ''}`, onClick: () => {
-                        if (!isDisabledOption) {
-                            setSelectedOption(option);
-                            setIsDropdownVisible(false);
-                            onChange(option);
-                        }
-                    }, "aria-disabled": isDisabledOption }, displayedValueInDropdown),
-                index !== options.length - 1 && (React__default.createElement("div", { className: "select_dropdown_divider" }, " "))));
+                    if (!isDisabledOption) {
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
+                    }
+                }, "aria-disabled": isDisabledOption }, displayedValueInDropdown));
         }))))));
 };
 
@@ -1593,23 +1591,22 @@ const MppCategoryMultiFilter = ({ categories, selectedCategories, onChange, plac
         ? selectedCategories.map((cat) => cat.name).join(', ')
         : placeholder;
     const categoriesIsNotEmpty = categories.length > 0;
-    return (React__default.createElement("div", { ref: containerRef, className: "multi-filters-custom-select dropdown-multi-filters-dropdown" },
-        React__default.createElement("button", { type: "button", className: `multi-filters-select-button ${isOpen ? 'open' : ''}`, onClick: () => categoriesIsNotEmpty ? setIsOpen((prev) => !prev) : null },
-            React__default.createElement("span", { className: `multi-filters-label ${categoriesIsNotEmpty && selectedCategories.length > 0 ? '' : 'empty_values'}` }, displayLabel),
+    return (React__default.createElement("div", { ref: containerRef, className: "multi_filters_custom_select dropdown_multi_filters_dropdown" },
+        React__default.createElement("button", { type: "button", className: `multi_filters_select_button ${isOpen ? 'open' : ''}`, onClick: () => categoriesIsNotEmpty ? setIsOpen((prev) => !prev) : null },
+            React__default.createElement("span", { className: `multi_filters_label ${categoriesIsNotEmpty && selectedCategories.length > 0 ? '' : 'empty_values'}` }, displayLabel),
             React__default.createElement("div", { className: "dropdown_icon_wrapper" },
                 selectedCategories.length > 0 && (React__default.createElement("span", { className: "dropdown_clear_icon", onClick: handleClear, "aria-label": "Clear selection" },
                     React__default.createElement(MppIcons.inputClose, null))),
                 React__default.createElement("span", { className: `arrow ${isOpen && categoriesIsNotEmpty ? 'arrow--open' : ''}` }))),
-        isOpen && categoriesIsNotEmpty && (React__default.createElement("ul", { className: "multi-filters-select-dropdown" }, categories.map((cat, idx) => {
+        isOpen && categoriesIsNotEmpty && (React__default.createElement("ul", { className: "multi_filters_select_dropdown" }, categories.map((cat) => {
             const isSelected = selectedCategories.some((c) => c.id === cat.id);
             return (React__default.createElement(React__default.Fragment, null,
-                idx > 0 && (React__default.createElement("div", { className: "select_multifilter_dropdown_divider" })),
-                React__default.createElement("li", { className: `dropdown-item ${isSelected ? 'selected' : ''}`, onClick: () => toggleCategory(cat), tabIndex: 0, onKeyDown: (e) => {
+                React__default.createElement("li", { className: `dropdown_item ${isSelected ? 'selected' : ''}`, onClick: () => toggleCategory(cat), tabIndex: 0, onKeyDown: (e) => {
                         if (e.key === 'Enter')
                             toggleCategory(cat);
                     } },
                     React__default.createElement(MppCheckbox, { checked: isSelected, onChange: () => toggleCategory(cat) }),
-                    React__default.createElement("span", { className: "item-label" }, cat.name))));
+                    React__default.createElement("span", { className: "item_label" }, cat.name))));
         })))));
 };
 
@@ -1702,7 +1699,7 @@ var ProgressBarStyle;
  * <MppLinearProgressBar value={value} displayValueAsDefault={true} />
  **/
 const MppLinearProgressBar = ({ maxValue, value, conditionForGreen, conditionForRed, useValueAsProgressBarWidth = false, displayValueAsDefault, }) => {
-    const progressBarPercentage = (() => {
+    let progressBarPercentage = (() => {
         if (displayValueAsDefault || value === 0)
             return 51;
         if (useValueAsProgressBarWidth)
@@ -1712,6 +1709,8 @@ const MppLinearProgressBar = ({ maxValue, value, conditionForGreen, conditionFor
         }
         return 0;
     })();
+    if (progressBarPercentage > 100)
+        progressBarPercentage = 100;
     const colorToDisplay = () => {
         if (value === 0 || displayValueAsDefault) {
             return ProgressBarStyle.default;
@@ -1735,7 +1734,7 @@ const MppLinearProgressBar = ({ maxValue, value, conditionForGreen, conditionFor
                         } },
                         React__default.createElement("div", { className: "progress_bar main_value--indicator" }),
                         React__default.createElement("p", { className: "main_value--value" }, Math.round(value))))),
-            !displayValueAsDefault && (React__default.createElement("p", { className: `background_value--max_value ${progressBarPercentage >= 100 ? 'hide' : 'end_line_number'}` }, maxValue)))));
+            !displayValueAsDefault && (React__default.createElement("p", { className: `background_value--max_value ${progressBarPercentage === 100 ? 'hide' : 'end_line_number'}` }, maxValue)))));
 };
 
 var MessageType;
