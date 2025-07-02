@@ -1588,15 +1588,16 @@ const MppCategoryMultiFilter = ({ categories, selectedCategories, onChange, plac
     const displayLabel = selectedCategories.length > 0
         ? selectedCategories.map((cat) => cat.name).join(', ')
         : placeholder;
-    const categoriesIsNotEmpty = categories.length > 0;
+    if (categories.length === 0)
+        return null;
     return (React__default.createElement("div", { ref: containerRef, className: "multi_filters_custom_select dropdown_multi_filters_dropdown" },
-        React__default.createElement("button", { type: "button", className: `multi_filters_select_button ${isOpen ? 'open' : ''}`, onClick: () => categoriesIsNotEmpty ? setIsOpen((prev) => !prev) : null },
-            React__default.createElement("span", { className: `multi_filters_label ${categoriesIsNotEmpty && selectedCategories.length > 0 ? '' : 'empty_values'}` }, displayLabel),
+        React__default.createElement("button", { type: "button", className: `multi_filters_select_button ${isOpen ? 'open' : ''}`, onClick: () => setIsOpen((prev) => !prev) },
+            React__default.createElement("span", { className: `multi_filters_label ${selectedCategories.length > 0 ? '' : 'empty_values'}` }, displayLabel),
             React__default.createElement("div", { className: "dropdown_icon_wrapper" },
                 selectedCategories.length > 0 && (React__default.createElement("span", { className: "dropdown_clear_icon", onClick: handleClear, "aria-label": "Clear selection" },
                     React__default.createElement(MppIcons.inputClose, null))),
-                React__default.createElement("span", { className: `arrow ${isOpen && categoriesIsNotEmpty ? 'arrow--open' : ''}` }))),
-        isOpen && categoriesIsNotEmpty && (React__default.createElement("ul", { className: "multi_filters_select_dropdown" }, categories.map((cat) => {
+                React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
+        isOpen && (React__default.createElement("ul", { className: "multi_filters_select_dropdown" }, categories.map((cat) => {
             const isSelected = selectedCategories.some((c) => c.id === cat.id);
             return (React__default.createElement(React__default.Fragment, null,
                 React__default.createElement("li", { className: `dropdown_item ${isSelected ? 'selected' : ''}`, onClick: () => toggleCategory(cat), tabIndex: 0, onKeyDown: (e) => {

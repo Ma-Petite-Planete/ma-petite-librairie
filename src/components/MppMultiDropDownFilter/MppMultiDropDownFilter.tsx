@@ -44,7 +44,7 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
       ? selectedCategories.map((cat) => cat.name).join(', ')
       : placeholder;
 
-  const categoriesIsNotEmpty = categories.length > 0;
+  if (categories.length === 0) return null;
 
   return (
     <div
@@ -54,12 +54,10 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
       <button
         type="button"
         className={`multi_filters_select_button ${isOpen ? 'open' : ''}`}
-        onClick={() =>
-          categoriesIsNotEmpty ? setIsOpen((prev) => !prev) : null
-        }
+        onClick={() => setIsOpen((prev) => !prev)}
       >
         <span
-          className={`multi_filters_label ${categoriesIsNotEmpty && selectedCategories.length > 0 ? '' : 'empty_values'}`}
+          className={`multi_filters_label ${selectedCategories.length > 0 ? '' : 'empty_values'}`}
         >
           {displayLabel}
         </span>
@@ -74,18 +72,17 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
             </span>
           )}
           <span
-            className={`arrow ${isOpen && categoriesIsNotEmpty ? 'arrow--open' : ''}`}
+            className={`arrow ${isOpen  ? 'arrow--open' : ''}`}
           />
         </div>
       </button>
 
-      {isOpen && categoriesIsNotEmpty && (
+      {isOpen  && (
         <ul className="multi_filters_select_dropdown">
           {categories.map((cat) => {
             const isSelected = selectedCategories.some((c) => c.id === cat.id);
             return (
               <>
-
                 <li
                   className={`dropdown_item ${isSelected ? 'selected' : ''}`}
                   onClick={() => toggleCategory(cat)}
