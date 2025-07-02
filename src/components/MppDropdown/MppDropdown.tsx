@@ -140,34 +140,30 @@ const MppDropDown = <T extends object, K extends keyof T>({
               const displayedValueInDropdown = option[property] as string;
               const isDisabledOption = isOptionDisabled?.(option) ?? false;
               return (
-                <div key={index}>
-                  <li
-                    onKeyDown={(event) => {
-                      if (event.key === 'Enter' && !isDisabledOption) {
-                        setSelectedOption(option);
-                        setIsDropdownVisible(false);
-                        onChange(option);
-                      }
-                    }}
-                    tabIndex={0}
-                    className={`${needEmojiFont ? 'emoji' : ''}${textClassname}
+                <li
+                  key={index}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' && !isDisabledOption) {
+                      setSelectedOption(option);
+                      setIsDropdownVisible(false);
+                      onChange(option);
+                    }
+                  }}
+                  tabIndex={0}
+                  className={`${needEmojiFont ? 'emoji' : ''}${textClassname}
                     ${isDisabledOption ? 'option_disabled' : ''}
                     ${highlightCurrentOption && selectedOption === option ? 'text_body_sb' : ''}`}
-                    onClick={() => {
-                      if (!isDisabledOption) {
-                        setSelectedOption(option);
-                        setIsDropdownVisible(false);
-                        onChange(option);
-                      }
-                    }}
-                    aria-disabled={isDisabledOption}
-                  >
-                    {displayedValueInDropdown}
-                  </li>
-                  {index !== options.length - 1 && (
-                    <div className="select_dropdown_divider"> </div>
-                  )}
-                </div>
+                  onClick={() => {
+                    if (!isDisabledOption) {
+                      setSelectedOption(option);
+                      setIsDropdownVisible(false);
+                      onChange(option);
+                    }
+                  }}
+                  aria-disabled={isDisabledOption}
+                >
+                  {displayedValueInDropdown}
+                </li>
               );
             })
           )}

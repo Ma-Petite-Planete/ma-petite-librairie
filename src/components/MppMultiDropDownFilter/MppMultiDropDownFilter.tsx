@@ -49,17 +49,17 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
   return (
     <div
       ref={containerRef}
-      className="multi-filters-custom-select dropdown-multi-filters-dropdown"
+      className="multi_filters_custom_select dropdown_multi_filters_dropdown"
     >
       <button
         type="button"
-        className={`multi-filters-select-button ${isOpen ? 'open' : ''}`}
+        className={`multi_filters_select_button ${isOpen ? 'open' : ''}`}
         onClick={() =>
           categoriesIsNotEmpty ? setIsOpen((prev) => !prev) : null
         }
       >
         <span
-          className={`multi-filters-label ${categoriesIsNotEmpty && selectedCategories.length > 0 ? '' : 'empty_values'}`}
+          className={`multi_filters_label ${categoriesIsNotEmpty && selectedCategories.length > 0 ? '' : 'empty_values'}`}
         >
           {displayLabel}
         </span>
@@ -80,16 +80,14 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
       </button>
 
       {isOpen && categoriesIsNotEmpty && (
-        <ul className="multi-filters-select-dropdown">
-          {categories.map((cat, idx) => {
+        <ul className="multi_filters_select_dropdown">
+          {categories.map((cat) => {
             const isSelected = selectedCategories.some((c) => c.id === cat.id);
             return (
               <>
-                {idx > 0 && (
-                  <div className="select_multifilter_dropdown_divider" />
-                )}
+
                 <li
-                  className={`dropdown-item ${isSelected ? 'selected' : ''}`}
+                  className={`dropdown_item ${isSelected ? 'selected' : ''}`}
                   onClick={() => toggleCategory(cat)}
                   tabIndex={0}
                   onKeyDown={(e) => {
@@ -100,7 +98,7 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
                     checked={isSelected}
                     onChange={() => toggleCategory(cat)}
                   />
-                  <span className="item-label">{cat.name}</span>
+                  <span className="item_label">{cat.name}</span>
                 </li>
               </>
             );
