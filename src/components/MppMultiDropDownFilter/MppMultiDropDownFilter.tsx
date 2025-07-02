@@ -44,17 +44,23 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
       ? selectedCategories.map((cat) => cat.name).join(', ')
       : placeholder;
 
+  if (categories.length === 0) return null;
+
   return (
     <div
       ref={containerRef}
-      className="custom_select dropdown-multi-filters-dropdown"
+      className="multi_filters_custom_select dropdown_multi_filters_dropdown"
     >
       <button
         type="button"
-        className={`select_button ${isOpen ? 'open' : ''}`}
+        className={`multi_filters_select_button ${isOpen ? 'open' : ''}`}
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <span className="label">{displayLabel}</span>
+        <span
+          className={`multi_filters_label ${selectedCategories.length > 0 ? '' : 'empty_values'}`}
+        >
+          {displayLabel}
+        </span>
         <div className="dropdown_icon_wrapper">
           {selectedCategories.length > 0 && (
             <span
@@ -65,21 +71,20 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
               <MppIcons.inputClose />
             </span>
           )}
-          <span className={`arrow ${isOpen ? 'arrow--open' : ''}`} />
+          <span
+            className={`arrow ${isOpen  ? 'arrow--open' : ''}`}
+          />
         </div>
       </button>
 
-      {isOpen && (
-        <ul className="select_dropdown">
-          {categories.map((cat, idx) => {
+      {isOpen  && (
+        <ul className="multi_filters_select_dropdown">
+          {categories.map((cat) => {
             const isSelected = selectedCategories.some((c) => c.id === cat.id);
             return (
-              <React.Fragment key={cat.id}>
-                {idx > 0 && (
-                  <div className="select_multifilter_dropdown_divider" />
-                )}
+              <>
                 <li
-                  className={`dropdown-item ${isSelected ? 'selected' : ''}`}
+                  className={`dropdown_item ${isSelected ? 'selected' : ''}`}
                   onClick={() => toggleCategory(cat)}
                   tabIndex={0}
                   onKeyDown={(e) => {
@@ -90,9 +95,9 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
                     checked={isSelected}
                     onChange={() => toggleCategory(cat)}
                   />
-                  <span className="item-label">{cat.name}</span>
+                  <span className="item_label">{cat.name}</span>
                 </li>
-              </React.Fragment>
+              </>
             );
           })}
         </ul>

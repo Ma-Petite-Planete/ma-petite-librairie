@@ -443,7 +443,7 @@ function App() {
       />
       <h2>Select Input</h2>
 
-      <div style={{ width: '20%' }}>
+      <div style={{ width: '40%' }}>
         <DropDownMultiFilters />
         <MppDropDown
           needEmojiFont={true}
@@ -485,6 +485,20 @@ function App() {
             },
             {
               id: 'id2',
+              value: 'valeur 2',
+            },
+            {
+              id: 'id3',
+              value: 'valeur 2',
+            },
+            {
+              id: 'id3',
+              value: 'valeur 2',
+            },{
+              id: 'id3',
+              value: 'valeur 2',
+            },{
+              id: 'id3',
               value: 'valeur 2',
             },
           ]}
