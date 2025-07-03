@@ -130,6 +130,10 @@
   gap: 10px;
 }
 
+.gp_menu_client_name {
+  padding: 0 20px;
+}
+
 @media (min-width: 896px) {
   .menu_background {
     width: 251px;

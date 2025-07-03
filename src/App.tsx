@@ -310,7 +310,7 @@ function App() {
           onLogout={() => console.log('suppr les comptes anonymes')}
           logOutText={'Se déconnecter'}
           clientIsLoad={true}
-          clientName="Mpp"
+          clientName="Communauté d'Agglomération de la Riviera du Levant"
         />
         <MppMenu
           navigationLinks={[
