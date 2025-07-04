@@ -108,7 +108,7 @@ const MppMenu: React.FC<MppMenuProps> = ({
         ></div>
         {boType === BoType.gpBo && (
           <div className="gp_menu_client_data ">
-            {clientName && <span className="text_body_sb">{clientName}</span>}
+            {clientName && <span className="text_body_sb gp_menu_client_name">{clientName}</span>}
             {backToClientsLink && (
               <LinkComponent
                 href={backToClientsLink.navigation}
