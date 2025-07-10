@@ -1,5 +1,5 @@
 import * as React from 'react';
-import React__default, { useState, useEffect, useCallback, useRef } from 'react';
+import React__default, { useState, useEffect, useCallback, useRef, useId } from 'react';
 
 var ButtonType;
 (function (ButtonType) {
@@ -1812,13 +1812,14 @@ const MppToaster = ({ message, displayToast, messageType, animationDirection, on
  */
 const MppToggleButton = ({ value, onChange }) => {
     const [toggleValue, setToggleValue] = useState(value);
+    const id = useId();
     return (React__default.createElement("div", { className: "toggle_button_container" },
-        React__default.createElement("label", { htmlFor: "toggle", className: `toggle_button ${toggleValue ? 'checked' : ''}` },
+        React__default.createElement("label", { htmlFor: id, className: `toggle_button ${toggleValue ? 'checked' : ''}` },
             React__default.createElement("input", { onChange: () => {
                     const value = !toggleValue;
                     setToggleValue(value);
                     onChange(value);
-                }, checked: toggleValue, type: "checkbox", id: "toggle" }),
+                }, checked: toggleValue, type: "checkbox", id: id }),
             React__default.createElement("div", { className: "toggle_button_indicator" }))));
 };
 
