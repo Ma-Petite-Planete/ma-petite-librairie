@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import './mpp_toggle_button.css';
 
 interface ToggleButtonPropos {
@@ -25,11 +25,12 @@ interface ToggleButtonPropos {
 
 const MppToggleButton: React.FC<ToggleButtonPropos> = ({ value, onChange }) => {
   const [toggleValue, setToggleValue] = useState(value);
+  const id = useId();
 
   return (
     <div className="toggle_button_container">
       <label
-        htmlFor="toggle"
+        htmlFor={id}
         className={`toggle_button ${toggleValue ? 'checked' : ''}`}
       >
         <input
@@ -40,7 +41,7 @@ const MppToggleButton: React.FC<ToggleButtonPropos> = ({ value, onChange }) => {
           }}
           checked={toggleValue}
           type="checkbox"
-          id="toggle"
+          id={id}
         />
         <div className="toggle_button_indicator"></div>
       </label>
