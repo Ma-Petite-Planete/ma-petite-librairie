@@ -71,19 +71,18 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
               <MppIcons.inputClose />
             </span>
           )}
-          <span
-            className={`arrow ${isOpen  ? 'arrow--open' : ''}`}
-          />
+          <span className={`arrow ${isOpen ? 'arrow--open' : ''}`} />
         </div>
       </button>
 
-      {isOpen  && (
+      {isOpen && (
         <ul className="multi_filters_select_dropdown">
           {categories.map((cat) => {
             const isSelected = selectedCategories.some((c) => c.id === cat.id);
             return (
               <>
                 <li
+                  key={cat.id}
                   className={`dropdown_item ${isSelected ? 'selected' : ''}`}
                   onClick={() => toggleCategory(cat)}
                   tabIndex={0}
