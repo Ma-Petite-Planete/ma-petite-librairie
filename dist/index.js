@@ -1599,13 +1599,12 @@ const MppCategoryMultiFilter = ({ categories, selectedCategories, onChange, plac
                 React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
         isOpen && (React__default.createElement("ul", { className: "multi_filters_select_dropdown" }, categories.map((cat) => {
             const isSelected = selectedCategories.some((c) => c.id === cat.id);
-            return (React__default.createElement(React__default.Fragment, null,
-                React__default.createElement("li", { className: `dropdown_item ${isSelected ? 'selected' : ''}`, onClick: () => toggleCategory(cat), tabIndex: 0, onKeyDown: (e) => {
-                        if (e.key === 'Enter')
-                            toggleCategory(cat);
-                    } },
-                    React__default.createElement(MppCheckbox, { checked: isSelected, onChange: () => toggleCategory(cat) }),
-                    React__default.createElement("span", { className: "item_label" }, cat.name))));
+            return (React__default.createElement("li", { key: cat.id, className: `dropdown_item ${isSelected ? 'selected' : ''}`, onClick: () => toggleCategory(cat), tabIndex: 0, onKeyDown: (e) => {
+                    if (e.key === 'Enter')
+                        toggleCategory(cat);
+                } },
+                React__default.createElement(MppCheckbox, { checked: isSelected, onChange: () => toggleCategory(cat) }),
+                React__default.createElement("span", { className: "item_label" }, cat.name)));
         })))));
 };
 

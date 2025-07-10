@@ -71,33 +71,30 @@ const MppCategoryMultiFilter: React.FC<MppCategoryMultiFilterProps> = ({
               <MppIcons.inputClose />
             </span>
           )}
-          <span
-            className={`arrow ${isOpen  ? 'arrow--open' : ''}`}
-          />
+          <span className={`arrow ${isOpen ? 'arrow--open' : ''}`} />
         </div>
       </button>
 
-      {isOpen  && (
+      {isOpen && (
         <ul className="multi_filters_select_dropdown">
           {categories.map((cat) => {
             const isSelected = selectedCategories.some((c) => c.id === cat.id);
             return (
-              <>
-                <li
-                  className={`dropdown_item ${isSelected ? 'selected' : ''}`}
-                  onClick={() => toggleCategory(cat)}
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') toggleCategory(cat);
-                  }}
-                >
-                  <MppCheckbox
-                    checked={isSelected}
-                    onChange={() => toggleCategory(cat)}
-                  />
-                  <span className="item_label">{cat.name}</span>
-                </li>
-              </>
+              <li
+                key={cat.id}
+                className={`dropdown_item ${isSelected ? 'selected' : ''}`}
+                onClick={() => toggleCategory(cat)}
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') toggleCategory(cat);
+                }}
+              >
+                <MppCheckbox
+                  checked={isSelected}
+                  onChange={() => toggleCategory(cat)}
+                />
+                <span className="item_label">{cat.name}</span>
+              </li>
             );
           })}
         </ul>
