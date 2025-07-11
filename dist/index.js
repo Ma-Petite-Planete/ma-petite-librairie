@@ -1473,7 +1473,7 @@ const useClickOutside = (elementRef, callback) => {
  * };
  * ```
  */
-const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, }) => {
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, width, }) => {
     const [selectedOption, setSelectedOption] = React__default.useState(null);
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
     const dropDownRef = useRef(null);
@@ -1496,7 +1496,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
     const displaySelectedValue = selectedOption
         ? selectedOption[property]
         : null;
-    return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''}` },
+    return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''}`, style: { width: width } },
         React__default.createElement("button", { disabled: isDisabled, onClick: !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null, className: ` select_button ${textClassname}
           ${isDropdownVisible ? 'open' : ''}
           ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
