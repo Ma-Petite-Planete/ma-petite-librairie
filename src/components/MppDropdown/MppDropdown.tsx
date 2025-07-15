@@ -15,7 +15,7 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
   emptyValue?: React.ReactNode;
   isOptionDisabled?: (option: T) => boolean;
   highlightCurrentOption?: boolean;
-  width: string;
+  width?: string;
 }
 
 /**
@@ -72,7 +72,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
   emptyValue,
   isOptionDisabled,
   highlightCurrentOption,
-  width,
+  width = "unset"
 }: MppDropDownProps<T, K>) => {
   const [selectedOption, setSelectedOption] = React.useState<T | null>(null);
   const [isDropdownVisible, setIsDropdownVisible] =

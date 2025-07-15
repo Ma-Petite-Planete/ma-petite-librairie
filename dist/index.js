@@ -1473,7 +1473,7 @@ const useClickOutside = (elementRef, callback) => {
  * };
  * ```
  */
-const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, width, }) => {
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, width = "unset" }) => {
     const [selectedOption, setSelectedOption] = React__default.useState(null);
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
     const dropDownRef = useRef(null);
