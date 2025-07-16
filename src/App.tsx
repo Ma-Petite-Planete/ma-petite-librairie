@@ -494,10 +494,12 @@ function App() {
             {
               id: 'id3',
               value: 'valeur 2',
-            },{
+            },
+            {
               id: 'id3',
               value: 'valeur 2',
-            },{
+            },
+            {
               id: 'id3',
               value: 'valeur 2',
             },
@@ -513,49 +515,49 @@ function App() {
           isDisabled={false}
         />
         <p>cas 1 : defaultvalue dans options</p>
-      <MppDropDown
-        property="name"
-        textClassname="text_body_sb"
-        options={[
-          {
+        <MppDropDown
+          property="name"
+          textClassname="text_body_sb"
+          options={[
+            {
+              id: 'a',
+              name: 'Edition truc muche',
+            },
+            {
+              id: 'b',
+              name: 'Edition machin chose',
+            },
+          ]}
+          onChange={function (value): void {
+            console.log(value);
+          }}
+          placeholder="Sélectionner une langue"
+          defaultValue={{
             id: 'a',
             name: 'Edition truc muche',
-          },
-          {
-            id: 'b',
-            name: 'Edition machin chose',
-          },
-        ]}
-        onChange={function (value): void {
-          console.log(value);
-        }}
-        placeholder="Sélectionner une langue"
-        defaultValue={{
-          id: 'a',
-          name: 'Edition truc muche',
-        }}
-      />
+          }}
+        />
 
         <p>cas 2 : defaultvalue à null</p>
-      <MppDropDown
-        property="name"
-        textClassname="text_body_sb"
-        options={[
-          {
-            id: 'nfrjhnf',
-            name: 'Edition truc muche',
-          },
-          {
-            id: 'fnjhrfr',
-            name: 'Edition machin chose',
-          },
-        ]}
-        onChange={function (value): void {
-          console.log(value);
-        }}
-        placeholder="Sélectionner une langue"
-        defaultValue={null}
-      />
+        <MppDropDown
+          property="name"
+          textClassname="text_body_sb"
+          options={[
+            {
+              id: 'nfrjhnf',
+              name: 'Edition truc muche',
+            },
+            {
+              id: 'fnjhrfr',
+              name: 'Edition machin chose',
+            },
+          ]}
+          onChange={function (value): void {
+            console.log(value);
+          }}
+          placeholder="Sélectionner une langue"
+          defaultValue={null}
+        />
 
         <p>cas 3 : disbale une option et highlight une autre</p>
         <MppDropDown
@@ -569,11 +571,9 @@ function App() {
             console.log(value);
           }}
           placeholder="Role"
-          defaultValue={null}
+          defaultValue={{ id: 'player', label: 'Player' }}
           highlightCurrentOption={true}
-          isOptionDisabled={(option) => {
-            return option.id === 'ambass' && true;
-          }}
+          identifierKey="id"
         />
       </div>
 
