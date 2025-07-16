@@ -15,7 +15,22 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
   emptyValue?: React.ReactNode;
   isOptionDisabled?: (option: T) => boolean;
   highlightCurrentOption?: boolean;
+  identifierKey?: keyof T;
 }
+
+interface HighlightedDropDownProps<T extends object, K extends keyof T> extends MppDropDownProps<T, K> {
+  highlightCurrentOption: true;
+  identifierKey: keyof T;
+}
+
+interface NonHighlightedDropDownProps<T extends object, K extends keyof T> extends MppDropDownProps<T, K> {
+  highlightCurrentOption?: false | undefined;
+  identifierKey?: keyof T;
+}
+
+type MppDropDownPropsComplete<T extends object, K extends keyof T> =
+  | HighlightedDropDownProps<T, K>
+  | NonHighlightedDropDownProps<T, K>;
 
 /**
  * Le composant MppDropDown rend un menu déroulant personnalisable.
@@ -31,6 +46,8 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
  * @param {T} props.defaultValue - L'option sélectionnée par défaut.
  * @param {string} [props.textClassname=''] - Le nom de la classe CSS pour le texte.
  * @param {K} props.property - La propriété de l'option à afficher dans le menu déroulant.
+ * @param {keyof T} [identifierKey] - (Optionnel) La clé unique utilisée pour identifier chaque option lors de la comparaison et de la mise en surbrillance de l'option sélectionnée.
+ * Si `highlightCurrentOption` est à `true`, cette propriété est requise pour permettre la comparaison des options via cette clé.
  *
  * @example
  * ```tsx
@@ -71,11 +88,14 @@ const MppDropDown = <T extends object, K extends keyof T>({
   emptyValue,
   isOptionDisabled,
   highlightCurrentOption,
-}: MppDropDownProps<T, K>) => {
+  identifierKey
+
+}: MppDropDownPropsComplete<T, K>) => {
   const [selectedOption, setSelectedOption] = React.useState<T | null>(null);
   const [isDropdownVisible, setIsDropdownVisible] =
     React.useState<boolean>(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
+
 
   useEffect(() => {
     setSelectedOption(defaultValue);
@@ -92,6 +112,13 @@ const MppDropDown = <T extends object, K extends keyof T>({
       setSelectedOption(null);
     }
   }, [isDisabled]);
+
+  const isOptionSelected = (option: T) => {
+  const selectedId = selectedOption?.[identifierKey];
+  const defaultId = defaultValue?.[identifierKey];
+  const optionId = option[identifierKey];
+  return selectedId === optionId || (!selectedId && defaultId === optionId);
+};
 
   const displayedDefaultValue = defaultValue
     ? (defaultValue[property] as string)
@@ -150,7 +177,12 @@ const MppDropDown = <T extends object, K extends keyof T>({
                   tabIndex={0}
                   className={`${needEmojiFont ? 'emoji' : ''}${textClassname}
                     ${isDisabledOption ? 'option_disabled' : ''}
-                    ${highlightCurrentOption && selectedOption === option ? 'text_body_sb' : ''}`}
+                    ${
+                      highlightCurrentOption &&
+                      isOptionSelected(option)
+                        ? 'text_body_sb'
+                        : ''
+                    }`}
                   onClick={() => {
                     if (!isDisabledOption) {
                       setSelectedOption(option);
