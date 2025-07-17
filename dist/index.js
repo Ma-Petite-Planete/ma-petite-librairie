@@ -1447,6 +1447,8 @@ const useClickOutside = (elementRef, callback) => {
  * @param {T} props.defaultValue - L'option sélectionnée par défaut.
  * @param {string} [props.textClassname=''] - Le nom de la classe CSS pour le texte.
  * @param {K} props.property - La propriété de l'option à afficher dans le menu déroulant.
+ * @param {keyof T} [identifierKey] - (Optionnel) La clé unique utilisée pour identifier chaque option lors de la comparaison et de la mise en surbrillance de l'option sélectionnée.
+ * Si `highlightCurrentOption` est à `true`, cette propriété est requise pour permettre la comparaison des options via cette clé.
  *
  * @example
  * ```tsx
@@ -1473,7 +1475,7 @@ const useClickOutside = (elementRef, callback) => {
  * };
  * ```
  */
-const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, width = "unset" }) => {
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, width, identifierKey }) => {
     const [selectedOption, setSelectedOption] = React__default.useState(null);
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
     const dropDownRef = useRef(null);
@@ -1490,6 +1492,12 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
             setSelectedOption(null);
         }
     }, [isDisabled]);
+    const isOptionSelected = (option) => {
+        const selectedId = selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption[identifierKey];
+        const defaultId = defaultValue === null || defaultValue === void 0 ? void 0 : defaultValue[identifierKey];
+        const optionId = option[identifierKey];
+        return selectedId === optionId || (!selectedId && defaultId === optionId);
+    };
     const displayedDefaultValue = defaultValue
         ? defaultValue[property]
         : null;
@@ -1519,7 +1527,10 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                     }
                 }, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}
                     ${isDisabledOption ? 'option_disabled' : ''}
-                    ${highlightCurrentOption && selectedOption === option ? 'text_body_sb' : ''}`, onClick: () => {
+                    ${highlightCurrentOption &&
+                    isOptionSelected(option)
+                    ? 'text_body_sb'
+                    : ''}`, onClick: () => {
                     if (!isDisabledOption) {
                         setSelectedOption(option);
                         setIsDropdownVisible(false);

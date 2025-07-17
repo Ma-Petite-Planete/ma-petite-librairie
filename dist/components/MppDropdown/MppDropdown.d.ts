@@ -14,7 +14,17 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
     isOptionDisabled?: (option: T) => boolean;
     highlightCurrentOption?: boolean;
     width?: string;
+    identifierKey?: keyof T;
 }
+interface HighlightedDropDownProps<T extends object, K extends keyof T> extends MppDropDownProps<T, K> {
+    highlightCurrentOption: true;
+    identifierKey: keyof T;
+}
+interface NonHighlightedDropDownProps<T extends object, K extends keyof T> extends MppDropDownProps<T, K> {
+    highlightCurrentOption?: false | undefined;
+    identifierKey?: keyof T;
+}
+type MppDropDownPropsComplete<T extends object, K extends keyof T> = HighlightedDropDownProps<T, K> | NonHighlightedDropDownProps<T, K>;
 /**
  * Le composant MppDropDown rend un menu déroulant personnalisable.
  *
@@ -29,6 +39,8 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
  * @param {T} props.defaultValue - L'option sélectionnée par défaut.
  * @param {string} [props.textClassname=''] - Le nom de la classe CSS pour le texte.
  * @param {K} props.property - La propriété de l'option à afficher dans le menu déroulant.
+ * @param {keyof T} [identifierKey] - (Optionnel) La clé unique utilisée pour identifier chaque option lors de la comparaison et de la mise en surbrillance de l'option sélectionnée.
+ * Si `highlightCurrentOption` est à `true`, cette propriété est requise pour permettre la comparaison des options via cette clé.
  *
  * @example
  * ```tsx
@@ -55,5 +67,5 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
  * };
  * ```
  */
-declare const MppDropDown: <T extends object, K extends keyof T>({ placeholder, onChange, options, isDisabled, defaultValue, textClassname, property, needEmojiFont, isDropDownEmpty, emptyValue, isOptionDisabled, highlightCurrentOption, width }: MppDropDownProps<T, K>) => React.JSX.Element;
+declare const MppDropDown: <T extends object, K extends keyof T>({ placeholder, onChange, options, isDisabled, defaultValue, textClassname, property, needEmojiFont, isDropDownEmpty, emptyValue, isOptionDisabled, highlightCurrentOption, width, identifierKey }: MppDropDownPropsComplete<T, K>) => React.JSX.Element;
 export default MppDropDown;
