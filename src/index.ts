@@ -16,7 +16,7 @@ export { BoType } from './components/BoType';
 export { default as MppInfosPin } from './components/MppInfosPin/MppInfosPin';
 export { default as MppSkeletonLoader } from './components/MppSkeletonLoader/MppSkeletonLoader';
 export { default as MppMultiSectionButton } from './components/MppMultiSectionButtons/MppMultiSectionButton';
-export { default as MppDropDown } from './components/MppDropdown/MppDropdown';
+export { default as MppDropDown } from './components/MppDropDown/MppDropdown';
 export { default as MppCategoryMultiFilter } from './components/MppMultiDropDownFilter/MppMultiDropDownFilter';
 export { default as MppLoaderDots } from './components/MppLoaderDots/MppLoaderDots';
 export * from './components/MppLabelType/MppLabelType';
