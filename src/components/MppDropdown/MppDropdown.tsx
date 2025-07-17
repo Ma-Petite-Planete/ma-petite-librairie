@@ -72,7 +72,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
   emptyValue,
   isOptionDisabled,
   highlightCurrentOption,
-  width = "unset"
+  width
 }: MppDropDownProps<T, K>) => {
   const [selectedOption, setSelectedOption] = React.useState<T | null>(null);
   const [isDropdownVisible, setIsDropdownVisible] =
