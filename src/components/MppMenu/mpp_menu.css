@@ -6,8 +6,8 @@
   background-color: var(--white);
   width: 70vw;
   height: 100%;
-  border-radius: var(--standard_border_radius);
   box-shadow: 0px 4px 20px var(--shadow_color);
+  max-width: 270px;
 }
 
 .logo_container {
@@ -16,12 +16,24 @@
   width: 80%;
   height: 81px;
   margin-top: 16px;
+}
+.logo_sco {
   background-image: url('../../ressources/logo/sco_yellow_logo_blue_text.png');
 }
 
+.logo_gp {
+  background-image: url('../../ressources/logo/gp_logo_blue.png');
+}
 .logo {
   width: 100%;
   height: auto;
+}
+
+.gp_menu_client_data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .center {
@@ -34,17 +46,52 @@
 .navigation_background {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   width: 100%;
-  padding-left: 24px;
-  padding-top: 24px;
-  padding: 24px 24px 0px 24px;
+  padding: 0 24px 0px 24px;
 }
 
+.navigation_bo_sco {
+  padding-top: 24px;
+}
+
+.navigation_bo_ecu {
+  padding-top: 20px;
+}
+
+.navigation_client_code_section {
+  padding: 0px 24px;
+  display: flex;
+  align-items: center;
+}
+.navigation_client_code_section--input .mpp_input_container {
+  margin: 0;
+  height: 52px;
+  margin-right: 8px;
+}
+
+.navigation_client_code_section .button_large {
+  padding: 12px 20px;
+}
+
+.navigation_language_dropdown {
+  margin-bottom: 12px;
+}
 .icon {
   width: 20px;
   height: 20px;
   margin-right: 12px;
+}
+
+.icon_arrow_back {
+  margin-right: 12px;
+}
+
+.navigation_return_link {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  cursor: pointer;
 }
 
 .navigation_element {
@@ -76,6 +123,15 @@
 .bottom:hover {
   cursor: pointer;
   color: var(--dark_blue);
+}
+
+.toggle_language_container {
+  display: flex;
+  gap: 10px;
+}
+
+.gp_menu_client_name {
+  padding: 0 20px;
 }
 
 @media (min-width: 896px) {

@@ -1,0 +1,44 @@
+.toggle_button_container {
+  display: inline-flex;
+}
+
+.toggle_button {
+  position: relative;
+  background-color: var(--dark_grey);
+  width: 36px;
+  height: 22px;
+  border-radius: 200px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s;
+  box-shadow: 0px 4px 20px 0px var(--dark_blue_very_light);
+}
+
+.toggle_button:focus {
+  outline: 2px solid var(--anthracite);
+}
+
+.toggle_button_indicator {
+  position: relative;
+  top: 1px;
+  left: 1px;
+  height: 20px;
+  width: 20px;
+  background-color: var(--white);
+  border-radius: 100%;
+  transition: 0.3s;
+}
+.toggle_button_container input {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.checked.toggle_button {
+  background-color: #20096d;
+}
+.checked .toggle_button_indicator {
+  left: 15px;
+  top: 1px;
+  transition: 0.3s;
+}

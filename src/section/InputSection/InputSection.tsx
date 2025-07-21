@@ -1,10 +1,18 @@
 import { useState } from 'react';
-import { MppIcons } from '../utils/MppIcons';
-import MppInputText from '../components/MppInputText/MppInputText';
+import MppInputText from '../../components/MppInputText/MppInputText';
 import React from 'react';
+import MppInput from '../../components/MppInput/MppInput';
+import { MppIcons } from '../../utils/MppIcons';
+import './input_section_style.css';
+import MppIncrementInput from '../../components/MppIncrementInput/MppIncrementInput';
 
 const InputDemo: React.FC = () => {
   const [inputDemoIcon, setInputDemoIcon] = useState('');
+  const [inputDemoClear, setinputDemoClear] = useState('');
+  const [inputDemoCounter, setInputDemoCounter] = useState('');
+  const [errorDemoCounter, setErrorDemoCounter] = useState('');
+  const [inputDemoCondition, setInputDemoCondition] = useState('');
+  const [incrementValue, setIncrementValue] = useState(1);
 
   const handleChangeDemoIcon = (value: string) => {
     setInputDemoIcon(value);
@@ -14,13 +22,15 @@ const InputDemo: React.FC = () => {
     setInputDemoIcon('');
   };
 
-  const [inputDemoCounter, setInputDemoCounter] = useState('');
-
   const handleChangeDemoCounter = (value: string) => {
     setInputDemoCounter(value);
+    if (value.length > 15) {
+      setErrorDemoCounter('Le texte ne doit pas dépasser 15 caractères.');
+    } else {
+      setErrorDemoCounter('');
+    }
   };
 
-  const [inputDemoCondition, setInputDemoCondition] = useState('');
   const handleChangeDemoCondition = (value: string, hasError: boolean) => {
     if (hasError) {
       console.log('les conditions ne sont pas respecté');
@@ -28,6 +38,7 @@ const InputDemo: React.FC = () => {
       setInputDemoCondition(value);
     }
   };
+
   return (
     <div style={{ width: '300px' }}>
       <MppInputText
@@ -46,20 +57,35 @@ const InputDemo: React.FC = () => {
         ]}
       />
 
-      <MppInputText
+      <MppInput
         value={inputDemoIcon}
-        placeholder={'exemple icon'}
+        placeholder={'exemple password'}
+        isPassword={true}
         onChange={handleChangeDemoIcon}
-        icon={MppIcons.pen}
         onClickIcon={handleIconClick}
       />
 
-      <MppInputText
+      <MppInput
         value={inputDemoCounter}
         placeholder={'exemple counter'}
         onChange={handleChangeDemoCounter}
         needCounter={true}
-        maxCharacteres={20}
+        maxCharacters={20}
+        errorMessage={errorDemoCounter}
+      />
+
+      <MppInput
+        value={inputDemoClear}
+        placeholder={'moteur de recherche'}
+        onChange={(value) => setinputDemoClear(value)}
+        canClearField={true}
+        prefixIcon={MppIcons.research}
+      />
+
+      <MppIncrementInput
+        value={incrementValue}
+        onChange={setIncrementValue}
+        maxIncrement={100}
       />
     </div>
   );

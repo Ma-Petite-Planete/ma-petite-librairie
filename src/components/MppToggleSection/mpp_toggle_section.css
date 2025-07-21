@@ -1,0 +1,31 @@
+.toggle_section_container {
+  border-radius: 12px;
+  background: var(--white);
+  padding: 12px 20px 12px 20px;
+  box-shadow: 0px 4px 20px var(--shadow_color);
+  max-width: 478px;
+}
+
+.toggle_section_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle_section_arrow {
+  width: 0;
+  height: 0;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-top: 11px solid var(--dark_blue);
+  transition: transform 0.5s ease;
+}
+
+.arrow_open {
+  transform: rotate(180deg);
+}
+
+.toggle_section_inner {
+  padding-top: 20px;
+}

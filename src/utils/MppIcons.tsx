@@ -21,6 +21,21 @@ import { ReactComponent as drops } from '../ressources/icons/drops.svg';
 import { ReactComponent as trash } from '../ressources/icons/trash.svg';
 import { ReactComponent as openBook } from '../ressources/icons/open_book.svg';
 import { ReactComponent as infos } from '../ressources/icons/Info.svg';
+import { ReactComponent as copy } from '../ressources/icons/copy.svg';
+import { ReactComponent as remove } from '../ressources/icons/remove.svg';
+import { ReactComponent as arrowBack } from '../ressources/icons/arrow_back.svg';
+import { ReactComponent as megaphone } from '../ressources/icons/megaphone.svg';
+import { ReactComponent as gear } from '../ressources/icons/gear.svg';
+import { ReactComponent as people } from '../ressources/icons/people.svg';
+import { ReactComponent as bubble } from '../ressources/icons/bubble.svg';
+import { ReactComponent as trophee_gp } from '../ressources/icons/trophee_gp.svg';
+import { ReactComponent as valid } from '../ressources/icons/valid.svg';
+import { ReactComponent as invalid } from '../ressources/icons/invalid.svg';
+import { ReactComponent as eye } from '../ressources/icons/eye.svg';
+import { ReactComponent as triangle } from '../ressources/icons/triangle.svg';
+import { ReactComponent as download } from '../ressources/icons/download.svg';
+import { ReactComponent as inputClose } from '../ressources/icons/input_close.svg';
+import { ReactComponent as research } from '../ressources/icons/research.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -46,4 +61,19 @@ export const MppIcons = {
   trash: trash,
   openBook: openBook,
   infos: infos,
+  copy: copy,
+  remove: remove,
+  arrowBack: arrowBack,
+  gear: gear,
+  megaphone: megaphone,
+  people: people,
+  bubble: bubble,
+  tropheeGp: trophee_gp,
+  valid: valid,
+  invalid: invalid,
+  eye: eye,
+  triangle: triangle,
+  download: download,
+  research: research,
+  inputClose: inputClose
 } as const;

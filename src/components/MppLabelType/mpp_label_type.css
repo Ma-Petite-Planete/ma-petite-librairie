@@ -1,0 +1,19 @@
+.label {
+  padding: 4px 10.5px;
+  border-radius: var(--standard_border_radius);
+}
+
+.grey_label {
+  color: var(--black);
+  background-color: var(--medium_grey);
+}
+
+.orange_label {
+  color: var(--black);
+  background-color: var(--orange);
+}
+
+.green_label {
+  color: var(--white);
+  background-color: var(--mint_green);
+}

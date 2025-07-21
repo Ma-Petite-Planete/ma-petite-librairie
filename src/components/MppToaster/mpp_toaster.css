@@ -1,0 +1,74 @@
+.toaster_message_container {
+  position: relative;
+}
+.toaster_message_container--top {
+  animation-name: toast-in-from-top;
+  animation-duration: 4s;
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.toaster_message_container--bottom {
+  animation-name: toast-in-from-bottom;
+  animation-duration: 4s;
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.visible {
+  display: inline-flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.toaster_message {
+  padding: 12px 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--big_border_radius);
+  color: var(--white);
+  box-shadow: 0px 4px 20px 0px var(--dark_blue_very_light);
+}
+
+.toaster_message--span {
+  margin-left: 12px;
+}
+.success_message_container {
+  background-color: var(--mint_green);
+}
+
+.error_message_container {
+  background-color: var(--error_red);
+}
+
+@keyframes toast-in-from-top {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes toast-in-from-bottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}

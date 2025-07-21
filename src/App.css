@@ -8,3 +8,12 @@
   gap: 20px;
   align-items: center;
 }
+
+.label_section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.linear_progress_bar_container>div{
+  margin-top: 20px;
+}
