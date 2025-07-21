@@ -49,6 +49,22 @@ const MppToggleSection: React.FC<MppToggleSectionProps> = ({
 
   const toggleSection = () => setIsOpen(!isOpen);
 
+  useEffect(() => {
+    if (!contentRef.current) return;
+
+    const observer = new ResizeObserver(() => {
+      if (isOpen && contentRef.current) {
+        setHeight(`${contentRef.current.scrollHeight}px`);
+      }
+    });
+
+    observer.observe(contentRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [isOpen]);
+
   return (
     <div className="toggle_section_container">
       <div className="toggle_section_header" onClick={toggleSection}>
@@ -57,7 +73,7 @@ const MppToggleSection: React.FC<MppToggleSectionProps> = ({
       </div>
 
       <div
-        ref={contentRef}
+
         className="toggle_section_content"
         style={{
           height,
@@ -65,7 +81,7 @@ const MppToggleSection: React.FC<MppToggleSectionProps> = ({
           transition: 'height 0.4s ease',
         }}
       >
-        <div className="toggle_section_inner">{children}</div>
+        <div className="toggle_section_inner" ref={contentRef}>{children}</div>
       </div>
     </div>
   );

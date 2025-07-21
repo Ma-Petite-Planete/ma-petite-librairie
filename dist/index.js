@@ -1992,16 +1992,29 @@ const MppToggleSection = ({ title, children, isSectionOpenByDefault = false, }) 
         setIsOpen(isSectionOpenByDefault);
     }, [isSectionOpenByDefault]);
     const toggleSection = () => setIsOpen(!isOpen);
+    useEffect(() => {
+        if (!contentRef.current)
+            return;
+        const observer = new ResizeObserver(() => {
+            if (isOpen && contentRef.current) {
+                setHeight(`${contentRef.current.scrollHeight}px`);
+            }
+        });
+        observer.observe(contentRef.current);
+        return () => {
+            observer.disconnect();
+        };
+    }, [isOpen]);
     return (React__default.createElement("div", { className: "toggle_section_container" },
         React__default.createElement("div", { className: "toggle_section_header", onClick: toggleSection },
             React__default.createElement("p", null, title),
             React__default.createElement("div", { className: `toggle_section_arrow ${isOpen ? 'arrow_open' : ''}` })),
-        React__default.createElement("div", { ref: contentRef, className: "toggle_section_content", style: {
+        React__default.createElement("div", { className: "toggle_section_content", style: {
                 height,
                 overflow: 'hidden',
                 transition: 'height 0.4s ease',
             } },
-            React__default.createElement("div", { className: "toggle_section_inner" }, children))));
+            React__default.createElement("div", { className: "toggle_section_inner", ref: contentRef }, children))));
 };
 
 export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };
