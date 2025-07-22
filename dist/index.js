@@ -1786,7 +1786,6 @@ const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, ma
         setShowPassword(!showPassword);
     };
     const suffixComponentClassname = 'with_suffix_component';
-    console.log(typeof PrefixIcon);
     return (React__default.createElement(React__default.Fragment, null,
         React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}` },
             typeof PrefixIcon === 'object' ? (React__default.createElement(PrefixIcon, { className: "with_prefix_icon" })) : typeof PrefixIcon === 'string' ? (React__default.createElement("span", { className: "prefix_icon_text emoji" }, PrefixIcon)) : null,

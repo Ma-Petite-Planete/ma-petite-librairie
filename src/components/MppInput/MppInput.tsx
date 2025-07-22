@@ -107,8 +107,6 @@ const MppInput: React.FC<MppInputTextProps> = ({
   };
   const suffixComponentClassname = 'with_suffix_component';
 
-  console.log(typeof PrefixIcon)
-
   return (
     <>
       <div
