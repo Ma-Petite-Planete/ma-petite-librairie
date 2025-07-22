@@ -1434,113 +1434,6 @@ const useClickOutside = (elementRef, callback) => {
 };
 
 /**
- * Le composant MppDropDown rend un menu déroulant personnalisable.
- *
- * @template T - Le type des options.
- * @template K - La clé du type des options.
- *
- * @param {MppDropDownProps<T, K>} props - Les propriétés du composant dropdown.
- * @param {string} props.placeholder - Le texte de l'espace réservé à afficher lorsqu'aucune option n'est sélectionnée.
- * @param {(option: T) => void} props.onChange - La fonction de rappel pour gérer les changements de sélection d'option.
- * @param {T[]} props.options - La liste des options à afficher dans le menu déroulant.
- * @param {boolean} [props.isDisabled] - Indicateur pour désactiver le menu déroulant.
- * @param {T} props.defaultValue - L'option sélectionnée par défaut.
- * @param {string} [props.textClassname=''] - Le nom de la classe CSS pour le texte.
- * @param {K} props.property - La propriété de l'option à afficher dans le menu déroulant.
- * @param {keyof T} [identifierKey] - (Optionnel) La clé unique utilisée pour identifier chaque option lors de la comparaison et de la mise en surbrillance de l'option sélectionnée.
- * Si `highlightCurrentOption` est à `true`, cette propriété est requise pour permettre la comparaison des options via cette clé.
- *
- * @example
- * ```tsx
- * const ExampleComponent = () => {
- *   const options = [
- *     { id: '1', value: 'Option 1' },
- *     { id: '2', value: 'Option 2' },
- *     { id: '3', value: 'Option 3' },
- *   ];
- *
- *   const handleChange = (selectedOption: T) => {
- *     console.log('Option sélectionnée:', selectedOption);
- *   };
- *
- *   return (
- *     <MppDropDown
- *       options={options}
- *       onChange={handleChange}
- *       defaultValue={options[0]}
- *       placeholder="Sélectionnez une option"
- *       property="value"
- *     />
- *   );
- * };
- * ```
- */
-const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, width, identifierKey }) => {
-    const [selectedOption, setSelectedOption] = React__default.useState(null);
-    const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
-    const dropDownRef = useRef(null);
-    useEffect(() => {
-        setSelectedOption(defaultValue);
-    }, [defaultValue, options]);
-    useClickOutside(dropDownRef, () => {
-        if (!isDisabled) {
-            setIsDropdownVisible(false);
-        }
-    });
-    useEffect(() => {
-        if (isDisabled) {
-            setSelectedOption(null);
-        }
-    }, [isDisabled]);
-    const isOptionSelected = (option) => {
-        const selectedId = selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption[identifierKey];
-        const defaultId = defaultValue === null || defaultValue === void 0 ? void 0 : defaultValue[identifierKey];
-        const optionId = option[identifierKey];
-        return selectedId === optionId || (!selectedId && defaultId === optionId);
-    };
-    const displayedDefaultValue = defaultValue
-        ? defaultValue[property]
-        : null;
-    const displaySelectedValue = selectedOption
-        ? selectedOption[property]
-        : null;
-    return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''}`, style: { width: width } },
-        React__default.createElement("button", { disabled: isDisabled, onClick: !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null, className: ` select_button ${textClassname}
-          ${isDropdownVisible ? 'open' : ''}
-          ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
-          ${selectedOption ? 'selected' : ''}` },
-            React__default.createElement("span", { className: `select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}` }, displaySelectedValue
-                ? displaySelectedValue
-                : displayedDefaultValue
-                    ? displayedDefaultValue
-                    : placeholder),
-            React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
-        isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
-            var _a;
-            const displayedValueInDropdown = option[property];
-            const isDisabledOption = (_a = isOptionDisabled === null || isOptionDisabled === void 0 ? void 0 : isOptionDisabled(option)) !== null && _a !== void 0 ? _a : false;
-            return (React__default.createElement("li", { key: index, onKeyDown: (event) => {
-                    if (event.key === 'Enter' && !isDisabledOption) {
-                        setSelectedOption(option);
-                        setIsDropdownVisible(false);
-                        onChange(option);
-                    }
-                }, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}
-                    ${isDisabledOption ? 'option_disabled' : ''}
-                    ${highlightCurrentOption &&
-                    isOptionSelected(option)
-                    ? 'text_body_sb'
-                    : ''}`, onClick: () => {
-                    if (!isDisabledOption) {
-                        setSelectedOption(option);
-                        setIsDropdownVisible(false);
-                        onChange(option);
-                    }
-                }, "aria-disabled": isDisabledOption }, displayedValueInDropdown));
-        }))))));
-};
-
-/**
  * Le composant MppCheckbox rend une case à cocher personnalisable avec un style optionnel pour l'en-tête de tableau.
  *
  * @component
@@ -2016,6 +1909,113 @@ const MppToggleSection = ({ title, children, isSectionOpenByDefault = false, }) 
                 transition: 'height 0.4s ease',
             } },
             React__default.createElement("div", { className: "toggle_section_inner", ref: contentRef }, children))));
+};
+
+/**
+ * Le composant MppDropDown rend un menu déroulant personnalisable.
+ *
+ * @template T - Le type des options.
+ * @template K - La clé du type des options.
+ *
+ * @param {MppDropDownProps<T, K>} props - Les propriétés du composant dropdown.
+ * @param {string} props.placeholder - Le texte de l'espace réservé à afficher lorsqu'aucune option n'est sélectionnée.
+ * @param {(option: T) => void} props.onChange - La fonction de rappel pour gérer les changements de sélection d'option.
+ * @param {T[]} props.options - La liste des options à afficher dans le menu déroulant.
+ * @param {boolean} [props.isDisabled] - Indicateur pour désactiver le menu déroulant.
+ * @param {T} props.defaultValue - L'option sélectionnée par défaut.
+ * @param {string} [props.textClassname=''] - Le nom de la classe CSS pour le texte.
+ * @param {K} props.property - La propriété de l'option à afficher dans le menu déroulant.
+ * @param {keyof T} [identifierKey] - (Optionnel) La clé unique utilisée pour identifier chaque option lors de la comparaison et de la mise en surbrillance de l'option sélectionnée.
+ * Si `highlightCurrentOption` est à `true`, cette propriété est requise pour permettre la comparaison des options via cette clé.
+ *
+ * @example
+ * ```tsx
+ * const ExampleComponent = () => {
+ *   const options = [
+ *     { id: '1', value: 'Option 1' },
+ *     { id: '2', value: 'Option 2' },
+ *     { id: '3', value: 'Option 3' },
+ *   ];
+ *
+ *   const handleChange = (selectedOption: T) => {
+ *     console.log('Option sélectionnée:', selectedOption);
+ *   };
+ *
+ *   return (
+ *     <MppDropDown
+ *       options={options}
+ *       onChange={handleChange}
+ *       defaultValue={options[0]}
+ *       placeholder="Sélectionnez une option"
+ *       property="value"
+ *     />
+ *   );
+ * };
+ * ```
+ */
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, width, identifierKey }) => {
+    const [selectedOption, setSelectedOption] = React__default.useState(null);
+    const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
+    const dropDownRef = useRef(null);
+    useEffect(() => {
+        setSelectedOption(defaultValue);
+    }, [defaultValue, options]);
+    useClickOutside(dropDownRef, () => {
+        if (!isDisabled) {
+            setIsDropdownVisible(false);
+        }
+    });
+    useEffect(() => {
+        if (isDisabled) {
+            setSelectedOption(null);
+        }
+    }, [isDisabled]);
+    const isOptionSelected = (option) => {
+        const selectedId = selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption[identifierKey];
+        const defaultId = defaultValue === null || defaultValue === void 0 ? void 0 : defaultValue[identifierKey];
+        const optionId = option[identifierKey];
+        return selectedId === optionId || (!selectedId && defaultId === optionId);
+    };
+    const displayedDefaultValue = defaultValue
+        ? defaultValue[property]
+        : null;
+    const displaySelectedValue = selectedOption
+        ? selectedOption[property]
+        : null;
+    return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''}`, style: { width: width } },
+        React__default.createElement("button", { disabled: isDisabled, onClick: !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null, className: ` select_button ${textClassname}
+          ${isDropdownVisible ? 'open' : ''}
+          ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
+          ${selectedOption ? 'selected' : ''}` },
+            React__default.createElement("span", { className: `select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}` }, displaySelectedValue
+                ? displaySelectedValue
+                : displayedDefaultValue
+                    ? displayedDefaultValue
+                    : placeholder),
+            React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
+        isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
+            var _a;
+            const displayedValueInDropdown = option[property];
+            const isDisabledOption = (_a = isOptionDisabled === null || isOptionDisabled === void 0 ? void 0 : isOptionDisabled(option)) !== null && _a !== void 0 ? _a : false;
+            return (React__default.createElement("li", { key: index, onKeyDown: (event) => {
+                    if (event.key === 'Enter' && !isDisabledOption) {
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
+                    }
+                }, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}
+                    ${isDisabledOption ? 'option_disabled' : ''}
+                    ${highlightCurrentOption &&
+                    isOptionSelected(option)
+                    ? 'text_body_sb'
+                    : ''}`, onClick: () => {
+                    if (!isDisabledOption) {
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
+                    }
+                }, "aria-disabled": isDisabledOption }, displayedValueInDropdown));
+        }))))));
 };
 
 export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };
