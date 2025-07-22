@@ -36,6 +36,7 @@ import { ReactComponent as triangle } from '../ressources/icons/triangle.svg';
 import { ReactComponent as download } from '../ressources/icons/download.svg';
 import { ReactComponent as inputClose } from '../ressources/icons/input_close.svg';
 import { ReactComponent as research } from '../ressources/icons/research.svg';
+import { ReactComponent as add } from '../ressources/icons/add.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -75,5 +76,6 @@ export const MppIcons = {
   triangle: triangle,
   download: download,
   research: research,
-  inputClose: inputClose
+  inputClose: inputClose,
+  add: add
 } as const;
