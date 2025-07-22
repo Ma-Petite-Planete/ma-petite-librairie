@@ -1893,9 +1893,10 @@ const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, ma
         setShowPassword(!showPassword);
     };
     const suffixComponentClassname = 'with_suffix_component';
+    console.log(typeof PrefixIcon);
     return (React__default.createElement(React__default.Fragment, null,
         React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}` },
-            PrefixIcon ? React__default.createElement(PrefixIcon, { className: "with_prefix_icon" }) : null,
+            typeof PrefixIcon === 'object' ? (React__default.createElement(PrefixIcon, { className: "with_prefix_icon" })) : typeof PrefixIcon === 'string' ? (React__default.createElement("span", { className: "prefix_icon_text emoji" }, PrefixIcon)) : null,
             React__default.createElement("input", { type: !showPassword && isPassword ? 'password' : 'text', placeholder: placeholder, value: value, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown, autoComplete: autoComplete }),
             (isFocused || value) && Icon ? (React__default.createElement(Icon, { className: `${onClickIcon ? 'input_icon_pointer' : ''} ${suffixComponentClassname} `, onClick: handleIconClick })) : isPassword ? (React__default.createElement(MppIcons.eye, { className: `input_icon_pointer ${showPassword ? 'eye_focus' : 'eye_unfocus'} ${suffixComponentClassname} `, onClick: handleShowPassword })) : needCounter ? (React__default.createElement("span", { className: `input_counter ${value.length === maxCharacters ? 'max_characteres' : ''} ${suffixComponentClassname} ` }, `${value.length}/${maxCharacters}`)) : canClearField && value.length > 0 ? (React__default.createElement(MppIcons.inputClose, { className: `input_icon_pointer ${suffixComponentClassname}`, onClick: () => {
                     onChange('');

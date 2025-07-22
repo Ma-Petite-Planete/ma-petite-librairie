@@ -21,7 +21,7 @@ import MppLoader from './components/MppLoader/MppLoader';
 import MppTextArea from './components/MppTextArea/MppTextArea';
 import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader';
 import MppMultiSectionButtonProps from './components/MppMultiSectionButtons/MppMultiSectionButton';
-import MppDropDown from './components/MppDropDown/MppDropdown';
+
 import MppLoaderDots from './components/MppLoaderDots/MppLoaderDots';
 import { MppLinearProgressBar } from './components/MppLinearProgressBar/MppLinearProgressBar';
 import MppToggleButton from './components/MppToggleButton/MppToggleButton';
@@ -38,6 +38,7 @@ import {
 } from './components/MppToaster/MppToaster';
 import DropDownMultiFilters from './section/dropdown/DropDownMultiFilter';
 import MppToggleSection from './components/MppToggleSection/MppToggleSection';
+import MppDropDown from './components/MppDropDown/MppDropdown';
 function App() {
   return (
     <div className="main_background">

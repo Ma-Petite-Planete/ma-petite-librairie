@@ -22,7 +22,7 @@ interface MppInputTextProps {
   errorMessage?: string;
   autoComplete?: string;
   canClearField?: boolean;
-  prefixIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  prefixIcon?: React.FC<React.SVGProps<SVGSVGElement>> | string; // string like "@", "€", etc.
 }
 
 /**
@@ -107,12 +107,18 @@ const MppInput: React.FC<MppInputTextProps> = ({
   };
   const suffixComponentClassname = 'with_suffix_component';
 
+  console.log(typeof PrefixIcon)
+
   return (
     <>
       <div
         className={`mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}`}
       >
-        {PrefixIcon ? <PrefixIcon className="with_prefix_icon" /> : null}
+        {typeof PrefixIcon === 'object' ? (
+          <PrefixIcon className="with_prefix_icon" />
+        ) : typeof PrefixIcon === 'string' ? (
+          <span className="prefix_icon_text emoji">{PrefixIcon}</span>
+        ) : null}
         <input
           type={!showPassword && isPassword ? 'password' : 'text'}
           placeholder={placeholder}
