@@ -45,7 +45,7 @@ const MppToggleButton: React.FC<ToggleButtonPropos> = ({
           }}
           checked={toggleValue}
           type="checkbox"
-          id="toggle"
+          id={id}
         />
         <div className="toggle_button_indicator"></div>
       </label>
