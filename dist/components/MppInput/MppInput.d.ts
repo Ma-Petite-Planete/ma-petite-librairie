@@ -20,6 +20,7 @@ interface MppInputTextProps {
     autoComplete?: string;
     canClearField?: boolean;
     prefixIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
+    id?: string;
 }
 /**
  * Composant d'entrée personnalisée pour les formulaires.

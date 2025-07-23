@@ -1,5 +1,5 @@
 import * as React from 'react';
-import React__default, { useState, useEffect, useCallback, useRef } from 'react';
+import React__default, { useState, useEffect, useCallback, useRef, useId } from 'react';
 
 var ButtonType;
 (function (ButtonType) {
@@ -1314,7 +1314,7 @@ const StatCard = ({ IconComponent, title, stat, boType, statDetails, }) => {
                 " ", statDetails !== null && statDetails !== void 0 ? statDetails : ''))) : (React__default.createElement(MppSkeletonLoader, { count: 2 })))));
 };
 
-const MppTextArea = ({ placeholder, value = '', onChange, readOnly = false, }) => {
+const MppTextArea = ({ placeholder, value = '', onChange, readOnly = false, style, id, }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [inputValue, setInputValue] = useState(value);
     const textAreaRef = useRef(null);
@@ -1340,9 +1340,11 @@ const MppTextArea = ({ placeholder, value = '', onChange, readOnly = false, }) =
         adjustHeight();
         onChange(newValue);
     };
+    const reactId = useId();
+    const finalId = id !== null && id !== void 0 ? id : `mpp-textarea-${reactId}`;
     return (React__default.createElement(React__default.Fragment, null,
         React__default.createElement("div", { className: `mpp_text_area_container ${isFocused && !readOnly ? 'focused' : ''}` },
-            React__default.createElement("textarea", { ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area ${readOnly ? 'read_only' : ''}`, readOnly: readOnly }))));
+            React__default.createElement("textarea", { id: finalId, ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area ${readOnly ? 'read_only' : ''}`, readOnly: readOnly, style: style }))));
 };
 
 var Direction;
@@ -1869,7 +1871,7 @@ const MppToggleButton = ({ value, onChange }) => {
  * />
  * ```
  */
-const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacters, errorMessage = '', readOnly = false, onChange, onKeyDown, onClickIcon, isPassword = false, autoComplete, canClearField = false, prefixIcon: PrefixIcon, }) => {
+const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacters, errorMessage = '', readOnly = false, onChange, onKeyDown, onClickIcon, isPassword = false, autoComplete, canClearField = false, prefixIcon: PrefixIcon, id, }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
     const [showPassword, setShowPassword] = useState(false);
@@ -1893,10 +1895,12 @@ const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, ma
         setShowPassword(!showPassword);
     };
     const suffixComponentClassname = 'with_suffix_component';
+    const reactId = useId();
+    const finalId = id !== null && id !== void 0 ? id : `mpp-input-${reactId}`;
     return (React__default.createElement(React__default.Fragment, null,
         React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}` },
             PrefixIcon ? React__default.createElement(PrefixIcon, { className: "with_prefix_icon" }) : null,
-            React__default.createElement("input", { type: !showPassword && isPassword ? 'password' : 'text', placeholder: placeholder, value: value, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown, autoComplete: autoComplete }),
+            React__default.createElement("input", { id: finalId, type: !showPassword && isPassword ? 'password' : 'text', placeholder: placeholder, value: value, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown, autoComplete: autoComplete }),
             (isFocused || value) && Icon ? (React__default.createElement(Icon, { className: `${onClickIcon ? 'input_icon_pointer' : ''} ${suffixComponentClassname} `, onClick: handleIconClick })) : isPassword ? (React__default.createElement(MppIcons.eye, { className: `input_icon_pointer ${showPassword ? 'eye_focus' : 'eye_unfocus'} ${suffixComponentClassname} `, onClick: handleShowPassword })) : needCounter ? (React__default.createElement("span", { className: `input_counter ${value.length === maxCharacters ? 'max_characteres' : ''} ${suffixComponentClassname} ` }, `${value.length}/${maxCharacters}`)) : canClearField && value.length > 0 ? (React__default.createElement(MppIcons.inputClose, { className: `input_icon_pointer ${suffixComponentClassname}`, onClick: () => {
                     onChange('');
                 } })) : null),

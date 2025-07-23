@@ -10,6 +10,8 @@ interface MppTextAreaProps {
     validationConditions?: Array<ValidationCondition>;
     onChange?: (value: string) => void;
     readOnly?: boolean;
+    style?: React.CSSProperties;
+    id?: string;
 }
 declare const MppTextArea: React.FC<MppTextAreaProps>;
 export default MppTextArea;
