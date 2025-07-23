@@ -5,6 +5,7 @@ interface ToggleButtonPropos {
   value: boolean;
   onChange: (value: boolean) => void;
   id: string;
+  disabled: boolean;
 }
 
 /**
@@ -28,6 +29,7 @@ const MppToggleButton: React.FC<ToggleButtonPropos> = ({
   id,
   value,
   onChange,
+  disabled,
 }) => {
   const [toggleValue, setToggleValue] = useState(value);
 
@@ -46,6 +48,7 @@ const MppToggleButton: React.FC<ToggleButtonPropos> = ({
           checked={toggleValue}
           type="checkbox"
           id={id}
+          disabled={disabled}
         />
         <div className="toggle_button_indicator"></div>
       </label>
