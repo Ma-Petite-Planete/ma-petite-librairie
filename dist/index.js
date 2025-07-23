@@ -1343,8 +1343,8 @@ const MppTextArea = ({ placeholder, value = '', onChange, readOnly = false, styl
     const reactId = useId();
     const finalId = id !== null && id !== void 0 ? id : `mpp-textarea-${reactId}`;
     return (React__default.createElement(React__default.Fragment, null,
-        React__default.createElement("div", { className: `mpp_text_area_container ${isFocused && !readOnly ? 'focused' : ''}` },
-            React__default.createElement("textarea", { id: finalId, ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area ${readOnly ? 'read_only' : ''}`, readOnly: readOnly, style: style }))));
+        React__default.createElement("div", { className: `mpp_text_area_container ${isFocused && !readOnly ? 'focused' : ''}`, style: style },
+            React__default.createElement("textarea", { id: finalId, ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area ${readOnly ? 'read_only' : ''}`, readOnly: readOnly }))));
 };
 
 var Direction;

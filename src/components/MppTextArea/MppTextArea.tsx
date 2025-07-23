@@ -59,6 +59,7 @@ const MppTextArea: React.FC<MppTextAreaProps> = ({
     <>
       <div
         className={`mpp_text_area_container ${isFocused && !readOnly ? 'focused' : ''}`}
+        style={style}
       >
         <textarea
           id={finalId}
@@ -70,7 +71,6 @@ const MppTextArea: React.FC<MppTextAreaProps> = ({
           onChange={readOnly ? null : handleChange}
           className={`mpp_text_area ${readOnly ? 'read_only' : ''}`}
           readOnly={readOnly}
-          style={style}
         />
       </div>
     </>
