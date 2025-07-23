@@ -1820,15 +1820,15 @@ const MppToaster = ({ message, displayToast, messageType, animationDirection, on
  *   onChange={(newValue) => console.log(newValue)}
  * />
  */
-const MppToggleButton = ({ value, onChange }) => {
+const MppToggleButton = ({ id, value, onChange, }) => {
     const [toggleValue, setToggleValue] = useState(value);
     return (React__default.createElement("div", { className: "toggle_button_container" },
-        React__default.createElement("label", { htmlFor: "toggle", className: `toggle_button ${toggleValue ? 'checked' : ''}` },
+        React__default.createElement("label", { htmlFor: id, className: `toggle_button ${toggleValue ? 'checked' : ''}` },
             React__default.createElement("input", { onChange: () => {
                     const value = !toggleValue;
                     setToggleValue(value);
                     onChange(value);
-                }, checked: toggleValue, type: "checkbox", id: "toggle" }),
+                }, checked: toggleValue, type: "checkbox", id: id }),
             React__default.createElement("div", { className: "toggle_button_indicator" }))));
 };
 
