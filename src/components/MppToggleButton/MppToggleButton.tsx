@@ -4,6 +4,7 @@ import './mpp_toggle_button.css';
 interface ToggleButtonPropos {
   value: boolean;
   onChange: (value: boolean) => void;
+  id: string;
 }
 
 /**
@@ -23,13 +24,17 @@ interface ToggleButtonPropos {
  * />
  */
 
-const MppToggleButton: React.FC<ToggleButtonPropos> = ({ value, onChange }) => {
+const MppToggleButton: React.FC<ToggleButtonPropos> = ({
+  id,
+  value,
+  onChange,
+}) => {
   const [toggleValue, setToggleValue] = useState(value);
 
   return (
     <div className="toggle_button_container">
       <label
-        htmlFor="toggle"
+        htmlFor={id}
         className={`toggle_button ${toggleValue ? 'checked' : ''}`}
       >
         <input
