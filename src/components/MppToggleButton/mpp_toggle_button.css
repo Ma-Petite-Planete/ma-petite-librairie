@@ -42,3 +42,7 @@
   top: 1px;
   transition: 0.3s;
 }
+
+.disabled_container {
+  cursor: not-allowed;
+}
