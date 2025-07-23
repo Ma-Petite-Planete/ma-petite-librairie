@@ -34,14 +34,10 @@ const MppToggleButton: React.FC<ToggleButtonPropos> = ({
   const [toggleValue, setToggleValue] = useState(value);
 
   return (
-    <div
-      className={['toggle_button_container', disabled && 'disabled_container']
-        .filter(Boolean)
-        .join(' ')}
-    >
+    <div className={'toggle_button_container'}>
       <label
         htmlFor={id}
-        className={`toggle_button ${toggleValue ? 'checked' : ''}`}
+        className={`toggle_button ${toggleValue ? 'checked' : ''} ${disabled ? 'disabled_container' : ''}`}
       >
         <input
           onChange={() => {
