@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './mpp_toggle_button.css';
 
 interface ToggleButtonPropos {
@@ -32,6 +32,10 @@ const MppToggleButton: React.FC<ToggleButtonPropos> = ({
   disabled = false,
 }) => {
   const [toggleValue, setToggleValue] = useState(value);
+
+  useEffect(() => {
+    setToggleValue(value);
+  }, [value]);
 
   return (
     <div className={'toggle_button_container'}>
