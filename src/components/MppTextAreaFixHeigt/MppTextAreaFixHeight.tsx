@@ -80,7 +80,7 @@ const MppTextAreaFixHeight: React.FC<MppTextAreaFixHeightProps> = ({
   return (
     <>
       <div
-        className={`mpp_text_area_container ${isFocused && !readOnly ? 'focused' : ''}`}
+        className={`mpp_text_area_container_fix_heigt ${isFocused && !readOnly ? 'focused_fix_heigt' : ''}`}
         style={{ height: fixHeight }}
       >
         <textarea
@@ -91,7 +91,7 @@ const MppTextAreaFixHeight: React.FC<MppTextAreaFixHeightProps> = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={readOnly ? null : handleChange}
-          className={`mpp_text_area ${readOnly ? 'read_only' : ''}`}
+          className={`mpp_text_area_fix_heigt ${readOnly ? 'read_only_fix_heigt' : ''}`}
           readOnly={readOnly}
         />
       </div>
