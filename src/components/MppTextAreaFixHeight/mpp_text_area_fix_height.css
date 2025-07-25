@@ -23,6 +23,6 @@
   border-color: var(--dark_blue);
 }
 
-.read_only_fix_heigt {
+.read_only_fix_height {
   cursor: not-allowed;
 }

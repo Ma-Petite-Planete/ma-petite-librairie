@@ -27,4 +27,4 @@ export { default as MppCheckBox } from './components/MppCheckBox/MppCheckbox';
 export { default as MppInput } from './components/MppInput/MppInput';
 export { default as MppIncrementInput } from './components/MppIncrementInput/MppIncrementInput';
 export { default as MppToggleSection } from './components/MppToggleSection/MppToggleSection';
-export { default as MppTextAreaFixHeight } from './components/MppTextAreaFixHeigt/MppTextAreaFixHeight';
+export { default as MppTextAreaFixHeight } from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';

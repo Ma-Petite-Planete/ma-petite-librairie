@@ -2041,8 +2041,8 @@ const MppTextAreaFixHeight = ({ placeholder, value = '', onChange, readOnly = fa
     const reactId = useId();
     const finalId = id !== null && id !== void 0 ? id : `mpp-textarea-${reactId}`;
     return (React__default.createElement(React__default.Fragment, null,
-        React__default.createElement("div", { className: `mpp_text_area_container_fix_heigt ${isFocused && !readOnly ? 'focused_fix_heigt' : ''}`, style: { height: fixHeight } },
-            React__default.createElement("textarea", { id: finalId, ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area_fix_heigt ${readOnly ? 'read_only_fix_heigt' : ''}`, readOnly: readOnly }))));
+        React__default.createElement("div", { className: `mpp_text_area_container_fix_height ${isFocused && !readOnly ? 'focused_fix_height' : ''}`, style: { height: fixHeight } },
+            React__default.createElement("textarea", { id: finalId, ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area_fix_height ${readOnly ? 'read_only_fix_height' : ''}`, readOnly: readOnly }))));
 };
 
 export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppTextAreaFixHeight, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };

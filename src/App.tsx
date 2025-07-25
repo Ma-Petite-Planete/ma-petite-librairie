@@ -39,7 +39,7 @@ import {
 import DropDownMultiFilters from './section/dropdown/DropDownMultiFilter';
 import MppToggleSection from './components/MppToggleSection/MppToggleSection';
 import MppDropDown from './components/MppDropDown/MppDropdown';
-import MppTextAreaFixHeight from './components/MppTextAreaFixHeigt/MppTextAreaFixHeight';
+import MppTextAreaFixHeight from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';
 function App() {
   return (
     <div className="main_background">
