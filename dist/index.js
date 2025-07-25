@@ -2020,4 +2020,29 @@ const MppToggleSection = ({ title, children, isSectionOpenByDefault = false, }) 
             React__default.createElement("div", { className: "toggle_section_inner", ref: contentRef }, children))));
 };
 
-export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };
+const MppTextAreaFixHeight = ({ placeholder, value = '', onChange, readOnly = false, fixHeight, id, }) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const [inputValue, setInputValue] = useState(value);
+    const textAreaRef = useRef(null);
+    useEffect(() => {
+        setInputValue(value);
+    }, [value]);
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+    const handleBlur = () => {
+        setIsFocused(false);
+    };
+    const handleChange = (e) => {
+        const newValue = e.target.value;
+        setInputValue(newValue);
+        onChange(newValue);
+    };
+    const reactId = useId();
+    const finalId = id !== null && id !== void 0 ? id : `mpp-textarea-${reactId}`;
+    return (React__default.createElement(React__default.Fragment, null,
+        React__default.createElement("div", { className: `mpp_text_area_container ${isFocused && !readOnly ? 'focused' : ''}`, style: { height: fixHeight } },
+            React__default.createElement("textarea", { id: finalId, ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area ${readOnly ? 'read_only' : ''}`, readOnly: readOnly }))));
+};
+
+export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppTextAreaFixHeight, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };

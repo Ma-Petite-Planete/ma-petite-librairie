@@ -1,0 +1,28 @@
+.mpp_text_area_container {
+  display: flex;
+  padding: 16px;
+  border: 1px solid var(--medium_grey);
+  background-color: var(--light_grey);
+  border-radius: var(--standard_border_radius);
+  box-sizing: border-box;
+}
+
+.mpp_text_area {
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  height: 100%;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+  background-color: transparent;
+}
+
+.focused {
+  border-color: var(--dark_blue);
+}
+
+.read_only {
+  cursor: not-allowed;
+}

@@ -39,6 +39,7 @@ import {
 import DropDownMultiFilters from './section/dropdown/DropDownMultiFilter';
 import MppToggleSection from './components/MppToggleSection/MppToggleSection';
 import MppDropDown from './components/MppDropDown/MppDropdown';
+import MppTextAreaFixHeight from './components/MppTextAreaFixHeigt/MppTextAreaFixHeight';
 function App() {
   return (
     <div className="main_background">
@@ -125,6 +126,16 @@ function App() {
             console.log(value);
           }}
           readOnly={true}
+        />
+        <MppTextAreaFixHeight
+          placeholder={'Je suis un texte area'}
+          value={
+            'dddddddddddddddddddv dddddddddddddddddddddddddddddddddddddd ddddddddddddddddddddddddddddddddddddddddddddddddddd dddddddddddddddddddddddddddddddddddddddddddddddddddddd ddddddddddddddddddddddddddddddddddddddddddddddddd'
+          }
+          onChange={function (value: string): void {
+            console.log(value);
+          }}
+          fixHeight="200px"
         />
       </div>
       <InputDemo />
