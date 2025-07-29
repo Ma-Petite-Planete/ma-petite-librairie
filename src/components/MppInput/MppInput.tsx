@@ -22,7 +22,7 @@ interface MppInputTextProps {
   errorMessage?: string;
   autoComplete?: string;
   canClearField?: boolean;
-  prefixIcon?: React.FC<React.SVGProps<SVGSVGElement>> | string; // string like "@", "€", etc.
+  prefixIcon?: React.FC<React.SVGProps<SVGSVGElement>> | string;
 }
 
 /**
