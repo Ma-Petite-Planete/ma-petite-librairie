@@ -75,6 +75,26 @@ const InputDemo: React.FC = () => {
       />
 
       <MppInput
+        value={inputDemoCounter}
+        placeholder={'exemple counter'}
+        onChange={handleChangeDemoCounter}
+        needCounter={true}
+        maxCharacters={20}
+        errorMessage={errorDemoCounter}
+        prefixIcon={MppIcons.bubble}
+      />
+
+        <MppInput
+        value={inputDemoCounter}
+        placeholder={'exemple counter'}
+        onChange={handleChangeDemoCounter}
+        needCounter={true}
+        maxCharacters={20}
+        errorMessage={errorDemoCounter}
+        prefixIcon={"🇨🇵"}
+      />
+
+      <MppInput
         value={inputDemoClear}
         placeholder={'moteur de recherche'}
         onChange={(value) => setinputDemoClear(value)}
