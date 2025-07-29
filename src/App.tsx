@@ -38,7 +38,8 @@ import {
 } from './components/MppToaster/MppToaster';
 import DropDownMultiFilters from './section/dropdown/DropDownMultiFilter';
 import MppToggleSection from './components/MppToggleSection/MppToggleSection';
-import MppDropDown from './components/MppDropdown/MppDropdown';
+import MppDropDown from './components/MppDropDown/MppDropDown';
+import MppTextAreaFixHeight from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';
 function App() {
   return (
     <div className="main_background">
@@ -125,14 +126,24 @@ function App() {
             console.log(value);
           }}
           readOnly={true}
-        ></MppTextArea>
+        />
+        <MppTextAreaFixHeight
+          placeholder={'Je suis un texte area'}
+          value={
+            'dddddddddddddddddddv dddddddddddddddddddddddddddddddddddddd ddddddddddddddddddddddddddddddddddddddddddddddddddd dddddddddddddddddddddddddddddddddddddddddddddddddddddd ddddddddddddddddddddddddddddddddddddddddddddddddd'
+          }
+          onChange={function (value: string): void {
+            console.log(value);
+          }}
+          fixHeight="200px"
+        />
       </div>
       <InputDemo />
       <h2>Trophés</h2>
       <MppPodium
-        onClick={() => { }}
-        onHover={() => { }}
-        onHoverLeave={() => { }}
+        onClick={() => {}}
+        onHover={() => {}}
+        onHoverLeave={() => {}}
         displayFullInfos={false}
         color={ScoColors.lightYellow}
         typeOfPlayers="élève"

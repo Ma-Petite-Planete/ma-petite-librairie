@@ -1,4 +1,4 @@
-import React, { useState, KeyboardEventHandler } from 'react';
+import React, { useState, KeyboardEventHandler, useId } from 'react';
 import './mpp_input.css';
 import { MppIcons } from '../../utils/MppIcons';
 
@@ -23,6 +23,7 @@ interface MppInputTextProps {
   autoComplete?: string;
   canClearField?: boolean;
   prefixIcon?: React.FC<React.SVGProps<SVGSVGElement>> | string;
+  id?: string;
 }
 
 /**
@@ -77,6 +78,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
   autoComplete,
   canClearField = false,
   prefixIcon: PrefixIcon,
+  id,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
@@ -106,6 +108,8 @@ const MppInput: React.FC<MppInputTextProps> = ({
     setShowPassword(!showPassword);
   };
   const suffixComponentClassname = 'with_suffix_component';
+  const reactId = useId();
+  const finalId = id ?? `mpp-input-${reactId}`;
 
   return (
     <>
@@ -118,6 +122,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
           <span className="prefix_icon_text emoji">{PrefixIcon}</span>
         ) : null}
         <input
+          id={finalId}
           type={!showPassword && isPassword ? 'password' : 'text'}
           placeholder={placeholder}
           value={value}

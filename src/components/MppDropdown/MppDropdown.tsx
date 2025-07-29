@@ -19,12 +19,14 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
   identifierKey?: keyof T;
 }
 
-interface HighlightedDropDownProps<T extends object, K extends keyof T> extends MppDropDownProps<T, K> {
+interface HighlightedDropDownProps<T extends object, K extends keyof T>
+  extends MppDropDownProps<T, K> {
   highlightCurrentOption: true;
   identifierKey: keyof T;
 }
 
-interface NonHighlightedDropDownProps<T extends object, K extends keyof T> extends MppDropDownProps<T, K> {
+interface NonHighlightedDropDownProps<T extends object, K extends keyof T>
+  extends MppDropDownProps<T, K> {
   highlightCurrentOption?: false | undefined;
   identifierKey?: keyof T;
 }
@@ -90,13 +92,12 @@ const MppDropDown = <T extends object, K extends keyof T>({
   isOptionDisabled,
   highlightCurrentOption,
   width,
-  identifierKey
+  identifierKey,
 }: MppDropDownPropsComplete<T, K>) => {
   const [selectedOption, setSelectedOption] = React.useState<T | null>(null);
   const [isDropdownVisible, setIsDropdownVisible] =
     React.useState<boolean>(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
-
 
   useEffect(() => {
     setSelectedOption(defaultValue);
@@ -132,9 +133,11 @@ const MppDropDown = <T extends object, K extends keyof T>({
   return (
     <div
       ref={dropDownRef}
-      className={`custom_select ${isDisabled ? 'select_disabled' : ''}`} style={{ width: width }}
+      className={`custom_select ${isDisabled ? 'select_disabled' : ''}`}
+      style={{ width: width }}
     >
       <button
+        type="button"
         disabled={isDisabled}
         onClick={
           !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null
@@ -178,10 +181,10 @@ const MppDropDown = <T extends object, K extends keyof T>({
                   tabIndex={0}
                   className={`${needEmojiFont ? 'emoji' : ''}${textClassname}
                     ${isDisabledOption ? 'option_disabled' : ''}
-                    ${highlightCurrentOption &&
-                      isOptionSelected(option)
-                      ? 'text_body_sb'
-                      : ''
+                    ${
+                      highlightCurrentOption && isOptionSelected(option)
+                        ? 'text_body_sb'
+                        : ''
                     }`}
                   onClick={() => {
                     if (!isDisabledOption) {

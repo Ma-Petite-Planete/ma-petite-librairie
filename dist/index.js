@@ -1,5 +1,5 @@
 import * as React from 'react';
-import React__default, { useState, useEffect, useCallback, useRef } from 'react';
+import React__default, { useState, useEffect, useCallback, useRef, useId } from 'react';
 
 var ButtonType;
 (function (ButtonType) {
@@ -1335,7 +1335,7 @@ const StatCard = ({ IconComponent, title, stat, boType, statDetails, }) => {
                 " ", statDetails !== null && statDetails !== void 0 ? statDetails : ''))) : (React__default.createElement(MppSkeletonLoader, { count: 2 })))));
 };
 
-const MppTextArea = ({ placeholder, value = '', onChange, readOnly = false, }) => {
+const MppTextArea = ({ placeholder, value = '', onChange, readOnly = false, style, id, }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [inputValue, setInputValue] = useState(value);
     const textAreaRef = useRef(null);
@@ -1361,9 +1361,11 @@ const MppTextArea = ({ placeholder, value = '', onChange, readOnly = false, }) =
         adjustHeight();
         onChange(newValue);
     };
+    const reactId = useId();
+    const finalId = id !== null && id !== void 0 ? id : `mpp-textarea-${reactId}`;
     return (React__default.createElement(React__default.Fragment, null,
-        React__default.createElement("div", { className: `mpp_text_area_container ${isFocused && !readOnly ? 'focused' : ''}` },
-            React__default.createElement("textarea", { ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area ${readOnly ? 'read_only' : ''}`, readOnly: readOnly }))));
+        React__default.createElement("div", { className: `mpp_text_area_container ${isFocused && !readOnly ? 'focused' : ''}`, style: style },
+            React__default.createElement("textarea", { id: finalId, ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area ${readOnly ? 'read_only' : ''}`, readOnly: readOnly }))));
 };
 
 var Direction;
@@ -1452,6 +1454,112 @@ const useClickOutside = (elementRef, callback) => {
             document.removeEventListener('click', handleClickOutside, true);
         };
     });
+};
+
+/**
+ * Le composant MppDropDown rend un menu déroulant personnalisable.
+ *
+ * @template T - Le type des options.
+ * @template K - La clé du type des options.
+ *
+ * @param {MppDropDownProps<T, K>} props - Les propriétés du composant dropdown.
+ * @param {string} props.placeholder - Le texte de l'espace réservé à afficher lorsqu'aucune option n'est sélectionnée.
+ * @param {(option: T) => void} props.onChange - La fonction de rappel pour gérer les changements de sélection d'option.
+ * @param {T[]} props.options - La liste des options à afficher dans le menu déroulant.
+ * @param {boolean} [props.isDisabled] - Indicateur pour désactiver le menu déroulant.
+ * @param {T} props.defaultValue - L'option sélectionnée par défaut.
+ * @param {string} [props.textClassname=''] - Le nom de la classe CSS pour le texte.
+ * @param {K} props.property - La propriété de l'option à afficher dans le menu déroulant.
+ * @param {keyof T} [identifierKey] - (Optionnel) La clé unique utilisée pour identifier chaque option lors de la comparaison et de la mise en surbrillance de l'option sélectionnée.
+ * Si `highlightCurrentOption` est à `true`, cette propriété est requise pour permettre la comparaison des options via cette clé.
+ *
+ * @example
+ * ```tsx
+ * const ExampleComponent = () => {
+ *   const options = [
+ *     { id: '1', value: 'Option 1' },
+ *     { id: '2', value: 'Option 2' },
+ *     { id: '3', value: 'Option 3' },
+ *   ];
+ *
+ *   const handleChange = (selectedOption: T) => {
+ *     console.log('Option sélectionnée:', selectedOption);
+ *   };
+ *
+ *   return (
+ *     <MppDropDown
+ *       options={options}
+ *       onChange={handleChange}
+ *       defaultValue={options[0]}
+ *       placeholder="Sélectionnez une option"
+ *       property="value"
+ *     />
+ *   );
+ * };
+ * ```
+ */
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, width, identifierKey, }) => {
+    const [selectedOption, setSelectedOption] = React__default.useState(null);
+    const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
+    const dropDownRef = useRef(null);
+    useEffect(() => {
+        setSelectedOption(defaultValue);
+    }, [defaultValue, options]);
+    useClickOutside(dropDownRef, () => {
+        if (!isDisabled) {
+            setIsDropdownVisible(false);
+        }
+    });
+    useEffect(() => {
+        if (isDisabled) {
+            setSelectedOption(null);
+        }
+    }, [isDisabled]);
+    const isOptionSelected = (option) => {
+        const selectedId = selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption[identifierKey];
+        const defaultId = defaultValue === null || defaultValue === void 0 ? void 0 : defaultValue[identifierKey];
+        const optionId = option[identifierKey];
+        return selectedId === optionId || (!selectedId && defaultId === optionId);
+    };
+    const displayedDefaultValue = defaultValue
+        ? defaultValue[property]
+        : null;
+    const displaySelectedValue = selectedOption
+        ? selectedOption[property]
+        : null;
+    return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''}`, style: { width: width } },
+        React__default.createElement("button", { type: "button", disabled: isDisabled, onClick: !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null, className: ` select_button ${textClassname}
+          ${isDropdownVisible ? 'open' : ''}
+          ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
+          ${selectedOption ? 'selected' : ''}` },
+            React__default.createElement("span", { className: `select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}` }, displaySelectedValue
+                ? displaySelectedValue
+                : displayedDefaultValue
+                    ? displayedDefaultValue
+                    : placeholder),
+            React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
+        isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
+            var _a;
+            const displayedValueInDropdown = option[property];
+            const isDisabledOption = (_a = isOptionDisabled === null || isOptionDisabled === void 0 ? void 0 : isOptionDisabled(option)) !== null && _a !== void 0 ? _a : false;
+            return (React__default.createElement("li", { key: index, onKeyDown: (event) => {
+                    if (event.key === 'Enter' && !isDisabledOption) {
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
+                    }
+                }, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}
+                    ${isDisabledOption ? 'option_disabled' : ''}
+                    ${highlightCurrentOption && isOptionSelected(option)
+                    ? 'text_body_sb'
+                    : ''}`, onClick: () => {
+                    if (!isDisabledOption) {
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
+                    }
+                }, "aria-disabled": isDisabledOption }, displayedValueInDropdown));
+        }))))));
 };
 
 /**
@@ -1783,7 +1891,7 @@ const MppToggleButton = ({ value, onChange }) => {
  * />
  * ```
  */
-const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacters, errorMessage = '', readOnly = false, onChange, onKeyDown, onClickIcon, isPassword = false, autoComplete, canClearField = false, prefixIcon: PrefixIcon, }) => {
+const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, maxCharacters, errorMessage = '', readOnly = false, onChange, onKeyDown, onClickIcon, isPassword = false, autoComplete, canClearField = false, prefixIcon: PrefixIcon, id, }) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
     const [showPassword, setShowPassword] = useState(false);
@@ -1807,10 +1915,12 @@ const MppInput = ({ placeholder, value = '', icon: Icon, needCounter = false, ma
         setShowPassword(!showPassword);
     };
     const suffixComponentClassname = 'with_suffix_component';
+    const reactId = useId();
+    const finalId = id !== null && id !== void 0 ? id : `mpp-input-${reactId}`;
     return (React__default.createElement(React__default.Fragment, null,
         React__default.createElement("div", { className: `mpp_input_container ${isFocused && !readOnly ? 'focused' : ''} ${errorMessage.length > 0 && !isFirstEntry && value ? 'error' : ''}` },
             typeof PrefixIcon === 'object' ? (React__default.createElement(PrefixIcon, { className: "with_prefix_icon" })) : typeof PrefixIcon === 'string' ? (React__default.createElement("span", { className: "prefix_icon_text emoji" }, PrefixIcon)) : null,
-            React__default.createElement("input", { type: !showPassword && isPassword ? 'password' : 'text', placeholder: placeholder, value: value, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown, autoComplete: autoComplete }),
+            React__default.createElement("input", { id: finalId, type: !showPassword && isPassword ? 'password' : 'text', placeholder: placeholder, value: value, onFocus: handleFocus, onBlur: handleBlur, onChange: handleChange, className: `mpp_input ${readOnly ? 'read_only' : ''}`, readOnly: readOnly, onKeyDown: onKeyDown, autoComplete: autoComplete }),
             (isFocused || value) && Icon ? (React__default.createElement(Icon, { className: `${onClickIcon ? 'input_icon_pointer' : ''} ${suffixComponentClassname} `, onClick: handleIconClick })) : isPassword ? (React__default.createElement(MppIcons.eye, { className: `input_icon_pointer ${showPassword ? 'eye_focus' : 'eye_unfocus'} ${suffixComponentClassname} `, onClick: handleShowPassword })) : needCounter ? (React__default.createElement("span", { className: `input_counter ${value.length === maxCharacters ? 'max_characteres' : ''} ${suffixComponentClassname} ` }, `${value.length}/${maxCharacters}`)) : canClearField && value.length > 0 ? (React__default.createElement(MppIcons.inputClose, { className: `input_icon_pointer ${suffixComponentClassname}`, onClick: () => {
                     onChange('');
                 } })) : null),
@@ -1931,111 +2041,29 @@ const MppToggleSection = ({ title, children, isSectionOpenByDefault = false, }) 
             React__default.createElement("div", { className: "toggle_section_inner", ref: contentRef }, children))));
 };
 
-/**
- * Le composant MppDropDown rend un menu déroulant personnalisable.
- *
- * @template T - Le type des options.
- * @template K - La clé du type des options.
- *
- * @param {MppDropDownProps<T, K>} props - Les propriétés du composant dropdown.
- * @param {string} props.placeholder - Le texte de l'espace réservé à afficher lorsqu'aucune option n'est sélectionnée.
- * @param {(option: T) => void} props.onChange - La fonction de rappel pour gérer les changements de sélection d'option.
- * @param {T[]} props.options - La liste des options à afficher dans le menu déroulant.
- * @param {boolean} [props.isDisabled] - Indicateur pour désactiver le menu déroulant.
- * @param {T} props.defaultValue - L'option sélectionnée par défaut.
- * @param {string} [props.textClassname=''] - Le nom de la classe CSS pour le texte.
- * @param {K} props.property - La propriété de l'option à afficher dans le menu déroulant.
- * @param {keyof T} [identifierKey] - (Optionnel) La clé unique utilisée pour identifier chaque option lors de la comparaison et de la mise en surbrillance de l'option sélectionnée.
- * Si `highlightCurrentOption` est à `true`, cette propriété est requise pour permettre la comparaison des options via cette clé.
- *
- * @example
- * ```tsx
- * const ExampleComponent = () => {
- *   const options = [
- *     { id: '1', value: 'Option 1' },
- *     { id: '2', value: 'Option 2' },
- *     { id: '3', value: 'Option 3' },
- *   ];
- *
- *   const handleChange = (selectedOption: T) => {
- *     console.log('Option sélectionnée:', selectedOption);
- *   };
- *
- *   return (
- *     <MppDropDown
- *       options={options}
- *       onChange={handleChange}
- *       defaultValue={options[0]}
- *       placeholder="Sélectionnez une option"
- *       property="value"
- *     />
- *   );
- * };
- * ```
- */
-const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, width, identifierKey }) => {
-    const [selectedOption, setSelectedOption] = React__default.useState(null);
-    const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
-    const dropDownRef = useRef(null);
+const MppTextAreaFixHeight = ({ placeholder, value = '', onChange, readOnly = false, fixHeight, id, }) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const [inputValue, setInputValue] = useState(value);
+    const textAreaRef = useRef(null);
     useEffect(() => {
-        setSelectedOption(defaultValue);
-    }, [defaultValue, options]);
-    useClickOutside(dropDownRef, () => {
-        if (!isDisabled) {
-            setIsDropdownVisible(false);
-        }
-    });
-    useEffect(() => {
-        if (isDisabled) {
-            setSelectedOption(null);
-        }
-    }, [isDisabled]);
-    const isOptionSelected = (option) => {
-        const selectedId = selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption[identifierKey];
-        const defaultId = defaultValue === null || defaultValue === void 0 ? void 0 : defaultValue[identifierKey];
-        const optionId = option[identifierKey];
-        return selectedId === optionId || (!selectedId && defaultId === optionId);
+        setInputValue(value);
+    }, [value]);
+    const handleFocus = () => {
+        setIsFocused(true);
     };
-    const displayedDefaultValue = defaultValue
-        ? defaultValue[property]
-        : null;
-    const displaySelectedValue = selectedOption
-        ? selectedOption[property]
-        : null;
-    return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''}`, style: { width: width } },
-        React__default.createElement("button", { disabled: isDisabled, onClick: !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null, className: ` select_button ${textClassname}
-          ${isDropdownVisible ? 'open' : ''}
-          ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
-          ${selectedOption ? 'selected' : ''}` },
-            React__default.createElement("span", { className: `select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}` }, displaySelectedValue
-                ? displaySelectedValue
-                : displayedDefaultValue
-                    ? displayedDefaultValue
-                    : placeholder),
-            React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
-        isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
-            var _a;
-            const displayedValueInDropdown = option[property];
-            const isDisabledOption = (_a = isOptionDisabled === null || isOptionDisabled === void 0 ? void 0 : isOptionDisabled(option)) !== null && _a !== void 0 ? _a : false;
-            return (React__default.createElement("li", { key: index, onKeyDown: (event) => {
-                    if (event.key === 'Enter' && !isDisabledOption) {
-                        setSelectedOption(option);
-                        setIsDropdownVisible(false);
-                        onChange(option);
-                    }
-                }, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}
-                    ${isDisabledOption ? 'option_disabled' : ''}
-                    ${highlightCurrentOption &&
-                    isOptionSelected(option)
-                    ? 'text_body_sb'
-                    : ''}`, onClick: () => {
-                    if (!isDisabledOption) {
-                        setSelectedOption(option);
-                        setIsDropdownVisible(false);
-                        onChange(option);
-                    }
-                }, "aria-disabled": isDisabledOption }, displayedValueInDropdown));
-        }))))));
+    const handleBlur = () => {
+        setIsFocused(false);
+    };
+    const handleChange = (e) => {
+        const newValue = e.target.value;
+        setInputValue(newValue);
+        onChange(newValue);
+    };
+    const reactId = useId();
+    const finalId = id !== null && id !== void 0 ? id : `mpp-textarea-${reactId}`;
+    return (React__default.createElement(React__default.Fragment, null,
+        React__default.createElement("div", { className: `mpp_text_area_container_fix_height ${isFocused && !readOnly ? 'focused_fix_height' : ''}`, style: { height: fixHeight } },
+            React__default.createElement("textarea", { id: finalId, ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area_fix_height ${readOnly ? 'read_only_fix_height' : ''}`, readOnly: readOnly }))));
 };
 
-export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };
+export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppTextAreaFixHeight, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };
