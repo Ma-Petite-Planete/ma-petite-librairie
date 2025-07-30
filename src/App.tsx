@@ -21,7 +21,6 @@ import MppLoader from './components/MppLoader/MppLoader';
 import MppTextArea from './components/MppTextArea/MppTextArea';
 import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader';
 import MppMultiSectionButtonProps from './components/MppMultiSectionButtons/MppMultiSectionButton';
-
 import MppLoaderDots from './components/MppLoaderDots/MppLoaderDots';
 import { MppLinearProgressBar } from './components/MppLinearProgressBar/MppLinearProgressBar';
 import MppToggleButton from './components/MppToggleButton/MppToggleButton';
@@ -622,6 +621,7 @@ function App() {
             console.log(value);
           }}
           id="toggle-button"
+          disabled={false}
         />
       </div>
 
