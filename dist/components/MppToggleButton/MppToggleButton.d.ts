@@ -3,6 +3,7 @@ import './mpp_toggle_button.css';
 interface ToggleButtonPropos {
     value: boolean;
     onChange: (value: boolean) => void;
+    disabled?: boolean;
 }
 /**
  * Le composant MppToggleButton rend un bouton bascule personnalisable.

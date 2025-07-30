@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useId, useState } from 'react';
 import './mpp_toggle_button.css';
 
 interface ToggleButtonPropos {
   value: boolean;
   onChange: (value: boolean) => void;
+  disabled?: boolean;
 }
 
 /**
@@ -23,14 +24,23 @@ interface ToggleButtonPropos {
  * />
  */
 
-const MppToggleButton: React.FC<ToggleButtonPropos> = ({ value, onChange }) => {
+const MppToggleButton: React.FC<ToggleButtonPropos> = ({
+  value,
+  onChange,
+  disabled = false,
+}) => {
   const [toggleValue, setToggleValue] = useState(value);
 
+  useEffect(() => {
+    setToggleValue(value);
+  }, [value]);
+  const reactId = useId();
+
   return (
-    <div className="toggle_button_container">
+    <div className={'toggle_button_container'}>
       <label
-        htmlFor="toggle"
-        className={`toggle_button ${toggleValue ? 'checked' : ''}`}
+        htmlFor={reactId}
+        className={`toggle_button ${toggleValue ? 'checked' : ''} ${disabled ? 'disabled_container' : ''}`}
       >
         <input
           onChange={() => {
@@ -40,7 +50,8 @@ const MppToggleButton: React.FC<ToggleButtonPropos> = ({ value, onChange }) => {
           }}
           checked={toggleValue}
           type="checkbox"
-          id="toggle"
+          id={reactId}
+          disabled={disabled}
         />
         <div className="toggle_button_indicator"></div>
       </label>
