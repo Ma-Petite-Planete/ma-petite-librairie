@@ -621,6 +621,7 @@ function App() {
           onChange={(value: boolean) => {
             console.log(value);
           }}
+          id="toggle-button"
         />
       </div>
 
