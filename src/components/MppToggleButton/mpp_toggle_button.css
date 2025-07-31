@@ -11,11 +11,14 @@
   cursor: pointer;
   position: relative;
   transition: 0.2s;
-  box-shadow: 0px 4px 20px 0px var(--dark_blue_very_light);
 }
 
 .toggle_button:focus {
   outline: 2px solid var(--anthracite);
+}
+
+.toggle_box_shadow {
+  box-shadow: 0px 4px 20px 0px var(--dark_blue_very_light);
 }
 
 .toggle_button_indicator {

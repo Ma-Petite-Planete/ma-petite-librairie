@@ -1842,18 +1842,20 @@ const MppToaster = ({ message, displayToast, messageType, animationDirection, on
  *   onChange={(newValue) => console.log(newValue)}
  * />
  */
-const MppToggleButton = ({ id, value, onChange, disabled = false, }) => {
+const MppToggleButton = ({ id, value, onChange, disabled = false, isBoxShadow = false, }) => {
+    const reactId = useId();
+    const finalId = id !== null && id !== void 0 ? id : `mpp-toggle-${reactId}`;
     const [toggleValue, setToggleValue] = useState(value);
     useEffect(() => {
         setToggleValue(value);
     }, [value]);
     return (React__default.createElement("div", { className: 'toggle_button_container' },
-        React__default.createElement("label", { htmlFor: id, className: `toggle_button ${toggleValue ? 'checked' : ''} ${disabled ? 'disabled_container' : ''}` },
+        React__default.createElement("label", { htmlFor: finalId, className: `toggle_button ${toggleValue ? 'checked' : ''} ${disabled ? 'disabled_container' : ''} ${isBoxShadow ? 'toggle_box_shadow' : ''}` },
             React__default.createElement("input", { onChange: () => {
                     const value = !toggleValue;
                     setToggleValue(value);
                     onChange(value);
-                }, checked: toggleValue, type: "checkbox", id: id, disabled: disabled }),
+                }, checked: toggleValue, type: "checkbox", id: finalId, disabled: disabled }),
             React__default.createElement("div", { className: "toggle_button_indicator" }))));
 };
 

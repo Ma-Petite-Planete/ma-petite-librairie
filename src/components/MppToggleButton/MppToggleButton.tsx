@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useId, useState } from 'react';
 import './mpp_toggle_button.css';
 
 interface ToggleButtonPropos {
   value: boolean;
   onChange: (value: boolean) => void;
-  id: string;
+  id?: string;
   disabled?: boolean;
+  isBoxShadow?: boolean;
 }
 
 /**
@@ -30,7 +31,10 @@ const MppToggleButton: React.FC<ToggleButtonPropos> = ({
   value,
   onChange,
   disabled = false,
+  isBoxShadow = false,
 }) => {
+  const reactId = useId();
+  const finalId = id ?? `mpp-toggle-${reactId}`;
   const [toggleValue, setToggleValue] = useState(value);
 
   useEffect(() => {
@@ -40,8 +44,8 @@ const MppToggleButton: React.FC<ToggleButtonPropos> = ({
   return (
     <div className={'toggle_button_container'}>
       <label
-        htmlFor={id}
-        className={`toggle_button ${toggleValue ? 'checked' : ''} ${disabled ? 'disabled_container' : ''}`}
+        htmlFor={finalId}
+        className={`toggle_button ${toggleValue ? 'checked' : ''} ${disabled ? 'disabled_container' : ''} ${isBoxShadow ? 'toggle_box_shadow' : ''}`}
       >
         <input
           onChange={() => {
@@ -51,7 +55,7 @@ const MppToggleButton: React.FC<ToggleButtonPropos> = ({
           }}
           checked={toggleValue}
           type="checkbox"
-          id={id}
+          id={finalId}
           disabled={disabled}
         />
         <div className="toggle_button_indicator"></div>
