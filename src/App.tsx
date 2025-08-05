@@ -139,36 +139,81 @@ function App() {
       </div>
       <InputDemo />
       <h2>Trophés</h2>
-      <MppPodium
-        onClick={() => {}}
-        onHover={() => {}}
-        onHoverLeave={() => {}}
-        displayFullInfos={false}
-        color={ScoColors.lightYellow}
-        typeOfPlayers="élève"
-        rankedElements={[
-          {
-            id: 'test',
-            name: '4èmeD',
-            points: 3,
-            ranking: 1,
-            structure: '2cole des intellos',
-            city: 'Lyon',
-          },
-          {
-            id: 'test2',
-            name: '4èmeB',
-            points: 3,
-            ranking: 2,
-          },
-          {
-            id: 'test3',
-            name: '4èmeA',
-            points: 3,
-            ranking: 3,
-          },
-        ]}
-      />
+      <div
+        style={{ display: 'flex', gap: '20px', justifyContent: 'space-around' }}
+      >
+        <div style={{ width: '100%' }}>
+          <p>Sco</p>
+          <MppPodium
+            onClick={() => {}}
+            onHover={() => {}}
+            onHoverLeave={() => {}}
+            displayFullInfos={true}
+            color={ScoColors.lightYellow}
+            typeOfPlayers="élève"
+            rankedElements={[
+              {
+                id: 'test',
+                name: '4èmeD',
+                points: 3,
+                ranking: 1,
+                structure: '2cole des intellos',
+                city: 'Lyon',
+              },
+              {
+                id: 'test2',
+                name: '4èmeB',
+                points: 3,
+                ranking: 2,
+              },
+              {
+                id: 'test3',
+                name: '4èmeA',
+                points: 3,
+                ranking: 3,
+              },
+            ]}
+          />
+        </div>
+        <div style={{ width: '100%' }}>
+          <p>GP</p>
+          <MppPodium
+            boType={BoType.gpBo}
+            onClick={() => {}}
+            onHover={() => {}}
+            onHoverLeave={() => {}}
+            displayFullInfos={true}
+            color={ScoColors.lightYellow}
+            typeOfPlayers="élève"
+            rankedElements={[
+              {
+                id: 'test',
+                name: 'Marie François (Marie la menace)',
+                points: 3,
+                ranking: 1,
+                comparativeValue: '/player',
+                bottomCount: '1352 Défis',
+              },
+              {
+                id: 'test',
+                name: 'Marie François (Marie la menace)',
+                points: 3,
+                ranking: 2,
+                comparativeValue: '/player',
+                bottomCount: '1352 Défis',
+              },
+              {
+                id: 'test',
+                name: 'Marie François (Marie la menace)',
+                points: 3,
+                ranking: 3,
+                comparativeValue: '/player',
+                bottomCount: '1352 Défis',
+              },
+            ]}
+          />
+        </div>
+      </div>
       <h2>Ranking Card</h2>
       <div style={{ width: '651px' }}>
         <MppRankingCard

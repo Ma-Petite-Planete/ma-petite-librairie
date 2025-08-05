@@ -1069,27 +1069,39 @@ const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, point
             React__default.createElement("p", { className: "sub_point_text text_small" }, subPointsText))) : (React__default.createElement(MppSkeletonLoader, { count: 2 })))));
 };
 
-const MppPodiumStep = ({ id, title, subtitle, subtitleBold, pointsNumber, typeOfPlayer, color, ranking, displayAllInfos, onClick, onHover, onHoverLeave, }) => {
+var BoType;
+(function (BoType) {
+    BoType[BoType["scoBO"] = 0] = "scoBO";
+    BoType[BoType["gpBo"] = 1] = "gpBo";
+})(BoType || (BoType = {}));
+
+const MppPodiumStep = ({ id, title, subtitle, subtitleBold, pointsNumber, bottomCount, typeOfPlayer, color, ranking, displayAllInfos, onClick, onHover, onHoverLeave, boType, }) => {
     return (React__default.createElement("div", { className: "podium_step__container", onClick: onClick, onMouseEnter: onHover, onMouseLeave: onHoverLeave, "data-id": id !== null && id !== void 0 ? id : '' },
         React__default.createElement("div", { className: `podium_step__content ${title ? '' : 'loading_background'}` },
             React__default.createElement("div", { className: "podium_step__img" }, ranking === 1 ? (React__default.createElement(MppIcons.goldTrophee, null)) : ranking === 2 ? (React__default.createElement(MppIcons.silverTrophee, null)) : (React__default.createElement(MppIcons.bronzeTrophee, null))),
-            title ? (React__default.createElement("ul", { className: "podium_step__list" },
-                React__default.createElement("li", { className: "podium_step__list--title title_h3" }, title),
-                subtitle && displayAllInfos ? (React__default.createElement("li", { className: "podium_step__list--subtitle text_small" }, subtitle)) : null,
-                subtitleBold && displayAllInfos ? (React__default.createElement("li", { className: "podium_step__list--subtitle_bold text_small_b" }, subtitleBold)) : null,
+            title ? (React__default.createElement(React__default.Fragment, null, boType === BoType.scoBO ? (React__default.createElement("ul", { className: "podium_step__list" },
+                React__default.createElement("li", { className: "podium_step__list--title subtitle_b" }, title),
+                subtitle && displayAllInfos && (React__default.createElement("li", { className: "podium_step__list--subtitle text_small" }, subtitle)),
+                subtitleBold && displayAllInfos && (React__default.createElement("li", { className: "podium_step__list--subtitle_bold text_small_b" }, subtitleBold)),
                 React__default.createElement("li", { style: { color: `${color}` }, className: "podium_step__list--type text_small_b" },
                     pointsNumber,
-                    React__default.createElement("span", { className: "text_small" }, typeOfPlayer)))) : (React__default.createElement(MppSkeletonLoader, { count: 2, spaceBetweenRow: "5px" }))),
+                    React__default.createElement("span", { className: "text_small" }, typeOfPlayer)))) : (React__default.createElement("ul", { className: "podium_step__list" },
+                React__default.createElement("li", { className: "podium_step__list--title subtitle_b" }, title),
+                React__default.createElement("li", { className: "podium_step__list--subtitle text_small" },
+                    React__default.createElement("span", { className: "text_small_b" }, pointsNumber),
+                    subtitle),
+                React__default.createElement("li", { className: "podium_step__list--type text_small" }, bottomCount))))) : (React__default.createElement(MppSkeletonLoader, { count: 2, spaceBetweenRow: "5px" }))),
         React__default.createElement("div", { className: "podium_step_number__container", style: {
                 height: `${ranking == 1 ? '4.6em' : ranking == 2 ? '3.4em' : '2.1em'}`,
             } },
             React__default.createElement("span", { className: "podium_step_number__number text_body_sb", style: { backgroundColor: `${color}` } }, ranking))));
 };
 
-const MppPodium = ({ rankedElements, typeOfPlayers, color, displayFullInfos, onClick, onHover, onHoverLeave, }) => {
-    return (React__default.createElement("div", { className: "podium__container" }, rankedElements
-        ? rankedElements.map(({ name, points, ranking, city, structure, id }) => (React__default.createElement(MppPodiumStep, { id: id, onClick: onClick, onHover: onHover, onHoverLeave: onHoverLeave, displayAllInfos: displayFullInfos, subtitle: structure, subtitleBold: city, key: ranking, title: name, pointsNumber: `${points} pts `, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking })))
-        : Array.from({ length: 3 }, (_, index) => (React__default.createElement(MppPodiumStep, { key: index, title: null, pointsNumber: '0', subtitle: "", subtitleBold: "", typeOfPlayer: typeOfPlayers, color: color, ranking: index + 1, displayAllInfos: false })))));
+const MppPodium = ({ rankedElements, typeOfPlayers, color, displayFullInfos, onClick, onHover, onHoverLeave, boType = BoType.scoBO, }) => {
+    const isBoSco = boType === BoType.scoBO;
+    return (React__default.createElement("div", { className: `podium__container ${boType === BoType.scoBO ? 'sco_background_color' : 'gp_background_color'}` }, rankedElements
+        ? rankedElements.map(({ name, points, ranking, city, structure, id, comparativeValue, bottomCount, }) => (React__default.createElement(MppPodiumStep, { id: id, onClick: onClick, onHover: onHover, onHoverLeave: onHoverLeave, displayAllInfos: displayFullInfos, subtitle: isBoSco ? structure : comparativeValue, subtitleBold: city, key: ranking, title: name, pointsNumber: `${points} pts `, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking, boType: boType, bottomCount: bottomCount })))
+        : Array.from({ length: 3 }, (_, index) => (React__default.createElement(MppPodiumStep, { key: index, title: null, pointsNumber: '0', subtitle: "", subtitleBold: "", typeOfPlayer: typeOfPlayers, color: color, ranking: index + 1, displayAllInfos: false, boType: boType })))));
 };
 
 /**
@@ -1129,12 +1141,6 @@ const MppCardEdition = ({ backgroundColor, textColor, editionName, editionDatesI
             React__default.createElement(MppIcons.history, { fill: ScoColors.tonicViolet, className: "card_edition__icon" }),
             React__default.createElement("p", { className: "edition_days__details text_body_sb" }, editionMessage))) : null));
 };
-
-var BoType;
-(function (BoType) {
-    BoType[BoType["scoBO"] = 0] = "scoBO";
-    BoType[BoType["gpBo"] = 1] = "gpBo";
-})(BoType || (BoType = {}));
 
 /**
  * Composant de menu principal pour les interfaces back-office (GP ou SCO).
