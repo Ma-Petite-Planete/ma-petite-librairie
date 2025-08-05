@@ -1,6 +1,6 @@
 import React from 'react';
 import './MppPodium.css';
-interface PodiumStep {
+export interface PodiumStep {
     id?: string;
     name: string;
     points: number;
@@ -17,5 +17,5 @@ interface MppPodiumProps {
     onHover?: (e: React.MouseEvent<HTMLDivElement>) => void;
     onHoverLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
-declare const MppPodium: React.FC<MppPodiumProps>;
-export default MppPodium;
+export declare const MppPodium: React.FC<MppPodiumProps>;
+export {};

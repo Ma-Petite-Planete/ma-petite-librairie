@@ -2,7 +2,7 @@ import './app.css';
 import React from 'react';
 
 import { MppButton, ButtonType } from './components/MppButton';
-import MppPodium from './components/MppPodium/MppPodium';
+import { MppPodium } from './components/MppPodium/MppPodium';
 import MppRankingCard from './components/MppRankingCard/MppRankingCard';
 import MppMenu from './components/MppMenu/MppMenu';
 import { BoType } from './components/BoType';
@@ -37,7 +37,7 @@ import {
 } from './components/MppToaster/MppToaster';
 import DropDownMultiFilters from './section/dropdown/DropDownMultiFilter';
 import MppToggleSection from './components/MppToggleSection/MppToggleSection';
-import MppDropDown from './components/MppDropdown/MppDropdown';
+import MppDropDown from './components/MppDropDown/MppDropDown';
 import MppTextAreaFixHeight from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';
 function App() {
   return (
