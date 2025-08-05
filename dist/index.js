@@ -1099,7 +1099,7 @@ const MppPodiumStep = ({ id, title, subtitle, subtitleBold, pointsNumber, bottom
 
 const MppPodium = ({ rankedElements, typeOfPlayers, color, displayFullInfos, onClick, onHover, onHoverLeave, boType = BoType.scoBO, }) => {
     const isBoSco = boType === BoType.scoBO;
-    return (React__default.createElement("div", { className: `podium__container ${boType === BoType.scoBO ? 'sco_background_color' : 'gp_background_color'}` }, rankedElements
+    return (React__default.createElement("div", { className: `podium__container ${isBoSco ? 'sco_background_color' : 'gp_background_color'}`, style: { maxWidth: isBoSco ? '541px' : '652px' } }, rankedElements
         ? rankedElements.map(({ name, points, ranking, city, structure, id, comparativeValue, bottomCount, }) => (React__default.createElement(MppPodiumStep, { id: id, onClick: onClick, onHover: onHover, onHoverLeave: onHoverLeave, displayAllInfos: displayFullInfos, subtitle: isBoSco ? structure : comparativeValue, subtitleBold: city, key: ranking, title: name, pointsNumber: `${points} pts `, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking, boType: boType, bottomCount: bottomCount })))
         : Array.from({ length: 3 }, (_, index) => (React__default.createElement(MppPodiumStep, { key: index, title: null, pointsNumber: '0', subtitle: "", subtitleBold: "", typeOfPlayer: typeOfPlayers, color: color, ranking: index + 1, displayAllInfos: false, boType: boType })))));
 };

@@ -38,7 +38,8 @@ export const MppPodium: React.FC<MppPodiumProps> = ({
   const isBoSco = boType === BoType.scoBO;
   return (
     <div
-      className={`podium__container ${boType === BoType.scoBO ? 'sco_background_color' : 'gp_background_color'}`}
+      className={`podium__container ${isBoSco ? 'sco_background_color' : 'gp_background_color'}`}
+      style={{ maxWidth: isBoSco ? '541px' : '652px' }}
     >
       {rankedElements
         ? rankedElements.map(
