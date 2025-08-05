@@ -13,6 +13,7 @@ export interface PodiumStep {
   comparativeValue?: string;
   nb_challenge?: string;
   bottomCount?: string;
+  subTitleTile?: string;
 }
 interface MppPodiumProps {
   rankedElements: Array<PodiumStep> | null;
