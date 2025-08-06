@@ -1034,8 +1034,8 @@ const MppSkeletonLoader = ({ backgroundColor = 'var(--medium_grey)', highlightCo
 
 function useBoldNumbers(text) {
     return useMemo(() => {
-        const parts = text.split(/(\d+)/g);
-        return parts.map((part, i) => /\d+/.test(part) ? (React__default.createElement("strong", { key: i }, part)) : (React__default.createElement(React__default.Fragment, { key: i }, part)));
+        const parts = text.split(/(\s+)/g);
+        return parts.map((part, i) => /^\d+$/.test(part) ? (React__default.createElement("strong", { key: i }, part)) : (React__default.createElement(React__default.Fragment, { key: i }, part)));
     }, [text]);
 }
 
