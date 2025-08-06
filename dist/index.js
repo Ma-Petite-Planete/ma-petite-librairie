@@ -1,5 +1,5 @@
 import * as React from 'react';
-import React__default, { useState, useEffect, useCallback, useRef, useId } from 'react';
+import React__default, { useState, useEffect, useCallback, useMemo, useRef, useId } from 'react';
 
 var ButtonType;
 (function (ButtonType) {
@@ -1032,6 +1032,13 @@ const MppSkeletonLoader = ({ backgroundColor = 'var(--medium_grey)', highlightCo
         } })))));
 };
 
+function useBoldNumbers(text) {
+    return useMemo(() => {
+        const parts = text.split(/(\d+)/g);
+        return parts.map((part, i) => /\d+/.test(part) ? (React__default.createElement("strong", { key: i }, part)) : (React__default.createElement(React__default.Fragment, { key: i }, part)));
+    }, [text]);
+}
+
 /**
 * @example
 *  <MppRankingCard
@@ -1054,12 +1061,13 @@ const MppSkeletonLoader = ({ backgroundColor = 'var(--medium_grey)', highlightCo
       />
 */
 const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, pointsColor, rankingColorBackground, onClick, onHover, onHoverLeave, }) => {
+    const subtitleWithBoldNumbers = useBoldNumbers(subtitle);
     return (React__default.createElement("div", { className: "ranking_card_background ", onClick: onClick, onMouseEnter: onHover, onMouseLeave: onHoverLeave },
         React__default.createElement("div", { className: `flex_row ${title ? '' : 'loading'}` }, title ? (React__default.createElement(React__default.Fragment, null,
             React__default.createElement("p", { className: "text_body_sb ranking_background", style: { backgroundColor: `${rankingColorBackground}` } }, ranking),
             React__default.createElement("div", { className: "content_background" },
                 React__default.createElement("p", { className: "text_body_sb" }, title),
-                React__default.createElement("p", { className: "text_small" }, subtitle)))) : (React__default.createElement(React__default.Fragment, null,
+                React__default.createElement("p", { className: "text_small" }, subtitleWithBoldNumbers)))) : (React__default.createElement(React__default.Fragment, null,
             React__default.createElement("div", { className: "number_loading" },
                 React__default.createElement(MppSkeletonLoader, { heightRow: "25px" })),
             React__default.createElement("div", { className: "text_loading" },

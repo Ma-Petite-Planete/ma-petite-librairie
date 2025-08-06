@@ -1,6 +1,7 @@
 import React from 'react';
 import './mpp_ranking_card.css';
 import MppSkeletonLoader from '../MppSkeletonLoader/MppSkeletonLoader';
+import useBoldNumbers from '../../hooks/useBoldNumbers';
 
 interface MppRankingCardProps {
   title: string;
@@ -49,6 +50,7 @@ const MppRankingCard: React.FC<MppRankingCardProps> = ({
   onHover,
   onHoverLeave,
 }) => {
+  const subtitleWithBoldNumbers = useBoldNumbers(subtitle);
   return (
     <div
       className="ranking_card_background "
@@ -67,7 +69,7 @@ const MppRankingCard: React.FC<MppRankingCardProps> = ({
             </p>
             <div className="content_background">
               <p className="text_body_sb">{title}</p>
-              <p className="text_small">{subtitle}</p>
+              <p className="text_small">{subtitleWithBoldNumbers}</p>
             </div>
           </>
         ) : (
