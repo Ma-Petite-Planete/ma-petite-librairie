@@ -1032,36 +1032,58 @@ const MppSkeletonLoader = ({ backgroundColor = 'var(--medium_grey)', highlightCo
         } })))));
 };
 
-function useBoldNumbers(text) {
+function useBoldBracedNumbers(text) {
     return useMemo(() => {
-        const parts = text.split(/(\s+)/g);
-        return parts.map((part, i) => /^\d+$/.test(part) ? (React__default.createElement("strong", { key: i }, part)) : (React__default.createElement(React__default.Fragment, { key: i }, part)));
+        const parts = text.split(/(\{\d+\})/g);
+        return parts.map((part, i) => {
+            const match = part.match(/^\{(\d+)\}$/);
+            if (match) {
+                return React__default.createElement("strong", { key: i }, match[1]);
+            }
+            return React__default.createElement(React__default.Fragment, { key: i }, part);
+        });
     }, [text]);
 }
 
 /**
-* @example
-*  <MppRankingCard
-        title={'Les poulet'}
-        subtitle={'Collège Jean Rostand'}
-        ranking={4}
-        points={'26.2pts'}
-        subPointsText={'par élève'}
-        pointsColor={ScoColors.mainYellow}
-        rankingColorBackground={ScoColors.mainYellow}
-        onHover={(e) => {
-          console.log(e.target);
-        }}
-        onHoverLeave={(e) => {
-          console.log(e.target);
-        }}
-        onClick={(e) => {
-          console.log(e.target);
-        }}
-      />
-*/
+ * MppRankingCard affiche une carte de classement, avec un titre, un sous-titre
+ * (dont les nombres peuvent être mis en gras), un numéro de classement,
+ * et un affichage de points.
+ *
+ * @param {MppRankingCardProps} props - Propriétés du composant.
+ * @param {string} props.title - Le titre principal de la carte.
+ * @param {string} props.subtitle - Le sous-titre, une chaîne de texte où
+ *                                  les nombres seront mis en gras si ils sont entre {} exemple {12} seras en gras.
+ * @param {number} props.ranking - Le rang (numéro) à afficher en badge.
+ * @param {string} props.points - Le texte des points (ex. "26.2pts").
+ * @param {string} [props.subPointsText] - Texte additionnel sous les points.
+ * @param {string} props.pointsColor - Couleur du texte des points.
+ * @param {string} props.rankingColorBackground - Couleur de fond du badge.
+ * @param {(e: React.MouseEvent<HTMLDivElement>) => void} [props.onClick]
+ *        - Callback lorsqu’on clique sur la carte.
+ * @param {(e: React.MouseEvent<HTMLDivElement>) => void} [props.onHover]
+ *        - Callback lorsqu’on survole la carte.
+ * @param {(e: React.MouseEvent<HTMLDivElement>) => void} [props.onHoverLeave]
+ *        - Callback lorsqu’on quitte le survol de la carte.
+ *
+ * @example
+ * ```tsx
+ * <MppRankingCard
+ *   title="Les poulets"
+ *   subtitle="Challenge validés {12} – Participants {5}"
+ *   ranking={4}
+ *   points="26.2pts"
+ *   subPointsText="par élève"
+ *   pointsColor="#FFD700"
+ *   rankingColorBackground="#FFD700"
+ *   onClick={(e) => console.log('click', e)}
+ *   onHover={(e) => console.log('hover', e)}
+ *   onHoverLeave={(e) => console.log('leave', e)}
+ * />
+ * ```
+ */
 const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, pointsColor, rankingColorBackground, onClick, onHover, onHoverLeave, }) => {
-    const subtitleWithBoldNumbers = useBoldNumbers(subtitle);
+    const subtitleWithBoldNumbers = useBoldBracedNumbers(subtitle);
     return (React__default.createElement("div", { className: "ranking_card_background ", onClick: onClick, onMouseEnter: onHover, onMouseLeave: onHoverLeave },
         React__default.createElement("div", { className: `flex_row ${title ? '' : 'loading'}` }, title ? (React__default.createElement(React__default.Fragment, null,
             React__default.createElement("p", { className: "text_body_sb ranking_background", style: { backgroundColor: `${rankingColorBackground}` } }, ranking),
