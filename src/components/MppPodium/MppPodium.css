@@ -9,6 +9,14 @@
   border-radius: var(--big_border_radius);
 }
 
+.sco_background_color {
+  background-color: var(--dark_blue_light);
+}
+
+.gp_background_color {
+  background-color: var(--dark_blue);
+}
+
 .podium_step__container:nth-child(2) {
   order: 1;
 }

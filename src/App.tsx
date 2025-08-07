@@ -2,7 +2,7 @@ import './app.css';
 import React from 'react';
 
 import { MppButton, ButtonType } from './components/MppButton';
-import MppPodium from './components/MppPodium/MppPodium';
+import { MppPodium } from './components/MppPodium/MppPodium';
 import MppRankingCard from './components/MppRankingCard/MppRankingCard';
 import MppMenu from './components/MppMenu/MppMenu';
 import { BoType } from './components/BoType';
@@ -37,7 +37,7 @@ import {
 } from './components/MppToaster/MppToaster';
 import DropDownMultiFilters from './section/dropdown/DropDownMultiFilter';
 import MppToggleSection from './components/MppToggleSection/MppToggleSection';
-import MppDropDown from './components/MppDropdown/MppDropdown';
+import MppDropDown from './components/MppDropDown/MppDropDown';
 import MppTextAreaFixHeight from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';
 function App() {
   return (
@@ -139,36 +139,81 @@ function App() {
       </div>
       <InputDemo />
       <h2>Trophés</h2>
-      <MppPodium
-        onClick={() => {}}
-        onHover={() => {}}
-        onHoverLeave={() => {}}
-        displayFullInfos={false}
-        color={ScoColors.lightYellow}
-        typeOfPlayers="élève"
-        rankedElements={[
-          {
-            id: 'test',
-            name: '4èmeD',
-            points: 3,
-            ranking: 1,
-            structure: '2cole des intellos',
-            city: 'Lyon',
-          },
-          {
-            id: 'test2',
-            name: '4èmeB',
-            points: 3,
-            ranking: 2,
-          },
-          {
-            id: 'test3',
-            name: '4èmeA',
-            points: 3,
-            ranking: 3,
-          },
-        ]}
-      />
+      <div
+        style={{ display: 'flex', gap: '20px', justifyContent: 'space-around' }}
+      >
+        <div style={{ width: '100%' }}>
+          <p>Sco</p>
+          <MppPodium
+            onClick={() => {}}
+            onHover={() => {}}
+            onHoverLeave={() => {}}
+            displayFullInfos={true}
+            color={ScoColors.lightYellow}
+            typeOfPlayers="élève"
+            rankedElements={[
+              {
+                id: 'test',
+                name: '4èmeD',
+                points: 3,
+                ranking: 1,
+                structure: '2cole des intellos',
+                city: 'Lyon',
+              },
+              {
+                id: 'test2',
+                name: '4èmeB',
+                points: 3,
+                ranking: 2,
+              },
+              {
+                id: 'test3',
+                name: '4èmeA',
+                points: 3,
+                ranking: 3,
+              },
+            ]}
+          />
+        </div>
+        <div style={{ width: '100%' }}>
+          <p>GP</p>
+          <MppPodium
+            boType={BoType.gpBo}
+            onClick={() => {}}
+            onHover={() => {}}
+            onHoverLeave={() => {}}
+            displayFullInfos={true}
+            color={ScoColors.lightYellow}
+            typeOfPlayers="élève"
+            rankedElements={[
+              {
+                id: 'test',
+                name: 'Marie François (Marie la menace)',
+                points: 3,
+                ranking: 1,
+                comparativeValue: '/player',
+                bottomCount: '1352 Défis',
+              },
+              {
+                id: 'test',
+                name: 'Marie François (Marie la menace)',
+                points: 3,
+                ranking: 2,
+                comparativeValue: '/player',
+                bottomCount: '1352 Défis',
+              },
+              {
+                id: 'test',
+                name: 'Marie François (Marie la menace)',
+                points: 3,
+                ranking: 3,
+                comparativeValue: '/player',
+                bottomCount: '1352 Défis',
+              },
+            ]}
+          />
+        </div>
+      </div>
       <h2>Ranking Card</h2>
       <div style={{ width: '651px' }}>
         <MppRankingCard
@@ -182,7 +227,7 @@ function App() {
             console.log(e.target);
           }}
           title={'Les pouleteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'}
-          subtitle={'Collège Jean Rostand'}
+          subtitle={'%/1/%  {1 apres} Collège Jean Rostand 1'}
           ranking={4}
           points={'26.2pts'}
           subPointsText={'par élève'}

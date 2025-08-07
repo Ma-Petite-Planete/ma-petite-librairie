@@ -5,7 +5,7 @@ export { default as MppInputText } from './components/MppInputText/MppInputText'
 export { ScoColors, GpColors } from './utils/Mppcolors';
 export { MppIcons } from './utils/MppIcons';
 export { default as MppRankingCard } from './components/MppRankingCard/MppRankingCard';
-export { default as MppPodium } from './components/MppPodium/MppPodium';
+export * from './components/MppPodium/MppPodium';
 export { default as MppEditionCard } from './components/MppCardEdition/MppCardEdition';
 export { default as MppMenu } from './components/MppMenu/MppMenu';
 export { default as MppLoginLayout } from './layout/login/MppLoginLayout';
@@ -16,7 +16,7 @@ export { BoType } from './components/BoType';
 export { default as MppInfosPin } from './components/MppInfosPin/MppInfosPin';
 export { default as MppSkeletonLoader } from './components/MppSkeletonLoader/MppSkeletonLoader';
 export { default as MppMultiSectionButton } from './components/MppMultiSectionButtons/MppMultiSectionButton';
-export { default as MppDropDown } from './components/MppDropdown/MppDropdown';
+export { default as MppDropDown } from './components/MppDropDown/MppDropDown';
 export { default as MppCategoryMultiFilter } from './components/MppMultiDropDownFilter/MppMultiDropDownFilter';
 export { default as MppLoaderDots } from './components/MppLoaderDots/MppLoaderDots';
 export * from './components/MppLabelType/MppLabelType';
