@@ -20,7 +20,6 @@ import LayoutLoginSection from './section/MppLayoutLoginSection';
 import MppLoader from './components/MppLoader/MppLoader';
 import MppTextArea from './components/MppTextArea/MppTextArea';
 import MppSkeletonLoader from './components/MppSkeletonLoader/MppSkeletonLoader';
-import MppMultiSectionButtonProps from './components/MppMultiSectionButtons/MppMultiSectionButton';
 import MppLoaderDots from './components/MppLoaderDots/MppLoaderDots';
 import { MppLinearProgressBar } from './components/MppLinearProgressBar/MppLinearProgressBar';
 import MppToggleButton from './components/MppToggleButton/MppToggleButton';
@@ -39,6 +38,7 @@ import DropDownMultiFilters from './section/dropdown/DropDownMultiFilter';
 import MppToggleSection from './components/MppToggleSection/MppToggleSection';
 import MppDropDown from './components/MppDropDown/MppDropDown';
 import MppTextAreaFixHeight from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';
+
 function App() {
   return (
     <div className="main_background">
@@ -480,23 +480,6 @@ function App() {
         </div>
         <MppSkeletonLoader count={3} />
       </div>
-      <h2>MultiSectionButtons</h2>
-      <MppMultiSectionButtonProps
-        buttons_actions={[
-          {
-            label: 'Action 1',
-            OnClick: () => console.log('Action 1'),
-          },
-          {
-            label: 'Action 2',
-            OnClick: () => console.log('Action 2'),
-          },
-          {
-            label: 'Action 3',
-            OnClick: () => console.log('Action 3'),
-          },
-        ]}
-      />
       <h2>Select Input</h2>
 
       <div style={{ width: '40%' }}>

@@ -1447,34 +1447,6 @@ const MppInfosPin = ({ texts, direction = Direction.bottom_left, }) => {
             text.content))))));
 };
 
-/**
- * Le composant MppMultiSectionButton rend un bouton à sections multiples avec des actions personnalisables pour chaque section.
- *
- * @component
- * @param {MppMultiSectionButtonProps} props - Les propriétés du composant MppMultiSectionButton.
- * @param {Array<ButtonActions>} props.buttons_actions - Un tableau d'actions de boutons, chacun contenant un label et une fonction OnClick.
- *
- * @returns {JSX.Element} Le composant MppMultiSectionButton rendu.
- *
- * @example
- * const buttonActions = [
- *   { label: 'Bouton 1', OnClick: () => console.log('Bouton 1 cliqué') },
- *   { label: 'Bouton 2', OnClick: () => console.log('Bouton 2 cliqué') },
- *   { label: 'Bouton 3', OnClick: () => console.log('Bouton 3 cliqué') }
- * ];
- *
- * return (
- *   <MppMultiSectionButton buttons_actions={buttonActions} />
- * );
- */
-const MppMultiSectionButton = ({ buttons_actions, }) => {
-    const [selectedIndex, setSelectedIndex] = React__default.useState(0);
-    return (React__default.createElement("div", { className: "multi_section_button--container" }, buttons_actions.map((button, index) => (React__default.createElement("button", { key: index, className: `multi_section_button--button text_body_sb ${selectedIndex === index ? 'multi_section_button--selected' : ''}`, type: "button", onClick: () => {
-            button.OnClick();
-            setSelectedIndex(index);
-        } }, button.label)))));
-};
-
 const useClickOutside = (elementRef, callback) => {
     const handleClickOutside = (event) => {
         if (!elementRef.current.contains(event.target) &&
@@ -2107,4 +2079,4 @@ const MppTextAreaFixHeight = ({ placeholder, value = '', onChange, readOnly = fa
             React__default.createElement("textarea", { id: finalId, ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area_fix_height ${readOnly ? 'read_only_fix_height' : ''}`, readOnly: readOnly }))));
 };
 
-export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppTextAreaFixHeight, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };
+export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppTextAreaFixHeight, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };
