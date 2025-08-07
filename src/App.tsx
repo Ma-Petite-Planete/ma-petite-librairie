@@ -227,7 +227,7 @@ function App() {
             console.log(e.target);
           }}
           title={'Les pouleteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'}
-          subtitle={'{1}  {1 apres} Collège Jean Rostand 1'}
+          subtitle={'%/1/%  {1 apres} Collège Jean Rostand 1'}
           ranking={4}
           points={'26.2pts'}
           subPointsText={'par élève'}

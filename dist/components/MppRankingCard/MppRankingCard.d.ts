@@ -19,7 +19,8 @@ interface MppRankingCardProps {
  *
  * @param {MppRankingCardProps} props - Propriétés du composant.
  * @param {string} props.title - Le titre principal de la carte.
- * @param {string} props.subtitle - Le sous-titre, une chaîne de texte.
+ * @param {string} props.subtitle - Le sous-titre, une chaîne de texte où
+ *                                  les nombres seront mis en gras si ils sont entre {} exemple {12} seras en gras.
  * @param {number} props.ranking - Le rang (numéro) à afficher en badge.
  * @param {string} props.points - Le texte des points (ex. "26.2pts").
  * @param {string} [props.subPointsText] - Texte additionnel sous les points.
@@ -36,7 +37,7 @@ interface MppRankingCardProps {
  * ```tsx
  * <MppRankingCard
  *   title="Les poulets"
- *   subtitle="Challenge validés 12 – Participants 5"
+ *   subtitle="Challenge validés %/12/% – Participants %/5/%"
  *   ranking={4}
  *   points="26.2pts"
  *   subPointsText="par élève"
