@@ -1,5 +1,5 @@
 import * as React from 'react';
-import React__default, { useState, useEffect, useCallback, useMemo, useRef, useId } from 'react';
+import React__default, { useState, useEffect, useCallback, useRef, useId } from 'react';
 
 var ButtonType;
 (function (ButtonType) {
@@ -1032,19 +1032,6 @@ const MppSkeletonLoader = ({ backgroundColor = 'var(--medium_grey)', highlightCo
         } })))));
 };
 
-function useBoldBracedNumbers(text) {
-    return useMemo(() => {
-        const parts = text.split(/(\{\d+\})/g);
-        return parts.map((part, i) => {
-            const match = part.match(/^\{(\d+)\}$/);
-            if (match) {
-                return React__default.createElement("strong", { key: i }, match[1]);
-            }
-            return React__default.createElement(React__default.Fragment, { key: i }, part);
-        });
-    }, [text]);
-}
-
 /**
  * MppRankingCard affiche une carte de classement, avec un titre, un sous-titre
  * (dont les nombres peuvent être mis en gras), un numéro de classement,
@@ -1052,8 +1039,7 @@ function useBoldBracedNumbers(text) {
  *
  * @param {MppRankingCardProps} props - Propriétés du composant.
  * @param {string} props.title - Le titre principal de la carte.
- * @param {string} props.subtitle - Le sous-titre, une chaîne de texte où
- *                                  les nombres seront mis en gras si ils sont entre {} exemple {12} seras en gras.
+ * @param {string} props.subtitle - Le sous-titre, une chaîne de texte.
  * @param {number} props.ranking - Le rang (numéro) à afficher en badge.
  * @param {string} props.points - Le texte des points (ex. "26.2pts").
  * @param {string} [props.subPointsText] - Texte additionnel sous les points.
@@ -1070,7 +1056,7 @@ function useBoldBracedNumbers(text) {
  * ```tsx
  * <MppRankingCard
  *   title="Les poulets"
- *   subtitle="Challenge validés {12} – Participants {5}"
+ *   subtitle="Challenge validés 12 – Participants 5"
  *   ranking={4}
  *   points="26.2pts"
  *   subPointsText="par élève"
@@ -1083,13 +1069,12 @@ function useBoldBracedNumbers(text) {
  * ```
  */
 const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, pointsColor, rankingColorBackground, onClick, onHover, onHoverLeave, }) => {
-    const subtitleWithBoldNumbers = useBoldBracedNumbers(subtitle);
     return (React__default.createElement("div", { className: "ranking_card_background ", onClick: onClick, onMouseEnter: onHover, onMouseLeave: onHoverLeave },
         React__default.createElement("div", { className: `flex_row ${title ? '' : 'loading'}` }, title ? (React__default.createElement(React__default.Fragment, null,
             React__default.createElement("p", { className: "text_body_sb ranking_background", style: { backgroundColor: `${rankingColorBackground}` } }, ranking),
             React__default.createElement("div", { className: "content_background" },
                 React__default.createElement("p", { className: "text_body_sb" }, title),
-                React__default.createElement("p", { className: "text_small" }, subtitleWithBoldNumbers)))) : (React__default.createElement(React__default.Fragment, null,
+                React__default.createElement("p", { className: "text_small" }, subtitle)))) : (React__default.createElement(React__default.Fragment, null,
             React__default.createElement("div", { className: "number_loading" },
                 React__default.createElement(MppSkeletonLoader, { heightRow: "25px" })),
             React__default.createElement("div", { className: "text_loading" },
