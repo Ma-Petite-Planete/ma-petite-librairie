@@ -1,5 +1,5 @@
 import * as React from 'react';
-import React__default, { useState, useEffect, useCallback, useRef, useId } from 'react';
+import React__default, { useState, useEffect, useCallback, useMemo, useRef, useId } from 'react';
 
 var ButtonType;
 (function (ButtonType) {
@@ -1032,34 +1032,64 @@ const MppSkeletonLoader = ({ backgroundColor = 'var(--medium_grey)', highlightCo
         } })))));
 };
 
+function useBoldTaggedText(text) {
+    return useMemo(() => {
+        const parts = text.split(/(%\/.*?\/%)/g);
+        return parts.map((part, i) => {
+            const match = part.match(/^%\/(.*?)\/%$/);
+            if (match) {
+                return React__default.createElement("strong", { key: i }, match[1]);
+            }
+            return React__default.createElement(React__default.Fragment, { key: i }, part);
+        });
+    }, [text]);
+}
+
 /**
-* @example
-*  <MppRankingCard
-        title={'Les poulet'}
-        subtitle={'Collège Jean Rostand'}
-        ranking={4}
-        points={'26.2pts'}
-        subPointsText={'par élève'}
-        pointsColor={ScoColors.mainYellow}
-        rankingColorBackground={ScoColors.mainYellow}
-        onHover={(e) => {
-          console.log(e.target);
-        }}
-        onHoverLeave={(e) => {
-          console.log(e.target);
-        }}
-        onClick={(e) => {
-          console.log(e.target);
-        }}
-      />
-*/
+ * MppRankingCard affiche une carte de classement, avec un titre, un sous-titre
+ * (dont les nombres peuvent être mis en gras), un numéro de classement,
+ * et un affichage de points.
+ *
+ * @param {MppRankingCardProps} props - Propriétés du composant.
+ * @param {string} props.title - Le titre principal de la carte.
+ * @param {string} props.subtitle - Le sous-titre, une chaîne de texte où
+ *                                  les nombres seront mis en gras si ils sont entre {} exemple {12} seras en gras.
+ * @param {number} props.ranking - Le rang (numéro) à afficher en badge.
+ * @param {string} props.points - Le texte des points (ex. "26.2pts").
+ * @param {string} [props.subPointsText] - Texte additionnel sous les points.
+ * @param {string} props.pointsColor - Couleur du texte des points.
+ * @param {string} props.rankingColorBackground - Couleur de fond du badge.
+ * @param {(e: React.MouseEvent<HTMLDivElement>) => void} [props.onClick]
+ *        - Callback lorsqu’on clique sur la carte.
+ * @param {(e: React.MouseEvent<HTMLDivElement>) => void} [props.onHover]
+ *        - Callback lorsqu’on survole la carte.
+ * @param {(e: React.MouseEvent<HTMLDivElement>) => void} [props.onHoverLeave]
+ *        - Callback lorsqu’on quitte le survol de la carte.
+ *
+ * @example
+ * ```tsx
+ * <MppRankingCard
+ *   title="Les poulets"
+ *   subtitle="Challenge validés %/12/% – Participants %/5/%"
+ *   ranking={4}
+ *   points="26.2pts"
+ *   subPointsText="par élève"
+ *   pointsColor="#FFD700"
+ *   rankingColorBackground="#FFD700"
+ *   onClick={(e) => console.log('click', e)}
+ *   onHover={(e) => console.log('hover', e)}
+ *   onHoverLeave={(e) => console.log('leave', e)}
+ * />
+ * ```
+ */
 const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, pointsColor, rankingColorBackground, onClick, onHover, onHoverLeave, }) => {
+    const subtitleWithBoldNumbers = useBoldTaggedText(subtitle);
     return (React__default.createElement("div", { className: "ranking_card_background ", onClick: onClick, onMouseEnter: onHover, onMouseLeave: onHoverLeave },
         React__default.createElement("div", { className: `flex_row ${title ? '' : 'loading'}` }, title ? (React__default.createElement(React__default.Fragment, null,
             React__default.createElement("p", { className: "text_body_sb ranking_background", style: { backgroundColor: `${rankingColorBackground}` } }, ranking),
             React__default.createElement("div", { className: "content_background" },
                 React__default.createElement("p", { className: "text_body_sb" }, title),
-                React__default.createElement("p", { className: "text_small" }, subtitle)))) : (React__default.createElement(React__default.Fragment, null,
+                React__default.createElement("p", { className: "text_small" }, subtitleWithBoldNumbers)))) : (React__default.createElement(React__default.Fragment, null,
             React__default.createElement("div", { className: "number_loading" },
                 React__default.createElement(MppSkeletonLoader, { heightRow: "25px" })),
             React__default.createElement("div", { className: "text_loading" },
@@ -1069,27 +1099,39 @@ const MppRankingCard = ({ title, subtitle, ranking, points, subPointsText, point
             React__default.createElement("p", { className: "sub_point_text text_small" }, subPointsText))) : (React__default.createElement(MppSkeletonLoader, { count: 2 })))));
 };
 
-const MppPodiumStep = ({ id, title, subtitle, subtitleBold, pointsNumber, typeOfPlayer, color, ranking, displayAllInfos, onClick, onHover, onHoverLeave, }) => {
+var BoType;
+(function (BoType) {
+    BoType[BoType["scoBO"] = 0] = "scoBO";
+    BoType[BoType["gpBo"] = 1] = "gpBo";
+})(BoType || (BoType = {}));
+
+const MppPodiumStep = ({ id, title, subtitle, subtitleBold, pointsNumber, bottomCount, typeOfPlayer, color, ranking, displayAllInfos, onClick, onHover, onHoverLeave, boType, }) => {
     return (React__default.createElement("div", { className: "podium_step__container", onClick: onClick, onMouseEnter: onHover, onMouseLeave: onHoverLeave, "data-id": id !== null && id !== void 0 ? id : '' },
         React__default.createElement("div", { className: `podium_step__content ${title ? '' : 'loading_background'}` },
             React__default.createElement("div", { className: "podium_step__img" }, ranking === 1 ? (React__default.createElement(MppIcons.goldTrophee, null)) : ranking === 2 ? (React__default.createElement(MppIcons.silverTrophee, null)) : (React__default.createElement(MppIcons.bronzeTrophee, null))),
-            title ? (React__default.createElement("ul", { className: "podium_step__list" },
-                React__default.createElement("li", { className: "podium_step__list--title title_h3" }, title),
-                subtitle && displayAllInfos ? (React__default.createElement("li", { className: "podium_step__list--subtitle text_small" }, subtitle)) : null,
-                subtitleBold && displayAllInfos ? (React__default.createElement("li", { className: "podium_step__list--subtitle_bold text_small_b" }, subtitleBold)) : null,
+            title ? (React__default.createElement(React__default.Fragment, null, boType === BoType.scoBO ? (React__default.createElement("ul", { className: "podium_step__list" },
+                React__default.createElement("li", { className: "podium_step__list--title subtitle_b" }, title),
+                subtitle && displayAllInfos && (React__default.createElement("li", { className: "podium_step__list--subtitle text_small" }, subtitle)),
+                subtitleBold && displayAllInfos && (React__default.createElement("li", { className: "podium_step__list--subtitle_bold text_small_b" }, subtitleBold)),
                 React__default.createElement("li", { style: { color: `${color}` }, className: "podium_step__list--type text_small_b" },
                     pointsNumber,
-                    React__default.createElement("span", { className: "text_small" }, typeOfPlayer)))) : (React__default.createElement(MppSkeletonLoader, { count: 2, spaceBetweenRow: "5px" }))),
+                    React__default.createElement("span", { className: "text_small" }, typeOfPlayer)))) : (React__default.createElement("ul", { className: "podium_step__list" },
+                React__default.createElement("li", { className: "podium_step__list--title subtitle_b" }, title),
+                React__default.createElement("li", { className: "podium_step__list--subtitle text_small" },
+                    React__default.createElement("span", { className: "text_small_b" }, pointsNumber),
+                    subtitle),
+                React__default.createElement("li", { className: "podium_step__list--type text_small" }, bottomCount))))) : (React__default.createElement(MppSkeletonLoader, { count: 2, spaceBetweenRow: "5px" }))),
         React__default.createElement("div", { className: "podium_step_number__container", style: {
                 height: `${ranking == 1 ? '4.6em' : ranking == 2 ? '3.4em' : '2.1em'}`,
             } },
             React__default.createElement("span", { className: "podium_step_number__number text_body_sb", style: { backgroundColor: `${color}` } }, ranking))));
 };
 
-const MppPodium = ({ rankedElements, typeOfPlayers, color, displayFullInfos, onClick, onHover, onHoverLeave, }) => {
-    return (React__default.createElement("div", { className: "podium__container" }, rankedElements
-        ? rankedElements.map(({ name, points, ranking, city, structure, id }) => (React__default.createElement(MppPodiumStep, { id: id, onClick: onClick, onHover: onHover, onHoverLeave: onHoverLeave, displayAllInfos: displayFullInfos, subtitle: structure, subtitleBold: city, key: ranking, title: name, pointsNumber: `${points} pts `, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking })))
-        : Array.from({ length: 3 }, (_, index) => (React__default.createElement(MppPodiumStep, { key: index, title: null, pointsNumber: '0', subtitle: "", subtitleBold: "", typeOfPlayer: typeOfPlayers, color: color, ranking: index + 1, displayAllInfos: false })))));
+const MppPodium = ({ rankedElements, typeOfPlayers, color, displayFullInfos, onClick, onHover, onHoverLeave, boType = BoType.scoBO, }) => {
+    const isBoSco = boType === BoType.scoBO;
+    return (React__default.createElement("div", { className: `podium__container ${isBoSco ? 'sco_background_color' : 'gp_background_color'}`, style: { maxWidth: isBoSco ? '541px' : '652px' } }, rankedElements
+        ? rankedElements.map(({ name, points, ranking, city, structure, id, comparativeValue, bottomCount, }) => (React__default.createElement(MppPodiumStep, { id: id, onClick: onClick, onHover: onHover, onHoverLeave: onHoverLeave, displayAllInfos: displayFullInfos, subtitle: isBoSco ? structure : comparativeValue, subtitleBold: city, key: ranking, title: name, pointsNumber: `${points} pts `, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking, boType: boType, bottomCount: bottomCount })))
+        : Array.from({ length: 3 }, (_, index) => (React__default.createElement(MppPodiumStep, { key: index, title: null, pointsNumber: '0', subtitle: "", subtitleBold: "", typeOfPlayer: typeOfPlayers, color: color, ranking: index + 1, displayAllInfos: false, boType: boType })))));
 };
 
 /**
@@ -1129,12 +1171,6 @@ const MppCardEdition = ({ backgroundColor, textColor, editionName, editionDatesI
             React__default.createElement(MppIcons.history, { fill: ScoColors.tonicViolet, className: "card_edition__icon" }),
             React__default.createElement("p", { className: "edition_days__details text_body_sb" }, editionMessage))) : null));
 };
-
-var BoType;
-(function (BoType) {
-    BoType[BoType["scoBO"] = 0] = "scoBO";
-    BoType[BoType["gpBo"] = 1] = "gpBo";
-})(BoType || (BoType = {}));
 
 /**
  * Composant de menu principal pour les interfaces back-office (GP ou SCO).
@@ -1409,34 +1445,6 @@ const MppInfosPin = ({ texts, direction = Direction.bottom_left, }) => {
                 text.title,
                 " : "),
             text.content))))));
-};
-
-/**
- * Le composant MppMultiSectionButton rend un bouton à sections multiples avec des actions personnalisables pour chaque section.
- *
- * @component
- * @param {MppMultiSectionButtonProps} props - Les propriétés du composant MppMultiSectionButton.
- * @param {Array<ButtonActions>} props.buttons_actions - Un tableau d'actions de boutons, chacun contenant un label et une fonction OnClick.
- *
- * @returns {JSX.Element} Le composant MppMultiSectionButton rendu.
- *
- * @example
- * const buttonActions = [
- *   { label: 'Bouton 1', OnClick: () => console.log('Bouton 1 cliqué') },
- *   { label: 'Bouton 2', OnClick: () => console.log('Bouton 2 cliqué') },
- *   { label: 'Bouton 3', OnClick: () => console.log('Bouton 3 cliqué') }
- * ];
- *
- * return (
- *   <MppMultiSectionButton buttons_actions={buttonActions} />
- * );
- */
-const MppMultiSectionButton = ({ buttons_actions, }) => {
-    const [selectedIndex, setSelectedIndex] = React__default.useState(0);
-    return (React__default.createElement("div", { className: "multi_section_button--container" }, buttons_actions.map((button, index) => (React__default.createElement("button", { key: index, className: `multi_section_button--button text_body_sb ${selectedIndex === index ? 'multi_section_button--selected' : ''}`, type: "button", onClick: () => {
-            button.OnClick();
-            setSelectedIndex(index);
-        } }, button.label)))));
 };
 
 const useClickOutside = (elementRef, callback) => {
@@ -1842,15 +1850,20 @@ const MppToaster = ({ message, displayToast, messageType, animationDirection, on
  *   onChange={(newValue) => console.log(newValue)}
  * />
  */
-const MppToggleButton = ({ value, onChange }) => {
+const MppToggleButton = ({ id, value, onChange, disabled = false, isBoxShadow = false, }) => {
+    const reactId = useId();
+    const finalId = id !== null && id !== void 0 ? id : `mpp-toggle-${reactId}`;
     const [toggleValue, setToggleValue] = useState(value);
-    return (React__default.createElement("div", { className: "toggle_button_container" },
-        React__default.createElement("label", { htmlFor: "toggle", className: `toggle_button ${toggleValue ? 'checked' : ''}` },
+    useEffect(() => {
+        setToggleValue(value);
+    }, [value]);
+    return (React__default.createElement("div", { className: 'toggle_button_container' },
+        React__default.createElement("label", { htmlFor: finalId, className: `toggle_button ${toggleValue ? 'checked' : ''} ${disabled ? 'disabled_container' : ''} ${isBoxShadow ? 'toggle_box_shadow' : ''}` },
             React__default.createElement("input", { onChange: () => {
                     const value = !toggleValue;
                     setToggleValue(value);
                     onChange(value);
-                }, checked: toggleValue, type: "checkbox", id: "toggle" }),
+                }, checked: toggleValue, type: "checkbox", id: finalId, disabled: disabled }),
             React__default.createElement("div", { className: "toggle_button_indicator" }))));
 };
 
@@ -2066,4 +2079,4 @@ const MppTextAreaFixHeight = ({ placeholder, value = '', onChange, readOnly = fa
             React__default.createElement("textarea", { id: finalId, ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area_fix_height ${readOnly ? 'read_only_fix_height' : ''}`, readOnly: readOnly }))));
 };
 
-export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiSectionButton, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppTextAreaFixHeight, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };
+export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppTextAreaFixHeight, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };

@@ -107,6 +107,12 @@ body {
   font-weight: 500;
 }
 
+.subtitle_b {
+  font-weight: 500;
+  font-weight: bold;
+  line-height: 24px;
+}
+
 .text_body {
   font-weight: 400;
   font-size: 14px;
@@ -174,6 +180,6 @@ label {
   margin: 0;
 }
 
-input[type="checkbox"]{
+input[type='checkbox'] {
   margin: 0;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import './mpp_ranking_card.css';
 import MppSkeletonLoader from '../MppSkeletonLoader/MppSkeletonLoader';
+import useBoldNumbers from '../../hooks/useBoldNumbers';
 
 interface MppRankingCardProps {
   title: string;
@@ -16,26 +17,42 @@ interface MppRankingCardProps {
 }
 
 /**
-* @example
-*  <MppRankingCard
-        title={'Les poulet'}
-        subtitle={'Collège Jean Rostand'}
-        ranking={4}
-        points={'26.2pts'}
-        subPointsText={'par élève'}
-        pointsColor={ScoColors.mainYellow}
-        rankingColorBackground={ScoColors.mainYellow}
-        onHover={(e) => {
-          console.log(e.target);
-        }}
-        onHoverLeave={(e) => {
-          console.log(e.target);
-        }}
-        onClick={(e) => {
-          console.log(e.target);
-        }}
-      />
-*/
+ * MppRankingCard affiche une carte de classement, avec un titre, un sous-titre
+ * (dont les nombres peuvent être mis en gras), un numéro de classement,
+ * et un affichage de points.
+ *
+ * @param {MppRankingCardProps} props - Propriétés du composant.
+ * @param {string} props.title - Le titre principal de la carte.
+ * @param {string} props.subtitle - Le sous-titre, une chaîne de texte où
+ *                                  les nombres seront mis en gras si ils sont entre {} exemple {12} seras en gras.
+ * @param {number} props.ranking - Le rang (numéro) à afficher en badge.
+ * @param {string} props.points - Le texte des points (ex. "26.2pts").
+ * @param {string} [props.subPointsText] - Texte additionnel sous les points.
+ * @param {string} props.pointsColor - Couleur du texte des points.
+ * @param {string} props.rankingColorBackground - Couleur de fond du badge.
+ * @param {(e: React.MouseEvent<HTMLDivElement>) => void} [props.onClick]
+ *        - Callback lorsqu’on clique sur la carte.
+ * @param {(e: React.MouseEvent<HTMLDivElement>) => void} [props.onHover]
+ *        - Callback lorsqu’on survole la carte.
+ * @param {(e: React.MouseEvent<HTMLDivElement>) => void} [props.onHoverLeave]
+ *        - Callback lorsqu’on quitte le survol de la carte.
+ *
+ * @example
+ * ```tsx
+ * <MppRankingCard
+ *   title="Les poulets"
+ *   subtitle="Challenge validés %/12/% – Participants %/5/%"
+ *   ranking={4}
+ *   points="26.2pts"
+ *   subPointsText="par élève"
+ *   pointsColor="#FFD700"
+ *   rankingColorBackground="#FFD700"
+ *   onClick={(e) => console.log('click', e)}
+ *   onHover={(e) => console.log('hover', e)}
+ *   onHoverLeave={(e) => console.log('leave', e)}
+ * />
+ * ```
+ */
 
 const MppRankingCard: React.FC<MppRankingCardProps> = ({
   title,
@@ -49,6 +66,7 @@ const MppRankingCard: React.FC<MppRankingCardProps> = ({
   onHover,
   onHoverLeave,
 }) => {
+  const subtitleWithBoldNumbers = useBoldNumbers(subtitle);
   return (
     <div
       className="ranking_card_background "
@@ -67,7 +85,7 @@ const MppRankingCard: React.FC<MppRankingCardProps> = ({
             </p>
             <div className="content_background">
               <p className="text_body_sb">{title}</p>
-              <p className="text_small">{subtitle}</p>
+              <p className="text_small">{subtitleWithBoldNumbers}</p>
             </div>
           </>
         ) : (
