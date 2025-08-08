@@ -36,7 +36,7 @@ import {
 } from './components/MppToaster/MppToaster';
 import DropDownMultiFilters from './section/dropdown/DropDownMultiFilter';
 import MppToggleSection from './components/MppToggleSection/MppToggleSection';
-import MppDropDown from './components/MppDropDownn/MppDropDown';
+import MppDropDown from './components/MppDropDown/MppDropDown';
 import MppTextAreaFixHeight from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';
 
 function App() {
