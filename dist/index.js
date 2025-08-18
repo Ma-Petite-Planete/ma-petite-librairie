@@ -174,7 +174,7 @@ const GpColors = {
     lightGrey: 'var(--light_grey)',
     white: 'var(--white)',
     darkBlue: 'var(--dark_blue)',
-    greyDivider: 'var(--grey_divider)',
+    greyDivider: 'var(--grey_divider)'
 };
 
 var _path$x;
@@ -1338,37 +1338,43 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
 };
 
 /**
- * Props pour le composant StatCard.
- * @interface MppInputTextProps
- * @property {(typeof MppIcons)[keyof typeof MppIcons]} IconComponent - Composant icon de MppIcons pour afficher l'icone de la stat.
- * @property {string} title - Titre de la card.
- * @property {number} stat - Nombre/statistique que l'on veut afficher.
- * @property {BoType.gpBo} boType - Permet d'afficher une ombre spécifique au BO ECU, n'autorise que le type gpBo.
- * @property {string} statDetails - String qui affiche des détails après les stats
- */
-/**
- * Composant d'affichage des statisques dans une card avec une icone à gauche pour illustrer
+ * Composant d'affichage des statistiques dans une carte avec une icône à gauche pour illustrer.
+ *
+ * Affiche un titre, une statistique principale, une icône, et éventuellement des détails complémentaires.
+ * Gère l'affichage d'un loader skeleton lorsque la statistique n'est pas encore disponible.
+ *
+ * @component
+ * @param {Object} props - Les propriétés du composant.
+ * @param {(typeof MppIcons)[keyof typeof MppIcons]} props.IconComponent - Composant d'icône issu de MppIcons pour illustrer la statistique.
+ * @param {string} props.title - Titre affiché sur la carte.
+ * @param {number | null | undefined} props.stat - Valeur numérique de la statistique à afficher. Si null/undefined, affiche un loader ou "--".
+ * @param {BoType.gpBo} [props.boType] - Permet d'afficher une ombre spécifique pour le type de BO ECU (optionnel).
+ * @param {string} [props.statDetails] - Détails complémentaires affichés après la statistique (optionnel).
+ * @param {boolean} [props.useSkeletonLoader=true] - Active ou non l'affichage du skeleton loader lors du chargement (optionnel, true par défaut).
  *
  * @example
- * ```jsx
+ * ```tsx
  * <MppStatCard
- * title={t('traduction')}
- * IconComponent={MppIcons.training}
- * stat={12}
- * statDetails="/élèves"
+ *   title="Traduction"
+ *   IconComponent={MppIcons.training}
+ *   stat={12}
+ *   statDetails="/élèves"
  * />
  * ```
  */
-const StatCard = ({ IconComponent, title, stat, boType, statDetails, }) => {
+const StatCard = ({ IconComponent, title, stat, boType, statDetails, useSkeletonLoader = true }) => {
     return (React__default.createElement("div", { className: `stat_card__container${boType ? ' stat_card__container--shadow' : ''}` },
-        stat !== null && stat !== undefined ? (React__default.createElement("div", { className: "stat_card__icon" },
+        stat !== null && stat !== undefined || !useSkeletonLoader ? (React__default.createElement("div", { className: "stat_card__icon" },
             React__default.createElement(IconComponent, null))) : (React__default.createElement("div", { className: "loader_background" },
             React__default.createElement(MppSkeletonLoader, { circular: true }))),
         React__default.createElement("div", { className: "stat_card__content" }, stat !== null && stat !== undefined ? (React__default.createElement(React__default.Fragment, null,
             React__default.createElement("p", { className: "stat_card__title text_small" }, title),
             React__default.createElement("p", { className: "stat_card__number title_h3" },
                 stat,
-                " ", statDetails !== null && statDetails !== void 0 ? statDetails : ''))) : (React__default.createElement(MppSkeletonLoader, { count: 2 })))));
+                " ", statDetails !== null && statDetails !== void 0 ? statDetails : ''))) : useSkeletonLoader ?
+            (React__default.createElement(MppSkeletonLoader, { count: 2 })) : React__default.createElement(React__default.Fragment, null,
+            React__default.createElement("p", { className: "stat_card__title text_small" }, title),
+            React__default.createElement("p", { className: "stat_card__number title_h3" }, "--")))));
 };
 
 const MppTextArea = ({ placeholder, value = '', onChange, readOnly = false, style, id, }) => {
