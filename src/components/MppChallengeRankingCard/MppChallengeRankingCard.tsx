@@ -1,12 +1,14 @@
 import React from 'react';
 import './mpp_challenge_ranking_card.css';
 import MppSkeletonLoader from '../MppSkeletonLoader/MppSkeletonLoader';
+import { BoType } from '../BoType';
 
 interface MppChallengeCardProps {
   title: string;
   subtitle?: string;
   ranking?: number;
   value: string;
+  boType?: BoType;
 }
 
 const MppChallengeCard: React.FC<MppChallengeCardProps> = ({
@@ -14,9 +16,10 @@ const MppChallengeCard: React.FC<MppChallengeCardProps> = ({
   subtitle,
   ranking,
   value,
+  boType = BoType.scoBO
 }) => {
   return (
-    <div className="challenge_card__container">
+    <div className={`challenge_card__container ${boType === BoType.gpBo ? 'padding_ecu' : '' }`}>
       <div className="challenge_card__ranking_title">
         {ranking && (
           <div className="challenge_card__ranking text_body_sb">{ranking}</div>

@@ -700,7 +700,7 @@ function App() {
       </MppToggleSection>
 
       <h2>Challenge Card</h2>
-      <MppChallengeCard title={'titre que je veux'}  value={`${5623}`} ranking={9} />
+      <MppChallengeCard title={'titre que je veux'}  value={`${5623}`} ranking={9}  boType={BoType.gpBo}/>
       <MppChallengeCard title={'titre que je veux'}  value={`x ${5623}`} subtitle={"le bo sco"}  />
     </div>
   );

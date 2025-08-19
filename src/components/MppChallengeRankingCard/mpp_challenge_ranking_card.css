@@ -10,6 +10,10 @@
   width: 100%;
 }
 
+.padding_ecu{
+  padding: 12px 20px;
+}
+
 .challenge_card__subtitle {
   font-style: italic;
 }

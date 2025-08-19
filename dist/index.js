@@ -2079,8 +2079,8 @@ const MppTextAreaFixHeight = ({ placeholder, value = '', onChange, readOnly = fa
             React__default.createElement("textarea", { id: finalId, ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area_fix_height ${readOnly ? 'read_only_fix_height' : ''}`, readOnly: readOnly }))));
 };
 
-const MppChallengeCard = ({ title, subtitle, ranking, value, }) => {
-    return (React__default.createElement("div", { className: "challenge_card__container" },
+const MppChallengeCard = ({ title, subtitle, ranking, value, boType = BoType.scoBO }) => {
+    return (React__default.createElement("div", { className: `challenge_card__container ${boType === BoType.gpBo ? 'padding_ecu' : ''}` },
         React__default.createElement("div", { className: "challenge_card__ranking_title" },
             ranking && (React__default.createElement("div", { className: "challenge_card__ranking text_body_sb" }, ranking)),
             React__default.createElement("div", { className: `challenge_card__content ${title ? '' : 'loading'}` }, title ? (React__default.createElement(React__default.Fragment, null,
