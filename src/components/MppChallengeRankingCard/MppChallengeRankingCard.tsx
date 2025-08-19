@@ -19,7 +19,6 @@ const MppChallengeCard: React.FC<MppChallengeCardProps> = ({
   boType = BoType.scoBO
 }) => {
   const titleIsEmpty = title.replace(/[^a-zA-Z0-9]/g, "") === "" ;
-  console.log("🚀 ~ MppChallengeCard ~ titleIsEmpty:", titleIsEmpty)
   return (
     <div className={`challenge_card__container ${boType === BoType.gpBo ? 'padding_ecu' : '' } ${title ? '' : 'loading'}`}>
       <div className="challenge_card__ranking_title">
