@@ -21,12 +21,12 @@ const MppChallengeCard: React.FC<MppChallengeCardProps> = ({
   const titleIsEmpty = title.replace(/[^a-zA-Z0-9]/g, "") === "" ;
   console.log("🚀 ~ MppChallengeCard ~ titleIsEmpty:", titleIsEmpty)
   return (
-    <div className={`challenge_card__container ${boType === BoType.gpBo ? 'padding_ecu' : '' }`}>
+    <div className={`challenge_card__container ${boType === BoType.gpBo ? 'padding_ecu' : '' } ${title ? '' : 'loading'}`}>
       <div className="challenge_card__ranking_title">
         {ranking && (
           <div className="challenge_card__ranking text_body_sb">{ranking}</div>
         )}
-        <div className={`challenge_card__content ${title ? '' : 'loading'}`}>
+        <div className={`challenge_card__content`}>
           {!titleIsEmpty ? (
             <>
               <p className="challenge_card__title text_small_b">{title}</p>

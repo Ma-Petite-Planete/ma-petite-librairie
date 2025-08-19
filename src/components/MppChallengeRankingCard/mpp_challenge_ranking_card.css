@@ -28,6 +28,10 @@
   display: flex;
 }
 
+.loading .challenge_card__ranking_title{
+  width: 100%;
+}
+
 .challenge_card__content{
   display: flex;
   flex-direction: column;
@@ -48,7 +52,7 @@
   min-width: 50px;
 }
 
-.loading {
+.loading .challenge_card__content {
   width: 50%;
 }
 .loading_subtitle {
@@ -59,3 +63,4 @@
 .loading_point {
   width: 10%;
 }
+
