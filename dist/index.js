@@ -2081,6 +2081,7 @@ const MppTextAreaFixHeight = ({ placeholder, value = '', onChange, readOnly = fa
 
 const MppChallengeCard = ({ title, subtitle, ranking, value, boType = BoType.scoBO }) => {
     const titleIsEmpty = title.replace(/[^a-zA-Z0-9]/g, "") === "";
+    console.log("🚀 ~ MppChallengeCard ~ titleIsEmpty:", titleIsEmpty);
     return (React__default.createElement("div", { className: `challenge_card__container ${boType === BoType.gpBo ? 'padding_ecu' : ''}` },
         React__default.createElement("div", { className: "challenge_card__ranking_title" },
             ranking && (React__default.createElement("div", { className: "challenge_card__ranking text_body_sb" }, ranking)),
