@@ -18,6 +18,8 @@ const MppChallengeCard: React.FC<MppChallengeCardProps> = ({
   value,
   boType = BoType.scoBO
 }) => {
+
+  const isTitleEmpty = title === "" ? null : title;
   return (
     <div className={`challenge_card__container ${boType === BoType.gpBo ? 'padding_ecu' : '' }`}>
       <div className="challenge_card__ranking_title">
@@ -25,7 +27,7 @@ const MppChallengeCard: React.FC<MppChallengeCardProps> = ({
           <div className="challenge_card__ranking text_body_sb">{ranking}</div>
         )}
         <div className={`challenge_card__content ${title ? '' : 'loading'}`}>
-          {title ? (
+          {!isTitleEmpty ? (
             <>
               <p className="challenge_card__title text_small_b">{title}</p>
               {subtitle && (
@@ -44,7 +46,7 @@ const MppChallengeCard: React.FC<MppChallengeCardProps> = ({
           )}
         </div>
       </div>
-      {title ? (
+      {!isTitleEmpty ? (
         <span className="challenge_card__points text_small_b">{value}</span>
       ) : (
         <div className="loading_point">
