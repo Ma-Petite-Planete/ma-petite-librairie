@@ -4,7 +4,6 @@ import MppSkeletonLoader from '../MppSkeletonLoader/MppSkeletonLoader';
 
 interface MppChallengeCardProps {
   title: string;
-
   subtitle?: string;
   ranking?: number;
   value: string;

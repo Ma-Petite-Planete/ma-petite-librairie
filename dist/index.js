@@ -2079,4 +2079,18 @@ const MppTextAreaFixHeight = ({ placeholder, value = '', onChange, readOnly = fa
             React__default.createElement("textarea", { id: finalId, ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area_fix_height ${readOnly ? 'read_only_fix_height' : ''}`, readOnly: readOnly }))));
 };
 
-export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppTextAreaFixHeight, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };
+const MppChallengeCard = ({ title, subtitle, ranking, value, }) => {
+    return (React__default.createElement("div", { className: "challenge_card__container" },
+        React__default.createElement("div", { className: "challenge_card__ranking_title" },
+            ranking && (React__default.createElement("div", { className: "challenge_card__ranking text_body_sb" }, ranking)),
+            React__default.createElement("div", { className: `challenge_card__content ${title ? '' : 'loading'}` }, title ? (React__default.createElement(React__default.Fragment, null,
+                React__default.createElement("p", { className: "challenge_card__title text_small_b" }, title),
+                subtitle && (React__default.createElement("p", { className: "challenge_card__subtitle text_small" }, subtitle)))) : (React__default.createElement(React__default.Fragment, null,
+                React__default.createElement(MppSkeletonLoader, { heightRow: "20px" }),
+                React__default.createElement("div", { className: "loading_subtitle" },
+                    React__default.createElement(MppSkeletonLoader, null)))))),
+        title ? (React__default.createElement("span", { className: "challenge_card__points text_small_b" }, value)) : (React__default.createElement("div", { className: "loading_point" },
+            React__default.createElement(MppSkeletonLoader, { heightRow: "20px" })))));
+};
+
+export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppChallengeCard, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppTextAreaFixHeight, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };
