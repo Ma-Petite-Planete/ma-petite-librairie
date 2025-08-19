@@ -2082,10 +2082,10 @@ const MppTextAreaFixHeight = ({ placeholder, value = '', onChange, readOnly = fa
 const MppChallengeCard = ({ title, subtitle, ranking, value, boType = BoType.scoBO }) => {
     const titleIsEmpty = title.replace(/[^a-zA-Z0-9]/g, "") === "";
     console.log("🚀 ~ MppChallengeCard ~ titleIsEmpty:", titleIsEmpty);
-    return (React__default.createElement("div", { className: `challenge_card__container ${boType === BoType.gpBo ? 'padding_ecu' : ''}` },
+    return (React__default.createElement("div", { className: `challenge_card__container ${boType === BoType.gpBo ? 'padding_ecu' : ''} ${title ? '' : 'loading'}` },
         React__default.createElement("div", { className: "challenge_card__ranking_title" },
             ranking && (React__default.createElement("div", { className: "challenge_card__ranking text_body_sb" }, ranking)),
-            React__default.createElement("div", { className: `challenge_card__content ${title ? '' : 'loading'}` }, !titleIsEmpty ? (React__default.createElement(React__default.Fragment, null,
+            React__default.createElement("div", { className: `challenge_card__content` }, !titleIsEmpty ? (React__default.createElement(React__default.Fragment, null,
                 React__default.createElement("p", { className: "challenge_card__title text_small_b" }, title),
                 subtitle && (React__default.createElement("p", { className: "challenge_card__subtitle text_small" }, subtitle)))) : (React__default.createElement(React__default.Fragment, null,
                 React__default.createElement(MppSkeletonLoader, { heightRow: "20px" }),
