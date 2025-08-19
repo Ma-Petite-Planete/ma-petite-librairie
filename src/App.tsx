@@ -38,6 +38,7 @@ import DropDownMultiFilters from './section/dropdown/DropDownMultiFilter';
 import MppToggleSection from './components/MppToggleSection/MppToggleSection';
 import MppDropDown from './components/MppDropDown/MppDropDown';
 import MppTextAreaFixHeight from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';
+import MppChallengeCard from './components/MppChallengeRankingCard/MppChallengeRankingCard';
 
 function App() {
   return (
@@ -697,6 +698,10 @@ function App() {
       <MppToggleSection title={'Je suis un titre'}>
         <div>Je suis du contenue</div>
       </MppToggleSection>
+
+      <h2>Challenge Card</h2>
+      <MppChallengeCard title={'titre que je veux'}  value={`${5623}`} ranking={9} />
+      <MppChallengeCard title={'titre que je veux'}  value={`x ${5623}`} subtitle={"le bo sco"}  />
     </div>
   );
 }
