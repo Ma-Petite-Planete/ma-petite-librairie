@@ -2080,17 +2080,16 @@ const MppTextAreaFixHeight = ({ placeholder, value = '', onChange, readOnly = fa
 };
 
 const MppChallengeCard = ({ title, subtitle, ranking, value, boType = BoType.scoBO }) => {
-    const isTitleEmpty = title === "" ? null : title;
     return (React__default.createElement("div", { className: `challenge_card__container ${boType === BoType.gpBo ? 'padding_ecu' : ''}` },
         React__default.createElement("div", { className: "challenge_card__ranking_title" },
             ranking && (React__default.createElement("div", { className: "challenge_card__ranking text_body_sb" }, ranking)),
-            React__default.createElement("div", { className: `challenge_card__content ${title ? '' : 'loading'}` }, !isTitleEmpty ? (React__default.createElement(React__default.Fragment, null,
+            React__default.createElement("div", { className: `challenge_card__content ${title ? '' : 'loading'}` }, value ? (React__default.createElement(React__default.Fragment, null,
                 React__default.createElement("p", { className: "challenge_card__title text_small_b" }, title),
                 subtitle && (React__default.createElement("p", { className: "challenge_card__subtitle text_small" }, subtitle)))) : (React__default.createElement(React__default.Fragment, null,
                 React__default.createElement(MppSkeletonLoader, { heightRow: "20px" }),
                 React__default.createElement("div", { className: "loading_subtitle" },
                     React__default.createElement(MppSkeletonLoader, null)))))),
-        !isTitleEmpty ? (React__default.createElement("span", { className: "challenge_card__points text_small_b" }, value)) : (React__default.createElement("div", { className: "loading_point" },
+        value ? (React__default.createElement("span", { className: "challenge_card__points text_small_b" }, value)) : (React__default.createElement("div", { className: "loading_point" },
             React__default.createElement(MppSkeletonLoader, { heightRow: "20px" })))));
 };
 
