@@ -28,7 +28,7 @@ const MppChallengeCard: React.FC<MppChallengeCardProps> = ({
         <div className={`challenge_card__content`}>
           {!titleIsEmpty ? (
             <>
-              <p className="challenge_card__title text_small_b">{title}</p>
+              <p className={`challenge_card__title  ${boType === BoType.gpBo ? 'text_body_sb' : 'text_small_b' }`}>{title}</p>
               {subtitle && (
                 <p className="challenge_card__subtitle text_small">
                   {subtitle}

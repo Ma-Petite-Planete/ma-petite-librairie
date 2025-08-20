@@ -2091,7 +2091,7 @@ const MppChallengeCard = ({ title, subtitle, ranking, value, boType = BoType.sco
         React__default.createElement("div", { className: "challenge_card__ranking_title" },
             ranking && (React__default.createElement("div", { className: "challenge_card__ranking text_body_sb" }, ranking)),
             React__default.createElement("div", { className: `challenge_card__content` }, !titleIsEmpty ? (React__default.createElement(React__default.Fragment, null,
-                React__default.createElement("p", { className: "challenge_card__title text_small_b" }, title),
+                React__default.createElement("p", { className: `challenge_card__title  ${boType === BoType.gpBo ? 'text_body_sb' : 'text_small_b'}` }, title),
                 subtitle && (React__default.createElement("p", { className: "challenge_card__subtitle text_small" }, subtitle)))) : (React__default.createElement(React__default.Fragment, null,
                 React__default.createElement(MppSkeletonLoader, { heightRow: "20px" }),
                 React__default.createElement("div", { className: "loading_subtitle" },
