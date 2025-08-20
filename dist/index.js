@@ -155,14 +155,14 @@ const ScoColors = {
 const GpColors = {
     orange: 'var(--orange)',
     mintGreen: 'var(--mint_green)',
-    lightBlue: 'var(--light_blue)',
+    lightBlue: 'var(--light_blue_ecu)',
     teal: 'var(--teal)',
-    pink: 'var(--pink)',
+    pink: 'var(--pink_ecu)',
     royalBlue: 'var(--royal_blue)',
     lightGreen: 'var(--light_green)',
     errorRed: 'var(--error_red)',
-    pastelGreen: 'var(--pastel_green)',
-    pastelOrange: 'var(--pastel_orange)',
+    pastelGreen: 'var(--pastel_green_ecu)',
+    pastelOrange: 'var(--pastel_orange_ecu)',
     pastelPink: 'var(--pastel_pink)',
     lightBeige: 'var(--light_beige)',
     beige: 'var(--beige)',
@@ -174,7 +174,7 @@ const GpColors = {
     lightGrey: 'var(--light_grey)',
     white: 'var(--white)',
     darkBlue: 'var(--dark_blue)',
-    greyDivider: 'var(--grey_divider)',
+    greyDivider: 'var(--grey_divider)'
 };
 
 var _path$x;
@@ -544,7 +544,7 @@ var SvgTraining = function SvgTraining(props) {
   }, props), _g$1 || (_g$1 = /*#__PURE__*/React.createElement("g", {
     clipPath: "url(#training_svg__a)"
   }, /*#__PURE__*/React.createElement("path", {
-    fill: "#FFAE92",
+    fill: "currentColor",
     fillRule: "evenodd",
     d: "M4.875 4.875h22.604v3.646h-1.458V6.333H6.333v16.771h15.595v1.459H4.875zm21.875 9.48a2.188 2.188 0 1 0 0-4.376 2.188 2.188 0 0 0 0 4.375m1.48 1.465c.948 0 1.698.426 2.188 1.083.46.617.653 1.379.697 2.082a5.5 5.5 0 0 1-.29 2.13c-.218.634-.588 1.29-1.158 1.74v7.176a1.093 1.093 0 0 1-2.173.18l-.94-5.648h-.218l-1.063 5.67a1.094 1.094 0 0 1-2.169-.202V19.628q-.22.334-.431.67l-.057.09-.015.023-.004.007a1.09 1.09 0 0 1-.929.515h-3.645a1.094 1.094 0 1 1 0-2.187h3.045c.177-.274.41-.63.656-.987.255-.373.537-.767.787-1.077.122-.15.259-.308.396-.437.067-.064.16-.146.274-.219.2-.132.435-.204.675-.206z",
     clipRule: "evenodd"
@@ -565,18 +565,18 @@ var SvgUsers = function SvgUsers(props) {
     height: 32,
     fill: "none"
   }, props), _path$n || (_path$n = /*#__PURE__*/React.createElement("path", {
-    stroke: "#F9CF2F",
+    stroke: "currentColor",
     strokeMiterlimit: 10,
     strokeWidth: 3,
     d: "M11 20a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z"
   })), _path2$8 || (_path2$8 = /*#__PURE__*/React.createElement("path", {
-    stroke: "#F9CF2F",
+    stroke: "currentColor",
     strokeLinecap: "round",
     strokeLinejoin: "round",
     strokeWidth: 3,
     d: "M19.429 7.241A6.5 6.5 0 1 1 21.192 20M2 24.675a11.002 11.002 0 0 1 18-.001"
   })), _path3$4 || (_path3$4 = /*#__PURE__*/React.createElement("path", {
-    stroke: "#F9CF2F",
+    stroke: "currentColor",
     strokeLinecap: "round",
     strokeLinejoin: "round",
     strokeWidth: 3,
@@ -593,13 +593,13 @@ var SvgTarget = function SvgTarget(props) {
     height: 36,
     fill: "none"
   }, props), _path$m || (_path$m = /*#__PURE__*/React.createElement("path", {
-    stroke: "#C4E39A",
+    stroke: "currentColor",
     strokeLinecap: "round",
     strokeLinejoin: "round",
     strokeWidth: 3,
     d: "M18 18 31.5 4.5M27.545 8.455a13.487 13.487 0 1 0 2.64 3.726"
   })), _path2$7 || (_path2$7 = /*#__PURE__*/React.createElement("path", {
-    stroke: "#C4E39A",
+    stroke: "currentColor",
     strokeLinecap: "round",
     strokeLinejoin: "round",
     strokeWidth: 3,
@@ -614,7 +614,7 @@ var SvgChart = function SvgChart(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 34,
     height: 34,
-    fill: "#B1C5FF"
+    fill: "currentColor"
   }, props), _g || (_g = /*#__PURE__*/React.createElement("g", {
     clipPath: "url(#chart_svg__a)"
   }, /*#__PURE__*/React.createElement("path", {
@@ -649,7 +649,7 @@ var SvgCloud = function SvgCloud(props) {
     height: 20,
     fill: "none"
   }, props), _path$k || (_path$k = /*#__PURE__*/React.createElement("path", {
-    fill: "#FFAE92",
+    fill: "currentColor",
     d: "M32.231 20H6.204C2.784 20 0 17.263 0 13.9s2.784-6.099 6.204-6.099a6.2 6.2 0 0 1 2.404.478C9.443 3.56 13.643 0 18.602 0c4.085 0 7.71 2.377 9.31 6.007a7.83 7.83 0 0 1 4.318-1.298c4.285 0 7.77 3.43 7.77 7.646C40.002 16.57 36.515 20 32.231 20M6.204 9.172c-2.625 0-4.762 2.121-4.762 4.728s2.137 4.728 4.762 4.728H32.23c3.49 0 6.33-2.816 6.33-6.274 0-3.46-2.839-6.274-6.33-6.274-1.53 0-3.009.553-4.166 1.56a.75.75 0 0 1-.674.157.71.71 0 0 1-.5-.46C25.72 3.768 22.39 1.37 18.601 1.37c-4.562 0-8.375 3.534-8.682 8.043a.69.69 0 0 1-.402.572.75.75 0 0 1-.722-.05 4.76 4.76 0 0 0-2.592-.764"
   })));
 };
@@ -663,12 +663,12 @@ var SvgDrops = function SvgDrops(props) {
     height: 34,
     fill: "none"
   }, props), _path$j || (_path$j = /*#__PURE__*/React.createElement("path", {
-    fill: "#F9CF2F",
+    fill: "currentColor",
     fillRule: "evenodd",
     d: "M3.374 17.613a9.57 9.57 0 0 0-2.244 6.17c0 5.303 4.306 9.609 9.609 9.609s9.609-4.306 9.609-9.61c0-2.348-.844-4.5-2.244-6.169l-6.057-7.345a1.698 1.698 0 0 0-2.617 0zm.868.724 6.062-7.348a.56.56 0 0 1 .435-.206c.17 0 .33.075.435.206l6.062 7.348a8.44 8.44 0 0 1 1.982 5.446 8.48 8.48 0 0 1-8.48 8.478 8.48 8.48 0 0 1-8.478-8.478c0-2.073.745-3.972 1.982-5.446",
     clipRule: "evenodd"
   })), _path2$6 || (_path2$6 = /*#__PURE__*/React.createElement("path", {
-    fill: "#F9CF2F",
+    fill: "currentColor",
     fillRule: "evenodd",
     d: "M10.739 28.87a5.09 5.09 0 0 1-5.087-5.088.565.565 0 1 0-1.13 0A6.22 6.22 0 0 0 10.738 30a.565.565 0 1 0 0-1.13M7.382 5.977l-1.958-3.39a1.695 1.695 0 0 0-2.936 0L.531 5.977a3.96 3.96 0 0 0 3.425 5.937 3.96 3.96 0 0 0 3.426-5.937m-.978.566L4.445 3.152a.563.563 0 0 0-.978 0L1.51 6.543a2.827 2.827 0 1 0 4.895 0M15.724 5.837q-.006.009-.014.018a5.654 5.654 0 0 0 4.638 8.884 5.654 5.654 0 0 0 4.637-8.884l-3.26-4.54a1.698 1.698 0 0 0-2.755 0zm.919.66 3.246-4.522a.564.564 0 0 1 .918 0l3.253 4.53a4.524 4.524 0 0 1-3.712 7.103 4.524 4.524 0 0 1-3.71-7.106z",
     clipRule: "evenodd"
@@ -684,10 +684,10 @@ var SvgTrash = function SvgTrash(props) {
     height: 30,
     fill: "none"
   }, props), _path$i || (_path$i = /*#__PURE__*/React.createElement("path", {
-    fill: "#5FD3AC",
+    fill: "currentColor",
     d: "M22 5.26a1.42 1.42 0 0 0-1.42-1.42h-4.907V1.787A1.774 1.774 0 0 0 13.9.012H8.101a1.774 1.774 0 0 0-1.774 1.774v2.055H1.42A1.42 1.42 0 0 0 0 5.26v2.2a1.42 1.42 0 0 0 1.42 1.418h.755v17.56a3.55 3.55 0 0 0 3.549 3.55h10.552a3.55 3.55 0 0 0 3.549-3.55V8.88h.755A1.42 1.42 0 0 0 22 7.46zM7.746 1.786a.355.355 0 0 1 .355-.354H13.9a.355.355 0 0 1 .355.354v2.055H7.746zM18.391 26.44a2.13 2.13 0 0 1-2.129 2.129H5.72a2.13 2.13 0 0 1-2.129-2.13V8.88h14.814zm2.19-18.98H1.42v-2.2h19.16z"
   })), _path2$5 || (_path2$5 = /*#__PURE__*/React.createElement("path", {
-    fill: "#5FD3AC",
+    fill: "currentColor",
     d: "M11 25.644a.71.71 0 0 0 .71-.71V12.907a.71.71 0 0 0-1.42 0v12.029a.71.71 0 0 0 .71.71M14.903 25.644a.71.71 0 0 0 .71-.71V12.907a.71.71 0 0 0-1.42 0v12.029a.71.71 0 0 0 .71.71M7.097 25.644a.71.71 0 0 0 .71-.71V12.907a.71.71 0 0 0-1.42 0v12.029a.71.71 0 0 0 .71.71"
   })));
 };
@@ -701,7 +701,7 @@ var SvgOpenBook = function SvgOpenBook(props) {
     height: 24,
     fill: "none"
   }, props), _path$h || (_path$h = /*#__PURE__*/React.createElement("path", {
-    fill: "#2C2C69",
+    fill: "currentColor",
     d: "M18.08 6.853a.4.4 0 0 1-.028-.312.41.41 0 0 1 .205-.24 17.7 17.7 0 0 1 4.59-1.606.42.42 0 0 1 .317.059.406.406 0 0 1 .117.57.42.42 0 0 1-.269.173 16.8 16.8 0 0 0-4.37 1.53.42.42 0 0 1-.562-.174M6.986 5.497c1.522.308 2.992.823 4.37 1.53a.42.42 0 0 0 .562-.174.405.405 0 0 0-.177-.55A17.6 17.6 0 0 0 7.15 4.695a.42.42 0 0 0-.317.058.406.406 0 0 0 .152.743m0 4.312c1.522.307 2.992.821 4.37 1.529a.42.42 0 0 0 .562-.174.407.407 0 0 0-.177-.552A17.7 17.7 0 0 0 7.15 9.006a.417.417 0 0 0-.491.32.41.41 0 0 0 .326.482zm11.463 1.576a.4.4 0 0 0 .191-.046 16.8 16.8 0 0 1 4.372-1.53.41.41 0 0 0 .325-.481.417.417 0 0 0-.49-.321 17.7 17.7 0 0 0-4.59 1.606.408.408 0 0 0 .192.774zM6.984 14.122c1.524.306 2.994.82 4.371 1.53q.09.046.192.046a.408.408 0 0 0 .192-.774 17.7 17.7 0 0 0-4.59-1.606.409.409 0 1 0-.166.802zm15.864-.803a17.7 17.7 0 0 0-4.59 1.606.41.41 0 0 0-.215.462.414.414 0 0 0 .407.312.4.4 0 0 0 .192-.046 16.8 16.8 0 0 1 4.37-1.53.41.41 0 0 0 .327-.483.416.416 0 0 0-.491-.32m7.134 10.39-.01.028-.003.007v.002l-.025.05-.006.01a.3.3 0 0 1-.032.043l-.003.003v.001l-.037.036-.01.009-.001.001-.041.032h-.005a.3.3 0 0 1-.045.026l-.009.004a.3.3 0 0 1-.051.019H29.7q-.025.008-.05.011l-.014.003v-.001a.3.3 0 0 1-.05.004h-.005l-.042-.001h-.009a.1.1 0 0 1-.03-.005l-.023-.005-.017-.005-.028-.01-.009-.003-.006-.003c-3.193-1.26-8.047-1.975-14.42-2.117-6.372.142-11.225.857-14.422 2.12l-.005.003-.01.003q-.012.005-.027.009v.001l-.018.004-.02.006L.465 24H.456L.416 24H.41l-.05-.003-.015-.003a.3.3 0 0 1-.05-.011H.295a.3.3 0 0 1-.052-.019l-.01-.004q-.023-.011-.044-.025l-.004-.003-.043-.031-.011-.01H.13a.3.3 0 0 1-.035-.038L.09 23.85l-.03-.043-.006-.01a.3.3 0 0 1-.027-.05l-.002-.008q-.007-.015-.01-.029l-.005-.014-.006-.024.002-.002-.003-.021L0 23.63c-.002-.006 0-.02 0-.028V3.688a.4.4 0 0 1 .12-.29.42.42 0 0 1 .293-.121c.496 0 .999.022 1.5.057V2.23c0-.108.044-.212.123-.29a.42.42 0 0 1 .294-.119c.42 0 .841.018 1.263.046V.41A.417.417 0 0 1 4.01 0C7.86.01 11.65 1.393 15 4.006 18.348 1.392 22.139.01 25.985 0c.23 0 .417.183.417.41v1.46c.42-.03.844-.045 1.261-.047v-.001a.42.42 0 0 1 .295.12c.079.077.123.18.123.29v1.104a21 21 0 0 1 1.5-.058.42.42 0 0 1 .296.118c.08.078.123.181.123.29V23.63c0 .01 0 .011-.003.017v.002l-.003.02q0 .013-.006.024-.002.011-.006.016m-1.9-19.553v16.23a.4.4 0 0 1-.161.323.42.42 0 0 1-.359.073 19.07 19.07 0 0 0-10.471.318c5.122.228 9.176.865 12.075 1.9V4.1q-.542.013-1.084.055m-1.68-1.468v14.629a.41.41 0 0 1-.415.41 16.43 16.43 0 0 0-8.283 2.34 19.9 19.9 0 0 1 9.545-.202V2.646q-.423.011-.847.042M25.57.826c-3.553.105-7.051 1.449-10.154 3.902l-.001 15.869c3.123-2.317 6.608-3.584 10.153-3.681zm-21.14 0-.002 16.088c3.545.1 7.03 1.366 10.153 3.681l.002-15.868C11.478 2.275 7.98.93 4.428.826zM2.748 19.865c3.15-.71 6.43-.639 9.544.203a16.4 16.4 0 0 0-8.283-2.341.413.413 0 0 1-.415-.41V2.687c-.28-.02-.562-.037-.846-.042zM.83 4.1v18.897c2.9-1.034 6.953-1.67 12.076-1.9v.002a19.07 19.07 0 0 0-10.472-.318.42.42 0 0 1-.359-.073.4.4 0 0 1-.16-.324V4.155q-.542-.04-1.085-.054"
   })));
 };
@@ -1338,37 +1338,43 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
 };
 
 /**
- * Props pour le composant StatCard.
- * @interface MppInputTextProps
- * @property {(typeof MppIcons)[keyof typeof MppIcons]} IconComponent - Composant icon de MppIcons pour afficher l'icone de la stat.
- * @property {string} title - Titre de la card.
- * @property {number} stat - Nombre/statistique que l'on veut afficher.
- * @property {BoType.gpBo} boType - Permet d'afficher une ombre spécifique au BO ECU, n'autorise que le type gpBo.
- * @property {string} statDetails - String qui affiche des détails après les stats
- */
-/**
- * Composant d'affichage des statisques dans une card avec une icone à gauche pour illustrer
+ * Composant d'affichage des statistiques dans une carte avec une icône à gauche pour illustrer.
+ *
+ * Affiche un titre, une statistique principale, une icône, et éventuellement des détails complémentaires.
+ * Gère l'affichage d'un loader skeleton lorsque la statistique n'est pas encore disponible.
+ *
+ * @component
+ * @param {Object} props - Les propriétés du composant.
+ * @param {(typeof MppIcons)[keyof typeof MppIcons]} props.IconComponent - Composant d'icône issu de MppIcons pour illustrer la statistique.
+ * @param {string} props.title - Titre affiché sur la carte.
+ * @param {number | null | undefined} props.stat - Valeur numérique de la statistique à afficher. Si null/undefined, affiche un loader ou "--".
+ * @param {BoType.gpBo} [props.boType] - Permet d'afficher une ombre spécifique pour le type de BO ECU (optionnel).
+ * @param {string} [props.statDetails] - Détails complémentaires affichés après la statistique (optionnel).
+ * @param {boolean} [props.useSkeletonLoader=true] - Active ou non l'affichage du skeleton loader lors du chargement (optionnel, true par défaut).
  *
  * @example
- * ```jsx
+ * ```tsx
  * <MppStatCard
- * title={t('traduction')}
- * IconComponent={MppIcons.training}
- * stat={12}
- * statDetails="/élèves"
+ *   title="Traduction"
+ *   IconComponent={MppIcons.training}
+ *   stat={12}
+ *   statDetails="/élèves"
  * />
  * ```
  */
-const StatCard = ({ IconComponent, title, stat, boType, statDetails, }) => {
+const StatCard = ({ IconComponent, title, stat, boType, statDetails, useSkeletonLoader = true }) => {
     return (React__default.createElement("div", { className: `stat_card__container${boType ? ' stat_card__container--shadow' : ''}` },
-        stat !== null && stat !== undefined ? (React__default.createElement("div", { className: "stat_card__icon" },
+        stat !== null && stat !== undefined || !useSkeletonLoader ? (React__default.createElement("div", { className: "stat_card__icon" },
             React__default.createElement(IconComponent, null))) : (React__default.createElement("div", { className: "loader_background" },
             React__default.createElement(MppSkeletonLoader, { circular: true }))),
         React__default.createElement("div", { className: "stat_card__content" }, stat !== null && stat !== undefined ? (React__default.createElement(React__default.Fragment, null,
             React__default.createElement("p", { className: "stat_card__title text_small" }, title),
             React__default.createElement("p", { className: "stat_card__number title_h3" },
                 stat,
-                " ", statDetails !== null && statDetails !== void 0 ? statDetails : ''))) : (React__default.createElement(MppSkeletonLoader, { count: 2 })))));
+                " ", statDetails !== null && statDetails !== void 0 ? statDetails : ''))) : useSkeletonLoader ?
+            (React__default.createElement(MppSkeletonLoader, { count: 2 })) : React__default.createElement(React__default.Fragment, null,
+            React__default.createElement("p", { className: "stat_card__title text_small" }, title),
+            React__default.createElement("p", { className: "stat_card__number title_h3" }, "--")))));
 };
 
 const MppTextArea = ({ placeholder, value = '', onChange, readOnly = false, style, id, }) => {
