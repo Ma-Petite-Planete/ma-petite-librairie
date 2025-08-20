@@ -435,7 +435,7 @@ function App() {
             <div key={iconName} style={{ margin: '10px 10px 0 0 ' }}>
               <MppStatCard
                 title={iconName}
-                IconComponent={IconComponent}
+                IconComponent={() => <IconComponent />}
                 stat={0}
                 statDetails="test"
               />

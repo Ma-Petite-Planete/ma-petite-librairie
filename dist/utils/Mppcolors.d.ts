@@ -34,14 +34,14 @@ export declare const ScoColors: {
 export declare const GpColors: {
     readonly orange: "var(--orange)";
     readonly mintGreen: "var(--mint_green)";
-    readonly lightBlue: "var(--light_blue)";
+    readonly lightBlue: "var(--light_blue_ecu)";
     readonly teal: "var(--teal)";
-    readonly pink: "var(--pink)";
+    readonly pink: "var(--pink_ecu)";
     readonly royalBlue: "var(--royal_blue)";
     readonly lightGreen: "var(--light_green)";
     readonly errorRed: "var(--error_red)";
-    readonly pastelGreen: "var(--pastel_green)";
-    readonly pastelOrange: "var(--pastel_orange)";
+    readonly pastelGreen: "var(--pastel_green_ecu)";
+    readonly pastelOrange: "var(--pastel_orange_ecu)";
     readonly pastelPink: "var(--pastel_pink)";
     readonly lightBeige: "var(--light_beige)";
     readonly beige: "var(--beige)";

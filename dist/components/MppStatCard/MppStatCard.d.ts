@@ -8,26 +8,30 @@ interface StatCardProps {
     stat: number | null | undefined;
     boType?: BoType.gpBo;
     statDetails?: string;
+    useSkeletonLoader?: boolean;
 }
 /**
- * Props pour le composant StatCard.
- * @interface MppInputTextProps
- * @property {(typeof MppIcons)[keyof typeof MppIcons]} IconComponent - Composant icon de MppIcons pour afficher l'icone de la stat.
- * @property {string} title - Titre de la card.
- * @property {number} stat - Nombre/statistique que l'on veut afficher.
- * @property {BoType.gpBo} boType - Permet d'afficher une ombre spécifique au BO ECU, n'autorise que le type gpBo.
- * @property {string} statDetails - String qui affiche des détails après les stats
- */
-/**
- * Composant d'affichage des statisques dans une card avec une icone à gauche pour illustrer
+ * Composant d'affichage des statistiques dans une carte avec une icône à gauche pour illustrer.
+ *
+ * Affiche un titre, une statistique principale, une icône, et éventuellement des détails complémentaires.
+ * Gère l'affichage d'un loader skeleton lorsque la statistique n'est pas encore disponible.
+ *
+ * @component
+ * @param {Object} props - Les propriétés du composant.
+ * @param {(typeof MppIcons)[keyof typeof MppIcons]} props.IconComponent - Composant d'icône issu de MppIcons pour illustrer la statistique.
+ * @param {string} props.title - Titre affiché sur la carte.
+ * @param {number | null | undefined} props.stat - Valeur numérique de la statistique à afficher. Si null/undefined, affiche un loader ou "--".
+ * @param {BoType.gpBo} [props.boType] - Permet d'afficher une ombre spécifique pour le type de BO ECU (optionnel).
+ * @param {string} [props.statDetails] - Détails complémentaires affichés après la statistique (optionnel).
+ * @param {boolean} [props.useSkeletonLoader=true] - Active ou non l'affichage du skeleton loader lors du chargement (optionnel, true par défaut).
  *
  * @example
- * ```jsx
+ * ```tsx
  * <MppStatCard
- * title={t('traduction')}
- * IconComponent={MppIcons.training}
- * stat={12}
- * statDetails="/élèves"
+ *   title="Traduction"
+ *   IconComponent={MppIcons.training}
+ *   stat={12}
+ *   statDetails="/élèves"
  * />
  * ```
  */

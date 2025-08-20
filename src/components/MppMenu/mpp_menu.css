@@ -17,11 +17,11 @@
   height: 81px;
   margin-top: 16px;
 }
-.logo_sco {
+.logo_container.logo_sco {
   background-image: url('../../ressources/logo/sco_yellow_logo_blue_text.png');
 }
 
-.logo_gp {
+.logo_container.logo_gp {
   background-image: url('../../ressources/logo/gp_logo_blue.png');
 }
 .logo {
