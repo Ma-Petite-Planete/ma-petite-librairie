@@ -43,8 +43,6 @@
 
 .select_dropdown {
   background-color: var(--light_grey);
-  position: absolute;
-  width: 100%;
   border: 1px solid var(--dark_blue);
   border-radius: var(--standard_border_radius);
   box-shadow: 0px 4px 20px 0px #0303841a;
@@ -114,10 +112,15 @@ ul.select_dropdown > li:last-of-type:hover {
   align-items: center;
 }
 
-.select_dropdown.open-down {
+.dropdown_ul_container.open-down {
   top: 100%;
 }
 
-.select_dropdown.open-up {
+.dropdown_ul_container.open-up {
   bottom: 100%;
+}
+
+.dropdown_ul_container {
+  position: absolute;
+  width: 100%;
 }

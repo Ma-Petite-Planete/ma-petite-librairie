@@ -1532,6 +1532,10 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
         }
     }, [isDisabled]);
     const recalcPosition = () => {
+        console.log("hello");
+        console.log("🚀 ~ recalcPosition ~ dropDownRef.current:", dropDownRef.current);
+        console.log("🚀 ~ recalcPosition ~ listRef.current:", listRef.current);
+        console.log("🚀 ~ recalcPosition ~ parentElement:", parentElement);
         if (dropDownRef.current && listRef.current && parentElement) {
             const parentRect = parentElement.getBoundingClientRect();
             const buttonRect = dropDownRef.current.getBoundingClientRect();
@@ -1540,6 +1544,9 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
             setOpenUpward(spaceBelow < dropdownHeight);
         }
     };
+    useEffect(() => {
+        recalcPosition();
+    });
     useEffect(() => {
         if (isDropdownVisible) {
             recalcPosition();
@@ -1576,7 +1583,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                     ? displayedDefaultValue
                     : placeholder),
             React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
-        isDropdownVisible && (React__default.createElement("ul", { className: `select_dropdown ${openUpward ? 'open-up' : 'open-down'}`, ref: listRef }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
+        React__default.createElement("div", { className: `dropdown_ul_container ${openUpward ? 'open-up' : 'open-down'}`, ref: listRef }, isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown " }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
             var _a;
             const displayedValueInDropdown = option[property];
             const isDisabledOption = (_a = isOptionDisabled === null || isOptionDisabled === void 0 ? void 0 : isOptionDisabled(option)) !== null && _a !== void 0 ? _a : false;
@@ -1597,7 +1604,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                         onChange(option);
                     }
                 }, "aria-disabled": isDisabledOption }, displayedValueInDropdown));
-        }))))));
+        })))))));
 };
 
 /**

@@ -102,7 +102,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
   const [openUpward, setOpenUpward] = React.useState(false);
 
   const dropDownRef = useRef<HTMLDivElement>(null);
-  const listRef = useRef<HTMLUListElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setSelectedOption(defaultValue);
@@ -121,6 +121,10 @@ const MppDropDown = <T extends object, K extends keyof T>({
   }, [isDisabled]);
 
   const recalcPosition = () => {
+    console.log("hello")
+    console.log("🚀 ~ recalcPosition ~ dropDownRef.current:", dropDownRef.current)
+    console.log("🚀 ~ recalcPosition ~ listRef.current:", listRef.current)
+    console.log("🚀 ~ recalcPosition ~ parentElement:", parentElement)
     if (dropDownRef.current && listRef.current && parentElement) {
       const parentRect = parentElement.getBoundingClientRect();
       const buttonRect = dropDownRef.current.getBoundingClientRect();
@@ -130,6 +134,10 @@ const MppDropDown = <T extends object, K extends keyof T>({
       setOpenUpward(spaceBelow < dropdownHeight);
     }
   };
+
+  useEffect(() => {
+    recalcPosition();
+  });
 
   useEffect(() => {
     if (isDropdownVisible) {
@@ -192,51 +200,53 @@ const MppDropDown = <T extends object, K extends keyof T>({
           className={`${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}`}
         ></span>
       </button>
-      {isDropdownVisible && (
-        <ul
-          className={`select_dropdown ${openUpward ? 'open-up' : 'open-down'}`}
-          ref={listRef}
-        >
-          {isDropDownEmpty ? (
-            <div>{emptyValue}</div>
-          ) : (
-            options.map((option, index) => {
-              const displayedValueInDropdown = option[property] as string;
-              const isDisabledOption = isOptionDisabled?.(option) ?? false;
-              return (
-                <li
-                  key={index}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter' && !isDisabledOption) {
-                      setSelectedOption(option);
-                      setIsDropdownVisible(false);
-                      onChange(option);
-                    }
-                  }}
-                  tabIndex={0}
-                  className={`${needEmojiFont ? 'emoji' : ''}${textClassname}
+      <div
+        className={`dropdown_ul_container ${openUpward ? 'open-up' : 'open-down'}`}
+        ref={listRef}
+      >
+        {isDropdownVisible && (
+          <ul className="select_dropdown ">
+            {isDropDownEmpty ? (
+              <div>{emptyValue}</div>
+            ) : (
+              options.map((option, index) => {
+                const displayedValueInDropdown = option[property] as string;
+                const isDisabledOption = isOptionDisabled?.(option) ?? false;
+                return (
+                  <li
+                    key={index}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter' && !isDisabledOption) {
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
+                      }
+                    }}
+                    tabIndex={0}
+                    className={`${needEmojiFont ? 'emoji' : ''}${textClassname}
                     ${isDisabledOption ? 'option_disabled' : ''}
                     ${
                       highlightCurrentOption && isOptionSelected(option)
                         ? 'text_body_sb'
                         : ''
                     }`}
-                  onClick={() => {
-                    if (!isDisabledOption) {
-                      setSelectedOption(option);
-                      setIsDropdownVisible(false);
-                      onChange(option);
-                    }
-                  }}
-                  aria-disabled={isDisabledOption}
-                >
-                  {displayedValueInDropdown}
-                </li>
-              );
-            })
-          )}
-        </ul>
-      )}
+                    onClick={() => {
+                      if (!isDisabledOption) {
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
+                      }
+                    }}
+                    aria-disabled={isDisabledOption}
+                  >
+                    {displayedValueInDropdown}
+                  </li>
+                );
+              })
+            )}
+          </ul>
+        )}
+      </div>
     </div>
   );
 };
