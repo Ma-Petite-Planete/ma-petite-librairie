@@ -41,6 +41,8 @@ import MppTextAreaFixHeight from './components/MppTextAreaFixHeight/MppTextAreaF
 import MppChallengeCard from './components/MppChallengeRankingCard/MppChallengeRankingCard';
 
 function App() {
+  const parentElement = document.querySelector("#test_drop_down");
+  console.log("🚀 ~ App ~ parentElement:", parentElement)
   return (
     <div className="main_background">
       <h2>Type de Texte</h2>
@@ -483,7 +485,7 @@ function App() {
       </div>
       <h2>Select Input</h2>
 
-      <div style={{ width: '40%' }}>
+      <div id="test_drop_down" style={{ width: '40%' }}>
         <DropDownMultiFilters />
         <MppDropDown
           needEmojiFont={true}
@@ -601,6 +603,7 @@ function App() {
 
         <p>cas 3 : disbale une option et highlight une autre</p>
         <MppDropDown
+          parentElement={parentElement}
           textClassname="text_body"
           property="label"
           options={[
@@ -700,9 +703,18 @@ function App() {
       </MppToggleSection>
 
       <h2>Challenge Card</h2>
-      <MppChallengeCard title={'titre que je veux'}  value={`${5623}`} ranking={9}  boType={BoType.gpBo}/>
-      <MppChallengeCard title={'titre que je veux'}  value={`x ${5623}`} subtitle={"le bo sco"}  />
-      <MppChallengeCard title={''}  value={``}   />
+      <MppChallengeCard
+        title={'titre que je veux'}
+        value={`${5623}`}
+        ranking={9}
+        boType={BoType.gpBo}
+      />
+      <MppChallengeCard
+        title={'titre que je veux'}
+        value={`x ${5623}`}
+        subtitle={'le bo sco'}
+      />
+      <MppChallengeCard title={''} value={``} />
     </div>
   );
 }

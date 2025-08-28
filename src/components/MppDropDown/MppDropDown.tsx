@@ -17,6 +17,7 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
   highlightCurrentOption?: boolean;
   width?: string;
   identifierKey?: keyof T;
+  parentElement?: Element | null;
 }
 
 interface HighlightedDropDownProps<T extends object, K extends keyof T>
@@ -93,11 +94,15 @@ const MppDropDown = <T extends object, K extends keyof T>({
   highlightCurrentOption,
   width,
   identifierKey,
+  parentElement,
 }: MppDropDownPropsComplete<T, K>) => {
   const [selectedOption, setSelectedOption] = React.useState<T | null>(null);
   const [isDropdownVisible, setIsDropdownVisible] =
     React.useState<boolean>(false);
+  const [openUpward, setOpenUpward] = React.useState(false);
+
   const dropDownRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     setSelectedOption(defaultValue);
@@ -114,6 +119,33 @@ const MppDropDown = <T extends object, K extends keyof T>({
       setSelectedOption(null);
     }
   }, [isDisabled]);
+
+  const recalcPosition = () => {
+    if (dropDownRef.current && listRef.current && parentElement) {
+      const parentRect = parentElement.getBoundingClientRect();
+      const buttonRect = dropDownRef.current.getBoundingClientRect();
+      const dropdownHeight = listRef.current.offsetHeight;
+
+      const spaceBelow = parentRect.bottom - buttonRect.bottom;
+      setOpenUpward(spaceBelow < dropdownHeight);
+    }
+  };
+
+  useEffect(() => {
+    if (isDropdownVisible) {
+      recalcPosition();
+
+      const parentEl = parentElement;
+      window.addEventListener('resize', recalcPosition);
+      parentEl?.addEventListener('scroll', recalcPosition, { passive: true });
+
+      return () => {
+        window.removeEventListener('resize', recalcPosition);
+        parentEl?.removeEventListener('scroll', recalcPosition);
+      };
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDropdownVisible, parentElement]);
 
   const isOptionSelected = (option: T) => {
     const selectedId = selectedOption?.[identifierKey];
@@ -161,7 +193,10 @@ const MppDropDown = <T extends object, K extends keyof T>({
         ></span>
       </button>
       {isDropdownVisible && (
-        <ul className="select_dropdown">
+        <ul
+          className={`select_dropdown ${openUpward ? 'open-up' : 'open-down'}`}
+          ref={listRef}
+        >
           {isDropDownEmpty ? (
             <div>{emptyValue}</div>
           ) : (

@@ -15,6 +15,7 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
     highlightCurrentOption?: boolean;
     width?: string;
     identifierKey?: keyof T;
+    parentElement?: Element | null;
 }
 interface HighlightedDropDownProps<T extends object, K extends keyof T> extends MppDropDownProps<T, K> {
     highlightCurrentOption: true;
@@ -67,5 +68,5 @@ type MppDropDownPropsComplete<T extends object, K extends keyof T> = Highlighted
  * };
  * ```
  */
-declare const MppDropDown: <T extends object, K extends keyof T>({ placeholder, onChange, options, isDisabled, defaultValue, textClassname, property, needEmojiFont, isDropDownEmpty, emptyValue, isOptionDisabled, highlightCurrentOption, width, identifierKey, }: MppDropDownPropsComplete<T, K>) => React.JSX.Element;
+declare const MppDropDown: <T extends object, K extends keyof T>({ placeholder, onChange, options, isDisabled, defaultValue, textClassname, property, needEmojiFont, isDropDownEmpty, emptyValue, isOptionDisabled, highlightCurrentOption, width, identifierKey, parentElement, }: MppDropDownPropsComplete<T, K>) => React.JSX.Element;
 export default MppDropDown;

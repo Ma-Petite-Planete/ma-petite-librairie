@@ -113,3 +113,11 @@ ul.select_dropdown > li:last-of-type:hover {
   display: flex;
   align-items: center;
 }
+
+.select_dropdown.open-down {
+  top: 100%;
+}
+
+.select_dropdown.open-up {
+  bottom: 100%;
+}

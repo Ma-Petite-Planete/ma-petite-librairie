@@ -1512,10 +1512,12 @@ const useClickOutside = (elementRef, callback) => {
  * };
  * ```
  */
-const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, width, identifierKey, }) => {
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, width, identifierKey, parentElement, }) => {
     const [selectedOption, setSelectedOption] = React__default.useState(null);
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
+    const [openUpward, setOpenUpward] = React__default.useState(false);
     const dropDownRef = useRef(null);
+    const listRef = useRef(null);
     useEffect(() => {
         setSelectedOption(defaultValue);
     }, [defaultValue, options]);
@@ -1529,6 +1531,28 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
             setSelectedOption(null);
         }
     }, [isDisabled]);
+    const recalcPosition = () => {
+        if (dropDownRef.current && listRef.current && parentElement) {
+            const parentRect = parentElement.getBoundingClientRect();
+            const buttonRect = dropDownRef.current.getBoundingClientRect();
+            const dropdownHeight = listRef.current.offsetHeight;
+            const spaceBelow = parentRect.bottom - buttonRect.bottom;
+            setOpenUpward(spaceBelow < dropdownHeight);
+        }
+    };
+    useEffect(() => {
+        if (isDropdownVisible) {
+            recalcPosition();
+            const parentEl = parentElement;
+            window.addEventListener('resize', recalcPosition);
+            parentEl === null || parentEl === void 0 ? void 0 : parentEl.addEventListener('scroll', recalcPosition, { passive: true });
+            return () => {
+                window.removeEventListener('resize', recalcPosition);
+                parentEl === null || parentEl === void 0 ? void 0 : parentEl.removeEventListener('scroll', recalcPosition);
+            };
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isDropdownVisible, parentElement]);
     const isOptionSelected = (option) => {
         const selectedId = selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption[identifierKey];
         const defaultId = defaultValue === null || defaultValue === void 0 ? void 0 : defaultValue[identifierKey];
@@ -1552,7 +1576,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                     ? displayedDefaultValue
                     : placeholder),
             React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
-        isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
+        isDropdownVisible && (React__default.createElement("ul", { className: `select_dropdown ${openUpward ? 'open-up' : 'open-down'}`, ref: listRef }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
             var _a;
             const displayedValueInDropdown = option[property];
             const isDisabledOption = (_a = isOptionDisabled === null || isOptionDisabled === void 0 ? void 0 : isOptionDisabled(option)) !== null && _a !== void 0 ? _a : false;
