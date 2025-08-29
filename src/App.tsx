@@ -42,7 +42,6 @@ import MppChallengeCard from './components/MppChallengeRankingCard/MppChallengeR
 
 function App() {
   const parentElement = document.querySelector("#test_drop_down");
-  console.log("🚀 ~ App ~ parentElement:", parentElement)
   return (
     <div className="main_background">
       <h2>Type de Texte</h2>

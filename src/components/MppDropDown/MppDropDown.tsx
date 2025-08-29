@@ -121,10 +121,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
   }, [isDisabled]);
 
   const recalcPosition = () => {
-    console.log("hello")
-    console.log("🚀 ~ recalcPosition ~ dropDownRef.current:", dropDownRef.current)
-    console.log("🚀 ~ recalcPosition ~ listRef.current:", listRef.current)
-    console.log("🚀 ~ recalcPosition ~ parentElement:", parentElement)
+
     if (dropDownRef.current && listRef.current && parentElement) {
       const parentRect = parentElement.getBoundingClientRect();
       const buttonRect = dropDownRef.current.getBoundingClientRect();
