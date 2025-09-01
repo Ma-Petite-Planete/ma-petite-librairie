@@ -1535,9 +1535,16 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
         if (dropDownRef.current && listRef.current && parentElement) {
             const parentRect = parentElement.getBoundingClientRect();
             const buttonRect = dropDownRef.current.getBoundingClientRect();
-            const dropdownHeight = listRef.current.offsetHeight;
+            const dropdownHeight = listRef.current.offsetHeight || 200; // fallback estimé
             const spaceBelow = parentRect.bottom - buttonRect.bottom;
             setOpenUpward(spaceBelow < dropdownHeight);
+        }
+    };
+    const handleToggle = () => {
+        if (!isDisabled) {
+            // 🔹 calcule la position AVANT d'ouvrir
+            recalcPosition();
+            setIsDropdownVisible((prev) => !prev);
         }
     };
     useEffect(() => {
@@ -1569,10 +1576,10 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
         ? selectedOption[property]
         : null;
     return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''}`, style: { width: width } },
-        React__default.createElement("button", { type: "button", disabled: isDisabled, onClick: !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null, className: ` select_button ${textClassname}
-          ${isDropdownVisible ? 'open' : ''}
-          ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
-          ${selectedOption ? 'selected' : ''}` },
+        React__default.createElement("button", { type: "button", disabled: isDisabled, onClick: handleToggle, className: `select_button ${textClassname}
+    ${isDropdownVisible ? 'open' : ''}
+    ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
+    ${selectedOption ? 'selected' : ''}` },
             React__default.createElement("span", { className: `select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}` }, displaySelectedValue
                 ? displaySelectedValue
                 : displayedDefaultValue

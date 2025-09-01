@@ -121,14 +121,21 @@ const MppDropDown = <T extends object, K extends keyof T>({
   }, [isDisabled]);
 
   const recalcPosition = () => {
-
     if (dropDownRef.current && listRef.current && parentElement) {
       const parentRect = parentElement.getBoundingClientRect();
       const buttonRect = dropDownRef.current.getBoundingClientRect();
-      const dropdownHeight = listRef.current.offsetHeight;
+      const dropdownHeight = listRef.current.offsetHeight || 200; // fallback estimé
 
       const spaceBelow = parentRect.bottom - buttonRect.bottom;
       setOpenUpward(spaceBelow < dropdownHeight);
+    }
+  };
+
+  const handleToggle = () => {
+    if (!isDisabled) {
+      // 🔹 calcule la position AVANT d'ouvrir
+      recalcPosition();
+      setIsDropdownVisible((prev) => !prev);
     }
   };
 
@@ -176,13 +183,11 @@ const MppDropDown = <T extends object, K extends keyof T>({
       <button
         type="button"
         disabled={isDisabled}
-        onClick={
-          !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null
-        }
-        className={` select_button ${textClassname}
-          ${isDropdownVisible ? 'open' : ''}
-          ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
-          ${selectedOption ? 'selected' : ''}`}
+        onClick={handleToggle}
+        className={`select_button ${textClassname}
+    ${isDropdownVisible ? 'open' : ''}
+    ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
+    ${selectedOption ? 'selected' : ''}`}
       >
         <span
           className={`select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}`}
