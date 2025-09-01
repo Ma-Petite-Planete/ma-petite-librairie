@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import './mpp_dropdown.css';
 import useClickOutside from '../../hooks/clickOutside';
 
@@ -35,49 +35,6 @@ interface NonHighlightedDropDownProps<T extends object, K extends keyof T>
 type MppDropDownPropsComplete<T extends object, K extends keyof T> =
   | HighlightedDropDownProps<T, K>
   | NonHighlightedDropDownProps<T, K>;
-
-/**
- * Le composant MppDropDown rend un menu déroulant personnalisable.
- *
- * @template T - Le type des options.
- * @template K - La clé du type des options.
- *
- * @param {MppDropDownProps<T, K>} props - Les propriétés du composant dropdown.
- * @param {string} props.placeholder - Le texte de l'espace réservé à afficher lorsqu'aucune option n'est sélectionnée.
- * @param {(option: T) => void} props.onChange - La fonction de rappel pour gérer les changements de sélection d'option.
- * @param {T[]} props.options - La liste des options à afficher dans le menu déroulant.
- * @param {boolean} [props.isDisabled] - Indicateur pour désactiver le menu déroulant.
- * @param {T} props.defaultValue - L'option sélectionnée par défaut.
- * @param {string} [props.textClassname=''] - Le nom de la classe CSS pour le texte.
- * @param {K} props.property - La propriété de l'option à afficher dans le menu déroulant.
- * @param {keyof T} [identifierKey] - (Optionnel) La clé unique utilisée pour identifier chaque option lors de la comparaison et de la mise en surbrillance de l'option sélectionnée.
- * Si `highlightCurrentOption` est à `true`, cette propriété est requise pour permettre la comparaison des options via cette clé.
- *
- * @example
- * ```tsx
- * const ExampleComponent = () => {
- *   const options = [
- *     { id: '1', value: 'Option 1' },
- *     { id: '2', value: 'Option 2' },
- *     { id: '3', value: 'Option 3' },
- *   ];
- *
- *   const handleChange = (selectedOption: T) => {
- *     console.log('Option sélectionnée:', selectedOption);
- *   };
- *
- *   return (
- *     <MppDropDown
- *       options={options}
- *       onChange={handleChange}
- *       defaultValue={options[0]}
- *       placeholder="Sélectionnez une option"
- *       property="value"
- *     />
- *   );
- * };
- * ```
- */
 
 const MppDropDown = <T extends object, K extends keyof T>({
   placeholder,
@@ -120,44 +77,38 @@ const MppDropDown = <T extends object, K extends keyof T>({
     }
   }, [isDisabled]);
 
-  const recalcPosition = () => {
+  const recalcPosition = useCallback(() => {
     if (dropDownRef.current && listRef.current && parentElement) {
       const parentRect = parentElement.getBoundingClientRect();
       const buttonRect = dropDownRef.current.getBoundingClientRect();
-      const dropdownHeight = listRef.current.offsetHeight || 200; // fallback estimé
-
+      const dropdownHeight = listRef.current.offsetHeight;
       const spaceBelow = parentRect.bottom - buttonRect.bottom;
       setOpenUpward(spaceBelow < dropdownHeight);
     }
-  };
+  }, [parentElement]);
 
   const handleToggle = () => {
     if (!isDisabled) {
-      // 🔹 calcule la position AVANT d'ouvrir
       recalcPosition();
       setIsDropdownVisible((prev) => !prev);
     }
   };
 
   useEffect(() => {
-    recalcPosition();
-  });
+    const parentEl = parentElement;
+    window.addEventListener('resize', recalcPosition);
+    parentEl?.addEventListener('scroll', recalcPosition, { passive: true });
+
+    return () => {
+      window.removeEventListener('resize', recalcPosition);
+      parentEl?.removeEventListener('scroll', recalcPosition);
+    };
+
+  }, [isDropdownVisible, parentElement, recalcPosition]);
 
   useEffect(() => {
-    if (isDropdownVisible) {
-      recalcPosition();
-
-      const parentEl = parentElement;
-      window.addEventListener('resize', recalcPosition);
-      parentEl?.addEventListener('scroll', recalcPosition, { passive: true });
-
-      return () => {
-        window.removeEventListener('resize', recalcPosition);
-        parentEl?.removeEventListener('scroll', recalcPosition);
-      };
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isDropdownVisible, parentElement]);
+    recalcPosition();
+  }, [recalcPosition]);
 
   const isOptionSelected = (option: T) => {
     const selectedId = selectedOption?.[identifierKey];
@@ -185,9 +136,9 @@ const MppDropDown = <T extends object, K extends keyof T>({
         disabled={isDisabled}
         onClick={handleToggle}
         className={`select_button ${textClassname}
-    ${isDropdownVisible ? 'open' : ''}
-    ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
-    ${selectedOption ? 'selected' : ''}`}
+          ${isDropdownVisible ? 'open' : ''}
+          ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
+          ${selectedOption ? 'selected' : ''}`}
       >
         <span
           className={`select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}`}

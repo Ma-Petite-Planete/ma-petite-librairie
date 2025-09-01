@@ -1,5 +1,5 @@
 import './app.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { MppButton, ButtonType } from './components/MppButton';
 import { MppPodium } from './components/MppPodium/MppPodium';
@@ -41,7 +41,13 @@ import MppTextAreaFixHeight from './components/MppTextAreaFixHeight/MppTextAreaF
 import MppChallengeCard from './components/MppChallengeRankingCard/MppChallengeRankingCard';
 
 function App() {
-  const parentElement = document.querySelector("#test_drop_down");
+  const [parentElement, setParentElement] = useState<Element | null>(null);
+
+  useEffect(() => {
+    const parentElement = document.querySelector('#test_drop_down');
+    setParentElement(parentElement);
+  }, []);
+
   return (
     <div className="main_background">
       <h2>Type de Texte</h2>
