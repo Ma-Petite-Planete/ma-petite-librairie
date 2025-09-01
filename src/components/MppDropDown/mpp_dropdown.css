@@ -97,7 +97,7 @@ ul.select_dropdown > li:last-of-type:hover {
   color: var(--dark_blue);
 }
 
-.open {
+.open .select_button {
   border: 1px solid var(--dark_blue);
 }
 
@@ -124,4 +124,9 @@ ul.select_dropdown > li:last-of-type:hover {
 .dropdown_ul_container {
   position: absolute;
   width: 100%;
+  visibility: hidden;
+}
+
+.open .dropdown_ul_container {
+  visibility: visible;
 }

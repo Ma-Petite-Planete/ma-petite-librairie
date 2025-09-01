@@ -623,6 +623,38 @@ function App() {
           highlightCurrentOption={true}
           identifierKey="id"
         />
+        <MppDropDown
+          parentElement={parentElement}
+          textClassname="text_body"
+          property="label"
+          options={[
+            { id: 'ambass', label: 'Ambass' },
+            { id: 'player', label: 'Player' },
+          ]}
+          onChange={function (value): void {
+            console.log(value);
+          }}
+          placeholder="Role"
+          defaultValue={{ id: 'player', label: 'Player' }}
+          highlightCurrentOption={true}
+          identifierKey="id"
+        />
+        <MppDropDown
+          parentElement={parentElement}
+          textClassname="text_body"
+          property="label"
+          options={[
+            { id: 'ambass', label: 'Ambass' },
+            { id: 'player', label: 'Player' },
+          ]}
+          onChange={function (value): void {
+            console.log(value);
+          }}
+          placeholder="Role"
+          defaultValue={{ id: 'player', label: 'Player' }}
+          highlightCurrentOption={true}
+          identifierKey="id"
+        />
       </div>
 
       <h2>Loader points</h2>

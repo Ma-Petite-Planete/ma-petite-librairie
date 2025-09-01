@@ -82,6 +82,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
       const parentRect = parentElement.getBoundingClientRect();
       const buttonRect = dropDownRef.current.getBoundingClientRect();
       const dropdownHeight = listRef.current.offsetHeight;
+
       const spaceBelow = parentRect.bottom - buttonRect.bottom;
       setOpenUpward(spaceBelow < dropdownHeight);
     }
@@ -103,12 +104,11 @@ const MppDropDown = <T extends object, K extends keyof T>({
       window.removeEventListener('resize', recalcPosition);
       parentEl?.removeEventListener('scroll', recalcPosition);
     };
-
   }, [isDropdownVisible, parentElement, recalcPosition]);
 
   useEffect(() => {
-    recalcPosition();
-  }, [recalcPosition]);
+    recalcPosition()
+  }, [recalcPosition])
 
   const isOptionSelected = (option: T) => {
     const selectedId = selectedOption?.[identifierKey];
@@ -128,7 +128,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
   return (
     <div
       ref={dropDownRef}
-      className={`custom_select ${isDisabled ? 'select_disabled' : ''}`}
+      className={`custom_select ${isDisabled ? 'select_disabled' : ''} ${isDropdownVisible ? 'open' : ''}`}
       style={{ width: width }}
     >
       <button
@@ -136,7 +136,6 @@ const MppDropDown = <T extends object, K extends keyof T>({
         disabled={isDisabled}
         onClick={handleToggle}
         className={`select_button ${textClassname}
-          ${isDropdownVisible ? 'open' : ''}
           ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}`}
       >
@@ -157,48 +156,46 @@ const MppDropDown = <T extends object, K extends keyof T>({
         className={`dropdown_ul_container ${openUpward ? 'open-up' : 'open-down'}`}
         ref={listRef}
       >
-        {isDropdownVisible && (
-          <ul className="select_dropdown ">
-            {isDropDownEmpty ? (
-              <div>{emptyValue}</div>
-            ) : (
-              options.map((option, index) => {
-                const displayedValueInDropdown = option[property] as string;
-                const isDisabledOption = isOptionDisabled?.(option) ?? false;
-                return (
-                  <li
-                    key={index}
-                    onKeyDown={(event) => {
-                      if (event.key === 'Enter' && !isDisabledOption) {
-                        setSelectedOption(option);
-                        setIsDropdownVisible(false);
-                        onChange(option);
-                      }
-                    }}
-                    tabIndex={0}
-                    className={`${needEmojiFont ? 'emoji' : ''}${textClassname}
+        <ul className="select_dropdown ">
+          {isDropDownEmpty ? (
+            <div>{emptyValue}</div>
+          ) : (
+            options.map((option, index) => {
+              const displayedValueInDropdown = option[property] as string;
+              const isDisabledOption = isOptionDisabled?.(option) ?? false;
+              return (
+                <li
+                  key={index}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' && !isDisabledOption) {
+                      setSelectedOption(option);
+                      setIsDropdownVisible(false);
+                      onChange(option);
+                    }
+                  }}
+                  tabIndex={0}
+                  className={`${needEmojiFont ? 'emoji' : ''}${textClassname}
                     ${isDisabledOption ? 'option_disabled' : ''}
                     ${
                       highlightCurrentOption && isOptionSelected(option)
                         ? 'text_body_sb'
                         : ''
                     }`}
-                    onClick={() => {
-                      if (!isDisabledOption) {
-                        setSelectedOption(option);
-                        setIsDropdownVisible(false);
-                        onChange(option);
-                      }
-                    }}
-                    aria-disabled={isDisabledOption}
-                  >
-                    {displayedValueInDropdown}
-                  </li>
-                );
-              })
-            )}
-          </ul>
-        )}
+                  onClick={() => {
+                    if (!isDisabledOption) {
+                      setSelectedOption(option);
+                      setIsDropdownVisible(false);
+                      onChange(option);
+                    }
+                  }}
+                  aria-disabled={isDisabledOption}
+                >
+                  {displayedValueInDropdown}
+                </li>
+              );
+            })
+          )}
+        </ul>
       </div>
     </div>
   );
