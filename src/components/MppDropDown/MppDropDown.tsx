@@ -117,13 +117,13 @@ const MppDropDown = <T extends object, K extends keyof T>({
     : null;
 
   useEffect(() => {
+    console.log("🚀 ~ MppDropDown ~ isDisabled:", isDisabled)
     if (isDisabled) {
       console.log('je suis dans le useeffect disabled');
       setSelectedOption(null);
     }
   }, [isDisabled]);
   console.log('🚀 ~ MppDropDown ~ displaySelectedValue:', displaySelectedValue);
-
   console.log('🚀 ~ selectedOption:', selectedOption);
   return (
     <div
