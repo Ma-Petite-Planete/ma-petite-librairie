@@ -1513,9 +1513,6 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
             parentEl === null || parentEl === void 0 ? void 0 : parentEl.removeEventListener('scroll', recalcPosition);
         };
     }, [isDropdownVisible, parentElement, recalcPosition]);
-    useEffect(() => {
-        recalcPosition();
-    }, [recalcPosition]);
     const isOptionSelected = (option) => {
         const selectedId = selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption[identifierKey];
         const defaultId = defaultValue === null || defaultValue === void 0 ? void 0 : defaultValue[identifierKey];
@@ -1528,6 +1525,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
     const displaySelectedValue = selectedOption
         ? selectedOption[property]
         : null;
+    console.log('🚀 ~ selectedOption:', selectedOption);
     return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''} ${isDropdownVisible ? 'open' : ''}`, style: { width: width } },
         React__default.createElement("button", { type: "button", disabled: isDisabled, onClick: handleToggle, className: `select_button ${textClassname}
           ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
@@ -1538,29 +1536,28 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                     ? displayedDefaultValue
                     : placeholder),
             React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
-        React__default.createElement("div", { className: `dropdown_ul_container ${openUpward ? 'open-up' : 'open-down'}`, ref: listRef }, isDisabled ? null :
-            React__default.createElement("ul", { className: "select_dropdown " }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
-                var _a;
-                const displayedValueInDropdown = option[property];
-                const isDisabledOption = (_a = isOptionDisabled === null || isOptionDisabled === void 0 ? void 0 : isOptionDisabled(option)) !== null && _a !== void 0 ? _a : false;
-                return (React__default.createElement("li", { key: index, onKeyDown: (event) => {
-                        if (event.key === 'Enter' && !isDisabledOption) {
-                            setSelectedOption(option);
-                            setIsDropdownVisible(false);
-                            onChange(option);
-                        }
-                    }, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}
+        React__default.createElement("div", { className: `dropdown_ul_container ${openUpward ? 'open-up' : 'open-down'}`, ref: listRef }, isDisabled ? null : (React__default.createElement("ul", { className: "select_dropdown " }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
+            var _a;
+            const displayedValueInDropdown = option[property];
+            const isDisabledOption = (_a = isOptionDisabled === null || isOptionDisabled === void 0 ? void 0 : isOptionDisabled(option)) !== null && _a !== void 0 ? _a : false;
+            return (React__default.createElement("li", { key: index, onKeyDown: (event) => {
+                    if (event.key === 'Enter' && !isDisabledOption) {
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
+                    }
+                }, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}
                     ${isDisabledOption ? 'option_disabled' : ''}
                     ${highlightCurrentOption && isOptionSelected(option)
-                        ? 'text_body_sb'
-                        : ''}`, onClick: () => {
-                        if (!isDisabledOption) {
-                            setSelectedOption(option);
-                            setIsDropdownVisible(false);
-                            onChange(option);
-                        }
-                    }, "aria-disabled": isDisabledOption }, displayedValueInDropdown));
-            }))))));
+                    ? 'text_body_sb'
+                    : ''}`, onClick: () => {
+                    if (!isDisabledOption) {
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
+                    }
+                }, "aria-disabled": isDisabledOption }, displayedValueInDropdown));
+        })))))));
 };
 
 /**

@@ -106,10 +106,6 @@ const MppDropDown = <T extends object, K extends keyof T>({
     };
   }, [isDropdownVisible, parentElement, recalcPosition]);
 
-  useEffect(() => {
-    recalcPosition()
-  }, [recalcPosition])
-
   const isOptionSelected = (option: T) => {
     const selectedId = selectedOption?.[identifierKey];
     const defaultId = defaultValue?.[identifierKey];
@@ -125,6 +121,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
     ? (selectedOption[property] as string)
     : null;
 
+  console.log('🚀 ~ selectedOption:', selectedOption);
   return (
     <div
       ref={dropDownRef}
@@ -156,49 +153,48 @@ const MppDropDown = <T extends object, K extends keyof T>({
         className={`dropdown_ul_container ${openUpward ? 'open-up' : 'open-down'}`}
         ref={listRef}
       >
-        {
-          isDisabled ? null :
+        {isDisabled ? null : (
           <ul className="select_dropdown ">
-          {isDropDownEmpty ? (
-            <div>{emptyValue}</div>
-          ) : (
-            options.map((option, index) => {
-              const displayedValueInDropdown = option[property] as string;
-              const isDisabledOption = isOptionDisabled?.(option) ?? false;
-              return (
-                <li
-                  key={index}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter' && !isDisabledOption) {
-                      setSelectedOption(option);
-                      setIsDropdownVisible(false);
-                      onChange(option);
-                    }
-                  }}
-                  tabIndex={0}
-                  className={`${needEmojiFont ? 'emoji' : ''}${textClassname}
+            {isDropDownEmpty ? (
+              <div>{emptyValue}</div>
+            ) : (
+              options.map((option, index) => {
+                const displayedValueInDropdown = option[property] as string;
+                const isDisabledOption = isOptionDisabled?.(option) ?? false;
+                return (
+                  <li
+                    key={index}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter' && !isDisabledOption) {
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
+                      }
+                    }}
+                    tabIndex={0}
+                    className={`${needEmojiFont ? 'emoji' : ''}${textClassname}
                     ${isDisabledOption ? 'option_disabled' : ''}
                     ${
                       highlightCurrentOption && isOptionSelected(option)
                         ? 'text_body_sb'
                         : ''
                     }`}
-                  onClick={() => {
-                    if (!isDisabledOption) {
-                      setSelectedOption(option);
-                      setIsDropdownVisible(false);
-                      onChange(option);
-                    }
-                  }}
-                  aria-disabled={isDisabledOption}
-                >
-                  {displayedValueInDropdown}
-                </li>
-              );
-            })
-          )}
-        </ul>
-        }
+                    onClick={() => {
+                      if (!isDisabledOption) {
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
+                      }
+                    }}
+                    aria-disabled={isDisabledOption}
+                  >
+                    {displayedValueInDropdown}
+                  </li>
+                );
+              })
+            )}
+          </ul>
+        )}
       </div>
     </div>
   );
