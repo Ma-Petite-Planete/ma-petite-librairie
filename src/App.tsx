@@ -654,6 +654,7 @@ function App() {
           defaultValue={{ id: 'player', label: 'Player' }}
           highlightCurrentOption={true}
           identifierKey="id"
+          isDisabled={true}
         />
       </div>
 

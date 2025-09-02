@@ -1538,7 +1538,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                     ? displayedDefaultValue
                     : placeholder),
             React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
-        React__default.createElement("div", { className: `dropdown_ul_container ${openUpward ? 'open-up' : 'open-down'}`, ref: listRef },
+        React__default.createElement("div", { className: `dropdown_ul_container ${openUpward ? 'open-up' : 'open-down'}`, ref: listRef }, isDisabled ? null :
             React__default.createElement("ul", { className: "select_dropdown " }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
                 var _a;
                 const displayedValueInDropdown = option[property];

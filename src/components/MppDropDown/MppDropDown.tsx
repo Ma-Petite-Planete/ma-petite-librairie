@@ -156,7 +156,9 @@ const MppDropDown = <T extends object, K extends keyof T>({
         className={`dropdown_ul_container ${openUpward ? 'open-up' : 'open-down'}`}
         ref={listRef}
       >
-        <ul className="select_dropdown ">
+        {
+          isDisabled ? null :
+          <ul className="select_dropdown ">
           {isDropDownEmpty ? (
             <div>{emptyValue}</div>
           ) : (
@@ -196,6 +198,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
             })
           )}
         </ul>
+        }
       </div>
     </div>
   );
