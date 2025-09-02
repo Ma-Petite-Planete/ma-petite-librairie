@@ -54,18 +54,15 @@ const MppDropDown = <T extends object, K extends keyof T>({
   parentElement,
 }: MppDropDownPropsComplete<T, K>) => {
   const [selectedOption, setSelectedOption] = React.useState<T | null>(null);
-  console.log('🚀 ~ MppDropDown ~ selectedOption:', selectedOption);
   const [isDropdownVisible, setIsDropdownVisible] =
     React.useState<boolean>(false);
   const [openUpward, setOpenUpward] = React.useState(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
-  console.log("🚀 ~ MppDropDown ~ defaultValue:", defaultValue)
 
   useEffect(() => {
-    setSelectedOption(defaultValue);
-    console.log('setSelectedOption avec default value:', defaultValue);
-  }, [defaultValue, options]);
+    setSelectedOption(isDisabled ? null :defaultValue);
+  }, [defaultValue, isDisabled, options]);
 
   useClickOutside(dropDownRef, () => {
     if (!isDisabled) {
@@ -118,15 +115,11 @@ const MppDropDown = <T extends object, K extends keyof T>({
     : null;
 
   useEffect(() => {
-    console.log("🚀 ~ MppDropDown ~ isDisabled:", isDisabled)
     if (isDisabled) {
-      console.log('je suis dans le useeffect disabled');
       setSelectedOption(null);
     }
   }, [isDisabled]);
 
-  console.log('🚀 ~ MppDropDown ~ displaySelectedValue:', displaySelectedValue);
-  console.log('🚀 ~ selectedOption:', selectedOption);
   return (
     <div
       ref={dropDownRef}
