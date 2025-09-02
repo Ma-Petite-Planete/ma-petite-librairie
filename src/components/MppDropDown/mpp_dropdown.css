@@ -9,7 +9,6 @@
   right: 0;
   bottom: 0;
   width: 100%;
-  background-color: var(--light_grey_disable);
   border-radius: var(--standard_border_radius);
 }
 
