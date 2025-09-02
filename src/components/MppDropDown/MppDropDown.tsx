@@ -72,13 +72,6 @@ const MppDropDown = <T extends object, K extends keyof T>({
     }
   });
 
-  useEffect(() => {
-    if (isDisabled) {
-      console.log('je suis dans le useeffect disabled');
-      setSelectedOption(null);
-    }
-  }, [isDisabled]);
-
   const recalcPosition = useCallback(() => {
     if (dropDownRef.current && listRef.current && parentElement) {
       const parentRect = parentElement.getBoundingClientRect();
@@ -122,6 +115,13 @@ const MppDropDown = <T extends object, K extends keyof T>({
   const displaySelectedValue = selectedOption
     ? (selectedOption[property] as string)
     : null;
+
+  useEffect(() => {
+    if (isDisabled) {
+      console.log('je suis dans le useeffect disabled');
+      setSelectedOption(null);
+    }
+  }, [isDisabled]);
   console.log('🚀 ~ MppDropDown ~ displaySelectedValue:', displaySelectedValue);
 
   console.log('🚀 ~ selectedOption:', selectedOption);
