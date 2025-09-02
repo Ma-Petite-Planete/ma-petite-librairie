@@ -1472,26 +1472,18 @@ const useClickOutside = (elementRef, callback) => {
 
 const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, width, identifierKey, parentElement, }) => {
     const [selectedOption, setSelectedOption] = React__default.useState(null);
-    console.log('🚀 ~ MppDropDown ~ selectedOption:', selectedOption);
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
     const [openUpward, setOpenUpward] = React__default.useState(false);
     const dropDownRef = useRef(null);
     const listRef = useRef(null);
     useEffect(() => {
-        setSelectedOption(defaultValue);
-        console.log('setSelectedOption avec default value:', defaultValue);
-    }, [defaultValue, options]);
+        setSelectedOption(isDisabled ? null : defaultValue);
+    }, [defaultValue, isDisabled, options]);
     useClickOutside(dropDownRef, () => {
         if (!isDisabled) {
             setIsDropdownVisible(false);
         }
     });
-    useEffect(() => {
-        if (isDisabled) {
-            console.log('je suis dans le useeffect disabled');
-            setSelectedOption(null);
-        }
-    }, [isDisabled]);
     const recalcPosition = useCallback(() => {
         if (dropDownRef.current && listRef.current && parentElement) {
             const parentRect = parentElement.getBoundingClientRect();
@@ -1528,8 +1520,11 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
     const displaySelectedValue = selectedOption
         ? selectedOption[property]
         : null;
-    console.log('🚀 ~ MppDropDown ~ displaySelectedValue:', displaySelectedValue);
-    console.log('🚀 ~ selectedOption:', selectedOption);
+    useEffect(() => {
+        if (isDisabled) {
+            setSelectedOption(null);
+        }
+    }, [isDisabled]);
     return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''} ${isDropdownVisible ? 'open' : ''}`, style: { width: width } },
         React__default.createElement("button", { type: "button", disabled: isDisabled, onClick: handleToggle, className: `select_button ${textClassname}
           ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
