@@ -60,6 +60,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
   const [openUpward, setOpenUpward] = React.useState(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
+  console.log("🚀 ~ MppDropDown ~ defaultValue:", defaultValue)
 
   useEffect(() => {
     setSelectedOption(defaultValue);
@@ -123,6 +124,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
       setSelectedOption(null);
     }
   }, [isDisabled]);
+
   console.log('🚀 ~ MppDropDown ~ displaySelectedValue:', displaySelectedValue);
   console.log('🚀 ~ selectedOption:', selectedOption);
   return (
