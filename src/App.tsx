@@ -1,5 +1,5 @@
 import './app.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { MppButton, ButtonType } from './components/MppButton';
 import { MppPodium } from './components/MppPodium/MppPodium';
@@ -41,6 +41,13 @@ import MppTextAreaFixHeight from './components/MppTextAreaFixHeight/MppTextAreaF
 import MppChallengeCard from './components/MppChallengeRankingCard/MppChallengeRankingCard';
 
 function App() {
+  const [parentElement, setParentElement] = useState<Element | null>(null);
+
+  useEffect(() => {
+    const parentElement = document.querySelector('#test_drop_down');
+    setParentElement(parentElement);
+  }, []);
+
   return (
     <div className="main_background">
       <h2>Type de Texte</h2>
@@ -483,7 +490,7 @@ function App() {
       </div>
       <h2>Select Input</h2>
 
-      <div style={{ width: '40%' }}>
+      <div id="test_drop_down" style={{ width: '40%' }}>
         <DropDownMultiFilters />
         <MppDropDown
           needEmojiFont={true}
@@ -601,6 +608,7 @@ function App() {
 
         <p>cas 3 : disbale une option et highlight une autre</p>
         <MppDropDown
+          parentElement={parentElement}
           textClassname="text_body"
           property="label"
           options={[
@@ -614,6 +622,39 @@ function App() {
           defaultValue={{ id: 'player', label: 'Player' }}
           highlightCurrentOption={true}
           identifierKey="id"
+        />
+        <MppDropDown
+          parentElement={parentElement}
+          textClassname="text_body"
+          property="label"
+          options={[
+            { id: 'ambass', label: 'Ambass' },
+            { id: 'player', label: 'Player' },
+          ]}
+          onChange={function (value): void {
+            console.log(value);
+          }}
+          placeholder="Role"
+          defaultValue={{ id: 'player', label: 'Player' }}
+          highlightCurrentOption={true}
+          identifierKey="id"
+        />
+        <MppDropDown
+          parentElement={parentElement}
+          textClassname="text_body"
+          property="label"
+          options={[
+            { id: 'ambass', label: 'Ambass' },
+            { id: 'player', label: 'Player' },
+          ]}
+          onChange={function (value): void {
+            console.log(value);
+          }}
+          placeholder="Role"
+          defaultValue={{ id: 'player', label: 'Player' }}
+          highlightCurrentOption={true}
+          identifierKey="id"
+          isDisabled={true}
         />
       </div>
 
@@ -700,9 +741,18 @@ function App() {
       </MppToggleSection>
 
       <h2>Challenge Card</h2>
-      <MppChallengeCard title={'titre que je veux'}  value={`${5623}`} ranking={9}  boType={BoType.gpBo}/>
-      <MppChallengeCard title={'titre que je veux'}  value={`x ${5623}`} subtitle={"le bo sco"}  />
-      <MppChallengeCard title={''}  value={``}   />
+      <MppChallengeCard
+        title={'titre que je veux'}
+        value={`${5623}`}
+        ranking={9}
+        boType={BoType.gpBo}
+      />
+      <MppChallengeCard
+        title={'titre que je veux'}
+        value={`x ${5623}`}
+        subtitle={'le bo sco'}
+      />
+      <MppChallengeCard title={''} value={``} />
     </div>
   );
 }

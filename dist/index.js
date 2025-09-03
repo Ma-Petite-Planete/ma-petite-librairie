@@ -1470,7 +1470,7 @@ const useClickOutside = (elementRef, callback) => {
     });
 };
 
-/**
+/*
  * Le composant MppDropDown rend un menu déroulant personnalisable.
  *
  * @template T - Le type des options.
@@ -1512,23 +1512,44 @@ const useClickOutside = (elementRef, callback) => {
  * };
  * ```
  */
-const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, width, identifierKey, }) => {
+const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue, textClassname = '', property, needEmojiFont = false, isDropDownEmpty = false, emptyValue, isOptionDisabled, highlightCurrentOption, width, identifierKey, parentElement, }) => {
     const [selectedOption, setSelectedOption] = React__default.useState(null);
     const [isDropdownVisible, setIsDropdownVisible] = React__default.useState(false);
+    const [openUpward, setOpenUpward] = React__default.useState(false);
     const dropDownRef = useRef(null);
+    const listRef = useRef(null);
     useEffect(() => {
-        setSelectedOption(defaultValue);
-    }, [defaultValue, options]);
+        setSelectedOption(isDisabled ? null : defaultValue);
+    }, [defaultValue, isDisabled, options]);
     useClickOutside(dropDownRef, () => {
         if (!isDisabled) {
             setIsDropdownVisible(false);
         }
     });
-    useEffect(() => {
-        if (isDisabled) {
-            setSelectedOption(null);
+    const recalcPosition = useCallback(() => {
+        if (dropDownRef.current && listRef.current && parentElement) {
+            const parentRect = parentElement.getBoundingClientRect();
+            const buttonRect = dropDownRef.current.getBoundingClientRect();
+            const dropdownHeight = listRef.current.offsetHeight;
+            const spaceBelow = parentRect.bottom - buttonRect.bottom;
+            setOpenUpward(spaceBelow < dropdownHeight);
         }
-    }, [isDisabled]);
+    }, [parentElement]);
+    const handleToggle = () => {
+        if (!isDisabled) {
+            recalcPosition();
+            setIsDropdownVisible((prev) => !prev);
+        }
+    };
+    useEffect(() => {
+        const parentEl = parentElement;
+        window.addEventListener('resize', recalcPosition);
+        parentEl === null || parentEl === void 0 ? void 0 : parentEl.addEventListener('scroll', recalcPosition, { passive: true });
+        return () => {
+            window.removeEventListener('resize', recalcPosition);
+            parentEl === null || parentEl === void 0 ? void 0 : parentEl.removeEventListener('scroll', recalcPosition);
+        };
+    }, [isDropdownVisible, parentElement, recalcPosition]);
     const isOptionSelected = (option) => {
         const selectedId = selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption[identifierKey];
         const defaultId = defaultValue === null || defaultValue === void 0 ? void 0 : defaultValue[identifierKey];
@@ -1541,9 +1562,13 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
     const displaySelectedValue = selectedOption
         ? selectedOption[property]
         : null;
-    return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''}`, style: { width: width } },
-        React__default.createElement("button", { type: "button", disabled: isDisabled, onClick: !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null, className: ` select_button ${textClassname}
-          ${isDropdownVisible ? 'open' : ''}
+    useEffect(() => {
+        if (isDisabled) {
+            setSelectedOption(null);
+        }
+    }, [isDisabled]);
+    return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''} ${isDropdownVisible ? 'open' : ''}`, style: { width: width } },
+        React__default.createElement("button", { type: "button", disabled: isDisabled, onClick: handleToggle, className: `select_button ${textClassname}
           ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}` },
             React__default.createElement("span", { className: `select_button--selected_value ${needEmojiFont ? 'emoji' : ''} ${textClassname}` }, displaySelectedValue
@@ -1552,7 +1577,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                     ? displayedDefaultValue
                     : placeholder),
             React__default.createElement("span", { className: `${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}` })),
-        isDropdownVisible && (React__default.createElement("ul", { className: "select_dropdown" }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
+        React__default.createElement("div", { className: `dropdown_ul_container ${openUpward ? 'open-up' : 'open-down'}`, ref: listRef }, isDisabled ? null : (React__default.createElement("ul", { className: "select_dropdown " }, isDropDownEmpty ? (React__default.createElement("div", null, emptyValue)) : (options.map((option, index) => {
             var _a;
             const displayedValueInDropdown = option[property];
             const isDisabledOption = (_a = isOptionDisabled === null || isOptionDisabled === void 0 ? void 0 : isOptionDisabled(option)) !== null && _a !== void 0 ? _a : false;
@@ -1573,7 +1598,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                         onChange(option);
                     }
                 }, "aria-disabled": isDisabledOption }, displayedValueInDropdown));
-        }))))));
+        })))))));
 };
 
 /**

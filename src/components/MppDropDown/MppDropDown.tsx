@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import './mpp_dropdown.css';
 import useClickOutside from '../../hooks/clickOutside';
 
@@ -17,6 +17,7 @@ interface MppDropDownProps<T extends object, K extends keyof T> {
   highlightCurrentOption?: boolean;
   width?: string;
   identifierKey?: keyof T;
+  parentElement?: Element | null;
 }
 
 interface HighlightedDropDownProps<T extends object, K extends keyof T>
@@ -35,7 +36,7 @@ type MppDropDownPropsComplete<T extends object, K extends keyof T> =
   | HighlightedDropDownProps<T, K>
   | NonHighlightedDropDownProps<T, K>;
 
-/**
+/*
  * Le composant MppDropDown rend un menu déroulant personnalisable.
  *
  * @template T - Le type des options.
@@ -93,15 +94,18 @@ const MppDropDown = <T extends object, K extends keyof T>({
   highlightCurrentOption,
   width,
   identifierKey,
+  parentElement,
 }: MppDropDownPropsComplete<T, K>) => {
   const [selectedOption, setSelectedOption] = React.useState<T | null>(null);
   const [isDropdownVisible, setIsDropdownVisible] =
     React.useState<boolean>(false);
+  const [openUpward, setOpenUpward] = React.useState(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setSelectedOption(defaultValue);
-  }, [defaultValue, options]);
+    setSelectedOption(isDisabled ? null : defaultValue);
+  }, [defaultValue, isDisabled, options]);
 
   useClickOutside(dropDownRef, () => {
     if (!isDisabled) {
@@ -109,11 +113,34 @@ const MppDropDown = <T extends object, K extends keyof T>({
     }
   });
 
-  useEffect(() => {
-    if (isDisabled) {
-      setSelectedOption(null);
+  const recalcPosition = useCallback(() => {
+    if (dropDownRef.current && listRef.current && parentElement) {
+      const parentRect = parentElement.getBoundingClientRect();
+      const buttonRect = dropDownRef.current.getBoundingClientRect();
+      const dropdownHeight = listRef.current.offsetHeight;
+
+      const spaceBelow = parentRect.bottom - buttonRect.bottom;
+      setOpenUpward(spaceBelow < dropdownHeight);
     }
-  }, [isDisabled]);
+  }, [parentElement]);
+
+  const handleToggle = () => {
+    if (!isDisabled) {
+      recalcPosition();
+      setIsDropdownVisible((prev) => !prev);
+    }
+  };
+
+  useEffect(() => {
+    const parentEl = parentElement;
+    window.addEventListener('resize', recalcPosition);
+    parentEl?.addEventListener('scroll', recalcPosition, { passive: true });
+
+    return () => {
+      window.removeEventListener('resize', recalcPosition);
+      parentEl?.removeEventListener('scroll', recalcPosition);
+    };
+  }, [isDropdownVisible, parentElement, recalcPosition]);
 
   const isOptionSelected = (option: T) => {
     const selectedId = selectedOption?.[identifierKey];
@@ -130,20 +157,23 @@ const MppDropDown = <T extends object, K extends keyof T>({
     ? (selectedOption[property] as string)
     : null;
 
+  useEffect(() => {
+    if (isDisabled) {
+      setSelectedOption(null);
+    }
+  }, [isDisabled]);
+
   return (
     <div
       ref={dropDownRef}
-      className={`custom_select ${isDisabled ? 'select_disabled' : ''}`}
+      className={`custom_select ${isDisabled ? 'select_disabled' : ''} ${isDropdownVisible ? 'open' : ''}`}
       style={{ width: width }}
     >
       <button
         type="button"
         disabled={isDisabled}
-        onClick={
-          !isDisabled ? () => setIsDropdownVisible(!isDropdownVisible) : null
-        }
-        className={` select_button ${textClassname}
-          ${isDropdownVisible ? 'open' : ''}
+        onClick={handleToggle}
+        className={`select_button ${textClassname}
           ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
           ${selectedOption ? 'selected' : ''}`}
       >
@@ -160,48 +190,53 @@ const MppDropDown = <T extends object, K extends keyof T>({
           className={`${isDropdownVisible ? 'arrow arrow--open' : isDisabled ? 'arrow--disabled arrow' : 'arrow'}`}
         ></span>
       </button>
-      {isDropdownVisible && (
-        <ul className="select_dropdown">
-          {isDropDownEmpty ? (
-            <div>{emptyValue}</div>
-          ) : (
-            options.map((option, index) => {
-              const displayedValueInDropdown = option[property] as string;
-              const isDisabledOption = isOptionDisabled?.(option) ?? false;
-              return (
-                <li
-                  key={index}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter' && !isDisabledOption) {
-                      setSelectedOption(option);
-                      setIsDropdownVisible(false);
-                      onChange(option);
-                    }
-                  }}
-                  tabIndex={0}
-                  className={`${needEmojiFont ? 'emoji' : ''}${textClassname}
+      <div
+        className={`dropdown_ul_container ${openUpward ? 'open-up' : 'open-down'}`}
+        ref={listRef}
+      >
+        {isDisabled ? null : (
+          <ul className="select_dropdown ">
+            {isDropDownEmpty ? (
+              <div>{emptyValue}</div>
+            ) : (
+              options.map((option, index) => {
+                const displayedValueInDropdown = option[property] as string;
+                const isDisabledOption = isOptionDisabled?.(option) ?? false;
+                return (
+                  <li
+                    key={index}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter' && !isDisabledOption) {
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
+                      }
+                    }}
+                    tabIndex={0}
+                    className={`${needEmojiFont ? 'emoji' : ''}${textClassname}
                     ${isDisabledOption ? 'option_disabled' : ''}
                     ${
                       highlightCurrentOption && isOptionSelected(option)
                         ? 'text_body_sb'
                         : ''
                     }`}
-                  onClick={() => {
-                    if (!isDisabledOption) {
-                      setSelectedOption(option);
-                      setIsDropdownVisible(false);
-                      onChange(option);
-                    }
-                  }}
-                  aria-disabled={isDisabledOption}
-                >
-                  {displayedValueInDropdown}
-                </li>
-              );
-            })
-          )}
-        </ul>
-      )}
+                    onClick={() => {
+                      if (!isDisabledOption) {
+                        setSelectedOption(option);
+                        setIsDropdownVisible(false);
+                        onChange(option);
+                      }
+                    }}
+                    aria-disabled={isDisabledOption}
+                  >
+                    {displayedValueInDropdown}
+                  </li>
+                );
+              })
+            )}
+          </ul>
+        )}
+      </div>
     </div>
   );
 };
