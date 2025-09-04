@@ -1542,6 +1542,8 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
         }
     };
     useEffect(() => {
+        if (!isDropdownVisible)
+            return;
         const parentEl = parentElement;
         window.addEventListener('resize', recalcPosition);
         parentEl === null || parentEl === void 0 ? void 0 : parentEl.addEventListener('scroll', recalcPosition, { passive: true });
@@ -1550,12 +1552,14 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
             parentEl === null || parentEl === void 0 ? void 0 : parentEl.removeEventListener('scroll', recalcPosition);
         };
     }, [isDropdownVisible, parentElement, recalcPosition]);
-    const isOptionSelected = (option) => {
+    const isOptionSelected = useCallback((option) => {
+        if (!identifierKey)
+            return false;
         const selectedId = selectedOption === null || selectedOption === void 0 ? void 0 : selectedOption[identifierKey];
         const defaultId = defaultValue === null || defaultValue === void 0 ? void 0 : defaultValue[identifierKey];
         const optionId = option[identifierKey];
         return selectedId === optionId || (!selectedId && defaultId === optionId);
-    };
+    }, [selectedOption, defaultValue, identifierKey]);
     const displayedDefaultValue = defaultValue
         ? defaultValue[property]
         : null;
@@ -1567,6 +1571,17 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
             setSelectedOption(null);
         }
     }, [isDisabled]);
+    const handleSelect = useCallback((option) => {
+        setSelectedOption(option);
+        setIsDropdownVisible(false);
+        onChange(option);
+    }, [onChange]);
+    useEffect(() => {
+        if (!isDisabled) {
+            recalcPosition();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     return (React__default.createElement("div", { ref: dropDownRef, className: `custom_select ${isDisabled ? 'select_disabled' : ''} ${isDropdownVisible ? 'open' : ''}`, style: { width: width } },
         React__default.createElement("button", { type: "button", disabled: isDisabled, onClick: handleToggle, className: `select_button ${textClassname}
           ${(placeholder && !displayedDefaultValue && !selectedOption) || isDisabled ? 'default' : ''}
@@ -1583,9 +1598,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
             const isDisabledOption = (_a = isOptionDisabled === null || isOptionDisabled === void 0 ? void 0 : isOptionDisabled(option)) !== null && _a !== void 0 ? _a : false;
             return (React__default.createElement("li", { key: index, onKeyDown: (event) => {
                     if (event.key === 'Enter' && !isDisabledOption) {
-                        setSelectedOption(option);
-                        setIsDropdownVisible(false);
-                        onChange(option);
+                        handleSelect(option);
                     }
                 }, tabIndex: 0, className: `${needEmojiFont ? 'emoji' : ''}${textClassname}
                     ${isDisabledOption ? 'option_disabled' : ''}
@@ -1593,9 +1606,7 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
                     ? 'text_body_sb'
                     : ''}`, onClick: () => {
                     if (!isDisabledOption) {
-                        setSelectedOption(option);
-                        setIsDropdownVisible(false);
-                        onChange(option);
+                        handleSelect(option);
                     }
                 }, "aria-disabled": isDisabledOption }, displayedValueInDropdown));
         })))))));

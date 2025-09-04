@@ -132,6 +132,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
   };
 
   useEffect(() => {
+    if (!isDropdownVisible) return;
     const parentEl = parentElement;
     window.addEventListener('resize', recalcPosition);
     parentEl?.addEventListener('scroll', recalcPosition, { passive: true });
@@ -142,12 +143,16 @@ const MppDropDown = <T extends object, K extends keyof T>({
     };
   }, [isDropdownVisible, parentElement, recalcPosition]);
 
-  const isOptionSelected = (option: T) => {
-    const selectedId = selectedOption?.[identifierKey];
-    const defaultId = defaultValue?.[identifierKey];
-    const optionId = option[identifierKey];
-    return selectedId === optionId || (!selectedId && defaultId === optionId);
-  };
+  const isOptionSelected = useCallback(
+    (option: T) => {
+      if (!identifierKey) return false;
+      const selectedId = selectedOption?.[identifierKey];
+      const defaultId = defaultValue?.[identifierKey];
+      const optionId = option[identifierKey];
+      return selectedId === optionId || (!selectedId && defaultId === optionId);
+    },
+    [selectedOption, defaultValue, identifierKey]
+  );
 
   const displayedDefaultValue = defaultValue
     ? (defaultValue[property] as string)
@@ -162,6 +167,22 @@ const MppDropDown = <T extends object, K extends keyof T>({
       setSelectedOption(null);
     }
   }, [isDisabled]);
+
+  const handleSelect = useCallback(
+    (option: T) => {
+      setSelectedOption(option);
+      setIsDropdownVisible(false);
+      onChange(option);
+    },
+    [onChange]
+  );
+
+  useEffect(() => {
+    if (!isDisabled) {
+      recalcPosition();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div
@@ -207,9 +228,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
                     key={index}
                     onKeyDown={(event) => {
                       if (event.key === 'Enter' && !isDisabledOption) {
-                        setSelectedOption(option);
-                        setIsDropdownVisible(false);
-                        onChange(option);
+                        handleSelect(option);
                       }
                     }}
                     tabIndex={0}
@@ -222,9 +241,7 @@ const MppDropDown = <T extends object, K extends keyof T>({
                     }`}
                     onClick={() => {
                       if (!isDisabledOption) {
-                        setSelectedOption(option);
-                        setIsDropdownVisible(false);
-                        onChange(option);
+                        handleSelect(option);
                       }
                     }}
                     aria-disabled={isDisabledOption}
