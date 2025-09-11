@@ -26,3 +26,4 @@ export { default as MppInput } from './components/MppInput/MppInput';
 export { default as MppIncrementInput } from './components/MppIncrementInput/MppIncrementInput';
 export { default as MppToggleSection } from './components/MppToggleSection/MppToggleSection';
 export { default as MppTextAreaFixHeight } from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';
+export { default as MppChallengeCard } from './components/MppChallengeRankingCard/MppChallengeRankingCard';
