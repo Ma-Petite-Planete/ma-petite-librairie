@@ -39,6 +39,7 @@ import MppToggleSection from './components/MppToggleSection/MppToggleSection';
 import MppDropDown from './components/MppDropDown/MppDropDown';
 import MppTextAreaFixHeight from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';
 import MppChallengeCard from './components/MppChallengeRankingCard/MppChallengeRankingCard';
+import MppRankingCardClickable from './components/MppRankingCardClickable/MppRankingCardClickable';
 
 function App() {
   const [parentElement, setParentElement] = useState<Element | null>(null);
@@ -167,18 +168,79 @@ function App() {
                 ranking: 1,
                 structure: '2cole des intellos',
                 city: 'Lyon',
+                details: [
+                  {
+                    title: 'Classe 6eme B',
+                    subtitle: '15 élèves',
+                    statistique: '30,5 pts / élève',
+                  },
+                  {
+                    title: 'Classe 4eme A',
+                    subtitle: '10 élèves',
+                    statistique: '27,4 pts / élève',
+                  },
+                  {
+                    title: 'Classe 4eme B',
+                    subtitle: '7 élèves',
+                    statistique: '13 pts / élève',
+                  },
+                  {
+                    title: 'Classe 4eme C',
+                    subtitle: '4 élèves',
+                    statistique: '---',
+                  },
+                ],
               },
               {
                 id: 'test2',
                 name: '4èmeB',
                 points: 3,
                 ranking: 2,
+                details: [
+                  {
+                    title: 'Classe 6eme B',
+                    subtitle: '15 élèves',
+                    statistique: '30,5 pts / élève',
+                  },
+                ],
               },
               {
                 id: 'test3',
                 name: '4èmeA',
                 points: 3,
                 ranking: 3,
+                details: [
+                  {
+                    title: 'Classe 6eme B',
+                    subtitle: '15 élèves',
+                    statistique: '30,5 pts / élève',
+                  },
+                  {
+                    title: 'Classe 4eme A',
+                    subtitle: '10 élèves',
+                    statistique: '27,4 pts / élève',
+                  },
+                  {
+                    title: 'Classe 4eme B',
+                    subtitle: '7 élèves',
+                    statistique: '13 pts / élève',
+                  },
+                  {
+                    title: 'Classe 4eme C',
+                    subtitle: '4 élèves',
+                    statistique: '---',
+                  },
+                  {
+                    title: 'Classe 4eme B',
+                    subtitle: '7 élèves',
+                    statistique: '13 pts / élève',
+                  },
+                  {
+                    title: 'Classe 4eme C',
+                    subtitle: '4 élèves',
+                    statistique: '---',
+                  },
+                ],
               },
             ]}
           />
@@ -250,6 +312,38 @@ function App() {
           subPointsText={'par élève'}
           pointsColor={ScoColors.mainYellow}
           rankingColorBackground={ScoColors.mainYellow}
+        />
+        <h2>Ranking Card Clickable</h2>
+        <MppRankingCardClickable
+          title="Ecole Primaire Jean Rostand"
+          subtitle="Lyon"
+          ranking={4}
+          points="26,2 pts"
+          subPointsText="moyen par élève"
+          pointsColor="#F2C94C"
+          rankingColorBackground="#F2C94C"
+          details={[
+            {
+              title: 'Classe 6eme B',
+              subtitle: '15 élèves',
+              statistique: '30,5 pts / élève',
+            },
+            {
+              title: 'Classe 4eme A',
+              subtitle: '10 élèves',
+              statistique: '27,4 pts / élève',
+            },
+            {
+              title: 'Classe 4eme B',
+              subtitle: '7 élèves',
+              statistique: '13 pts / élève',
+            },
+            {
+              title: 'Classe 4eme C',
+              subtitle: '4 élèves',
+              statistique: '---',
+            },
+          ]}
         />
       </div>
       <h2>Carte edition</h2>
