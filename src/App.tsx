@@ -152,7 +152,7 @@ function App() {
         style={{ display: 'flex', gap: '20px', justifyContent: 'space-around' }}
       >
         <div style={{ width: '100%' }}>
-          <p>Sco</p>
+          <h4>Sco</h4>
           <MppPodium
             onClick={() => {}}
             onHover={() => {}}
@@ -246,7 +246,7 @@ function App() {
           />
         </div>
         <div style={{ width: '100%' }}>
-          <p>GP</p>
+          <h4>GP</h4>
           <MppPodium
             boType={BoType.gpBo}
             onClick={() => {}}
@@ -284,7 +284,7 @@ function App() {
           />
         </div>
       </div>
-      <h2>Ranking Card</h2>
+      <h3>Ranking Card</h3>
       <div style={{ width: '651px' }}>
         <MppRankingCard
           onHover={(e) => {
@@ -313,7 +313,7 @@ function App() {
           pointsColor={ScoColors.mainYellow}
           rankingColorBackground={ScoColors.mainYellow}
         />
-        <h2>Ranking Card Clickable</h2>
+        <h3>Ranking Card Clickable</h3>
         <MppRankingCardClickable
           title="Ecole Primaire Jean Rostand"
           subtitle="Lyon"
@@ -347,6 +347,7 @@ function App() {
         />
       </div>
       <h2>Carte edition</h2>
+      <h4>SCO</h4>
       <MppCardEdition
         backgroundColor={ScoColors.veryLightYellow}
         textColor={ScoColors.darkBlue}
@@ -354,7 +355,7 @@ function App() {
         editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
         editionMessage="Il reste 7 jours !"
       />
-
+      <h4>ECU</h4>
       <MppCardEdition
         backgroundColor={GpColors.darkBlue}
         textColor={ScoColors.white}
@@ -387,7 +388,9 @@ function App() {
           />
         }
       />
+
       <h2>Navigation Bar</h2>
+
       <div
         style={{
           height: '100vh',
@@ -507,7 +510,9 @@ function App() {
           clientIsLoad={true}
         />
       </div>
+
       <h2>Layout</h2>
+
       <h3>Login Layout</h3>
       <LayoutLoginSection />
 
@@ -655,7 +660,7 @@ function App() {
           }}
           isDisabled={false}
         />
-        <p>cas 1 : defaultvalue dans options</p>
+        <h4>cas 1 : defaultvalue dans options</h4>
         <MppDropDown
           property="name"
           textClassname="text_body_sb"
@@ -679,7 +684,7 @@ function App() {
           }}
         />
 
-        <p>cas 2 : defaultvalue à null</p>
+        <h4>cas 2 : defaultvalue à null</h4>
         <MppDropDown
           property="name"
           textClassname="text_body_sb"
@@ -700,7 +705,7 @@ function App() {
           defaultValue={null}
         />
 
-        <p>cas 3 : disbale une option et highlight une autre</p>
+        <h4>cas 3 : disbale une option et highlight une autre</h4>
         <MppDropDown
           parentElement={parentElement}
           textClassname="text_body"
