@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import MppPodiumStep from './MppPodiumStep/MppPodiumStep';
 import './MppPodium.css';
 import { BoType } from '../BoType';
@@ -48,6 +48,11 @@ export const MppPodium: React.FC<MppPodiumProps> = ({
   const [detailsToShow, setDetailsToShow] = useState<DetailRow[] | null>(null);
   const isDetailToShow =
     activeStep !== null && detailsToShow != null && detailsToShow.length > 0;
+
+  useEffect(() => {
+    setActiveStep(null);
+    setDetailsToShow(null);
+  }, [rankedElements]);
 
   const handleStepClick = useCallback(
     (
