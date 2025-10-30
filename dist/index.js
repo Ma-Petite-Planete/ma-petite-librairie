@@ -1137,10 +1137,6 @@ const MppPodium = ({ rankedElements, typeOfPlayers, color, displayFullInfos, onC
     const [activeStep, setActiveStep] = useState(null);
     const [detailsToShow, setDetailsToShow] = useState(null);
     const isDetailToShow = activeStep !== null && detailsToShow != null && detailsToShow.length > 0;
-    useEffect(() => {
-        setActiveStep(null);
-        setDetailsToShow(null);
-    }, [rankedElements]);
     const handleStepClick = useCallback((e, stepRanking, details) => {
         e.stopPropagation();
         const willOpen = activeStep !== stepRanking;
@@ -1149,7 +1145,7 @@ const MppPodium = ({ rankedElements, typeOfPlayers, color, displayFullInfos, onC
         onClick === null || onClick === void 0 ? void 0 : onClick(e);
     }, [activeStep, onClick]);
     const handleBackdropClick = useCallback((e) => {
-        if (!isDetailToShow)
+        if (isDetailToShow)
             return;
         setActiveStep(null);
         setDetailsToShow(null);
