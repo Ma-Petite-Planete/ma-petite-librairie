@@ -1,4 +1,4 @@
-import React, { useCallback,  useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import MppPodiumStep from './MppPodiumStep/MppPodiumStep';
 import './MppPodium.css';
 import { BoType } from '../BoType';
@@ -49,6 +49,11 @@ export const MppPodium: React.FC<MppPodiumProps> = ({
   const isDetailToShow =
     activeStep !== null && detailsToShow != null && detailsToShow.length > 0;
 
+  useEffect(() => {
+    setActiveStep(null);
+    setDetailsToShow(null);
+  }, [rankedElements]);
+
   const handleStepClick = useCallback(
     (
       e: React.MouseEvent<HTMLDivElement>,
@@ -68,7 +73,7 @@ export const MppPodium: React.FC<MppPodiumProps> = ({
 
   const handleBackdropClick = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
-      if (isDetailToShow) return;
+      if (!isDetailToShow) return;
       setActiveStep(null);
       setDetailsToShow(null);
       onClick?.(e);
