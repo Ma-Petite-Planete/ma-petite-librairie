@@ -3,10 +3,11 @@ import React from 'react';
 import { MppIcons } from '../../../utils/MppIcons';
 import MppSkeletonLoader from '../../MppSkeletonLoader/MppSkeletonLoader';
 import { BoType } from '../../BoType';
+import { DetailRow } from '../../../types_and_demo_data/detailRowRanking';
 
 interface MppPodiumStepProps {
   id?: string;
-  title: string;
+  title: string | null;
   subtitle?: string;
   subtitleBold?: string;
   bottomCount?: string;
@@ -16,7 +17,9 @@ interface MppPodiumStepProps {
   ranking: number;
   boType: BoType;
   displayAllInfos: boolean;
-  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  details?: DetailRow[];
+  isOpen?: boolean;
+  onStepClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   onHover?: (e: React.MouseEvent<HTMLDivElement>) => void;
   onHoverLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
@@ -32,22 +35,31 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
   color,
   ranking,
   displayAllInfos,
-  onClick,
+  onStepClick,
   onHover,
   onHoverLeave,
   boType,
+  details = [],
+  isOpen = false,
 }) => {
+  const hasDetails = details != null && details.length > 0;
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    if (!hasDetails) return;
+    onStepClick?.(e);
+  };
+
   return (
     <div
-      className="podium_step__container"
-      onClick={onClick}
+      className={`podium_step__container ${hasDetails ? 'cursor_pointer' : ''} ${hasDetails && isOpen ? 'podium_open' : ''}`}
+      onClick={handleClick}
       onMouseEnter={onHover}
       onMouseLeave={onHoverLeave}
       data-id={id ?? ''}
+      data-ranking={ranking}
     >
-      <div
-        className={`podium_step__content ${title ? '' : 'loading_background'}`}
-      >
+      <div className={`podium_step__content`}>
         <div className="podium_step__img">
           {ranking === 1 ? (
             <MppIcons.goldTrophee />
@@ -57,6 +69,7 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
             <MppIcons.bronzeTrophee />
           )}
         </div>
+
         {title ? (
           <>
             {boType === BoType.scoBO ? (
@@ -73,8 +86,9 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
                     {subtitleBold}
                   </li>
                 )}
+
                 <li
-                  style={{ color: `${color}` }}
+                  style={{ color }}
                   className="podium_step__list--type text_small_b"
                 >
                   {pointsNumber}
@@ -99,15 +113,10 @@ const MppPodiumStep: React.FC<MppPodiumStepProps> = ({
         )}
       </div>
 
-      <div
-        className="podium_step_number__container"
-        style={{
-          height: `${ranking == 1 ? '4.6em' : ranking == 2 ? '3.4em' : '2.1em'}`,
-        }}
-      >
+      <div className="podium_step_number__container">
         <span
           className="podium_step_number__number text_body_sb"
-          style={{ backgroundColor: `${color}` }}
+          style={{ backgroundColor: color }}
         >
           {ranking}
         </span>

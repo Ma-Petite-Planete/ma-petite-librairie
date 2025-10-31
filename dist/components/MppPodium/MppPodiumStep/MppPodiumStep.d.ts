@@ -1,9 +1,10 @@
 import './MppPodiumStep.css';
 import React from 'react';
 import { BoType } from '../../BoType';
+import { DetailRow } from '../../../types_and_demo_data/detailRowRanking';
 interface MppPodiumStepProps {
     id?: string;
-    title: string;
+    title: string | null;
     subtitle?: string;
     subtitleBold?: string;
     bottomCount?: string;
@@ -13,7 +14,9 @@ interface MppPodiumStepProps {
     ranking: number;
     boType: BoType;
     displayAllInfos: boolean;
-    onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+    details?: DetailRow[];
+    isOpen?: boolean;
+    onStepClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
     onHover?: (e: React.MouseEvent<HTMLDivElement>) => void;
     onHoverLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }

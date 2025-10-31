@@ -1105,15 +1105,22 @@ var BoType;
     BoType[BoType["gpBo"] = 1] = "gpBo";
 })(BoType || (BoType = {}));
 
-const MppPodiumStep = ({ id, title, subtitle, subtitleBold, pointsNumber, bottomCount, typeOfPlayer, color, ranking, displayAllInfos, onClick, onHover, onHoverLeave, boType, }) => {
-    return (React__default.createElement("div", { className: "podium_step__container", onClick: onClick, onMouseEnter: onHover, onMouseLeave: onHoverLeave, "data-id": id !== null && id !== void 0 ? id : '' },
-        React__default.createElement("div", { className: `podium_step__content ${title ? '' : 'loading_background'}` },
+const MppPodiumStep = ({ id, title, subtitle, subtitleBold, pointsNumber, bottomCount, typeOfPlayer, color, ranking, displayAllInfos, onStepClick, onHover, onHoverLeave, boType, details = [], isOpen = false, }) => {
+    const hasDetails = details != null && details.length > 0;
+    const handleClick = (e) => {
+        e.stopPropagation();
+        if (!hasDetails)
+            return;
+        onStepClick === null || onStepClick === void 0 ? void 0 : onStepClick(e);
+    };
+    return (React__default.createElement("div", { className: `podium_step__container ${hasDetails ? 'cursor_pointer' : ''} ${hasDetails && isOpen ? 'podium_open' : ''}`, onClick: handleClick, onMouseEnter: onHover, onMouseLeave: onHoverLeave, "data-id": id !== null && id !== void 0 ? id : '', "data-ranking": ranking },
+        React__default.createElement("div", { className: `podium_step__content` },
             React__default.createElement("div", { className: "podium_step__img" }, ranking === 1 ? (React__default.createElement(MppIcons.goldTrophee, null)) : ranking === 2 ? (React__default.createElement(MppIcons.silverTrophee, null)) : (React__default.createElement(MppIcons.bronzeTrophee, null))),
             title ? (React__default.createElement(React__default.Fragment, null, boType === BoType.scoBO ? (React__default.createElement("ul", { className: "podium_step__list" },
                 React__default.createElement("li", { className: "podium_step__list--title subtitle_b" }, title),
                 subtitle && displayAllInfos && (React__default.createElement("li", { className: "podium_step__list--subtitle text_small" }, subtitle)),
                 subtitleBold && displayAllInfos && (React__default.createElement("li", { className: "podium_step__list--subtitle_bold text_small_b" }, subtitleBold)),
-                React__default.createElement("li", { style: { color: `${color}` }, className: "podium_step__list--type text_small_b" },
+                React__default.createElement("li", { style: { color }, className: "podium_step__list--type text_small_b" },
                     pointsNumber,
                     React__default.createElement("span", { className: "text_small" }, typeOfPlayer)))) : (React__default.createElement("ul", { className: "podium_step__list" },
                 React__default.createElement("li", { className: "podium_step__list--title subtitle_b" }, title),
@@ -1121,17 +1128,48 @@ const MppPodiumStep = ({ id, title, subtitle, subtitleBold, pointsNumber, bottom
                     React__default.createElement("span", { className: "text_small_b" }, pointsNumber),
                     subtitle),
                 React__default.createElement("li", { className: "podium_step__list--type text_small" }, bottomCount))))) : (React__default.createElement(MppSkeletonLoader, { count: 2, spaceBetweenRow: "5px" }))),
-        React__default.createElement("div", { className: "podium_step_number__container", style: {
-                height: `${ranking == 1 ? '4.6em' : ranking == 2 ? '3.4em' : '2.1em'}`,
-            } },
-            React__default.createElement("span", { className: "podium_step_number__number text_body_sb", style: { backgroundColor: `${color}` } }, ranking))));
+        React__default.createElement("div", { className: "podium_step_number__container" },
+            React__default.createElement("span", { className: "podium_step_number__number text_body_sb", style: { backgroundColor: color } }, ranking))));
 };
 
 const MppPodium = ({ rankedElements, typeOfPlayers, color, displayFullInfos, onClick, onHover, onHoverLeave, boType = BoType.scoBO, }) => {
     const isBoSco = boType === BoType.scoBO;
-    return (React__default.createElement("div", { className: `podium__container ${isBoSco ? 'sco_background_color' : 'gp_background_color'}`, style: { maxWidth: isBoSco ? '541px' : '652px' } }, rankedElements
-        ? rankedElements.map(({ name, points, ranking, city, structure, id, comparativeValue, bottomCount, }) => (React__default.createElement(MppPodiumStep, { id: id, onClick: onClick, onHover: onHover, onHoverLeave: onHoverLeave, displayAllInfos: displayFullInfos, subtitle: isBoSco ? structure : comparativeValue, subtitleBold: city, key: ranking, title: name, pointsNumber: `${points} pts `, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking, boType: boType, bottomCount: bottomCount })))
-        : Array.from({ length: 3 }, (_, index) => (React__default.createElement(MppPodiumStep, { key: index, title: null, pointsNumber: '0', subtitle: "", subtitleBold: "", typeOfPlayer: typeOfPlayers, color: color, ranking: index + 1, displayAllInfos: false, boType: boType })))));
+    const [activeStep, setActiveStep] = useState(null);
+    const [detailsToShow, setDetailsToShow] = useState(null);
+    const isDetailToShow = activeStep !== null && detailsToShow != null && detailsToShow.length > 0;
+    useEffect(() => {
+        setActiveStep(null);
+        setDetailsToShow(null);
+    }, [rankedElements]);
+    const handleStepClick = useCallback((e, stepRanking, details) => {
+        e.stopPropagation();
+        const willOpen = activeStep !== stepRanking;
+        setActiveStep(willOpen ? stepRanking : null);
+        setDetailsToShow(willOpen ? (details && details.length ? details : null) : null);
+        onClick === null || onClick === void 0 ? void 0 : onClick(e);
+    }, [activeStep, onClick]);
+    const handleBackdropClick = useCallback((e) => {
+        if (!isDetailToShow)
+            return;
+        setActiveStep(null);
+        setDetailsToShow(null);
+        onClick === null || onClick === void 0 ? void 0 : onClick(e);
+    }, [isDetailToShow, onClick]);
+    return (React__default.createElement("div", { className: `main_podium_container ${isDetailToShow ? 'cursor_pointer' : ''}`, onClick: handleBackdropClick },
+        React__default.createElement("div", { className: `podium__container ${isBoSco ? 'sco_background_color' : 'gp_background_color'}`, style: { maxWidth: isBoSco ? '541px' : '652px' } }, rankedElements
+            ? rankedElements.map(({ name, points, ranking, city, structure, id, comparativeValue, bottomCount, details, }) => (React__default.createElement(MppPodiumStep, { key: ranking, id: id, title: name, pointsNumber: `${points} pts `, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking, boType: boType, bottomCount: bottomCount, displayAllInfos: displayFullInfos, subtitle: isBoSco ? structure : comparativeValue, subtitleBold: city, details: details, isOpen: activeStep === ranking, onStepClick: (e) => handleStepClick(e, ranking, details), onHover: onHover, onHoverLeave: onHoverLeave })))
+            : Array.from({ length: 3 }, (_, index) => (React__default.createElement(MppPodiumStep, { key: index, title: null, pointsNumber: '0', subtitle: "", subtitleBold: "", typeOfPlayer: typeOfPlayers, color: color, ranking: index + 1, displayAllInfos: false, boType: boType, isOpen: false, onStepClick: () => { } })))),
+        React__default.createElement("div", { className: `details_podium_background details_collapse ${isDetailToShow ? 'expanded' : ''}`, "aria-hidden": !isDetailToShow },
+            React__default.createElement("div", { className: "details_inner" },
+                React__default.createElement("ul", { className: "details_list_podium" }, (detailsToShow !== null && detailsToShow !== void 0 ? detailsToShow : []).map((row, idx) => (React__default.createElement("li", { key: `${row.title}-${idx}`, className: "detail_row" },
+                    React__default.createElement("div", { className: "detail_left" },
+                        React__default.createElement("p", { className: "text_small" },
+                            React__default.createElement("span", { className: " text_body_sb" }, row.title),
+                            " -",
+                            ' ',
+                            row.subtitle)),
+                    React__default.createElement("div", { className: "detail_right" },
+                        React__default.createElement("p", { className: "detail_stat text_body_sb" }, row.statistic || '---'))))))))));
 };
 
 /**
@@ -2136,4 +2174,35 @@ const MppChallengeCard = ({ title, subtitle, ranking, value, boType = BoType.sco
             React__default.createElement(MppSkeletonLoader, { heightRow: "20px" })))));
 };
 
-export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppChallengeCard, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppPodium, MppRankingCard, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppTextAreaFixHeight, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };
+const MppRankingCardClickable = ({ title, subtitle, ranking, points, subPointsText, pointsColor, rankingColorBackground, details = [], onClick, onHover, onHoverLeave, }) => {
+    const [expanded, setExpanded] = useState(false);
+    const hasDetails = details && details.length > 0;
+    const toggle = useCallback((e) => {
+        setExpanded((v) => !v);
+        onClick === null || onClick === void 0 ? void 0 : onClick(e);
+    }, [onClick]);
+    return (React__default.createElement("div", { className: "ranking_card_clickable_wrapper" },
+        React__default.createElement("div", { className: `ranking_card_clickable_background ${hasDetails ? 'cursor_pointer' : ''} ${expanded ? 'expanded' : ''}`, onClick: toggle, onMouseEnter: onHover, onMouseLeave: onHoverLeave, role: hasDetails ? 'button' : undefined, "aria-expanded": hasDetails ? expanded : undefined, tabIndex: hasDetails ? 0 : -1 },
+            React__default.createElement("div", { className: `card_header ${title ? '' : 'loading'}` },
+                React__default.createElement(React__default.Fragment, null,
+                    React__default.createElement("div", { className: "flex_row" },
+                        React__default.createElement("p", { className: "text_body_sb ranking_background", style: { backgroundColor: rankingColorBackground } }, ranking),
+                        React__default.createElement("div", { className: "content_background" },
+                            React__default.createElement("p", { className: "text_body_sb" }, title),
+                            React__default.createElement("p", { className: "text_small" }, subtitle))),
+                    React__default.createElement("div", { className: `points_background ${title}` },
+                        React__default.createElement("p", { className: "text_body_sb", style: { color: pointsColor } }, points),
+                        React__default.createElement("p", { className: "sub_point_text text_small" }, subPointsText)))),
+            hasDetails && (React__default.createElement("div", { className: `card_details ${expanded ? 'open' : ''}` },
+                React__default.createElement("ul", { className: "details_list" }, details.map((row, idx) => (React__default.createElement("li", { key: `${row.title}-${idx}`, className: "detail_row" },
+                    React__default.createElement("div", { className: "detail_left" },
+                        React__default.createElement("p", { className: "text_small" },
+                            React__default.createElement("span", { className: " text_body_sb" }, row.title),
+                            " -",
+                            ' ',
+                            row.subtitle)),
+                    React__default.createElement("div", { className: "detail_right" },
+                        React__default.createElement("p", { className: "detail_stat text_body_sb" }, row.statistic || '---')))))))))));
+};
+
+export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppChallengeCard, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppPodium, MppRankingCard, MppRankingCardClickable, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppTextAreaFixHeight, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };

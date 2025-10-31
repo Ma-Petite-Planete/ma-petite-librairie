@@ -11,7 +11,7 @@ const DropDownMultiFilters: React.FC = () => {
   >([]);
   return (
     <div className="dropdown-multi-filters">
-      <h2>Choisissez vos filtres</h2>
+      <h3>Choisissez vos filtres</h3>
       <MppCategoryMultiFilter
         categories={demoIdentifiers}
         selectedCategories={selectedCategories}

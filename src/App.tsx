@@ -39,6 +39,7 @@ import MppToggleSection from './components/MppToggleSection/MppToggleSection';
 import MppDropDown from './components/MppDropDown/MppDropDown';
 import MppTextAreaFixHeight from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';
 import MppChallengeCard from './components/MppChallengeRankingCard/MppChallengeRankingCard';
+import MppRankingCardClickable from './components/MppRankingCardClickable/MppRankingCardClickable';
 
 function App() {
   const [parentElement, setParentElement] = useState<Element | null>(null);
@@ -151,7 +152,7 @@ function App() {
         style={{ display: 'flex', gap: '20px', justifyContent: 'space-around' }}
       >
         <div style={{ width: '100%' }}>
-          <p>Sco</p>
+          <h4>Sco</h4>
           <MppPodium
             onClick={() => {}}
             onHover={() => {}}
@@ -167,24 +168,85 @@ function App() {
                 ranking: 1,
                 structure: '2cole des intellos',
                 city: 'Lyon',
+                details: [
+                  {
+                    title: 'Classe 6eme B',
+                    subtitle: '15 élèves',
+                    statistic: '30,5 pts / élève',
+                  },
+                  {
+                    title: 'Classe 4eme A',
+                    subtitle: '10 élèves',
+                    statistic: '27,4 pts / élève',
+                  },
+                  {
+                    title: 'Classe 4eme B',
+                    subtitle: '7 élèves',
+                    statistic: '13 pts / élève',
+                  },
+                  {
+                    title: 'Classe 4eme C',
+                    subtitle: '4 élèves',
+                    statistic: '---',
+                  },
+                ],
               },
               {
                 id: 'test2',
                 name: '4èmeB',
                 points: 3,
                 ranking: 2,
+                details: [
+                  {
+                    title: 'Classe 6eme B',
+                    subtitle: '15 élèves',
+                    statistic: '30,5 pts / élève',
+                  },
+                ],
               },
               {
                 id: 'test3',
                 name: '4èmeA',
                 points: 3,
                 ranking: 3,
+                details: [
+                  {
+                    title: 'Classe 6eme B',
+                    subtitle: '15 élèves',
+                    statistic: '30,5 pts / élève',
+                  },
+                  {
+                    title: 'Classe 4eme A',
+                    subtitle: '10 élèves',
+                    statistic: '27,4 pts / élève',
+                  },
+                  {
+                    title: 'Classe 4eme B',
+                    subtitle: '7 élèves',
+                    statistic: '13 pts / élève',
+                  },
+                  {
+                    title: 'Classe 4eme C',
+                    subtitle: '4 élèves',
+                    statistic: '---',
+                  },
+                  {
+                    title: 'Classe 4eme B',
+                    subtitle: '7 élèves',
+                    statistic: '13 pts / élève',
+                  },
+                  {
+                    title: 'Classe 4eme C',
+                    subtitle: '4 élèves',
+                    statistic: '---',
+                  },
+                ],
               },
             ]}
           />
         </div>
         <div style={{ width: '100%' }}>
-          <p>GP</p>
+          <h4>GP</h4>
           <MppPodium
             boType={BoType.gpBo}
             onClick={() => {}}
@@ -222,7 +284,7 @@ function App() {
           />
         </div>
       </div>
-      <h2>Ranking Card</h2>
+      <h3>Ranking Card</h3>
       <div style={{ width: '651px' }}>
         <MppRankingCard
           onHover={(e) => {
@@ -251,8 +313,41 @@ function App() {
           pointsColor={ScoColors.mainYellow}
           rankingColorBackground={ScoColors.mainYellow}
         />
+        <h3>Ranking Card Clickable</h3>
+        <MppRankingCardClickable
+          title="Ecole Primaire Jean Rostand"
+          subtitle="Lyon"
+          ranking={4}
+          points="26,2 pts"
+          subPointsText="moyen par élève"
+          pointsColor="#F2C94C"
+          rankingColorBackground="#F2C94C"
+          details={[
+            {
+              title: 'Classe 6eme B',
+              subtitle: '15 élèves',
+              statistic: '30,5 pts / élève',
+            },
+            {
+              title: 'Classe 4eme A',
+              subtitle: '10 élèves',
+              statistic: '27,4 pts / élève',
+            },
+            {
+              title: 'Classe 4eme B',
+              subtitle: '7 élèves',
+              statistic: '13 pts / élève',
+            },
+            {
+              title: 'Classe 4eme C',
+              subtitle: '4 élèves',
+              statistic: '---',
+            },
+          ]}
+        />
       </div>
       <h2>Carte edition</h2>
+      <h4>SCO</h4>
       <MppCardEdition
         backgroundColor={ScoColors.veryLightYellow}
         textColor={ScoColors.darkBlue}
@@ -260,7 +355,7 @@ function App() {
         editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
         editionMessage="Il reste 7 jours !"
       />
-
+      <h4>ECU</h4>
       <MppCardEdition
         backgroundColor={GpColors.darkBlue}
         textColor={ScoColors.white}
@@ -293,7 +388,9 @@ function App() {
           />
         }
       />
+
       <h2>Navigation Bar</h2>
+
       <div
         style={{
           height: '100vh',
@@ -413,7 +510,9 @@ function App() {
           clientIsLoad={true}
         />
       </div>
+
       <h2>Layout</h2>
+
       <h3>Login Layout</h3>
       <LayoutLoginSection />
 
@@ -561,7 +660,7 @@ function App() {
           }}
           isDisabled={false}
         />
-        <p>cas 1 : defaultvalue dans options</p>
+        <h4>cas 1 : defaultvalue dans options</h4>
         <MppDropDown
           property="name"
           textClassname="text_body_sb"
@@ -585,7 +684,7 @@ function App() {
           }}
         />
 
-        <p>cas 2 : defaultvalue à null</p>
+        <h4>cas 2 : defaultvalue à null</h4>
         <MppDropDown
           property="name"
           textClassname="text_body_sb"
@@ -606,7 +705,7 @@ function App() {
           defaultValue={null}
         />
 
-        <p>cas 3 : disbale une option et highlight une autre</p>
+        <h4>cas 3 : disbale une option et highlight une autre</h4>
         <MppDropDown
           parentElement={parentElement}
           textClassname="text_body"
