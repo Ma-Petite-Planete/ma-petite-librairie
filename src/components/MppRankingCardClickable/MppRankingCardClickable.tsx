@@ -88,7 +88,7 @@ const MppRankingCardClickable: React.FC<MppRankingCardClickableProps> = ({
                   </div>
                   <div className="detail_right">
                     <p className="detail_stat text_body_sb">
-                      {row.statistique || '---'}
+                      {row.statistic || '---'}
                     </p>
                   </div>
                 </li>

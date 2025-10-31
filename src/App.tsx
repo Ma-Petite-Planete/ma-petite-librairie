@@ -172,22 +172,22 @@ function App() {
                   {
                     title: 'Classe 6eme B',
                     subtitle: '15 élèves',
-                    statistique: '30,5 pts / élève',
+                    statistic: '30,5 pts / élève',
                   },
                   {
                     title: 'Classe 4eme A',
                     subtitle: '10 élèves',
-                    statistique: '27,4 pts / élève',
+                    statistic: '27,4 pts / élève',
                   },
                   {
                     title: 'Classe 4eme B',
                     subtitle: '7 élèves',
-                    statistique: '13 pts / élève',
+                    statistic: '13 pts / élève',
                   },
                   {
                     title: 'Classe 4eme C',
                     subtitle: '4 élèves',
-                    statistique: '---',
+                    statistic: '---',
                   },
                 ],
               },
@@ -200,7 +200,7 @@ function App() {
                   {
                     title: 'Classe 6eme B',
                     subtitle: '15 élèves',
-                    statistique: '30,5 pts / élève',
+                    statistic: '30,5 pts / élève',
                   },
                 ],
               },
@@ -213,32 +213,32 @@ function App() {
                   {
                     title: 'Classe 6eme B',
                     subtitle: '15 élèves',
-                    statistique: '30,5 pts / élève',
+                    statistic: '30,5 pts / élève',
                   },
                   {
                     title: 'Classe 4eme A',
                     subtitle: '10 élèves',
-                    statistique: '27,4 pts / élève',
+                    statistic: '27,4 pts / élève',
                   },
                   {
                     title: 'Classe 4eme B',
                     subtitle: '7 élèves',
-                    statistique: '13 pts / élève',
+                    statistic: '13 pts / élève',
                   },
                   {
                     title: 'Classe 4eme C',
                     subtitle: '4 élèves',
-                    statistique: '---',
+                    statistic: '---',
                   },
                   {
                     title: 'Classe 4eme B',
                     subtitle: '7 élèves',
-                    statistique: '13 pts / élève',
+                    statistic: '13 pts / élève',
                   },
                   {
                     title: 'Classe 4eme C',
                     subtitle: '4 élèves',
-                    statistique: '---',
+                    statistic: '---',
                   },
                 ],
               },
@@ -326,22 +326,22 @@ function App() {
             {
               title: 'Classe 6eme B',
               subtitle: '15 élèves',
-              statistique: '30,5 pts / élève',
+              statistic: '30,5 pts / élève',
             },
             {
               title: 'Classe 4eme A',
               subtitle: '10 élèves',
-              statistique: '27,4 pts / élève',
+              statistic: '27,4 pts / élève',
             },
             {
               title: 'Classe 4eme B',
               subtitle: '7 élèves',
-              statistique: '13 pts / élève',
+              statistic: '13 pts / élève',
             },
             {
               title: 'Classe 4eme C',
               subtitle: '4 élèves',
-              statistique: '---',
+              statistic: '---',
             },
           ]}
         />

@@ -1169,7 +1169,7 @@ const MppPodium = ({ rankedElements, typeOfPlayers, color, displayFullInfos, onC
                             ' ',
                             row.subtitle)),
                     React__default.createElement("div", { className: "detail_right" },
-                        React__default.createElement("p", { className: "detail_stat text_body_sb" }, row.statistique || '---'))))))))));
+                        React__default.createElement("p", { className: "detail_stat text_body_sb" }, row.statistic || '---'))))))))));
 };
 
 /**
@@ -2202,7 +2202,7 @@ const MppRankingCardClickable = ({ title, subtitle, ranking, points, subPointsTe
                             ' ',
                             row.subtitle)),
                     React__default.createElement("div", { className: "detail_right" },
-                        React__default.createElement("p", { className: "detail_stat text_body_sb" }, row.statistique || '---')))))))))));
+                        React__default.createElement("p", { className: "detail_stat text_body_sb" }, row.statistic || '---')))))))))));
 };
 
 export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppChallengeCard, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppPodium, MppRankingCard, MppRankingCardClickable, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppTextAreaFixHeight, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };

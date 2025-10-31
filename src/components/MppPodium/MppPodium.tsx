@@ -20,6 +20,54 @@ export interface PodiumStep {
 
 /**
  * MppPodium affiche un podium avec les éléments classés passés en entrée.
+ *
+ * Ce composant attend jusqu'à trois éléments classés (1er, 2e, 3e). Si
+ * `rankedElements` est `null`, le composant affiche des placeholders (skeleton)
+ * pour chacune des trois étapes du podium.
+ *
+ * @param {MppPodiumProps} props - Propriétés du composant podium.
+ * @param {Array<PodiumStep> | null} props.rankedElements
+ *   - La liste des éléments à afficher dans le podium (typiquement 1 à 3 éléments).
+ *     Si `null`, on affiche des placeholders skeleton (3 étapes).
+ * @param {string} props.color
+ *   - La couleur appliquée aux badges et textes du podium (ex. "#FFCC00").
+ * @param {string} props.typeOfPlayers
+ *   - Libellé décrivant le type de joueurs (ex. "élèves", "équipes").
+ * @param {boolean} props.displayFullInfos
+ *   - Indique s’il faut afficher toutes les informations disponibles (city, structure…).
+ * @param {BoType} [props.boType=BoType.scoBO]
+ *   - Type de back-office, utilisé pour appliquer le style de fond approprié.
+ *     Valeurs possibles : BoType.scoBO | BoType.gpBO.
+ * @param {(e: React.MouseEvent<HTMLDivElement>) => void} [props.onClick]
+ *   - Callback appelé au clic sur une étape du podium ou sur le backdrop de détails.
+ * @param {(e: React.MouseEvent<HTMLDivElement>) => void} [props.onHover]
+ *   - Callback appelé au survol d’une étape du podium.
+ * @param {(e: React.MouseEvent<HTMLDivElement>) => void} [props.onHoverLeave]
+ *   - Callback appelé à la sortie du survol d’une étape du podium.
+ *
+ * Remarques :
+ * - Chaque élément de `rankedElements` doit contenir au minimum `name`, `points`
+ *   et `ranking`. Les champs optionnels (city, structure, details, etc.) seront
+ *   affichés si `displayFullInfos` est vrai et si les données sont présentes.
+ * - Les callbacks reçoivent l'événement mouse du div concerné.
+ *
+ * @example
+ * ```tsx
+ * const steps: PodiumStep[] = [
+ *   { id: 'a', name: 'Alice',   points: 42, ranking: 1, city: 'Paris',     structure: 'Lycée A' },
+ *   { id: 'b', name: 'Bob',     points: 37, ranking: 2, city: 'Lyon',      structure: 'Lycée B' },
+ *   { id: 'c', name: 'Charlie', points: 29, ranking: 3, city: 'Marseille', structure: 'Lycée C' },
+ * ];
+ *
+ * <MppPodium
+ *   rankedElements={steps}
+ *   color="#FFCC00"
+ *   typeOfPlayers="élèves"
+ *   displayFullInfos={true}
+ *   boType={BoType.gpBO}
+ *   onClick={(e) => console.log('clicked', e)}
+ * />
+ * ```
  */
 interface MppPodiumProps {
   rankedElements: Array<PodiumStep> | null;
@@ -158,7 +206,7 @@ export const MppPodium: React.FC<MppPodiumProps> = ({
                 </div>
                 <div className="detail_right">
                   <p className="detail_stat text_body_sb">
-                    {row.statistique || '---'}
+                    {row.statistic || '---'}
                   </p>
                 </div>
               </li>
