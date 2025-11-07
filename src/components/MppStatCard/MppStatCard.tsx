@@ -11,6 +11,7 @@ interface StatCardProps {
   boType?: BoType.gpBo;
   statDetails?: string;
   useSkeletonLoader?: boolean;
+  width?: number;
 }
 
 /**
@@ -27,6 +28,7 @@ interface StatCardProps {
  * @param {BoType.gpBo} [props.boType] - Permet d'afficher une ombre spécifique pour le type de BO ECU (optionnel).
  * @param {string} [props.statDetails] - Détails complémentaires affichés après la statistique (optionnel).
  * @param {boolean} [props.useSkeletonLoader=true] - Active ou non l'affichage du skeleton loader lors du chargement (optionnel, true par défaut).
+ * @param {number} [props.width] -
  *
  * @example
  * ```tsx
@@ -45,11 +47,16 @@ const StatCard: React.FC<StatCardProps> = ({
   stat,
   boType,
   statDetails,
-  useSkeletonLoader = true
+  useSkeletonLoader = true,
+  width = "200px"
+
 }) => {
   return (
     <div
       className={`stat_card__container${boType ? ' stat_card__container--shadow' : ''}`}
+      style={{
+        width
+      }}
     >
       {stat !== null && stat !== undefined  || !useSkeletonLoader ? (
         <div className="stat_card__icon">

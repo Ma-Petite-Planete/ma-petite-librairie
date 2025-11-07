@@ -1389,6 +1389,7 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
  * @param {BoType.gpBo} [props.boType] - Permet d'afficher une ombre spécifique pour le type de BO ECU (optionnel).
  * @param {string} [props.statDetails] - Détails complémentaires affichés après la statistique (optionnel).
  * @param {boolean} [props.useSkeletonLoader=true] - Active ou non l'affichage du skeleton loader lors du chargement (optionnel, true par défaut).
+ * @param {number} [props.width] -
  *
  * @example
  * ```tsx
@@ -1400,8 +1401,10 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
  * />
  * ```
  */
-const StatCard = ({ IconComponent, title, stat, boType, statDetails, useSkeletonLoader = true }) => {
-    return (React__default.createElement("div", { className: `stat_card__container${boType ? ' stat_card__container--shadow' : ''}` },
+const StatCard = ({ IconComponent, title, stat, boType, statDetails, useSkeletonLoader = true, width = "200px" }) => {
+    return (React__default.createElement("div", { className: `stat_card__container${boType ? ' stat_card__container--shadow' : ''}`, style: {
+            width
+        } },
         stat !== null && stat !== undefined || !useSkeletonLoader ? (React__default.createElement("div", { className: "stat_card__icon" },
             React__default.createElement(IconComponent, null))) : (React__default.createElement("div", { className: "loader_background" },
             React__default.createElement(MppSkeletonLoader, { circular: true }))),
