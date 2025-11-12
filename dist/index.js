@@ -985,10 +985,9 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
 var SvgCommunication = function SvgCommunication(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({
     xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
+    fill: "currentColor",
     viewBox: "0 0 19 17"
   }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
-    fill: "#2C2C69",
     fillRule: "evenodd",
     d: "M15.048 0H3.952A3.946 3.946 0 0 0 0 3.945v5.52c0 2.2 1.767 3.964 3.971 3.964a.98.98 0 0 1 .988.986v1.802c0 .702.855 1.044 1.349.55l2.888-2.864a1.57 1.57 0 0 1 1.121-.455h4.731A3.946 3.946 0 0 0 19 9.503V3.945A3.946 3.946 0 0 0 15.048 0m-9.5 7.89c-.646 0-1.197-.53-1.197-1.175s.532-1.176 1.197-1.176c.646 0 1.178.53 1.178 1.176 0 .644-.532 1.176-1.178 1.176m3.952 0c-.646 0-1.197-.53-1.197-1.175S8.835 5.539 9.5 5.539c.646 0 1.178.53 1.178 1.176 0 .644-.532 1.176-1.178 1.176m3.952 0c-.646 0-1.197-.53-1.197-1.175s.532-1.176 1.197-1.176c.646 0 1.178.53 1.178 1.176a1.17 1.17 0 0 1-1.178 1.176",
     clipRule: "evenodd"
