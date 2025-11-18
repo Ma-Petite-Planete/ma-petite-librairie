@@ -6,6 +6,7 @@
     "outDir": "dist",
     "jsx": "react",
     "moduleResolution": "node",
+    "ignoreDeprecations": "6.0",
     "esModuleInterop": true,
     "skipLibCheck": true
   },

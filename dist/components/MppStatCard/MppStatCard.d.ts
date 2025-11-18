@@ -9,6 +9,7 @@ interface StatCardProps {
     boType?: BoType.gpBo;
     statDetails?: string;
     useSkeletonLoader?: boolean;
+    width?: number;
 }
 /**
  * Composant d'affichage des statistiques dans une carte avec une icône à gauche pour illustrer.
@@ -24,6 +25,7 @@ interface StatCardProps {
  * @param {BoType.gpBo} [props.boType] - Permet d'afficher une ombre spécifique pour le type de BO ECU (optionnel).
  * @param {string} [props.statDetails] - Détails complémentaires affichés après la statistique (optionnel).
  * @param {boolean} [props.useSkeletonLoader=true] - Active ou non l'affichage du skeleton loader lors du chargement (optionnel, true par défaut).
+ * @param {number} [props.width] -
  *
  * @example
  * ```tsx

@@ -2,6 +2,9 @@
   display: inline-block;
   text-align: center;
   width: 100%;
+  padding-top: 72px;
+  padding-bottom: 40px;
+  transition: padding-bottom 320ms ease;
 }
 
 .podium_step__content {
@@ -36,7 +39,26 @@
   border-radius: var(--standard_border_radius);
 }
 
-.loading_background {
-  padding: 0 20px;
-  margin-bottom: 8px;
+.podium_step__container {
+  --extra-h: 0px;
+}
+
+.podium_step__container.podium_open {
+  padding-bottom: 0;
+  --extra-h: 40px;
+}
+
+.podium_step_number__container {
+  height: calc(var(--base-h) + var(--extra-h));
+  transition: height 320ms ease; /* smooth */
+}
+
+.podium_step__container[data-ranking='1'] .podium_step_number__container {
+  --base-h: 73.6px;
+}
+.podium_step__container[data-ranking='2'] .podium_step_number__container {
+  --base-h: 54.4px;
+}
+.podium_step__container[data-ranking='3'] .podium_step_number__container {
+  --base-h: 33.6px;
 }
