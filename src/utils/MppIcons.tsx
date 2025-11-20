@@ -38,6 +38,7 @@ import { ReactComponent as inputClose } from '../ressources/icons/input_close.sv
 import { ReactComponent as research } from '../ressources/icons/research.svg';
 import { ReactComponent as add } from '../ressources/icons/add.svg';
 import { ReactComponent as communication } from '../ressources/icons/communication.svg';
+import { ReactComponent as chatTail } from '../ressources/icons/tail.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -80,4 +81,5 @@ export const MppIcons = {
   inputClose: inputClose,
   add: add,
   communication: communication,
+  chatTail: chatTail
 } as const;
