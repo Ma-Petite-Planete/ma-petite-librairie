@@ -129,6 +129,7 @@ export const MppPodium: React.FC<MppPodiumProps> = ({
     [isDetailToShow, onClick]
   );
 
+  console.log('🚀 ~ MppPodium ~ rankedElements:', rankedElements);
   return (
     <div
       className={`main_podium_container ${isDetailToShow ? 'cursor_pointer' : ''}`}
