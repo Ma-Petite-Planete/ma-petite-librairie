@@ -12,8 +12,7 @@
   position: relative;
   z-index: 3;
   box-shadow: 0px 4px 20px var(--shadow_color);
-
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .sco_background_color {
