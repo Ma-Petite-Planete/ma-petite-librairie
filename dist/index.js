@@ -1155,6 +1155,7 @@ const MppPodium = ({ rankedElements, typeOfPlayers, color, displayFullInfos, onC
         setDetailsToShow(null);
         onClick === null || onClick === void 0 ? void 0 : onClick(e);
     }, [isDetailToShow, onClick]);
+    console.log('🚀 ~ MppPodium ~ rankedElements:', rankedElements);
     return (React__default.createElement("div", { className: `main_podium_container ${isDetailToShow ? 'cursor_pointer' : ''}`, onClick: handleBackdropClick },
         React__default.createElement("div", { className: `podium__container ${isBoSco ? 'sco_background_color' : 'gp_background_color'}`, style: { maxWidth: isBoSco ? '541px' : '652px' } }, rankedElements
             ? rankedElements.map(({ name, points, ranking, city, structure, id, comparativeValue, bottomCount, details, }) => (React__default.createElement(MppPodiumStep, { key: ranking, id: id, title: name, pointsNumber: `${points} pts `, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking, boType: boType, bottomCount: bottomCount, displayAllInfos: displayFullInfos, subtitle: isBoSco ? structure : comparativeValue, subtitleBold: city, details: details, isOpen: activeStep === ranking, onStepClick: (e) => handleStepClick(e, ranking, details), onHover: onHover, onHoverLeave: onHoverLeave })))
