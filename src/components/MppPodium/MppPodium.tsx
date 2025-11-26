@@ -9,8 +9,8 @@ export interface PodiumStep {
   name: string;
   points: number;
   ranking: number;
-  city?: string;
-  structure?: string;
+  boldSubtitle?: string;
+  lightSubtitle?: string;
   comparativeValue?: string;
   nb_challenge?: string;
   bottomCount?: string;
@@ -34,7 +34,7 @@ export interface PodiumStep {
  * @param {string} props.typeOfPlayers
  *   - Libellé décrivant le type de joueurs (ex. "élèves", "équipes").
  * @param {boolean} props.displayFullInfos
- *   - Indique s’il faut afficher toutes les informations disponibles (city, structure…).
+ *   - Indique s’il faut afficher toutes les informations disponibles (boldSubtitle, structure…).
  * @param {BoType} [props.boType=BoType.scoBO]
  *   - Type de back-office, utilisé pour appliquer le style de fond approprié.
  *     Valeurs possibles : BoType.scoBO | BoType.gpBO.
@@ -47,16 +47,16 @@ export interface PodiumStep {
  *
  * Remarques :
  * - Chaque élément de `rankedElements` doit contenir au minimum `name`, `points`
- *   et `ranking`. Les champs optionnels (city, structure, details, etc.) seront
+ *   et `ranking`. Les champs optionnels (boldSubtitle, lightSubtitle, details, etc.) seront
  *   affichés si `displayFullInfos` est vrai et si les données sont présentes.
  * - Les callbacks reçoivent l'événement mouse du div concerné.
  *
  * @example
  * ```tsx
  * const steps: PodiumStep[] = [
- *   { id: 'a', name: 'Alice',   points: 42, ranking: 1, city: 'Paris',     structure: 'Lycée A' },
- *   { id: 'b', name: 'Bob',     points: 37, ranking: 2, city: 'Lyon',      structure: 'Lycée B' },
- *   { id: 'c', name: 'Charlie', points: 29, ranking: 3, city: 'Marseille', structure: 'Lycée C' },
+ *   { id: 'a', name: 'Alice',   points: 42, ranking: 1, boldSubtitle: 'Paris',     lightSubtitle: 'Lycée A' },
+ *   { id: 'b', name: 'Bob',     points: 37, ranking: 2, boldSubtitle: 'Lyon',      lightSubtitle: 'Lycée B' },
+ *   { id: 'c', name: 'Charlie', points: 29, ranking: 3, boldSubtitle: 'Marseille', lightSubtitle: 'Lycée C' },
  * ];
  *
  * <MppPodium
@@ -145,8 +145,8 @@ export const MppPodium: React.FC<MppPodiumProps> = ({
                 name,
                 points,
                 ranking,
-                city,
-                structure,
+                boldSubtitle,
+                lightSubtitle,
                 id,
                 comparativeValue,
                 bottomCount,
@@ -163,8 +163,8 @@ export const MppPodium: React.FC<MppPodiumProps> = ({
                   boType={boType}
                   bottomCount={bottomCount}
                   displayAllInfos={displayFullInfos}
-                  subtitle={isBoSco ? structure : comparativeValue}
-                  subtitleBold={city}
+                  subtitle={isBoSco ? lightSubtitle : comparativeValue}
+                  subtitleBold={boldSubtitle}
                   details={details}
                   isOpen={activeStep === ranking}
                   onStepClick={(e) => handleStepClick(e, ranking, details)}
