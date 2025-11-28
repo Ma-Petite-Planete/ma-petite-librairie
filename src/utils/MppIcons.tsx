@@ -39,6 +39,9 @@ import { ReactComponent as research } from '../ressources/icons/research.svg';
 import { ReactComponent as add } from '../ressources/icons/add.svg';
 import { ReactComponent as communication } from '../ressources/icons/communication.svg';
 import { ReactComponent as chatTail } from '../ressources/icons/tail.svg';
+import { ReactComponent as sentStatus } from '../ressources/icons/sent_status.svg';
+import { ReactComponent as sendingStatus } from '../ressources/icons/sending_status.svg';
+import { ReactComponent as failedStatus } from '../ressources/icons/failed_status.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -81,5 +84,8 @@ export const MppIcons = {
   inputClose: inputClose,
   add: add,
   communication: communication,
-  chatTail: chatTail
+  chatTail: chatTail,
+  sentStatus: sentStatus,
+  sendingStatus: sendingStatus,
+  failedStatus: failedStatus,
 } as const;
