@@ -42,6 +42,7 @@ import { ReactComponent as chatTail } from '../ressources/icons/tail.svg';
 import { ReactComponent as sentStatus } from '../ressources/icons/sent_status.svg';
 import { ReactComponent as sendingStatus } from '../ressources/icons/sending_status.svg';
 import { ReactComponent as failedStatus } from '../ressources/icons/failed_status.svg';
+import { ReactComponent as arrowDown } from '../ressources/icons/arrow_down.svg';;
 
 export const MppIcons = {
   pen: pen,
@@ -88,4 +89,5 @@ export const MppIcons = {
   sentStatus: sentStatus,
   sendingStatus: sendingStatus,
   failedStatus: failedStatus,
+  arrowDown: arrowDown,
 } as const;
