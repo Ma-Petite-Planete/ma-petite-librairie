@@ -680,9 +680,8 @@ function _extends$o() { return _extends$o = Object.assign ? Object.assign.bind()
 var SvgTrash = function SvgTrash(props) {
   return /*#__PURE__*/React.createElement("svg", _extends$o({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 22,
-    height: 30,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 22 30"
   }, props), _path$o || (_path$o = /*#__PURE__*/React.createElement("path", {
     fill: "currentColor",
     d: "M22 5.26a1.42 1.42 0 0 0-1.42-1.42h-4.907V1.787A1.774 1.774 0 0 0 13.9.012H8.101a1.774 1.774 0 0 0-1.774 1.774v2.055H1.42A1.42 1.42 0 0 0 0 5.26v2.2a1.42 1.42 0 0 0 1.42 1.418h.755v17.56a3.55 3.55 0 0 0 3.549 3.55h10.552a3.55 3.55 0 0 0 3.549-3.55V8.88h.755A1.42 1.42 0 0 0 22 7.46zM7.746 1.786a.355.355 0 0 1 .355-.354H13.9a.355.355 0 0 1 .355.354v2.055H7.746zM18.391 26.44a2.13 2.13 0 0 1-2.129 2.129H5.72a2.13 2.13 0 0 1-2.129-2.13V8.88h14.814zm2.19-18.98H1.42v-2.2h19.16z"
