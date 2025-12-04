@@ -42,4 +42,7 @@ export declare const MppIcons: {
     readonly communication: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly chatTail: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly play: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly sentStatus: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly sendingStatus: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly failedStatus: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
 };
