@@ -39,6 +39,7 @@ import { ReactComponent as research } from '../ressources/icons/research.svg';
 import { ReactComponent as add } from '../ressources/icons/add.svg';
 import { ReactComponent as communication } from '../ressources/icons/communication.svg';
 import { ReactComponent as chatTail } from '../ressources/icons/tail.svg';
+import { ReactComponent as play } from '../ressources/icons/play.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -81,5 +82,6 @@ export const MppIcons = {
   inputClose: inputClose,
   add: add,
   communication: communication,
-  chatTail: chatTail
+  chatTail: chatTail,
+  play: play,
 } as const;
