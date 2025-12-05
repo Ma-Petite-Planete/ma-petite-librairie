@@ -1012,9 +1012,8 @@ function _extends$3() { return _extends$3 = Object.assign ? Object.assign.bind()
 var SvgPlay = function SvgPlay(props) {
   return /*#__PURE__*/React.createElement("svg", _extends$3({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 42,
-    height: 42,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 42 42"
   }, props), /*#__PURE__*/React.createElement("foreignObject", {
     width: 42,
     height: 42,
