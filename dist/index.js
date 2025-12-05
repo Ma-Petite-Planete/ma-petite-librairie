@@ -1012,14 +1012,14 @@ function _extends$3() { return _extends$3 = Object.assign ? Object.assign.bind()
 var SvgPlay = function SvgPlay(props) {
   return /*#__PURE__*/React.createElement("svg", _extends$3({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 62,
-    height: 68,
+    width: 42,
+    height: 42,
     fill: "none"
   }, props), /*#__PURE__*/React.createElement("foreignObject", {
-    width: 82,
-    height: 82,
-    x: -10,
-    y: -12
+    width: 42,
+    height: 42,
+    x: 0,
+    y: 0
   }, /*#__PURE__*/React.createElement("div", {
     xmlns: "http://www.w3.org/1999/xhtml",
     style: {
@@ -1029,30 +1029,28 @@ var SvgPlay = function SvgPlay(props) {
       width: "100%"
     }
   })), _g || (_g = /*#__PURE__*/React.createElement("g", {
-    "data-figma-bg-blur-radius": 20,
-    filter: "url(#play_svg__b)",
-    shapeRendering: "crispEdges"
+    "data-figma-bg-blur-radius": 20
   }, /*#__PURE__*/React.createElement("circle", {
-    cx: 31,
-    cy: 29,
+    cx: 21,
+    cy: 21,
     r: 20,
     fill: "#000",
     fillOpacity: 0.25
   }), /*#__PURE__*/React.createElement("circle", {
-    cx: 31,
-    cy: 29,
+    cx: 21,
+    cy: 21,
     r: 20.5,
-    stroke: "url(#play_svg__c)",
+    stroke: "url(#play_svg__b)",
     strokeOpacity: 0.2
   }))), _path$3 || (_path$3 = /*#__PURE__*/React.createElement("path", {
     fill: "#fff",
-    d: "M25.416 23.72c0-1.521 1.631-2.486 2.964-1.753l9.598 5.278c1.382.76 1.382 2.745 0 3.505l-9.598 5.278c-1.333.733-2.964-.23-2.964-1.752z"
+    d: "M16 16.003c0-1.521 1.631-2.486 2.964-1.753l9.599 5.278c1.381.76 1.381 2.745 0 3.505l-9.6 5.278c-1.332.733-2.963-.23-2.963-1.751z"
   })), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
-    id: "play_svg__c",
-    x1: 46.323,
-    x2: 31,
-    y1: 11.742,
-    y2: 49,
+    id: "play_svg__b",
+    x1: 36.323,
+    x2: 21,
+    y1: 3.742,
+    y2: 41,
     gradientUnits: "userSpaceOnUse"
   }, /*#__PURE__*/React.createElement("stop", {
     stopColor: "#fff"
@@ -1062,66 +1060,11 @@ var SvgPlay = function SvgPlay(props) {
     stopOpacity: 0
   })), /*#__PURE__*/React.createElement("clipPath", {
     id: "play_svg__a",
-    transform: "translate(10 12)"
+    transform: "translate(20 20)"
   }, /*#__PURE__*/React.createElement("circle", {
-    cx: 31,
-    cy: 29,
+    cx: 21,
+    cy: 21,
     r: 20
-  })), /*#__PURE__*/React.createElement("filter", {
-    id: "play_svg__b",
-    width: 82,
-    height: 82,
-    x: -10,
-    y: -12,
-    colorInterpolationFilters: "sRGB",
-    filterUnits: "userSpaceOnUse"
-  }, /*#__PURE__*/React.createElement("feFlood", {
-    floodOpacity: 0,
-    result: "BackgroundImageFix"
-  }), /*#__PURE__*/React.createElement("feColorMatrix", {
-    "in": "SourceAlpha",
-    result: "hardAlpha",
-    values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-  }), /*#__PURE__*/React.createElement("feOffset", {
-    dy: 8
-  }), /*#__PURE__*/React.createElement("feGaussianBlur", {
-    stdDeviation: 5
-  }), /*#__PURE__*/React.createElement("feComposite", {
-    in2: "hardAlpha",
-    operator: "out"
-  }), /*#__PURE__*/React.createElement("feColorMatrix", {
-    values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
-  }), /*#__PURE__*/React.createElement("feBlend", {
-    in2: "BackgroundImageFix",
-    result: "effect1_dropShadow_13402_4869"
-  }), /*#__PURE__*/React.createElement("feBlend", {
-    "in": "SourceGraphic",
-    in2: "effect1_dropShadow_13402_4869",
-    result: "shape"
-  }), /*#__PURE__*/React.createElement("feColorMatrix", {
-    "in": "SourceAlpha",
-    result: "hardAlpha",
-    values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-  }), /*#__PURE__*/React.createElement("feMorphology", {
-    "in": "SourceAlpha",
-    operator: "dilate",
-    radius: 1.46,
-    result: "effect2_innerShadow_13402_4869"
-  }), /*#__PURE__*/React.createElement("feOffset", {
-    dx: -0.73,
-    dy: 0.73
-  }), /*#__PURE__*/React.createElement("feGaussianBlur", {
-    stdDeviation: 0.365
-  }), /*#__PURE__*/React.createElement("feComposite", {
-    in2: "hardAlpha",
-    k2: -1,
-    k3: 1,
-    operator: "arithmetic"
-  }), /*#__PURE__*/React.createElement("feColorMatrix", {
-    values: "0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.35 0"
-  }), /*#__PURE__*/React.createElement("feBlend", {
-    in2: "shape",
-    result: "effect2_innerShadow_13402_4869"
   })))));
 };
 
