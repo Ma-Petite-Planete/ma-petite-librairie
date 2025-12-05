@@ -965,17 +965,13 @@ function _extends$6() { return _extends$6 = Object.assign ? Object.assign.bind()
 var SvgAdd = function SvgAdd(props) {
   return /*#__PURE__*/React.createElement("svg", _extends$6({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 20,
-    height: 20,
-    fill: "none"
+    fill: "currentColor",
+    viewBox: "0 0 20 20"
   }, props), _path$6 || (_path$6 = /*#__PURE__*/React.createElement("path", {
-    fill: "#2C2C69",
     d: "M10 0a10 10 0 0 0-7.07 2.93A10 10 0 0 0 0 10a10 10 0 0 0 2.93 7.07A10 10 0 0 0 10 20a10 10 0 0 0 7.07-2.93 9.995 9.995 0 0 0-.002-14.138A10 10 0 0 0 10 0m0 18.585A8.584 8.584 0 1 1 18.585 10a8.6 8.6 0 0 1-2.518 6.067A8.6 8.6 0 0 1 10 18.585"
   })), _path2$2 || (_path2$2 = /*#__PURE__*/React.createElement("path", {
-    fill: "#2C2C69",
     d: "M13.71 9.291H6.287a.708.708 0 1 0 0 1.415h7.421a.708.708 0 1 0 0-1.415"
   })), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
-    fill: "#2C2C69",
     d: "M9.999 5.58a.703.703 0 0 0-.708.708v7.421a.708.708 0 1 0 1.415 0V6.288A.703.703 0 0 0 10 5.58"
   })));
 };
