@@ -1014,20 +1014,7 @@ var SvgPlay = function SvgPlay(props) {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
     viewBox: "0 0 42 42"
-  }, props), /*#__PURE__*/React.createElement("foreignObject", {
-    width: 42,
-    height: 42,
-    x: 0,
-    y: 0
-  }, /*#__PURE__*/React.createElement("div", {
-    xmlns: "http://www.w3.org/1999/xhtml",
-    style: {
-      backdropFilter: "blur(10px)",
-      clipPath: "url(#play_svg__a)",
-      height: "100%",
-      width: "100%"
-    }
-  })), _g || (_g = /*#__PURE__*/React.createElement("g", {
+  }, props), _g || (_g = /*#__PURE__*/React.createElement("g", {
     "data-figma-bg-blur-radius": 20
   }, /*#__PURE__*/React.createElement("circle", {
     cx: 21,
@@ -1039,13 +1026,13 @@ var SvgPlay = function SvgPlay(props) {
     cx: 21,
     cy: 21,
     r: 20.5,
-    stroke: "url(#play_svg__b)",
+    stroke: "url(#play_svg__a)",
     strokeOpacity: 0.2
   }))), _path$3 || (_path$3 = /*#__PURE__*/React.createElement("path", {
     fill: "#fff",
     d: "M16 16.003c0-1.521 1.631-2.486 2.964-1.753l9.599 5.278c1.381.76 1.381 2.745 0 3.505l-9.6 5.278c-1.332.733-2.963-.23-2.963-1.751z"
   })), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
-    id: "play_svg__b",
+    id: "play_svg__a",
     x1: 36.323,
     x2: 21,
     y1: 3.742,
@@ -1057,13 +1044,6 @@ var SvgPlay = function SvgPlay(props) {
     offset: 1,
     stopColor: "#fff",
     stopOpacity: 0
-  })), /*#__PURE__*/React.createElement("clipPath", {
-    id: "play_svg__a",
-    transform: "translate(20 20)"
-  }, /*#__PURE__*/React.createElement("circle", {
-    cx: 21,
-    cy: 21,
-    r: 20
   })))));
 };
 
