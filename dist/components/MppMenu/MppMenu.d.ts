@@ -16,7 +16,8 @@ interface MppMenuProps {
     onLogout: () => void;
     actualPage: string;
     aboutText?: string;
-    logOutText: string;
+    logOutText?: string;
+    profileLink?: NavigationLink;
     clientIsLoad: boolean;
     clientName?: string;
     codeClientInput?: React.ReactNode;
