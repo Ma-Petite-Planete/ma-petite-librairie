@@ -181,13 +181,13 @@ const MppMenu: React.FC<MppMenuProps> = ({
         )}
         {languageToggle}
         {boType === BoType.gpBo ? (
-          <div className="navigation_element">
+          <div className="navigation_element bottom">
             <LinkComponent
               href={profileLink.navigation}
-              className="navigation_flex"
+              className="navigation_flex bottom_align"
               target={profileLink.target ?? ''}
             >
-              <profileLink.icon className="icon" />
+              <profileLink.icon className="icon_bottom" />
               <p className="text_body_sb">{profileLink.name}</p>
             </LinkComponent>
           </div>
