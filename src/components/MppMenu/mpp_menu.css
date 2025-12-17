@@ -83,6 +83,12 @@
   margin-right: 12px;
 }
 
+.icon_bottom {
+  width: 13px;
+  height: 13px;
+  margin-right: 4px;
+}
+
 .icon_arrow_back {
   margin-right: 12px;
 }
@@ -102,6 +108,10 @@
 .navigation_flex {
   display: flex;
   flex-direction: row;
+}
+
+.bottom_align {
+  align-items: center;
 }
 
 .navigation_element :hover {

@@ -1,0 +1,14 @@
+<svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="0" y="0" width="42" height="42"></foreignObject><g data-figma-bg-blur-radius="20">
+<circle cx="21" cy="21" r="20" fill="black" fill-opacity="0.25"/>
+<circle cx="21" cy="21" r="20.5" stroke="url(#paint0_linear_0_1)" stroke-opacity="0.2"/>
+</g>
+<path d="M16 16.0029C16.0001 14.4819 17.631 13.5171 18.9639 14.25L28.5625 19.5283C29.9443 20.2881 29.9443 22.2734 28.5625 23.0332L18.9639 28.3115C17.631 29.0444 16.0002 28.0805 16 26.5596V16.0029Z" fill="white"/>
+<defs>
+<clipPath id="bgblur_0_0_1_clip_path" transform="translate(20 20)"><circle cx="21" cy="21" r="20"/>
+</clipPath><linearGradient id="paint0_linear_0_1" x1="36.3226" y1="3.74194" x2="21" y2="41" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
