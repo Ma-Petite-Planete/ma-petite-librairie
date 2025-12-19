@@ -20,7 +20,8 @@ interface MppMenuProps {
   onLogout: () => void;
   actualPage: string;
   aboutText?: string;
-  logOutText: string;
+  logOutText?: string;
+  profileLink?: NavigationLink;
   clientIsLoad: boolean;
   clientName?: string;
   codeClientInput?: React.ReactNode;
@@ -91,6 +92,7 @@ const MppMenu: React.FC<MppMenuProps> = ({
   actualPage,
   aboutText,
   logOutText,
+  profileLink,
   clientIsLoad,
   clientName,
   codeClientInput,
@@ -108,7 +110,11 @@ const MppMenu: React.FC<MppMenuProps> = ({
         ></div>
         {boType === BoType.gpBo && (
           <div className="gp_menu_client_data ">
-            {clientName && <span className="text_body_sb gp_menu_client_name">{clientName}</span>}
+            {clientName && (
+              <span className="text_body_sb gp_menu_client_name">
+                {clientName}
+              </span>
+            )}
             {backToClientsLink && (
               <LinkComponent
                 href={backToClientsLink.navigation}
@@ -174,11 +180,23 @@ const MppMenu: React.FC<MppMenuProps> = ({
           </LinkComponent>
         )}
         {languageToggle}
-
-        <div className="navigation_element bottom" onClick={onLogout}>
-          <MppIcons.logOut className="icon" />
-          <p className="text_body_sb">{logOutText}</p>
-        </div>
+        {boType === BoType.gpBo ? (
+          <div className="navigation_element bottom">
+            <LinkComponent
+              href={profileLink.navigation}
+              className="navigation_flex bottom_align"
+              target={profileLink.target ?? ''}
+            >
+              <profileLink.icon className="icon_bottom" />
+              <p className="text_body_sb">{profileLink.name}</p>
+            </LinkComponent>
+          </div>
+        ) : (
+          <div className="navigation_element bottom" onClick={onLogout}>
+            <MppIcons.logOut className="icon" />
+            <p className="text_body_sb">{logOutText}</p>
+          </div>
+        )}
       </div>
     </div>
   );
