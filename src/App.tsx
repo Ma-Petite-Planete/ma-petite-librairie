@@ -166,8 +166,8 @@ function App() {
                 name: '4èmeD',
                 points: 3,
                 ranking: 1,
-                structure: '2cole des intellos',
-                city: 'Lyon',
+                lightSubtitle: '2cole des intellos',
+                boldSubtitle: 'Lyon',
                 details: [
                   {
                     title: 'Classe 6eme B',
