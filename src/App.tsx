@@ -472,6 +472,11 @@ function App() {
           logOutText={'Se déconnecter'}
           clientIsLoad={true}
           clientName="Communauté d'Agglomération de la Riviera du Levant"
+          profileLink={{
+            name: 'Players',
+            icon: MppIcons.profile,
+            navigation: '/hmome',
+          }}
         />
         <MppMenu
           navigationLinks={[

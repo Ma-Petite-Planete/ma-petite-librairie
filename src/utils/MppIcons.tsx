@@ -37,6 +37,14 @@ import { ReactComponent as download } from '../ressources/icons/download.svg';
 import { ReactComponent as inputClose } from '../ressources/icons/input_close.svg';
 import { ReactComponent as research } from '../ressources/icons/research.svg';
 import { ReactComponent as add } from '../ressources/icons/add.svg';
+import { ReactComponent as communication } from '../ressources/icons/communication.svg';
+import { ReactComponent as chatTail } from '../ressources/icons/tail.svg';
+import { ReactComponent as play } from '../ressources/icons/play.svg';
+import { ReactComponent as sentStatus } from '../ressources/icons/sent_status.svg';
+import { ReactComponent as sendingStatus } from '../ressources/icons/sending_status.svg';
+import { ReactComponent as failedStatus } from '../ressources/icons/failed_status.svg';
+import { ReactComponent as profile } from '../ressources/icons/profile.svg';
+import { ReactComponent as arrowDown } from '../ressources/icons/arrow_down.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -77,5 +85,13 @@ export const MppIcons = {
   download: download,
   research: research,
   inputClose: inputClose,
-  add: add
+  add: add,
+  communication: communication,
+  chatTail: chatTail,
+  play: play,
+  sentStatus: sentStatus,
+  sendingStatus: sendingStatus,
+  failedStatus: failedStatus,
+  profile: profile,
+  arrowDown: arrowDown,
 } as const;

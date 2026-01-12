@@ -39,4 +39,12 @@ export declare const MppIcons: {
     readonly research: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly inputClose: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly add: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly communication: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly chatTail: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly play: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly sentStatus: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly sendingStatus: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly failedStatus: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly profile: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly arrowDown: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
 };
