@@ -2368,21 +2368,9 @@ const MppRankingCardClickable = ({ title, subtitle, ranking, points, subPointsTe
 const MppMultiDropDownSelect = ({ data, onSelect, selectedValues }) => {
     const containerRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
-    // const [selectedValues, setSelectedValues] = useState<Identifier[]>(selectedValues);
     const displayLabel = selectedValues.length > 0
         ? selectedValues.map((cat) => cat.name).join(', ')
         : 'test';
-    // const toggleValue = (item: Identifier) => {
-    //   const exists =
-    //     selectedValues.find((value) => {
-    //       return value.id === item.id
-    //     })?.id !== undefined;
-    //   const newSelection = exists
-    //     ? selectedValues.filter((value) => item.id !== value.id)
-    //     : [...selectedValues, item];
-    //   console.log('🚀 ~ toggleValue ~ newSelection:', newSelection);
-    //   // setSelectedValues(newSelection);
-    // };
     useClickOutside(containerRef, () => setIsOpen(false));
     return (React__default.createElement("div", { ref: containerRef, className: "multi_dropdown_select_wrapper" },
         React__default.createElement("button", { type: "button", className: `multi_filters_select_button ${isOpen ? 'open' : ''}`, onClick: () => setIsOpen((prev) => !prev) },
@@ -2403,7 +2391,8 @@ const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, }) 
                 React__default.createElement("p", { className: "text_body_sb" }, sectionTitle),
                 React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
         isOpen && (React__default.createElement("ul", { className: "multi_select_dropdown" }, values.map((value) => {
-            const isSelected = selectedValues.some((c) => c.id === value.id);
+            const allSelected = values.every((val) => selectedValues.includes(val));
+            const isSelected = selectedValues.some((selectedValue) => selectedValue.id === value.id) || allSelected;
             return (React__default.createElement("li", { key: value.id, className: `dropdown_item ${isSelected ? 'selected' : ''} text_body`, onClick: () => onChange(value), tabIndex: 0, onKeyDown: (e) => {
                     if (e.key === 'Enter')
                         onChange(value);

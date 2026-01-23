@@ -21,27 +21,11 @@ const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  // const [selectedValues, setSelectedValues] = useState<Identifier[]>(selectedValues);
 
   const displayLabel =
     selectedValues.length > 0
       ? selectedValues.map((cat) => cat.name).join(', ')
       : 'test';
-
-  // const toggleValue = (item: Identifier) => {
-
-  //   const exists =
-  //     selectedValues.find((value) => {
-  //       return value.id === item.id
-  //     })?.id !== undefined;
-
-  //   const newSelection = exists
-  //     ? selectedValues.filter((value) => item.id !== value.id)
-  //     : [...selectedValues, item];
-
-  //   console.log('🚀 ~ toggleValue ~ newSelection:', newSelection);
-  //   // setSelectedValues(newSelection);
-  // };
 
   useClickOutside(containerRef, () => setIsOpen(false));
 
@@ -117,7 +101,8 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
       {isOpen && (
         <ul className="multi_select_dropdown">
           {values.map((value) => {
-            const isSelected = selectedValues.some((c) => c.id === value.id);
+            const allSelected = values.every((val) => selectedValues.includes(val));
+            const isSelected = selectedValues.some((selectedValue) => selectedValue.id === value.id) || allSelected;
             return (
               <li
                 key={value.id}
