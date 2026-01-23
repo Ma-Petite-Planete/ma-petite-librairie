@@ -103,6 +103,7 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
           {values.map((value) => {
             const allSelected = values.every((val) => selectedValues.includes(val));
             const isSelected = selectedValues.some((selectedValue) => selectedValue.id === value.id) || allSelected;
+            console.log("🚀 ~ MppDropDownSelect ~ isSelected:", isSelected)
             return (
               <li
                 key={value.id}
