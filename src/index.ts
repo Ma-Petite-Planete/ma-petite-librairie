@@ -29,3 +29,4 @@ export { default as MppToggleSection } from './components/MppToggleSection/MppTo
 export { default as MppTextAreaFixHeight } from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';
 export { default as MppChallengeCard } from './components/MppChallengeRankingCard/MppChallengeRankingCard';
 export { default as MppRankingCardClickable } from './components/MppRankingCardClickable/MppRankingCardClickable';
+export { default as  MppMultiDropDownSelect } from './components/MppMultiDropDownSelect/MppMultiDropDownSelect';
