@@ -2365,12 +2365,12 @@ const MppRankingCardClickable = ({ title, subtitle, ranking, points, subPointsTe
                         React__default.createElement("p", { className: "detail_stat text_body_sb" }, row.statistic || '---')))))))))));
 };
 
-const MppMultiDropDownSelect = ({ data, onSelect, selectedValues }) => {
+const MppMultiDropDownSelect = ({ data, onSelect, selectedValues, }) => {
     const containerRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
     const displayLabel = selectedValues.length > 0
         ? selectedValues.map((cat) => cat.name).join(', ')
-        : 'test';
+        : 'Selectionnez une valeur';
     useClickOutside(containerRef, () => setIsOpen(false));
     return (React__default.createElement("div", { ref: containerRef, className: "multi_dropdown_select_wrapper" },
         React__default.createElement("button", { type: "button", className: `multi_filters_select_button ${isOpen ? 'open' : ''}`, onClick: () => setIsOpen((prev) => !prev) },
@@ -2378,9 +2378,9 @@ const MppMultiDropDownSelect = ({ data, onSelect, selectedValues }) => {
             React__default.createElement("div", { className: "dropdown_icon_wrapper" },
                 React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
         isOpen &&
-            data.map((value) => (React__default.createElement(MppDropDownSelect, { key: value.title, sectionTitle: value.title, values: value.items, selectedValues: selectedValues, onChange: onSelect, placeholder: `Sélectionner ${value.title}...` })))));
+            data.map((value) => (React__default.createElement(MppDropDownSelect, { allselected: value.allselected, key: value.title, sectionTitle: value.title, values: value.items, selectedValues: selectedValues, onChange: onSelect, placeholder: `Sélectionner ${value.title}...` })))));
 };
-const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, }) => {
+const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, allselected, }) => {
     const [isOpen, setIsOpen] = useState(false);
     const containerRef = useRef(null);
     if (values.length === 0)
@@ -2391,14 +2391,7 @@ const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, }) 
                 React__default.createElement("p", { className: "text_body_sb" }, sectionTitle),
                 React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
         isOpen && (React__default.createElement("ul", { className: "multi_select_dropdown" }, values.map((value) => {
-            const allSelected = values.every((val) => {
-                console.log("🚀 ~ MppDropDownSelect ~ val:", val);
-                console.log("🚀 ~ MppDropDownSelect ~ selectedValues:", selectedValues);
-                return selectedValues.includes(val);
-            });
-            console.log("🚀 ~ MppDropDownSelect ~ allSelected:", allSelected);
-            const isSelected = selectedValues.some((selectedValue) => selectedValue.id === value.id) || allSelected;
-            console.log("🚀 ~ MppDropDownSelect ~ isSelected:", isSelected);
+            const isSelected = selectedValues.some((selectedValue) => selectedValue.id === value.id) || allselected;
             return (React__default.createElement("li", { key: value.id, className: `dropdown_item ${isSelected ? 'selected' : ''} text_body`, onClick: () => onChange(value), tabIndex: 0, onKeyDown: (e) => {
                     if (e.key === 'Enter')
                         onChange(value);

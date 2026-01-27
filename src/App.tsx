@@ -867,6 +867,7 @@ function App() {
         <MppMultiDropDownSelect
           onSelect={() => {}}
           selectedValues={[]}
+
           data={[
             {
               title: 'classic',
@@ -876,6 +877,7 @@ function App() {
                   name: 'edition classic',
                 },
               ],
+              allselected: false,
             },
             {
               title: 'private',
@@ -885,6 +887,7 @@ function App() {
                   name: 'edition private',
                 },
               ],
+              allselected: false,
             },
           ]}
         />

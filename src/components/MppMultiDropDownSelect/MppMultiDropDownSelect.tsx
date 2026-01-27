@@ -7,17 +7,18 @@ import MppCheckbox from '../MppCheckBox/MppCheckbox';
 interface MppDropDownSection {
   title: string;
   items: Array<Identifier>;
+  allselected: boolean;
 }
 interface MppMultiDropDownSelectProps {
   data: MppDropDownSection[];
   onSelect: (selected: Identifier) => void;
-  selectedValues: Identifier[]
+  selectedValues: Identifier[];
 }
 
 const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps> = ({
   data,
   onSelect,
-  selectedValues
+  selectedValues,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -25,7 +26,7 @@ const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps> = ({
   const displayLabel =
     selectedValues.length > 0
       ? selectedValues.map((cat) => cat.name).join(', ')
-      : 'test';
+      : 'Selectionnez une valeur';
 
   useClickOutside(containerRef, () => setIsOpen(false));
 
@@ -49,6 +50,7 @@ const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps> = ({
       {isOpen &&
         data.map((value) => (
           <MppDropDownSelect
+            allselected={value.allselected}
             key={value.title}
             sectionTitle={value.title}
             values={value.items}
@@ -69,6 +71,7 @@ interface MppDropDownSelectProps {
   selectedValues: Array<Identifier>;
   onChange: (selected: Identifier) => void;
   placeholder: string;
+  allselected: boolean;
 }
 
 const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
@@ -76,6 +79,7 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
   selectedValues,
   onChange,
   sectionTitle,
+  allselected,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -101,14 +105,10 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
       {isOpen && (
         <ul className="multi_select_dropdown">
           {values.map((value) => {
-            const allSelected = values.every((val) => {
-              console.log("🚀 ~ MppDropDownSelect ~ val:", val)
-              console.log("🚀 ~ MppDropDownSelect ~ selectedValues:", selectedValues)
-              return selectedValues.includes(val);
-            });
-            console.log("🚀 ~ MppDropDownSelect ~ allSelected:", allSelected)
-            const isSelected = selectedValues.some((selectedValue) => selectedValue.id === value.id) || allSelected;
-            console.log("🚀 ~ MppDropDownSelect ~ isSelected:", isSelected)
+            const isSelected =
+              selectedValues.some(
+                (selectedValue) => selectedValue.id === value.id
+              ) || allselected;
             return (
               <li
                 key={value.id}
