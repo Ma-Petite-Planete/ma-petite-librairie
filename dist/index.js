@@ -2365,34 +2365,34 @@ const MppRankingCardClickable = ({ title, subtitle, ranking, points, subPointsTe
                         React__default.createElement("p", { className: "detail_stat text_body_sb" }, row.statistic || '---')))))))))));
 };
 
-const MppMultiDropDownSelect = ({ data, onSelect, selectedValues, isOpenByDefault }) => {
+const MppMultiDropDownSelect = ({ data, onSelect, selectedValues, isOpenByDefault, placeholderOnEmpty }) => {
     const containerRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
     const displayLabel = selectedValues.length > 0
-        ? selectedValues.map((cat) => cat.name).join(', ')
-        : 'Selectionnez une valeur';
+        ? selectedValues.map((item) => item.name).join(', ')
+        : placeholderOnEmpty;
     useClickOutside(containerRef, () => setIsOpen(false));
     return (React__default.createElement("div", { ref: containerRef, className: "multi_dropdown_select_wrapper" },
         React__default.createElement("button", { type: "button", className: `multi_filters_select_button ${isOpen ? 'open' : ''}`, onClick: () => setIsOpen((prev) => !prev) },
-            React__default.createElement("span", { className: `multi_filters_label ${selectedValues.length > 0 ? '' : 'empty_values'}` }, displayLabel),
+            React__default.createElement("span", { className: `multi_dropdown_select_label ${selectedValues.length > 0 ? '' : 'empty_values'}` }, displayLabel),
             React__default.createElement("div", { className: "dropdown_icon_wrapper" },
                 React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
-        isOpen &&
-            data.map((value) => (React__default.createElement(MppDropDownSelect, { openByDefault: isOpenByDefault, allselected: value.allSelected, key: value.title, sectionTitle: value.title, values: value.items, selectedValues: selectedValues, onChange: onSelect, placeholder: `Sélectionner ${value.title}...` })))));
+        React__default.createElement("div", { className: "multi_dropdown_select_container" }, isOpen &&
+            data.map((value) => (React__default.createElement(MppDropDownSelect, { openByDefault: isOpenByDefault, allselected: value.allSelected, key: value.title, sectionTitle: value.title, values: value.items, selectedValues: selectedValues, onChange: onSelect, placeholder: `Sélectionner ${value.title}...` }))))));
 };
-const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, allselected, openByDefault }) => {
+const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, allselected, openByDefault, }) => {
     const [isOpen, setIsOpen] = useState(openByDefault);
     const containerRef = useRef(null);
     if (values.length === 0)
         return null;
-    return (React__default.createElement("div", { ref: containerRef, className: "multi_select dropdown_multi_filters_dropdown" },
+    return (React__default.createElement("div", { ref: containerRef, className: "multi_select" },
         React__default.createElement("button", { type: "button", className: `multi_select_button ${isOpen ? 'open' : ''}`, onClick: () => setIsOpen((prev) => !prev) },
             React__default.createElement("div", { className: "dropdown_icon_wrapper" },
                 React__default.createElement("p", { className: "text_body_sb" }, sectionTitle),
                 React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
         isOpen && (React__default.createElement("ul", { className: "multi_select_dropdown" }, values.map((value) => {
             const isSelected = selectedValues.some((selectedValue) => selectedValue.id === value.id) || allselected;
-            return (React__default.createElement("li", { key: value.id, className: `dropdown_item ${isSelected ? 'selected' : ''} text_body`, onClick: () => onChange(value), tabIndex: 0, onKeyDown: (e) => {
+            return (React__default.createElement("li", { key: value.id, className: `dropdown_item text_body`, onClick: () => onChange(value), tabIndex: 0, onKeyDown: (e) => {
                     if (e.key === 'Enter')
                         onChange(value);
                 } },

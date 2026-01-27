@@ -11,6 +11,7 @@ interface MppMultiDropDownSelectProps {
     onSelect: (selected: Identifier) => void;
     selectedValues: Identifier[];
     isOpenByDefault: boolean;
+    placeholderOnEmpty: string;
 }
 declare const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps>;
 export default MppMultiDropDownSelect;

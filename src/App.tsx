@@ -859,14 +859,41 @@ function App() {
       />
       <MppChallengeCard title={''} value={``} />
 
+      <h2>MultiSelectDropDown</h2>
       <div
         style={{
           width: '50%',
         }}
       >
         <MppMultiDropDownSelect
+          placeholderOnEmpty="choisis un truc"
           onSelect={() => {}}
-          selectedValues={[]}
+          selectedValues={[
+            {
+              id: '1',
+              name: 'edition classic',
+            },
+            {
+              id: '1',
+              name: 'edition classic',
+            },
+            {
+              id: '1',
+              name: 'edition classic',
+            },
+            {
+              id: '1',
+              name: 'edition classic',
+            },
+            {
+              id: '1',
+              name: 'edition classic',
+            },
+            {
+              id: '1',
+              name: 'edition classic',
+            },
+          ]}
           isOpenByDefault={true}
           data={[
             {
