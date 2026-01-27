@@ -2378,7 +2378,7 @@ const MppMultiDropDownSelect = ({ data, onSelect, selectedValues, }) => {
             React__default.createElement("div", { className: "dropdown_icon_wrapper" },
                 React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
         isOpen &&
-            data.map((value) => (React__default.createElement(MppDropDownSelect, { allselected: value.allselected, key: value.title, sectionTitle: value.title, values: value.items, selectedValues: selectedValues, onChange: onSelect, placeholder: `Sélectionner ${value.title}...` })))));
+            data.map((value) => (React__default.createElement(MppDropDownSelect, { allselected: value.allSelected, key: value.title, sectionTitle: value.title, values: value.items, selectedValues: selectedValues, onChange: onSelect, placeholder: `Sélectionner ${value.title}...` })))));
 };
 const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, allselected, }) => {
     const [isOpen, setIsOpen] = useState(false);

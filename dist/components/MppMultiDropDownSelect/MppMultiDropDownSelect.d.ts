@@ -4,7 +4,7 @@ import { Identifier } from '../../types_and_demo_data/identifier';
 interface MppDropDownSection {
     title: string;
     items: Array<Identifier>;
-    allselected: boolean;
+    allSelected: boolean;
 }
 interface MppMultiDropDownSelectProps {
     data: MppDropDownSection[];

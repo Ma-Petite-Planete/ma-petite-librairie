@@ -877,7 +877,7 @@ function App() {
                   name: 'edition classic',
                 },
               ],
-              allselected: false,
+              allSelected: false,
             },
             {
               title: 'private',
@@ -887,7 +887,7 @@ function App() {
                   name: 'edition private',
                 },
               ],
-              allselected: false,
+              allSelected: false,
             },
           ]}
         />

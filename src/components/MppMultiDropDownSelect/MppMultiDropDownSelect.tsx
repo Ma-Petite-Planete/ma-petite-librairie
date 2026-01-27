@@ -7,7 +7,7 @@ import MppCheckbox from '../MppCheckBox/MppCheckbox';
 interface MppDropDownSection {
   title: string;
   items: Array<Identifier>;
-  allselected: boolean;
+  allSelected: boolean;
 }
 interface MppMultiDropDownSelectProps {
   data: MppDropDownSection[];
@@ -50,7 +50,7 @@ const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps> = ({
       {isOpen &&
         data.map((value) => (
           <MppDropDownSelect
-            allselected={value.allselected}
+            allselected={value.allSelected}
             key={value.title}
             sectionTitle={value.title}
             values={value.items}
