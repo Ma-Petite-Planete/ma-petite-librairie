@@ -867,7 +867,7 @@ function App() {
         <MppMultiDropDownSelect
           onSelect={() => {}}
           selectedValues={[]}
-
+          isOpenByDefault={true}
           data={[
             {
               title: 'classic',

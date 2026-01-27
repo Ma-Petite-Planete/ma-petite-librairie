@@ -13,12 +13,14 @@ interface MppMultiDropDownSelectProps {
   data: MppDropDownSection[];
   onSelect: (selected: Identifier) => void;
   selectedValues: Identifier[];
+  isOpenByDefault: boolean;
 }
 
 const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps> = ({
   data,
   onSelect,
   selectedValues,
+  isOpenByDefault
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -50,6 +52,7 @@ const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps> = ({
       {isOpen &&
         data.map((value) => (
           <MppDropDownSelect
+          openByDefault={isOpenByDefault}
             allselected={value.allSelected}
             key={value.title}
             sectionTitle={value.title}
@@ -72,6 +75,7 @@ interface MppDropDownSelectProps {
   onChange: (selected: Identifier) => void;
   placeholder: string;
   allselected: boolean;
+  openByDefault: boolean;
 }
 
 const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
@@ -80,8 +84,9 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
   onChange,
   sectionTitle,
   allselected,
+  openByDefault
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(openByDefault);
   const containerRef = useRef<HTMLDivElement>(null);
 
   if (values.length === 0) return null;
@@ -119,7 +124,7 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
                   if (e.key === 'Enter') onChange(value);
                 }}
               >
-                <MppCheckbox checked={isSelected} onChange={()=>{}} />
+                <MppCheckbox checked={isSelected} onChange={() => {}} />
                 <span className="item_label">{value.name}</span>
               </li>
             );

@@ -2365,7 +2365,7 @@ const MppRankingCardClickable = ({ title, subtitle, ranking, points, subPointsTe
                         React__default.createElement("p", { className: "detail_stat text_body_sb" }, row.statistic || '---')))))))))));
 };
 
-const MppMultiDropDownSelect = ({ data, onSelect, selectedValues, }) => {
+const MppMultiDropDownSelect = ({ data, onSelect, selectedValues, isOpenByDefault }) => {
     const containerRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
     const displayLabel = selectedValues.length > 0
@@ -2378,10 +2378,10 @@ const MppMultiDropDownSelect = ({ data, onSelect, selectedValues, }) => {
             React__default.createElement("div", { className: "dropdown_icon_wrapper" },
                 React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
         isOpen &&
-            data.map((value) => (React__default.createElement(MppDropDownSelect, { allselected: value.allSelected, key: value.title, sectionTitle: value.title, values: value.items, selectedValues: selectedValues, onChange: onSelect, placeholder: `Sélectionner ${value.title}...` })))));
+            data.map((value) => (React__default.createElement(MppDropDownSelect, { openByDefault: isOpenByDefault, allselected: value.allSelected, key: value.title, sectionTitle: value.title, values: value.items, selectedValues: selectedValues, onChange: onSelect, placeholder: `Sélectionner ${value.title}...` })))));
 };
-const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, allselected, }) => {
-    const [isOpen, setIsOpen] = useState(false);
+const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, allselected, openByDefault }) => {
+    const [isOpen, setIsOpen] = useState(openByDefault);
     const containerRef = useRef(null);
     if (values.length === 0)
         return null;
