@@ -2392,6 +2392,7 @@ const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, }) 
                 React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
         isOpen && (React__default.createElement("ul", { className: "multi_select_dropdown" }, values.map((value) => {
             const allSelected = values.every((val) => selectedValues.includes(val));
+            console.log("🚀 ~ MppDropDownSelect ~ allSelected:", allSelected);
             const isSelected = selectedValues.some((selectedValue) => selectedValue.id === value.id) || allSelected;
             console.log("🚀 ~ MppDropDownSelect ~ isSelected:", isSelected);
             return (React__default.createElement("li", { key: value.id, className: `dropdown_item ${isSelected ? 'selected' : ''} text_body`, onClick: () => onChange(value), tabIndex: 0, onKeyDown: (e) => {
