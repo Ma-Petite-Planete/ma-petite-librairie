@@ -119,7 +119,7 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
                   if (e.key === 'Enter') onChange(value);
                 }}
               >
-                <MppCheckbox checked={isSelected} onChange={null} />
+                <MppCheckbox checked={isSelected} onChange={()=>{}} />
                 <span className="item_label">{value.name}</span>
               </li>
             );

@@ -2396,7 +2396,7 @@ const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, all
                     if (e.key === 'Enter')
                         onChange(value);
                 } },
-                React__default.createElement(MppCheckbox, { checked: isSelected, onChange: null }),
+                React__default.createElement(MppCheckbox, { checked: isSelected, onChange: () => { } }),
                 React__default.createElement("span", { className: "item_label" }, value.name)));
         })))));
 };
