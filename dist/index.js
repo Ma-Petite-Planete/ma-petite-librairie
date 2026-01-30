@@ -2408,6 +2408,7 @@ const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, ope
         console.log("🚀 ~ handleAllSelect ~ allValuesSelected:", allValuesSelected);
         if (allValuesSelected) {
             const newSelectedValues = selectedValues.filter((value) => !values.includes(value));
+            console.log("🚀 ~ handleAllSelect ~ newSelectedValues:", newSelectedValues);
             onChange(newSelectedValues);
             return;
         }
@@ -2424,7 +2425,6 @@ const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, ope
                 React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
         isOpen && (React__default.createElement("ul", { className: "multi_select_dropdown" },
             React__default.createElement("li", { className: "dropdown_item text_body", onClick: () => {
-                    console.log('element li all clickée');
                     handleAllSelect();
                 } },
                 React__default.createElement(MppCheckbox, { checked: isAllSelected, onChange: () => handleAllSelect() }),

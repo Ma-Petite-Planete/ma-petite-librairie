@@ -122,6 +122,7 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
       const newSelectedValues = selectedValues.filter(
         (value) => !values.includes(value)
       );
+      console.log("🚀 ~ handleAllSelect ~ newSelectedValues:", newSelectedValues)
       onChange(newSelectedValues);
       return;
     } else {
@@ -149,7 +150,6 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
           <li
             className="dropdown_item text_body"
             onClick={() => {
-              console.log('element li all clickée');
               handleAllSelect();
             }}
           >
