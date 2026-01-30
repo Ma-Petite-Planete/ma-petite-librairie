@@ -44,11 +44,13 @@ const MppCheckbox: React.FC<MppCheckboxProps> = ({
     <div className="checkbox_container">
       <div className="checkbox_container_checkbox">
         <label
+          onClick={(e) => e.stopPropagation()}
           className={`
-            checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}  
+            checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}
             ${isTableHeader && indeterminate ? 'indeterminated_checkbox' : ''} `}
         >
           <input
+            onClick={(e) => e.stopPropagation()}
             type="checkbox"
             checked={isSelected}
             onChange={(e) => {

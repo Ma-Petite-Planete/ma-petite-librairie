@@ -95,7 +95,7 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
           selectedValues.some((selected) => selected.id === value.id)
         )
     );
-  }, [isAllSelected, selectedValues, values]);
+  }, [selectedValues, values]);
 
   if (values.length === 0) return null;
 
@@ -116,8 +116,10 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
     const allValuesSelected = values.every((value) =>
       selectedValues.some((selected) => selected.id === value.id)
     );
-    if(allValuesSelected){
-      const newSelectedValues = selectedValues.filter((value) => !values.includes(value));
+    if (allValuesSelected) {
+      const newSelectedValues = selectedValues.filter(
+        (value) => !values.includes(value)
+      );
       onChange(newSelectedValues);
       return;
     } else {
@@ -142,14 +144,24 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
 
       {isOpen && (
         <ul className="multi_select_dropdown">
-          <li className="dropdown_item text_body" onClick={handleAllSelect}>
-            <MppCheckbox checked={isAllSelected} onChange={() => {}} />
+          <li
+            className="dropdown_item text_body"
+            onClick={() => {
+              console.log('element li all clickée');
+              handleAllSelect();
+            }}
+          >
+            <MppCheckbox
+              checked={isAllSelected}
+              onChange={() => handleAllSelect()}
+            />
             <span className="item_label">{'tout selectionné'}</span>
           </li>
           {values.map((value) => {
-            const isSelected = selectedValues.some(
-              (selectedValue) => selectedValue.id === value.id
-            );
+            const isSelected =
+              selectedValues.some(
+                (selectedValue) => selectedValue.id === value.id
+              ) || isAllSelected;
             return (
               <li
                 key={value.id}
@@ -160,7 +172,10 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
                   if (e.key === 'Enter') handleSingleSelect(value);
                 }}
               >
-                <MppCheckbox checked={isSelected} onChange={() => {}} />
+                <MppCheckbox
+                  checked={isSelected}
+                  onChange={() => handleSingleSelect(value)}
+                />
                 <span className="item_label">{value.name}</span>
               </li>
             );

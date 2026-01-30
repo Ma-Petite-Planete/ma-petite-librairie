@@ -1837,10 +1837,10 @@ const MppCheckbox = ({ onChange, checked, indeterminate = false, isTableHeader =
     }, [checked]);
     return (React__default.createElement("div", { className: "checkbox_container" },
         React__default.createElement("div", { className: "checkbox_container_checkbox" },
-            React__default.createElement("label", { className: `
-            checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}  
+            React__default.createElement("label", { onClick: (e) => e.stopPropagation(), className: `
+            checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}
             ${isTableHeader && indeterminate ? 'indeterminated_checkbox' : ''} ` },
-                React__default.createElement("input", { type: "checkbox", checked: isSelected, onChange: (e) => {
+                React__default.createElement("input", { onClick: (e) => e.stopPropagation(), type: "checkbox", checked: isSelected, onChange: (e) => {
                         setIsSelected(e.target.checked);
                         onChange(e);
                     } }),
@@ -2387,7 +2387,7 @@ const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, ope
     useEffect(() => {
         setIsAllSelected(values.length > 0 &&
             values.every((value) => selectedValues.some((selected) => selected.id === value.id)));
-    }, [isAllSelected, selectedValues, values]);
+    }, [selectedValues, values]);
     if (values.length === 0)
         return null;
     const handleSingleSelect = (selected) => {
@@ -2421,16 +2421,19 @@ const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, ope
                 React__default.createElement("p", { className: "text_body_sb" }, sectionTitle),
                 React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
         isOpen && (React__default.createElement("ul", { className: "multi_select_dropdown" },
-            React__default.createElement("li", { className: "dropdown_item text_body", onClick: handleAllSelect },
-                React__default.createElement(MppCheckbox, { checked: isAllSelected, onChange: () => { } }),
+            React__default.createElement("li", { className: "dropdown_item text_body", onClick: () => {
+                    console.log('element li all clickée');
+                    handleAllSelect();
+                } },
+                React__default.createElement(MppCheckbox, { checked: isAllSelected, onChange: () => handleAllSelect() }),
                 React__default.createElement("span", { className: "item_label" }, 'tout selectionné')),
             values.map((value) => {
-                const isSelected = selectedValues.some((selectedValue) => selectedValue.id === value.id);
+                const isSelected = selectedValues.some((selectedValue) => selectedValue.id === value.id) || isAllSelected;
                 return (React__default.createElement("li", { key: value.id, className: `dropdown_item text_body`, onClick: () => handleSingleSelect(value), tabIndex: 0, onKeyDown: (e) => {
                         if (e.key === 'Enter')
                             handleSingleSelect(value);
                     } },
-                    React__default.createElement(MppCheckbox, { checked: isSelected, onChange: () => { } }),
+                    React__default.createElement(MppCheckbox, { checked: isSelected, onChange: () => handleSingleSelect(value) }),
                     React__default.createElement("span", { className: "item_label" }, value.name)));
             })))));
 };
