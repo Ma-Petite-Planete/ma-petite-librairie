@@ -40,7 +40,7 @@ import MppDropDown from './components/MppDropDown/MppDropDown';
 import MppTextAreaFixHeight from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';
 import MppChallengeCard from './components/MppChallengeRankingCard/MppChallengeRankingCard';
 import MppRankingCardClickable from './components/MppRankingCardClickable/MppRankingCardClickable';
-import MppMultiDropDownSelect from './components/MppMultiDropDownSelect/MppMultiDropDownSelect';
+import DropdownMultiSelect from './section/dropdown/DropDownMultiSelect';
 
 function App() {
   const [parentElement, setParentElement] = useState<Element | null>(null);
@@ -865,59 +865,8 @@ function App() {
           width: '50%',
         }}
       >
-        <MppMultiDropDownSelect
-          placeholderOnEmpty="choisis un truc"
-          onSelect={() => {}}
-          selectedValues={[
-            {
-              id: '1',
-              name: 'edition classic',
-            },
-            {
-              id: '1',
-              name: 'edition classic',
-            },
-            {
-              id: '1',
-              name: 'edition classic',
-            },
-            {
-              id: '1',
-              name: 'edition classic',
-            },
-            {
-              id: '1',
-              name: 'edition classic',
-            },
-            {
-              id: '1',
-              name: 'edition classic',
-            },
-          ]}
-          isOpenByDefault={true}
-          data={[
-            {
-              title: 'classic',
-              items: [
-                {
-                  id: '1',
-                  name: 'edition classic',
-                },
-              ],
-              allSelected: false,
-            },
-            {
-              title: 'private',
-              items: [
-                {
-                  id: '2',
-                  name: 'edition private',
-                },
-              ],
-              allSelected: false,
-            },
-          ]}
-        />
+        <DropdownMultiSelect/>
+
       </div>
     </div>
   );

@@ -2365,7 +2365,7 @@ const MppRankingCardClickable = ({ title, subtitle, ranking, points, subPointsTe
                         React__default.createElement("p", { className: "detail_stat text_body_sb" }, row.statistic || '---')))))))))));
 };
 
-const MppMultiDropDownSelect = ({ data, onSelect, selectedValues, isOpenByDefault, placeholderOnEmpty }) => {
+const MppMultiDropDownSelect = ({ data, onSelect, selectedValues, isOpenByDefault, placeholderOnEmpty, }) => {
     const containerRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
     const displayLabel = selectedValues.length > 0
@@ -2378,27 +2378,61 @@ const MppMultiDropDownSelect = ({ data, onSelect, selectedValues, isOpenByDefaul
             React__default.createElement("div", { className: "dropdown_icon_wrapper" },
                 React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
         React__default.createElement("div", { className: "multi_dropdown_select_container" }, isOpen &&
-            data.map((value) => (React__default.createElement(MppDropDownSelect, { openByDefault: isOpenByDefault, allselected: value.allSelected, key: value.title, sectionTitle: value.title, values: value.items, selectedValues: selectedValues, onChange: onSelect, placeholder: `Sélectionner ${value.title}...` }))))));
+            data.map((value) => (React__default.createElement(MppDropDownSelect, { openByDefault: isOpenByDefault, key: value.title, sectionTitle: value.title, values: value.items, selectedValues: selectedValues, onChange: onSelect, placeholder: `Sélectionner ${value.title}...` }))))));
 };
-const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, allselected, openByDefault, }) => {
+const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, openByDefault, }) => {
     const [isOpen, setIsOpen] = useState(openByDefault);
+    const [isAllSelected, setIsAllSelected] = useState(false);
     const containerRef = useRef(null);
+    useEffect(() => {
+        setIsAllSelected(values.length > 0 &&
+            values.every((value) => selectedValues.some((selected) => selected.id === value.id)));
+    }, [isAllSelected, selectedValues, values]);
     if (values.length === 0)
         return null;
+    const handleSingleSelect = (selected) => {
+        const foundValue = selectedValues.find((value) => value.id === selected.id);
+        if (foundValue) {
+            const newSelectedValues = selectedValues.filter((value) => value.id !== selected.id);
+            onChange(newSelectedValues);
+            return;
+        }
+        else {
+            const newSelectedValues = [...selectedValues, selected];
+            onChange(newSelectedValues);
+        }
+    };
+    const handleAllSelect = () => {
+        const allValuesSelected = values.every((value) => selectedValues.some((selected) => selected.id === value.id));
+        if (allValuesSelected) {
+            const newSelectedValues = selectedValues.filter((value) => !values.includes(value));
+            onChange(newSelectedValues);
+            return;
+        }
+        else {
+            const newSelectedValues = [...selectedValues, ...values];
+            onChange(newSelectedValues);
+            return;
+        }
+    };
     return (React__default.createElement("div", { ref: containerRef, className: "multi_select" },
         React__default.createElement("button", { type: "button", className: `multi_select_button ${isOpen ? 'open' : ''}`, onClick: () => setIsOpen((prev) => !prev) },
             React__default.createElement("div", { className: "dropdown_icon_wrapper" },
                 React__default.createElement("p", { className: "text_body_sb" }, sectionTitle),
                 React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
-        isOpen && (React__default.createElement("ul", { className: "multi_select_dropdown" }, values.map((value) => {
-            const isSelected = selectedValues.some((selectedValue) => selectedValue.id === value.id) || allselected;
-            return (React__default.createElement("li", { key: value.id, className: `dropdown_item text_body`, onClick: () => onChange(value), tabIndex: 0, onKeyDown: (e) => {
-                    if (e.key === 'Enter')
-                        onChange(value);
-                } },
-                React__default.createElement(MppCheckbox, { checked: isSelected, onChange: () => { } }),
-                React__default.createElement("span", { className: "item_label" }, value.name)));
-        })))));
+        isOpen && (React__default.createElement("ul", { className: "multi_select_dropdown" },
+            React__default.createElement("li", { className: "dropdown_item text_body", onClick: handleAllSelect },
+                React__default.createElement(MppCheckbox, { checked: isAllSelected, onChange: () => { } }),
+                React__default.createElement("span", { className: "item_label" }, 'tout selectionné')),
+            values.map((value) => {
+                const isSelected = selectedValues.some((selectedValue) => selectedValue.id === value.id);
+                return (React__default.createElement("li", { key: value.id, className: `dropdown_item text_body`, onClick: () => handleSingleSelect(value), tabIndex: 0, onKeyDown: (e) => {
+                        if (e.key === 'Enter')
+                            handleSingleSelect(value);
+                    } },
+                    React__default.createElement(MppCheckbox, { checked: isSelected, onChange: () => { } }),
+                    React__default.createElement("span", { className: "item_label" }, value.name)));
+            })))));
 };
 
 export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppChallengeCard, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiDropDownSelect, MppPodium, MppRankingCard, MppRankingCardClickable, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppTextAreaFixHeight, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };

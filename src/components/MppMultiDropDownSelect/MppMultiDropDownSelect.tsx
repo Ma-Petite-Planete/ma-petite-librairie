@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './mpp_multi_dropdown_select.css';
 import useClickOutside from '../../hooks/clickOutside';
 import { Identifier } from '../../types_and_demo_data/identifier';
@@ -7,14 +7,13 @@ import MppCheckbox from '../MppCheckBox/MppCheckbox';
 interface MppDropDownSection {
   title: string;
   items: Array<Identifier>;
-  allSelected: boolean;
 }
 interface MppMultiDropDownSelectProps {
   data: MppDropDownSection[];
-  onSelect: (selected: Identifier) => void;
+  onSelect: (selected: Identifier[]) => void;
   selectedValues: Identifier[];
   isOpenByDefault: boolean;
-  placeholderOnEmpty:string
+  placeholderOnEmpty: string;
 }
 
 const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps> = ({
@@ -22,7 +21,7 @@ const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps> = ({
   onSelect,
   selectedValues,
   isOpenByDefault,
-  placeholderOnEmpty
+  placeholderOnEmpty,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -41,7 +40,7 @@ const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps> = ({
         onClick={() => setIsOpen((prev) => !prev)}
       >
         <span
-          className={ `multi_dropdown_select_label ${selectedValues.length > 0 ? '' : 'empty_values'}`}
+          className={`multi_dropdown_select_label ${selectedValues.length > 0 ? '' : 'empty_values'}`}
         >
           {displayLabel}
         </span>
@@ -54,7 +53,6 @@ const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps> = ({
           data.map((value) => (
             <MppDropDownSelect
               openByDefault={isOpenByDefault}
-              allselected={value.allSelected}
               key={value.title}
               sectionTitle={value.title}
               values={value.items}
@@ -74,9 +72,8 @@ interface MppDropDownSelectProps {
   sectionTitle: string;
   values: Array<Identifier>;
   selectedValues: Array<Identifier>;
-  onChange: (selected: Identifier) => void;
+  onChange: (selected: Identifier[]) => void;
   placeholder: string;
-  allselected: boolean;
   openByDefault: boolean;
 }
 
@@ -85,19 +82,53 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
   selectedValues,
   onChange,
   sectionTitle,
-  allselected,
   openByDefault,
 }) => {
   const [isOpen, setIsOpen] = useState(openByDefault);
+  const [isAllSelected, setIsAllSelected] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsAllSelected(
+      values.length > 0 &&
+        values.every((value) =>
+          selectedValues.some((selected) => selected.id === value.id)
+        )
+    );
+  }, [isAllSelected, selectedValues, values]);
 
   if (values.length === 0) return null;
 
+  const handleSingleSelect = (selected: Identifier) => {
+    const foundValue = selectedValues.find((value) => value.id === selected.id);
+    if (foundValue) {
+      const newSelectedValues = selectedValues.filter(
+        (value) => value.id !== selected.id
+      );
+      onChange(newSelectedValues);
+      return;
+    } else {
+      const newSelectedValues = [...selectedValues, selected];
+      onChange(newSelectedValues);
+    }
+  };
+  const handleAllSelect = () => {
+    const allValuesSelected = values.every((value) =>
+      selectedValues.some((selected) => selected.id === value.id)
+    );
+    if(allValuesSelected){
+      const newSelectedValues = selectedValues.filter((value) => !values.includes(value));
+      onChange(newSelectedValues);
+      return;
+    } else {
+      const newSelectedValues = [...selectedValues, ...values];
+      onChange(newSelectedValues);
+      return;
+    }
+  };
+
   return (
-    <div
-      ref={containerRef}
-      className="multi_select"
-    >
+    <div ref={containerRef} className="multi_select">
       <button
         type="button"
         className={`multi_select_button ${isOpen ? 'open' : ''}`}
@@ -111,19 +142,22 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
 
       {isOpen && (
         <ul className="multi_select_dropdown">
+          <li className="dropdown_item text_body" onClick={handleAllSelect}>
+            <MppCheckbox checked={isAllSelected} onChange={() => {}} />
+            <span className="item_label">{'tout selectionné'}</span>
+          </li>
           {values.map((value) => {
-            const isSelected =
-              selectedValues.some(
-                (selectedValue) => selectedValue.id === value.id
-              ) || allselected;
+            const isSelected = selectedValues.some(
+              (selectedValue) => selectedValue.id === value.id
+            );
             return (
               <li
                 key={value.id}
                 className={`dropdown_item text_body`}
-                onClick={() => onChange(value)}
+                onClick={() => handleSingleSelect(value)}
                 tabIndex={0}
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter') onChange(value);
+                  if (e.key === 'Enter') handleSingleSelect(value);
                 }}
               >
                 <MppCheckbox checked={isSelected} onChange={() => {}} />
