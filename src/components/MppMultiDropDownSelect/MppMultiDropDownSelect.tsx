@@ -113,9 +113,11 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
     }
   };
   const handleAllSelect = () => {
+    console.log("🚀 ~ handleAllSelect ~ handleAllSelect:", handleAllSelect)
     const allValuesSelected = values.every((value) =>
       selectedValues.some((selected) => selected.id === value.id)
     );
+    console.log("🚀 ~ handleAllSelect ~ allValuesSelected:", allValuesSelected)
     if (allValuesSelected) {
       const newSelectedValues = selectedValues.filter(
         (value) => !values.includes(value)
