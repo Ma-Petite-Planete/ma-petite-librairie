@@ -7,6 +7,7 @@ import MppCheckbox from '../MppCheckBox/MppCheckbox';
 interface MppDropDownSection {
   title: string;
   items: Array<Identifier>;
+  sectionAllText: string
 }
 interface MppMultiDropDownSelectProps {
   data: MppDropDownSection[];
@@ -59,6 +60,8 @@ const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps> = ({
               selectedValues={selectedValues}
               onChange={onSelect}
               placeholder={`Sélectionner ${value.title}...`}
+              allSelectedText={value.sectionAllText}
+
             />
           ))}
       </div>
@@ -75,6 +78,7 @@ interface MppDropDownSelectProps {
   onChange: (selected: Identifier[]) => void;
   placeholder: string;
   openByDefault: boolean;
+  allSelectedText: string;
 }
 
 const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
@@ -83,20 +87,16 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
   onChange,
   sectionTitle,
   openByDefault,
+  allSelectedText
 }) => {
   const [isOpen, setIsOpen] = useState(openByDefault);
   const [isAllSelected, setIsAllSelected] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleAllSelect = useCallback(() => {
-    console.log('handleAllSelect called');
     const allValuesSelected = values.every((value) => {
       return selectedValues.some((selected) => selected.id === value.id);
     });
-    console.log(
-      '🚀 ~ MppDropDownSelect ~ allValuesSelected:',
-      allValuesSelected
-    );
 
     if (allValuesSelected) {
       const newSelectedValues = selectedValues.filter(
@@ -117,7 +117,6 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
       values.every((value) =>
         selectedValues.some((selected) => selected.id === value.id)
       );
-    console.log('🚀 ~ MppDropDownSelect useeffect ~ allSelected:', allSelected);
     setIsAllSelected(allSelected);
   }, [selectedValues, values]);
 
@@ -162,7 +161,7 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
               checked={isAllSelected}
               onChange={() => handleAllSelect()}
             />
-            <span className="item_label">{'tout selectionné'}</span>
+            <span className="item_label">{allSelectedText}</span>
           </li>
           {values.map((value) => {
             const isSelected =

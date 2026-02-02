@@ -2378,18 +2378,16 @@ const MppMultiDropDownSelect = ({ data, onSelect, selectedValues, isOpenByDefaul
             React__default.createElement("div", { className: "dropdown_icon_wrapper" },
                 React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
         React__default.createElement("div", { className: "multi_dropdown_select_container" }, isOpen &&
-            data.map((value) => (React__default.createElement(MppDropDownSelect, { openByDefault: isOpenByDefault, key: value.title, sectionTitle: value.title, values: value.items, selectedValues: selectedValues, onChange: onSelect, placeholder: `Sélectionner ${value.title}...` }))))));
+            data.map((value) => (React__default.createElement(MppDropDownSelect, { openByDefault: isOpenByDefault, key: value.title, sectionTitle: value.title, values: value.items, selectedValues: selectedValues, onChange: onSelect, placeholder: `Sélectionner ${value.title}...`, allSelectedText: value.sectionAllText }))))));
 };
-const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, openByDefault, }) => {
+const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, openByDefault, allSelectedText }) => {
     const [isOpen, setIsOpen] = useState(openByDefault);
     const [isAllSelected, setIsAllSelected] = useState(false);
     const containerRef = useRef(null);
     const handleAllSelect = useCallback(() => {
-        console.log('handleAllSelect called');
         const allValuesSelected = values.every((value) => {
             return selectedValues.some((selected) => selected.id === value.id);
         });
-        console.log('🚀 ~ MppDropDownSelect ~ allValuesSelected:', allValuesSelected);
         if (allValuesSelected) {
             const newSelectedValues = selectedValues.filter((v) => !values.some((x) => x.id === v.id));
             onChange(newSelectedValues);
@@ -2404,7 +2402,6 @@ const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, ope
     useEffect(() => {
         const allSelected = values.length > 0 &&
             values.every((value) => selectedValues.some((selected) => selected.id === value.id));
-        console.log('🚀 ~ MppDropDownSelect useeffect ~ allSelected:', allSelected);
         setIsAllSelected(allSelected);
     }, [selectedValues, values]);
     if (values.length === 0)
@@ -2431,7 +2428,7 @@ const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, ope
                     handleAllSelect();
                 } },
                 React__default.createElement(MppCheckbox, { checked: isAllSelected, onChange: () => handleAllSelect() }),
-                React__default.createElement("span", { className: "item_label" }, 'tout selectionné')),
+                React__default.createElement("span", { className: "item_label" }, allSelectedText)),
             values.map((value) => {
                 const isSelected = selectedValues.some((selectedValue) => selectedValue.id === value.id) || isAllSelected;
                 return (React__default.createElement("li", { key: value.id, className: `dropdown_item text_body`, onClick: () => handleSingleSelect(value), tabIndex: 0, onKeyDown: (e) => {

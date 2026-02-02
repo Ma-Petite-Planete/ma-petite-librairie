@@ -4,6 +4,7 @@ import { Identifier } from '../../types_and_demo_data/identifier';
 interface MppDropDownSection {
     title: string;
     items: Array<Identifier>;
+    sectionAllText: string;
 }
 interface MppMultiDropDownSelectProps {
     data: MppDropDownSection[];

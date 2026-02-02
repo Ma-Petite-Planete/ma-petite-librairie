@@ -19,6 +19,7 @@ const values = [
         name: 'edition classic 3',
       },
     ],
+    sectionAllText: 'tout classique',
   },
   {
     title: 'private',
@@ -36,6 +37,7 @@ const values = [
         name: 'edition private 3',
       },
     ],
+    sectionAllText: 'tout privée',
   },
 ];
 const DropdownMultiSelect: React.FC = () => {
