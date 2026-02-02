@@ -89,9 +89,11 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleAllSelect = useCallback(() => {
+    console.log("handleAllSelect called")
     const allValuesSelected = values.every((value) => {
       return selectedValues.some((selected) => selected.id === value.id);
     });
+    console.log("🚀 ~ MppDropDownSelect ~ allValuesSelected:", allValuesSelected)
 
     if (allValuesSelected) {
       const newSelectedValues = selectedValues.filter((value) => {
@@ -101,6 +103,7 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
         '🚀 ~ MppDropDownSelect ~ newSelectedValues:',
         newSelectedValues
       );
+      console.log("values :", values)
       onChange(newSelectedValues);
       return;
     } else {
