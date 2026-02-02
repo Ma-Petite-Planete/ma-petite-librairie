@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import './mpp_multi_dropdown_select.css';
 import useClickOutside from '../../hooks/clickOutside';
 import { Identifier } from '../../types_and_demo_data/identifier';
@@ -88,13 +88,39 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
   const [isAllSelected, setIsAllSelected] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    setIsAllSelected(
-      values.length > 0 &&
-        values.every((value) =>
-          selectedValues.some((selected) => selected.id === value.id)
-        )
+  const handleAllSelect = useCallback(() => {
+    const allValuesSelected = values.every((value) => {
+      return selectedValues.some((selected) => selected.id === value.id);
+    });
+    console.log('🚀 ~ MppDropDownSelect ~ selectedValues:', selectedValues);
+    console.log('🚀 ~ MppDropDownSelect ~ values:', values);
+    console.log(
+      '🚀 ~ MppDropDownSelect ~ allValuesSelected:',
+      allValuesSelected
     );
+    if (allValuesSelected) {
+      const newSelectedValues = selectedValues.filter((value) => {
+        console.log(value);
+        console.log(values);
+        return !values.includes(value);
+      });
+      onChange(newSelectedValues);
+      return;
+    } else {
+      const newSelectedValues = [...selectedValues, ...values];
+      onChange(newSelectedValues);
+      return;
+    }
+  }, [onChange, selectedValues, values]);
+
+  useEffect(() => {
+    const allSelected =
+      values.length > 0 &&
+      values.every((value) =>
+        selectedValues.some((selected) => selected.id === value.id)
+      );
+    console.log('🚀 ~ MppDropDownSelect useeffect ~ allSelected:', allSelected);
+    setIsAllSelected(allSelected);
   }, [selectedValues, values]);
 
   if (values.length === 0) return null;
@@ -110,25 +136,6 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
     } else {
       const newSelectedValues = [...selectedValues, selected];
       onChange(newSelectedValues);
-    }
-  };
-  const handleAllSelect = () => {
-    const allValuesSelected = values.every((value) =>
-      selectedValues.some((selected) => selected.id === value.id)
-    );
-    if (allValuesSelected) {
-      const newSelectedValues = selectedValues.filter(
-        (value) => {
-          console.log(value)
-          console.log(values)
-          return !values.includes(value)}
-      );
-      onChange(newSelectedValues);
-      return;
-    } else {
-      const newSelectedValues = [...selectedValues, ...values];
-      onChange(newSelectedValues);
-      return;
     }
   };
 
