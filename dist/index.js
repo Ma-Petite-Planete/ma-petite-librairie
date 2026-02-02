@@ -2385,17 +2385,13 @@ const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, ope
     const [isAllSelected, setIsAllSelected] = useState(false);
     const containerRef = useRef(null);
     const handleAllSelect = useCallback(() => {
-        console.log("handleAllSelect called");
+        console.log('handleAllSelect called');
         const allValuesSelected = values.every((value) => {
             return selectedValues.some((selected) => selected.id === value.id);
         });
-        console.log("🚀 ~ MppDropDownSelect ~ allValuesSelected:", allValuesSelected);
+        console.log('🚀 ~ MppDropDownSelect ~ allValuesSelected:', allValuesSelected);
         if (allValuesSelected) {
-            const newSelectedValues = selectedValues.filter((value) => {
-                return !values.includes(value);
-            });
-            console.log('🚀 ~ MppDropDownSelect ~ newSelectedValues:', newSelectedValues);
-            console.log("values :", values);
+            const newSelectedValues = selectedValues.filter((v) => !values.some((x) => x.id === v.id));
             onChange(newSelectedValues);
             return;
         }
