@@ -2388,15 +2388,11 @@ const MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, ope
         const allValuesSelected = values.every((value) => {
             return selectedValues.some((selected) => selected.id === value.id);
         });
-        console.log('🚀 ~ MppDropDownSelect ~ selectedValues:', selectedValues);
-        console.log('🚀 ~ MppDropDownSelect ~ values:', values);
-        console.log('🚀 ~ MppDropDownSelect ~ allValuesSelected:', allValuesSelected);
         if (allValuesSelected) {
             const newSelectedValues = selectedValues.filter((value) => {
-                console.log(value);
-                console.log(values);
                 return !values.includes(value);
             });
+            console.log('🚀 ~ MppDropDownSelect ~ newSelectedValues:', newSelectedValues);
             onChange(newSelectedValues);
             return;
         }
