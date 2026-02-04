@@ -7,6 +7,8 @@ interface MppCardEditionProps {
     editionDatesInfos: string;
     editionMessage?: string;
     editionsDropDown?: React.ReactNode;
+    showEditIcon?: boolean;
+    onEditClick?: () => void;
 }
 /**
  * @interface MppCardEditionProps
