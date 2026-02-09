@@ -1353,7 +1353,7 @@ const MppCardEdition = ({ backgroundColor, textColor, editionName, editionDatesI
             React__default.createElement(React__default.Fragment, null,
                 React__default.createElement("p", { className: "edition_infos__date text_body" },
                     React__default.createElement("span", { className: "edition_infos__name text_body_sb" }, editionName),
-                    !showEditIcon == true && !onEditClick ? (React__default.createElement("span", { className: "edition_infos__name text_body_sb" },
+                    !showEditIcon ? (React__default.createElement("span", { className: "edition_infos__name text_body_sb" },
                         "-",
                         ' ')) : (React__default.createElement(MppIcons.pen, { fill: textColor, className: "edition_infos__edit_icon", onClick: onEditClick })),
                     editionDatesInfos))),

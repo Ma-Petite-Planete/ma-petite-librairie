@@ -390,9 +390,7 @@ function App() {
           />
         }
         showEditIcon={true}
-        onEditClick={(): void => {
-          console.log('on ouvre la modal d\'édition de nom');
-        }}
+        onEditClick={null}
       />
 
       <h2>Navigation Bar</h2>
