@@ -59,7 +59,7 @@ const MppCardEdition: React.FC<MppCardEditionProps> = ({
               {editionName}
             </span>
 
-            {!showEditIcon == true && !onEditClick ? (
+            {!showEditIcon == true ? (
               <span className="edition_infos__name text_body_sb">
                 -{' '}
               </span>
