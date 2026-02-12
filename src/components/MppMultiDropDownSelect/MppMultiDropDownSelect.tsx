@@ -70,7 +70,7 @@ const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps> = ({
 
 export default MppMultiDropDownSelect;
 
-interface MppDropDownSelectProps {
+interface _MppDropDownSelectProps {
   sectionTitle: string;
   values: Array<Identifier>;
   selectedValues: Array<Identifier>;
@@ -80,7 +80,7 @@ interface MppDropDownSelectProps {
   allSelectedText: string;
 }
 
-const _MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
+const _MppDropDownSelect: React.FC<_MppDropDownSelectProps> = ({
   values,
   selectedValues,
   onChange,
