@@ -7,7 +7,7 @@ import MppCheckbox from '../MppCheckBox/MppCheckbox';
 interface MppDropDownSection {
   title: string;
   items: Array<Identifier>;
-  sectionAllText: string
+  sectionAllText: string;
 }
 interface MppMultiDropDownSelectProps {
   data: MppDropDownSection[];
@@ -51,8 +51,8 @@ const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps> = ({
       </button>
       <div className="multi_dropdown_select_container">
         {isOpen &&
-          data.map((value) => (
-            <MppDropDownSelect
+          data.map((value: MppDropDownSection) => (
+            <_MppDropDownSelect
               openByDefault={isOpenByDefault}
               key={value.title}
               sectionTitle={value.title}
@@ -61,7 +61,6 @@ const MppMultiDropDownSelect: React.FC<MppMultiDropDownSelectProps> = ({
               onChange={onSelect}
               placeholder={`Sélectionner ${value.title}...`}
               allSelectedText={value.sectionAllText}
-
             />
           ))}
       </div>
@@ -81,13 +80,13 @@ interface MppDropDownSelectProps {
   allSelectedText: string;
 }
 
-const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
+const _MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
   values,
   selectedValues,
   onChange,
   sectionTitle,
   openByDefault,
-  allSelectedText
+  allSelectedText,
 }) => {
   const [isOpen, setIsOpen] = useState(openByDefault);
   const [isAllSelected, setIsAllSelected] = useState(false);
@@ -163,7 +162,7 @@ const MppDropDownSelect: React.FC<MppDropDownSelectProps> = ({
             />
             <span className="item_label">{allSelectedText}</span>
           </li>
-          {values.map((value) => {
+          {values.map((value: Identifier) => {
             const isSelected =
               selectedValues.some(
                 (selectedValue) => selectedValue.id === value.id
