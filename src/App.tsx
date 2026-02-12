@@ -355,6 +355,8 @@ function App() {
         editionName={'Edition Printemps'}
         editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
         editionMessage="Il reste 7 jours !"
+        showEditIcon={false}
+        onEditClick={null}
       />
       <h4>ECU</h4>
       <MppCardEdition
@@ -388,6 +390,8 @@ function App() {
             isDropDownEmpty={false}
           />
         }
+        showEditIcon={true}
+        onEditClick={null}
       />
 
       <h2>Navigation Bar</h2>
