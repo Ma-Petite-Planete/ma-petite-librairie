@@ -52,6 +52,13 @@
   margin-right: 0.3rem;
 }
 
+.edition_infos__edit_icon {
+  cursor: pointer;
+  margin-left: 8px;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
 @media (min-width: 896px) {
   .card_edition__days {
     align-items: center;

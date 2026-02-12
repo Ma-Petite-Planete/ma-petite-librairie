@@ -10,6 +10,8 @@ interface MppCardEditionProps {
   editionDatesInfos: string;
   editionMessage?: string;
   editionsDropDown?: React.ReactNode;
+  showEditIcon?: Boolean;
+  onEditClick?: () => void;
 }
 
 /**
@@ -42,6 +44,8 @@ const MppCardEdition: React.FC<MppCardEditionProps> = ({
   editionDatesInfos,
   editionMessage,
   editionsDropDown,
+  showEditIcon,
+  onEditClick,
 }) => {
   return (
     <div
@@ -52,8 +56,21 @@ const MppCardEdition: React.FC<MppCardEditionProps> = ({
         <>
           <p className="edition_infos__date text_body">
             <span className="edition_infos__name text_body_sb">
-              {editionName} -{' '}
+              {editionName}
             </span>
+
+            {!showEditIcon ? (
+              <span className="edition_infos__name text_body_sb">
+                -{' '}
+              </span>
+            ) : (
+              <MppIcons.pen
+                fill={textColor}
+                className="edition_infos__edit_icon"
+                onClick={onEditClick}
+              />
+            )}
+
             {editionDatesInfos}
           </p>
         </>
