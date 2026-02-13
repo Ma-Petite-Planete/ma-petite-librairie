@@ -40,6 +40,7 @@ import MppDropDown from './components/MppDropDown/MppDropDown';
 import MppTextAreaFixHeight from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';
 import MppChallengeCard from './components/MppChallengeRankingCard/MppChallengeRankingCard';
 import MppRankingCardClickable from './components/MppRankingCardClickable/MppRankingCardClickable';
+import DropdownMultiSelect from './section/dropdown/DropDownMultiSelect';
 
 function App() {
   const [parentElement, setParentElement] = useState<Element | null>(null);
@@ -861,6 +862,16 @@ function App() {
         subtitle={'le bo sco'}
       />
       <MppChallengeCard title={''} value={``} />
+
+      <h2>MultiSelectDropDown</h2>
+      <div
+        style={{
+          width: '50%',
+        }}
+      >
+        <DropdownMultiSelect/>
+
+      </div>
     </div>
   );
 }
