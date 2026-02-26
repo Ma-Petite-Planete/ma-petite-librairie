@@ -152,7 +152,7 @@ export const MppPodium: React.FC<MppPodiumProps> = ({
                 details,
               }) => (
                 <MppPodiumStep
-                  key={ranking}
+                  key={id}
                   id={id}
                   title={name}
                   pointsNumber={`${points} pts `}
