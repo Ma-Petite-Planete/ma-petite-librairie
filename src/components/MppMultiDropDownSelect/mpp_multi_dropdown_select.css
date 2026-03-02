@@ -1,0 +1,110 @@
+.multi_dropdown_select_wrapper {
+  position: relative;
+  width: 320px;
+}
+
+.multi_filters_select_button.open + .multi_dropdown_select_container {
+  border: 1px solid var(--dark_blue);
+  border-radius: var(--standard_border_radius);
+  background-color: var(--light_grey);
+}
+
+.multi_dropdown_select_container {
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+}
+.multi_select {
+  position: relative;
+}
+
+.multi_dropdown_select_container .multi_select:first-child {
+  border-top-left-radius: var(--standard_border_radius);
+  border-top-right-radius: var(--standard_border_radius);
+
+}
+
+.multi_dropdown_select_container .multi_select:last-child {
+  border-bottom-left-radius: var(--standard_border_radius);
+  border-bottom-right-radius: var(--standard_border_radius);
+}
+
+.multi_select_button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: inherit;
+}
+
+.multi_select .arrow {
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 7px solid var(--dark_blue);
+  transition: transform ease-in-out 0.35s;
+  margin-left: 4px;
+}
+
+.multi_select .arrow--open {
+  transform: rotate(180deg);
+}
+
+.multi_select_dropdown {
+  border-radius: inherit;
+}
+
+.multi_select_dropdown::-webkit-scrollbar {
+  display: none;
+}
+
+.multi_select_dropdown li {
+  cursor: pointer;
+  padding: 16px 0;
+  margin: 0 16px;
+}
+
+.multi_select_dropdown li:hover,
+.multi_select_dropdown li:focus {
+  background-color: var(--medium_grey);
+  margin: 0;
+  padding: 16px;
+}
+
+.multi_filters_select_button.open {
+  border: 1px solid var(--dark_blue);
+}
+
+.multi_select .dropdown_icon_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.multi_select_dropdown .dropdown_item {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--grey_divider);
+  border-bottom: 1px solid var(--grey_divider);
+}
+
+.multi_dropdown_select_wrapper
+  .multi_select:last-child
+  .dropdown_item:last-child {
+  border-top: 1px solid var(--grey_divider);
+  border-bottom: none;
+  border-bottom-left-radius: var(--standard_border_radius);
+  border-bottom-right-radius: var(--standard_border_radius);
+}
+
+.item_label {
+  margin-left: 10px;
+}
+
+.empty_values {
+  color: var(--dark_grey);
+}
+
+.multi_dropdown_select_label {
+  white-space: nowrap;
+  overflow-x: hidden;
+}

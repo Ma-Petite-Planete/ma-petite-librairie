@@ -1310,7 +1310,7 @@ const MppPodium = ({ rankedElements, typeOfPlayers, color, displayFullInfos, onC
     }, [isDetailToShow, onClick]);
     return (React__default.createElement("div", { className: `main_podium_container ${isDetailToShow ? 'cursor_pointer' : ''}`, onClick: handleBackdropClick },
         React__default.createElement("div", { className: `podium__container ${isBoSco ? 'sco_background_color' : 'gp_background_color'}`, style: { maxWidth: isBoSco ? '541px' : '652px' } }, rankedElements
-            ? rankedElements.map(({ name, points, ranking, boldSubtitle, lightSubtitle, id, comparativeValue, bottomCount, details, }) => (React__default.createElement(MppPodiumStep, { key: ranking, id: id, title: name, pointsNumber: `${points} pts `, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking, boType: boType, bottomCount: bottomCount, displayAllInfos: displayFullInfos, subtitle: isBoSco ? lightSubtitle : comparativeValue, subtitleBold: boldSubtitle, details: details, isOpen: activeStep === ranking, onStepClick: (e) => handleStepClick(e, ranking, details), onHover: onHover, onHoverLeave: onHoverLeave })))
+            ? rankedElements.map(({ name, points, ranking, boldSubtitle, lightSubtitle, id, comparativeValue, bottomCount, details, }) => (React__default.createElement(MppPodiumStep, { key: id, id: id, title: name, pointsNumber: `${points} pts `, typeOfPlayer: typeOfPlayers, color: color, ranking: ranking, boType: boType, bottomCount: bottomCount, displayAllInfos: displayFullInfos, subtitle: isBoSco ? lightSubtitle : comparativeValue, subtitleBold: boldSubtitle, details: details, isOpen: activeStep === ranking, onStepClick: (e) => handleStepClick(e, ranking, details), onHover: onHover, onHoverLeave: onHoverLeave })))
             : Array.from({ length: 3 }, (_, index) => (React__default.createElement(MppPodiumStep, { key: index, title: null, pointsNumber: '0', subtitle: "", subtitleBold: "", typeOfPlayer: typeOfPlayers, color: color, ranking: index + 1, displayAllInfos: false, boType: boType, isOpen: false, onStepClick: () => { } })))),
         React__default.createElement("div", { className: `details_podium_background details_collapse ${isDetailToShow ? 'expanded' : ''}`, "aria-hidden": !isDetailToShow },
             React__default.createElement("div", { className: "details_inner" },
@@ -1347,15 +1347,15 @@ const MppPodium = ({ rankedElements, typeOfPlayers, color, displayFullInfos, onC
  * />
  * ```
  */
-const MppCardEdition = ({ backgroundColor, textColor, editionName, editionDatesInfos, editionMessage, editionsDropDown, }) => {
+const MppCardEdition = ({ backgroundColor, textColor, editionName, editionDatesInfos, editionMessage, editionsDropDown, showEditIcon, onEditClick, }) => {
     return (React__default.createElement("div", { style: { backgroundColor: `${backgroundColor}` }, className: "card_edition__container" },
         React__default.createElement("div", { style: { color: `${textColor}` }, className: "card_edition__infos" },
             React__default.createElement(React__default.Fragment, null,
                 React__default.createElement("p", { className: "edition_infos__date text_body" },
-                    React__default.createElement("span", { className: "edition_infos__name text_body_sb" },
-                        editionName,
-                        " -",
-                        ' '),
+                    React__default.createElement("span", { className: "edition_infos__name text_body_sb" }, editionName),
+                    !showEditIcon ? (React__default.createElement("span", { className: "edition_infos__name text_body_sb" },
+                        "-",
+                        ' ')) : (React__default.createElement(MppIcons.pen, { fill: textColor, className: "edition_infos__edit_icon", onClick: onEditClick })),
                     editionDatesInfos))),
         editionsDropDown,
         editionMessage ? (React__default.createElement("div", { className: "card_edition__days" },
@@ -1837,10 +1837,10 @@ const MppCheckbox = ({ onChange, checked, indeterminate = false, isTableHeader =
     }, [checked]);
     return (React__default.createElement("div", { className: "checkbox_container" },
         React__default.createElement("div", { className: "checkbox_container_checkbox" },
-            React__default.createElement("label", { className: `
-            checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}  
+            React__default.createElement("label", { onClick: (e) => e.stopPropagation(), className: `
+            checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}
             ${isTableHeader && indeterminate ? 'indeterminated_checkbox' : ''} ` },
-                React__default.createElement("input", { type: "checkbox", checked: isSelected, onChange: (e) => {
+                React__default.createElement("input", { onClick: (e) => e.stopPropagation(), type: "checkbox", checked: isSelected, onChange: (e) => {
                         setIsSelected(e.target.checked);
                         onChange(e);
                     } }),
@@ -2365,4 +2365,79 @@ const MppRankingCardClickable = ({ title, subtitle, ranking, points, subPointsTe
                         React__default.createElement("p", { className: "detail_stat text_body_sb" }, row.statistic || '---')))))))))));
 };
 
-export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppChallengeCard, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppPodium, MppRankingCard, MppRankingCardClickable, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppTextAreaFixHeight, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };
+const MppMultiDropDownSelect = ({ data, onSelect, selectedValues, isOpenByDefault, placeholderOnEmpty, }) => {
+    const containerRef = useRef(null);
+    const [isOpen, setIsOpen] = useState(false);
+    const displayLabel = selectedValues.length > 0
+        ? selectedValues.map((item) => item.name).join(', ')
+        : placeholderOnEmpty;
+    useClickOutside(containerRef, () => setIsOpen(false));
+    return (React__default.createElement("div", { ref: containerRef, className: "multi_dropdown_select_wrapper" },
+        React__default.createElement("button", { type: "button", className: `multi_filters_select_button ${isOpen ? 'open' : ''}`, onClick: () => setIsOpen((prev) => !prev) },
+            React__default.createElement("span", { className: `multi_dropdown_select_label ${selectedValues.length > 0 ? '' : 'empty_values'}` }, displayLabel),
+            React__default.createElement("div", { className: "dropdown_icon_wrapper" },
+                React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
+        React__default.createElement("div", { className: "multi_dropdown_select_container" }, isOpen &&
+            data.map((value) => (React__default.createElement(_MppDropDownSelect, { openByDefault: isOpenByDefault, key: value.title, sectionTitle: value.title, values: value.items, selectedValues: selectedValues, onChange: onSelect, placeholder: `Sélectionner ${value.title}...`, allSelectedText: value.sectionAllText }))))));
+};
+const _MppDropDownSelect = ({ values, selectedValues, onChange, sectionTitle, openByDefault, allSelectedText, }) => {
+    const [isOpen, setIsOpen] = useState(openByDefault);
+    const [isAllSelected, setIsAllSelected] = useState(false);
+    const containerRef = useRef(null);
+    const handleAllSelect = useCallback(() => {
+        const allValuesSelected = values.every((value) => {
+            return selectedValues.some((selected) => selected.id === value.id);
+        });
+        if (allValuesSelected) {
+            const newSelectedValues = selectedValues.filter((v) => !values.some((x) => x.id === v.id));
+            onChange(newSelectedValues);
+            return;
+        }
+        else {
+            const newSelectedValues = [...selectedValues, ...values];
+            onChange(newSelectedValues);
+            return;
+        }
+    }, [onChange, selectedValues, values]);
+    useEffect(() => {
+        const allSelected = values.length > 0 &&
+            values.every((value) => selectedValues.some((selected) => selected.id === value.id));
+        setIsAllSelected(allSelected);
+    }, [selectedValues, values]);
+    if (values.length === 0)
+        return null;
+    const handleSingleSelect = (selected) => {
+        const foundValue = selectedValues.find((value) => value.id === selected.id);
+        if (foundValue) {
+            const newSelectedValues = selectedValues.filter((value) => value.id !== selected.id);
+            onChange(newSelectedValues);
+            return;
+        }
+        else {
+            const newSelectedValues = [...selectedValues, selected];
+            onChange(newSelectedValues);
+        }
+    };
+    return (React__default.createElement("div", { ref: containerRef, className: "multi_select" },
+        React__default.createElement("button", { type: "button", className: `multi_select_button ${isOpen ? 'open' : ''}`, onClick: () => setIsOpen((prev) => !prev) },
+            React__default.createElement("div", { className: "dropdown_icon_wrapper" },
+                React__default.createElement("p", { className: "text_body_sb" }, sectionTitle),
+                React__default.createElement("span", { className: `arrow ${isOpen ? 'arrow--open' : ''}` }))),
+        isOpen && (React__default.createElement("ul", { className: "multi_select_dropdown" },
+            React__default.createElement("li", { className: "dropdown_item text_body", onClick: () => {
+                    handleAllSelect();
+                } },
+                React__default.createElement(MppCheckbox, { checked: isAllSelected, onChange: () => handleAllSelect() }),
+                React__default.createElement("span", { className: "item_label" }, allSelectedText)),
+            values.map((value) => {
+                const isSelected = selectedValues.some((selectedValue) => selectedValue.id === value.id) || isAllSelected;
+                return (React__default.createElement("li", { key: value.id, className: `dropdown_item text_body`, onClick: () => handleSingleSelect(value), tabIndex: 0, onKeyDown: (e) => {
+                        if (e.key === 'Enter')
+                            handleSingleSelect(value);
+                    } },
+                    React__default.createElement(MppCheckbox, { checked: isSelected, onChange: () => handleSingleSelect(value) }),
+                    React__default.createElement("span", { className: "item_label" }, value.name)));
+            })))));
+};
+
+export { AnimationDirection, BoType, ButtonType, ColumnType, GpColors, MessageType, MppButton, MppCategoryMultiFilter, MppChallengeCard, MppCheckbox as MppCheckBox, MppDropDown, MppCardEdition as MppEditionCard, MppIcons, MppIncrementInput, MppInfosPin, MppInput, MppInputText, MppLabelType, MppLinearProgressBar, MppLoader, MppLoaderDots, ComponentName as MppLoginLayout, MppMenu, MppMultiDropDownSelect, MppPodium, MppRankingCard, MppRankingCardClickable, MppSkeletonLoader, StatCard as MppStatCard, MppTextArea, MppTextAreaFixHeight, MppToaster, MppToggleButton, MppToggleSection, ProgressBarStyle, ScoColors, labelType };

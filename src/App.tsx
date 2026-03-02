@@ -40,6 +40,7 @@ import MppDropDown from './components/MppDropDown/MppDropDown';
 import MppTextAreaFixHeight from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';
 import MppChallengeCard from './components/MppChallengeRankingCard/MppChallengeRankingCard';
 import MppRankingCardClickable from './components/MppRankingCardClickable/MppRankingCardClickable';
+import DropdownMultiSelect from './section/dropdown/DropDownMultiSelect';
 
 function App() {
   const [parentElement, setParentElement] = useState<Element | null>(null);
@@ -354,6 +355,8 @@ function App() {
         editionName={'Edition Printemps'}
         editionDatesInfos="Du lundi 18 novembre 9h au lundi 9 décembre 20h"
         editionMessage="Il reste 7 jours !"
+        showEditIcon={false}
+        onEditClick={null}
       />
       <h4>ECU</h4>
       <MppCardEdition
@@ -387,6 +390,8 @@ function App() {
             isDropDownEmpty={false}
           />
         }
+        showEditIcon={true}
+        onEditClick={null}
       />
 
       <h2>Navigation Bar</h2>
@@ -857,6 +862,16 @@ function App() {
         subtitle={'le bo sco'}
       />
       <MppChallengeCard title={''} value={``} />
+
+      <h2>MultiSelectDropDown</h2>
+      <div
+        style={{
+          width: '50%',
+        }}
+      >
+        <DropdownMultiSelect/>
+
+      </div>
     </div>
   );
 }
