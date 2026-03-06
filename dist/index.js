@@ -1910,6 +1910,7 @@ var labelType;
     labelType["grey"] = "grey_label";
     labelType["orange"] = "orange_label";
     labelType["green"] = "green_label";
+    labelType["red"] = "red_label";
 })(labelType || (labelType = {}));
 /**
  * Le composant MppLabelType rend une étiquette avec un type et une valeur spécifiques.
