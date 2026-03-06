@@ -5,6 +5,7 @@ export enum labelType {
   grey = 'grey_label',
   orange = 'orange_label',
   green = 'green_label',
+  red = 'red_label',
 }
 
 interface MppLabelTypeProps {
