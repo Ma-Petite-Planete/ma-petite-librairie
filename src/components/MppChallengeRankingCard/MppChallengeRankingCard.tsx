@@ -10,7 +10,8 @@ interface MppChallengeCardProps {
   ranking?: number;
   value: string;
   boType?: BoType;
-  rankingColor?: string;
+  tileRankingColorBackground?: string;
+  tileRankingColorText?: string;
 }
 
 const MppChallengeCard: React.FC<MppChallengeCardProps> = ({
@@ -19,7 +20,8 @@ const MppChallengeCard: React.FC<MppChallengeCardProps> = ({
   ranking,
   value,
   boType = BoType.scoBO,
-  rankingColor,
+  tileRankingColorBackground,
+  tileRankingColorText,
 }) => {
   const titleIsEmpty = title.replace(/[^a-zA-Z0-9]/g, '') === '';
   return (
@@ -30,7 +32,10 @@ const MppChallengeCard: React.FC<MppChallengeCardProps> = ({
         {ranking && (
           <div
             className="challenge_card__ranking text_body_sb"
-            style={{ backgroundColor: `${rankingColor ?? GpColors.teal}` }}
+            style={{
+              backgroundColor: `${tileRankingColorBackground ?? GpColors.teal}`,
+              color: `${tileRankingColorText ?? GpColors.darkBlue}`,
+            }}
           >
             {ranking}
           </div>
