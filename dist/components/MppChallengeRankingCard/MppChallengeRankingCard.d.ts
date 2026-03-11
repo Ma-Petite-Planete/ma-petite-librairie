@@ -7,6 +7,7 @@ interface MppChallengeCardProps {
     ranking?: number;
     value: string;
     boType?: BoType;
+    rankingColor?: string;
 }
 declare const MppChallengeCard: React.FC<MppChallengeCardProps>;
 export default MppChallengeCard;
