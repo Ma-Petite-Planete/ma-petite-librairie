@@ -2320,11 +2320,14 @@ const MppTextAreaFixHeight = ({ placeholder, value = '', onChange, readOnly = fa
             React__default.createElement("textarea", { id: finalId, ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area_fix_height ${readOnly ? 'read_only_fix_height' : ''}`, readOnly: readOnly }))));
 };
 
-const MppChallengeCard = ({ title, subtitle, ranking, value, boType = BoType.scoBO }) => {
-    const titleIsEmpty = title.replace(/[^a-zA-Z0-9]/g, "") === "";
+const MppChallengeCard = ({ title, subtitle, ranking, value, boType = BoType.scoBO, tileRankingColorBackground, tileRankingColorText, }) => {
+    const titleIsEmpty = title.replace(/[^a-zA-Z0-9]/g, '') === '';
     return (React__default.createElement("div", { className: `challenge_card__container ${boType === BoType.gpBo ? 'padding_ecu' : ''} ${title ? '' : 'loading'}` },
         React__default.createElement("div", { className: "challenge_card__ranking_title" },
-            ranking && (React__default.createElement("div", { className: "challenge_card__ranking text_body_sb" }, ranking)),
+            ranking && (React__default.createElement("div", { className: "challenge_card__ranking text_body_sb", style: {
+                    backgroundColor: `${tileRankingColorBackground !== null && tileRankingColorBackground !== void 0 ? tileRankingColorBackground : GpColors.teal}`,
+                    color: `${tileRankingColorText !== null && tileRankingColorText !== void 0 ? tileRankingColorText : GpColors.darkBlue}`,
+                } }, ranking)),
             React__default.createElement("div", { className: `challenge_card__content` }, !titleIsEmpty ? (React__default.createElement(React__default.Fragment, null,
                 React__default.createElement("p", { className: `challenge_card__title  ${boType === BoType.gpBo ? 'text_body_sb' : 'text_small_b'}` }, title),
                 subtitle && (React__default.createElement("p", { className: "challenge_card__subtitle text_small" }, subtitle)))) : (React__default.createElement(React__default.Fragment, null,
