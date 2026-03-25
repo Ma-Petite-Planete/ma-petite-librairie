@@ -24,6 +24,7 @@ interface MppInputTextProps {
   canClearField?: boolean;
   prefixIcon?: React.FC<React.SVGProps<SVGSVGElement>> | string;
   id?: string;
+  inputName?: string;
 }
 
 /**
@@ -47,6 +48,7 @@ interface MppInputTextProps {
  * @param {string} [autoComplete] - Attribut autoComplete du champ.
  * @param {boolean} [canClearField] - Affiche une icône pour vider le champ si vrai.
  * @param {React.FC<React.SVGProps<SVGSVGElement>>} [prefixIcon] - Icône préfixe à afficher dans le champ.
+ * @param {string} inputName - name du champs.
  *
  * @example
  * ```tsx
@@ -79,6 +81,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
   canClearField = false,
   prefixIcon: PrefixIcon,
   id,
+  inputName,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isFirstEntry, setIsFirstEntry] = useState(onKeyDown ? false : true);
@@ -133,6 +136,7 @@ const MppInput: React.FC<MppInputTextProps> = ({
           readOnly={readOnly}
           onKeyDown={onKeyDown}
           autoComplete={autoComplete}
+          name={inputName}
         />
         {(isFocused || value) && Icon ? (
           <Icon

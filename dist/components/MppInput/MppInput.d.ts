@@ -21,6 +21,7 @@ interface MppInputTextProps {
     canClearField?: boolean;
     prefixIcon?: React.FC<React.SVGProps<SVGSVGElement>> | string;
     id?: string;
+    inputName?: string;
 }
 /**
  * Composant d'entrée personnalisée pour les formulaires.
@@ -43,6 +44,7 @@ interface MppInputTextProps {
  * @param {string} [autoComplete] - Attribut autoComplete du champ.
  * @param {boolean} [canClearField] - Affiche une icône pour vider le champ si vrai.
  * @param {React.FC<React.SVGProps<SVGSVGElement>>} [prefixIcon] - Icône préfixe à afficher dans le champ.
+ * @param {string} inputName - name du champs.
  *
  * @example
  * ```tsx
