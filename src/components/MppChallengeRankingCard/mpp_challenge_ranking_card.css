@@ -10,7 +10,7 @@
   width: 100%;
 }
 
-.padding_ecu{
+.padding_ecu {
   padding: 12px 20px;
 }
 
@@ -18,21 +18,20 @@
   font-style: italic;
 }
 
-.challenge_card__ranking{
+.challenge_card__ranking {
   padding: 2px 9px;
   border-radius: 7px;
-  background-color: var(--teal);
 }
 
-.challenge_card__ranking_title{
+.challenge_card__ranking_title {
   display: flex;
 }
 
-.loading .challenge_card__ranking_title{
+.loading .challenge_card__ranking_title {
   width: 100%;
 }
 
-.challenge_card__content{
+.challenge_card__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -63,4 +62,3 @@
 .loading_point {
   width: 10%;
 }
-
