@@ -1652,20 +1652,19 @@ const MppInfosPin = ({ texts, direction = Direction.bottom_left, }) => {
 };
 
 const useClickOutside = (elementRef, callback) => {
-    const handleClickOutside = (event) => {
-        if (!elementRef.current.contains(event.target) &&
-            callbackRef.current) {
-            callbackRef.current();
-        }
-    };
     const callbackRef = useRef();
     callbackRef.current = callback;
     useEffect(() => {
-        document.addEventListener('click', handleClickOutside, true);
-        return () => {
-            document.removeEventListener('click', handleClickOutside, true);
+        const handleClickOutside = (event) => {
+            var _a;
+            if (elementRef.current &&
+                !elementRef.current.contains(event.target)) {
+                (_a = callbackRef.current) === null || _a === void 0 ? void 0 : _a.call(callbackRef);
+            }
         };
-    });
+        document.addEventListener('click', handleClickOutside, true);
+        return () => document.removeEventListener('click', handleClickOutside, true);
+    }, [elementRef]);
 };
 
 /*
