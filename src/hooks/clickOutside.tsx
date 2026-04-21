@@ -4,22 +4,22 @@ const useClickOutside = (
   elementRef: RefObject<Element>,
   callback: () => void
 ) => {
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      !elementRef.current.contains(event.target as Node) &&
-      callbackRef.current
-    ) {
-      callbackRef.current();
-    }
-  };
   const callbackRef = useRef<() => void>();
   callbackRef.current = callback;
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutside, true);
 
-    return () => {
-      document.removeEventListener('click', handleClickOutside, true);
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        elementRef.current &&
+        !elementRef.current.contains(event.target as Node)
+      ) {
+        callbackRef.current?.();
+      }
     };
-  });
+
+    document.addEventListener('click', handleClickOutside, true);
+    return () =>
+      document.removeEventListener('click', handleClickOutside, true);
+  }, [elementRef]);
 };
 export default useClickOutside;
