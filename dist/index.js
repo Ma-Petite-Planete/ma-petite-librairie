@@ -710,9 +710,8 @@ function _extends$o() { return _extends$o = Object.assign ? Object.assign.bind()
 var SvgInfo = function SvgInfo(props) {
   return /*#__PURE__*/React.createElement("svg", _extends$o({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 30,
-    height: 30,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 30 30"
   }, props), _path$o || (_path$o = /*#__PURE__*/React.createElement("path", {
     stroke: "currentColor",
     strokeLinecap: "round",
