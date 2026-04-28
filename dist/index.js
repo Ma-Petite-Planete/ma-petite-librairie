@@ -710,23 +710,22 @@ function _extends$o() { return _extends$o = Object.assign ? Object.assign.bind()
 var SvgInfo = function SvgInfo(props) {
   return /*#__PURE__*/React.createElement("svg", _extends$o({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 30,
-    height: 30,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 30 30"
   }, props), _path$o || (_path$o = /*#__PURE__*/React.createElement("path", {
-    stroke: "#fff",
+    stroke: "currentColor",
     strokeLinecap: "round",
     strokeLinejoin: "round",
     strokeWidth: 1.5,
     d: "M15 26.25c6.213 0 11.25-5.037 11.25-11.25S21.213 3.75 15 3.75 3.75 8.787 3.75 15 8.787 26.25 15 26.25"
   })), _path2$7 || (_path2$7 = /*#__PURE__*/React.createElement("path", {
-    stroke: "#fff",
+    stroke: "currentColor",
     strokeLinecap: "round",
     strokeLinejoin: "round",
     strokeWidth: 1.5,
     d: "M14.063 14.063H15v6.562h.938"
   })), _path3$3 || (_path3$3 = /*#__PURE__*/React.createElement("path", {
-    fill: "#fff",
+    fill: "currentColor",
     d: "M15 11.25a1.406 1.406 0 1 0 0-2.812 1.406 1.406 0 0 0 0 2.812"
   })));
 };
