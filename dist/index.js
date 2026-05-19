@@ -920,9 +920,8 @@ function _extends$b() { return _extends$b = Object.assign ? Object.assign.bind()
 var SvgDownload = function SvgDownload(props) {
   return /*#__PURE__*/React.createElement("svg", _extends$b({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 16,
-    height: 14,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 16 14"
   }, props), _path$b || (_path$b = /*#__PURE__*/React.createElement("path", {
     fill: "#2C2C69",
     d: "M15.125 8.096a.874.874 0 0 0-.875.875v1.852a1.43 1.43 0 0 1-1.428 1.428H3.43a1.43 1.43 0 0 1-1.428-1.428V8.97a.874.874 0 1 0-1.75 0v1.852A3.18 3.18 0 0 0 3.43 14h9.392A3.18 3.18 0 0 0 16 10.823V8.97a.874.874 0 0 0-.875-.875"
