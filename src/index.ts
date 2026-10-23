@@ -15,7 +15,7 @@ export { default as MppTextArea } from './components/MppTextArea/MppTextArea';
 export { BoType } from './components/BoType';
 export { default as MppInfosPin } from './components/MppInfosPin/MppInfosPin';
 export { default as MppSkeletonLoader } from './components/MppSkeletonLoader/MppSkeletonLoader';
-export { default as MppDropDown } from './components/MppDropDown/MppDropDown'
+export { default as MppDropDown } from './components/MppDropDown/MppDropDown';
 export { default as MppCategoryMultiFilter } from './components/MppMultiDropDownFilter/MppMultiDropDownFilter';
 export { default as MppLoaderDots } from './components/MppLoaderDots/MppLoaderDots';
 export * from './components/MppLabelType/MppLabelType';
@@ -29,4 +29,5 @@ export { default as MppToggleSection } from './components/MppToggleSection/MppTo
 export { default as MppTextAreaFixHeight } from './components/MppTextAreaFixHeight/MppTextAreaFixHeight';
 export { default as MppChallengeCard } from './components/MppChallengeRankingCard/MppChallengeRankingCard';
 export { default as MppRankingCardClickable } from './components/MppRankingCardClickable/MppRankingCardClickable';
-export { default as  MppMultiDropDownSelect } from './components/MppMultiDropDownSelect/MppMultiDropDownSelect';
+export { default as MppMultiDropDownSelect } from './components/MppMultiDropDownSelect/MppMultiDropDownSelect';
+export type { MppTypography } from './utils/MppTypography';

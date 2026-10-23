@@ -1606,7 +1606,10 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
  * @param {BoType.gpBo} [props.boType] - Permet d'afficher une ombre spécifique pour le type de BO ECU (optionnel).
  * @param {string} [props.statDetails] - Détails complémentaires affichés après la statistique (optionnel).
  * @param {boolean} [props.useSkeletonLoader=true] - Active ou non l'affichage du skeleton loader lors du chargement (optionnel, true par défaut).
- * @param {number} [props.width] -
+ * @param {number | string} [props.width="200px"] - Largeur de la carte : nombre en px ou valeur CSS (ex. "100%").
+ * @param {MppTypography} [props.titleTypography="text_small"] - Classe de typographie du titre.
+ * @param {MppTypography} [props.statTypography="title_h3"] - Classe de typographie de la statistique.
+ * @param {string} [props.titleColor] - Couleur du titre (ex. GpColors.darkBlue). Gris par défaut.
  *
  * @example
  * ```tsx
@@ -1618,21 +1621,20 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
  * />
  * ```
  */
-const StatCard = ({ IconComponent, title, stat, boType, statDetails, useSkeletonLoader = true, width = "200px" }) => {
-    return (React__default.createElement("div", { className: `stat_card__container${boType ? ' stat_card__container--shadow' : ''}`, style: {
-            width
-        } },
-        stat !== null && stat !== undefined || !useSkeletonLoader ? (React__default.createElement("div", { className: "stat_card__icon" },
+const StatCard = ({ IconComponent, title, stat, boType, statDetails, useSkeletonLoader = true, width = '200px', titleTypography = 'text_small', statTypography = 'title_h3', titleColor, }) => {
+    const hasStat = stat !== null && stat !== undefined;
+    const titleElement = (React__default.createElement("p", { className: `stat_card__title ${titleTypography}`, style: { color: titleColor } }, title));
+    return (React__default.createElement("div", { className: `stat_card__container${boType ? ' stat_card__container--shadow' : ''}`, style: { width } },
+        hasStat || !useSkeletonLoader ? (React__default.createElement("div", { className: "stat_card__icon" },
             React__default.createElement(IconComponent, null))) : (React__default.createElement("div", { className: "loader_background" },
             React__default.createElement(MppSkeletonLoader, { circular: true }))),
-        React__default.createElement("div", { className: "stat_card__content" }, stat !== null && stat !== undefined ? (React__default.createElement(React__default.Fragment, null,
-            React__default.createElement("p", { className: "stat_card__title text_small" }, title),
-            React__default.createElement("p", { className: "stat_card__number title_h3" },
+        React__default.createElement("div", { className: "stat_card__content" }, hasStat ? (React__default.createElement(React__default.Fragment, null,
+            titleElement,
+            React__default.createElement("p", { className: `stat_card__number ${statTypography}` },
                 stat,
-                " ", statDetails !== null && statDetails !== void 0 ? statDetails : ''))) : useSkeletonLoader ?
-            (React__default.createElement(MppSkeletonLoader, { count: 2 })) : React__default.createElement(React__default.Fragment, null,
-            React__default.createElement("p", { className: "stat_card__title text_small" }, title),
-            React__default.createElement("p", { className: "stat_card__number title_h3" }, "--")))));
+                " ", statDetails !== null && statDetails !== void 0 ? statDetails : ''))) : useSkeletonLoader ? (React__default.createElement(MppSkeletonLoader, { count: 2 })) : (React__default.createElement(React__default.Fragment, null,
+            titleElement,
+            React__default.createElement("p", { className: `stat_card__number ${statTypography}` }, "--"))))));
 };
 
 const MppTextArea = ({ placeholder, value = '', onChange, readOnly = false, style, id, }) => {
