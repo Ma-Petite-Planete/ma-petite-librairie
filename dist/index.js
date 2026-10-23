@@ -1678,7 +1678,7 @@ var Direction;
     Direction[Direction["bottom_left"] = 2] = "bottom_left";
     Direction[Direction["bottom_right"] = 3] = "bottom_right";
 })(Direction || (Direction = {}));
-const MppInfosPin = ({ texts, direction = Direction.bottom_left, }) => {
+const MppInfosPin = ({ texts, direction = Direction.bottom_left, theme = 'light', }) => {
     let directionStyleValues;
     switch (direction) {
         case Direction.bottom_right:
@@ -1707,7 +1707,7 @@ const MppInfosPin = ({ texts, direction = Direction.bottom_left, }) => {
     const isMobile = () => window.innerWidth < 896;
     return (React__default.createElement("div", { className: "infos_pin_main" },
         React__default.createElement(MppIcons.infos, { className: "infos_pin_main_icon", onMouseEnter: () => (isMobile() ? null : setHover(true)), onMouseLeave: () => (isMobile() ? null : setHover(false)), onClick: () => (isMobile() ? setHover(!hover) : null) }),
-        React__default.createElement("div", { onClick: () => (isMobile() ? setHover(false) : null), className: ` ${hover ? 'infos_content_visible' : 'infos_content_invisible'} infos_pin_container`, style: directionStyleValues }, texts.map((text, index) => (React__default.createElement("p", { key: index, className: "infos_content text_small" },
+        React__default.createElement("div", { onClick: () => (isMobile() ? setHover(false) : null), className: `${hover ? 'infos_content_visible' : 'infos_content_invisible'} infos_pin_container infos_pin_container--${theme}`, style: directionStyleValues }, texts.map((text, index) => (React__default.createElement("p", { key: index, className: "infos_content text_small" },
             React__default.createElement("span", { className: "infos_title text_small_b" },
                 text.title,
                 " : "),

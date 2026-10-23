@@ -13,6 +13,7 @@ export declare enum Direction {
 interface MppInfosPinProps {
     texts: Array<TextContent>;
     direction?: Direction;
+    theme?: 'light' | 'dark';
 }
 declare const MppInfosPin: React.FC<MppInfosPinProps>;
 export default MppInfosPin;
