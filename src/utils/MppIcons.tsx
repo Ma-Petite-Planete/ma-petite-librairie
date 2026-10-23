@@ -46,6 +46,9 @@ import { ReactComponent as failedStatus } from '../ressources/icons/failed_statu
 import { ReactComponent as profile } from '../ressources/icons/profile.svg';
 import { ReactComponent as arrowDown } from '../ressources/icons/arrow_down.svg';
 import { ReactComponent as upload } from '../ressources/icons/upload.svg';
+import { ReactComponent as mail } from '../ressources/icons/mail.svg';
+import { ReactComponent as warning } from '../ressources/icons/warning.svg';
+import { ReactComponent as star } from '../ressources/icons/star.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -96,4 +99,7 @@ export const MppIcons = {
   profile: profile,
   arrowDown: arrowDown,
   upload: upload,
+  mail: mail,
+  warning: warning,
+  star: star,
 } as const;
