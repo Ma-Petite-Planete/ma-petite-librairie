@@ -57,4 +57,5 @@ export const GpColors = {
   greyDivider: 'var(--grey_divider)',
   princelyBlue: 'var(--princelyBlue)',
   purple: 'var(--purple)',
+  yellow: 'var(--yellow)',
 } as const;
