@@ -4,6 +4,7 @@ import { ButtonType } from './ButtonType';
 interface MppButtonProps {
     title: string;
     buttonType: ButtonType;
+    icon?: React.FC<React.SVGProps<SVGSVGElement>>;
     type?: 'button' | 'submit' | 'reset';
     onPress?: (() => void) | null;
     style?: React.CSSProperties;
@@ -19,6 +20,7 @@ interface MppButtonProps {
  * @property {React.CSSProperties} [style] - Style personnalisé.
  * @property {React.CSSProperties} [hoverStyle] - Style au survol.
  * @property {React.CSSProperties} [activeStyle] - Style lors du clic.
+ * @property {React.FC<React.SVGProps<SVGSVGElement>>} [icon] - Icône affichée avant le titre (ex. MppIcons.download).
  *
  * @example
  *

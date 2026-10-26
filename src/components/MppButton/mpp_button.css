@@ -56,3 +56,16 @@
 .secondary_red_design:hover {
   background-color: var(--error_red_transparent);
 }
+
+.mpp_button--with_icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mpp_button_icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}

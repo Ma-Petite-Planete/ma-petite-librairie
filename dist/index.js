@@ -19,6 +19,7 @@ var ButtonType;
  * @property {React.CSSProperties} [style] - Style personnalisé.
  * @property {React.CSSProperties} [hoverStyle] - Style au survol.
  * @property {React.CSSProperties} [activeStyle] - Style lors du clic.
+ * @property {React.FC<React.SVGProps<SVGSVGElement>>} [icon] - Icône affichée avant le titre (ex. MppIcons.download).
  *
  * @example
  *
@@ -28,7 +29,7 @@ var ButtonType;
  *   buttonType={ButtonType.primaryLarge}
  * />
  */
-const MppButton = ({ title, onPress, buttonType, type = 'button', style = {}, hoverStyle = {}, activeStyle = {}, isSubmitDisabled = true, }) => {
+const MppButton = ({ title, onPress, buttonType, type = 'button', icon: Icon, style = {}, hoverStyle = {}, activeStyle = {}, isSubmitDisabled = true, }) => {
     const [hover, setHover] = React__default.useState(false);
     const [active, setActive] = React__default.useState(false);
     const isDisabled = type === 'submit' ? isSubmitDisabled : onPress === null;
@@ -56,7 +57,9 @@ const MppButton = ({ title, onPress, buttonType, type = 'button', style = {}, ho
                 'secondary_type button_medium text_body secondary_red_design';
             break;
     }
-    return (React__default.createElement("button", { type: type, className: `mpp_button ${buttonStyle}`, style: combinedStyle, onClick: !isDisabled ? onPress : undefined, onMouseEnter: () => !isDisabled && setHover(true), onMouseLeave: () => !isDisabled && setHover(false), onMouseDown: () => !isDisabled && setActive(true), onMouseUp: () => !isDisabled && setActive(false), disabled: isDisabled }, title));
+    return (React__default.createElement("button", { type: type, className: `mpp_button ${buttonStyle} ${Icon ? 'mpp_button--with_icon' : ''}`, style: combinedStyle, onClick: isDisabled ? undefined : (onPress !== null && onPress !== void 0 ? onPress : undefined), onMouseEnter: () => !isDisabled && setHover(true), onMouseLeave: () => !isDisabled && setHover(false), onMouseDown: () => !isDisabled && setActive(true), onMouseUp: () => !isDisabled && setActive(false), disabled: isDisabled },
+        Icon && React__default.createElement(Icon, { className: "mpp_button_icon", "aria-hidden": "true" }),
+        title));
 };
 
 /**
