@@ -49,6 +49,7 @@ import { ReactComponent as upload } from '../ressources/icons/upload.svg';
 import { ReactComponent as mail } from '../ressources/icons/mail.svg';
 import { ReactComponent as warning } from '../ressources/icons/warning.svg';
 import { ReactComponent as star } from '../ressources/icons/star.svg';
+import { ReactComponent as file } from '../ressources/icons/file.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -102,4 +103,5 @@ export const MppIcons = {
   mail: mail,
   warning: warning,
   star: star,
+  file: file,
 } as const;
