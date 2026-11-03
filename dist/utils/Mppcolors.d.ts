@@ -57,4 +57,5 @@ export declare const GpColors: {
     readonly princelyBlue: "var(--princelyBlue)";
     readonly purple: "var(--purple)";
     readonly yellow: "var(--yellow)";
+    readonly blue_background: "var(--blue_background)";
 };
