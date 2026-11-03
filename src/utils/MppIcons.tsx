@@ -50,6 +50,7 @@ import { ReactComponent as mail } from '../ressources/icons/mail.svg';
 import { ReactComponent as warning } from '../ressources/icons/warning.svg';
 import { ReactComponent as star } from '../ressources/icons/star.svg';
 import { ReactComponent as file } from '../ressources/icons/file.svg';
+import { ReactComponent as tag } from '../ressources/icons/tag.svg';
 
 export const MppIcons = {
   pen: pen,
@@ -104,4 +105,5 @@ export const MppIcons = {
   warning: warning,
   star: star,
   file: file,
+  tag: tag,
 } as const;

@@ -52,4 +52,5 @@ export declare const MppIcons: {
     readonly warning: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly star: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly file: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly tag: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
 };
