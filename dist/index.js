@@ -191,7 +191,8 @@ var SvgPen = function SvgPen(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 18,
     height: 18,
-    fill: "currentColor"
+    fill: "currentColor",
+    viewBox: "0 0 18 18"
   }, props), _path$L || (_path$L = /*#__PURE__*/React.createElement("path", {
     d: "M-.003 14.251v3.75h3.75l11.06-11.06-3.75-3.75zm17.71-10.21a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83 3.75 3.75z"
   })));
@@ -204,7 +205,8 @@ var SvgLogo = function SvgLogo(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 30,
     height: 30,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 30 30"
   }, props), _path$K || (_path$K = /*#__PURE__*/React.createElement("path", {
     fill: "#2C2C69",
     d: "M15 3a12 12 0 1 0 0 24 12 12 0 0 0 0-24m0 21.884A9.883 9.883 0 1 1 24.884 15 9.894 9.894 0 0 1 15 24.884"
@@ -221,7 +223,8 @@ var SvgGraph = function SvgGraph(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 20,
     height: 21,
-    fill: "currentColor"
+    fill: "currentColor",
+    viewBox: "0 0 20 21"
   }, props), _path$J || (_path$J = /*#__PURE__*/React.createElement("path", {
     d: "M2.292 18.273a.607.607 0 0 1-.625-.625v-8.75a.607.607 0 0 1 .625-.625h2.916a.607.607 0 0 1 .625.625v8.75a.607.607 0 0 1-.625.625zm6.25 0a.607.607 0 0 1-.625-.625V3.898a.607.607 0 0 1 .625-.625h2.916a.607.607 0 0 1 .625.625v13.75a.607.607 0 0 1-.625.625zm6.25 0a.607.607 0 0 1-.625-.625v-7.083a.607.607 0 0 1 .625-.625h2.916a.607.607 0 0 1 .625.625v7.083a.607.607 0 0 1-.625.625z"
   })));
@@ -234,7 +237,8 @@ var SvgHelp = function SvgHelp(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 20,
     height: 21,
-    fill: "currentColor"
+    fill: "currentColor",
+    viewBox: "0 0 20 21"
   }, props), _path$I || (_path$I = /*#__PURE__*/React.createElement("path", {
     d: "M10.083 15.628q.334 0 .563-.23a.76.76 0 0 0 .23-.562.77.77 0 0 0-.23-.562.77.77 0 0 0-.563-.23.77.77 0 0 0-.562.23.77.77 0 0 0-.23.562q0 .333.23.563.23.228.562.229m-.02-8.604q.708 0 1.145.385t.438.99q0 .416-.25.823t-.813.885q-.54.48-.864 1.01-.323.532-.323.97 0 .228.177.364a.65.65 0 0 0 .406.135.56.56 0 0 0 .417-.167.75.75 0 0 0 .208-.416q.063-.417.282-.74t.677-.698q.624-.52.906-1.041.28-.521.281-1.167 0-1.104-.719-1.77-.718-.668-1.906-.668-.792 0-1.458.313a2.8 2.8 0 0 0-1.104.917.64.64 0 0 0-.136.468q.031.24.198.365a.57.57 0 0 0 .49.104.73.73 0 0 0 .427-.292q.271-.375.656-.572.385-.198.865-.198M10 19.107a8.4 8.4 0 0 1-3.27-.635 8.1 8.1 0 0 1-2.647-1.76 8.3 8.3 0 0 1-1.77-2.647q-.646-1.52-.646-3.291a8.3 8.3 0 0 1 .646-3.271 8.3 8.3 0 0 1 1.77-2.646 8.3 8.3 0 0 1 2.646-1.77A8.3 8.3 0 0 1 10 2.44q1.73 0 3.25.646a8.3 8.3 0 0 1 2.646 1.771 8.4 8.4 0 0 1 1.781 2.646 8.2 8.2 0 0 1 .656 3.27q0 1.771-.656 3.292a8.4 8.4 0 0 1-1.781 2.646 8.1 8.1 0 0 1-2.646 1.76 8.35 8.35 0 0 1-3.25.636"
   })));
@@ -247,7 +251,8 @@ var SvgMap = function SvgMap(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 18,
     height: 19,
-    fill: "currentColor"
+    fill: "currentColor",
+    viewBox: "0 0 18 19"
   }, props), _path$H || (_path$H = /*#__PURE__*/React.createElement("path", {
     d: "m17.5.773-.16.03L12 2.873l-6-2.1-5.64 1.9c-.21.07-.36.25-.36.48v15.12c0 .28.22.5.5.5l.16-.03L6 16.673l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V1.273c0-.28-.22-.5-.5-.5M7 3.243l4 1.4v11.66l-4-1.4zm-5 .99 3-1.01v11.7l-3 1.16zm14 11.08-3 1.01V4.633l3-1.16z"
   })));
@@ -260,13 +265,14 @@ var SvgRessources = function SvgRessources(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 20,
     height: 21,
-    fill: "currentColor"
+    fill: "currentColor",
+    viewBox: "0 0 20 21"
   }, props), _g$6 || (_g$6 = /*#__PURE__*/React.createElement("g", {
-    clipPath: "url(#ressources_svg__a)"
+    clipPath: "url(#a)"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M15.833 16.607H4.167V4.94H10V3.273H4.167c-.925 0-1.667.75-1.667 1.667v11.667c0 .916.742 1.666 1.667 1.666h11.666c.917 0 1.667-.75 1.667-1.666v-5.834h-1.667zM11.667 3.273V4.94h2.991l-8.191 8.192 1.175 1.175 8.191-8.192v2.992H17.5V3.273z"
   }))), _defs$5 || (_defs$5 = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
-    id: "ressources_svg__a"
+    id: "a"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M0 .773h20v20H0z"
   })))));
@@ -279,7 +285,8 @@ var SvgTrophee = function SvgTrophee(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 20,
     height: 21,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 20 21"
   }, props), _path$G || (_path$G = /*#__PURE__*/React.createElement("path", {
     stroke: "currentColor",
     strokeLinecap: "round",
@@ -302,7 +309,8 @@ var SvgCoupeOr = function SvgCoupeOr(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 62,
     height: 60,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 62 60"
   }, props), _path$F || (_path$F = /*#__PURE__*/React.createElement("path", {
     fill: "#FFD121",
     d: "M32.752 45.887h-3.504v12.348h3.504z"
@@ -346,9 +354,10 @@ var SvgCoupeArgent = function SvgCoupeArgent(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 61,
     height: 60,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 61 60"
   }, props), _g$5 || (_g$5 = /*#__PURE__*/React.createElement("g", {
-    clipPath: "url(#coupe_argent_svg__a)"
+    clipPath: "url(#a)"
   }, /*#__PURE__*/React.createElement("path", {
     fill: "#FFEF9D",
     stroke: "#FFD121",
@@ -402,7 +411,7 @@ var SvgCoupeArgent = function SvgCoupeArgent(props) {
     fill: "#F4F4F4",
     d: "M36.034 18.666a1 1 0 1 0 0-2 1 1 0 0 0 0 2"
   }))), _defs$4 || (_defs$4 = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
-    id: "coupe_argent_svg__a"
+    id: "a"
   }, /*#__PURE__*/React.createElement("path", {
     fill: "#fff",
     d: "M0 0h61v60H0z"
@@ -416,9 +425,10 @@ var SvgCoupeBronze = function SvgCoupeBronze(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 61,
     height: 60,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 61 60"
   }, props), _g$4 || (_g$4 = /*#__PURE__*/React.createElement("g", {
-    clipPath: "url(#coupe_bronze_svg__a)"
+    clipPath: "url(#a)"
   }, /*#__PURE__*/React.createElement("path", {
     fill: "#FFEF9D",
     stroke: "#FFD121",
@@ -472,7 +482,7 @@ var SvgCoupeBronze = function SvgCoupeBronze(props) {
     fill: "#F3DDBD",
     d: "M36.034 18.666a1 1 0 1 0 0-2 1 1 0 0 0 0 2"
   }))), _defs$3 || (_defs$3 = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
-    id: "coupe_bronze_svg__a"
+    id: "a"
   }, /*#__PURE__*/React.createElement("path", {
     fill: "#fff",
     d: "M.5 0h60v60H.5z"
@@ -487,9 +497,10 @@ var SvgHistory = function SvgHistory(props) {
     width: 24,
     height: 24,
     fill: "currentColor",
-    stroke: "current"
+    stroke: "current",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("mask", {
-    id: "history_svg__a",
+    id: "a",
     width: 24,
     height: 24,
     x: 0,
@@ -501,7 +512,7 @@ var SvgHistory = function SvgHistory(props) {
   }, _path$E || (_path$E = /*#__PURE__*/React.createElement("path", {
     d: "M0 0h24v24H0z"
   }))), _g$3 || (_g$3 = /*#__PURE__*/React.createElement("g", {
-    mask: "url(#history_svg__a)"
+    mask: "url(#a)"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M12 21q-3.15 0-5.575-1.913Q4 17.176 3.275 14.2a.74.74 0 0 1 .15-.687.97.97 0 0 1 .675-.363q.4-.05.725.15t.45.6q.6 2.25 2.475 3.675T12 19q2.925 0 4.962-2.038T19 12t-2.038-4.962T12 5a6.75 6.75 0 0 0-3.225.8A7.4 7.4 0 0 0 6.25 8H8q.424 0 .713.287Q9 8.576 9 9q0 .424-.287.713A.97.97 0 0 1 8 10H4a.97.97 0 0 1-.712-.287A.97.97 0 0 1 3 9V5q0-.424.288-.713A.97.97 0 0 1 4 4q.424 0 .713.287Q5 4.576 5 5v1.35a8.7 8.7 0 0 1 3.113-2.475A8.9 8.9 0 0 1 12 3q1.874 0 3.512.712a9.2 9.2 0 0 1 2.85 1.926 9.2 9.2 0 0 1 1.926 2.85A8.7 8.7 0 0 1 21 12q0 1.874-.712 3.512a9.2 9.2 0 0 1-1.925 2.85 9.2 9.2 0 0 1-2.85 1.926A8.7 8.7 0 0 1 12 21Zm1-9.4 2.5 2.5a.95.95 0 0 1 .275.7.95.95 0 0 1-.275.7.95.95 0 0 1-.7.275.95.95 0 0 1-.7-.275l-2.8-2.8a1 1 0 0 1-.225-.337 1 1 0 0 1-.075-.388V8q0-.424.287-.713A.97.97 0 0 1 12 7q.424 0 .713.287Q13 7.576 13 8z"
   }))));
@@ -514,7 +525,8 @@ var SvgLogout = function SvgLogout(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 18,
     height: 18,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 18 18"
   }, props), _path$D || (_path$D = /*#__PURE__*/React.createElement("path", {
     stroke: "currentColor",
     strokeLinecap: "round",
@@ -531,7 +543,8 @@ var SvgBurgerMenu = function SvgBurgerMenu(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 28,
     height: 23,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 28 23"
   }, props), _path$C || (_path$C = /*#__PURE__*/React.createElement("path", {
     stroke: "currentColor",
     strokeLinecap: "round",
@@ -547,16 +560,17 @@ var SvgTraining = function SvgTraining(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 36,
     height: 36,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 36 36"
   }, props), _g$2 || (_g$2 = /*#__PURE__*/React.createElement("g", {
-    clipPath: "url(#training_svg__a)"
+    clipPath: "url(#a)"
   }, /*#__PURE__*/React.createElement("path", {
     fill: "currentColor",
     fillRule: "evenodd",
     d: "M4.875 4.875h22.604v3.646h-1.458V6.333H6.333v16.771h15.595v1.459H4.875zm21.875 9.48a2.188 2.188 0 1 0 0-4.376 2.188 2.188 0 0 0 0 4.375m1.48 1.465c.948 0 1.698.426 2.188 1.083.46.617.653 1.379.697 2.082a5.5 5.5 0 0 1-.29 2.13c-.218.634-.588 1.29-1.158 1.74v7.176a1.093 1.093 0 0 1-2.173.18l-.94-5.648h-.218l-1.063 5.67a1.094 1.094 0 0 1-2.169-.202V19.628q-.22.334-.431.67l-.057.09-.015.023-.004.007a1.09 1.09 0 0 1-.929.515h-3.645a1.094 1.094 0 1 1 0-2.187h3.045c.177-.274.41-.63.656-.987.255-.373.537-.767.787-1.077.122-.15.259-.308.396-.437.067-.064.16-.146.274-.219.2-.132.435-.204.675-.206z",
     clipRule: "evenodd"
   }))), _defs$2 || (_defs$2 = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
-    id: "training_svg__a"
+    id: "a"
   }, /*#__PURE__*/React.createElement("path", {
     fill: "#fff",
     d: "M.5.5h35v35H.5z"
@@ -570,7 +584,8 @@ var SvgUsers = function SvgUsers(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 32,
     height: 32,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 32 32"
   }, props), _path$B || (_path$B = /*#__PURE__*/React.createElement("path", {
     stroke: "currentColor",
     strokeMiterlimit: 10,
@@ -598,7 +613,8 @@ var SvgTarget = function SvgTarget(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 36,
     height: 36,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 36 36"
   }, props), _path$A || (_path$A = /*#__PURE__*/React.createElement("path", {
     stroke: "currentColor",
     strokeLinecap: "round",
@@ -621,13 +637,14 @@ var SvgChart = function SvgChart(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 34,
     height: 34,
-    fill: "currentColor"
+    fill: "currentColor",
+    viewBox: "0 0 34 34"
   }, props), _g$1 || (_g$1 = /*#__PURE__*/React.createElement("g", {
-    clipPath: "url(#chart_svg__a)"
+    clipPath: "url(#a)"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M9.284 13.313h.274c1.053 0 1.915.862 1.915 1.916v9.579a1.92 1.92 0 0 1-1.915 1.916h-.274a1.92 1.92 0 0 1-1.916-1.916v-9.579c0-1.054.862-1.916 1.916-1.916m7.663-5.747c1.054 0 1.916.862 1.916 1.916v15.326a1.92 1.92 0 0 1-1.916 1.916 1.92 1.92 0 0 1-1.916-1.916V9.482c0-1.054.862-1.916 1.916-1.916m7.663 10.947c1.054 0 1.916.862 1.916 1.916v4.379a1.92 1.92 0 0 1-1.916 1.916 1.92 1.92 0 0 1-1.916-1.916v-4.38c0-1.053.862-1.915 1.916-1.915"
   }))), _defs$1 || (_defs$1 = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
-    id: "chart_svg__a"
+    id: "a"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M.526.724h32.842v32.842H.526z"
   })))));
@@ -640,7 +657,8 @@ var SvgSchool = function SvgSchool(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 32,
     height: 34,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 32 34"
   }, props), _path$z || (_path$z = /*#__PURE__*/React.createElement("path", {
     fill: "#F9C7E9",
     d: "M16.005 19.892a4.04 4.04 0 0 0 4.032-4.033 4.04 4.04 0 0 0-4.032-4.033 4.04 4.04 0 0 0-4.033 4.033 4.037 4.037 0 0 0 4.033 4.033m0-5.699c.918 0 1.665.747 1.665 1.666s-.747 1.666-1.666 1.666a1.67 1.67 0 0 1-1.665-1.666c0-.919.747-1.666 1.665-1.666m15.99 4.473a1.2 1.2 0 0 0-.073-.364c-.01-.027-.016-.054-.028-.079l-.015-.044-2.28-4.558c-.201-.401-.61-.654-1.06-.654h-3.38a1.18 1.18 0 0 0-.49-.919l-7.484-5.345v-.487H21.7c.654 0 1.184-.53 1.184-1.183v-3.42C22.884.96 22.354.43 21.7.43h-5.698c-.654 0-1.184.53-1.184 1.184v5.09l-7.483 5.344a1.18 1.18 0 0 0-.491.919h-3.38c-.449 0-.859.253-1.06.654l-2.28 4.558c-.007.015-.009.03-.015.044q-.015.039-.026.079-.068.177-.074.364c0 .014-.009.028-.009.043v13.677c0 .654.53 1.183 1.184 1.183h29.633c.653 0 1.183-.53 1.183-1.183V18.709c0-.015-.007-.029-.009-.043zm-3.09-1.141h-3.738v-2.191h2.643l1.097 2.19zM20.518 3.848h-3.332V2.796h3.332zM4.198 15.334h2.644v2.19H3.104l1.096-2.19zm-1.827 4.558h4.471v11.31h-4.47zm6.838-1.184V13.62l6.795-4.854L22.8 13.62v17.582h-2.192v-7.934c0-.654-.53-1.184-1.184-1.184h-6.838c-.654 0-1.183.53-1.183 1.184V31.2H9.209V18.707zm4.56 12.494v-6.75h4.471v6.75zm15.868 0h-4.47v-11.31h4.47zM5.79 22.127v3.42a1.183 1.183 0 1 1-2.367 0v-3.42a1.183 1.183 0 1 1 2.367 0m20.428 3.42v-3.42a1.183 1.183 0 1 1 2.367 0v3.42a1.183 1.183 0 1 1-2.367 0"
@@ -654,7 +672,8 @@ var SvgCloud = function SvgCloud(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 40,
     height: 20,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 40 20"
   }, props), _path$y || (_path$y = /*#__PURE__*/React.createElement("path", {
     fill: "currentColor",
     d: "M32.231 20H6.204C2.784 20 0 17.263 0 13.9s2.784-6.099 6.204-6.099a6.2 6.2 0 0 1 2.404.478C9.443 3.56 13.643 0 18.602 0c4.085 0 7.71 2.377 9.31 6.007a7.83 7.83 0 0 1 4.318-1.298c4.285 0 7.77 3.43 7.77 7.646C40.002 16.57 36.515 20 32.231 20M6.204 9.172c-2.625 0-4.762 2.121-4.762 4.728s2.137 4.728 4.762 4.728H32.23c3.49 0 6.33-2.816 6.33-6.274 0-3.46-2.839-6.274-6.33-6.274-1.53 0-3.009.553-4.166 1.56a.75.75 0 0 1-.674.157.71.71 0 0 1-.5-.46C25.72 3.768 22.39 1.37 18.601 1.37c-4.562 0-8.375 3.534-8.682 8.043a.69.69 0 0 1-.402.572.75.75 0 0 1-.722-.05 4.76 4.76 0 0 0-2.592-.764"
@@ -668,7 +687,8 @@ var SvgDrops = function SvgDrops(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 26,
     height: 34,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 26 34"
   }, props), _path$x || (_path$x = /*#__PURE__*/React.createElement("path", {
     fill: "currentColor",
     fillRule: "evenodd",
@@ -705,7 +725,8 @@ var SvgOpenBook = function SvgOpenBook(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 30,
     height: 24,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 30 24"
   }, props), _path$v || (_path$v = /*#__PURE__*/React.createElement("path", {
     fill: "currentColor",
     d: "M18.08 6.853a.4.4 0 0 1-.028-.312.41.41 0 0 1 .205-.24 17.7 17.7 0 0 1 4.59-1.606.42.42 0 0 1 .317.059.406.406 0 0 1 .117.57.42.42 0 0 1-.269.173 16.8 16.8 0 0 0-4.37 1.53.42.42 0 0 1-.562-.174M6.986 5.497c1.522.308 2.992.823 4.37 1.53a.42.42 0 0 0 .562-.174.405.405 0 0 0-.177-.55A17.6 17.6 0 0 0 7.15 4.695a.42.42 0 0 0-.317.058.406.406 0 0 0 .152.743m0 4.312c1.522.307 2.992.821 4.37 1.529a.42.42 0 0 0 .562-.174.407.407 0 0 0-.177-.552A17.7 17.7 0 0 0 7.15 9.006a.417.417 0 0 0-.491.32.41.41 0 0 0 .326.482zm11.463 1.576a.4.4 0 0 0 .191-.046 16.8 16.8 0 0 1 4.372-1.53.41.41 0 0 0 .325-.481.417.417 0 0 0-.49-.321 17.7 17.7 0 0 0-4.59 1.606.408.408 0 0 0 .192.774zM6.984 14.122c1.524.306 2.994.82 4.371 1.53q.09.046.192.046a.408.408 0 0 0 .192-.774 17.7 17.7 0 0 0-4.59-1.606.409.409 0 1 0-.166.802zm15.864-.803a17.7 17.7 0 0 0-4.59 1.606.41.41 0 0 0-.215.462.414.414 0 0 0 .407.312.4.4 0 0 0 .192-.046 16.8 16.8 0 0 1 4.37-1.53.41.41 0 0 0 .327-.483.416.416 0 0 0-.491-.32m7.134 10.39-.01.028-.003.007v.002l-.025.05-.006.01a.3.3 0 0 1-.032.043l-.003.003v.001l-.037.036-.01.009-.001.001-.041.032h-.005a.3.3 0 0 1-.045.026l-.009.004a.3.3 0 0 1-.051.019H29.7q-.025.008-.05.011l-.014.003v-.001a.3.3 0 0 1-.05.004h-.005l-.042-.001h-.009a.1.1 0 0 1-.03-.005l-.023-.005-.017-.005-.028-.01-.009-.003-.006-.003c-3.193-1.26-8.047-1.975-14.42-2.117-6.372.142-11.225.857-14.422 2.12l-.005.003-.01.003q-.012.005-.027.009v.001l-.018.004-.02.006L.465 24H.456L.416 24H.41l-.05-.003-.015-.003a.3.3 0 0 1-.05-.011H.295a.3.3 0 0 1-.052-.019l-.01-.004q-.023-.011-.044-.025l-.004-.003-.043-.031-.011-.01H.13a.3.3 0 0 1-.035-.038L.09 23.85l-.03-.043-.006-.01a.3.3 0 0 1-.027-.05l-.002-.008q-.007-.015-.01-.029l-.005-.014-.006-.024.002-.002-.003-.021L0 23.63c-.002-.006 0-.02 0-.028V3.688a.4.4 0 0 1 .12-.29.42.42 0 0 1 .293-.121c.496 0 .999.022 1.5.057V2.23c0-.108.044-.212.123-.29a.42.42 0 0 1 .294-.119c.42 0 .841.018 1.263.046V.41A.417.417 0 0 1 4.01 0C7.86.01 11.65 1.393 15 4.006 18.348 1.392 22.139.01 25.985 0c.23 0 .417.183.417.41v1.46c.42-.03.844-.045 1.261-.047v-.001a.42.42 0 0 1 .295.12c.079.077.123.18.123.29v1.104a21 21 0 0 1 1.5-.058.42.42 0 0 1 .296.118c.08.078.123.181.123.29V23.63c0 .01 0 .011-.003.017v.002l-.003.02q0 .013-.006.024-.002.011-.006.016m-1.9-19.553v16.23a.4.4 0 0 1-.161.323.42.42 0 0 1-.359.073 19.07 19.07 0 0 0-10.471.318c5.122.228 9.176.865 12.075 1.9V4.1q-.542.013-1.084.055m-1.68-1.468v14.629a.41.41 0 0 1-.415.41 16.43 16.43 0 0 0-8.283 2.34 19.9 19.9 0 0 1 9.545-.202V2.646q-.423.011-.847.042M25.57.826c-3.553.105-7.051 1.449-10.154 3.902l-.001 15.869c3.123-2.317 6.608-3.584 10.153-3.681zm-21.14 0-.002 16.088c3.545.1 7.03 1.366 10.153 3.681l.002-15.868C11.478 2.275 7.98.93 4.428.826zM2.748 19.865c3.15-.71 6.43-.639 9.544.203a16.4 16.4 0 0 0-8.283-2.341.413.413 0 0 1-.415-.41V2.687c-.28-.02-.562-.037-.846-.042zM.83 4.1v18.897c2.9-1.034 6.953-1.67 12.076-1.9v.002a19.07 19.07 0 0 0-10.472-.318.42.42 0 0 1-.359-.073.4.4 0 0 1-.16-.324V4.155q-.542-.04-1.085-.054"
@@ -775,7 +796,8 @@ var SvgArrowBack = function SvgArrowBack(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 11,
     height: 8,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 11 8"
   }, props), _path$r || (_path$r = /*#__PURE__*/React.createElement("path", {
     fill: "#2C2C69",
     d: "M10.39 4.002a.874.874 0 0 0-.875-.875H3.098L4.72 1.504a.877.877 0 0 0 0-1.238.877.877 0 0 0-1.238 0L.37 3.38a.88.88 0 0 0-.003 1.24l3.115 3.114c.34.341.894.341 1.238 0a.877.877 0 0 0 0-1.238l-1.621-1.62h6.417a.874.874 0 0 0 .875-.874"
@@ -789,7 +811,8 @@ var SvgMegaphone = function SvgMegaphone(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 21,
     height: 16,
-    fill: "currentColor"
+    fill: "currentColor",
+    viewBox: "0 0 21 16"
   }, props), _path$q || (_path$q = /*#__PURE__*/React.createElement("path", {
     fillRule: "evenodd",
     d: "m9.989 3.636 4.813-2.75a1.817 1.817 0 0 1 3.38.932v2.637a2.91 2.91 0 0 1 0 5.635v2.637a1.818 1.818 0 0 1-3.38.933L9.99 10.91H7.273v3.272a1.818 1.818 0 1 1-3.637 0v-3.273a3.636 3.636 0 0 1 0-7.273zm6.738-1.818a.364.364 0 0 0-.727 0v10.91a.364.364 0 0 0 .727 0z",
@@ -804,7 +827,8 @@ var SvgGear = function SvgGear(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 18,
     height: 18,
-    fill: "currentColor"
+    fill: "currentColor",
+    viewBox: "0 0 18 18"
   }, props), _path$p || (_path$p = /*#__PURE__*/React.createElement("path", {
     d: "M10.375 17.334h-2.75a.62.62 0 0 1-.406-.146.6.6 0 0 1-.219-.375l-.333-2.104a5.6 5.6 0 0 1-.834-.396 6 6 0 0 1-.77-.521l-1.938.896a.62.62 0 0 1-.458.031.6.6 0 0 1-.354-.302L.938 11.98a.54.54 0 0 1-.063-.438.7.7 0 0 1 .25-.375l1.792-1.313a2.5 2.5 0 0 1-.052-.427 10 10 0 0 1 0-.854q.01-.24.052-.427L1.125 6.834a.7.7 0 0 1-.25-.375.54.54 0 0 1 .063-.438l1.375-2.437a.6.6 0 0 1 .354-.302.62.62 0 0 1 .458.03l1.938.897q.333-.271.77-.521a4.3 4.3 0 0 1 .834-.375L7 1.188A.6.6 0 0 1 7.22.813a.62.62 0 0 1 .406-.146h2.75a.62.62 0 0 1 .406.146.6.6 0 0 1 .22.375l.332 2.104q.396.146.844.385t.76.532l1.938-.896a.62.62 0 0 1 .458-.031q.23.072.355.302L17.063 6a.6.6 0 0 1 .073.448.62.62 0 0 1-.26.386l-1.793 1.27q.042.21.053.448a10 10 0 0 1 0 .886 3 3 0 0 1-.053.437l1.792 1.292a.7.7 0 0 1 .25.375.54.54 0 0 1-.062.438l-1.375 2.437a.6.6 0 0 1-.355.302.62.62 0 0 1-.458-.031l-1.937-.896q-.334.27-.76.531a3.6 3.6 0 0 1-.845.386L11 16.813a.6.6 0 0 1-.219.375.62.62 0 0 1-.406.146M9 11.709a2.6 2.6 0 0 0 1.917-.792A2.6 2.6 0 0 0 11.708 9a2.6 2.6 0 0 0-.791-1.916A2.6 2.6 0 0 0 9 6.292a2.6 2.6 0 0 0-1.917.792A2.6 2.6 0 0 0 6.292 9q0 1.126.791 1.917A2.6 2.6 0 0 0 9 11.709"
   })));
@@ -839,7 +863,8 @@ var SvgBubble = function SvgBubble(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 17,
     height: 16,
-    fill: "currentColor"
+    fill: "currentColor",
+    viewBox: "0 0 17 16"
   }, props), _path$n || (_path$n = /*#__PURE__*/React.createElement("path", {
     d: "M3.73 13.063q-1.355 0-2.292-.938Q.5 11.188.5 9.833q0-1.353.938-2.291t2.291-.938q1.355 0 2.292.938t.937 2.291-.937 2.292-2.292.938m8.124-3.605q-1.875 0-3.177-1.302T7.375 4.98t1.302-3.177T11.854.5t3.177 1.302 1.302 3.177-1.302 3.177-3.177 1.302M10.188 15.5q-.96 0-1.626-.667a2.2 2.2 0 0 1-.666-1.625q0-.958.667-1.625a2.2 2.2 0 0 1 1.624-.666q.96 0 1.626.666.666.667.666 1.625 0 .959-.666 1.625a2.2 2.2 0 0 1-1.626.667"
   })));
@@ -852,7 +877,8 @@ var SvgTropheeGp = function SvgTropheeGp(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 18,
     height: 18,
-    fill: "currentColor"
+    fill: "currentColor",
+    viewBox: "0 0 18 18"
   }, props), _path$m || (_path$m = /*#__PURE__*/React.createElement("path", {
     fillRule: "evenodd",
     d: "M.643 0A.643.643 0 0 0 0 .643v2.571a3.86 3.86 0 0 0 3.244 3.809 5.79 5.79 0 0 0 3.827 4.862v.972a.64.64 0 0 0-.61.44l-.496 1.489h-.18a.64.64 0 0 0-.61.44l-.642 1.928a.643.643 0 0 0 .61.846h7.714a.642.642 0 0 0 .61-.846l-.643-1.929a.64.64 0 0 0-.61-.44h-.18l-.496-1.488a.64.64 0 0 0-.61-.44v-.972a5.79 5.79 0 0 0 3.827-4.862A3.86 3.86 0 0 0 18 3.214V.643A.643.643 0 0 0 17.357 0zm2.571 1.286H1.286v1.928c0 1.198.82 2.205 1.928 2.49zm13.5 1.928c0 1.198-.82 2.205-1.928 2.49V1.287h1.928z",
@@ -867,7 +893,8 @@ var SvgValid = function SvgValid(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 20,
     height: 20,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 20 20"
   }, props), _path$l || (_path$l = /*#__PURE__*/React.createElement("path", {
     fill: "currentColor",
     d: "M10 20C4.486 20 0 15.514 0 10S4.486 0 10 0s10 4.486 10 10-4.486 10-10 10m0-18.667c-4.778 0-8.667 3.889-8.667 8.667S5.222 18.667 10 18.667s8.667-3.889 8.667-8.667S14.778 1.333 10 1.333m-.862 11.805 6-6a.665.665 0 1 0-.942-.942l-5.528 5.528L6.473 9.53a.665.665 0 1 0-.943.943l2.667 2.666a.665.665 0 0 0 .943 0z"
@@ -881,7 +908,8 @@ var SvgInvalid = function SvgInvalid(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 20,
     height: 20,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 20 20"
   }, props), _path$k || (_path$k = /*#__PURE__*/React.createElement("path", {
     fill: "#fff",
     d: "M10 0a10 10 0 0 0-7.07 2.93A10 10 0 0 0 0 10a10 10 0 0 0 2.93 7.07A10 10 0 0 0 10 20a10 10 0 0 0 7.07-2.93 9.995 9.995 0 0 0-.002-14.138A10 10 0 0 0 10 0m0 18.585A8.584 8.584 0 1 1 18.585 10a8.6 8.6 0 0 1-2.518 6.067A8.6 8.6 0 0 1 10 18.585"
@@ -901,7 +929,8 @@ var SvgEye = function SvgEye(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 25,
     height: 16,
-    fill: "currentColor"
+    fill: "currentColor",
+    viewBox: "0 0 25 16"
   }, props), _path$j || (_path$j = /*#__PURE__*/React.createElement("path", {
     d: "M11 .5C6 .5 1.73 3.61 0 8c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C20.27 3.61 16 .5 11 .5M11 13c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5m0-8C9.34 5 8 6.34 8 8s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"
   })));
@@ -914,7 +943,8 @@ var SvgTriangle = function SvgTriangle(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 12,
     height: 8,
-    fill: "currentColor"
+    fill: "currentColor",
+    viewBox: "0 0 12 8"
   }, props), _path$i || (_path$i = /*#__PURE__*/React.createElement("path", {
     fill: "#2C2C69",
     d: "M6.735 7.205a1 1 0 0 1-1.47 0L.622 2.179C.031 1.539.485.5 1.357.5h9.286c.872 0 1.326 1.038.735 1.679z"
@@ -944,7 +974,8 @@ var SvgInputClose = function SvgInputClose(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 10,
     height: 10,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 10 10"
   }, props), _path$g || (_path$g = /*#__PURE__*/React.createElement("path", {
     fill: "#2C2C69",
     d: "M10 1.007 8.993 0 5 3.993 1.007 0 0 1.007 3.993 5 0 8.993 1.007 10 5 6.007 8.993 10 10 8.993 6.007 5z"
@@ -958,7 +989,8 @@ var SvgResearch = function SvgResearch(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 12,
     height: 12,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 12 12"
   }, props), _path$f || (_path$f = /*#__PURE__*/React.createElement("path", {
     fill: "#2C2C69",
     d: "M11.085 11.847 7 7.757a3.7 3.7 0 0 1-1.186.687 4.2 4.2 0 0 1-1.441.246q-1.83 0-3.102-1.273Q.001 6.145 0 4.345t1.271-3.072Q2.543 0 4.356 0q1.796 0 3.06 1.273 1.262 1.273 1.262 3.072a4.24 4.24 0 0 1-.95 2.682l4.12 4.09q.152.136.152.348a.53.53 0 0 1-.17.382.5.5 0 0 1-.372.153.5.5 0 0 1-.373-.153m-6.73-4.175a3.17 3.17 0 0 0 2.34-.976 3.22 3.22 0 0 0 .966-2.35q0-1.375-.966-2.352a3.17 3.17 0 0 0-2.34-.976q-1.39 0-2.363.976a3.2 3.2 0 0 0-.975 2.351q0 1.375.975 2.35.974.978 2.364.977"
@@ -1002,7 +1034,8 @@ var SvgTail = function SvgTail(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 20,
     height: 14,
-    fill: "currentColor"
+    fill: "currentColor",
+    viewBox: "0 0 20 14"
   }, props), _path$c || (_path$c = /*#__PURE__*/React.createElement("path", {
     d: "M15.03 0c.078 4.397.374 7.1 1.496 9.304A14 14 0 0 0 20 13.668V14h-6C6.268 14 0 7.732 0 0z"
   })));
@@ -1027,13 +1060,13 @@ var SvgPlay = function SvgPlay(props) {
     cx: 21,
     cy: 21,
     r: 20.5,
-    stroke: "url(#play_svg__a)",
+    stroke: "url(#a)",
     strokeOpacity: 0.2
   }))), _path$b || (_path$b = /*#__PURE__*/React.createElement("path", {
     fill: "#fff",
     d: "M16 16.003c0-1.521 1.631-2.486 2.964-1.753l9.599 5.278c1.381.76 1.381 2.745 0 3.505l-9.6 5.278c-1.332.733-2.963-.23-2.963-1.751z"
   })), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
-    id: "play_svg__a",
+    id: "a",
     x1: 36.323,
     x2: 21,
     y1: 3.742,
@@ -1055,7 +1088,8 @@ var SvgSentStatus = function SvgSentStatus(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 13,
     height: 10,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 13 10"
   }, props), _path$a || (_path$a = /*#__PURE__*/React.createElement("path", {
     fill: "#A3E1F0",
     stroke: "#A3E1F0",
@@ -1071,7 +1105,8 @@ var SvgSendingStatus = function SvgSendingStatus(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 12,
     height: 12,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 12 12"
   }, props), _path$9 || (_path$9 = /*#__PURE__*/React.createElement("path", {
     fill: "#fff",
     d: "M6.655 11.97a6.012 6.012 0 0 1-6.62-6.62C.33 2.564 2.568.33 5.348.033a6.007 6.007 0 0 1 6.617 6.62c-.292 2.781-2.527 5.02-5.311 5.316M6.432.745A5.28 5.28 0 0 0 .745 6.432c.203 2.554 2.273 4.624 4.827 4.827a5.28 5.28 0 0 0 5.687-5.683C11.056 3.018 8.986.952 6.432.745"
@@ -1088,7 +1123,8 @@ var SvgFailedStatus = function SvgFailedStatus(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 10,
     height: 10,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 10 10"
   }, props), _path$8 || (_path$8 = /*#__PURE__*/React.createElement("path", {
     fill: "#fff",
     d: "M.429 10a.427.427 0 0 1-.303-.73L9.269.125a.427.427 0 1 1 .605.605L.731 9.875a.43.43 0 0 1-.302.124"
@@ -1105,7 +1141,8 @@ var SvgProfile = function SvgProfile(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 13,
     height: 13,
-    fill: "currentColor"
+    fill: "currentColor",
+    viewBox: "0 0 13 13"
   }, props), _path$7 || (_path$7 = /*#__PURE__*/React.createElement("path", {
     d: "M6.5 6.5a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5"
   })), _path2$2 || (_path2$2 = /*#__PURE__*/React.createElement("path", {
@@ -1122,7 +1159,8 @@ var SvgArrowDown = function SvgArrowDown(props) {
     xmlns: "http://www.w3.org/2000/svg",
     width: 15,
     height: 9,
-    fill: "none"
+    fill: "none",
+    viewBox: "0 0 15 9"
   }, props), _path$6 || (_path$6 = /*#__PURE__*/React.createElement("path", {
     fill: "#fff",
     stroke: "#fff",

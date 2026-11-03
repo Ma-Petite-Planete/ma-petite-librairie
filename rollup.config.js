@@ -27,6 +27,14 @@ export default {
     svgr({
       exportType: 'named',
       svgProps: {},
+      svgoConfig: {
+        plugins: [
+          {
+            name: 'preset-default',
+            params: { overrides: { removeViewBox: false } },
+          },
+        ],
+      },
     }),
     postcss({
       extract: true,
