@@ -1091,8 +1091,8 @@ var SvgSentStatus = function SvgSentStatus(props) {
     fill: "none",
     viewBox: "0 0 13 10"
   }, props), _path$a || (_path$a = /*#__PURE__*/React.createElement("path", {
-    fill: "#A3E1F0",
-    stroke: "#A3E1F0",
+    fill: "currentColor",
+    stroke: "currentColor",
     strokeWidth: 0.5,
     d: "M11.633.36 4.036 8.335.866 5.009a.35.35 0 0 0-.51 0 .393.393 0 0 0 0 .537L3.78 9.139a.35.35 0 0 0 .511 0L12.144.897a.39.39 0 0 0 0-.536.35.35 0 0 0-.51 0z"
   })));
