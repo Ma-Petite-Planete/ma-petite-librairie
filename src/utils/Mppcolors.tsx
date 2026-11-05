@@ -59,4 +59,5 @@ export const GpColors = {
   purple: 'var(--purple)',
   yellow: 'var(--yellow)',
   blueBackground: 'var(--blue_background)',
+  pastelRed: 'var(--pastel_red_ecu)',
 } as const;
