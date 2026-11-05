@@ -4,7 +4,8 @@ export declare enum labelType {
     grey = "grey_label",
     orange = "orange_label",
     green = "green_label",
-    red = "red_label"
+    red = "red_label",
+    yellow = "yellow_label"
 }
 interface MppLabelTypeProps {
     value: string;
