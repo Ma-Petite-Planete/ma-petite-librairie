@@ -1963,37 +1963,38 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
  *
  * @component
  * @param {MppCheckboxProps} props - Les propriétés du composant MppCheckbox.
- * @param {string} props.value - La valeur associée à la case à cocher.
  * @param {function} props.onChange - La fonction de rappel pour gérer les changements d'état de la case à cocher.
  * @param {boolean} props.checked - L'état initial de la case à cocher.
  * @param {boolean} props.isTableHeader - Indicateur pour déterminer si la case à cocher est utilisée dans un en-tête de tableau.
+ * @param {string} [props.label] - Texte affiché à droite de la case ; cliquer dessus coche la case.
+ * @param {boolean} [props.isDisabled=false] - Désactive la case.
  *
  * @returns {JSX.Element} Le composant MppCheckbox rendu.
  *
  * @example
  * <MppCheckbox
- *   value="exampleValue"
  *   onChange={handleCheckboxChange}
  *   checked={true}
- *   isTableHeader={false}
+ *   label="Je confirme l'envoi"
  * />
  */
-const MppCheckbox = ({ onChange, checked, indeterminate = false, isTableHeader = false, specialClassName = '', }) => {
+const MppCheckbox = ({ onChange, checked, indeterminate = false, isTableHeader = false, specialClassName = '', label, isDisabled = false, }) => {
     const [isSelected, setIsSelected] = useState(checked !== null && checked !== void 0 ? checked : false);
     useEffect(() => {
         setIsSelected(checked !== null && checked !== void 0 ? checked : false);
     }, [checked]);
-    return (React__default.createElement("div", { className: "checkbox_container" },
+    return (React__default.createElement("div", { className: `checkbox_container ${isDisabled ? 'checkbox_container--disabled' : ''}` },
         React__default.createElement("div", { className: "checkbox_container_checkbox" },
             React__default.createElement("label", { onClick: (e) => e.stopPropagation(), className: `
             checkbox_container_label ${isTableHeader ? 'main_checkbox' : 'secondary_checkbox'}
             ${isTableHeader && indeterminate ? 'indeterminated_checkbox' : ''} ` },
-                React__default.createElement("input", { onClick: (e) => e.stopPropagation(), type: "checkbox", checked: isSelected, onChange: (e) => {
+                React__default.createElement("input", { onClick: (e) => e.stopPropagation(), type: "checkbox", checked: isSelected, disabled: isDisabled, onChange: (e) => {
                         setIsSelected(e.target.checked);
                         onChange(e);
                     } }),
                 React__default.createElement("span", { className: `checkmark ${specialClassName}` }),
-                React__default.createElement("span", { className: `checkmark_indeterminate ${specialClassName}`, style: { display: indeterminate ? 'block' : 'none' } })))));
+                React__default.createElement("span", { className: `checkmark_indeterminate ${specialClassName}`, style: { display: indeterminate ? 'block' : 'none' } }),
+                label && (React__default.createElement("span", { className: "checkbox_container_text text_body" }, label))))));
 };
 
 /**
