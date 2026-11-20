@@ -22,3 +22,8 @@
   color: var(--white);
   background-color: var(--error_red);
 }
+
+.yellow_label {
+  color: var(--dark_blue);
+  background-color: var(--light_yellow);
+}

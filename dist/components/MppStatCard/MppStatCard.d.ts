@@ -1,5 +1,6 @@
 import React from 'react';
 import { MppIcons } from '../../utils/MppIcons';
+import { MppTypography } from '../../utils/MppTypography';
 import { BoType } from '../BoType';
 import './mpp_stat_card.css';
 interface StatCardProps {
@@ -9,7 +10,10 @@ interface StatCardProps {
     boType?: BoType.gpBo;
     statDetails?: string;
     useSkeletonLoader?: boolean;
-    width?: number;
+    width?: number | string;
+    titleTypography?: MppTypography;
+    statTypography?: MppTypography;
+    titleColor?: string;
 }
 /**
  * Composant d'affichage des statistiques dans une carte avec une icône à gauche pour illustrer.
@@ -25,7 +29,10 @@ interface StatCardProps {
  * @param {BoType.gpBo} [props.boType] - Permet d'afficher une ombre spécifique pour le type de BO ECU (optionnel).
  * @param {string} [props.statDetails] - Détails complémentaires affichés après la statistique (optionnel).
  * @param {boolean} [props.useSkeletonLoader=true] - Active ou non l'affichage du skeleton loader lors du chargement (optionnel, true par défaut).
- * @param {number} [props.width] -
+ * @param {number | string} [props.width="200px"] - Largeur de la carte : nombre en px ou valeur CSS (ex. "100%").
+ * @param {MppTypography} [props.titleTypography="text_small"] - Classe de typographie du titre.
+ * @param {MppTypography} [props.statTypography="title_h3"] - Classe de typographie de la statistique.
+ * @param {string} [props.titleColor] - Couleur du titre (ex. GpColors.darkBlue). Gris par défaut.
  *
  * @example
  * ```tsx

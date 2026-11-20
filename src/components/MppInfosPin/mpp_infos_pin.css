@@ -26,6 +26,12 @@
   background-color: var(--white);
 }
 
+.infos_pin_container--dark {
+  background-color: var(--dark_blue);
+  color: var(--white);
+  box-shadow: 0px 4px 20px var(--shadow_color);
+}
+
 .infos_content:not(:last-child) {
   margin-bottom: 16px;
 }

@@ -13,14 +13,17 @@ export enum Direction {
   bottom_left,
   bottom_right,
 }
+
 interface MppInfosPinProps {
   texts: Array<TextContent>;
   direction?: Direction;
+  theme?: 'light' | 'dark';
 }
 
 const MppInfosPin: React.FC<MppInfosPinProps> = ({
   texts,
   direction = Direction.bottom_left,
+  theme = 'light',
 }) => {
   let directionStyleValues: React.CSSProperties;
   switch (direction) {
@@ -63,7 +66,7 @@ const MppInfosPin: React.FC<MppInfosPinProps> = ({
       />
       <div
         onClick={() => (isMobile() ? setHover(false) : null)}
-        className={` ${hover ? 'infos_content_visible' : 'infos_content_invisible'} infos_pin_container`}
+        className={`${hover ? 'infos_content_visible' : 'infos_content_invisible'} infos_pin_container infos_pin_container--${theme}`}
         style={directionStyleValues}
       >
         {texts.map((text, index) => (
