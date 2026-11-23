@@ -18,18 +18,31 @@ interface MppButtonProps {
  * @interface MppButtonProps
  * @property {string} title - Titre du bouton.
  * @property {ButtonType} buttonType - Enum pour le style.
- * @property {() => void} [onPress] - Fonction à exécuter lorsque le bouton est cliqué.
- * @property {React.CSSProperties} [style] - Style personnalisé.
- * @property {React.CSSProperties} [hoverStyle] - Style au survol.
- * @property {React.CSSProperties} [activeStyle] - Style lors du clic.
  * @property {React.FC<React.SVGProps<SVGSVGElement>>} [icon] - Icône affichée avant le titre (ex. MppIcons.download).
+ * @property {'button' | 'submit' | 'reset'} [type='button'] - Type HTML du bouton.
+ * @property {(() => void) | null} [onPress] - Fonction à exécuter lorsque le bouton est cliqué. `null` désactive le bouton (hors `type="submit"`).
+ * @property {React.CSSProperties} [style] - Style personnalisé.
+ * @property {React.CSSProperties} [hoverStyle] - Style au survol, ignoré si le bouton est désactivé.
+ * @property {React.CSSProperties} [activeStyle] - Style lors du clic, ignoré si le bouton est désactivé.
+ * @property {boolean} [isSubmitDisabled=true] - Désactive le bouton ; pris en compte uniquement avec `type="submit"`.
  *
  * @example
  *
+ *
+ * @example
  * <MppButton
- *   title="Bouton d'action"
- *   onPress={() => console.log('Bouton cliqué!')}
- *   buttonType={ButtonType.primaryLarge}
+ *   title="Télécharger le modèle"
+ *   icon={MppIcons.download}
+ *   onPress={isLoading ? null : handleDownload}
+ *   buttonType={ButtonType.secondaryMedium}
+ * />
+ *
+ * @example
+ * <MppButton
+ *   title="Valider"
+ *   type="submit"
+ *   isSubmitDisabled={!isFormValid}
+ *   buttonType={ButtonType.primaryMedium}
  * />
  */
 

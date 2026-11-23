@@ -35,14 +35,18 @@ interface StatCardProps {
  * @param {string} [props.titleColor] - Couleur du titre (ex. GpColors.darkBlue). Gris par défaut.
  *
  * @example
- * ```tsx
  * <MppStatCard
- *   title="Traduction"
- *   IconComponent={MppIcons.training}
- *   stat={12}
- *   statDetails="/élèves"
+ *   title="Invités en attente"
+ *   IconComponent={MppIcons.people}
+ *   stat={pendingGuestsCount}
+ *   boType={BoType.gpBo}
+ *   useSkeletonLoader={false}
+ *   width="100%"
+ *   titleTypography="text_body_sb"
+ *   statTypography="title_h2"
+ *   titleColor={GpColors.darkBlue}
  * />
- * ```
+
  */
 declare const StatCard: React.FC<StatCardProps>;
 export default StatCard;

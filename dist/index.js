@@ -15,18 +15,31 @@ var ButtonType;
  * @interface MppButtonProps
  * @property {string} title - Titre du bouton.
  * @property {ButtonType} buttonType - Enum pour le style.
- * @property {() => void} [onPress] - Fonction à exécuter lorsque le bouton est cliqué.
- * @property {React.CSSProperties} [style] - Style personnalisé.
- * @property {React.CSSProperties} [hoverStyle] - Style au survol.
- * @property {React.CSSProperties} [activeStyle] - Style lors du clic.
  * @property {React.FC<React.SVGProps<SVGSVGElement>>} [icon] - Icône affichée avant le titre (ex. MppIcons.download).
+ * @property {'button' | 'submit' | 'reset'} [type='button'] - Type HTML du bouton.
+ * @property {(() => void) | null} [onPress] - Fonction à exécuter lorsque le bouton est cliqué. `null` désactive le bouton (hors `type="submit"`).
+ * @property {React.CSSProperties} [style] - Style personnalisé.
+ * @property {React.CSSProperties} [hoverStyle] - Style au survol, ignoré si le bouton est désactivé.
+ * @property {React.CSSProperties} [activeStyle] - Style lors du clic, ignoré si le bouton est désactivé.
+ * @property {boolean} [isSubmitDisabled=true] - Désactive le bouton ; pris en compte uniquement avec `type="submit"`.
  *
  * @example
  *
+ *
+ * @example
  * <MppButton
- *   title="Bouton d'action"
- *   onPress={() => console.log('Bouton cliqué!')}
- *   buttonType={ButtonType.primaryLarge}
+ *   title="Télécharger le modèle"
+ *   icon={MppIcons.download}
+ *   onPress={isLoading ? null : handleDownload}
+ *   buttonType={ButtonType.secondaryMedium}
+ * />
+ *
+ * @example
+ * <MppButton
+ *   title="Valider"
+ *   type="submit"
+ *   isSubmitDisabled={!isFormValid}
+ *   buttonType={ButtonType.primaryMedium}
  * />
  */
 const MppButton = ({ title, onPress, buttonType, type = 'button', icon: Icon, style = {}, hoverStyle = {}, activeStyle = {}, isSubmitDisabled = true, }) => {
@@ -1699,14 +1712,18 @@ const ComponentName = ({ boType, onPressLoginButon, welcomeText, welcomeTextBold
  * @param {string} [props.titleColor] - Couleur du titre (ex. GpColors.darkBlue). Gris par défaut.
  *
  * @example
- * ```tsx
  * <MppStatCard
- *   title="Traduction"
- *   IconComponent={MppIcons.training}
- *   stat={12}
- *   statDetails="/élèves"
+ *   title="Invités en attente"
+ *   IconComponent={MppIcons.people}
+ *   stat={pendingGuestsCount}
+ *   boType={BoType.gpBo}
+ *   useSkeletonLoader={false}
+ *   width="100%"
+ *   titleTypography="text_body_sb"
+ *   statTypography="title_h2"
+ *   titleColor={GpColors.darkBlue}
  * />
- * ```
+
  */
 const StatCard = ({ IconComponent, title, stat, boType, statDetails, useSkeletonLoader = true, width = '200px', titleTypography = 'text_small', statTypography = 'title_h3', titleColor, }) => {
     const hasStat = stat !== null && stat !== undefined;
@@ -1764,6 +1781,24 @@ var Direction;
     Direction[Direction["bottom_left"] = 2] = "bottom_left";
     Direction[Direction["bottom_right"] = 3] = "bottom_right";
 })(Direction || (Direction = {}));
+/**
+ * Icône « i » qui affiche une bulle d'informations : au survol sur ordinateur, au clic sur mobile (largeur < 896 px).
+ *
+ * @component
+ * @param {MppInfosPinProps} props - Les propriétés du composant MppInfosPin.
+ * @param {Array<{ title: string, content: string }>} props.texts - Lignes de la bulle, chacune affichée sous la forme « titre : contenu ».
+ * @param {Direction} [props.direction=Direction.bottom_left] - Position de la bulle par rapport à l'icône : au-dessus (`top_*`) ou en dessous (`bottom_*`), alignée à droite (`*_left`) ou à gauche (`*_right`) de l'icône.
+ * @param {'light' | 'dark'} [props.theme='light'] - Thème de la bulle : `dark` lui donne un fond bleu foncé.
+ *
+ * @returns {JSX.Element} Le composant MppInfosPin rendu.
+ *
+ * @example
+ * <MppInfosPin
+ *   texts={[{ title: 'Players actifs', content: 'ont validé au moins un défi' }]}
+ *   direction={Direction.top_left}
+ *   theme="dark"
+ * />
+ */
 const MppInfosPin = ({ texts, direction = Direction.bottom_left, theme = 'light', }) => {
     let directionStyleValues;
     switch (direction) {
@@ -1964,8 +1999,10 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
  * @component
  * @param {MppCheckboxProps} props - Les propriétés du composant MppCheckbox.
  * @param {function} props.onChange - La fonction de rappel pour gérer les changements d'état de la case à cocher.
- * @param {boolean} props.checked - L'état initial de la case à cocher.
- * @param {boolean} props.isTableHeader - Indicateur pour déterminer si la case à cocher est utilisée dans un en-tête de tableau.
+ * @param {boolean} [props.checked=false] - L'état coché de la case ; la case se resynchronise à chaque changement de cette valeur.
+ * @param {boolean} [props.indeterminate=false] - Affiche l'état « partiellement coché », par exemple quand seule une partie des lignes d'un tableau est cochée. Le style dédié n'est appliqué que si `isTableHeader` est vrai.
+ * @param {boolean} [props.isTableHeader=false] - Indicateur pour déterminer si la case à cocher est utilisée dans un en-tête de tableau.
+ * @param {string} [props.specialClassName=''] - Classe CSS ajoutée aux marques de la case (coche et état partiel).
  * @param {string} [props.label] - Texte affiché à droite de la case ; cliquer dessus coche la case.
  * @param {boolean} [props.isDisabled=false] - Désactive la case.
  *
@@ -1974,8 +2011,17 @@ const MppDropDown = ({ placeholder, onChange, options, isDisabled, defaultValue,
  * @example
  * <MppCheckbox
  *   onChange={handleCheckboxChange}
- *   checked={true}
+ *   checked={isConfirmed}
  *   label="Je confirme l'envoi"
+ *   isDisabled={isSending}
+ * />
+ *
+ * @example
+ * <MppCheckbox
+ *   onChange={handleSelectAll}
+ *   checked={areAllRowsSelected}
+ *   indeterminate={areSomeRowsSelected}
+ *   isTableHeader={true}
  * />
  */
 const MppCheckbox = ({ onChange, checked, indeterminate = false, isTableHeader = false, specialClassName = '', label, isDisabled = false, }) => {
@@ -2068,14 +2114,15 @@ var labelType;
  * @component
  * @param {MppLabelTypeProps} props - Les propriétés du composant MppLabelType.
  * @param {string} props.value - La valeur à afficher à l'intérieur de l'étiquette.
- * @param {labelType} props.labelType - Le type de l'étiquette qui détermine la classe CSS à appliquer.
+ * @param {labelType} props.labelType - Le type de l'étiquette qui détermine la classe CSS à appliquer : `grey`, `orange`, `green`, `red` ou `yellow`.
  *
  * @returns {JSX.Element} Le composant MppLabelType rendu.
  *
+ *
  * @example
  * <MppLabelType
- *   value="Exemple de valeur"
- *   labelType={labelType.grey}
+ *   value="Invité"
+ *   labelType={labelType.yellow}
  * />
  */
 const MppLabelType = ({ value, labelType, }) => {
@@ -2470,6 +2517,34 @@ const MppTextAreaFixHeight = ({ placeholder, value = '', onChange, readOnly = fa
             React__default.createElement("textarea", { id: finalId, ref: textAreaRef, placeholder: placeholder, value: inputValue, onFocus: handleFocus, onBlur: handleBlur, onChange: readOnly ? null : handleChange, className: `mpp_text_area_fix_height ${readOnly ? 'read_only_fix_height' : ''}`, readOnly: readOnly }))));
 };
 
+/**
+ * Carte d'un défi dans un classement : rang, titre, sous-titre et valeur (ex. points).
+ *
+ * Tant que le titre ne contient aucun caractère alphanumérique, la carte affiche des skeleton loaders à la place du contenu.
+ *
+ * @component
+ * @param {MppChallengeCardProps} props - Les propriétés du composant MppChallengeCard.
+ * @param {string} props.title - Titre du défi.
+ * @param {string} [props.subtitle] - Sous-titre affiché sous le titre.
+ * @param {number} [props.ranking] - Rang affiché dans la pastille à gauche ; pas de pastille s'il est absent.
+ * @param {string} props.value - Valeur affichée à droite (ex. « 120 pts »).
+ * @param {BoType} [props.boType=BoType.scoBO] - Type de BO : `BoType.gpBo` applique l'espacement et la typographie du BO ECU.
+ * @param {string} [props.tileRankingColorBackground=GpColors.teal] - Couleur de fond de la pastille du rang.
+ * @param {string} [props.tileRankingColorText=GpColors.darkBlue] - Couleur du texte de la pastille du rang.
+ *
+ * @returns {JSX.Element} Le composant MppChallengeCard rendu.
+ *
+ * @example
+ * <MppChallengeCard
+ *   title="Manger végétarien"
+ *   subtitle="Alimentation"
+ *   ranking={1}
+ *   value="120 pts"
+ *   boType={BoType.gpBo}
+ *   tileRankingColorBackground={GpColors.darkBlue}
+ *   tileRankingColorText={GpColors.white}
+ * />
+ */
 const MppChallengeCard = ({ title, subtitle, ranking, value, boType = BoType.scoBO, tileRankingColorBackground, tileRankingColorText, }) => {
     const titleIsEmpty = title.replace(/[^a-zA-Z0-9]/g, '') === '';
     return (React__default.createElement("div", { className: `challenge_card__container ${boType === BoType.gpBo ? 'padding_ecu' : ''} ${title ? '' : 'loading'}` },
