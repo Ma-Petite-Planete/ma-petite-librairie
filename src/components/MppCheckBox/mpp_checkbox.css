@@ -83,3 +83,20 @@
   left: 5px;
   top: 1px;
 }
+
+.checkbox_container_text {
+  margin-left: 10px;
+  line-height: 18px;
+  color: var(--dark_blue);
+  cursor: pointer;
+}
+
+.checkbox_container--disabled input[type='checkbox'] {
+  border-color: var(--disable_dark_blue);
+  cursor: not-allowed;
+}
+
+.checkbox_container--disabled .checkbox_container_text {
+  color: var(--disable_dark_blue);
+  cursor: not-allowed;
+}

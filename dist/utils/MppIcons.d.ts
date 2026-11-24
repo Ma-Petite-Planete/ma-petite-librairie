@@ -47,4 +47,10 @@ export declare const MppIcons: {
     readonly failedStatus: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly profile: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
     readonly arrowDown: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly upload: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly mail: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly warning: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly star: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly file: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
+    readonly tag: import("react").FC<import("react").SVGProps<SVGSVGElement>>;
 };
